@@ -2,14 +2,14 @@ id,category,topic,item,value,notes,source,page,sop_section
 SPEC-001,spec,System,Configurations available,"Core, Pro, Premium","Differ in 360 camera and/or GNSS-IMU system",MX60 UG Rev B,12,1
 SPEC-002,spec,Scanner,Number of lasers,2,,MX60 UG Rev B,54,3
 SPEC-003,spec,Scanner,Measurement principle,Time-of-flight,Pulsed laser with rotating mirror,MX60 UG Rev B,54,3
-SPEC-004,spec,Scanner,Laser pulse repetition rate (per scanner),500 kHz / 1000 kHz,"CONFLICT: spec sheet states 1000/2000 kHz system-total. See CONFLICT-001",MX60 UG Rev B,54,3
-SPEC-005,spec,Scanner,Effective measurement rate (system total),1000 kHz / 2000 kHz selectable,"CONFLICT: UG states 500/1000 kHz per scanner. See CONFLICT-001",MX60 Spec Sheet,2,3
+SPEC-004,spec,Scanner,Laser pulse repetition rate (per scanner),500 kHz / 1000 kHz,"These are the values TMI shows as Measurement Prog - see QSG-008. Spec sheet quotes 1000/2000 kHz system-total.",MX60 UG Rev B,54,3
+SPEC-005,spec,Scanner,Effective measurement rate (system total),1000 kHz / 2000 kHz selectable,"System total across two scanners. NOT the labelling used in TMI - do not use these numbers in a field instruction. See QSG-008.",MX60 Spec Sheet,2,3
 SPEC-006,spec,Scanner,Maximum measurement range,150 m at lower rate / 120 m at higher rate,"Higher rate costs range",MX60 UG Rev B,54,3
 SPEC-007,spec,Scanner,Range specification conditions,"Flat targets larger than beam diameter; perpendicular incidence; 23 km atmospheric visibility","Range is shorter in bright sunlight than under overcast",MX60 UG Rev B,55,17
 SPEC-008,spec,Scanner,Minimum range,0.6 m,,MX60 UG Rev B,54,3
 SPEC-009,spec,Scanner,Range accuracy,2 mm,One sigma under test conditions,MX60 UG Rev B,54,3
 SPEC-010,spec,Scanner,Precision,2.5 mm at 30 m,Reproducibility / repeatability,MX60 UG Rev B,54,3
-SPEC-011,spec,Scanner,Scan speed (profiles per second),120 Hz / 200 Hz selectable,"CONFLICT: spec sheet states 240/400. See CONFLICT-001",MX60 UG Rev B,54,3
+SPEC-011,spec,Scanner,Scan speed (profiles per second),120 Hz / 200 Hz selectable,"These are the values TMI shows as Line Speed - see QSG-009. Spec sheet quotes 240/400 system-total.",MX60 UG Rev B,54,3
 SPEC-012,spec,Scanner,Beam deflection per scanner,~346 degrees,"CONFLICT: spec sheet states Full 360. See CONFLICT-002",MX60 UG Rev B,54,17
 SPEC-013,spec,Scanner,Laser beam footprint at exit,2.6 mm,Gaussian beam definition,MX60 UG Rev B,54,3
 SPEC-014,spec,Scanner,Laser beam divergence,0.3 mrad,1/e2,MX60 UG Rev B,55,3
@@ -156,7 +156,7 @@ CONN-003,warning,External connector,PPS output protection,Ensure NO input signal
 CONN-004,spec,External connector,Event time tagging accuracy,Accurate to within one microsecond,Rising edge default; logged for post-processing,MX60 UG Rev B,64,25
 CONN-005,spec,External connector,Event guard time,20 ms (max 50 Hz),,MX60 UG Rev B,64,25
 CONN-006,spec,External connector,Serial port settings,"RS-232, 2400-115200 baud (9600), no parity, 8 data bits, 1 stop bit, no flow control",,MX60 UG Rev B,64,25
-CONFLICT-001,conflict,Scanner,Laser rate and scan speed differ by factor of 2 between sources,"UG: 500/1000 kHz PRR and 120/200 Hz. Spec sheet: 1000/2000 kHz effective and 240/400","Likely per-scanner vs system-total across two scanners. Dust filter bulletin uses spec sheet terminology with UG numbers - operator could select the WRONG setting. Verify against TMI labelling before writing a numeric instruction.","MX60 UG Rev B p.54; Spec Sheet p.2; Dust Filter Bulletin p.3","54, 2, 3","11, 17"
+RESOLVED-001,resolved,Scanner,Laser rate and scan speed 2x discrepancy between sources,RESOLVED - TMI uses the User Guide per-scanner numbering: Measurement Prog 500/1000 kHz and Line Speed 120/200 Hz,"Spec sheet quotes system-total figures (1000/2000 kHz and 240/400) across two scanners. The Quick Start Guide confirms TMI labelling matches the User Guide, so the dust filter bulletin instruction to use 1000 kHz instead of 500 kHz is correct as written against the TMI dropdown.","MX60 QSG Rev B p.10; MX60 UG Rev B p.54; Spec Sheet p.2","10, 54, 2","9, 11"
 CONFLICT-002,conflict,Scanner,Field of view,UG states ~346 deg beam deflection per scanner; spec sheet states Full 360,Use 346 deg per scanner when reasoning about occlusion geometry,"MX60 UG Rev B p.54; Spec Sheet p.2","54, 2",17
 CONFLICT-003,conflict,Mounting,Two different racks documented,"MX SCAN Roof Rack 18 kg clamps to universal bars; MX Shock Absorbing Mounting Rack 28 kg bolts to prepared platform",GAMS corner offsets in the UG apply to the standard rack only. Confirm which rack is fitted before lever arm work.,"MX60 UG Rev B pp.29-31; Rack UG Rev B pp.6-9","29-31, 6-9",7
 CONFLICT-004,conflict,Specs,Minor numeric disagreements,"Control Unit weight 13 vs 12.4 kg; Core focal length 4.40 vs 4.44 mm; down camera FOV 82.9 vs 82.0 deg",Immaterial operationally. Prefer the User Guide as the revision-tracked controlled document.,"MX60 UG Rev B pp.52-54; Spec Sheet pp.2-3","52-54, 2-3",3
@@ -169,3 +169,45 @@ SUPPORT-006,reference,Support,Product registration,https://mytrimbleprotected.co
 SUPPORT-007,reference,Support,MX60 documentation location,https://geospatial.trimble.com/en/products/hardware/trimble-mx60,,MX60 UG Rev B,51,1
 SUPPORT-008,reference,Support,TMI Software User Guide location,https://geospatial.trimble.com/en/links?dcs=Collection-129953,NOT YET OBTAINED - blocks SOP sections 8-13,MX60 UG Rev B,48,1
 SUPPORT-009,reference,Support,MX60 Quick Start Guide,Contains standard operation workflow and in-the-field operation checklist,NOT YET OBTAINED - blocks SOP sections 8 10 13 23,MX60 UG Rev B,48,1
+QSG-001,spec,Storage,SSD1 contents,"Laser (1/2), Navigation (GNSS, IMU), panoramic camera",Both SSDs required for a complete mission,MX60 QSG Rev B,8,11
+QSG-002,spec,Storage,SSD2 contents,Down facing camera data,,MX60 QSG Rev B,8,11
+QSG-003,setting,TMI,TMI access address,http://tmi.mx-scan.net,Open in browser after connecting via Wi-Fi or LAN,MX60 QSG Rev B,8,7
+QSG-004,requirement,Startup,Power-up order,Start the vehicle FIRST then turn on the system,Engine auto start/stop must be off before starting,MX60 QSG Rev B,8,7
+QSG-005,indicator,Startup,Power Unit LED,Constantly green when vehicle delivers 12 V to the Power Unit,,MX60 QSG Rev B,8,7
+QSG-006,indicator,Startup,Startup blink duration,Sensor Unit and Control Unit LEDs blink for about 10 seconds,Then solid green - system ready to operate,MX60 QSG Rev B,8,7
+QSG-007,note,Setup,Standard system lever arms,Lever arms of the standard system are set by DEFAULT in the MX60 system,Only vehicle height must be saved once as a preset; measure lever arms only when GAMS or DMI are used,MX60 QSG Rev B,7,6
+QSG-008,setting,TMI,Capture setting - Measurement Prog,"500 kHz, 1000 kHz",TMI labels the laser rate using the User Guide per-scanner numbering. RESOLVES CONFLICT-001.,MX60 QSG Rev B,10,9
+QSG-009,setting,TMI,Capture setting - Line Speed,"120 Hz, 200 Hz",Rotation speed of the scanner mirror in revolutions per second. Confirms UG numbering.,MX60 QSG Rev B,10,9
+QSG-010,setting,TMI,Camera trigger modes,Distance Based (constant distance in m) or Fixed Frame rate (constant time in s),Maximum image rate limited to 10 frames per second,MX60 QSG Rev B,10,9
+QSG-011,setting,TMI,Vehicle settings contents,"Install Height, DMI lever arm and mounting position, GAMS lever arm",Install Height is ground height to reference point on MX SCAN Roof Rack,MX60 QSG Rev B,10,6
+QSG-012,requirement,Initialization,Mission start location,Park in an open sky area with good GNSS visibility and PDOP,Avoid high buildings and obstructions that reduce reception and increase multipath,MX60 QSG Rev B,11,8
+QSG-013,requirement,Initialization,Static logging at mission start,Log 2-3 minutes of static data before driving,Aids post-processing software in resolving ambiguities,MX60 QSG Rev B,11,8
+QSG-014,requirement,Initialization,Navigation alignment gate,Navigation alignment must be done before data logging is allowed,Procedure can take several minutes,MX60 QSG Rev B,11,8
+QSG-015,procedure,Initialization,Step 1 after static period,Drive straight ahead for approximately 20 m with no larger dynamic steering,NAV status switches from red to orange,MX60 QSG Rev B,"11, 12, 14",8
+QSG-016,procedure,Initialization,Step 2 heading refinement,Drive straight at varying speed (accelerate then decelerate) and perform dynamic steering manoeuvres,Typically 2-3 turns are sufficient,MX60 QSG Rev B,12,8
+QSG-017,example,Initialization,Example speed profile,0 - 50 - 20 - 50 - 20 km/h,,MX60 QSG Rev B,12,8
+QSG-018,indicator,Initialization,NAV status colours,Red then orange then green,Green means the user accuracies for the NAV system are met,MX60 QSG Rev B,"12, 14",8
+QSG-019,requirement,Initialization,Settling time before logging,Advised to add up to 10 minutes before logging data,Avoids poor results at the start of recording runs; varies with environment,MX60 QSG Rev B,"12, 14",8
+QSG-020,note,Initialization,GAMS effect on manoeuvres,Straight driving is more important if a GAMS antenna is NOT used,Relevance of straight driving vs dynamic steering depends on whether GAMS is fitted,MX60 QSG Rev B,12,8
+QSG-021,indicator,TMI,Status views available,"Dashboard, Camera, Nav, Laser",Dashboard shows system status; Camera adjusts image quality per camera; Nav shows GNSS/IMU detail; Laser shows per-laser detail,MX60 QSG Rev B,11,9
+QSG-022,procedure,Recording,Start and stop recording,Press Record button - colour changes green to red to start and red to green to stop,GNSS/IMU capture continues until the mission is shut down,MX60 QSG Rev B,"12, 13, 14",9
+QSG-023,requirement,Recording,Record scope,Record lidar and image data only for areas that are project specific,,MX60 QSG Rev B,13,9
+QSG-024,limit,Recording,Minimum mission time,30 minutes or more required,Stated twice in the source,MX60 QSG Rev B,"13, 14",9
+QSG-025,procedure,Ending,Finalize sequence,"Dynamic steering manoeuvres, then vary speed, then drive straight, then 2-3 minutes static",Mirror image of the start sequence,MX60 QSG Rev B,13,10
+QSG-026,note,Ending,Why the end sequence mirrors the start,Symmetrical data collection supports forward and reverse processing modes in TBC or POSPac,Obtains a good initialization at both ends of the mission,MX60 QSG Rev B,13,10
+QSG-027,procedure,Ending,Shutdown sequence,Close the mission first then shut down the system,,MX60 QSG Rev B,13,10
+QSG-028,requirement,Ending,Shutdown wait,Wait until the light on the Control Unit power button is off - may take up to 90 seconds,,MX60 QSG Rev B,13,10
+QSG-029,procedure,Data,SSD removal and download,"Unlock both SSDs with key, remove, connect via USB 3.0, insert in Data Carrier Docks, lock, download the mission",,MX60 QSG Rev B,13,11
+QSG-030,procedure,Planning,Pre-mission office checks,"Mechanical/mounting/screw/torque check; system settings check (lever arms, sensor settings); prepare field protocol and SSDs; check satellite almanac",,MX60 QSG Rev B,14,"5, 6"
+QSG-031,reference,Planning,Satellite almanac source,www.gnssplanning.com/#/charts,Named by Trimble in the in-field operation checklist,MX60 QSG Rev B,14,5
+QSG-032,requirement,Data,Field protocol contents,"Order of runs, direction of runs, date, mission, system serial number",Checked at end of mission,MX60 QSG Rev B,14,11
+QSG-033,procedure,Data,Post-mission office procedures,Back up the data and prepare SSDs for the next mission,,MX60 QSG Rev B,15,11
+QSG-034,requirement,Mounting,Roof rack position on vehicle,As far to the rear of the vehicle as possible,,MX60 QSG Rev B,4,6
+QSG-035,requirement,Mounting,Line of sight requirement,Laser and backwards-downwards looking camera must have clear line of sight to the road surface and not be obstructed by the vehicle,,MX60 QSG Rev B,4,6
+QSG-036,requirement,Power,DC supply requirement,30 A or more needed by the system,Installation of auxiliary battery as backup power source is recommended,MX60 QSG Rev B,4,6
+QSG-037,requirement,Mounting,Vehicle parking during rack install,Park the vehicle in a level location,Adjust bracket position so the rack is as horizontal as possible,MX60 QSG Rev B,4,6
+QSG-038,warning,Setup,Control Unit compatibility,MX60 can only be operated using Control Unit 2 (CU2),Do NOT attempt to use an MX60 with any older Control Unit,MX60 QSG Rev B,"6",6
+QSG-039,warning,Setup,Vent holes,Ensure vent holes in the Power Unit and Control Unit are always uncovered,,MX60 QSG Rev B,6,6
+QSG-040,requirement,Setup,Grounding,Connect the grounding point of the Power Unit and the Sensor Unit to the vehicle body,,MX60 QSG Rev B,7,6
+QSG-041,setting,TMI,Wi-Fi country menu path,Menu / System Administration / Wifi / MX SCAN Wifi Access Point / Country,"UG states MX60 WiFi Access Point - minor naming difference between sources",MX60 QSG Rev B,2,7
+QSG-042,requirement,TMI,Internet requirement for background map,MX60 must be connected to the Internet to display an OSM online background map,,MX60 QSG Rev B,11,9
