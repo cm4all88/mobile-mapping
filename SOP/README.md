@@ -1,6 +1,6 @@
 # Parametrix MX60 Mobile Mapping SOP
 
-**Status:** Draft in progress. Revision 0.5, 2026-09-10.
+**Status:** Complete first draft, pending review. Revision 1.0-draft, 2026-09-10.
 
 ## Contents
 
@@ -21,7 +21,12 @@
 | 12 | [Office Workflow](12-office-workflow.md) | Draft — overview only; TBC Technical Notes (2022) predates MX60 support |
 | 13 | [Quality, Control and Limits](13-quality-control-and-limits.md) | Draft |
 | 14 | [Troubleshooting](14-troubleshooting.md) | Draft |
-| A–E | Appendices: checklists, glossary, training exercise | Not started |
+| A | [Field Checklist](appendix-A-field-checklist.md) | Draft |
+| B | [TMI Status and Warning Reference](appendix-B-tmi-status-reference.md) | Draft |
+| C | [Glossary](appendix-C-glossary.md) | Draft |
+| D | [Parametrix Decision Register](appendix-D-decision-register.md) | Draft — **34 open items** |
+| E | [First Day Training Exercise](appendix-E-training-exercise.md) | Draft |
+| — | [**Assembled document**](MX60-SOP-COMPLETE.md) | All sections in one file (~37,000 words) |
 
 This is the trimmed structure — 14 sections plus appendices, consolidated from the
 original 28-section outline. Trajectory, point cloud quality, imagery quality, control
@@ -56,6 +61,12 @@ Categories: `spec` · `limit` · `requirement` · `warning` · `procedure` · `s
 | NCHRP Synthesis: Practices for Collecting, Managing, and Using Lidar Data | 2024 | 211 |
 
 Full assessment: [`../analysis/STAGE-1-SOURCE-ANALYSIS.md`](../analysis/STAGE-1-SOURCE-ANALYSIS.md)
+
+## Open decisions
+
+**34 PARAMETRIX DECISION REQUIRED items** are consolidated in
+[Appendix D](appendix-D-decision-register.md), prioritised P1/P2/P3. Eleven P1 items block
+first production use. Nothing in the register is current Parametrix policy.
 
 ## Still needed
 
