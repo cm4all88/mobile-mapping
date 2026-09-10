@@ -1,6 +1,6 @@
 # Parametrix MX60 Mobile Mapping SOP
 
-**Status:** Draft in progress. Revision 0.2, 2026-09-10.
+**Status:** Draft in progress. Revision 0.3, 2026-09-10.
 
 ## Contents
 
@@ -11,8 +11,8 @@
 | 2 | [Mobile Mapping in Plain Language](02-mobile-mapping-in-plain-language.md) | Draft |
 | 3 | [System Components](03-system-components.md) | Draft |
 | 4 | [Workflow at a Glance](04-workflow-at-a-glance.md) | Draft |
-| 5 | Pre-Field Planning | Not started |
-| 6 | Equipment Preparation and Vehicle Installation | Not started |
+| 5 | [Pre-Field Planning](05-pre-field-planning.md) | Draft |
+| 6 | [Equipment Preparation and Vehicle Installation](06-equipment-preparation-and-installation.md) | Draft |
 | 7 | Starting the System and TMI | Not started |
 | 8 | Initialization | Not started |
 | 9 | Collecting Data and Monitoring | Not started |
@@ -60,4 +60,5 @@ Full assessment: [`../analysis/STAGE-1-SOURCE-ANALYSIS.md`](../analysis/STAGE-1-
 - **Trimble TMI Software User Guide** — `geospatial.trimble.com/en/links?dcs=Collection-129953`.
   Needed to complete Section 7 (TMI interface detail) and Section 14 (warning reference).
 - **TBC mobile mapping module documentation** — blocks Section 12 entirely.
-- **Parametrix logo** in vector form, for `../brand/`.
+- **Parametrix logo in vector form.** Raster PNGs are in `../brand/`; vector (SVG/EPS)
+  and a reversed version for dark backgrounds should be requested before print issue.
