@@ -1,0 +1,171 @@
+id,category,topic,item,value,notes,source,page,sop_section
+SPEC-001,spec,System,Configurations available,"Core, Pro, Premium","Differ in 360 camera and/or GNSS-IMU system",MX60 UG Rev B,12,1
+SPEC-002,spec,Scanner,Number of lasers,2,,MX60 UG Rev B,54,3
+SPEC-003,spec,Scanner,Measurement principle,Time-of-flight,Pulsed laser with rotating mirror,MX60 UG Rev B,54,3
+SPEC-004,spec,Scanner,Laser pulse repetition rate (per scanner),500 kHz / 1000 kHz,"CONFLICT: spec sheet states 1000/2000 kHz system-total. See CONFLICT-001",MX60 UG Rev B,54,3
+SPEC-005,spec,Scanner,Effective measurement rate (system total),1000 kHz / 2000 kHz selectable,"CONFLICT: UG states 500/1000 kHz per scanner. See CONFLICT-001",MX60 Spec Sheet,2,3
+SPEC-006,spec,Scanner,Maximum measurement range,150 m at lower rate / 120 m at higher rate,"Higher rate costs range",MX60 UG Rev B,54,3
+SPEC-007,spec,Scanner,Range specification conditions,"Flat targets larger than beam diameter; perpendicular incidence; 23 km atmospheric visibility","Range is shorter in bright sunlight than under overcast",MX60 UG Rev B,55,17
+SPEC-008,spec,Scanner,Minimum range,0.6 m,,MX60 UG Rev B,54,3
+SPEC-009,spec,Scanner,Range accuracy,2 mm,One sigma under test conditions,MX60 UG Rev B,54,3
+SPEC-010,spec,Scanner,Precision,2.5 mm at 30 m,Reproducibility / repeatability,MX60 UG Rev B,54,3
+SPEC-011,spec,Scanner,Scan speed (profiles per second),120 Hz / 200 Hz selectable,"CONFLICT: spec sheet states 240/400. See CONFLICT-001",MX60 UG Rev B,54,3
+SPEC-012,spec,Scanner,Beam deflection per scanner,~346 degrees,"CONFLICT: spec sheet states Full 360. See CONFLICT-002",MX60 UG Rev B,54,17
+SPEC-013,spec,Scanner,Laser beam footprint at exit,2.6 mm,Gaussian beam definition,MX60 UG Rev B,54,3
+SPEC-014,spec,Scanner,Laser beam divergence,0.3 mrad,1/e2,MX60 UG Rev B,55,3
+SPEC-015,spec,Scanner,Laser wavelength,Near infrared,,MX60 UG Rev B,55,3
+SPEC-016,spec,Scanner,Laser classification,Class 1 (eye safe),IEC 60825-1:2014,MX60 UG Rev B,55,3
+SPEC-020,spec,Spherical camera,Resolution Core,30 MP,Six 5 MP single cameras,MX60 UG Rev B,53,3
+SPEC-021,spec,Spherical camera,Resolution Pro and Premium,72 MP,Six 12 MP single cameras,MX60 UG Rev B,53,3
+SPEC-022,spec,Spherical camera,Number of single cameras,6,,MX60 UG Rev B,53,3
+SPEC-023,spec,Spherical camera,Image format,PGR (compressed JPEG),,MX60 UG Rev B,53,3
+SPEC-024,spec,Spherical camera,Shutter,Global shutter,,MX60 UG Rev B,53,3
+SPEC-025,spec,Spherical camera,Focal length Core,4.40 mm,Spec sheet states 4.44 mm,MX60 UG Rev B,53,3
+SPEC-026,spec,Spherical camera,Focal length Pro/Premium,6.94 mm,,MX60 UG Rev B,53,3
+SPEC-027,spec,Spherical camera,Focus distance Core,About 2.0 m,Sharpness 0.7 m to infinity,MX60 UG Rev B,53,3
+SPEC-028,spec,Spherical camera,Focus distance Pro/Premium,Calibrated 2.0 m to infinity,,MX60 UG Rev B,53,3
+SPEC-029,spec,Spherical camera,Field of view,~90% of full sphere,,MX60 UG Rev B,53,3
+SPEC-030,spec,Spherical camera,Max capture rate,10 fps,By distance or by time,MX60 Spec Sheet,2,3
+SPEC-035,spec,Down camera,Resolution,12 MP,Down/rear facing; on all 3 configurations,MX60 UG Rev B,54,3
+SPEC-036,spec,Down camera,Image format,MXIPS (compressed RAW),,MX60 UG Rev B,54,3
+SPEC-037,spec,Down camera,Focal length,8.0 mm,,MX60 UG Rev B,54,3
+SPEC-038,spec,Down camera,Focus distance,About 3.0 m,Sharpness 2.0 m to 9.0 m,MX60 UG Rev B,54,3
+SPEC-039,spec,Down camera,Field of view,H 82.9 deg / V 65.9 deg,Spec sheet states H 82.0 deg,MX60 UG Rev B,54,3
+SPEC-040,spec,Down camera,Max capture rate,9 fps,By distance or by time,MX60 Spec Sheet,2,3
+SPEC-045,spec,Positioning,Position accuracy no outage (all configs),"X,Y <0.01 m; Z 0.01 m",Post-processed with POSPac MMS; with DMI option,MX60 UG Rev B,56,16
+SPEC-046,spec,Positioning,Roll and pitch Core/Pro,0.005 deg,,MX60 UG Rev B,56,16
+SPEC-047,spec,Positioning,Roll and pitch Premium,0.0025 deg,,MX60 UG Rev B,56,16
+SPEC-048,spec,Positioning,Heading all configs,0.015 deg,With GAMS option and 2 m baseline,MX60 UG Rev B,56,16
+SPEC-049,spec,Positioning,Position after 60 s GNSS outage Core/Pro,"X,Y 0.12 m; Z 0.1 m",,MX60 UG Rev B,56,16
+SPEC-050,spec,Positioning,Position after 60 s GNSS outage Premium,"X,Y 0.1 m; Z 0.07 m",,MX60 UG Rev B,56,16
+SPEC-051,spec,Positioning,GNSS tracking channels,2 x 336,Trimble Maxwell technology,MX60 UG Rev B,56,25
+SPEC-052,spec,Positioning,Integration technology,Applanix IN-Fusion+ GNSS-Inertial,ProPoint; dedicated Inertial Engine board,MX60 UG Rev B,56,25
+SPEC-053,spec,Positioning,Raw IMU logging rate,200 Hz,,MX60 UG Rev B,57,25
+SPEC-054,spec,Positioning,Raw GNSS logging rate,5 Hz,,MX60 UG Rev B,57,25
+SPEC-055,spec,Positioning,Real-time output rate,100 Hz position and attitude,Dual IMU 200 Hz logging,MX60 UG Rev B,57,25
+SPEC-056,spec,Positioning,Navigation output formats,ASCII NMEA-0183 and binary Trimble GSOF,,MX60 UG Rev B,57,25
+SPEC-060,spec,Weight,Sensor Unit Core,24 kg,,MX60 UG Rev B,52,3
+SPEC-061,spec,Weight,Sensor Unit Pro,26 kg,,MX60 UG Rev B,52,3
+SPEC-062,spec,Weight,Sensor Unit Premium,28 kg,,MX60 UG Rev B,52,3
+SPEC-063,spec,Weight,MX SCAN Control Unit 2,13 kg,Spec sheet states 12.4 kg / 10.2 kg without cover,MX60 UG Rev B,52,3
+SPEC-064,spec,Weight,MX SCAN Power Unit,9 kg,,MX60 UG Rev B,52,3
+SPEC-065,spec,Weight,MX SCAN Roof Rack,18 kg,Standard rack,MX60 UG Rev B,52,3
+SPEC-066,spec,Weight,MX Shock Absorbing Mounting Rack,28 kg,Different rack - see CONFLICT-003,Rack UG Rev B,9,3
+SPEC-067,spec,Storage,Data storage capacity,2 x 4 TB removable SSD,Exchangeable Data Disks,MX60 Spec Sheet,3,14
+LIMIT-001,limit,Speed,Maximum vehicle speed,110 km/h (68 mph),Operating or non-operating system on board,MX60 UG Rev B,"9, 53",11
+LIMIT-002,limit,Speed,RECOMMENDED maximum speed with system operating,80 km/h (50 mph),Key operational driving number,MX60 UG Rev B,53,11
+LIMIT-003,limit,Environment,Operating temperature range,-10 C to +50 C (14 F to 122 F),"Qualified: not exposed to direct sun and without driving less than 10 km/h (6 mph)",MX60 UG Rev B,53,11
+LIMIT-004,limit,Environment,Storage temperature range,-20 C to +50 C (-4 F to 122 F),,MX60 UG Rev B,53,6
+LIMIT-005,limit,Environment,Operating relative humidity,20% to 80%,Non-condensing,MX60 UG Rev B,53,11
+LIMIT-006,limit,Environment,Storage relative humidity,20% to 95%,,MX60 UG Rev B,53,6
+LIMIT-007,limit,Environment,IP rating Sensor Unit,IP64,,MX60 UG Rev B,53,3
+LIMIT-008,limit,Environment,IP rating Power Unit and Control Unit,IP30,NOT waterproof - these are the in-cabin units,MX60 UG Rev B,53,3
+LIMIT-009,limit,Environment,Shock and vibration standard,ISO 16750-3 Third edition 2012-12-15,,MX60 Spec Sheet,3,3
+LIMIT-010,limit,Power,Input voltage range,12 V to 16 V DC,,MX60 UG Rev B,52,7
+LIMIT-011,limit,Power,Typical power Core and Pro,160 W,,MX60 UG Rev B,52,7
+LIMIT-012,limit,Power,Typical power Premium,170 W,,MX60 UG Rev B,52,7
+LIMIT-013,limit,Power,DC current standby,9 A,,MX60 UG Rev B,52,7
+LIMIT-014,limit,Power,DC current in operation,12 A,,MX60 UG Rev B,52,7
+LIMIT-015,limit,Power,DC current at startup,25 A at 12.8 V,320 W,MX60 UG Rev B,"52, 61",7
+LIMIT-016,limit,Power,Minimum vehicle battery capacity,60 Ah,,MX60 UG Rev B,61,7
+LIMIT-017,limit,Power,Power Unit standby consumption,6.2 mA at 13.8 V DC,,MX60 UG Rev B,25,7
+LIMIT-018,limit,Power,Battery Protect audible warning threshold,Below 10.5 V for longer than 12 seconds,,MX60 UG Rev B,27,12
+LIMIT-019,limit,Power,Battery Protect cutoff,Below 10.5 V for more than 90 seconds,Recovers if voltage rises above 12.0 V within the 90 s,MX60 UG Rev B,27,12
+LIMIT-020,limit,Power,Direct connection fuse rating,35 A,Fuse 3 close to battery,MX60 UG Rev B,62,7
+LIMIT-021,limit,Power,Power control line fuse,1 A (T001497),Between Power Unit and Control Unit 2,MX60 UG Rev B,25,7
+LIMIT-022,limit,Power,Reverse polarity fuse,30 A (T001289),Bottom plate of Power Unit,MX60 UG Rev B,25,7
+INST-001,requirement,Mounting,External Reference Point location,Right side at the back of the MX SCAN Roof Rack,All lever arm and height measurements originate here,MX60 UG Rev B,45,7
+INST-002,requirement,Mounting,Installation height definition,From External Reference Point down to road surface,Always in metres as an absolute value,MX60 UG Rev B,46,7
+INST-003,requirement,Mounting,Installation height measurement accuracy,Order of 1 cm,"Dust filter bulletin states 2-3 cm; UG 1 cm is tighter and governs",MX60 UG Rev B,47,7
+INST-004,requirement,Mounting,Rack alignment during height measurement,Roof rack must be horizontally aligned,,MX60 UG Rev B,47,7
+INST-005,requirement,Mounting,Vehicle Frame axis convention,+X forward / +Y right of vehicle / +Z downward,,MX60 UG Rev B,46,7
+INST-006,warning,Mounting,Lever arm sign convention,A DMI mounted on the left wheel has a NEGATIVE Y lever arm,CAUTION in source,MX60 UG Rev B,46,7
+INST-007,requirement,Mounting,DMI lever arm measured to,Centre of the tread where the DMI wheel contacts the road,DMI wheel must be a non-steering wheel,MX60 UG Rev B,46,7
+INST-008,requirement,Mounting,GAMS lever arm measured to,Antenna Phase Centre (L1 APC) of the secondary antenna,,MX60 UG Rev B,"46, 68",7
+INST-009,warning,Mounting,Consequence of poor lever arm values,May result in faulty navigation solutions,CAUTION in source,MX60 UG Rev B,47,7
+INST-010,requirement,Mounting,Where lever arms are stored,As the Vehicle Preset in TMI software,Select correct preset before starting a mission,MX60 UG Rev B,47,"7, 8"
+INST-011,note,Mounting,POSPac lever arm discrepancy,MX60 System Reference Frame origin differs from External Reference Point,TMI adds internal vectors; POSPac shows corrected values differing from mechanical measurements,MX60 UG Rev B,47,"7, 25"
+INST-012,requirement,GAMS,Offset accuracy for collection only,10 cm or better,,MX60 UG Rev B,68,7
+INST-013,requirement,GAMS,Offset accuracy for post-processing,Order of a few millimetres,Tighter requirement,MX60 UG Rev B,68,7
+INST-014,requirement,GAMS,Minimum baseline for post-processing,2.0 m between primary and secondary antennas,,MX60 UG Rev B,68,7
+INST-015,requirement,GAMS,Antenna matching,Primary and secondary antennas MUST be the same type,Do not mix antenna types,MX60 UG Rev B,68,7
+INST-016,requirement,GAMS,Re-measurement trigger,Every time GAMS is re-installed on the car roof for a new mission,,MX60 UG Rev B,67,7
+INST-017,spec,GAMS,Known offsets standard Roof Rack corner to ERP,X +1.006 m / Y -0.469 m / Z +0.025 m,Top-left front corner of Trimble standard Roof Rack ONLY - not the shock absorbing rack,MX60 UG Rev B,68,7
+INST-018,benefit,GAMS,Effect on initialization,Reduces initialization time AND eliminates special driving manoeuvres,Implies manoeuvres ARE required without GAMS,MX60 UG Rev B,67,10
+INST-020,limit,Roof rack,Maximum overhang,330 mm,End of rack to back eye of mounting bracket,MX60 UG Rev B,"31, 32",7
+INST-021,limit,Roof rack,Minimum bracket spacing,650 mm,Between eyes of front and back brackets; marked by a red stripe on the mainframe,MX60 UG Rev B,"31, 32",7
+INST-022,spec,Roof rack,Universal roof bar dimensions,Up to 85 mm wide x 30 mm high,Square cut; use longer ISO 4762 M8-A2 screws if taller,MX60 UG Rev B,29,7
+INST-023,requirement,Roof rack,Torque screws No.5,8 Nm,Overhang and height/angle adjustment,MX60 UG Rev B,33,7
+INST-024,requirement,Screws,Cluster tightening sequence,"33% then 66% then 100% of final torque, crosswise",Opposite screw next; slow continuous movement,MX60 UG Rev B,"10, 11",7
+INST-025,requirement,Screws,Torque verification,A second person must check the correct torque value,,MX60 UG Rev B,11,7
+INST-026,requirement,Cables,Power Unit to Control Unit length,3 m,Constrains layout,MX60 UG Rev B,"34, 59",7
+INST-027,requirement,Cables,Control Unit to Sensor Unit length,5 m,Constrains Control Unit placement,MX60 UG Rev B,"23, 59",7
+INST-028,spec,Cables,Sensor Unit connector mating cycles,Up to 1500,,MX60 UG Rev B,35,7
+VEH-001,requirement,Vehicle,Wheels and surface,Rubber wheels for use on paved roads only,,MX60 UG Rev B,"9, 59",7
+VEH-002,requirement,Vehicle,Colour,No bright colour,Avoids exposure artefacts in imagery,MX60 UG Rev B,59,7
+VEH-003,requirement,Vehicle,Body style,Hatchback with upright rear door,,MX60 UG Rev B,59,7
+VEH-004,requirement,Vehicle,Minimum roof height,1.60 m,To satisfy the down-looking camera minimum distance requirement,MX60 UG Rev B,59,7
+VEH-005,requirement,Vehicle,Start/stop mechanism,Must be switched off,,MX60 UG Rev B,59,7
+VEH-006,requirement,Vehicle,Alternator,Sufficient alternator power or an additional battery pack,,MX60 UG Rev B,59,7
+VEH-007,requirement,Vehicle,Roof rails,Should withstand required roof load and cover the entire roof,Allows scanner position adjustment,MX60 UG Rev B,59,7
+VEH-008,warning,Vehicle,Electrical installation,Must be done by a professional car electrician service,Under customer responsibility and control,MX60 UG Rev B,61,7
+VEH-009,warning,Vehicle,Electric propulsion vehicles,Install fully separate from the car battery charging system,,MX60 UG Rev B,8,7
+SAFE-001,warning,Safety,Acclimatisation after air freight,Allow 24 hours before switching on,Condensation inside components can cause short circuits,MX60 UG Rev B,7,6
+SAFE-002,warning,Safety,Driver operation,The driver is not allowed to operate the system while driving,Second dedicated operator recommended,MX60 UG Rev B,"9, 36",11
+SAFE-003,warning,Safety,Vehicle height awareness,Driver must be aware of total vehicle height with system fitted,,MX60 UG Rev B,9,11
+SAFE-004,requirement,Safety,Sensor Unit handling,Must be installed by two people; lift by dedicated handles,,MX60 UG Rev B,"9, 10, 16",7
+SAFE-005,requirement,Safety,Engine state during installation,Switch off vehicle engine and vehicle power during installation,,MX60 UG Rev B,10,7
+SAFE-006,warning,Safety,AC power,System must never be connected to 110 / 230 / 400 V AC,Must be powered by a battery,MX60 UG Rev B,"7, 8",7
+SAFE-007,requirement,Safety,Cable inspection frequency,Before and after every mission check all cables connectors and pins,Do not use damaged cables,MX60 UG Rev B,8,6
+SAFE-008,requirement,Safety,Mechanical inspection frequency,All mechanical parts checked before and after each mission,,MX60 UG Rev B,8,6
+SAFE-009,warning,Safety,Laser classification,Class 1 per IEC 60825-1:2014 and EN 60825-1:2014,Do not look into or point transmitter aperture at eyes unnecessarily,MX60 UG Rev B,8,3
+SAFE-010,warning,Safety,Infrared devices,Do not align laser scanners with infrared cameras or night vision devices,May damage those devices,MX60 UG Rev B,8,11
+SAFE-011,warning,Safety,USB and data disk,Never connect the USB cable while the exchangeable data disk is inside the Control Unit,Remove disk first for backup,MX60 UG Rev B,10,14
+SAFE-012,requirement,Safety,Optics cleaning,Clean all sensor optics before starting a mission,May need cleaning during the mission depending on weather and road surface,MX60 UG Rev B,10,6
+SAFE-013,requirement,Safety,Unresolved faults,Do not start a mission before solving any previous issue with the system,Not doing so may damage the system permanently,MX60 UG Rev B,44,6
+SAFE-014,warning,Safety,Unauthorized changes,Any unauthorized change including software renders all guarantees null and void,,MX60 UG Rev B,7,1
+SAFE-015,requirement,Safety,Trained personnel,System must be used only by well-trained persons,Operation and service only by properly trained personnel,MX60 UG Rev B,"7, 10",1
+OPS-001,procedure,Startup,On/Off button hold time,Minimum 15 seconds,Prevents unintended start-up,MX60 UG Rev B,"21, 27",8
+OPS-002,indicator,Startup,LED blinking green,Component is being started updated or shut down,Applies to Control Unit Sensor Unit and Wi-Fi,MX60 UG Rev B,21,"8, 12"
+OPS-003,indicator,Startup,LED solid green,Component is ready,,MX60 UG Rev B,21,"8, 12"
+OPS-004,indicator,Startup,LED blinking red,Component failed,,MX60 UG Rev B,21,"8, 12, 22"
+OPS-005,requirement,Startup,Pre-start check,All connections secure and recording SSDs inserted and locked,CAUTION in source,MX60 UG Rev B,48,8
+OPS-006,requirement,Setup,Control Unit placement,Where operator can access the Data Disc and see the Status LEDs,,MX60 UG Rev B,23,7
+OPS-007,requirement,Network,Wi-Fi SSID format,Trimble MX60 (serial number),,MX60 UG Rev B,37,8
+OPS-008,requirement,Network,Wi-Fi password,On stickers inside the Control Unit top case,Unique per system and cannot be changed,MX60 UG Rev B,37,8
+OPS-009,warning,Network,Wi-Fi country setting,Must specify country on first use and every time collecting in a different country,Mandatory prerequisite; TMI menu System Administration / WiFi / MX60 WiFi Access Point,MX60 UG Rev B,48,8
+OPS-010,requirement,Network,Ethernet configuration,Obtain IP address automatically and obtain DNS server address automatically,,MX60 UG Rev B,36,8
+OPS-011,requirement,Operator device,Display size,10 inch or larger,Touch display preferred,MX60 UG Rev B,36,3
+OPS-012,requirement,Operator device,Browser,Google Chrome,Required to run the Trimble Mobile Imaging user interface,MX60 UG Rev B,36,3
+OPS-013,requirement,Maintenance,Idle system exercise,Turn on every two months and run for 30 to 60 minutes,,MX60 UG Rev B,9,6
+OPS-014,requirement,Maintenance,Weather during use,Avoid operating the system in rainy or misty weather,,MX60 UG Rev B,49,11
+OPS-015,requirement,Maintenance,Roof rack lubrication,Lock bars and fast lock mechanism cleaned and re-lubricated frequently,Spray oil after cleaning,MX60 UG Rev B,49,6
+OPS-016,procedure,Maintenance,Camera lens cleaning,"Blow debris off with air compressor first; then optics cleaner or ethyl alcohol on a clean lens cloth","Cloth moist not dripping; wipe along length in smooth movements; do not press hard or rub one spot",MX60 UG Rev B,50,6
+OPS-017,procedure,QC,Trimble recommended data quality check,"Scan ~8 flat retro-reflecting targets at different distances over more than 180 degrees horizontally, previously surveyed by accurate total station","Pass if residual error is less than the instrument specified accuracy; recommended regularly and especially before an extensive campaign",MX60 UG Rev B,7,20
+OPS-018,procedure,Data,Data offload method,Use MX SCAN Data Carrier Dock with USB3 to office computer,"Insert Exchangeable Data Disk, lock with key and turn 90 degrees clockwise, then power on",MX60 UG Rev B,24,14
+OPS-019,setting,TMI,Dust filter location,Mission Presets tab / Capture settings,,Dust Filter Bulletin,1,"9, 11"
+OPS-020,setting,TMI,Dust filter recommended use,Extremely dusty environments only - unpaved roads and open pit mines,Not foreseen for paved roads urban canyons or intercity infrastructure,Dust Filter Bulletin,1,11
+OPS-021,warning,TMI,Dust filter height error consequence,Installation height entered higher than reality causes data loss,Larger mask assumed; mask touches ground surface,Dust Filter Bulletin,2,"11, 22"
+OPS-022,setting,TMI,Dust filter recommended laser mode,Higher of the two available measurement rates,"Bulletin says 1000 kHz instead of 500 kHz - see CONFLICT-001 before setting",Dust Filter Bulletin,3,11
+OPS-023,procedure,TMI,Dust filter driving guidance,Reduce driving speed as much as possible and avoid harsh vehicle manoeuvres,,Dust Filter Bulletin,3,11
+OPS-024,feature,TMI,Mid-mission reconfiguration,Reconfigure mission using capture settings to enable or disable dust filter,Capture settings must be prepared in advance,Dust Filter Bulletin,3,11
+OPS-025,feature,TMI,Dust filter verification,Result visible in TMI laser waterfall view,Data gaps from wrong installation height visible immediately,Dust Filter Bulletin,3,"12, 22"
+CONN-001,spec,External connector,Connector type,LEMO EEG.2K.314.CLL,Mating connector LEMO FGG.2K.314.CLAC85,MX60 UG Rev B,63,25
+CONN-002,spec,External connector,PPS signal,TTL level strobe 1 ms pulse width at 1 Hz,Rising/falling edge coincident with exact GPS second,MX60 UG Rev B,"65, 66",25
+CONN-003,warning,External connector,PPS output protection,Ensure NO input signal is connected to the PPS output port,Damage may result,MX60 UG Rev B,65,25
+CONN-004,spec,External connector,Event time tagging accuracy,Accurate to within one microsecond,Rising edge default; logged for post-processing,MX60 UG Rev B,64,25
+CONN-005,spec,External connector,Event guard time,20 ms (max 50 Hz),,MX60 UG Rev B,64,25
+CONN-006,spec,External connector,Serial port settings,"RS-232, 2400-115200 baud (9600), no parity, 8 data bits, 1 stop bit, no flow control",,MX60 UG Rev B,64,25
+CONFLICT-001,conflict,Scanner,Laser rate and scan speed differ by factor of 2 between sources,"UG: 500/1000 kHz PRR and 120/200 Hz. Spec sheet: 1000/2000 kHz effective and 240/400","Likely per-scanner vs system-total across two scanners. Dust filter bulletin uses spec sheet terminology with UG numbers - operator could select the WRONG setting. Verify against TMI labelling before writing a numeric instruction.","MX60 UG Rev B p.54; Spec Sheet p.2; Dust Filter Bulletin p.3","54, 2, 3","11, 17"
+CONFLICT-002,conflict,Scanner,Field of view,UG states ~346 deg beam deflection per scanner; spec sheet states Full 360,Use 346 deg per scanner when reasoning about occlusion geometry,"MX60 UG Rev B p.54; Spec Sheet p.2","54, 2",17
+CONFLICT-003,conflict,Mounting,Two different racks documented,"MX SCAN Roof Rack 18 kg clamps to universal bars; MX Shock Absorbing Mounting Rack 28 kg bolts to prepared platform",GAMS corner offsets in the UG apply to the standard rack only. Confirm which rack is fitted before lever arm work.,"MX60 UG Rev B pp.29-31; Rack UG Rev B pp.6-9","29-31, 6-9",7
+CONFLICT-004,conflict,Specs,Minor numeric disagreements,"Control Unit weight 13 vs 12.4 kg; Core focal length 4.40 vs 4.44 mm; down camera FOV 82.9 vs 82.0 deg",Immaterial operationally. Prefer the User Guide as the revision-tracked controlled document.,"MX60 UG Rev B pp.52-54; Spec Sheet pp.2-3","52-54, 2-3",3
+SUPPORT-001,contact,Support,Trimble MX support email,mx_support@trimble.com,,MX60 UG Rev B,51,22
+SUPPORT-002,contact,Support,Support phone Americas,+1-289-695-4416,,MX60 UG Rev B,51,22
+SUPPORT-003,contact,Support,Support phone APAC,+86-105-603-4179,,MX60 UG Rev B,51,22
+SUPPORT-004,contact,Support,Support phone Europe and Rest of World,+49-7351-474-0237,,MX60 UG Rev B,51,22
+SUPPORT-005,requirement,Support,Information to provide with a support case,"Problem description; workflow and how to reproduce; mission location; environmental conditions; system log file; serial number; total operating hours; photos or videos",,MX60 UG Rev B,51,22
+SUPPORT-006,reference,Support,Product registration,https://mytrimbleprotected.com/,My Trimble Protected,MX60 UG Rev B,"2, 51",1
+SUPPORT-007,reference,Support,MX60 documentation location,https://geospatial.trimble.com/en/products/hardware/trimble-mx60,,MX60 UG Rev B,51,1
+SUPPORT-008,reference,Support,TMI Software User Guide location,https://geospatial.trimble.com/en/links?dcs=Collection-129953,NOT YET OBTAINED - blocks SOP sections 8-13,MX60 UG Rev B,48,1
+SUPPORT-009,reference,Support,MX60 Quick Start Guide,Contains standard operation workflow and in-the-field operation checklist,NOT YET OBTAINED - blocks SOP sections 8 10 13 23,MX60 UG Rev B,48,1
