@@ -1,6 +1,6 @@
 # Parametrix MX60 Mobile Mapping SOP
 
-**Status:** Draft in progress. Revision 0.4, 2026-09-10.
+**Status:** Draft in progress. Revision 0.5, 2026-09-10.
 
 ## Contents
 
@@ -17,10 +17,10 @@
 | 8 | [Initialization](08-initialization.md) | Draft |
 | 9 | [Collecting Data and Monitoring](09-collecting-and-monitoring.md) | Draft |
 | 10 | [Ending a Collection](10-ending-a-collection.md) | Draft |
-| 11 | Data Handling | Not started |
-| 12 | Office Workflow (TBC) | Overview only — TBC Technical Notes (2022) predates MX60 support |
-| 13 | Quality, Control and Limits | Not started |
-| 14 | Troubleshooting | Not started |
+| 11 | [Data Handling](11-data-handling.md) | Draft |
+| 12 | [Office Workflow](12-office-workflow.md) | Draft — overview only; TBC Technical Notes (2022) predates MX60 support |
+| 13 | [Quality, Control and Limits](13-quality-control-and-limits.md) | Draft |
+| 14 | [Troubleshooting](14-troubleshooting.md) | Draft |
 | A–E | Appendices: checklists, glossary, training exercise | Not started |
 
 This is the trimmed structure — 14 sections plus appendices, consolidated from the
