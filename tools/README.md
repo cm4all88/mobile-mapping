@@ -28,3 +28,20 @@ This environment has no working LibreOffice, pandoc or pdftoppm, so the output c
 not be rendered and visually checked. It passes OOXML XSD validation and structural
 checks (parts, relationships, content types, image references), but **open it in Word
 and look at it before issuing**.
+
+
+## build-checklist.py
+
+Renders `tools/field-checklist.html` to `SOP/Parametrix-MX60-Field-Checklist.pdf` —
+the four-page vehicle quick reference, a condensed form of Appendix A.
+
+```bash
+pip install playwright pypdfium2
+python tools/build-checklist.py
+```
+
+Uses headless Chromium (preinstalled at `/opt/pw-browsers`) rather than LibreOffice,
+which does not work in this environment. Edit the HTML to change the checklist; the
+layout is plain CSS with `@page` print rules.
+
+Output was rendered to images and visually checked — all four pages verified.

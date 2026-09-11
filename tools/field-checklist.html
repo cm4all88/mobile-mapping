@@ -1,0 +1,391 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MX60 Field Checklist</title>
+<style>
+  @page { size: Letter; margin: 0.45in 0.5in 0.55in 0.5in; }
+  * { box-sizing: border-box; }
+  html,body { margin:0; padding:0; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#2B2B2A; font-size:9.5pt; line-height:1.38;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+
+  /* ---- masthead ---- */
+  .mast { display:flex; align-items:flex-end; justify-content:space-between;
+          border-bottom:3px solid #EB2A2B; padding-bottom:5px; margin-bottom:9px; }
+  .mast img { height:22px; display:block; }
+  .mast .t { font-size:15pt; font-weight:800; color:#343433; letter-spacing:-0.2px; line-height:1; }
+  .mast .s { font-size:7.4pt; color:#77776F; letter-spacing:1.4px; text-transform:uppercase; margin-top:2px;}
+  .mast .pg { font-size:7.4pt; color:#77776F; text-align:right; line-height:1.35; }
+
+  /* ---- blocks ---- */
+  h2 { font-size:10.4pt; font-weight:800; color:#fff; background:#343433;
+       margin:0 0 0 0; padding:3.5px 7px; letter-spacing:.4px; text-transform:uppercase;
+       display:flex; justify-content:space-between; align-items:baseline; }
+  h2 .ref { font-size:7pt; font-weight:600; color:#C9C9C4; letter-spacing:.3px; }
+  .block { border:1px solid #D6D6D1; border-top:none; padding:8px 9px 7px; margin-bottom:11px; }
+  .two { display:flex; gap:9px; }
+  .two > div { flex:1; min-width:0; }
+
+  /* ---- checklist rows ---- */
+  ul { list-style:none; margin:0; padding:0; }
+  li { display:flex; align-items:flex-start; gap:6px; padding:2.6px 0;
+       border-bottom:1px dotted #E4E4DF; }
+  li:last-child { border-bottom:none; }
+  .cb { flex:none; width:10.5px; height:10.5px; border:1.3px solid #55554F; border-radius:1px;
+        margin-top:1.5px; background:#fff; }
+  li.step { counter-increment:st; }
+  .num { flex:none; width:13.5px; height:13.5px; border-radius:50%; background:#343433; color:#fff;
+         font-size:7.2pt; font-weight:800; text-align:center; line-height:13.5px; margin-top:0.5px; }
+
+  b, strong { font-weight:800; color:#1a1a19; }
+  .red { color:#EB2A2B; font-weight:800; }
+  .mono { font-family:"SF Mono",Menlo,Consolas,monospace; font-size:7.8pt;
+          background:#F2F2F1; padding:0 3px; border-radius:2px; }
+
+  /* ---- tables ---- */
+  table { width:100%; border-collapse:collapse; font-size:8.7pt; }
+  th { background:#343433; color:#fff; font-weight:700; text-align:left;
+       padding:3.4px 5px; font-size:8.1pt; letter-spacing:.2px; }
+  td { padding:3.2px 5px; border-bottom:1px solid #E4E4DF; vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  td.k { font-weight:700; white-space:nowrap; }
+
+  /* ---- alerts ---- */
+  .alert { border-left:4px solid #EB2A2B; background:#FDECEC; padding:6px 8px;
+           margin:7px 0 0; font-size:8.8pt; }
+  .alert .h { font-weight:800; color:#EB2A2B; letter-spacing:.3px; font-size:7.6pt; }
+  .tip { border-left:4px solid #1F6B3B; background:#EDF6F0; padding:6px 8px;
+         margin:7px 0 0; font-size:8.8pt; }
+  .tip .h { font-weight:800; color:#1F6B3B; letter-spacing:.3px; font-size:7.6pt; }
+
+  /* ---- status chips ---- */
+  .chip { display:inline-block; padding:0.5px 5px; border-radius:8px; font-size:7.2pt;
+          font-weight:800; color:#fff; letter-spacing:.3px; }
+  .g { background:#1F8A4C; } .o { background:#D98016; } .r { background:#D62B2B; }
+
+  .big { font-size:9.6pt; font-weight:800; color:#343433; }
+</style></head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page">
+  <div class="mast">
+    <div><img src="LOGO"></div>
+    <div style="flex:1; margin-left:14px;">
+      <div class="t">MX60 FIELD CHECKLIST</div>
+      <div class="s">Mobile Mapping &middot; Quick Reference</div>
+    </div>
+    <div class="pg"><b style="color:#EB2A2B;">DRAFT</b><br>Rev 1.0 &middot; Page 1 of 4</div>
+  </div>
+
+  <h2>1 &nbsp; Before leaving the office <span class="ref">SOP §5, §6</span></h2>
+  <div class="block"><div class="two">
+    <div><ul>
+      <li><span class="cb"></span><span>Route, pass count and <b>direction</b> planned per pass</span></li>
+      <li><span class="cb"></span><span><b>Satellite almanac checked</b> — <span class="mono">gnssplanning.com/#/charts</span></span></li>
+      <li><span class="cb"></span><span>Two initialization locations identified — open sky, <b>both ends</b></span></li>
+      <li><span class="cb"></span><span>GNSS-hostile stretches mapped; strategy for each</span></li>
+      <li><span class="cb"></span><span>Weather checked; stand-down criteria understood</span></li>
+      <li><span class="cb"></span><span><b>Vehicle height clearances</b> checked on route</span></li>
+    </ul></div>
+    <div><ul>
+      <li><span class="cb"></span><span>Mechanical check — mounting, screws, torques</span></li>
+      <li><span class="cb"></span><span>System settings checked — lever arms, sensor settings</span></li>
+      <li><span class="cb"></span><span><b>SSDs prepared</b> and field protocol printed</span></li>
+      <li><span class="cb"></span><span>Cleaning kit aboard · Wi-Fi password sticker accessible</span></li>
+      <li><span class="cb"></span><span>If air-freighted: <b>24 h acclimatisation complete</b></span></li>
+      <li><span class="cb"></span><span>If idle &gt; 2 months: run 30–60 min beforehand</span></li>
+    </ul></div>
+  </div></div>
+
+  <h2>2 &nbsp; Safety check — before AND after every mission <span class="ref">SOP §6</span></h2>
+  <div class="block">
+    <div style="font-size:7.9pt; color:#55554F; margin-bottom:4px;">
+      Replace damaged parts immediately &middot; tighten loose screws to correct torque &middot;
+      clean or dry anything wet
+    </div>
+    <div class="two">
+      <div><ul>
+        <li><span class="cb"></span><span>Roof rack installed correctly; all screws tight</span></li>
+        <li><span class="cb"></span><span>Roof rack shows no cracks or deformation</span></li>
+        <li><span class="cb"></span><span>Sensor Unit damage-free — no scratches or deformation</span></li>
+        <li><span class="cb"></span><span><b>All camera lenses clean and undamaged</b></span></li>
+        <li><span class="cb"></span><span>Sensor in operation position and <b>properly locked</b></span></li>
+        <li><span class="cb"></span><span>Control Unit undamaged, installed correctly, secured</span></li>
+      </ul></div>
+      <div><ul>
+        <li><span class="cb"></span><span>Power Unit undamaged, secured, <b>vents clear</b></span></li>
+        <li><span class="cb"></span><span>All connectors plugged in and fixed</span></li>
+        <li><span class="cb"></span><span>Cables fixed to roof rack <b>before</b> entering the cabin</span></li>
+        <li><span class="cb"></span><span>No cable damaged or liable to be damaged</span></li>
+        <li><span class="cb"></span><span>Operator device working</span></li>
+      </ul></div>
+    </div>
+    <div class="alert"><span class="h">DO NOT START</span> a mission with an unresolved issue from a
+      previous mission. Trimble: <i>“Not doing this may damage the system permanently.”</i></div>
+  </div>
+
+  <h2>3 &nbsp; Power up — order matters <span class="ref">SOP §7</span></h2>
+  <div class="block">
+    <div class="two">
+      <div><ul>
+        <li><span class="num">1</span><span>Engine <b>auto start/stop OFF</b></span></li>
+        <li><span class="num">2</span><span>Both SSDs inserted and <b>locked</b></span></li>
+        <li><span class="num">3</span><span><b>START THE VEHICLE</b></span></li>
+        <li><span class="num">4</span><span>Hold Control Unit power button <b>≥ 15 seconds</b></span></li>
+      </ul></div>
+      <div><ul>
+        <li><span class="num">5</span><span>Power Unit LED <b>constant green</b></span></li>
+        <li><span class="num">6</span><span>SU + CU LEDs blink ~10 s → <b>solid green</b></span></li>
+        <li><span class="num">7</span><span>Connect tablet → Chrome → <span class="mono">http://tmi.mx-scan.net</span></span></li>
+        <li><span class="num">8</span><span>Wi-Fi country set (first use / new country)</span></li>
+      </ul></div>
+    </div>
+    <table style="margin-top:5px;">
+      <tr><th style="width:30%">LED</th><th>Meaning</th></tr>
+      <tr><td class="k">Blinking green</td><td>Starting / updating / shutting down</td></tr>
+      <tr><td class="k" style="color:#1F8A4C">Solid green</td><td><b>Ready</b></td></tr>
+      <tr><td class="k" style="color:#D62B2B">Blinking red</td><td><b>Component failed — do not start a mission</b></td></tr>
+    </table>
+    <div class="alert"><span class="h">WHY THE ORDER</span> Startup draws <b>25 A</b>. Powering up on a
+      non-running engine is how you meet the Battery Protect cutoff the hard way.</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+  <div class="mast">
+    <div><img src="LOGO"></div>
+    <div style="flex:1; margin-left:14px;">
+      <div class="t">MX60 FIELD CHECKLIST</div>
+      <div class="s">System Health &amp; Initialization</div>
+    </div>
+    <div class="pg"><b style="color:#EB2A2B;">DRAFT</b><br>Rev 1.0 &middot; Page 2 of 4</div>
+  </div>
+
+  <h2>4 &nbsp; System health before initializing <span class="ref">SOP §7</span></h2>
+  <div class="block">
+    <div class="two">
+      <div><ul>
+        <li><span class="cb"></span><span>Disk check complete — <b>no Warning or Error icon</b></span></li>
+        <li><span class="cb"></span><span>Correct <b>Vehicle Preset</b> — install height matches this vehicle <i>today</i></span></li>
+        <li><span class="cb"></span><span><b>DMI / GAMS checkboxes ACTIVATED</b> if fitted</span></li>
+      </ul></div>
+      <div><ul>
+        <li><span class="cb"></span><span>Correct <b>Capture Preset</b> selected</span></li>
+        <li><span class="cb"></span><span>Camera and Laser buttons <span class="chip g">GREEN</span></span></li>
+        <li><span class="cb"></span><span>UTC time showing · vehicle parked in open sky</span></li>
+      </ul></div>
+    </div>
+    <div class="alert"><span class="h">SILENT FAILURE</span> An <b>unactivated DMI or GAMS logs nothing</b>
+      — even though it is fitted, measured and connected. Nothing in the field will tell you.</div>
+  </div>
+
+  <h2>5 &nbsp; Initialization — the most important 20 minutes <span class="ref">SOP §8</span></h2>
+  <div class="block">
+    <ul>
+      <li><span class="num">1</span><span>Parked <b>open sky</b>, good PDOP, clear of buildings</span></li>
+      <li><span class="num">2</span><span>Mission started — name, area, <b>presets confirmed</b></span></li>
+      <li><span class="num">3</span><span><b class="red">STILL for 2–3 minutes</b> &nbsp;— it feels long; it is not optional</span></li>
+      <li><span class="num">4</span><span>Blue arrow visible; UTC time showing</span></li>
+      <li><span class="num">5</span><span><b>Drive straight ~20 m</b> → NAV <span class="chip r">RED</span> → <span class="chip o">ORANGE</span></span></li>
+      <li><span class="num">6</span><span><b>Vary speed + 2–3 dynamic turns</b> → NAV <span class="chip o">ORANGE</span> → <span class="chip g">GREEN</span><br>
+          <span style="color:#55554F">Example: <span class="mono">0 → 50 → 20 → 50 → 20 km/h</span></span></span></li>
+      <li><span class="num">7</span><span>All parameters green in <b>Nav View</b></span></li>
+      <li><span class="num">8</span><span><b class="red">WAIT — up to 10 more minutes</b> before logging</span></li>
+      <li><span class="num">9</span><span>Initialization time and location <b>recorded</b></span></li>
+    </ul>
+    <table style="margin-top:6px;">
+      <tr><th style="width:16%">NAV</th><th style="width:48%">Meaning</th><th>Can you record?</th></tr>
+      <tr><td><span class="chip r">RED</span></td><td>No valid solution / navigation failure</td><td><b>Blocked by the system</b></td></tr>
+      <tr><td><span class="chip o">ORANGE</span></td><td>A solution exists</td><td>Permitted — <b>but not for survey grade</b></td></tr>
+      <tr><td><span class="chip g">GREEN</span></td><td>Meets your user accuracy figures</td><td><b>Yes — this is the target</b></td></tr>
+    </table>
+    <div class="tip"><span class="h">FIELD TIP</span> Watch <i>which</i> parameter holds you at orange.
+      Heading → more dynamic manoeuvres. Position → move to a better location; more circles won't help.</div>
+  </div>
+
+  <h2>6 &nbsp; Navigation logging vs. recording — three rules <span class="ref">SOP §8, §9</span></h2>
+  <div class="block">
+    <table>
+      <tr><td class="k" style="width:34%">Starts automatically</td><td>As soon as a valid position exists and the blue arrow appears — <b>even if NAV is still red</b></td></tr>
+      <tr><td class="k">Unaffected by colour</td><td>Orange ↔ green transitions do <b>not</b> change navigation logging</td></tr>
+      <tr><td class="k">Stops on mission close</td><td>Closing the mission ends navigation logging <b>immediately</b></td></tr>
+    </table>
+    <div style="margin-top:5px; font-size:8pt;">
+      The <b>Record</b> button starts and stops <b>laser and imagery only</b>. The trajectory records
+      throughout the whole mission, including between runs.
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE 3 ============ -->
+<div class="page">
+  <div class="mast">
+    <div><img src="LOGO"></div>
+    <div style="flex:1; margin-left:14px;">
+      <div class="t">MX60 FIELD CHECKLIST</div>
+      <div class="s">During Collection</div>
+    </div>
+    <div class="pg"><b style="color:#EB2A2B;">DRAFT</b><br>Rev 1.0 &middot; Page 3 of 4</div>
+  </div>
+
+  <h2>7 &nbsp; Collecting <span class="ref">SOP §9</span></h2>
+  <div class="block">
+    <div class="two">
+      <div>
+        <div class="big" style="margin-bottom:3px;">Record button</div>
+        <table>
+          <tr><td class="k" style="width:42%"><span class="chip g">GREEN</span> → press</td><td>Starts a run</td></tr>
+          <tr><td class="k"><span class="chip r">RED</span> while running</td><td><b>Logging is active</b></td></tr>
+          <tr><td class="k"><span class="chip r">RED</span> → press</td><td>Stops the run</td></tr>
+        </table>
+        <div style="font-size:7.8pt; color:#55554F; margin-top:3px;">
+          Counter-intuitive: <b>red means recording</b>.
+        </div>
+      </div>
+      <div>
+        <div class="big" style="margin-bottom:3px;">Driving</div>
+        <table>
+          <tr><td class="k" style="width:52%">Recommended max speed</td><td><b>80 km/h (50 mph)</b></td></tr>
+          <tr><td class="k">Absolute max speed</td><td>110 km/h (68 mph)</td></tr>
+          <tr><td class="k">Minimum mission time</td><td><b>30 minutes</b></td></tr>
+          <tr><td class="k">Style</td><td>Smooth — no harsh accel, braking or steering</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="tip"><span class="h">DYNAMICS BEFORE, SMOOTHNESS DURING</span>
+      Initialization <i>wants</i> dynamics — they make errors observable. Collection wants the vehicle
+      predictable. Every unmodelled jolt is a demand on the IMU and noise in the cloud.</div>
+  </div>
+
+  <h2>8 &nbsp; Monitor in a loop while driving <span class="ref">SOP §9</span></h2>
+  <div class="block">
+    <table>
+      <tr><th style="width:22%">Watch</th><th style="width:26%">Good</th><th>Act if</th></tr>
+      <tr><td class="k">NAV button</td><td><span class="chip g">GREEN</span></td><td>Orange — note the location &nbsp;·&nbsp; <b class="red">Red — recording is blocked</b></td></tr>
+      <tr><td class="k">Camera / Laser</td><td><span class="chip g">GREEN</span></td><td>Orange (not synced) or <b class="red">red (device error)</b></td></tr>
+      <tr><td class="k">Record button</td><td><span class="chip r">RED</span> on a run</td><td>Green when you believe you are recording</td></tr>
+      <tr><td class="k"><b>Thick blue line</b></td><td>Over every collected stretch</td><td><b>Missing where you drove a run — the run is not recording</b></td></tr>
+      <tr><td class="k">SSD fill status</td><td>Space remaining</td><td>Approaching full</td></tr>
+      <tr><td class="k">UTC time</td><td>Displayed</td><td>Missing — GNSS initialization lost</td></tr>
+      <tr><td class="k">Disk icons</td><td>None</td><td>Warning or Error icon appears</td></tr>
+      <tr><td class="k">Audible alarm</td><td>Silent</td><td><b class="red">Battery Protect — 78 s to restore charge before power cuts</b></td></tr>
+    </table>
+    <div class="tip"><span class="h">BEST IN-VEHICLE QC CHECK</span> TMI draws the trajectory as a
+      <b>thin</b> blue line and recorded areas as a <b>thick</b> blue line. Every stretch you meant to
+      collect should be thick. Finding a thin one here costs minutes; finding it in the office costs a
+      mobilisation.</div>
+  </div>
+
+  <h2>9 &nbsp; Useful during a mission <span class="ref">SOP §9</span></h2>
+  <div class="block"><div class="two">
+    <div><ul>
+      <li><span class="cb"></span><span><b>Comments</b> — time-tags notes into the mission database. Use it.</span></li>
+      <li><span class="cb"></span><span><b>Waterfall view</b> — confirms the laser is producing sensible data</span></li>
+      <li><span class="cb"></span><span><b>Camera exposure</b> — adjust live when lighting changes materially</span></li>
+    </ul></div>
+    <div><ul>
+      <li><span class="cb"></span><span>Record <b>only project-specific areas</b></span></li>
+      <li><span class="cb"></span><span>Stop recording for turnarounds; restart on the new pass</span></li>
+      <li><span class="cb"></span><span>Need different capture settings? Use <b>mission re-configuration</b> — do <b>NOT</b> close the mission (no re-initialization needed)</span></li>
+    </ul></div>
+  </div></div>
+</div>
+
+<!-- ============ PAGE 4 ============ -->
+<div class="page">
+  <div class="mast">
+    <div><img src="LOGO"></div>
+    <div style="flex:1; margin-left:14px;">
+      <div class="t">MX60 FIELD CHECKLIST</div>
+      <div class="s">Ending &middot; Data &middot; Stop-Work</div>
+    </div>
+    <div class="pg"><b style="color:#EB2A2B;">DRAFT</b><br>Rev 1.0 &middot; Page 4 of 4</div>
+  </div>
+
+  <h2>10 &nbsp; Ending the mission <span class="ref">SOP §10</span></h2>
+  <div class="block">
+    <ul>
+      <li><span class="num">1</span><span>Stop recording the final run</span></li>
+      <li><span class="num">2</span><span>Drive to an initialization point, <b>dynamic manoeuvres on the way</b></span></li>
+      <li><span class="num">3</span><span><b class="red">FINALIZE SEQUENCE — mirror of the start:</b>
+        &nbsp; dynamic steering → vary speed → drive straight → <b>STILL 2–3 min</b></span></li>
+      <li><span class="num">4</span><span><b>Review the map</b> — thick blue line over every intended stretch</span></li>
+      <li><span class="num">5</span><span>Close mission → <b>Complete Mission</b></span></li>
+      <li><span class="num">6</span><span>Shut down → <b>Shutdown</b></span></li>
+      <li><span class="num">7</span><span>Wait for power button light <b>OUT</b> — up to 90 seconds</span></li>
+      <li><span class="num">8</span><span>Field protocol complete — runs, directions, date, mission, system S/N</span></li>
+      <li><span class="num">9</span><span>Post-mission safety check (block 2)</span></li>
+    </ul>
+    <div class="alert"><span class="h">NEVER PULL POWER</span> Always use <b>Complete Mission</b> AND
+      <b>Shutdown</b>, or risk corrupted data. &nbsp;<b>Do the map review BEFORE closing</b> — if a run is
+      missing and you are still on site and initialized, you can re-drive it.</div>
+    <div class="tip"><span class="h">WHY THE MIRROR</span> Office software solves the trajectory forwards
+      from the start and backwards from the end, then blends them. A good initialization at <i>both</i>
+      ends means the weakest part — the middle — is solved from two strong anchors instead of one.
+      <b>It cannot be added later.</b></div>
+  </div>
+
+  <h2>11 &nbsp; Data handling <span class="ref">SOP §11</span></h2>
+  <div class="block"><div class="two">
+    <div><ul>
+      <li><span class="cb"></span><span>System fully shut down before removing disks</span></li>
+      <li><span class="cb"></span><span><b>Unlock and remove BOTH SSDs</b> — they are one dataset</span></li>
+      <li><span class="cb"></span><span>Offload via both Data Carrier Docks, USB 3</span></li>
+    </ul></div>
+    <div><ul>
+      <li><span class="cb"></span><span><b>Verify:</b> navigation data · both lasers · panoramic · back-down camera · Mission Report · logs</span></li>
+      <li><span class="cb"></span><span><b>Back up before any processing</b></span></li>
+      <li><span class="cb"></span><span><b>Only then</b> prepare SSDs for the next mission</span></li>
+    </ul></div>
+  </div>
+    <div class="alert"><span class="h">TWO HARD RULES</span>
+      Never connect USB while a disk is in the Control Unit — remove it first. &nbsp;
+      <b>Never delete raw mission data</b> because processing succeeded or the deliverable shipped.</div>
+  </div>
+
+  <div class="two">
+    <div>
+      <h2>12 &nbsp; Stop-work triggers</h2>
+      <div class="block">
+        <table>
+          <tr><td class="k" style="width:52%">Blinking red LED</td><td>Do not start / stop</td></tr>
+          <tr><td class="k">Disk <b>Error</b> icon</td><td>No production mission</td></tr>
+          <tr><td class="k">Battery Protect alarm</td><td>78 s to restore charge</td></tr>
+          <tr><td class="k">NAV red, material extent</td><td>Nothing is recording</td></tr>
+          <tr><td class="k">Rain or mist</td><td>Trimble: avoid operating</td></tr>
+          <tr><td class="k">Unresolved prior fault</td><td>Do not start</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h2>13 &nbsp; Support <span class="ref">SOP §14</span></h2>
+      <div class="block">
+        <div style="font-size:9pt; font-weight:800; color:#343433;">mx_support@trimble.com</div>
+        <div style="font-size:8.2pt; margin:2px 0 5px;">Americas <b>+1-289-695-4416</b></div>
+        <div style="font-size:7.8pt; color:#55554F; margin-bottom:3px;">Provide:</div>
+        <ul style="font-size:7.8pt;">
+          <li><span class="cb"></span><span>Problem description &amp; how to reproduce</span></li>
+          <li><span class="cb"></span><span>Mission location and conditions</span></li>
+          <li><span class="cb"></span><span><b>System log file</b> · serial number</span></li>
+          <li><span class="cb"></span><span>Total operating hours · photos / video</span></li>
+        </ul>
+        <div style="font-size:7.6pt; color:#55554F; margin-top:4px;">
+          Log file is auto-saved to <b>removable Disk 1</b> during shutdown, or TMI.AI → Log Download.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-size:7pt; color:#8A8A83; border-top:1px solid #D6D6D1; padding-top:4px; margin-top:2px;">
+    Sources: Trimble MX60 User Guide Rev B (May 2025) · MX60 Quick Start Guide Rev B (March 2025) ·
+    TMI Software User Guide Rev L (April 2026) · Product Bulletin: Dust Filter in TMI for MX60 (January 2025).
+    Page-level citations are in the numbered SOP sections.
+  </div>
+</div>
+
+</body></html>
