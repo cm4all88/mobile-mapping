@@ -251,15 +251,13 @@ pre code{background:none;border:none;padding:0;font-size:13px;line-height:1.62}
 /* ---------- tables ---------- */
 .tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--raise)}
 table{width:100%;border-collapse:collapse;font-size:14.5px}
-th{background:var(--charcoal);color:var(--ground);text-align:left;padding:9px 13px;
-  font-weight:600;font-size:12.5px;letter-spacing:.02em;white-space:nowrap}
-:root[data-theme="dark"] th,:root:not([data-theme="light"]) th{color:#17171A}
-/* th inverts its ground in dark mode, so inline emphasis must invert with it
-   or bold text inside a header disappears into the background */
-th strong,th em,th code{color:inherit}
-@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) th{color:var(--ground)}}
+/* header on Light Gray 4, charcoal text, one rule below. No vertical rules and
+   no striping -- the p.9 clarity principle (style-system.md §2). */
+th{background:var(--panel);color:var(--ink);text-align:left;padding:9px 13px;
+  font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+  border-bottom:1px solid var(--rule-2)}
+th strong,th em,th code{color:inherit;font-weight:700}
 td{padding:9px 13px;border-top:1px solid var(--rule);vertical-align:top;line-height:1.5}
-tbody tr:nth-child(even){background:color-mix(in srgb,var(--panel) 55%,transparent)}
 td code{font-size:.84em}
 
 /* ---------- callouts ---------- */

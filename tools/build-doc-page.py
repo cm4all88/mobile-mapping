@@ -132,6 +132,42 @@ OFFICE_ORDER = [
  ('appendix-F-record-templates','F','Record Templates'),
 ]
 
+FIELD_ORDER = [
+ ('00-front-matter','0','Front Matter'),
+ ('01-how-to-use-this-guide','1','How to Use This Guide'),
+ ('02-before-you-leave-the-yard','2','Before You Leave the Yard'),
+ ('03-equipment-inspection','3','Equipment Inspection'),
+ ('04-mounting-the-sensor-unit','4','Mounting the Sensor Unit'),
+ ('05-connections-and-cables','5','Connections and Cable Routing'),
+ ('06-power-system-checks','6','Power System Checks'),
+ ('07-battery-protect','7','Battery Protect'),
+ ('08-starting-the-system','8','Starting the System'),
+ ('09-connecting-to-tmi','9','Connecting to TMI'),
+ ('10-mission-setup','10','Mission Setup in TMI'),
+ ('11-disk-check','11','Disk Check'),
+ ('12-navigation-initialization','12','Navigation Initialization'),
+ ('13-gams-considerations','13','GAMS Considerations'),
+ ('14-reading-navigation-status','14','Reading Navigation Status'),
+ ('15-recording-runs','15','Recording Runs'),
+ ('16-driving-practices','16','Driving Practices'),
+ ('17-gnss-while-driving','17','GNSS While Driving'),
+ ('18-field-qc-indicators','18','Field QC Indicators'),
+ ('19-using-comments','19','Using Comments'),
+ ('20-stopping-and-restarting','20','Stopping and Restarting'),
+ ('21-the-closing-sequence','21','The Closing Sequence'),
+ ('22-shutdown','22','Shutdown'),
+ ('23-field-close-out','23','Field Close-out'),
+ ('24-re-collect-or-not','24','Re-collect or Not'),
+ ('25-data-transfer-and-handoff','25','Data Transfer and Handoff'),
+ ('26-what-must-accompany-the-data','26','What Must Accompany the Data'),
+ ('27-common-problems','27','Common Problems'),
+ ('appendix-A-preflight-checklist','A','Preflight Checklist'),
+ ('appendix-B-end-of-mission-checklist','B','End-of-Mission Checklist'),
+ ('appendix-C-field-record-form','C','Field Record Form'),
+ ('appendix-D-tmi-status-reference','D','TMI Status and Warning Reference'),
+ ('appendix-E-quick-card','E','Quick Card'),
+]
+
 DOCS = {
  'manual': dict(
     dir='deliverables/technical-manual', out='technical-manual.html', accent='var(--brand-blue)', accent_on='var(--brand-white)',
@@ -168,7 +204,16 @@ DOCS = {
     dir='deliverables/field-how-to', out='field-how-to.html', accent='var(--brand-green)', accent_on='var(--brand-charcoal)',
     doctype='Field How To', docname='MX60 Mobile Mapping',
     title='MX60 Field How To', sub='Draft A · Not issued',
-    order=None, lead='How to run the MX60 in the field.', stats=[], flag='',
+    order=FIELD_ORDER,
+    lead=('How to run the MX60 in the field. Short numbered steps, meant to be used in or near '
+          'the vehicle.'),
+    stats=[('Sections','27 + 5 appendices'),('Words','9,800'),
+           ('Printable checklists','2'),('Quick card','Appendix E')],
+    flag=('<b>Start with Appendix E</b> &mdash; the ten things that cost the most if missed, on '
+          'one page. Four of them cannot be fixed from the office: an aiding sensor that was never '
+          'activated, missed overlap, a mission with no closing sequence, and a disk cleared before '
+          'the copy was verified. This guide cannot create a requirement &mdash; where it differs '
+          'from the SOP, the SOP governs.'),
  ),
  'office': dict(
     dir='deliverables/office-how-to', out='office-how-to.html', accent='var(--brand-yellow)', accent_on='var(--brand-charcoal)',
