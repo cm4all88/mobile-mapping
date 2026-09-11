@@ -1,0 +1,459 @@
+<title>{{DOCTITLE}}</title>
+<style>
+/* ============================================================================
+   Parametrix MX60 document family — brand tokens
+   The single source of every visual value in all four deliverables.
+
+   AUTHORITY  Parametrix Brand Guide v6, November 2023 (32 pp).
+              Page citations below are to that guide.
+
+   SOURCE KEY
+     [brand p.N]  a Parametrix brand rule, cited to its page.
+     [extension]  the guide is silent here. A decision made for this document
+                  family, built from brand values. NOT a Parametrix brand rule
+                  and not to be quoted as one. See brand-source-status.md.
+
+   The company name is never abbreviated (p.5), in text or in identifiers.
+   ============================================================================ */
+
+:root{
+  /* --- primary palette ------------------------------------- [brand p.18] */
+  --brand-red:#EE3D24;              /* Parametrix Red · Pantone Bright Red   */
+  --brand-charcoal:#333333;         /* Charcoal · Pantone Black              */
+  --brand-gray:#676768;             /* Medium Gray · Pantone 424             */
+  --brand-white:#FFFFFF;
+
+  /* --- secondary palette · accent, categorization ---------- [brand p.18] */
+  --brand-orange:#F36E21;           /* Progress Orange   · Pantone 1505      */
+  --brand-yellow:#FCC214;           /* Optimistic Yellow · Pantone 123       */
+  --brand-green:#3FB549;            /* Future Green      · Pantone 361       */
+  --brand-blue:#0073BB;             /* Clean Blue        · Pantone Med Blue  */
+
+  /* --- tertiary palette · sparingly, for highlighting ------ [brand p.18] */
+  --brand-calm-red:#ED715D;
+  --brand-calm-orange:#F89957;
+  --brand-calm-blue:#B2D3DB;
+  --brand-calm-yellow:#F4E39C;
+  --brand-gray-1:#B3B4B5;
+  --brand-gray-2:#DBDDDC;
+  --brand-gray-3:#E5E5E5;
+  --brand-gray-4:#F2F2F2;
+
+  /* --- typography ------------------------------------------ [brand p.16]
+     Klinic Slab (headlines), Franklin Gothic URW (body/subheads), Freight
+     Text Pro (quotes/accents). The licensed faces are not held, so each
+     stack falls back to the system alternate the guide itself names:
+     Rockwell, Franklin Gothic, Georgia. No other face is substituted.     */
+  --brand-head:"Klinic Slab",Rockwell,"Rockwell Nova","Rockwell Std",serif;
+  --brand-body:"Franklin Gothic URW","Franklin Gothic Book","Franklin Gothic Medium",
+               "ITC Franklin Gothic","Franklin Gothic",Arial,Helvetica,sans-serif;
+  --brand-quote:"Freight Text Pro",Georgia,"Times New Roman",serif;
+  --brand-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+                                    /* [extension] the guide names no monospace
+                                       face; a technical document needs one for
+                                       filenames, paths and identifiers.      */
+
+  /* --- surfaces and ink ------------------------------------------------- */
+  --ground:var(--brand-white);                       /* [brand p.18]        */
+  --panel:var(--brand-gray-4);                       /* [brand p.18]        */
+  --raise:var(--brand-white);
+  --ink:var(--brand-charcoal);                       /* [brand p.18]        */
+  --ink-2:var(--brand-gray);                         /* [brand p.18]        */
+  --muted:var(--brand-gray);
+  --rule:var(--brand-gray-3);                        /* [brand p.18]        */
+  --rule-2:var(--brand-gray-1);
+  --charcoal:var(--brand-charcoal);
+  --red:var(--brand-red);
+
+  /* --- callout colours ------------------------------------- [extension]
+     The guide does not style callouts. These use only palette colours, and
+     follow the guide's own logic: red is the attention colour and is used
+     sparingly (p.11, p.23); tertiary colours are for highlighting (p.18).
+     The alert pair is red and calm red, so urgency reads at a glance.      */
+  --co-caution:var(--brand-red);
+  --co-important:var(--brand-calm-red);
+  --co-why:var(--brand-charcoal);
+  --co-plain:var(--brand-gray);
+  --co-trimble:var(--brand-charcoal);
+  --co-observed:var(--brand-gray-1);
+  --co-proposed:var(--brand-calm-blue);
+  --co-adopted:var(--brand-green);
+  --co-decision:var(--brand-calm-yellow);
+  --co-testing:var(--brand-calm-orange);
+  --co-note:var(--brand-gray-2);
+
+  /* --- document identity ----------------------------------- [extension]
+     One secondary colour per document. The guide states that secondary
+     colours are accents "useful for ... enhancing categorization" (p.18),
+     which is what this is. Each build sets --doc-accent.
+       Technical Manual  Clean Blue        SOP           Progress Orange
+       Field How To      Future Green      Office How To Optimistic Yellow  */
+  --doc-accent:var(--brand-blue);
+
+  /* --- scale ------------------------------------------------ [extension] */
+  --base:17px;
+  --lh:1.68;            /* the letterhead note: increased line spacing (p.23) */
+  --measure:78ch;
+  --radius:0px;         /* the guide's compositions are square-cornered       */
+  --u:4px;
+}
+
+/* --- dark ground ------------------------------------------- [extension]
+   The guide is a print and marketing document and does not address screen
+   dark mode. What it does give is the knockout logo for dark or busy
+   grounds (p.11), which is what the builds use. Palette hues are held;
+   only their roles swap.                                                   */
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --ground:#1C1C1C; --panel:#262626; --raise:#2A2A2A;
+  --ink:#F2F2F2; --ink-2:#DBDDDC; --muted:#B3B4B5;
+  --rule:#3A3A3A; --rule-2:#4A4A4A;
+  --charcoal:#F2F2F2;
+  --co-why:#F2F2F2; --co-trimble:#F2F2F2; --co-plain:#B3B4B5;
+}}
+:root[data-theme="dark"]{
+  --ground:#1C1C1C; --panel:#262626; --raise:#2A2A2A;
+  --ink:#F2F2F2; --ink-2:#DBDDDC; --muted:#B3B4B5;
+  --rule:#3A3A3A; --rule-2:#4A4A4A;
+  --charcoal:#F2F2F2;
+  --co-why:#F2F2F2; --co-trimble:#F2F2F2; --co-plain:#B3B4B5;
+}
+
+/* --- the spacer arrow ------------------------------------- [brand p.19]
+   "an optional spacer to add distinction to company layouts ... conjures
+   forward motion." Always 1 pt, barbed head, red or charcoal, with room
+   above and below. Drawn here as SVG at a 1 pt stroke so it scales.       */
+.arrow{
+  height:12px; width:54px; margin:18px 0 22px;
+  background:no-repeat left center/contain
+    url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 12">\
+<g fill="none" stroke="%23EE3D24" stroke-width="1.334">\
+<path d="M0 6h50"/><path d="M43.5 1.5 50.5 6l-7 4.5"/></g></svg>');
+}
+.arrow-charcoal{
+  background-image:url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 12">\
+<g fill="none" stroke="%23333333" stroke-width="1.334">\
+<path d="M0 6h50"/><path d="M43.5 1.5 50.5 6l-7 4.5"/></g></svg>');
+}
+
+/* --- aliases: the stylesheet below is written against short names ------- */
+:root{
+  --sans:var(--brand-body); --head:var(--brand-head); --quote:var(--brand-quote);
+  --mono:var(--brand-mono);
+  --ok:var(--brand-green); --warn:var(--co-testing); --bad:var(--brand-red);
+  --info:var(--brand-charcoal); --violet:var(--co-proposed);
+  --plain:var(--co-plain); --retain:var(--brand-charcoal);
+  --accent:var(--doc-accent);
+  --rail:282px;
+  --doc-accent:{{ACCENT}};
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--sans);font-size:var(--base);line-height:var(--lh);
+  -webkit-font-smoothing:antialiased;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+/* ---------- rail ---------- */
+.rail{position:fixed;inset:0 auto 0 0;width:var(--rail);background:var(--panel);
+  border-right:1px solid var(--rule);display:flex;flex-direction:column;z-index:20}
+.rail-top{padding:22px 20px 14px;border-bottom:1px solid var(--rule)}
+/* The logo is never recoloured or filtered (brand p.14). The guide supplies a
+   knockout version for dark grounds (p.11); the two are swapped, not altered. */
+.rail-top img{height:21px;width:auto}
+.rail-top .mark-light{display:block} .rail-top .mark-dark{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .rail-top .mark-light{display:none}
+  :root:not([data-theme="light"]) .rail-top .mark-dark{display:block} }
+:root[data-theme="dark"] .rail-top .mark-light{display:none}
+:root[data-theme="dark"] .rail-top .mark-dark{display:block}
+:root[data-theme="light"] .rail-top .mark-light{display:block}
+:root[data-theme="light"] .rail-top .mark-dark{display:none}
+/* clear space >= the height of the right side of the x (brand p.13) */
+.rail-top{--x:7px;border-bottom:1px solid var(--rule);box-shadow:inset 0 -3px 0 -2px var(--accent)}
+.rail-top img{margin:var(--x) 0 calc(var(--x) + 7px)}
+.rail-top .k{font:700 10px/1.3 var(--sans);letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+.rail-top h1{margin:7px 0 0;font-family:var(--head);font-size:19px;line-height:1.22;
+  font-weight:600;letter-spacing:-.004em}
+.rail-top .sub{margin-top:6px;font:400 11.5px/1.45 var(--sans);color:var(--muted)}
+.find{margin:12px 20px 10px}
+.find input{width:100%;padding:8px 11px;border:1px solid var(--rule-2);border-radius:var(--radius);
+  background:var(--raise);color:var(--ink);font:400 13.5px var(--sans)}
+.find input::placeholder{color:var(--muted)}
+.find input:focus{outline:2px solid var(--red);outline-offset:1px;border-color:transparent}
+nav{flex:1;overflow-y:auto;padding:0 12px 24px}
+nav ul{list-style:none;margin:0;padding:0}
+nav li{margin:0;padding:0;border:none}
+nav li a{display:flex;gap:11px;align-items:baseline;padding:6px 9px;border-radius:var(--radius);
+  text-decoration:none;color:var(--ink-2);font-size:13.5px;line-height:1.35}
+nav li a:hover{background:var(--raise);color:var(--ink)}
+nav li a:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+nav li a.on{background:var(--raise);color:var(--ink);font-weight:600;
+  box-shadow:inset 2.5px 0 0 var(--red)}
+nav .n{flex:none;width:19px;font:600 11.5px var(--sans);color:var(--muted);text-align:right}
+nav li a.on .n{color:var(--red)}
+nav li.nv-app{margin-top:0}
+nav li.nv-app:first-of-type{margin-top:14px;padding-top:14px;border-top:1px solid var(--rule)}
+nav li.hide{display:none}
+.rail-end{padding:12px 20px 16px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;align-items:center;gap:10px}
+.rail-end button{background:none;border:1px solid var(--rule-2);border-radius:var(--radius);
+  color:var(--muted);font:500 11px var(--sans);padding:5px 9px;cursor:pointer;letter-spacing:.04em}
+.rail-end button:hover{color:var(--ink);border-color:var(--ink-2)}
+.rail-end button:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+
+/* ---------- main ---------- */
+main{margin-left:var(--rail);padding:0 44px 120px;max-width:calc(var(--rail) + 1080px)}
+.hero{padding:58px 0 30px;border-bottom:1px solid var(--rule)}
+.hero .k{font:600 10.5px/1 var(--sans);letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+.hero h2{font-family:var(--head);margin:14px 0 0;font-size:42px;line-height:1.08;font-weight:600;
+  letter-spacing:-.012em;text-wrap:balance;max-width:16ch;color:var(--charcoal)}
+.hero p{margin:16px 0 0;font-size:18px;color:var(--ink-2);max-width:60ch}
+.meta{display:flex;flex-wrap:wrap;gap:0;margin:30px 0 0;border:1px solid var(--rule);
+  border-radius:8px;overflow:hidden;background:var(--raise)}
+.meta div{flex:1 1 150px;padding:13px 16px;border-right:1px solid var(--rule)}
+.meta div:last-child{border-right:none}
+.meta dt{font:600 9.5px/1 var(--sans);letter-spacing:.13em;color:var(--muted);text-transform:uppercase}
+.meta dd{margin:6px 0 0;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.flag{margin:26px 0 0;padding:13px 17px;border-left:3px solid var(--red);
+  background:color-mix(in srgb,var(--red) 8%,var(--ground));border-radius:0;font-size:15px}
+.flag b{color:var(--red)}
+
+.sec{padding:52px 0 8px;scroll-margin-top:20px;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:none}
+.sec-h{display:flex;gap:18px;align-items:flex-start;margin-bottom:8px}
+.sec .arrow{margin:0 0 26px}
+.sec-n{flex:none;font:600 32px/1.05 var(--sans);color:var(--accent);letter-spacing:-.02em;
+  min-width:52px;padding-top:2px;font-variant-numeric:tabular-nums}
+.sec-h h2{margin:0;font-family:var(--head);font-size:32px;line-height:1.14;font-weight:600;
+  letter-spacing:-.006em;text-wrap:balance;color:var(--charcoal)}
+
+.sec > p,.sec > ul,.sec > ol{max-width:68ch}
+h3{margin:40px 0 12px;font-size:20px;font-weight:600;letter-spacing:-.012em;
+  padding-bottom:7px;border-bottom:1px solid var(--rule);text-wrap:balance}
+h4{margin:28px 0 9px;font-size:16px;font-weight:600;color:var(--ink-2);text-wrap:balance}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin:0 0 6px}
+strong{font-weight:600;color:var(--ink)}
+code{font:500 .86em var(--mono);background:var(--panel);padding:.1em .38em;
+  border-radius:var(--radius);border:1px solid var(--rule)}
+pre{background:var(--panel);border:1px solid var(--rule);border-radius:8px;
+  padding:15px 18px;overflow-x:auto;margin:0 0 18px}
+pre code{background:none;border:none;padding:0;font-size:13px;line-height:1.62}
+.cite{font:400 .84em var(--sans);color:var(--muted);white-space:nowrap}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--raise)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{background:var(--charcoal);color:var(--ground);text-align:left;padding:9px 13px;
+  font-weight:600;font-size:12.5px;letter-spacing:.02em;white-space:nowrap}
+:root[data-theme="dark"] th,:root:not([data-theme="light"]) th{color:#17171A}
+/* th inverts its ground in dark mode, so inline emphasis must invert with it
+   or bold text inside a header disappears into the background */
+th strong,th em,th code{color:inherit}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) th{color:var(--ground)}}
+td{padding:9px 13px;border-top:1px solid var(--rule);vertical-align:top;line-height:1.5}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--panel) 55%,transparent)}
+td code{font-size:.84em}
+
+/* ---------- callouts ---------- */
+.co{margin:0 0 20px;padding:14px 18px;border-left:3px solid var(--muted);
+  border-radius:0 7px 7px 0;background:var(--panel);max-width:74ch}
+.co p{margin:0 0 9px;font-size:15.5px;line-height:1.56}
+.co p:last-child{margin-bottom:0}
+.co .co-h{font:600 11px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:8px;color:var(--muted)}
+.co .co-h em,.co .co-h strong{font-style:normal;font-weight:600}
+.co-li{padding-left:15px;position:relative}
+.co-li.co-num{padding-left:4px}
+.co-li.co-num::before{display:none}
+.co-li::before{content:"";position:absolute;left:2px;top:.62em;width:4px;height:4px;
+  border-radius:50%;background:var(--muted)}
+.co-caution{border-left-color:var(--co-caution);background:color-mix(in srgb,var(--co-caution) 7%,var(--ground))}
+.co-caution .co-h{color:var(--co-caution)}
+.co-important{border-left-color:var(--co-important);background:color-mix(in srgb,var(--co-important) 10%,var(--ground))}
+.co-important .co-h{color:var(--co-important)}
+.co-tip{border-left-color:var(--brand-green);background:color-mix(in srgb,var(--brand-green) 7%,var(--ground))}
+.co-tip .co-h{color:var(--brand-green)}
+.co-why{border-left-color:var(--co-why);background:var(--panel)}
+.co-why .co-h{color:var(--co-why)}
+.co-decision{border-left-color:var(--co-decision);background:color-mix(in srgb,var(--co-decision) 22%,var(--ground))}
+.co-decision .co-h{color:var(--ink-2)}
+.co-advanced{border-left-color:var(--rule-2);background:var(--panel)}
+
+/* evidence tags — smaller, quieter, all from the palette */
+.co-trimble,.co-observed,.co-proposed,.co-adopted,.co-testing,.co-vendor{
+  background:var(--panel)}
+.co-trimble  .co-h,.co-observed .co-h,.co-proposed .co-h,
+.co-adopted  .co-h,.co-testing  .co-h,.co-vendor   .co-h{font-size:10.5px}
+.co-trimble  p,.co-observed p,.co-proposed p,
+.co-adopted  p,.co-testing  p,.co-vendor   p{font-size:15px}
+.co-trimble{border-left-color:var(--co-trimble)}     .co-trimble .co-h{color:var(--co-trimble)}
+.co-observed{border-left-color:var(--co-observed)}   .co-observed .co-h{color:var(--muted)}
+.co-proposed{border-left-color:var(--co-proposed);
+  background:color-mix(in srgb,var(--co-proposed) 26%,var(--ground))}
+.co-proposed .co-h{color:var(--ink-2)}
+.co-adopted{border-left-color:var(--co-adopted);
+  background:color-mix(in srgb,var(--co-adopted) 10%,var(--ground))}
+.co-adopted .co-h{color:var(--co-adopted)}
+.co-testing,.co-vendor{border-left-color:var(--co-testing);
+  background:color-mix(in srgb,var(--co-testing) 14%,var(--ground))}
+.co-testing .co-h,.co-vendor .co-h{color:var(--ink-2)}
+
+/* In Plain English — a panel, ruled at the left like the guide's quotation */
+.co-plain,.co-retain{border-left:3px solid var(--co-plain);border-top:none;
+  background:var(--panel);padding:18px 20px}
+.co-plain .co-h,.co-retain .co-h{color:var(--co-plain);font-size:11px}
+.co-plain p,.co-retain p{font-size:16px;line-height:var(--lh)}
+.co-retain{border-left-color:var(--retain)}
+.co-retain .co-h{color:var(--retain)}
+.co-retain .co-li{font-size:15.5px}
+
+/* ---------- legend ---------- */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:9px;margin:24px 0 0}
+.legend div{padding:10px 13px;border-left:3px solid var(--muted);border-radius:0;
+  background:var(--panel);font-size:13px;line-height:1.45}
+.legend b{display:block;font:600 10px/1.4 var(--sans);letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:3px}
+.lg-caution{border-left-color:var(--co-caution)!important;background:color-mix(in srgb,var(--co-caution) 7%,var(--ground))!important}
+.lg-caution b{color:var(--co-caution)}
+.lg-important{border-left-color:var(--warn)!important;background:color-mix(in srgb,var(--warn) 9%,var(--ground))!important}
+.lg-important b{color:var(--warn)}
+.lg-tip{border-left-color:var(--ok)!important;background:color-mix(in srgb,var(--ok) 8%,var(--ground))!important}
+.lg-tip b{color:var(--ok)}
+.lg-why{border-left-color:var(--co-why)!important;background:var(--panel)!important}
+.lg-why b{color:var(--co-why)}
+.lg-decision{border-left-color:var(--violet)!important;background:color-mix(in srgb,var(--violet) 9%,var(--ground))!important}
+.lg-decision b{color:var(--violet)}
+.lg-advanced b{color:var(--muted)}
+.lg-trimble{border-left-color:var(--co-trimble)!important;background:var(--panel)!important}
+.lg-trimble b{color:var(--co-trimble)}
+.lg-observed{border-left-color:var(--rule-2)!important;background:var(--panel)!important}
+.lg-observed b{color:var(--muted)}
+.lg-proposed{border-left-color:var(--violet)!important;background:color-mix(in srgb,var(--violet) 5%,var(--ground))!important}
+.lg-proposed b{color:var(--violet)}
+.lg-testing{border-left-color:var(--warn)!important;background:color-mix(in srgb,var(--warn) 5%,var(--ground))!important}
+.lg-testing b{color:var(--warn)}
+.lg-plain{border-left:none!important;border-top:2px solid var(--plain)!important;
+  background:color-mix(in srgb,var(--plain) 6%,var(--ground))!important;border-radius:0 0 7px 7px}
+.lg-plain b{color:var(--plain)}
+
+/* ---------- responsive ---------- */
+.menu{display:none}
+@media (max-width:940px){
+  .rail{position:static;width:auto;height:auto;border-right:none;border-bottom:1px solid var(--rule)}
+  nav{max-height:0;overflow:hidden;padding:0 12px}
+  .rail.open nav{max-height:62vh;overflow-y:auto;padding:8px 12px 18px}
+  .menu{display:inline-block}
+  main{margin-left:0;padding:0 20px 90px;max-width:100%}
+  .hero{padding:34px 0 24px}
+  .hero h2{font-size:31px}
+  .sec-h{gap:13px}
+  .sec-n{font-size:26px;min-width:38px}
+  .sec-h h2{font-size:24px}
+}
+/* footer — ix formation bottom-left, as the letterhead (brand p.23) */
+.docfoot{display:flex;align-items:flex-end;gap:18px;margin:72px 0 0;padding-top:22px;
+  border-top:1px solid var(--rule)}
+.docfoot .ix{height:46px;width:auto;display:block;flex:none}
+:root[data-theme="dark"] .docfoot .ix,
+:root:not([data-theme="light"]) .docfoot .ix{opacity:.82}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .docfoot .ix{opacity:1}}
+.docfoot-t{display:flex;flex-wrap:wrap;gap:6px 20px;padding-bottom:5px;
+  font:400 11.5px/1.5 var(--sans);color:var(--muted)}
+.docfoot-t .nb{color:var(--red);font-weight:700}
+@media (max-width:420px){ main{padding:0 16px 80px} .hero h2{font-family:var(--head);font-weight:600;letter-spacing:-.008em;font-size:26px} }
+</style>
+
+<div class="rail" id="rail">
+  <div class="rail-top">
+    <img class="mark-light" src="data:image/png;base64,{{LOGO}}" alt="Parametrix">
+    <img class="mark-dark" src="data:image/png;base64,{{LOGO_KO}}" alt="Parametrix">
+    <div class="k">{{DOCTYPE}}</div>
+    <h1>{{DOCNAME}}</h1>
+    <div class="sub">{{DOCSUB}}</div>
+  </div>
+  <div class="find">
+    <input id="q" type="search" placeholder="Filter sections…" aria-label="Filter sections" autocomplete="off">
+  </div>
+  <nav><ul id="nav">{{NAV}}</ul></nav>
+  <div class="rail-end">
+    <button id="theme" type="button">Theme</button>
+    <button class="menu" id="menu" type="button">Contents</button>
+  </div>
+</div>
+
+<main>
+{{HERO}}
+  {{BODY}}
+  <footer class="docfoot">
+    <img class="ix" src="data:image/png;base64,{{IX}}" alt="" aria-hidden="true">
+    <div class="docfoot-t">
+      <span>{{DOCTITLE}}</span>
+      <span>{{DOCSUB}}</span>
+      <span class="nb">Not issued</span>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var IDX = {{INDEX}};
+  var nav = document.getElementById('nav');
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var items = Array.prototype.slice.call(nav.querySelectorAll('li'));
+
+  // filter
+  var q = document.getElementById('q');
+  q.addEventListener('input', function(){
+    var v = q.value.trim().toLowerCase();
+    items.forEach(function(li, k){
+      var rec = IDX[k];
+      var hit = !v || rec.t.toLowerCase().indexOf(v) > -1 || rec.n.toLowerCase() === v
+                || rec.x.indexOf(v) > -1;
+      li.classList.toggle('hide', !hit);
+    });
+  });
+
+  // active section
+  var secs = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+  function mark(){
+    var y = window.scrollY + 130, cur = null;
+    for (var k = 0; k < secs.length; k++) if (secs[k].offsetTop <= y) cur = secs[k].id;
+    links.forEach(function(a){
+      a.classList.toggle('on', cur && a.getAttribute('href') === '#' + cur);
+    });
+  }
+  var tick = false;
+  window.addEventListener('scroll', function(){
+    if (tick) return; tick = true;
+    requestAnimationFrame(function(){ mark(); tick = false; });
+  }, {passive:true});
+  mark();
+
+  // theme
+  var root = document.documentElement;
+  document.getElementById('theme').addEventListener('click', function(){
+    var dark = root.getAttribute('data-theme') === 'dark'
+      || (!root.getAttribute('data-theme')
+          && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme', dark ? 'light' : 'dark');
+    try { localStorage.setItem('mx60-theme', dark ? 'light' : 'dark'); } catch(e){}
+  });
+  try {
+    var saved = localStorage.getItem('mx60-theme');
+    if (saved) root.setAttribute('data-theme', saved);
+  } catch(e){}
+
+  // mobile contents
+  var rail = document.getElementById('rail');
+  document.getElementById('menu').addEventListener('click', function(){
+    rail.classList.toggle('open');
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('a') && window.innerWidth <= 940) rail.classList.remove('open');
+  });
+})();
+</script>

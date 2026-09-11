@@ -157,7 +157,14 @@ D Observed software behaviour · E Open technical questions · F Test results ·
 
 ---
 
-> **PARAMETRIX BRANDING — PLACEHOLDER**
->
-> Unstyled. All four documents will share one visual system, applied once when content is stable
-> and branding material is supplied.
+## Visual identity
+
+This manual follows the **Parametrix Brand Guide v6, November 2023**. Colour, typography, the logo
+and its clear space, the spacer arrow and the ix formation are all cited to that guide in
+`deliverables/_control/style/style-system.md`. Where the guide is silent — monospace type, tables,
+callouts, iconography, screen behaviour — the decision is marked there as an **extension** and is
+not a Parametrix brand rule.
+
+All four MX60 documents share one visual system. Each carries one **secondary** brand colour as its
+document accent, which the guide permits as a categorisation device: this manual is **Clean Blue**,
+the SOP Progress Orange, the Field How To Future Green, the Office How To Optimistic Yellow.

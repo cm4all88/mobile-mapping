@@ -157,10 +157,17 @@ D Observed software behaviour · E Open technical questions · F Test results ·
 
 ---
 
-> **PARAMETRIX BRANDING — PLACEHOLDER**
->
-> Unstyled. All four documents will share one visual system, applied once when content is stable
-> and branding material is supplied.
+## Visual identity
+
+This manual follows the **Parametrix Brand Guide v6, November 2023**. Colour, typography, the logo
+and its clear space, the spacer arrow and the ix formation are all cited to that guide in
+`deliverables/_control/style/style-system.md`. Where the guide is silent — monospace type, tables,
+callouts, iconography, screen behaviour — the decision is marked there as an **extension** and is
+not a Parametrix brand rule.
+
+All four MX60 documents share one visual system. Each carries one **secondary** brand colour as its
+document accent, which the guide permits as a categorisation device: this manual is **Clean Blue**,
+the SOP Progress Orange, the Field How To Future Green, the Office How To Optimistic Yellow.
 
 ---
 
@@ -6027,20 +6034,20 @@ where figure production is tracked.
 
 ## C4 · Branding
 
-> **PARAMETRIX BRANDING — PLACEHOLDER**
->
-> The document is **unstyled**. Branding is applied once, at the end, when content and structure
-> are stable *(`analysis/GUIDE-REQUIREMENTS.md` §1)*.
->
-> **Held:** `brand/parametrix-wordmark.png`, `brand/parametrix-x-mark.png`; sampled colours
-> **charcoal `#343433`** and **red `#EB2A2B`**.
->
-> **Still needed:** vector logo (SVG/EPS), a reversed variant for dark backgrounds, and whatever
-> template, example and brand-standard material exists.
->
-> **Note for capture consistency:** TBC 2026.10 introduced a **dark theme** *(TBC RN 2026.10)*.
-> **All screenshots must be captured in one theme** — light, matching every existing capture.
-> Mixed light and dark TBC screenshots in a Parametrix manual read as an error.
+Settled. The **Parametrix Brand Guide v6, November 2023** governs, and the visual system built from
+it is specified in `deliverables/_control/style/style-system.md`.
+
+| | |
+|---|---|
+| Figure captions | Franklin Gothic 13.5 px, Medium Gray, `Figure n` in weight 600, then the caption, then the source citation |
+| Screenshot crops | Crops, never whole help-portal pages. Trimble's navigation, header and footer are excluded |
+| Frames | 1 px Light Gray 3 rule, square corners. No shadows |
+| Callouts on figures | Parametrix Red, matching the CAUTION treatment, used only to mark the element the caption names |
+| Parametrix originals | Charcoal and the document accent; Parametrix Red reserved for the element that carries the warning. The **spacer arrow** is the divider in any diagram that needs one |
+
+> **The logo does not appear on figures.** It appears once in the running header and once in the
+> footer, as the ix formation *(brand guide pp.13, 23)*. Adding it to a figure would breach the
+> clear-space and no-added-elements rules of pp.13–14.
 
 ---
 

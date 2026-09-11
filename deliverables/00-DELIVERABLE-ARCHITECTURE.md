@@ -435,10 +435,15 @@ Estimated from the existing content, allowing for de-duplication and the new mat
 
 ## Document control scheme — proposed
 
+> **Superseded on two points.** Document numbers are **not** assigned — Parametrix's actual
+> document-control convention has not been established, and the brand guide does not settle it
+> (p.5 also forbids abbreviating the company name to "PMX"). Revision conventions are likewise
+> open. Temporary descriptive identifiers are used instead. See the master register, **D-1**.
+
 | Field | Manual | SOP | Field How To | Office How To |
 |---|---|---|---|---|
-| Number | PMX-TM-001 | **PMX-SOP-001** | PMX-FG-001 | PMX-OG-001 |
-| Revision | A, B, C… | **0, 1, 2…** | A, B, C… | A, B, C… |
+| Number | *not assigned — D-1* | *not assigned — D-1* | *not assigned — D-1* | *not assigned — D-1* |
+| Revision | *convention open — D-1* | *convention open — D-1* | *convention open — D-1* | *convention open — D-1* |
 | Controlled? | Reference | **Yes — controlled** | Supporting | Supporting |
 | Owner | System Owner | *D-1* | System Owner | System Owner |
 | Approver | Technical reviewer | **Per D-3** | Per SOP §4 | Per SOP §4 |
@@ -451,26 +456,20 @@ Estimated from the existing content, allowing for de-duplication and the new mat
 
 ---
 
-## Branding — prepared, not applied
+## Branding — applied
 
-All four share one visual system. Nothing is invented here; these are the slots it must fill.
+Settled by the **Parametrix Brand Guide v6, November 2023**. The visual system is specified once,
+in `_control/style/style-system.md`, and all four documents build from a single token file.
 
-| Element | Applies to |
+| | |
 |---|---|
-| Cover, document control block | All four, same layout, different accent |
-| Running head / foot with document number and revision | All four |
-| Heading hierarchy, body type, table style | All four |
-| Figure and table caption style | Manual, both How Tos |
-| **Warning boxes** — CAUTION, IMPORTANT | All four, **identical treatment** |
-| **Evidence tags** — Trimble / Observed / Proposed / Decision / Testing / Vendor | Manual, SOP |
-| **In Plain English boxes** | **Manual only** |
-| **Why This Matters notes** | Both How Tos |
-| Checklist and form styling | Both How Tos |
-| Revision history and approval block | All four |
+| Palette, typography, logo rules, clear space, spacer arrow, ix formation | Cited to the guide, page by page |
+| Monospace type, tables, callouts, iconography, screen behaviour, technical-report cover | **Extensions** — the guide is silent; each is built from brand values and recorded in `_control/style/brand-source-status.md` |
+| Document identity | One **secondary** brand colour per document, which the guide permits as a categorisation device (p.18): Manual Clean Blue · SOP Progress Orange · Field How To Future Green · Office How To Optimistic Yellow |
 
-Held: `brand/` — wordmark, X mark, charcoal `#343433`, red `#EB2A2B`. Still needed: vector logo,
-reversed variant, templates, brand standards. **Screenshots must all be light-theme** — TBC
-2026.10 added a dark theme *(TBC RN 2026.10)*.
+**Branding is not document control.** The guide settles visual identity and nothing else.
+Numbering, revision conventions, approval authorities, effective dates, retention and
+controlled-copy terminology remain open Parametrix decisions.
 
 ---
 

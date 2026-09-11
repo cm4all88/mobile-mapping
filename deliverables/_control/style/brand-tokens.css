@@ -1,0 +1,136 @@
+/* ============================================================================
+   Parametrix MX60 document family — brand tokens
+   The single source of every visual value in all four deliverables.
+
+   AUTHORITY  Parametrix Brand Guide v6, November 2023 (32 pp).
+              Page citations below are to that guide.
+
+   SOURCE KEY
+     [brand p.N]  a Parametrix brand rule, cited to its page.
+     [extension]  the guide is silent here. A decision made for this document
+                  family, built from brand values. NOT a Parametrix brand rule
+                  and not to be quoted as one. See brand-source-status.md.
+
+   The company name is never abbreviated (p.5), in text or in identifiers.
+   ============================================================================ */
+
+:root{
+  /* --- primary palette ------------------------------------- [brand p.18] */
+  --brand-red:#EE3D24;              /* Parametrix Red · Pantone Bright Red   */
+  --brand-charcoal:#333333;         /* Charcoal · Pantone Black              */
+  --brand-gray:#676768;             /* Medium Gray · Pantone 424             */
+  --brand-white:#FFFFFF;
+
+  /* --- secondary palette · accent, categorization ---------- [brand p.18] */
+  --brand-orange:#F36E21;           /* Progress Orange   · Pantone 1505      */
+  --brand-yellow:#FCC214;           /* Optimistic Yellow · Pantone 123       */
+  --brand-green:#3FB549;            /* Future Green      · Pantone 361       */
+  --brand-blue:#0073BB;             /* Clean Blue        · Pantone Med Blue  */
+
+  /* --- tertiary palette · sparingly, for highlighting ------ [brand p.18] */
+  --brand-calm-red:#ED715D;
+  --brand-calm-orange:#F89957;
+  --brand-calm-blue:#B2D3DB;
+  --brand-calm-yellow:#F4E39C;
+  --brand-gray-1:#B3B4B5;
+  --brand-gray-2:#DBDDDC;
+  --brand-gray-3:#E5E5E5;
+  --brand-gray-4:#F2F2F2;
+
+  /* --- typography ------------------------------------------ [brand p.16]
+     Klinic Slab (headlines), Franklin Gothic URW (body/subheads), Freight
+     Text Pro (quotes/accents). The licensed faces are not held, so each
+     stack falls back to the system alternate the guide itself names:
+     Rockwell, Franklin Gothic, Georgia. No other face is substituted.     */
+  --brand-head:"Klinic Slab",Rockwell,"Rockwell Nova","Rockwell Std",serif;
+  --brand-body:"Franklin Gothic URW","Franklin Gothic Book","Franklin Gothic Medium",
+               "ITC Franklin Gothic","Franklin Gothic",Arial,Helvetica,sans-serif;
+  --brand-quote:"Freight Text Pro",Georgia,"Times New Roman",serif;
+  --brand-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+                                    /* [extension] the guide names no monospace
+                                       face; a technical document needs one for
+                                       filenames, paths and identifiers.      */
+
+  /* --- surfaces and ink ------------------------------------------------- */
+  --ground:var(--brand-white);                       /* [brand p.18]        */
+  --panel:var(--brand-gray-4);                       /* [brand p.18]        */
+  --raise:var(--brand-white);
+  --ink:var(--brand-charcoal);                       /* [brand p.18]        */
+  --ink-2:var(--brand-gray);                         /* [brand p.18]        */
+  --muted:var(--brand-gray);
+  --rule:var(--brand-gray-3);                        /* [brand p.18]        */
+  --rule-2:var(--brand-gray-1);
+  --charcoal:var(--brand-charcoal);
+  --red:var(--brand-red);
+
+  /* --- callout colours ------------------------------------- [extension]
+     The guide does not style callouts. These use only palette colours, and
+     follow the guide's own logic: red is the attention colour and is used
+     sparingly (p.11, p.23); tertiary colours are for highlighting (p.18).
+     The alert pair is red and calm red, so urgency reads at a glance.      */
+  --co-caution:var(--brand-red);
+  --co-important:var(--brand-calm-red);
+  --co-why:var(--brand-charcoal);
+  --co-plain:var(--brand-gray);
+  --co-trimble:var(--brand-charcoal);
+  --co-observed:var(--brand-gray-1);
+  --co-proposed:var(--brand-calm-blue);
+  --co-adopted:var(--brand-green);
+  --co-decision:var(--brand-calm-yellow);
+  --co-testing:var(--brand-calm-orange);
+  --co-note:var(--brand-gray-2);
+
+  /* --- document identity ----------------------------------- [extension]
+     One secondary colour per document. The guide states that secondary
+     colours are accents "useful for ... enhancing categorization" (p.18),
+     which is what this is. Each build sets --doc-accent.
+       Technical Manual  Clean Blue        SOP           Progress Orange
+       Field How To      Future Green      Office How To Optimistic Yellow  */
+  --doc-accent:var(--brand-blue);
+
+  /* --- scale ------------------------------------------------ [extension] */
+  --base:17px;
+  --lh:1.68;            /* the letterhead note: increased line spacing (p.23) */
+  --measure:78ch;
+  --radius:0px;         /* the guide's compositions are square-cornered       */
+  --u:4px;
+}
+
+/* --- dark ground ------------------------------------------- [extension]
+   The guide is a print and marketing document and does not address screen
+   dark mode. What it does give is the knockout logo for dark or busy
+   grounds (p.11), which is what the builds use. Palette hues are held;
+   only their roles swap.                                                   */
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --ground:#1C1C1C; --panel:#262626; --raise:#2A2A2A;
+  --ink:#F2F2F2; --ink-2:#DBDDDC; --muted:#B3B4B5;
+  --rule:#3A3A3A; --rule-2:#4A4A4A;
+  --charcoal:#F2F2F2;
+  --co-why:#F2F2F2; --co-trimble:#F2F2F2; --co-plain:#B3B4B5;
+}}
+:root[data-theme="dark"]{
+  --ground:#1C1C1C; --panel:#262626; --raise:#2A2A2A;
+  --ink:#F2F2F2; --ink-2:#DBDDDC; --muted:#B3B4B5;
+  --rule:#3A3A3A; --rule-2:#4A4A4A;
+  --charcoal:#F2F2F2;
+  --co-why:#F2F2F2; --co-trimble:#F2F2F2; --co-plain:#B3B4B5;
+}
+
+/* --- the spacer arrow ------------------------------------- [brand p.19]
+   "an optional spacer to add distinction to company layouts ... conjures
+   forward motion." Always 1 pt, barbed head, red or charcoal, with room
+   above and below. Drawn here as SVG at a 1 pt stroke so it scales.       */
+.arrow{
+  height:12px; width:54px; margin:18px 0 22px;
+  background:no-repeat left center/contain
+    url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 12">\
+<g fill="none" stroke="%23EE3D24" stroke-width="1.334">\
+<path d="M0 6h50"/><path d="M43.5 1.5 50.5 6l-7 4.5"/></g></svg>');
+}
+.arrow-charcoal{
+  background-image:url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 12">\
+<g fill="none" stroke="%23333333" stroke-width="1.334">\
+<path d="M0 6h50"/><path d="M43.5 1.5 50.5 6l-7 4.5"/></g></svg>');
+}
