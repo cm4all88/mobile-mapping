@@ -319,6 +319,11 @@ They are **not evidence**, they are **not classified**, and **none has been writ
 > Both are release notes, both are small pages, and both are worth capturing before the
 > export topics themselves.
 
+> **UPDATE, later the same day.** The 2025.21 release note was captured. **L1 is now partly
+> confirmed, L5 is confirmed, L6 is confirmed** — see §13. L2, L3 and L4 remain unverified and
+> remain out of the reference dataset. The §4 classification is **unchanged at Partly
+> confirmed**; see §13.3 for why confirming L5 did not move it.
+
 ---
 
 ## 9. Evidence inventory — additions
@@ -444,4 +449,120 @@ they are a competent surveyor.
 
 ---
 
-*No rewrite has been performed. One material gap remains: Export Mobile Mapping Data.*
+## 13. Addendum — release notes captured, 2026-09-11
+
+Two release-notes pages arrived after §0 was written. **2025.21 is legible and is treated as
+evidence below. 2026.10 rendered too small to read and is not evidence** — it is re-requested.
+
+### 13.1 Version numbering — an open question closes
+
+**Trimble documented fact** ✅ — the Release Notes navigation lists, newest first:
+
+> **2026.10** · 2025.21 · 2025.20.1 · 2025.20 · 2025.10 · 2024.13 · 2024.10 · 2024.00 ·
+> 2024.02 · 2024.01 · 2023.12 · 2023.11 · 2023.10 · 5.90.1 · 5.90 · 5.81 · 5.80 · 5.70.1 ·
+> 5.70
+
+TBC moved from `5.x` numbering to `YYYY.MM` at **5.90.1 → 2023.10**. The current release is
+**2026.10**.
+
+> **This substantially de-risks the version question from batch 4.** Two procedures were
+> flagged as version-dependent:
+>
+> | Flagged behaviour | Boundary | Where that sits now |
+> |---|---|---|
+> | Laser scanners and cameras calibrate **outside** TBC and import as JSON | "up to the 5.21 version" *(TBC 24886, 24868)* | **5.21 predates 5.70 — the oldest release note published.** Any TBC a working office is plausibly running calibrates **in** TBC |
+> | Registration with no RMS file set, prompting **Select RMS File** | "typically a project saved in TBC prior to version 5.80" *(TBC 27248)* | Also well before the 2023.10 renumbering. Relevant only to **inherited legacy projects**, not new work |
+>
+> **Vendor clarification still required** — which version Parametrix runs — but the question
+> has shrunk from "does this procedure apply to us" to "confirm we are not on something from
+> before 2023." Both flagged behaviours now read as **legacy-project handling**, not as a
+> fork in current procedure.
+
+**Licensing**, stated in the same page ✅: 2025.21 is available to perpetual licence users
+whose **warranty expiration date is 1 November 2025 or later**, and to subscription users
+with an active subscription. Warranty or subscription expiry is visible at
+**Support ▸ License Manager**.
+
+### 13.2 Lead L1 — PARTLY CONFIRMED
+
+Trimble's 2025.21 text, under **Mission and Run Registration** ✅:
+
+> "The distance gaps between the selected Ground Control Point (GCP) and the picked target -
+> known as the Easting, Northing, and Elevation residuals - **are now signed and included in
+> the report.**"
+
+| | |
+|---|---|
+| **Confirmed** | Registration residuals **are written to a report**, signed, in all three components, as of 2025.21 |
+| **Not confirmed** | **Which report.** Trimble says "the report" without naming it. The Mission Report is the only mobile-mapping report captured, but nothing states the residuals land there |
+
+> This is the strongest evidence yet that a durable registration record exists — and it is
+> still not enough to say where it lives. **Not converted to a conclusion.** Capturing the
+> current *Run a Mission Report* topic (23991_1) would likely settle it.
+
+### 13.3 Lead L5 — CONFIRMED, and it matters more than expected
+
+Trimble's 2025.21 text ✅:
+
+> "**Publish to TRCPS** - Send mobile mapping data to the Trimble Reality Capture Platform
+> Service for sharing and collaboration on **point clouds, trajectories, and images** (with or
+> without the blurring option)."
+
+Two help topics are named in the same sentence, **neither previously known to exist**:
+
+- **Publish Point Cloud Data and Panoramic Images to Trimble Connect**
+- **Publish Mobile Mapping Point Cloud Data, Trajectories, and Images to Trimble Connect**
+
+> **A delivery path that ships the trajectory alongside the cloud is a different answer to the
+> provenance question than any export format.** If the trajectory travels with the data, the
+> receiving party holds the thing that defines the geometry — not a reference to it, the
+> artefact itself.
+>
+> **This does not change the §4 classification.** Publishing to a platform service is not the
+> same as exporting a file, the topics are uncaptured, and nothing states *which* trajectory
+> is published when several exist under a run. But it means the provenance question has **two
+> branches**, and only one of them was being investigated:
+>
+> | Branch | Question |
+> |---|---|
+> | **Export** to a file | Does the file identify its trajectory? *Still open* |
+> | **Publish** to TRCPS / Trimble Connect | The trajectory is sent too — but **which one**, and is it identified? *Newly open* |
+
+### 13.4 An operational warning worth carrying into the guide
+
+**Trimble documented fact** ✅, 2025.21, listed as a known issue rather than a fix:
+
+> "Resizing the Smart Picking window during registration causes instability. **Enlarging it
+> forces a square aspect ratio to eliminate whitespace, while shrinking it can cause TBC to
+> lag or freeze.**"
+
+Smart Picking is where every registration observation is made, and a freeze mid-session risks
+the picked targets. Combined with the `Targets.csv` behaviour *(TBC 22905)*, this is a
+concrete argument for confirming **Registration Auto-Saving** is on before starting — which
+remains **T7, testing required**, not a procedure.
+
+### 13.5 Minor, recorded for completeness
+
+**Export Orthoimage options** ✅ — the Orthoimage exporter gained a **Create world file**
+option producing a `.tfw`, and a **Compression** option. Topic named: *Export Orthoimage Files
+(.tiff, .txt)*. Bears on back-camera orthomosaic deliverables, not on trajectory provenance.
+
+### 13.6 Capture list — revised
+
+**Still needed, highest value first:**
+
+| # | Page | Why |
+|---|---|---|
+| 1 | **2026.10 release notes** — *re-requested, legibly* | Same reasons as before, plus: it is the current release and may carry further registration or export changes |
+| 2 | **Publish Mobile Mapping Point Cloud Data, Trajectories, and Images to Trimble Connect** | §13.3 — the trajectory-carrying delivery path |
+| 3 | **Publish Point Cloud Data and Panoramic Images to Trimble Connect** | §13.3 |
+| 4 | **Run a Mission Report** (`23991_1.htm` — the current version) | §13.2 — would likely identify "the report" |
+| 5–10 | The six Export topics from §1 | Unchanged |
+
+Batch 2 captured Mission Report at `23991.htm`; the current topic is `23991_1.htm`. **Recapture
+it** — the `_1` suffix marks a revised topic, and 2025.21 changed what the report contains.
+
+
+---
+
+*No rewrite has been performed. One material gap remains: Export Mobile Mapping Data — now with a second branch, Publish to TRCPS.*

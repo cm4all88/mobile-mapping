@@ -40,7 +40,7 @@ and QC are told once in Section 13 rather than five times across five sections.
 
 ## Reference data
 
-`../reference/mx60-reference-data.csv` — 358 structured records of every specification,
+`../reference/mx60-reference-data.csv` — 366 structured records of every specification,
 limit, requirement, warning, procedure and setting drawn from the Trimble sources.
 
 Each row carries: `id`, `category`, `topic`, `item`, `value`, `notes`, `source`, `page`,
