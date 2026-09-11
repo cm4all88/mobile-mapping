@@ -6,6 +6,7 @@
   1  registered warnings appear verbatim in their owner, and wherever the register says
   2  no forbidden workflow stage-name synonyms
   3  the derived control artefacts match the documents
+  3b every `shall` rests on an authority that binds now
   4  every cross-reference resolves, in all four documents
   5  every register identifier cited exists; every register item is cited somewhere
   6  the page renderer leaves no unrendered emphasis
@@ -23,6 +24,7 @@ def run(name, argv):
 run('warnings verbatim',      ['tools/check-warnings.py'])
 run('stage names',            ['tools/check-stage-names.py'])
 run('control artefacts fresh',['tools/sync-control.py', '--check'])
+run('authority of shall',     ['tools/check-authority.py'])
 
 DIRS = {'Manual':'technical-manual','SOP':'sop','Office':'office-how-to','Field':'field-how-to'}
 def heads(d):
