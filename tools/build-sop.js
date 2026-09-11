@@ -20,6 +20,8 @@ const LIGHT = 'F2F2F1';
 const CONTENT_W = 9360;
 
 const CALLOUTS = {
+  'WHAT YOU SHOULD KNOW BEFORE MOVING ON': { color: CHARCOAL, bg: 'EFEFEC' },
+  'IN PLAIN ENGLISH':             { color: '1F5C86', bg: 'EDF2F8' },
   'CAUTION':                      { color: RED,      bg: 'FDECEC' },
   'IMPORTANT':                    { color: CHARCOAL, bg: 'FFF6E0' },
   'FIELD TIP':                    { color: '1F6B3B', bg: 'EDF6F0' },

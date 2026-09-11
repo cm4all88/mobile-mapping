@@ -29,6 +29,8 @@ ORDER = [
 ]
 
 CALLOUTS = [
+    ('WHAT YOU SHOULD KNOW BEFORE MOVING ON', 'retain'),
+    ('IN PLAIN ENGLISH', 'plain'),
     ('PARAMETRIX DECISION REQUIRED', 'decision'),
     ('WHY THIS MATTERS', 'why'),
     ('FIELD TIP', 'tip'),

@@ -9,6 +9,7 @@
   --rule:#E4E2D9; --rule-2:#D3D0C4;
   --charcoal:#343433; --red:#EB2A2B;
   --ok:#1F8A4C; --warn:#C9760F; --bad:#D62B2B; --info:#1F5C86; --violet:#6B4E9B;
+  --plain:#1F5C86; --retain:#343433;
   --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --rail:282px;
@@ -19,6 +20,7 @@
   --rule:#32323A; --rule-2:#41414A;
   --charcoal:#E9E8E2; --red:#FF6B5E;
   --ok:#4FBF7D; --warn:#E0A13F; --bad:#FF7A6E; --info:#6FAAD6; --violet:#A98BD8;
+  --plain:#6FAAD6; --retain:#C2C1B8;
 }}
 :root[data-theme="dark"]{
   --ground:#17171A; --panel:#1F1F22; --raise:#212125;
@@ -26,6 +28,7 @@
   --rule:#32323A; --rule-2:#41414A;
   --charcoal:#E9E8E2; --red:#FF6B5E;
   --ok:#4FBF7D; --warn:#E0A13F; --bad:#FF7A6E; --info:#6FAAD6; --violet:#A98BD8;
+  --plain:#6FAAD6; --retain:#C2C1B8;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -143,6 +146,16 @@ td code{font-size:.84em}
 .co-decision{border-left-color:var(--violet);background:color-mix(in srgb,var(--violet) 9%,var(--ground))}
 .co-decision .co-h{color:var(--violet)}
 .co-advanced{border-left-color:var(--rule-2);background:var(--panel)}
+/* comprehension layer - deliberately unlike the six warning callouts:
+   full-width, a top rule rather than a left rule, quieter ground */
+.co-plain,.co-retain{border-left:none;border-top:2px solid var(--plain);
+  border-radius:0 0 7px 7px;background:color-mix(in srgb,var(--plain) 6%,var(--ground));
+  max-width:74ch;padding:16px 20px;margin-top:30px}
+.co-plain .co-h,.co-retain .co-h{color:var(--plain);font-size:11.5px}
+.co-plain p,.co-retain p{font-size:16px;line-height:1.62}
+.co-retain{border-top-color:var(--retain);background:color-mix(in srgb,var(--retain) 7%,var(--ground))}
+.co-retain .co-h{color:var(--retain)}
+.co-retain .co-li{font-size:15.5px}
 
 /* ---------- legend ---------- */
 .legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:9px;margin:24px 0 0}

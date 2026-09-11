@@ -1,4 +1,10 @@
-# Parametrix MX60 Mobile Mapping SOP
+# Parametrix MX60 Mobile Mapping Field, Processing and QC Guide
+
+> **Working title change, 2026-09-11.** This document will be retitled the *Field,
+> Processing and QC Guide* at the rewrite — the scope is broader than an SOP. Two permanent
+> requirements now govern the final build: **Parametrix branding** and a **comprehension
+> layer** (IN PLAIN ENGLISH / WHAT YOU SHOULD KNOW BEFORE MOVING ON). See
+> [`../analysis/GUIDE-REQUIREMENTS.md`](../analysis/GUIDE-REQUIREMENTS.md).
 
 **Status:** Complete first draft, pending review. Revision 1.0-draft, 2026-09-10.
 
@@ -68,6 +74,15 @@ Full assessment: [`../analysis/STAGE-1-SOURCE-ANALYSIS.md`](../analysis/STAGE-1-
 **35 PARAMETRIX DECISION REQUIRED items** are consolidated in
 [Appendix D](appendix-D-decision-register.md), prioritised P1/P2/P3. Eleven P1 items block
 first production use. Nothing in the register is current Parametrix policy.
+
+## Source ingestion in progress
+
+TBC mobile mapping help is being ingested and classified ahead of a restructure. Section 12
+still reflects the earlier source set.
+
+- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md) — 16 topics classified
+- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md) — chain model tested; registration source gap identified
+- [`../analysis/GUIDE-REQUIREMENTS.md`](../analysis/GUIDE-REQUIREMENTS.md) — branding and comprehension-layer requirements
 
 ## Still needed
 
