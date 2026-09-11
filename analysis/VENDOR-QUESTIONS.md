@@ -128,6 +128,57 @@ configuration.
 
 ---
 
+## 2d. Export provenance — added 2026-09-11
+
+Three narrow, answerable questions. All five MX60 export paths and Publish to TRCPS have been
+read; none of the help topics answers these, and no further documentation will.
+
+> **1. Does any TBC export write the source trajectory into a LAS header, a VLR, or a sidecar
+> file?**
+
+Trimble's help topics describe dialogs, options and output folder structures. They do not
+enumerate LAS header fields. Something may be written that the documentation does not mention.
+
+> **2. When a run carries both an imported `Sbet` and a registered trajectory, which one does
+> the TMX export write, and which one does Publish to TRCPS send?**
+
+Both paths carry a trajectory — the TMX export writes "the trajectory file… once for all
+devices" *(TBC 22501)*, and Publish to TRCPS states that "mobile mapping point cloud and
+trajectories will be automatically exported" by default *(TBC 29527)*. **Neither says which.**
+
+> **3. Which report contains the signed GCP residuals added in TBC 2025.21?**
+
+The 2025.21 release note says the Easting, Northing and Elevation residuals "are now signed and
+included in the report." The only mobile mapping report topic — *Run a Mission Report*
+*(TBC 23991_1)* — does not mention residuals at all.
+
+**Blocks:** delivery provenance, and the records-at-delivery decision
+
+---
+
+## 2e. Export timestamps — added 2026-09-11, and this one is urgent
+
+> **When "Export timestamps" is set to Yes and TBC reprocesses the scans from the raw data,
+> which trajectory does it use?**
+
+Trimble states, identically in two export topics *(TBC 23339, 22501)*:
+
+> "If the TIMESTAMP option has been set to No, the exported scans are the ones processed with
+> the Generate Scans feature… If the TIMESTAMP option has been set to Yes, the exported scans
+> are **reprocessed from the raw data** and directly written to the LAS format files."
+
+Every quality step — registration, Update Scans, filtering, colorization — acts on the
+generated scans. If the reprocessing does not pick up the registered trajectory, then **turning
+this option on silently delivers unregistered data after the registration has been checked and
+signed off.**
+
+Both readings are consistent with Trimble's wording. This is a direct yes/no question and it
+is the single most consequential unknown in the workflow.
+
+**Blocks:** the export procedure, and any QC sign-off that precedes export
+
+---
+
 ## 3. Periodic data-quality verification
 
 > **Is the retro-reflective target check the recommended periodic verification for the

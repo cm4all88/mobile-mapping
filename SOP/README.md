@@ -40,7 +40,7 @@ and QC are told once in Section 13 rather than five times across five sections.
 
 ## Reference data
 
-`../reference/mx60-reference-data.csv` — 388 structured records of every specification,
+`../reference/mx60-reference-data.csv` — 402 structured records of every specification,
 limit, requirement, warning, procedure and setting drawn from the Trimble sources.
 
 Each row carries: `id`, `category`, `topic`, `item`, `value`, `notes`, `source`, `page`,
@@ -78,30 +78,33 @@ Full assessment: [`../analysis/STAGE-1-SOURCE-ANALYSIS.md`](../analysis/STAGE-1-
 [Appendix D](appendix-D-decision-register.md), prioritised P1/P2/P3. Eleven P1 items block
 first production use. Nothing in the register is current Parametrix policy.
 
-## Source ingestion in progress
+## Source ingestion — complete
 
-TBC mobile mapping help is being ingested and classified ahead of a restructure. Section 12
-still reflects the earlier source set.
+**The TBC source collection is sufficiently complete to begin SOP architecture and drafting.**
+Thirty-eight TBC help topics have been captured and classified across batches 2, 4, 6 and 7,
+plus the 2025.21 and 2026.10 release notes. The captured help documents **TBC 2026.10**.
+
+Section 12 still reflects the earlier source set and is the largest rewrite target.
+
+What remains open is not evidence. It is **Parametrix decisions**, **vendor clarifications**,
+and **six bounded field tests** (T18–T23) that no amount of further documentation would
+resolve — see batch 7 §7 and §10.
 
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md) — 16 topics classified
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md) — chain model tested; registration source gap identified
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-4.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-4.md) — **registration and calibration branches; six of the eight questions answered**
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md) — export provenance pass; release notes 2025.21
-- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md) — **four export topics; the captured help is confirmed to be TBC 2026.10; trajectory identity at export remains *partly confirmed***
+- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md) — four export topics; the captured help is confirmed to be TBC 2026.10
+- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-7.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-7.md) — **the export surface closes. Source ingestion is complete for the purposes of drafting**
 - [`../analysis/GUIDE-REQUIREMENTS.md`](../analysis/GUIDE-REQUIREMENTS.md) — branding and comprehension-layer requirements
 
 ## Still needed
 
-- **Four remaining TBC export topics** — the trajectory and station-position exports
-  (`20926`, `20927`, `21713_1`) and the generic point cloud exporter (`11769`), plus the two
-  **Publish to Trimble Connect** topics and a recapture of **Run a Mission Report** at
-  `23991_1`. Listed in
-  [`../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md) §9.
-  Outbound access to the help portal is blocked from the build environment, so these have to
-  arrive as an upload.
-- **The four batch 6 export pages as image files.** They arrived inline rather than as an
-  archive, so the page images are not held in `../sources/` and no figure can be cropped from
-  them.
+- **The four batch 6 export pages as image files** (`27279`, `22501`, `23339`, `23888`). They
+  arrived inline rather than as an archive, so the page images are not held in `../sources/`
+  and figures F32–F35 cannot be cropped. This blocks figure production, not drafting.
+- **TBC Help: Blur Exported Images** — the only remaining help topic worth capturing, and only
+  when imagery privacy is drafted.
 - **Confirmation of the POSPac MMS licence and the TBC version.** Both gate which office
   workflow is even available; see `../analysis/VENDOR-QUESTIONS.md` items 2a and 2b.
 - **Trimble GAMS Antenna Kit** and **DMI Installation & Operation** manuals, if those
