@@ -116,6 +116,85 @@ os.makedirs(VIEWS, exist_ok=True)
 open(os.path.join(MANUAL, 'appendix-E-open-technical-questions.md'), 'w').write('\n'.join(e))
 print(f'Appendix E: {len(tv)} items ({len(tests)} tests, {len(vend)} vendor)')
 
+# ---- SOP Appendix A: the decision register and the adoption record ----
+SOPDIR = 'deliverables/sop'
+dec_all = sorted([r for r in rows if r['type'] == 'decision'], key=key)
+adopted = [r for r in dec_all if r['status'].strip().lower() == 'adopted']
+blocking_d = [r for r in dec_all if r['blocks_operation'].strip().lower() == 'yes']
+p1 = [r for r in dec_all if r['priority'] == 'P1']
+a = [f"""# Appendix A — Parametrix Decision Register
+
+{stamp(len(dec_all))}
+
+This appendix is the SOP's **view** of the project's single master register. It shows the questions
+that are **Parametrix's to answer** — the ones no test and no vendor can settle. The questions
+answerable by evidence are the Technical Manual's Appendix E, and are not repeated here.
+
+| | Count |
+|---|---|
+| Decisions open | **{len(dec_all) - len(adopted)}** |
+| **Adopted** | **{len(adopted)}** |
+| Priority P1 | {len(p1)} |
+| Blocking an operation | {len(blocking_d)} |
+
+> **CAUTION**
+>
+> **{'No decision has been adopted.' if not adopted else str(len(adopted)) + ' decisions have been adopted.'}**
+> A clause in this SOP whose decision appears below as open is **not a Parametrix requirement**. It
+> is a proposal from this project, and it may not be quoted to a client, a reviewer or a regulator
+> as an existing Parametrix standard.
+
+## A1 · The adoption record
+
+A decision becomes binding when it appears here with an answer, a date and an approver — and when
+the register is updated and the views regenerated. **Editing this appendix by hand does not adopt
+anything**, because it is regenerated from the register.
+
+| ID | Decision taken | Date | Approved by |
+|---|---|---|---|"""]
+for r in dec_all:
+    if r['resolution'].strip():
+        a.append(f"| **{r['id']}** | {r['resolution']} | {r['date_resolved']} | {r['owner'] or '—'} |")
+if not adopted:
+    a.append('| — | *No decision has been adopted at this revision.* | — | — |')
+a.append(f"""
+
+## A2 · Decisions that block operation
+
+{len(blocking_d)} of the {len(dec_all)} decisions block an operation: work cannot proceed correctly
+until they are settled, as distinct from work being harder without them.
+
+| ID | Decision | SOP § |
+|---|---|---|""")
+SOPSEC = {'D-1':'2','D-2':'6.4','D-3':'4.2','D-10':'13.1','D-11':'13.1','D-12':'13.4','D-13':'16.2',
+ 'D-15':'7.3','D-16':'7.4','D-18':'12.2','D-19':'6.2','D-21':'6.2','D-22':'13.3','D-24':'14.3',
+ 'D-26':'14.2','D-27':'15.5','D-28':'14.6','D-29':'19.2','D-31':'15.6','D-32':'18.6','D-34':'8.6',
+ 'D-35':'17.2','D-36':'18.2','D-38':'18.4','D-39':'15.5','D-41':'8.2','D-42':'8.5','D-43':'9.4',
+ 'D-46':'9.1','D-49':'9.6','D-52':'11.2','D-53':'11.4','D-54':'11.5','D-55':'20.1'}
+for r in blocking_d:
+    a.append(f"| **{r['id']}** | {r['question']} | §{SOPSEC.get(r['id'],'—')} |")
+a.append('\n## A3 · The full register\n')
+for r in dec_all:
+    b = block(r)
+    b = b.replace('\n\n', f" · SOP §{SOPSEC.get(r['id'],'—')}\n\n", 1)
+    a.append(b)
+a.append("""---
+
+## A4 · How a decision is adopted
+
+1. Parametrix decides
+2. The decision, its date and its approver are written into
+   `deliverables/_control/master-register.csv` — `status`, `resolution`, `date_resolved`, `owner`
+3. `python3 tools/build-register-views.py` regenerates this appendix and every other view
+4. The SOP clause changes state from **PARAMETRIX DECISION REQUIRED** to **ADOPTED**, and its
+   *should* becomes *shall*
+
+**There is one register.** A decision cannot be adopted in one document and open in another.
+""")
+os.makedirs(SOPDIR, exist_ok=True)
+open(os.path.join(SOPDIR, 'appendix-A-decision-register.md'), 'w').write('\n'.join(a))
+print(f'SOP Appendix A: {len(dec_all)} decisions, {len(adopted)} adopted, {len(blocking_d)} blocking')
+
 # ---- SOP view: decisions, grouped by workflow stage ----
 dec = sorted([r for r in rows if r['type'] == 'decision'], key=key)
 by = collections.OrderedDict()

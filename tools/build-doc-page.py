@@ -59,6 +59,34 @@ MANUAL_ORDER = [
  ('appendix-G-source-conflicts','G','Source Conflicts and Resolutions'),
 ]
 
+SOP_ORDER = [
+ ('00-front-matter','0','Front Matter'),
+ ('01-purpose-and-scope','1','Purpose, Scope and Application'),
+ ('02-document-control','2','Document Control and Related Documents'),
+ ('03-definitions','3','Definitions'),
+ ('04-roles-and-authorities','4','Roles, Responsibilities and Authorities'),
+ ('05-competence-and-training','5','Competence and Training'),
+ ('06-project-setup','6','Project Setup Requirements'),
+ ('07-control-requirements','7','Control Requirements'),
+ ('08-mission-planning','8','Mission Planning Requirements'),
+ ('09-field-acquisition','9','Field Acquisition Requirements'),
+ ('10-field-close-out','10','Field Close-out and Handoff'),
+ ('11-data-transfer-and-custody','11','Data Transfer and Custody'),
+ ('12-office-intake','12','Office Intake Requirements'),
+ ('13-processing-requirements','13','Processing Requirements'),
+ ('14-calibration-control','14','Calibration Control'),
+ ('15-qc-requirements','15','Quality Control Requirements'),
+ ('16-acceptance-and-approval','16','Acceptance and Approval'),
+ ('17-destructive-operations','17','Destructive Operation Controls'),
+ ('18-export-and-delivery','18','Export and Delivery Controls'),
+ ('19-documentation-and-records','19','Documentation and Records'),
+ ('20-retention-and-archive','20','Retention and Archive'),
+ ('21-non-conformance','21','Non-conformance and Re-collection'),
+ ('appendix-A-decision-register','A','Parametrix Decision Register'),
+ ('appendix-B-records-index','B','Index of Required Records'),
+ ('appendix-C-approval-and-revision-history','C','Approval and Revision History'),
+]
+
 DOCS = {
  'manual': dict(
     dir='deliverables/technical-manual', out='technical-manual.html', accent='var(--brand-blue)',
@@ -80,9 +108,12 @@ DOCS = {
     doctype='Standard Operating Procedure', docname='MX60 Mobile Mapping',
     title='MX60 Mobile Mapping SOP',
     sub='Draft A · Not issued · TBC 2026.10',
-    order=None,
-    lead='What Parametrix requires. The controlled procedural document for MX60 mobile mapping.',
-    stats=[],
+    order=SOP_ORDER,
+    lead=('What Parametrix requires of MX60 mobile mapping work. Short by design: it states '
+          'requirements and points to the Technical Manual for explanation and to the How To '
+          'guides for method.'),
+    stats=[('Sections','21 + 3 appendices'),('Words','18,800'),
+           ('Clauses adopted','0 of 34'),('Blocking decisions','9')],
     flag=('<b>No clause in this SOP has been adopted.</b> Every requirement is marked '
           '<b>PROPOSED</b> until Parametrix records a decision against it, with a date and an '
           'owner, in Appendix A. Nothing here may be quoted to a client as an existing '
@@ -123,6 +154,7 @@ CALLOUTS = [
     ('OBSERVED SOFTWARE BEHAVIOR', 'observed'),
     ('VENDOR CLARIFICATION REQUIRED', 'vendor'),
     ('FIELD TESTING REQUIRED', 'testing'),
+    ('TESTING REQUIRED', 'testing'),
     ('WHY THIS MATTERS', 'why'),
     ('FIELD TIP', 'tip'),
     ('IMPORTANT', 'important'),
@@ -242,7 +274,26 @@ def render(md, sec_id):
     return '\n'.join(out)
 
 
-LEGEND = """    <div class="legend">
+LEGEND_ROWS = {
+ 'caution':   ('Caution', 'Data loss, an irreversible operation, a lost result, or safety'),
+ 'important': ('Important', 'Gets the job wrong if ignored'),
+ 'why':       ('Why this matters', 'The reason behind a behaviour or a requirement'),
+ 'plain':     ('In Plain English', 'What we did, why it matters, what can go wrong, what good looks like'),
+ 'trimble':   ('Trimble documented procedure', 'Trimble states this, in the cited topic or page'),
+ 'observed':  ('Observed software behavior', 'Seen in the software; not stated by Trimble as procedure'),
+ 'proposed':  ('Parametrix procedure (proposed)', 'Recommended &mdash; <b style="color:inherit">not company policy</b>'),
+ 'adopted':   ('Parametrix procedure (adopted)', 'Decided by Parametrix, with a date and an owner'),
+ 'decision':  ('Parametrix decision required', 'An internal standard still to be established'),
+ 'testing':   ('Testing / vendor clarification required', 'The answer depends on a result nobody has obtained yet'),
+}
+MARKERS = {
+ 'caution':'CAUTION','important':'IMPORTANT','why':'WHY THIS MATTERS','plain':'IN PLAIN ENGLISH',
+ 'trimble':'TRIMBLE DOCUMENTED PROCEDURE','observed':'OBSERVED SOFTWARE BEHAVIOR',
+ 'proposed':'PARAMETRIX PROCEDURE (PROPOSED)','adopted':'PARAMETRIX PROCEDURE (ADOPTED)',
+ 'decision':'PARAMETRIX DECISION REQUIRED','testing':'TESTING REQUIRED',
+}
+
+_OLD_LEGEND = """    <div class="legend">
       <div class="lg-caution"><b>Caution</b>Data loss, an irreversible operation, a lost result, or safety</div>
       <div class="lg-important"><b>Important</b>Gets the job wrong if ignored</div>
       <div class="lg-why"><b>Why this matters</b>The reason behind a behaviour or a requirement</div>
@@ -283,6 +334,15 @@ stats = {
     'raw': alltext.count('TRIMBLE DOCUMENTED PROCEDURE'),
     'words': sum(len(s['x'].split()) for s in search),
 }
+
+# ---- the legend, listing only the callouts this document actually uses ----
+used = {k for k, marker in MARKERS.items() if marker in alltext}
+if 'VENDOR CLARIFICATION REQUIRED' in alltext: used.add('testing')
+order = [k for k in LEGEND_ROWS if k in used]
+LEGEND = ('    <div class="legend">\n'
+          + ''.join(f'      <div class="lg-{k}"><b>{LEGEND_ROWS[k][0]}</b>{LEGEND_ROWS[k][1]}</div>\n'
+                    for k in order)
+          + '    </div>\n')
 
 # ---- the hero, built from the document's config ----
 meta = ''.join(f'<div><dt>{html.escape(k)}</dt><dd>{html.escape(v)}</dd></div>'

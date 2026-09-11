@@ -123,7 +123,7 @@ history, silent replacement, wrong reference frame.
 
 ### W-06 · Targets.csv is emptied permanently by declining the reload prompt
 
-**Owner:** Technical Manual §21 · **Quoted in:** Office How To §16
+**Owner:** Technical Manual §21 · **Quoted in:** SOP §13 · Office How To §16
 
 > **CAUTION**
 >
@@ -140,7 +140,7 @@ history, silent replacement, wrong reference frame.
 
 ### W-07 · Registering again stacks adjustments — use Edit
 
-**Owner:** Technical Manual §21 · **Quoted in:** Office How To §19
+**Owner:** Technical Manual §21 · **Quoted in:** SOP §13 · Office How To §19
 
 > **CAUTION**
 >
