@@ -24,12 +24,7 @@ and not the other *(Technical Manual §22.2, §22.3)*.
 > Which feature types are fit for horizontal control, vertical control, or both, at MX60 point
 > density and incidence angle. **This will shape control design more than any software setting.**
 
-## 7.2 Control shall bracket the delivered extent
-
-> **TRIMBLE REQUIREMENT** — *binding now, on Trimble's authority, not Parametrix's*
->
-> This is not a Parametrix preference. Trimble states the limitation of the **Local** method
-> directly, and the consequence follows from it.
+## 7.2 Control and the delivered extent
 
 > **CAUTION · W-08**
 >
@@ -38,6 +33,21 @@ and not the other *(Technical Manual §22.2, §22.3)*.
 >
 > Beyond the first and last control point the trajectory is not adjusted, **and nothing indicates
 > where the adjustment stopped.** Control must bracket the extent you intend to deliver.
+
+> **TRIMBLE REQUIREMENT** — *binding now, on Trimble's authority, not Parametrix's*
+>
+> The limitation itself is Trimble's and is not open to local interpretation. Data outside the
+> outermost control point **shall not** be described as registered to that control, because it was
+> not adjusted.
+
+> **PARAMETRIX PROCEDURE (PROPOSED) · D-56**
+>
+> What follows from the limitation is a design rule, and the design rule is ours: control
+> **should** bracket the extent to be delivered.
+>
+> Trimble states a limitation, not a control-design requirement. It does not say control must
+> bracket anything; it says the adjustment stops. This procedure draws the practical consequence
+> and proposes it — it does not present it as a manufacturer instruction.
 
 Bracketing, not merely falling within. The ends of a corridor are also where the trajectory
 smoother had data on one side only *(Technical Manual §14.4)*, which makes them simultaneously the

@@ -2,7 +2,7 @@
 
 Do this immediately after import (§7), before any processing. Seven checks, none taking a minute.
 
-### Do
+### 3.1 Do
 
 Open the mission properties and the **Mobile Mapping** node in Project Explorer and check:
 
@@ -16,11 +16,11 @@ Open the mission properties and the **Mobile Mapping** node in Project Explorer 
 | 6 | **Base station data** present in the project | Whether you will process the trajectory in house |
 | 7 | **Calibration state recorded** | §4 |
 
-### Look at
+### 3.2 Look at
 
 The **Capture Devices** node, and the **Sbet** node under each run.
 
-### Expect
+### 3.3 Expect
 
 The tree looks like this — **note that scans will hang off the trajectory, not off the run**:
 
@@ -32,7 +32,7 @@ Mobile Mapping
               └── Sbet          the imported trajectory
 ```
 
-### Stop if
+### 3.4 Stop if
 
 - **Run count is lower than the field record.** Data was lost in transfer. Do not process it —
   go back to the copy
@@ -50,6 +50,6 @@ Mobile Mapping
 > processor who quietly corrects a coordinate system mismatch at intake has removed the evidence
 > that field and office disagreed.
 
-### Record
+### 3.5 Record
 
 Each check, with its result. Anything that failed, and what was done.

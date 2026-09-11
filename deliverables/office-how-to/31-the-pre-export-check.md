@@ -6,7 +6,7 @@
 the unregistered cloud succeeds and produces a valid file. **[PROPOSED · SOP §19.2 · D-36]** —
 whether the check is *mandatory*, and whether export may proceed without it, is not yet decided.
 
-### Do
+### 31.1 Do
 
 1. In **Project Explorer**, find the scan nodes you are about to export
 2. Confirm they sit **beneath the intended registered trajectory**
@@ -17,7 +17,7 @@ whether the check is *mandatory*, and whether export may proceed without it, is 
 
 *(SOP §19.2)*
 
-### Look at
+### 31.2 Look at
 
 ```
 Run 14
@@ -27,7 +27,7 @@ Run 14
         └── Run_14_Laser Right_reg_0001 (S3)
 ```
 
-### Stop if
+### 31.3 Stop if
 
 > **CAUTION · W-02**
 >
@@ -39,7 +39,7 @@ Run 14
 
 Stop if the scans sit beneath `Sbet`, or the stations have no `_reg_####`. Go back to §21.
 
-### Export timestamps
+### 31.4 Export timestamps
 
 > **CAUTION · W-03**
 >
@@ -65,6 +65,6 @@ checked dataset, and do not enable it on a delivered dataset without a recorded 
 > **TESTING REQUIRED · T29** — the reliable export-state verification method for each path. How an
 > export dialog resolves its selection is not documented.
 
-### Record
+### 31.5 Record
 
 The screen capture, and the timestamps setting used.

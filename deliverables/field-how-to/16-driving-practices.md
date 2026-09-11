@@ -15,8 +15,10 @@
 > *For consideration, not adopted:* collect at or near prevailing traffic speed up to 80 km/h,
 > reducing where point density requires it.
 >
-> **[TRIMBLE] Do not exceed 80 km/h with the system operating.** That part is not waiting on
-> D-43 — it is Trimble's recommended maximum and it stands today.
+> **[TRIMBLE METHOD] Trimble recommends not exceeding 80 km/h with the system operating.** That
+> recommendation is not waiting on D-43 and it stands today — but it is Trimble's *recommended*
+> maximum, not a stated limit, and this guide does not upgrade it into one. **110 km/h is the
+> limit**, and that one is **[EQUIPMENT]**.
 
 ## 16.2 Smoothness
 

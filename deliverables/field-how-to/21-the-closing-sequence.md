@@ -19,8 +19,12 @@
 7. **Close the mission** in TMI
 8. **Wait for the Control Unit power button light to go out — up to 90 seconds**
 
-**[TRIMBLE]** *(MX60 QSG Rev B, p.13; MX60 UG Rev B)* — Trimble's documented sequence. **Binding
-today**, whatever the SOP's adoption state.
+**[TRIMBLE METHOD]** *(MX60 QSG Rev B, §5.5 p.13)* — Trimble's documented sequence. It instructs
+that the mission be finalized *"according to the following sequence"*, and gives the reason rather
+than an obligation: symmetrical start and end *"supports forward and reverse processing modes in
+the office software"*. **Not a manufacturer requirement — and still the right thing to do**, because
+W-09 above is a fact about the data regardless of who requires what. Whether Parametrix makes it
+mandatory is **SOP D-56**.
 
 ## 21.2 It is initialization, backwards
 

@@ -49,10 +49,21 @@ separate question, and it is the one that is actually blocking:**
 
 ### What is true under every outcome
 
-**D-13 blocks formal acceptance. It does not block operating the system.** Data may be collected,
-processed, registered and inspected with D-13 open. What cannot happen while it is open is a
-**formal acceptance** and, with it, an accuracy claim that rests on a Parametrix standard rather
-than on one person's documented judgement.
+**D-13 blocks formal acceptance, and nothing else.** Stated as plainly as it can be:
+
+| With D-13 open | |
+|---|---|
+| **Collecting data** | **Permitted.** Nothing in D-13 touches field operation |
+| **Processing, registering and inspecting it** | **Permitted.** Including exploratory and trial processing, and processing to learn the system |
+| **Testing the system against known control** | **Permitted, and needed** — several register items (T25, T31) cannot close without it |
+| **Delivering data with no accuracy claim attached** | **Permitted**, where the deliverable says so |
+| **Formal acceptance under §17.1** | **Blocked** |
+| **An accuracy claim resting on a Parametrix standard** | **Blocked**, because no such standard exists to rest on |
+
+**Nor does this SOP authorise an accuracy statement.** It is a draft, no Parametrix requirement in
+it is adopted (§2.4), and it sets no tolerance. A person may still sign an accuracy statement for
+MX60 work — but they sign it on their own professional judgement and the project's own evidence,
+not on the authority of this document.
 
 > **Whoever signs an accuracy statement today is signing on their own professional judgement,
 > supported by the evidence in §16 — not on a Parametrix standard, because there is not one.**

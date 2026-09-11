@@ -3,7 +3,7 @@
 **One list, so nothing is discovered missing at the end.** Everything here is required by the SOP;
 its full index is SOP Appendix B.
 
-### The package
+### 34.1 The package
 
 | # | Artefact | From | Exists as a file? |
 |---|---|---|---|
@@ -23,17 +23,17 @@ its full index is SOP Appendix B.
 | 14 | Cleanup authorisation and what was archived | §29 | **No — you write it** |
 | 15 | Archive record | §33 | **No — you write it** |
 
-### Look at
+### 34.2 Look at
 
 **Eight of the fifteen do not exist unless a person writes them.** That is not an oversight in the
 software; several of these facts have no representation in it at all.
 
-### Expect
+### 34.3 Expect
 
 To spend perhaps thirty minutes across a project producing all of them, most of it copying files
 out before Cleanup.
 
-### Stop if
+### 34.4 Stop if
 
 You are at delivery and items 7, 8 or 12 do not exist. Those are the three a reviewer asks for
 first, and none can be reconstructed afterwards.

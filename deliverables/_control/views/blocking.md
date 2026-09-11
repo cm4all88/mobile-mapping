@@ -59,7 +59,7 @@ answered first. 10 rows, **9 distinct questions**.
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: Manual; SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Field; Office*
 
 ### D-16 · Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions?
 

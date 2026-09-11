@@ -1,6 +1,6 @@
 # MX60 Mobile Mapping Technical Manual
 
-**Draft A · Evidence revision E1 · 2026-09-11 · Not issued**
+**Working draft `2026-09-11-a` · Evidence revision E1 · LIVING DRAFT — INTERNAL REVIEW**
 
 One of four coordinated deliverables. This one explains **what the system does and why, and how
 we know**. It carries the evidence base and every **In Plain English** box.

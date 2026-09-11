@@ -13,10 +13,10 @@ authority audit reports.
 """
 import re, glob, os, sys, collections
 
-BINDING = ('TRIMBLE REQUIREMENT', 'EQUIPMENT LIMIT', 'PARAMETRIX REQUIREMENT (ADOPTED)',
-           'TRIMBLE DOCUMENTED PROCEDURE', 'CAUTION')
-PROPOSED = ('PARAMETRIX PROCEDURE (PROPOSED)', 'PARAMETRIX DECISION REQUIRED',
-            'TESTING REQUIRED', 'FIELD TESTING REQUIRED', 'VENDOR CLARIFICATION REQUIRED')
+BINDING = ('TRIMBLE REQUIREMENT', 'EQUIPMENT LIMIT', 'PARAMETRIX REQUIREMENT (ADOPTED)')
+PROPOSED = ('TRIMBLE DOCUMENTED PROCEDURE', 'CAUTION', 'PARAMETRIX PROCEDURE (PROPOSED)',
+            'PARAMETRIX DECISION REQUIRED', 'TESTING REQUIRED', 'FIELD TESTING REQUIRED',
+            'VENDOR CLARIFICATION REQUIRED')
 ALL = BINDING + PROPOSED
 DIRS = {'Manual':'technical-manual','SOP':'sop','Office':'office-how-to','Field':'field-how-to'}
 
@@ -28,8 +28,7 @@ def blocks(md):
     while i < len(lines):
         if lines[i].strip().startswith('>'):
             start, buf = i, []
-            while i < len(lines) and (lines[i].strip().startswith('>') or
-                  (not lines[i].strip() and i+1 < len(lines) and lines[i+1].strip().startswith('>'))):
+            while i < len(lines) and lines[i].strip().startswith('>'):
                 buf.append(re.sub(r'^>\s?', '', lines[i])); i += 1
             first = re.sub(r'[*_\s]', ' ', buf[0]).strip().upper()
             lab = next((t for t in sorted(ALL, key=len, reverse=True) if first.startswith(t)), None)

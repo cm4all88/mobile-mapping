@@ -3,7 +3,7 @@
 **This is the layer that catches what numbers cannot.** It has no software artefact, so if you do
 not record it, there is no evidence it happened.
 
-### Do
+### 22.1 Do
 
 1. **Point Clouds ▸ View ▸ Cutting Plane View**
 2. **Set rendering to Scan Color** — see below
@@ -12,7 +12,7 @@ not record it, there is no evidence it happened.
 4. Work the checklist under **Look at**
 5. Record what you covered, and by whom
 
-### The setting that makes or breaks this
+### 22.2 The setting that makes or breaks this
 
 > **IMPORTANT · [TRIMBLE]** — the visual check itself is Trimble's instruction (§20).
 > **[PROPOSED · SOP §16.5 · D-27]** — what the pass covers is this project's checklist.
@@ -23,7 +23,7 @@ not record it, there is no evidence it happened.
 >
 > It is part of the method, not a display preference.
 
-### Look at
+### 22.3 Look at
 
 | Check | Looking for |
 |---|---|
@@ -36,11 +36,11 @@ not record it, there is no evidence it happened.
 
 *(SOP §16.5)*
 
-### Expect
+### 22.4 Expect
 
 Overlapping passes landing on each other. Flat surfaces that stay flat as range increases.
 
-### Stop if
+### 22.5 Stop if
 
 - Two passes are visibly offset from each other anywhere
 - A wall thickens with range
@@ -57,7 +57,7 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 > **PARAMETRIX DECISION REQUIRED · D-39** — how much of a corridor is inspected, and how that is
 > decided *(SOP §16.5)*.
 
-### Record
+### 22.6 Record
 
 **That the visual check was performed, by whom, and over what extent.** No software artefact
 exists. This is the record.

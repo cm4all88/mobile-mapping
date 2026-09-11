@@ -78,10 +78,42 @@ An earlier version used `sec` for both and the navigation rendered with ~195px g
 | Registered warnings appear **verbatim** in their owner document, and wherever the register says | `check-warnings.py` |
 | No forbidden workflow stage-name synonyms | `check-stage-names.py` |
 | The derived control artefacts still match the documents | `sync-control.py --check` |
+| The shared circulation blocks are identical in all four front matters | `sync-circulation.py --check` |
+| Every Office How To task step carries its section number | `number-subsections.py --check` |
+| **No `shall` rests on anything but a binding authority** | `check-authority.py` |
 | Every cross-reference resolves, in all four documents | `check-all.py` |
 | Every register identifier cited exists, and every register item is raised somewhere | `check-all.py` |
 | The page renderer leaves no unrendered emphasis | `check-all.py` |
 
-`sync-control.py` without `--check` re-derives the two control artefacts that *describe* the
-documents — the register's `affected_documents` column and the ownership matrix's ref / — columns.
-Everything else in both files is judgement and is set by hand.
+`sync-control.py` without `--check` re-derives the control artefacts that *describe* the
+documents — the register's `affected_documents` column, the ownership matrix's ref / — columns and
+the register README's current-state table. Everything else in those files is judgement and is set
+by hand.
+
+## The living-draft circulation blocks
+
+`sync-circulation.py` writes three blocks into all four front matters from one source in
+`deliverables/_control/circulation/`:
+
+| Block | What it is |
+|---|---|
+| `banner.md` | The **LIVING DRAFT — INTERNAL REVIEW** status notice |
+| `how-to-review.md` | The four reviewer questions, the reviewer roles, and how to cite a section |
+| `working-revision.md` | The temporary working revision block — **not** a Parametrix convention |
+
+**No copy is hand-edited.** Edit the source and re-run, or `check-all.py` fails. The working draft
+label and the circulation date are set at the top of the script.
+
+## check-authority.py
+
+Classifies every labelled block in all four documents and fails any `shall` that does not rest on
+**TRIMBLE REQUIREMENT**, **EQUIPMENT LIMIT** or **PARAMETRIX REQUIREMENT (ADOPTED)**.
+
+`-v` prints the classification table — the authority audit. A **TRIMBLE DOCUMENTED PROCEDURE** is
+deliberately *not* a binding authority: Trimble documenting a method is not Trimble requiring it,
+and `deliverables/_control/authority-model.md` explains why that distinction is enforced.
+
+## number-subsections.py
+
+Numbers the Office How To's task steps — `### 16.5 Stop if` — so a reviewer can cite one. The
+step names repeat in every section, so the name alone is not an address. Idempotent.

@@ -8,7 +8,7 @@
 > the most recent. Trimble states: *"Please, have a backup copy of your project prior performing
 > the operation, it cannot be undone."* *(TBC 26466)*
 
-### Do — the archive-first sequence
+### 29.1 Do — the archive-first sequence
 
 **[EQUIPMENT] Cleanup cannot be undone.** That is Trimble's own statement about the command and it
 binds today. **[PROPOSED · SOP §18.3 · D-35]** — the ten-step sequence, and the requirement for
@@ -32,16 +32,16 @@ is not settled**, which is why step 8 names an authority that does not exist yet
 
 *(SOP §18.3)*
 
-### Look at
+### 29.2 Look at
 
 Before running it: the project tree, so you know what you are about to lose. Registered
 trajectories, their scans, and the numbered SBET files.
 
-### Expect
+### 29.3 Expect
 
 Only the most recent registration surviving.
 
-### Stop if
+### 29.4 Stop if
 
 - **You do not have written authorisation** — **[PROPOSED · D-35]** *(SOP §18.2)*. Until D-35 is
   answered there is no appointed authoriser; raise it rather than proceeding on your own
@@ -56,6 +56,6 @@ Only the most recent registration surviving.
 > **PARAMETRIX DECISION REQUIRED · D-35 · blocks operation** — when Cleanup may be performed, by
 > whom, and what must be archived first.
 
-### Record
+### 29.5 Record
 
 Authorisation; what was archived and where; that Cleanup was run, by whom, on what date.

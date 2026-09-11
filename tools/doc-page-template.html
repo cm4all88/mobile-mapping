@@ -81,6 +81,8 @@
   --co-decision:var(--brand-calm-yellow);
   --co-testing:var(--brand-calm-orange);
   --co-note:var(--brand-gray-2);
+  --co-binding:var(--brand-charcoal);
+  --co-status:var(--brand-calm-orange);
 
   /* --- document identity ----------------------------------- [extension]
      One secondary colour per document. The guide states that secondary
@@ -284,6 +286,18 @@ td code{font-size:.84em}
 .co-decision{border-left-color:var(--co-decision);background:color-mix(in srgb,var(--co-decision) 22%,var(--ground))}
 .co-decision .co-h{color:var(--ink-2)}
 .co-advanced{border-left-color:var(--rule-2);background:var(--panel)}
+
+/* the living-draft status banner: prominent, but not a warning */
+.co-status{border-left-width:4px;border-left-color:var(--co-status);
+  background:color-mix(in srgb,var(--co-status) 16%,var(--ground))}
+.co-status .co-h{color:var(--ink);font-size:13px;letter-spacing:.14em}
+.co-status p{font-size:15.5px}
+
+/* a requirement that binds today, on somebody else's authority */
+.co-binding{border-left-width:3px;border-left-color:var(--co-binding);
+  background:color-mix(in srgb,var(--co-binding) 6%,var(--ground))}
+.co-binding .co-h{color:var(--co-binding);font-size:10.5px}
+.co-binding p{font-size:15px}
 
 /* evidence tags — smaller, quieter, all from the palette */
 .co-trimble,.co-observed,.co-proposed,.co-adopted,.co-testing,.co-vendor{

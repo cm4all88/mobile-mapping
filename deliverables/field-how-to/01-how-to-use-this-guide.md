@@ -5,6 +5,10 @@
 Short numbered steps. A **Why this matters** line only where the reason changes what you do. No
 theory — that is the Technical Manual, and every reference points there.
 
+**Every subsection is numbered.** When reporting a problem with this guide, cite the number —
+**Field How To §12.3** — together with any **W-**, **D-**, **T** or **V-** identifier on the
+statement you mean. Front matter explains why.
+
 ## 1.2 Order
 
 §2 to §11 get the system on the vehicle and running. §12 to §14 initialize it. §15 to §20 collect.
@@ -44,7 +48,8 @@ recommendation today, while **a Trimble instruction and an equipment limit bind 
 
 | Marker | Who says so | Force today |
 |---|---|---|
-| **[TRIMBLE]** | Trimble, in the cited manual page or topic | **Binding.** Does not wait on a Parametrix decision |
+| **[TRIMBLE]** | Trimble states it as a requirement, in the cited manual page or topic | **Binding.** Does not wait on a Parametrix decision |
+| **[TRIMBLE METHOD]** | Trimble documents the method, but does not state it as a requirement | **Strong advice.** The method is Trimble's; the obligation is not |
 | **[EQUIPMENT]** | A hardware or safety limit, with manufacturer evidence | **Binding.** It is a fact about the machine |
 | **[SOP §n]** | A Parametrix requirement, at that clause | As strong as that clause — check its state |
 | **[PROPOSED]** | Recommended by this project | **Not company policy.** Do it unless told otherwise, and say so if you cannot |
@@ -54,6 +59,12 @@ recommendation today, while **a Trimble instruction and an equipment limit bind 
 > **A marker never softens a Trimble instruction.** *Do not clear the disk* is as firm on day one
 > as it will be after the SOP is adopted, because Trimble and the physics of a wiped disk are not
 > waiting for a meeting.
+
+> **[TRIMBLE] and [TRIMBLE METHOD] are not the same thing.** Trimble writes *"Navigation alignment
+> must be done first"* — that is **[TRIMBLE]**. It heads its in-field list *"Proposal of a checklist
+> for system operation"* — that is **[TRIMBLE METHOD]**. This guide does not promote the second into
+> the first. A documented method is the best method anyone has published, and it is still not a
+> manufacturer requirement.
 
 ## 1.6 Where a decision is open
 

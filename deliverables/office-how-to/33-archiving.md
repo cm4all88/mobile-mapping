@@ -1,13 +1,13 @@
 # 33. Archiving
 
-### Do
+### 33.1 Do
 
 1. Assemble the **record package** (§28) — seven artefacts, a few hundred kilobytes
 2. Decide and apply the **retention tier** for everything else
 3. Write the **archive record** — one page
 4. Put it where somebody who was not involved can find it
 
-### Look at — the three tiers
+### 33.2 Look at — the three tiers
 
 **Tier 1 — small, irreplaceable, keep indefinitely**
 
@@ -32,7 +32,7 @@ SBET and its processing report and the frame-and-epoch log · numbered registere
 
 *(SOP §21.2)*
 
-### Stop if
+### 33.3 Stop if
 
 - **You are about to delete `POS_1/raw/` or `Targets.csv` on your own judgement.** Neither is
   recoverable: one cannot be recomputed, the other was picked by a person and would be different if
@@ -44,7 +44,7 @@ SBET and its processing report and the frame-and-epoch log · numbered registere
 
 > **PARAMETRIX DECISION REQUIRED · D-53** — folder structure, naming and storage location.
 
-### The archive record
+### 33.4 The archive record
 
 One page per project: what was archived, where, when, by whom; the retention tier applied; whether
 Cleanup was run and what was archived first; and where the raw mission data is, if it is held
@@ -52,6 +52,6 @@ elsewhere.
 
 **Without it, the archive is a folder somebody has to reverse-engineer.**
 
-### Record
+### 33.5 Record
 
 The archive record itself. Appendix F.

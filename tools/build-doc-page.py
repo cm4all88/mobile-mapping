@@ -244,14 +244,18 @@ ORDER = CFG['order'] or [
 
 
 CALLOUTS = [
+    ('LIVING DRAFT — INTERNAL REVIEW', 'status'),
     ('WHAT YOU SHOULD KNOW BEFORE MOVING ON', 'retain'),
     ('IN PLAIN ENGLISH', 'plain'),
     # evidence tags -- longest first, so PARAMETRIX PROCEDURE (ADOPTED) is not
     # matched by a shorter PARAMETRIX PROCEDURE prefix
     ('PARAMETRIX PROCEDURE (PROPOSED)', 'proposed'),
     ('PARAMETRIX PROCEDURE (ADOPTED)', 'adopted'),
+    ('PARAMETRIX REQUIREMENT (ADOPTED)', 'adopted'),
     ('PARAMETRIX DECISION REQUIRED', 'decision'),
     ('TRIMBLE DOCUMENTED PROCEDURE', 'trimble'),
+    ('TRIMBLE REQUIREMENT', 'binding'),
+    ('EQUIPMENT LIMIT', 'binding'),
     ('OBSERVED SOFTWARE BEHAVIOR', 'observed'),
     ('VENDOR CLARIFICATION REQUIRED', 'vendor'),
     ('FIELD TESTING REQUIRED', 'testing'),
@@ -262,6 +266,11 @@ CALLOUTS = [
     ('CAUTION', 'caution'),
     ('ADVANCED', 'advanced'),
 ]
+
+def strip_markers(s):
+    """The circulation markers steer tools/sync-circulation.py. They are not content."""
+    return re.sub(r'^<!-- /?circulation.*?-->\n?', '', s, flags=re.M)
+
 
 def inline(t):
     t = html.escape(t, quote=False)
@@ -412,6 +421,7 @@ MARKERS = {
  'trimble':'TRIMBLE DOCUMENTED PROCEDURE','observed':'OBSERVED SOFTWARE BEHAVIOR',
  'proposed':'PARAMETRIX PROCEDURE (PROPOSED)','adopted':'PARAMETRIX PROCEDURE (ADOPTED)',
  'decision':'PARAMETRIX DECISION REQUIRED','testing':'TESTING REQUIRED',
+ 'binding':'TRIMBLE REQUIREMENT','status':'LIVING DRAFT — INTERNAL REVIEW',
 }
 
 _OLD_LEGEND = """    <div class="legend">
@@ -429,7 +439,7 @@ _OLD_LEGEND = """    <div class="legend">
 # ---- assemble ----
 sections, nav, search = [], [], []
 for fn, num, title in ORDER:
-    md = (SOP / f'{fn}.md').read_text()
+    md = strip_markers((SOP / f'{fn}.md').read_text())
     sid = 's' + num.lower()
     body = render(md, sid)
     kind = 'nv-app' if num.isalpha() else 'nv-sec'
@@ -449,7 +459,7 @@ logo    = b64('brand/logo/parametrix-logo-primary.png')
 logo_ko = b64('brand/logo/parametrix-logo-knockout.png')
 ixmark  = b64('brand/parametrix-x-mark.png')
 # count decisions from the source markdown, not the truncated search text
-alltext = ''.join((SOP / f'{fn}.md').read_text() for fn, _, _ in ORDER)
+alltext = ''.join(strip_markers((SOP / f'{fn}.md').read_text()) for fn, _, _ in ORDER)
 stats = {
     'decisions': alltext.count('Open Parametrix decision'),
     'raw': alltext.count('TRIMBLE DOCUMENTED PROCEDURE'),

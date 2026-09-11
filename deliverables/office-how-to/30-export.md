@@ -5,7 +5,7 @@ project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 
 **Do §31 first.** Every path below assumes the pre-export check has passed.
 
-### The paths
+### 30.1 The paths
 
 | Path | Where | Carries the trajectory? |
 |---|---|---|
@@ -16,7 +16,7 @@ project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 | **Generic Point Cloud Export** | **Point Cloud tab** | **No** |
 | **Publish to TRCPS** | Home ▸ Data Exchange ▸ Publish to TRCPS | **Yes** — point cloud and trajectories are exported by default |
 
-### Do — Export to LAS (Trajectory Split)
+### 30.2 Do — Export to LAS (Trajectory Split)
 
 1. **Run Extract Classified Point Cloud first** — *Point Clouds ▸ Regions*. Without it there is
    nothing to export
@@ -34,7 +34,7 @@ project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 > is destructive thinning with no documented spatial rule — no minimum spacing, no preservation of
 > edges or breaklines. Its default state is not stated. **Check it before exporting.**
 
-### Do — Export to TMX
+### 30.3 Do — Export to TMX
 
 1. **Mobile Mapping tab ▸ Export to TMX**
 2. Decide the **Export timestamps** setting — **read §31 first**
@@ -43,7 +43,7 @@ project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 Produces panoramic images, side camera images, laser point clouds **and the trajectory**, plus a
 `reference.csv` *(TBC 22501)*.
 
-### Do — Export to TopoDot
+### 30.4 Do — Export to TopoDot
 
 1. **Generate scans first.** "Otherwise, nothing will be exported"
 2. **Close all run views.** "Otherwise, a warning message will pop up"
@@ -51,7 +51,7 @@ Produces panoramic images, side camera images, laser point clouds **and the traj
 
 Produces LAS 1.4, one couple per run *(TBC 23339)*.
 
-### Do — Export to Solv3D
+### 30.5 Do — Export to Solv3D
 
 1. **Mobile Mapping tab ▸ Export to Solv3D**
 2. Trimble recommends **disabling timestamps** on this path
@@ -61,7 +61,7 @@ Produces a mission-named folder with `Lasers` and `Panorama` sub-folders, LAS 1.
 > On this path the recommended setting is also the safe one: timestamps off means the **generated**
 > scans are exported rather than reprocessed ones (§31).
 
-### Do — Generic Point Cloud Export
+### 30.6 Do — Generic Point Cloud Export
 
 1. **Home ▸ Data Exchange ▸ Export ▸ Point Cloud tab**
 2. **This tab selects by region or a drawn rectangle — not by run** *(TBC 11769)*
@@ -85,7 +85,7 @@ Produces a mission-named folder with `Lasers` and `Panorama` sub-folders, LAS 1.
 > **TESTING REQUIRED · T23** — what happens when a Point Cloud tab selection is drawn across scans
 > belonging to two different trajectories. Not documented.
 
-### Do — Publish to TRCPS
+### 30.7 Do — Publish to TRCPS
 
 1. **Home ▸ Data Exchange ▸ Publish to TRCPS ▸ Mobile Mapping tab**
 2. Requires a **Trimble ID**; uploads via the **Trimble Desktop Utility**, installed with TBC
@@ -99,6 +99,6 @@ Produces a mission-named folder with `Lasers` and `Panorama` sub-folders, LAS 1.
 > **From TBC 2026.10, Trimble ID sign-in requires two-step verification** — a code by email each
 > time. Worth knowing before it stops a session.
 
-### Record
+### 30.8 Record
 
 Export path, date, by whom, format, scaling — into the delivery record (§28, Appendix F).

@@ -120,8 +120,9 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 
 > **TRIMBLE REQUIREMENT** — *the visual check is Trimble's instruction, not ours*
 >
-> Good residuals **shall not** be treated as removing the need for visual inspection. Trimble
-> states that a visual check is needed, and says so in identical words in two topics (§16.1).
+> Good residuals **shall not** be treated as removing the need for visual inspection. Trimble does
+> not recommend the check; it states that one **is needed**, and says so in identical words in two
+> topics (§16.1).
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >

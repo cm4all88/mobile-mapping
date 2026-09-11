@@ -3,7 +3,7 @@
 A set of runs at once, **with every GCP reusable**. For ordinary corridor work this is probably the
 command you want.
 
-### Do
+### 17.1 Do
 
 The sequence is that of §16, run from the mission rather than a run. What differs:
 
@@ -20,17 +20,17 @@ The sequence is that of §16, run from the mission rather than a run. What diffe
 
 *(TBC 26473)*
 
-### Look at
+### 17.2 Look at
 
 The **Control Points** list. One painted mark visible in four passes produces **four instances**,
 and each is picked separately. Unused instances are removed from the list when you compute.
 
-### Expect
+### 17.3 Expect
 
 Four runs adjusted against the same observation, and therefore mutually consistent — which is the
 point of the command. A corridor driven in both directions twice is the ordinary case.
 
-### Stop if
+### 17.4 Stop if
 
 - You expected instances and got none. The GCP is outside every 250 m scan section's bounding box
 - You are about to re-register a mission that has already been registered (§19)
@@ -41,6 +41,6 @@ point of the command. A corridor driven in both directions twice is the ordinary
 > for repairing one run in an otherwise accepted mission? And what happens to a mission
 > registration when one run is later re-collected? *(SOP §13.4)*
 
-### Record
+### 17.5 Record
 
 As §16, plus which runs were included.

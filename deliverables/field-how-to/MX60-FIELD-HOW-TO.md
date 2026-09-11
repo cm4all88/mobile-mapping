@@ -2,21 +2,99 @@
 
 **Trimble MX60 · Trimble Mobile Imaging**
 
+> **LIVING DRAFT — INTERNAL REVIEW**
+>
+> **This document is a living draft for internal Parametrix review, training, testing and workflow
+> development.** It is not an issued Parametrix standard, and it does not replace professional
+> judgement, project requirements, safety procedures or approved company policy.
+>
+> **Items marked Parametrix Decision Required, Proposed, Testing Required or Vendor Clarification
+> Required are unresolved.** There are a lot of them, and that is deliberate — an open question is
+> shown as an open question rather than filled in with a guess.
+
+---
+
+## How to review this draft
+
+**This is not primarily a copy-editing exercise.** Typos and awkward sentences are worth reporting,
+but they are not what this draft needs. Four questions are:
+
+| | |
+|---|---|
+| **1** | **Is anything technically wrong?** |
+| **2** | **Is anything impractical in actual field or office use?** |
+| **3** | **Is anything presented more strongly than Parametrix has actually decided?** |
+| **4** | **What would prevent you from performing the work using these documents?** |
+
+**Question 3 is the one most likely to be missed.** Every statement with procedural force in this
+set carries a label saying whose authority it rests on — Trimble's, the equipment's, or
+Parametrix's — and **no Parametrix requirement is adopted at this draft.** If something reads as
+settled company practice when it is not, that is a defect, and it is the kind this project is least
+able to catch on its own.
+
+**Question 4 is the one that finds gaps.** If you could not actually do the work from these
+documents — because a step is missing, a decision is open, a tool is not available, or the
+instruction assumes something you were never told — say so. A gap is more useful than a correction.
+
+### Who is being asked
+
+Reviewers are identified by role, because each role sees a different failure.
+
+| Role | What this draft most needs from you |
+|---|---|
+| **Survey leadership and the responsible PLS** | **Question 3.** Where does this overstate what Parametrix has decided? And which of the open decisions are actually yours to make |
+| **MX60 field operators** | **Question 2**, in the vehicle. Sequence, timing, what is realistic on a real shift, and anything the Field How To gets wrong about the machine |
+| **TBC mobile mapping processors** | **Questions 1 and 2.** Whether the software behaves as described, in the version you are running, and whether the workflow order survives contact with a real project |
+| **QA/QC reviewers** | **Question 1**, and the records. Whether the evidence a section asks for is evidence you could actually review, and whether anything is claimed that the evidence does not support |
+| **Project managers who may scope or rely on mobile mapping** | **Question 4.** What you would need to know before scoping this work, pricing it, or promising it to a client — and whether you could find it here |
+| **Survey staff with conventional experience and limited mobile mapping experience** | **Question 4, and you are the most important reviewer for it.** Where does this assume something nobody explained? An unexplained assumption is invisible to the people who wrote it, and obvious to you |
+
+### How to point at something
+
+**When commenting, identify the document and the section.** For example: **`Field How To §17.3`**, or
+**`SOP D-13`**.
+
+Every section and subsection is numbered, and every warning, open decision, test and vendor
+question carries an identifier that is the same in all four documents:
+
+| Identifier | Means |
+|---|---|
+| **§n.n** | A numbered subsection of the document named |
+| **W-n** | A warning. Worded identically wherever it appears |
+| **D-n** | An open Parametrix decision |
+| **Tn** | An open test — something nobody has measured yet |
+| **V-n** | An open question for Trimble |
+
+> *"The registration part is confusing"* cannot be acted on. *"`Field How To §17.3` is confusing"* can.
+
 ---
 
 ## Document control
 
 > **Provisional.** Parametrix's document-control convention is not established (**D-1**). The
-> values below are placeholders.
+> block below is a temporary working scheme for this review only.
 
-| Field | Value |
+### Working revision — internal draft only
+
+> **This is a temporary working revision scheme, used only while the set is in internal review.**
+> It is deliberately **not** a revision letter or number, so it cannot be mistaken for the
+> Parametrix document-control convention that **D-1** will establish. When D-1 is answered, this
+> block is replaced by the real one.
+
+| | |
 |---|---|
-| Document | **MX60 Field How To** |
-| Identifier | *`MX60 Field How To — Draft A`* — provisional |
-| Revision | *Draft A* |
-| Date | 2026-09-11 |
-| Status | **Draft. Not issued.** |
-| Issued in support of | **MX60 Mobile Mapping SOP**, Draft A |
+| **Document** | **MX60 Field How To** |
+| **Working draft** | `2026-09-11-a` — date of circulation, plus a letter for same-day reissues |
+| **Supersedes** | — first circulated draft |
+| **Status** | **LIVING DRAFT — INTERNAL REVIEW.** Not issued, not approved |
+| **Circulated for** | Internal review, training, testing and workflow development |
+| **Prepared by** | MX60 mobile mapping documentation project |
+| **Document identifier** | *Not assigned* — **D-1** |
+| **Formal revision** | *Not assigned* — **D-1** |
+| **Owner** | *Not assigned* — **D-1** |
+| **Approved by** | **Nobody.** This draft is not approved and not issued |
+| **Comments to** | *Not assigned* |
+| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at `2026-09-11-a` |
 
 ## What this guide is
 
@@ -63,6 +141,10 @@ Parametrix Brand Guide v6, November 2023. Document accent: **Future Green**.
 Short numbered steps. A **Why this matters** line only where the reason changes what you do. No
 theory — that is the Technical Manual, and every reference points there.
 
+**Every subsection is numbered.** When reporting a problem with this guide, cite the number —
+**Field How To §12.3** — together with any **W-**, **D-**, **T** or **V-** identifier on the
+statement you mean. Front matter explains why.
+
 ## 1.2 Order
 
 §2 to §11 get the system on the vehicle and running. §12 to §14 initialize it. §15 to §20 collect.
@@ -102,7 +184,8 @@ recommendation today, while **a Trimble instruction and an equipment limit bind 
 
 | Marker | Who says so | Force today |
 |---|---|---|
-| **[TRIMBLE]** | Trimble, in the cited manual page or topic | **Binding.** Does not wait on a Parametrix decision |
+| **[TRIMBLE]** | Trimble states it as a requirement, in the cited manual page or topic | **Binding.** Does not wait on a Parametrix decision |
+| **[TRIMBLE METHOD]** | Trimble documents the method, but does not state it as a requirement | **Strong advice.** The method is Trimble's; the obligation is not |
 | **[EQUIPMENT]** | A hardware or safety limit, with manufacturer evidence | **Binding.** It is a fact about the machine |
 | **[SOP §n]** | A Parametrix requirement, at that clause | As strong as that clause — check its state |
 | **[PROPOSED]** | Recommended by this project | **Not company policy.** Do it unless told otherwise, and say so if you cannot |
@@ -112,6 +195,12 @@ recommendation today, while **a Trimble instruction and an equipment limit bind 
 > **A marker never softens a Trimble instruction.** *Do not clear the disk* is as firm on day one
 > as it will be after the SOP is adopted, because Trimble and the physics of a wiped disk are not
 > waiting for a meeting.
+
+> **[TRIMBLE] and [TRIMBLE METHOD] are not the same thing.** Trimble writes *"Navigation alignment
+> must be done first"* — that is **[TRIMBLE]**. It heads its in-field list *"Proposal of a checklist
+> for system operation"* — that is **[TRIMBLE METHOD]**. This guide does not promote the second into
+> the first. A documented method is the best method anyone has published, and it is still not a
+> manufacturer requirement.
 
 ## 1.6 Where a decision is open
 
@@ -521,9 +610,18 @@ office confirms a verified copy exists in two places and the `.mxdb` opens.
 6. Watch the navigation status progress **red → orange → green**
 7. **Allow up to 10 further minutes of settling before logging data that matters**
 
-**[TRIMBLE]** *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)* — steps 1–6 are Trimble's documented
-sequence and bind today. **Step 7 is also Trimble's**, and it is the one the system does not
-enforce (§14.2).
+**[TRIMBLE METHOD]** *(MX60 QSG Rev B, §5.3 p.11; §6 p.14)* — steps 1–7 are Trimble's documented
+sequence. Trimble writes *"should be started in a static mode"* and heads its checklist *"Proposal
+of a checklist for system operation"*, so the sequence is documented method, not a manufacturer
+requirement. **Do it anyway** — nobody has published a better one, and the office cannot repair a
+bad initialization.
+
+**[TRIMBLE]** *(MX60 QSG Rev B, §5.3 p.11)* — one part of it is a requirement and the system
+enforces it: *"Navigation alignment must be done first before data logging is allowed!"* You
+cannot log through step 6 whether you want to or not.
+
+**Step 7 is the one nothing enforces** (§14.2), and it is advice in Trimble's own words —
+*"it is advised to add some time (up to 10 minutes)"*. It is also where most of the value is.
 
 ## 12.2 What each step is doing
 
@@ -710,8 +808,10 @@ better than any setting change, because it turns grazing incidence into direct i
 > *For consideration, not adopted:* collect at or near prevailing traffic speed up to 80 km/h,
 > reducing where point density requires it.
 >
-> **[TRIMBLE] Do not exceed 80 km/h with the system operating.** That part is not waiting on
-> D-43 — it is Trimble's recommended maximum and it stands today.
+> **[TRIMBLE METHOD] Trimble recommends not exceeding 80 km/h with the system operating.** That
+> recommendation is not waiting on D-43 and it stands today — but it is Trimble's *recommended*
+> maximum, not a stated limit, and this guide does not upgrade it into one. **110 km/h is the
+> limit**, and that one is **[EQUIPMENT]**.
 
 ## 16.2 Smoothness
 
@@ -925,8 +1025,12 @@ sequence (§21). You cannot append to a closed mission.
 7. **Close the mission** in TMI
 8. **Wait for the Control Unit power button light to go out — up to 90 seconds**
 
-**[TRIMBLE]** *(MX60 QSG Rev B, p.13; MX60 UG Rev B)* — Trimble's documented sequence. **Binding
-today**, whatever the SOP's adoption state.
+**[TRIMBLE METHOD]** *(MX60 QSG Rev B, §5.5 p.13)* — Trimble's documented sequence. It instructs
+that the mission be finalized *"according to the following sequence"*, and gives the reason rather
+than an obligation: symmetrical start and end *"supports forward and reverse processing modes in
+the office software"*. **Not a manufacturer requirement — and still the right thing to do**, because
+W-09 above is a fact about the data regardless of who requires what. Whether Parametrix makes it
+mandatory is **SOP D-56**.
 
 ## 21.2 It is initialization, backwards
 

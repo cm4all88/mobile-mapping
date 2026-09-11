@@ -1,12 +1,12 @@
 # 23. Imagery QC
 
-### Do
+### 23.1 Do
 
 1. Step through the imagery along the corridor
 2. Work the checklist
 3. Check alignment against the point cloud at a feature edge
 
-### Look at
+### 23.2 Look at
 
 | Check | Looking for |
 |---|---|
@@ -20,7 +20,7 @@
 
 *(SOP §16.6)*
 
-### Expect
+### 23.3 Expect
 
 Resolution by configuration *(TBC 22501, 23888)*:
 
@@ -32,7 +32,7 @@ Resolution by configuration *(TBC 22501, 23888)*:
 > **PARAMETRIX DECISION REQUIRED · D-2** — which configuration this system is. Every number above
 > depends on it *(SOP §6.4)*.
 
-### Stop if
+### 23.4 Stop if
 
 - **A corrupted side camera image exports as black.** It is silent: nothing warns you, and the
   export succeeds. If you find one, assume there are others
@@ -47,7 +47,7 @@ Resolution by configuration *(TBC 22501, 23888)*:
 > **TESTING REQUIRED · T26, T27** — whether exported imagery reflects a registration at all, and
 > which imagery streams the MX60 actually has and TBC exposes.
 
-### Record
+### 23.5 Record
 
 That the imagery check was performed and by whom. **No software artefact exists.**
 

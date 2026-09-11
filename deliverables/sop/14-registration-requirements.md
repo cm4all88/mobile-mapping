@@ -77,13 +77,19 @@ Three commands perform registration and they are not interchangeable *(Technical
 > **TRIMBLE REQUIREMENT** — *binding now, on Trimble's authority*
 >
 > A **Local** registration does not adjust beyond the outermost control point, and nothing
-> indicates where the adjustment stopped. **Control shall bracket the extent to be delivered**
-> (§7.2, **W-08**).
+> indicates where the adjustment stopped. Data outside that bracket **shall not** be described as
+> registered to the control (§7.2, **W-08**).
 
-> **TRIMBLE REQUIREMENT**
+> **PARAMETRIX PROCEDURE (PROPOSED) · D-56**
 >
-> A GCP and its picked target **shall not** be more than **30 m** apart. Trimble refuses the pair
-> beyond that distance *(TBC 22905)*.
+> Control **should** bracket the extent to be delivered. The limitation is Trimble's; the control
+> design rule that follows from it is this project's proposal, not a manufacturer instruction
+> (§7.2).
+
+> **TRIMBLE REQUIREMENT** — *an enforced software limit, not advice*
+>
+> A GCP and its picked target **shall not** be more than **30 m** apart. TBC rejects the pair
+> beyond that distance — the limit cannot be exceeded, only worked around *(TBC 22905)*.
 
 ## 14.6 Run-to-run — what it cannot do
 

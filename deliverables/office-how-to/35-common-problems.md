@@ -22,7 +22,7 @@
 | **MTA / GPU driver documentation** | **Not applicable to the MX60.** That is the MX9 and MX90 path | §11 |
 | **TBC sign-in asks for an emailed code** | From TBC 2026.10, Trimble ID requires two-step verification | §30 |
 
-### When the answer is "re-collect"
+### 35.1 When the answer is "re-collect"
 
 Some of these are not office problems. Missing coverage, missing overlap, a mission with no closing
 sequence and a sensor that logged nothing are all field problems, and the only remedy is a

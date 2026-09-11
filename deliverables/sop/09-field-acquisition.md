@@ -25,13 +25,26 @@ The method is in the **Field How To**. This section states what shall be done, a
 
 ## 9.2 Initialization
 
-> **TRIMBLE REQUIREMENT** — *(MX60 QSG Rev B, pp.13–14)*
+> **TRIMBLE REQUIREMENT** — *(MX60 QSG Rev B, §5.3, p.11)*
 >
-> **The full initialization sequence shall be performed at the start of every mission**, in the
-> order Trimble specifies.
+> **Navigation alignment shall be complete before data logging begins.** Trimble states it in
+> mandatory terms and the system enforces it: *"Navigation alignment must be done first before data
+> logging is allowed!"* It is not a matter of operator discipline.
+
+> **TRIMBLE REQUIREMENT** — *(MX60 QSG Rev B, §5.4, p.13)*
 >
-> **Navigation alignment shall be complete before data logging begins.** The system enforces this —
-> it is not a matter of operator discipline.
+> **A mission shall be at least 30 minutes long.** *"Important! A minimum mission time of ≥30 min is
+> required."*
+
+> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, §5.3, p.11; §6, p.14)*
+>
+> Trimble documents an initialization sequence — static logging, a straight run, then dynamic
+> manoeuvres — and it **should** be performed at the start of every mission, in the order given.
+>
+> **Trimble does not state this sequence as a requirement**, and this procedure does not claim it
+> is one. Trimble writes *"Mobile Mapping Mission **should** be started in a static mode"*, and
+> heads the in-field list *"Proposal of a checklist for system operation"*. Whether Parametrix makes
+> the sequence mandatory is **D-56**.
 
 > **IMPORTANT**
 >
@@ -51,10 +64,16 @@ To**.
 
 ## 9.3 The closing sequence
 
-> **TRIMBLE REQUIREMENT** — *(MX60 QSG Rev B, p.13; MX60 UG Rev B)*
+> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, §5.5, p.13)*
 >
-> **The closing sequence shall be performed at the end of every mission, before the mission is
-> closed in TMI.**
+> Trimble documents a closing sequence and instructs that the mission be finalized *"according to
+> the following sequence"* — dynamic manoeuvres, varying speed, then 2–3 minutes static — and it
+> **should** be performed at the end of every mission, before the mission is closed in TMI.
+>
+> **Trimble states the reason, not an obligation.** Its note says symmetrical start and end
+> procedures *"supports forward and reverse processing modes in the office software"*. That is a
+> strong technical reason and a weak instruction; the strength of the rule is Parametrix's to set,
+> and it is **D-56**.
 
 > **CAUTION**
 >

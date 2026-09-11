@@ -1,6 +1,6 @@
 # MX60 Office How To
 
-**Draft A · Not issued · 2026-09-11**
+**Working draft `2026-09-11-a` · LIVING DRAFT — INTERNAL REVIEW**
 
 One of four coordinated deliverables. This one shows **how to process MX60 data in Trimble Business
 Center**, in the order you do it.

@@ -1,6 +1,6 @@
 # 19. Editing a Registration — and Why Not to Register Twice
 
-### The problem
+### 19.1 The problem
 
 > **CAUTION · W-07**
 >
@@ -13,7 +13,7 @@
 Running a registration command a second time on a run that has already been registered adjusts the
 **adjusted** trajectory, not the imported one — and no number in the result shows it.
 
-### Do
+### 19.2 Do
 
 1. Select the **registered trajectory node**
 2. **Edit** from the context menu *(TBC 25362, 26578)*
@@ -22,17 +22,17 @@ Running a registration command a second time on a run that has already been regi
 4. Change what needs changing
 5. **Compute**, then **Apply**
 
-### Look at
+### 19.3 Look at
 
 That the reloaded state is the one you expect — particularly the **As Check** settings. Edit is
 also how you confirm what a previous registration actually used, since no report of it has been
 found (§20).
 
-### Expect
+### 19.4 Expect
 
 The registration recomputed **from the imported trajectory**, not from the adjusted one.
 
-### Stop if
+### 19.5 Stop if
 
 - **A reload prompt appears and you are about to answer "No".** See below
 - You cannot find the Edit command. Do not fall back to running the registration again
@@ -48,6 +48,6 @@ The registration recomputed **from the imported trajectory**, not from the adjus
 > **TESTING REQUIRED · T7** — whether Registration Auto-Saving is on by default. One glance at the
 > dialog answers it.
 
-### Record
+### 19.6 Record
 
 That the registration was edited rather than repeated, and what changed.

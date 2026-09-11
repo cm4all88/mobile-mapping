@@ -14,9 +14,18 @@
 6. Watch the navigation status progress **red → orange → green**
 7. **Allow up to 10 further minutes of settling before logging data that matters**
 
-**[TRIMBLE]** *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)* — steps 1–6 are Trimble's documented
-sequence and bind today. **Step 7 is also Trimble's**, and it is the one the system does not
-enforce (§14.2).
+**[TRIMBLE METHOD]** *(MX60 QSG Rev B, §5.3 p.11; §6 p.14)* — steps 1–7 are Trimble's documented
+sequence. Trimble writes *"should be started in a static mode"* and heads its checklist *"Proposal
+of a checklist for system operation"*, so the sequence is documented method, not a manufacturer
+requirement. **Do it anyway** — nobody has published a better one, and the office cannot repair a
+bad initialization.
+
+**[TRIMBLE]** *(MX60 QSG Rev B, §5.3 p.11)* — one part of it is a requirement and the system
+enforces it: *"Navigation alignment must be done first before data logging is allowed!"* You
+cannot log through step 6 whether you want to or not.
+
+**Step 7 is the one nothing enforces** (§14.2), and it is advice in Trimble's own words —
+*"it is advised to add some time (up to 10 minutes)"*. It is also where most of the value is.
 
 ## 12.2 What each step is doing
 

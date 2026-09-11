@@ -2,7 +2,7 @@
 
 **Which trajectory is this cloud built on?** You will be asked. This section is how you answer.
 
-### Do
+### 27.1 Do
 
 Work the four layers, in this order.
 
@@ -13,7 +13,7 @@ Work the four layers, in this order.
 | 3 | **Trajectory properties** | **`Origin: Registration result`** · **`Input trajectory:`** · **`Registration type:`** *(TBC 22905, 26473)* |
 | 4 | **SBET filename on disk** | `sbet_<date>_reg_####.out`, incrementing per registration, in the project folder |
 
-### Look at
+### 27.2 Look at
 
 Project Explorer, expanded. A run that has been registered has **two trajectories and two sets of
 scans**:
@@ -28,7 +28,7 @@ Run 14
 
 **They look identical in plan.** Tree position and the suffix are the difference.
 
-### A fifth, incidental indicator
+### 27.3 A fifth, incidental indicator
 
 Registered trajectory segments render as **"Undefined RMS"** in the RMS colouring (§10), because a
 registered trajectory no longer matches its `smrmsg` file *(TBC 27248)*.
@@ -36,11 +36,11 @@ registered trajectory no longer matches its `smrmsg` file *(TBC 27248)*.
 That makes the **extent** of a registration visible in plan — including where a **Local**
 adjustment stopped adjusting, which nothing else shows you.
 
-### Expect
+### 27.4 Expect
 
 All four layers agreeing.
 
-### Stop if
+### 27.5 Stop if
 
 - **They disagree.** A cloud beneath `Sbet` whose stations carry `_reg_####` is telling you
   something you need to resolve before exporting
@@ -48,7 +48,7 @@ All four layers agreeing.
 
 > **Nothing in this is conclusive once the data leaves the project.** That is what §28 is about.
 
-### Record
+### 27.6 Record
 
 The trajectory node name and the SBET filename **with its `_reg_####` number**, in the delivery
 record.

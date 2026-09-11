@@ -4,7 +4,7 @@ Uses the **scan data itself** as an aiding sensor to improve the trajectory — 
 inside trajectory processing. The only degraded-GNSS remedy that needs **neither POSPac nor
 additional ground control**.
 
-### Before you start — can this machine run it?
+### 24.1 Before you start — can this machine run it?
 
 | | Minimum | Recommended |
 |---|---|---|
@@ -17,7 +17,7 @@ additional ground control**.
 
 *(TBC 28972)*
 
-### Do
+### 24.2 Do
 
 1. Check **LiDAR QC (Refine with scans)** in **Process Raw Trajectory Data** (§8). A LiDAR QC tab
    appears
@@ -26,7 +26,7 @@ additional ground control**.
 4. Set the parameters
 5. **Compute**
 
-### Look at — the settings
+### 24.3 Look at — the settings
 
 | Setting | Values | Default |
 |---|---|---|
@@ -34,13 +34,13 @@ additional ground control**.
 | **Noise** | 5, 10, 50, 80, 100, 200 mm | **5 mm for MX50/MX60** |
 | **Lasers** | Left · Right · All | **All** |
 
-### Expect
+### 24.4 Expect
 
 A long computation. It solves the constant IMU boresight angles and corrects the post-processed
 trajectory, position and orientation, from voxels matched in overlapping scan regions
 *(TBC 28972)*.
 
-### Stop if
+### 24.5 Stop if
 
 - **The runs do not overlap.** It has nothing to match
 - The machine does not meet the requirement above. It is not a setting you can push through
@@ -53,7 +53,7 @@ trajectory, position and orientation, from voxels matched in overlapping scan re
 > runs." Also the **3–100 m** range: the MX60's useful range and the range over which scan geometry
 > usefully aids a trajectory are different questions *(Technical Manual §11.3)*.
 
-### The acquisition geometry it wants
+### 24.6 The acquisition geometry it wants
 
 | Element | Requirement |
 |---|---|
@@ -66,6 +66,6 @@ trajectory, position and orientation, from voxels matched in overlapping scan re
 **That is materially the same geometry the laser scanner calibration wants (§13).** One site can
 serve both, which matters because establishing one is real work *(SOP §15.3)*.
 
-### Record
+### 24.7 Record
 
 That LiDAR QC was run, on which runs, with which settings.

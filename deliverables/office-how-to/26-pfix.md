@@ -4,7 +4,7 @@
 computation: the control observations go back into the navigation solver as position fixes and the
 filter re-solves with them available.
 
-### Prerequisites
+### 26.1 Prerequisites
 
 *(TBC 24460)*
 
@@ -15,7 +15,7 @@ filter re-solves with them available.
 - **Scan data generated from at least one run**
 - A GCP file imported in the project coordinate system
 
-### Do — part one, in TBC
+### 26.2 Do — part one, in TBC
 
 1. Right-click the **Mission** node ▸ **Generate Pospac Position Fixes**. *The command does not
    open if the mission has no generated scan*
@@ -28,7 +28,7 @@ filter re-solves with them available.
    **a `custom_events.txt` is written into a `PFIX` folder under the TBC project folder**
 7. Close the dialog
 
-### Do — part two, in POSPac
+### 26.3 Do — part two, in POSPac
 
 1. Start POSPac MMS, create and save a project
 2. Import the POS logged files from `POS_1/raw`
@@ -38,18 +38,18 @@ filter re-solves with them available.
 6. Select the IN-Fusion processing mode
 7. **All Processings.** A new SBET appears in the `Proc` folder
 
-### Do — part three, back in TBC
+### 26.4 Do — part three, back in TBC
 
 1. Select the mission ▸ properties
 2. **Replace the initial trajectory file with the new SBET**
 3. **Update Scans** (§21)
 
-### Expect
+### 26.5 Expect
 
 A better trajectory through the stretch that had no GNSS, with the correction propagated by the
 filter's own model of how the system behaves rather than by interpolation between control points.
 
-### Stop if
+### 26.6 Stop if
 
 - **You stop after step 7 of part one.** The `custom_events.txt` does nothing by itself
 - **You skip part three's Update Scans.** A better trajectory that never reaches the point cloud
@@ -61,6 +61,6 @@ filter's own model of how the system behaves rather than by interpolation betwee
 > contrasts them. The framing at the top of this section is this project's reading, not Trimble's
 > statement *(Technical Manual §27.5)*.
 
-### Record
+### 26.7 Record
 
 That PFIX was used, on which stretch, and the check-point residuals before and after.

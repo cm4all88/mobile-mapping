@@ -2,14 +2,14 @@
 
 **The step that is easiest to skip and most expensive to skip.**
 
-### Do
+### 21.1 Do
 
 1. Select the run or mission
 2. **Update Scans**
 3. Choose the **registered** trajectory
 4. Confirm the result in Project Explorer — see **Look at**
 
-### Look at
+### 21.2 Look at
 
 The scan stations. Updated ones carry a **`_reg_####`** suffix:
 
@@ -20,13 +20,13 @@ Run_14_Laser Right_reg_0001 (S3)
 And their position in the tree: they hang beneath the **registered trajectory**, not beneath
 `Sbet`.
 
-### Expect
+### 21.3 Expect
 
 A **second** set of scans, beneath the adjusted trajectory. The original set is still there,
 beneath `Sbet`, and both look identical in plan. That is not a duplicate to tidy away — they are
 the same raw data computed against two different trajectories *(Technical Manual §5.3)*.
 
-### Stop if
+### 21.4 Stop if
 
 - The stations do not carry `_reg_####`
 - The scans still sit beneath `Sbet`
@@ -45,7 +45,7 @@ the same raw data computed against two different trajectories *(Technical Manual
 > **One exception:** **Register Run to Run** has an **Update Scans** checkbox inside the command
 > (§18). That is the only place the two steps merge.
 
-### Record
+### 21.5 Record
 
 That Update Scans was run, against which trajectory. The pre-export check in §31 confirms it again
 before anything leaves.

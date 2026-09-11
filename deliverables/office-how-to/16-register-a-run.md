@@ -2,7 +2,7 @@
 
 One run, against surveyed control.
 
-### Do
+### 16.1 Do
 
 1. In **Project Explorer**, select a run
 2. Generate its scans if not already done (§11) — **the command is dimmed without at least one
@@ -32,7 +32,7 @@ One run, against surveyed control.
 > *(TBC 22905)*. If a pick is further than that from its GCP, it is not a valid pair — pick a
 > feature nearer the control point, or the pairing is refused.
 
-### Look at — Registration Type
+### 16.2 Look at — Registration Type
 
 | Type | What it does |
 |---|---|
@@ -53,14 +53,14 @@ One run, against surveyed control.
 > Which type, when. No selection rule is published, and **Global-then-Local** appears in every
 > Trimble screenshot with no guidance attached *(SOP §13.4)*.
 
-### Look at — Target-Bundle Adjustment
+### 16.3 Look at — Target-Bundle Adjustment
 
 **The name reads backwards.** Checked = **250 m** intervals, which is **coarser**. Unchecked =
 **70 m** *(TBC 22905)*.
 
 > **TESTING REQUIRED · T9** — test both states against independent checks.
 
-### Expect, after Apply
+### 16.4 Expect, after Apply
 
 *(TBC 22905)*
 
@@ -72,7 +72,7 @@ One run, against surveyed control.
 
 **Those four properties and the numbered SBET file are your provenance record** (§27).
 
-### Stop if
+### 16.5 Stop if
 
 - The command is dimmed — you have no generated scan on the run
 - You are registering a run that has already been registered. **That stacks adjustments.** Use
@@ -80,7 +80,7 @@ One run, against surveyed control.
 - The residuals on your check points are not what you expected. Read §20 before doing anything
   about it
 
-### Record
+### 16.6 Record
 
 Registration name, type, the trajectory node produced, and the SBET filename **with its `_reg_####`
 number**.

@@ -5,7 +5,7 @@ a dataset looks wrong.
 
 ## 13.1 The laser scanners
 
-### Do
+### 13.1 Do
 
 1. Collect the calibration mission: **four runs — two along one road forward and backward, two
    along a crossing road forward and backward** *(TBC 24886)*
@@ -14,7 +14,7 @@ a dataset looks wrong.
 4. Work **both run pairs**. The dialog presents one pair at a time and the second is easy to miss
 5. Read the results, then **do the visual check**
 
-### Look at
+### 13.2 Look at
 
 | | Requirement |
 |---|---|
@@ -29,13 +29,13 @@ a dataset looks wrong.
 Then, in the results: **Overall Overlap %**, **Overall RMS**, and per-pair RMS in **tangential,
 orthogonal and vertical**.
 
-### Expect
+### 13.3 Expect
 
 Three similar-sized components. **One much larger than the other two points at a specific part of
 the solution**: tangential at timing or along-track scale, orthogonal at heading, vertical at pitch
 or the height component *(Technical Manual §23.3)*.
 
-### Stop if
+### 13.4 Stop if
 
 > **CAUTION**
 >
@@ -50,7 +50,7 @@ opposing directions. Vegetation is noise in exactly that comparison.
 
 ## 13.2 The cameras
 
-### Do
+### 13.5 Do
 
 1. Generate scans from at least one run
 2. Select a camera under **Capture Devices** ▸ **Manual Camera Calibration**
@@ -64,12 +64,12 @@ opposing directions. Vegetation is noise in exactly that comparison.
 
 *(TBC 24868)*
 
-### Expect
+### 13.6 Expect
 
 **A visual, iterative alignment, not a computed adjustment.** You nudge until the imagery lines up
 with the cloud. There is no residual, and the quality is whatever care you took.
 
-### Stop if
+### 13.7 Stop if
 
 You cannot get the imagery to sit on the cloud at more than one location. That is not a boresight
 you can nudge out.
@@ -80,7 +80,7 @@ you can nudge out.
 
 ## 13.3 Afterwards
 
-### Do
+### 13.8 Do
 
 1. **Export the calibration JSON and archive it outside the TBC project**, named with the system
    serial number and the calibration date *(SOP §15.5)*

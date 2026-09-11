@@ -44,7 +44,7 @@ governs them is not established** and they are not filled in.
 
 | Revision | Date | Issued with | Summary of change | Approved |
 |---|---|---|---|---|
-| *Draft A* | 2026-09-11 | Technical Manual Draft A / Evidence revision E1 | First draft. 21 sections, three appendices. **No clause adopted** | *Not approved* |
+| `2026-09-11-a` | 2026-09-11 | Technical Manual `2026-09-11-a` / Evidence revision E1 | First draft circulated for internal review. 22 sections, three appendices. **No Parametrix clause adopted**; seven externally binding requirements restated (§2.4) | *Not approved — living draft* |
 
 ## C5 · What triggers a review
 

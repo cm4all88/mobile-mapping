@@ -3,7 +3,7 @@
 This is where the trajectory meets the measurements. Before it, the scanner data is ranges and
 angles from a moving sensor; after it, every return has a coordinate.
 
-### Do
+### 11.1 Do
 
 1. Select a **run** in Project Explorer — **one run first**, not the mission
 2. **Generate Scans** from the context menu
@@ -11,7 +11,7 @@ angles from a moving sensor; after it, every return has a coordinate.
 4. Set **Colorization**
 5. Run it, inspect the result (§12), and only then repeat at **mission** level
 
-### Look at — the filters
+### 11.2 Look at — the filters
 
 | Filter | Removes |
 |---|---|
@@ -25,12 +25,12 @@ angles from a moving sensor; after it, every return has a coordinate.
 Then the **Results of Scan Generation** dialog, which records per run the filters applied, the
 range, and the counts.
 
-### Expect
+### 11.3 Expect
 
 Scans appearing **beneath the trajectory node**, not beneath the run. Generating at mission level
 processes all runs; at run level, one.
 
-### Stop if
+### 11.4 Stop if
 
 - **The deliverable is sign or retroreflectivity work and Reflective Panels is on.** Those returns
   may be the deliverable
@@ -55,7 +55,7 @@ processes all runs; at run level, one.
 > MTA range-ambiguity correction *(TBC 23856)*, it does not apply to this system — that is the MX9
 > and MX90 path *(Technical Manual §5.1)*.
 
-### Record
+### 11.5 Record
 
 **Capture the Results of Scan Generation into the project record.** It is the only artefact that
 states which filters produced a given cloud *(SOP §13.3)*.

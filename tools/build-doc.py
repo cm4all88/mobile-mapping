@@ -5,6 +5,10 @@
 """
 import glob, os, re, sys
 
+def strip_markers(s):
+    """The circulation markers steer tools/sync-circulation.py. They are not content."""
+    return re.sub(r'^<!-- /?circulation.*?-->\n?', '', s, flags=re.M)
+
 DOCS = {
  'manual': ('deliverables/technical-manual', 'MX60-TECHNICAL-MANUAL.md',
             {1: ('Part I', 'Principles'), 7: ('Part II', 'The System'),
@@ -26,15 +30,15 @@ OUT = os.path.join(SRC, OUTNAME)
 def divider(label, title):
     return f'\n---\n\n# {label} — {title}\n\n---\n'
 
-chunks = [open(os.path.join(SRC, '00-front-matter.md')).read().rstrip()]
+chunks = [strip_markers(open(os.path.join(SRC, '00-front-matter.md')).read()).rstrip()]
 for f in sorted(glob.glob(os.path.join(SRC, '[0-3][0-9]-*.md'))):
     n = int(os.path.basename(f)[:2])
     if n == 0: continue
     if n in PARTS: chunks.append(divider(*PARTS[n]))
-    chunks.append(open(f).read().rstrip())
+    chunks.append(strip_markers(open(f).read()).rstrip())
 chunks.append(divider(*LASTPART))
 for f in sorted(glob.glob(os.path.join(SRC, 'appendix-*.md'))):
-    chunks.append(open(f).read().rstrip())
+    chunks.append(strip_markers(open(f).read()).rstrip())
 
 doc = '\n\n---\n\n'.join(chunks)
 doc = re.sub(r'\n{4,}', '\n\n\n', doc)

@@ -5,7 +5,7 @@
 That is the whole point and the whole limitation: it makes two runs agree with each other. It
 cannot make them agree with the ground.
 
-### Do
+### 18.1 Do
 
 1. Import the missions
 2. **Mobile Mapping ▸ Processing ▸ Register Run to Run**
@@ -23,7 +23,7 @@ cannot make them agree with the ground.
 
 *(TBC 25096)*
 
-### Look at — the Results tab
+### 18.2 Look at — the Results tab
 
 RMS in **tangential, orthogonal and vertical**, every **20 m**, plus `No overlap` where the two
 runs do not overlap.
@@ -31,18 +31,18 @@ runs do not overlap.
 `No overlap` rows are information, not noise. They tell you where the comparison had nothing to
 compare.
 
-### Update Scans is inside this command
+### 18.3 Update Scans is inside this command
 
 **This is the only place the two steps merge.** The **Update Scans** checkbox regenerates the Run
 to Adjust's scans inline *(TBC 25096)*. Everywhere else, Update Scans is a separate command (§21).
 
-### Expect
+### 18.4 Expect
 
 - A trajectory beneath the **Run to Adjust**, named `GivenName: Runname_X To Runname_X+1`
 - RMS statistics in the Results tab
 - A cutting plane per pair, named `MissionID Last Two Digits - Run to Adjust`
 
-### Stop if
+### 18.5 Stop if
 
 - **You have not registered to surveyed control first.** Run-to-run improves *relative* agreement.
   It cannot establish absolute position, and if the Reference Run is itself displaced, run-to-run
@@ -67,7 +67,7 @@ to Adjust's scans inline *(TBC 25096)*. Everywhere else, Update Scans is a separ
 
 > **TESTING REQUIRED · T24** — how much run overlap is enough.
 
-### Record
+### 18.6 Record
 
 Registration name, the pairs and their order, the RMS statistics, and the check-point residuals
 **after** the adjustment.

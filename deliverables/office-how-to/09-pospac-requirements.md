@@ -1,6 +1,6 @@
 # 9. POSPac Requirements — and What to Do Without It
 
-### What the licence gates
+### 9.1 What the licence gates
 
 | Route | Needs POSPac? |
 |---|---|
@@ -10,17 +10,17 @@
 | Using the SBET the vehicle or a bureau produced | No |
 | **LiDAR QC** — §24 | Not stated by Trimble. See below |
 
-### Do — if you have the licence
+### 9.2 Do — if you have the licence
 
 Confirm the version is 8.6 or later and that TBC can see it. **Support ▸ License Manager**.
 
-### Do — if you do not
+### 9.3 Do — if you do not
 
 1. Obtain a post-processed SBET from whoever holds a licence, and import it
 2. Or, if no post-processed trajectory is available at all, **stop and raise it** — see below
 3. Record which route was used, on every job
 
-### Stop if
+### 9.4 Stop if
 
 - **The only trajectory available is the NAV solution** and the deliverable is survey-grade. NAV is
   the real-time solution computed in the vehicle. It is a fallback, not an option

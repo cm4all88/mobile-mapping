@@ -2,7 +2,7 @@
 
 **Before anything else happens.** Nothing in this section involves TBC.
 
-### Do
+### 2.1 Do
 
 1. **Copy, do not move.** The source disk stays the source until a verified copy exists in two
    places
@@ -16,7 +16,7 @@
 6. **Take the raw-data backup now**, before any processing
 7. Only then is the source disk available for reuse
 
-### Look at
+### 2.2 Look at
 
 The mission folder, which should look like this:
 
@@ -31,12 +31,12 @@ TMX<serial>-<mission id>/
   └── <mission>_*.log
 ```
 
-### Expect
+### 2.3 Expect
 
 Tens to hundreds of gigabytes. `POS_1/raw/` holds a numbered series of `posl_*` files, not one
 file. `Extcal.json` is small and is there.
 
-### Stop if
+### 2.4 Stop if
 
 - **`POS_1/raw/` is missing or empty.** There is no post-processed trajectory without it and the
   mission is NAV-only. Raise it now, while re-collection is still a small decision
@@ -60,6 +60,6 @@ file. `Extcal.json` is small and is there.
 > **Backup SBET Next to MXDB** enabled (§8), into the raw data folder beside the `.mxdb`. A backup
 > taken afterwards is a backup of a partly processed state *(SOP §11.3)*.
 
-### Record
+### 2.5 Record
 
 Offload performed, verified how, by whom, when. Where the backup is.

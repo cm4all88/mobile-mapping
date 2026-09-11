@@ -3,7 +3,7 @@
 Computes the SBET inside TBC, without going out to POSPac. **Requires a POSPac MMS 8.6+ licence**
 — see §9 if you do not have one.
 
-### Do
+### 8.1 Do
 
 1. Import the base station `.YYo` first (§7)
 2. Right-click the **Mission** node ▸ **Process Raw Trajectory Data**
@@ -16,7 +16,7 @@ Computes the SBET inside TBC, without going out to POSPac. **Requires a POSPac M
 7. Consider **Generate QC Report**
 8. **Compute**
 
-### Look at — the settings, with Trimble's defaults
+### 8.2 Look at — the settings, with Trimble's defaults
 
 | Setting | Values | Default |
 |---|---|---|
@@ -30,7 +30,7 @@ Computes the SBET inside TBC, without going out to POSPac. **Requires a POSPac M
 
 *(TBC 25943)*
 
-### The one field to check every time
+### 8.3 The one field to check every time
 
 > **CAUTION**
 >
@@ -41,11 +41,11 @@ Computes the SBET inside TBC, without going out to POSPac. **Requires a POSPac M
 > antenna model puts a **systematic antenna-height and reference error** into the trajectory, and
 > nothing downstream will attribute the symptom to its real cause.
 
-### Expect
+### 8.4 Expect
 
 A trajectory that computes without error, and an SBET file in the project folder.
 
-### Stop if
+### 8.5 Stop if
 
 - **The antenna model is not `Trimble 112735`**
 - **A GAMS or DMI pane is dimmed and you expected the sensor to be fitted.** Dimmed means the
@@ -59,7 +59,7 @@ A trajectory that computes without error, and an SBET file in the project folder
 > Whether **Multipath = Medium** is right for open-sky Parametrix corridors, and whether the DMI
 > 5 % default is an accuracy claim anybody verified *(SOP §13.1)*.
 
-### Record
+### 8.6 Record
 
 The settings used, the computation mode, and the frame-and-epoch log that **Backup SBET Next to
 MXDB** writes. That log is the only artefact anywhere in the workflow that records the frame and

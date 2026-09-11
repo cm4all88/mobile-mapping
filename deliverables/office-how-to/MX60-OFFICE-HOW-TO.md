@@ -2,21 +2,99 @@
 
 **Trimble Business Center 2026.10 · Trimble MX60**
 
+> **LIVING DRAFT — INTERNAL REVIEW**
+>
+> **This document is a living draft for internal Parametrix review, training, testing and workflow
+> development.** It is not an issued Parametrix standard, and it does not replace professional
+> judgement, project requirements, safety procedures or approved company policy.
+>
+> **Items marked Parametrix Decision Required, Proposed, Testing Required or Vendor Clarification
+> Required are unresolved.** There are a lot of them, and that is deliberate — an open question is
+> shown as an open question rather than filled in with a guess.
+
+---
+
+## How to review this draft
+
+**This is not primarily a copy-editing exercise.** Typos and awkward sentences are worth reporting,
+but they are not what this draft needs. Four questions are:
+
+| | |
+|---|---|
+| **1** | **Is anything technically wrong?** |
+| **2** | **Is anything impractical in actual field or office use?** |
+| **3** | **Is anything presented more strongly than Parametrix has actually decided?** |
+| **4** | **What would prevent you from performing the work using these documents?** |
+
+**Question 3 is the one most likely to be missed.** Every statement with procedural force in this
+set carries a label saying whose authority it rests on — Trimble's, the equipment's, or
+Parametrix's — and **no Parametrix requirement is adopted at this draft.** If something reads as
+settled company practice when it is not, that is a defect, and it is the kind this project is least
+able to catch on its own.
+
+**Question 4 is the one that finds gaps.** If you could not actually do the work from these
+documents — because a step is missing, a decision is open, a tool is not available, or the
+instruction assumes something you were never told — say so. A gap is more useful than a correction.
+
+### Who is being asked
+
+Reviewers are identified by role, because each role sees a different failure.
+
+| Role | What this draft most needs from you |
+|---|---|
+| **Survey leadership and the responsible PLS** | **Question 3.** Where does this overstate what Parametrix has decided? And which of the open decisions are actually yours to make |
+| **MX60 field operators** | **Question 2**, in the vehicle. Sequence, timing, what is realistic on a real shift, and anything the Field How To gets wrong about the machine |
+| **TBC mobile mapping processors** | **Questions 1 and 2.** Whether the software behaves as described, in the version you are running, and whether the workflow order survives contact with a real project |
+| **QA/QC reviewers** | **Question 1**, and the records. Whether the evidence a section asks for is evidence you could actually review, and whether anything is claimed that the evidence does not support |
+| **Project managers who may scope or rely on mobile mapping** | **Question 4.** What you would need to know before scoping this work, pricing it, or promising it to a client — and whether you could find it here |
+| **Survey staff with conventional experience and limited mobile mapping experience** | **Question 4, and you are the most important reviewer for it.** Where does this assume something nobody explained? An unexplained assumption is invisible to the people who wrote it, and obvious to you |
+
+### How to point at something
+
+**When commenting, identify the document and the section.** For example: **`Office How To §16.4`**, or
+**`SOP D-13`**.
+
+Every section and subsection is numbered, and every warning, open decision, test and vendor
+question carries an identifier that is the same in all four documents:
+
+| Identifier | Means |
+|---|---|
+| **§n.n** | A numbered subsection of the document named |
+| **W-n** | A warning. Worded identically wherever it appears |
+| **D-n** | An open Parametrix decision |
+| **Tn** | An open test — something nobody has measured yet |
+| **V-n** | An open question for Trimble |
+
+> *"The registration part is confusing"* cannot be acted on. *"`Office How To §16.4` is confusing"* can.
+
 ---
 
 ## Document control
 
 > **Provisional.** Parametrix's document-control convention is not established (**D-1**). The
-> values below are placeholders.
+> block below is a temporary working scheme for this review only.
 
-| Field | Value |
+### Working revision — internal draft only
+
+> **This is a temporary working revision scheme, used only while the set is in internal review.**
+> It is deliberately **not** a revision letter or number, so it cannot be mistaken for the
+> Parametrix document-control convention that **D-1** will establish. When D-1 is answered, this
+> block is replaced by the real one.
+
+| | |
 |---|---|
-| Document | **MX60 Office How To** |
-| Identifier | *`MX60 Office How To — Draft A`* — provisional |
-| Revision | *Draft A* |
-| Date | 2026-09-11 |
-| Status | **Draft. Not issued.** |
-| Issued in support of | **MX60 Mobile Mapping SOP**, Draft A |
+| **Document** | **MX60 Office How To** |
+| **Working draft** | `2026-09-11-a` — date of circulation, plus a letter for same-day reissues |
+| **Supersedes** | — first circulated draft |
+| **Status** | **LIVING DRAFT — INTERNAL REVIEW.** Not issued, not approved |
+| **Circulated for** | Internal review, training, testing and workflow development |
+| **Prepared by** | MX60 mobile mapping documentation project |
+| **Document identifier** | *Not assigned* — **D-1** |
+| **Formal revision** | *Not assigned* — **D-1** |
+| **Owner** | *Not assigned* — **D-1** |
+| **Approved by** | **Nobody.** This draft is not approved and not issued |
+| **Comments to** | *Not assigned* |
+| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at `2026-09-11-a` |
 
 ## What this guide is
 
@@ -66,6 +144,10 @@ section, read **Stop if**.
 | **Expect** | What normal looks like, so you can tell when it isn't |
 | **Stop if** | What means you do not proceed. **These are not suggestions.** Stopping costs an hour; not stopping has cost a remobilisation |
 
+**Each of the four is numbered** — §16.1 *Do*, §16.5 *Stop if* — because "Stop if" appears in
+every section and is not an address on its own. Cite the number when you report a problem with
+this guide: **Office How To §16.5**, not "the stop-if in registration".
+
 ## 1.2 The order
 
 The guide follows the processing sequence. §2 to §12 get you from a disk to a point cloud you can
@@ -94,12 +176,18 @@ recommendation today, while **a Trimble instruction and an equipment limit bind 
 
 | Marker | Who says so | Force today |
 |---|---|---|
-| **[TRIMBLE]** | Trimble, in the cited topic or manual page | **Binding.** Does not wait on a Parametrix decision |
+| **[TRIMBLE]** | Trimble states it as a requirement, in the cited topic or manual page | **Binding.** Does not wait on a Parametrix decision |
+| **[TRIMBLE METHOD]** | Trimble documents the method, but does not state it as a requirement | **Strong advice.** The method is Trimble's; the obligation is not |
 | **[EQUIPMENT]** | A hardware limit or an irreversible software operation | **Binding.** It is a fact about the tool |
 | **[SOP §n]** | A Parametrix requirement, at that clause | As strong as that clause — check its state |
 | **[PROPOSED]** | Recommended by this project | **Not company policy.** Do it unless told otherwise, and record it if you do not |
 | **[TESTING · Tn]** | Depends on a result nobody has yet | An interim posture, not a rule |
 | **[DECISION · D-n]** | Parametrix has not decided | **Raise it.** Do not improvise a standing rule |
+
+> **[TRIMBLE] and [TRIMBLE METHOD] are not the same thing.** Where Trimble states a rule —
+> *"A visual check is needed"* — the marker is **[TRIMBLE]**. Where it documents a way of working
+> without making it mandatory, the marker is **[TRIMBLE METHOD]**. This guide does not promote the
+> second into the first.
 
 > **This is why §1.1 says "Stop if" is not a suggestion.** A *Stop if* whose authority is
 > **[TRIMBLE]** or **[EQUIPMENT]** is not negotiable today. A *Stop if* marked **[PROPOSED]** is
@@ -126,7 +214,7 @@ Templates are in **Appendix F**.
 
 **Before anything else happens.** Nothing in this section involves TBC.
 
-### Do
+### 2.1 Do
 
 1. **Copy, do not move.** The source disk stays the source until a verified copy exists in two
    places
@@ -140,7 +228,7 @@ Templates are in **Appendix F**.
 6. **Take the raw-data backup now**, before any processing
 7. Only then is the source disk available for reuse
 
-### Look at
+### 2.2 Look at
 
 The mission folder, which should look like this:
 
@@ -155,12 +243,12 @@ TMX<serial>-<mission id>/
   └── <mission>_*.log
 ```
 
-### Expect
+### 2.3 Expect
 
 Tens to hundreds of gigabytes. `POS_1/raw/` holds a numbered series of `posl_*` files, not one
 file. `Extcal.json` is small and is there.
 
-### Stop if
+### 2.4 Stop if
 
 - **`POS_1/raw/` is missing or empty.** There is no post-processed trajectory without it and the
   mission is NAV-only. Raise it now, while re-collection is still a small decision
@@ -184,7 +272,7 @@ file. `Extcal.json` is small and is there.
 > **Backup SBET Next to MXDB** enabled (§8), into the raw data folder beside the `.mxdb`. A backup
 > taken afterwards is a backup of a partly processed state *(SOP §11.3)*.
 
-### Record
+### 2.5 Record
 
 Offload performed, verified how, by whom, when. Where the backup is.
 
@@ -194,7 +282,7 @@ Offload performed, verified how, by whom, when. Where the backup is.
 
 Do this immediately after import (§7), before any processing. Seven checks, none taking a minute.
 
-### Do
+### 3.1 Do
 
 Open the mission properties and the **Mobile Mapping** node in Project Explorer and check:
 
@@ -208,11 +296,11 @@ Open the mission properties and the **Mobile Mapping** node in Project Explorer 
 | 6 | **Base station data** present in the project | Whether you will process the trajectory in house |
 | 7 | **Calibration state recorded** | §4 |
 
-### Look at
+### 3.2 Look at
 
 The **Capture Devices** node, and the **Sbet** node under each run.
 
-### Expect
+### 3.3 Expect
 
 The tree looks like this — **note that scans will hang off the trajectory, not off the run**:
 
@@ -224,7 +312,7 @@ Mobile Mapping
               └── Sbet          the imported trajectory
 ```
 
-### Stop if
+### 3.4 Stop if
 
 - **Run count is lower than the field record.** Data was lost in transfer. Do not process it —
   go back to the copy
@@ -242,7 +330,7 @@ Mobile Mapping
 > processor who quietly corrects a coordinate system mismatch at intake has removed the evidence
 > that field and office disagreed.
 
-### Record
+### 3.5 Record
 
 Each check, with its result. Anything that failed, and what was done.
 
@@ -253,23 +341,23 @@ Each check, with its result. Anything that failed, and what was done.
 **Do this at intake, not later.** A later Cleanup (§29) removes the objects that would
 produce the report.
 
-### Do
+### 4.1 Do
 
 1. **Copy `Extcal.json` out of the raw mission folder** into the project record, named with the
    system serial number and the mission date
 2. Run the **Mission Report** — *(TBC 23991_1)*
 3. Archive the report into the project record
 
-### Look at
+### 4.2 Look at
 
 The report's **Capture devices** table. It carries per-sensor **boresight installation** and
 **boresight refinement**, and a **date of calibration**.
 
-### Expect
+### 4.3 Expect
 
 A date of calibration you can point at, for each sensor.
 
-### Stop if
+### 4.4 Stop if
 
 - **The calibration date cannot be established.** Which calibration a mission was processed
   against is a question somebody will ask later, and the answer has to exist now
@@ -283,7 +371,7 @@ A date of calibration you can point at, for each sensor.
 > **That dated record is the only one found anywhere in the workflow** *(Technical Manual §30)*.
 > There is no other place the software tells you when the system was last calibrated.
 
-### Record
+### 4.5 Record
 
 `Extcal.json` and the Mission Report, both in the project record. Which calibration this mission
 was processed against.
@@ -292,24 +380,24 @@ was processed against.
 
 # 5. Project Setup
 
-### Do
+### 5.1 Do
 
 1. Create the VCE project
 2. **Set the coordinate system, datum, epoch and geoid model — before importing anything**
 3. Record what you set, and who set it
 
-### Look at
+### 5.2 Look at
 
 The project's coordinate system properties, against the control network and the written client
 requirement (SOP §6.1).
 
-### Expect
+### 5.3 Expect
 
 A coordinate system that matches the control you are going to register against. TBC 2026.10 ships
 **Coordinate System Database v115**; selecting a predefined geoid model now enters the vertical
 datum name automatically *(TBC RN 2026.10)*.
 
-### Stop if
+### 5.4 Stop if
 
 - The project's accuracy requirement is not stated in writing
 - The CRS, datum or epoch has not been decided *(SOP §6.2, D-21)*
@@ -326,7 +414,7 @@ datum name automatically *(TBC RN 2026.10)*.
 > Practically: if you discover the CRS is wrong after processing, the cheapest honest route is a
 > new project and a re-import, not a change in place.
 
-### Record
+### 5.5 Record
 
 CRS, datum, epoch, geoid, and who set them.
 
@@ -337,7 +425,7 @@ CRS, datum, epoch, geoid, and who set them.
 This is not a lesson in datums. It is the four places mobile mapping treats them differently
 *(Technical Manual §12)*.
 
-### Do
+### 6.1 Do
 
 | # | | |
 |---|---|---|
@@ -346,7 +434,7 @@ This is not a lesson in datums. It is the four places mobile mapping treats them
 | 3 | After trajectory processing, **read the SBET filename** | §10 |
 | 4 | At export, know whether you are producing grid or ground | §30 |
 
-### Look at
+### 6.2 Look at
 
 The SBET filename once the trajectory exists:
 
@@ -357,11 +445,11 @@ The SBET filename once the trajectory exists:
 
 *(TBC 25943)*
 
-### Expect
+### 6.3 Expect
 
 Either form. Neither is an error.
 
-### Stop if
+### 6.4 Stop if
 
 Nothing here stops you on its own. But **record which form you got**, because the second means an
 additional transformation happened that nobody chose.
@@ -375,7 +463,7 @@ additional transformation happened that nobody chose.
 > Which of Parametrix's normal coordinate systems POSPac recognises directly, and which trigger the
 > ITRF00 path. Answerable once, then known.
 
-### Record
+### 6.5 Record
 
 The SBET filename, in full, in the delivery record (§28).
 
@@ -383,23 +471,23 @@ The SBET filename, in full, in the delivery record (§28).
 
 # 7. Importing the Mission
 
-### Do
+### 7.1 Do
 
 1. Confirm the project CRS is already set (§5)
 2. Import the **`<mission>.mxdb`**
 3. If you will process the trajectory in house, **import the base station observation file** from
    `Base/` — the **`.YYo`**
 
-### Look at
+### 7.2 Look at
 
 Project Explorer, under **Mobile Mapping**. Then go straight to §3 and do the seven checks.
 
-### Expect
+### 7.3 Expect
 
 A mission node, a **Capture Devices** node, and one node per run with an **Sbet** trajectory
 beneath it.
 
-### Stop if
+### 7.4 Stop if
 
 - The `.mxdb` will not open. Go back to the copy (§2) — this is the definitive test that the
   transfer worked
@@ -414,7 +502,7 @@ beneath it.
 > of scans that look identical in plan, and it is the structural fact the whole of §27 rests on
 > *(Technical Manual §5.3)*.
 
-### Record
+### 7.5 Record
 
 Import date, and that the seven intake checks were done.
 
@@ -425,7 +513,7 @@ Import date, and that the seven intake checks were done.
 Computes the SBET inside TBC, without going out to POSPac. **Requires a POSPac MMS 8.6+ licence**
 — see §9 if you do not have one.
 
-### Do
+### 8.1 Do
 
 1. Import the base station `.YYo` first (§7)
 2. Right-click the **Mission** node ▸ **Process Raw Trajectory Data**
@@ -438,7 +526,7 @@ Computes the SBET inside TBC, without going out to POSPac. **Requires a POSPac M
 7. Consider **Generate QC Report**
 8. **Compute**
 
-### Look at — the settings, with Trimble's defaults
+### 8.2 Look at — the settings, with Trimble's defaults
 
 | Setting | Values | Default |
 |---|---|---|
@@ -452,7 +540,7 @@ Computes the SBET inside TBC, without going out to POSPac. **Requires a POSPac M
 
 *(TBC 25943)*
 
-### The one field to check every time
+### 8.3 The one field to check every time
 
 > **CAUTION**
 >
@@ -463,11 +551,11 @@ Computes the SBET inside TBC, without going out to POSPac. **Requires a POSPac M
 > antenna model puts a **systematic antenna-height and reference error** into the trajectory, and
 > nothing downstream will attribute the symptom to its real cause.
 
-### Expect
+### 8.4 Expect
 
 A trajectory that computes without error, and an SBET file in the project folder.
 
-### Stop if
+### 8.5 Stop if
 
 - **The antenna model is not `Trimble 112735`**
 - **A GAMS or DMI pane is dimmed and you expected the sensor to be fitted.** Dimmed means the
@@ -481,7 +569,7 @@ A trajectory that computes without error, and an SBET file in the project folder
 > Whether **Multipath = Medium** is right for open-sky Parametrix corridors, and whether the DMI
 > 5 % default is an accuracy claim anybody verified *(SOP §13.1)*.
 
-### Record
+### 8.6 Record
 
 The settings used, the computation mode, and the frame-and-epoch log that **Backup SBET Next to
 MXDB** writes. That log is the only artefact anywhere in the workflow that records the frame and
@@ -492,7 +580,7 @@ that may later be cleaned up *(SOP §13.2)*.
 
 # 9. POSPac Requirements — and What to Do Without It
 
-### What the licence gates
+### 9.1 What the licence gates
 
 | Route | Needs POSPac? |
 |---|---|
@@ -502,17 +590,17 @@ that may later be cleaned up *(SOP §13.2)*.
 | Using the SBET the vehicle or a bureau produced | No |
 | **LiDAR QC** — §24 | Not stated by Trimble. See below |
 
-### Do — if you have the licence
+### 9.2 Do — if you have the licence
 
 Confirm the version is 8.6 or later and that TBC can see it. **Support ▸ License Manager**.
 
-### Do — if you do not
+### 9.3 Do — if you do not
 
 1. Obtain a post-processed SBET from whoever holds a licence, and import it
 2. Or, if no post-processed trajectory is available at all, **stop and raise it** — see below
 3. Record which route was used, on every job
 
-### Stop if
+### 9.4 Stop if
 
 - **The only trajectory available is the NAV solution** and the deliverable is survey-grade. NAV is
   the real-time solution computed in the vehicle. It is a fallback, not an option
@@ -538,14 +626,14 @@ Confirm the version is 8.6 or later and that TBC can see it. **Support ▸ Licen
 **Do this before you generate a single scan.** It is the highest-value, lowest-effort check in the
 whole workflow, it takes seconds, and it tells you where everything else is going to be difficult.
 
-### Do
+### 10.1 Do
 
 1. **Mobile Mapping ▸ Trajectory Settings ▸ Rendering Settings ▸ RMS values**
 2. Set the ranges and colours you want. **The settings persist between projects** *(TBC 27248)*
 3. Look at the trajectory in **Plan View**
 4. For detail: **Mobile Mapping ▸ Reports ▸ Trajectory Plots**
 
-### Look at
+### 10.2 Look at
 
 Three things, in this order:
 
@@ -555,12 +643,12 @@ Three things, in this order:
 | **How long each degraded stretch is** | A short gap bracketed by good data is bridged well. A long one is not |
 | **Whether the degradation is at the ends of the mission** | The ends are where the smoother had data on one side only. If the last stretch is a different colour from the rest, that is the closing sequence talking *(Technical Manual §14.4)* |
 
-### Expect
+### 10.3 Expect
 
 Mostly one colour, with the degraded stretches where the mission plan predicted them — under the
 overpass, through the tree cover — and short.
 
-### Stop if
+### 10.4 Stop if
 
 - A degraded stretch is long and you have **no control bracketing it** and **no overlapping pass**.
   You have no remedy for it, and that is a conversation to have now rather than after registration
@@ -572,7 +660,7 @@ overpass, through the tree cover — and short.
 > effect, and §27 turns it into a useful one: it makes the extent of a registration visible in
 > plan, including where a **Local** adjustment stopped.
 
-### Record
+### 10.5 Record
 
 A screen capture of the RMS-coloured trajectory. It is a required QC record (SOP §16.8) and it is
 one click.
@@ -584,7 +672,7 @@ one click.
 This is where the trajectory meets the measurements. Before it, the scanner data is ranges and
 angles from a moving sensor; after it, every return has a coordinate.
 
-### Do
+### 11.1 Do
 
 1. Select a **run** in Project Explorer — **one run first**, not the mission
 2. **Generate Scans** from the context menu
@@ -592,7 +680,7 @@ angles from a moving sensor; after it, every return has a coordinate.
 4. Set **Colorization**
 5. Run it, inspect the result (§12), and only then repeat at **mission** level
 
-### Look at — the filters
+### 11.2 Look at — the filters
 
 | Filter | Removes |
 |---|---|
@@ -606,12 +694,12 @@ angles from a moving sensor; after it, every return has a coordinate.
 Then the **Results of Scan Generation** dialog, which records per run the filters applied, the
 range, and the counts.
 
-### Expect
+### 11.3 Expect
 
 Scans appearing **beneath the trajectory node**, not beneath the run. Generating at mission level
 processes all runs; at run level, one.
 
-### Stop if
+### 11.4 Stop if
 
 - **The deliverable is sign or retroreflectivity work and Reflective Panels is on.** Those returns
   may be the deliverable
@@ -636,7 +724,7 @@ processes all runs; at run level, one.
 > MTA range-ambiguity correction *(TBC 23856)*, it does not apply to this system — that is the MX9
 > and MX90 path *(Technical Manual §5.1)*.
 
-### Record
+### 11.5 Record
 
 **Capture the Results of Scan Generation into the project record.** It is the only artefact that
 states which filters produced a given cloud *(SOP §13.3)*.
@@ -647,13 +735,13 @@ states which filters produced a given cloud *(SOP §13.3)*.
 
 A first look, on one run, before you commit to the mission.
 
-### Do
+### 12.1 Do
 
 1. Open the run's scans in **3D View**
 2. Set rendering to **Scan Color** — one colour per scan
 3. Look along the corridor, and then at a cross-section
 
-### Look at
+### 12.2 Look at
 
 | | |
 |---|---|
@@ -663,13 +751,13 @@ A first look, on one run, before you commit to the mission.
 | **Obvious voids** | Occlusion by a vehicle, or a filter that removed more than you meant |
 | **The filters' effect** | Compare against an unfiltered generation if you are unsure |
 
-### Expect
+### 12.3 Expect
 
 A clean, dense cloud. **It will look clean even when the trajectory was poor** — that is the whole
 problem with mobile mapping data *(Technical Manual §3.2)*. This check is for coverage and filter
 sanity, not for accuracy.
 
-### Stop if
+### 12.4 Stop if
 
 - A laser is missing
 - Coverage is materially shorter than the run
@@ -687,7 +775,7 @@ a dataset looks wrong.
 
 ## 13.1 The laser scanners
 
-### Do
+### 13.1 Do
 
 1. Collect the calibration mission: **four runs — two along one road forward and backward, two
    along a crossing road forward and backward** *(TBC 24886)*
@@ -696,7 +784,7 @@ a dataset looks wrong.
 4. Work **both run pairs**. The dialog presents one pair at a time and the second is easy to miss
 5. Read the results, then **do the visual check**
 
-### Look at
+### 13.2 Look at
 
 | | Requirement |
 |---|---|
@@ -711,13 +799,13 @@ a dataset looks wrong.
 Then, in the results: **Overall Overlap %**, **Overall RMS**, and per-pair RMS in **tangential,
 orthogonal and vertical**.
 
-### Expect
+### 13.3 Expect
 
 Three similar-sized components. **One much larger than the other two points at a specific part of
 the solution**: tangential at timing or along-track scale, orthogonal at heading, vertical at pitch
 or the height component *(Technical Manual §23.3)*.
 
-### Stop if
+### 13.4 Stop if
 
 > **CAUTION**
 >
@@ -732,7 +820,7 @@ opposing directions. Vegetation is noise in exactly that comparison.
 
 ## 13.2 The cameras
 
-### Do
+### 13.5 Do
 
 1. Generate scans from at least one run
 2. Select a camera under **Capture Devices** ▸ **Manual Camera Calibration**
@@ -746,12 +834,12 @@ opposing directions. Vegetation is noise in exactly that comparison.
 
 *(TBC 24868)*
 
-### Expect
+### 13.6 Expect
 
 **A visual, iterative alignment, not a computed adjustment.** You nudge until the imagery lines up
 with the cloud. There is no residual, and the quality is whatever care you took.
 
-### Stop if
+### 13.7 Stop if
 
 You cannot get the imagery to sit on the cloud at more than one location. That is not a boresight
 you can nudge out.
@@ -762,7 +850,7 @@ you can nudge out.
 
 ## 13.3 Afterwards
 
-### Do
+### 13.8 Do
 
 1. **Export the calibration JSON and archive it outside the TBC project**, named with the system
    serial number and the calibration date *(SOP §15.5)*
@@ -776,23 +864,23 @@ you can nudge out.
 
 # 14. Importing Control
 
-### Do
+### 14.1 Do
 
 1. Obtain the control file — **Shape, ASCII or CSV** *(TBC 22905)*
 2. Confirm it is in the project's coordinate system (§5)
 3. Import it
 4. Confirm the points appear in **Plan View** and under the **Points** node
 
-### Look at
+### 14.2 Look at
 
 The points, in plan, against the trajectory and the scans. Do they fall where the field record says
 they should?
 
-### Expect
+### 14.3 Expect
 
 Every point you surveyed, in the right place, in the right frame.
 
-### Stop if
+### 14.4 Stop if
 
 - The points plot in the wrong place — that is a coordinate system or units problem, and it is much
   cheaper to fix now than after a registration
@@ -807,7 +895,7 @@ Every point you surveyed, in the right place, in the right frame.
 > prism. A painted stop-bar corner is excellent horizontally and poor vertically; a survey nail in
 > asphalt is below cloud resolution *(Technical Manual §22.5)*.
 
-### Record
+### 14.5 Record
 
 The control file used, and the control-versus-check designation with the name of whoever made it.
 
@@ -818,7 +906,7 @@ The control file used, and the control-versus-check designation with the name of
 **Three independent choices per point.** This is the most consequential configuration in the
 office workflow and it is three checkboxes.
 
-### Do
+### 15.1 Do
 
 For each point, in the **Control Points** list of a registration command:
 
@@ -831,16 +919,16 @@ For each point, in the **Control Points** list of a registration command:
 They are per-point and per-component. A point can be **Use XY** and **As Check** in Z — used
 horizontally, held out vertically.
 
-### Look at
+### 15.2 Look at
 
 The designation you were given (§14), and set it. **Do not decide it here.**
 
-### Expect
+### 15.3 Expect
 
 A mixture. A painted road-surface mark is usually Use XY and not Use Z. A point held out entirely
 is a validation point.
 
-### Stop if
+### 15.4 Stop if
 
 - **Every point is set As Check.** TBC will not compute — the adjustment has nothing to fit
 - **No point is set As Check.** Then nothing measures the result, and the residuals you are about
@@ -860,7 +948,7 @@ is a validation point.
 > step is well intentioned. The result is an adjustment with **no independent check at all**, and a
 > set of residuals that now measure nothing *(Technical Manual §22.4)*.
 
-### Record
+### 15.5 Record
 
 Point ID, Use XY, Use Z, As Check — for every point, **outside TBC**. The software does not
 appear to report it (§20, §28).
@@ -871,7 +959,7 @@ appear to report it (§20, §28).
 
 One run, against surveyed control.
 
-### Do
+### 16.1 Do
 
 1. In **Project Explorer**, select a run
 2. Generate its scans if not already done (§11) — **the command is dimmed without at least one
@@ -901,7 +989,7 @@ One run, against surveyed control.
 > *(TBC 22905)*. If a pick is further than that from its GCP, it is not a valid pair — pick a
 > feature nearer the control point, or the pairing is refused.
 
-### Look at — Registration Type
+### 16.2 Look at — Registration Type
 
 | Type | What it does |
 |---|---|
@@ -922,14 +1010,14 @@ One run, against surveyed control.
 > Which type, when. No selection rule is published, and **Global-then-Local** appears in every
 > Trimble screenshot with no guidance attached *(SOP §13.4)*.
 
-### Look at — Target-Bundle Adjustment
+### 16.3 Look at — Target-Bundle Adjustment
 
 **The name reads backwards.** Checked = **250 m** intervals, which is **coarser**. Unchecked =
 **70 m** *(TBC 22905)*.
 
 > **TESTING REQUIRED · T9** — test both states against independent checks.
 
-### Expect, after Apply
+### 16.4 Expect, after Apply
 
 *(TBC 22905)*
 
@@ -941,7 +1029,7 @@ One run, against surveyed control.
 
 **Those four properties and the numbered SBET file are your provenance record** (§27).
 
-### Stop if
+### 16.5 Stop if
 
 - The command is dimmed — you have no generated scan on the run
 - You are registering a run that has already been registered. **That stacks adjustments.** Use
@@ -949,7 +1037,7 @@ One run, against surveyed control.
 - The residuals on your check points are not what you expected. Read §20 before doing anything
   about it
 
-### Record
+### 16.6 Record
 
 Registration name, type, the trajectory node produced, and the SBET filename **with its `_reg_####`
 number**.
@@ -961,7 +1049,7 @@ number**.
 A set of runs at once, **with every GCP reusable**. For ordinary corridor work this is probably the
 command you want.
 
-### Do
+### 17.1 Do
 
 The sequence is that of §16, run from the mission rather than a run. What differs:
 
@@ -978,17 +1066,17 @@ The sequence is that of §16, run from the mission rather than a run. What diffe
 
 *(TBC 26473)*
 
-### Look at
+### 17.2 Look at
 
 The **Control Points** list. One painted mark visible in four passes produces **four instances**,
 and each is picked separately. Unused instances are removed from the list when you compute.
 
-### Expect
+### 17.3 Expect
 
 Four runs adjusted against the same observation, and therefore mutually consistent — which is the
 point of the command. A corridor driven in both directions twice is the ordinary case.
 
-### Stop if
+### 17.4 Stop if
 
 - You expected instances and got none. The GCP is outside every 250 m scan section's bounding box
 - You are about to re-register a mission that has already been registered (§19)
@@ -999,7 +1087,7 @@ point of the command. A corridor driven in both directions twice is the ordinary
 > for repairing one run in an otherwise accepted mission? And what happens to a mission
 > registration when one run is later re-collected? *(SOP §13.4)*
 
-### Record
+### 17.5 Record
 
 As §16, plus which runs were included.
 
@@ -1012,7 +1100,7 @@ As §16, plus which runs were included.
 That is the whole point and the whole limitation: it makes two runs agree with each other. It
 cannot make them agree with the ground.
 
-### Do
+### 18.1 Do
 
 1. Import the missions
 2. **Mobile Mapping ▸ Processing ▸ Register Run to Run**
@@ -1030,7 +1118,7 @@ cannot make them agree with the ground.
 
 *(TBC 25096)*
 
-### Look at — the Results tab
+### 18.2 Look at — the Results tab
 
 RMS in **tangential, orthogonal and vertical**, every **20 m**, plus `No overlap` where the two
 runs do not overlap.
@@ -1038,18 +1126,18 @@ runs do not overlap.
 `No overlap` rows are information, not noise. They tell you where the comparison had nothing to
 compare.
 
-### Update Scans is inside this command
+### 18.3 Update Scans is inside this command
 
 **This is the only place the two steps merge.** The **Update Scans** checkbox regenerates the Run
 to Adjust's scans inline *(TBC 25096)*. Everywhere else, Update Scans is a separate command (§21).
 
-### Expect
+### 18.4 Expect
 
 - A trajectory beneath the **Run to Adjust**, named `GivenName: Runname_X To Runname_X+1`
 - RMS statistics in the Results tab
 - A cutting plane per pair, named `MissionID Last Two Digits - Run to Adjust`
 
-### Stop if
+### 18.5 Stop if
 
 - **You have not registered to surveyed control first.** Run-to-run improves *relative* agreement.
   It cannot establish absolute position, and if the Reference Run is itself displaced, run-to-run
@@ -1074,7 +1162,7 @@ to Adjust's scans inline *(TBC 25096)*. Everywhere else, Update Scans is a separ
 
 > **TESTING REQUIRED · T24** — how much run overlap is enough.
 
-### Record
+### 18.6 Record
 
 Registration name, the pairs and their order, the RMS statistics, and the check-point residuals
 **after** the adjustment.
@@ -1083,7 +1171,7 @@ Registration name, the pairs and their order, the RMS statistics, and the check-
 
 # 19. Editing a Registration — and Why Not to Register Twice
 
-### The problem
+### 19.1 The problem
 
 > **CAUTION · W-07**
 >
@@ -1096,7 +1184,7 @@ Registration name, the pairs and their order, the RMS statistics, and the check-
 Running a registration command a second time on a run that has already been registered adjusts the
 **adjusted** trajectory, not the imported one — and no number in the result shows it.
 
-### Do
+### 19.2 Do
 
 1. Select the **registered trajectory node**
 2. **Edit** from the context menu *(TBC 25362, 26578)*
@@ -1105,17 +1193,17 @@ Running a registration command a second time on a run that has already been regi
 4. Change what needs changing
 5. **Compute**, then **Apply**
 
-### Look at
+### 19.3 Look at
 
 That the reloaded state is the one you expect — particularly the **As Check** settings. Edit is
 also how you confirm what a previous registration actually used, since no report of it has been
 found (§20).
 
-### Expect
+### 19.4 Expect
 
 The registration recomputed **from the imported trajectory**, not from the adjusted one.
 
-### Stop if
+### 19.5 Stop if
 
 - **A reload prompt appears and you are about to answer "No".** See below
 - You cannot find the Edit command. Do not fall back to running the registration again
@@ -1131,7 +1219,7 @@ The registration recomputed **from the imported trajectory**, not from the adjus
 > **TESTING REQUIRED · T7** — whether Registration Auto-Saving is on by default. One glance at the
 > dialog answers it.
 
-### Record
+### 19.6 Record
 
 That the registration was edited rather than repeated, and what changed.
 
@@ -1139,7 +1227,7 @@ That the registration was edited rather than repeated, and what changed.
 
 # 20. Residual Review
 
-### Do
+### 20.1 Do
 
 1. Read the residuals in the **Targets** pane and in the **Validate Picking** window
 2. Separate them: **residuals on points used in the adjustment** and **residuals on points held As
@@ -1147,7 +1235,7 @@ That the registration was edited rather than repeated, and what changed.
 3. Write both into the control-and-check table (Appendix F)
 4. Read the three-axis breakdown where you have one
 
-### Look at — what TBC gives you, at four levels
+### 20.2 Look at — what TBC gives you, at four levels
 
 | Level | Indicator | Where |
 |---|---|---|
@@ -1156,7 +1244,7 @@ That the registration was edited rather than repeated, and what changed.
 | **Whole calibration** | Overall Overlap %, Overall RMS, per-pair three-axis | Calibrate Laser Scanners *(TBC 24886)* |
 | **Trajectory-wide** | Position, orientation, velocity RMS after smoothing | Plan View colouring (§10) |
 
-### Look at — the three axes, when you have them
+### 20.3 Look at — the three axes, when you have them
 
 | Dominant component | Points at |
 |---|---|
@@ -1168,13 +1256,13 @@ Three similar-sized components mean random disagreement, which is what good data
 much larger than the other two is the solution telling you which part of itself is struggling**
 *(Technical Manual §23.3)*.
 
-### Expect
+### 20.4 Expect
 
 Residuals on the **used** points to be small. That is not evidence of anything — an adjustment with
 few observations fits them exactly, and one whose observations share a systematic error fits them
 beautifully and carries the error straight through.
 
-### Stop if
+### 20.5 Stop if
 
 > **CAUTION**
 >
@@ -1199,7 +1287,7 @@ Stop if:
 > without naming it, and the only mobile mapping report topic does not mention residuals. Ten
 > minutes with the software answers it.
 
-### Record
+### 20.6 Record
 
 The control-and-check table: point ID, Use XY, Use Z, As Check, and the residual on each. **Six
 columns, written once.** It is the single most important record in the workflow and the software
@@ -1211,14 +1299,14 @@ does not produce it (§28, SOP §20).
 
 **The step that is easiest to skip and most expensive to skip.**
 
-### Do
+### 21.1 Do
 
 1. Select the run or mission
 2. **Update Scans**
 3. Choose the **registered** trajectory
 4. Confirm the result in Project Explorer — see **Look at**
 
-### Look at
+### 21.2 Look at
 
 The scan stations. Updated ones carry a **`_reg_####`** suffix:
 
@@ -1229,13 +1317,13 @@ Run_14_Laser Right_reg_0001 (S3)
 And their position in the tree: they hang beneath the **registered trajectory**, not beneath
 `Sbet`.
 
-### Expect
+### 21.3 Expect
 
 A **second** set of scans, beneath the adjusted trajectory. The original set is still there,
 beneath `Sbet`, and both look identical in plan. That is not a duplicate to tidy away — they are
 the same raw data computed against two different trajectories *(Technical Manual §5.3)*.
 
-### Stop if
+### 21.4 Stop if
 
 - The stations do not carry `_reg_####`
 - The scans still sit beneath `Sbet`
@@ -1254,7 +1342,7 @@ the same raw data computed against two different trajectories *(Technical Manual
 > **One exception:** **Register Run to Run** has an **Update Scans** checkbox inside the command
 > (§18). That is the only place the two steps merge.
 
-### Record
+### 21.5 Record
 
 That Update Scans was run, against which trajectory. The pre-export check in §31 confirms it again
 before anything leaves.
@@ -1266,7 +1354,7 @@ before anything leaves.
 **This is the layer that catches what numbers cannot.** It has no software artefact, so if you do
 not record it, there is no evidence it happened.
 
-### Do
+### 22.1 Do
 
 1. **Point Clouds ▸ View ▸ Cutting Plane View**
 2. **Set rendering to Scan Color** — see below
@@ -1275,7 +1363,7 @@ not record it, there is no evidence it happened.
 4. Work the checklist under **Look at**
 5. Record what you covered, and by whom
 
-### The setting that makes or breaks this
+### 22.2 The setting that makes or breaks this
 
 > **IMPORTANT · [TRIMBLE]** — the visual check itself is Trimble's instruction (§20).
 > **[PROPOSED · SOP §16.5 · D-27]** — what the pass covers is this project's checklist.
@@ -1286,7 +1374,7 @@ not record it, there is no evidence it happened.
 >
 > It is part of the method, not a display preference.
 
-### Look at
+### 22.3 Look at
 
 | Check | Looking for |
 |---|---|
@@ -1299,11 +1387,11 @@ not record it, there is no evidence it happened.
 
 *(SOP §16.5)*
 
-### Expect
+### 22.4 Expect
 
 Overlapping passes landing on each other. Flat surfaces that stay flat as range increases.
 
-### Stop if
+### 22.5 Stop if
 
 - Two passes are visibly offset from each other anywhere
 - A wall thickens with range
@@ -1320,7 +1408,7 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 > **PARAMETRIX DECISION REQUIRED · D-39** — how much of a corridor is inspected, and how that is
 > decided *(SOP §16.5)*.
 
-### Record
+### 22.6 Record
 
 **That the visual check was performed, by whom, and over what extent.** No software artefact
 exists. This is the record.
@@ -1329,13 +1417,13 @@ exists. This is the record.
 
 # 23. Imagery QC
 
-### Do
+### 23.1 Do
 
 1. Step through the imagery along the corridor
 2. Work the checklist
 3. Check alignment against the point cloud at a feature edge
 
-### Look at
+### 23.2 Look at
 
 | Check | Looking for |
 |---|---|
@@ -1349,7 +1437,7 @@ exists. This is the record.
 
 *(SOP §16.6)*
 
-### Expect
+### 23.3 Expect
 
 Resolution by configuration *(TBC 22501, 23888)*:
 
@@ -1361,7 +1449,7 @@ Resolution by configuration *(TBC 22501, 23888)*:
 > **PARAMETRIX DECISION REQUIRED · D-2** — which configuration this system is. Every number above
 > depends on it *(SOP §6.4)*.
 
-### Stop if
+### 23.4 Stop if
 
 - **A corrupted side camera image exports as black.** It is silent: nothing warns you, and the
   export succeeds. If you find one, assume there are others
@@ -1376,7 +1464,7 @@ Resolution by configuration *(TBC 22501, 23888)*:
 > **TESTING REQUIRED · T26, T27** — whether exported imagery reflects a registration at all, and
 > which imagery streams the MX60 actually has and TBC exposes.
 
-### Record
+### 23.5 Record
 
 That the imagery check was performed and by whom. **No software artefact exists.**
 
@@ -1391,7 +1479,7 @@ Uses the **scan data itself** as an aiding sensor to improve the trajectory — 
 inside trajectory processing. The only degraded-GNSS remedy that needs **neither POSPac nor
 additional ground control**.
 
-### Before you start — can this machine run it?
+### 24.1 Before you start — can this machine run it?
 
 | | Minimum | Recommended |
 |---|---|---|
@@ -1404,7 +1492,7 @@ additional ground control**.
 
 *(TBC 28972)*
 
-### Do
+### 24.2 Do
 
 1. Check **LiDAR QC (Refine with scans)** in **Process Raw Trajectory Data** (§8). A LiDAR QC tab
    appears
@@ -1413,7 +1501,7 @@ additional ground control**.
 4. Set the parameters
 5. **Compute**
 
-### Look at — the settings
+### 24.3 Look at — the settings
 
 | Setting | Values | Default |
 |---|---|---|
@@ -1421,13 +1509,13 @@ additional ground control**.
 | **Noise** | 5, 10, 50, 80, 100, 200 mm | **5 mm for MX50/MX60** |
 | **Lasers** | Left · Right · All | **All** |
 
-### Expect
+### 24.4 Expect
 
 A long computation. It solves the constant IMU boresight angles and corrects the post-processed
 trajectory, position and orientation, from voxels matched in overlapping scan regions
 *(TBC 28972)*.
 
-### Stop if
+### 24.5 Stop if
 
 - **The runs do not overlap.** It has nothing to match
 - The machine does not meet the requirement above. It is not a setting you can push through
@@ -1440,7 +1528,7 @@ trajectory, position and orientation, from voxels matched in overlapping scan re
 > runs." Also the **3–100 m** range: the MX60's useful range and the range over which scan geometry
 > usefully aids a trajectory are different questions *(Technical Manual §11.3)*.
 
-### The acquisition geometry it wants
+### 24.6 The acquisition geometry it wants
 
 | Element | Requirement |
 |---|---|
@@ -1453,7 +1541,7 @@ trajectory, position and orientation, from voxels matched in overlapping scan re
 **That is materially the same geometry the laser scanner calibration wants (§13).** One site can
 serve both, which matters because establishing one is real work *(SOP §15.3)*.
 
-### Record
+### 24.7 Record
 
 That LiDAR QC was run, on which runs, with which settings.
 
@@ -1464,7 +1552,7 @@ That LiDAR QC was run, on which runs, with which settings.
 You are here because §10 showed a degraded stretch. **Four remedies, and they are not
 interchangeable.**
 
-### Look at — what each costs and what it needs
+### 25.1 Look at — what each costs and what it needs
 
 | Remedy | Acts on | Needs | Section |
 |---|---|---|---|
@@ -1477,14 +1565,14 @@ interchangeable.**
 > matters: a registered trajectory has been adjusted to agree with the control it was given, so its
 > agreement with that control is no longer evidence of anything *(Technical Manual §8.5)*.
 
-### Do
+### 25.2 Do
 
 1. Establish how long the degraded stretch is **in time**, not in metres
 2. Check what you actually have: overlap? control bracketing it? a POSPac licence?
 3. Choose. Prefer a remedy that improves the solution over one that improves the fit
 4. Apply it, then **re-check against independent check points** (§20)
 
-### Expect
+### 25.3 Expect
 
 Trimble publishes positioning performance at **no outage** and after a **60-second outage**, and
 nothing beyond *(MX60 UG Rev B, p.56)*:
@@ -1494,7 +1582,7 @@ nothing beyond *(MX60 UG Rev B, p.56)*:
 | No outage | X,Y < 0.01 m · Z 0.01 m | X,Y < 0.01 m · Z 0.01 m |
 | **After 60 s outage** | X,Y **0.12 m** · Z **0.1 m** | X,Y **0.1 m** · Z **0.07 m** |
 
-### Stop if
+### 25.4 Stop if
 
 - **The outage is materially longer than 60 seconds.** Beyond the published figure you are
   extrapolating past the manufacturer's stated envelope. Inertial drift is not linear
@@ -1509,7 +1597,7 @@ nothing beyond *(MX60 UG Rev B, p.56)*:
 > and control bracketing a hostile stretch are mission-planning decisions *(SOP §8)*. If they were
 > not made, the option does not exist today.
 
-### Record
+### 25.5 Record
 
 Which remedy, why, and the check-point residuals before and after.
 
@@ -1521,7 +1609,7 @@ Which remedy, why, and the check-point residuals before and after.
 computation: the control observations go back into the navigation solver as position fixes and the
 filter re-solves with them available.
 
-### Prerequisites
+### 26.1 Prerequisites
 
 *(TBC 24460)*
 
@@ -1532,7 +1620,7 @@ filter re-solves with them available.
 - **Scan data generated from at least one run**
 - A GCP file imported in the project coordinate system
 
-### Do — part one, in TBC
+### 26.2 Do — part one, in TBC
 
 1. Right-click the **Mission** node ▸ **Generate Pospac Position Fixes**. *The command does not
    open if the mission has no generated scan*
@@ -1545,7 +1633,7 @@ filter re-solves with them available.
    **a `custom_events.txt` is written into a `PFIX` folder under the TBC project folder**
 7. Close the dialog
 
-### Do — part two, in POSPac
+### 26.3 Do — part two, in POSPac
 
 1. Start POSPac MMS, create and save a project
 2. Import the POS logged files from `POS_1/raw`
@@ -1555,18 +1643,18 @@ filter re-solves with them available.
 6. Select the IN-Fusion processing mode
 7. **All Processings.** A new SBET appears in the `Proc` folder
 
-### Do — part three, back in TBC
+### 26.4 Do — part three, back in TBC
 
 1. Select the mission ▸ properties
 2. **Replace the initial trajectory file with the new SBET**
 3. **Update Scans** (§21)
 
-### Expect
+### 26.5 Expect
 
 A better trajectory through the stretch that had no GNSS, with the correction propagated by the
 filter's own model of how the system behaves rather than by interpolation between control points.
 
-### Stop if
+### 26.6 Stop if
 
 - **You stop after step 7 of part one.** The `custom_events.txt` does nothing by itself
 - **You skip part three's Update Scans.** A better trajectory that never reaches the point cloud
@@ -1578,7 +1666,7 @@ filter's own model of how the system behaves rather than by interpolation betwee
 > contrasts them. The framing at the top of this section is this project's reading, not Trimble's
 > statement *(Technical Manual §27.5)*.
 
-### Record
+### 26.7 Record
 
 That PFIX was used, on which stretch, and the check-point residuals before and after.
 
@@ -1588,7 +1676,7 @@ That PFIX was used, on which stretch, and the check-point residuals before and a
 
 **Which trajectory is this cloud built on?** You will be asked. This section is how you answer.
 
-### Do
+### 27.1 Do
 
 Work the four layers, in this order.
 
@@ -1599,7 +1687,7 @@ Work the four layers, in this order.
 | 3 | **Trajectory properties** | **`Origin: Registration result`** · **`Input trajectory:`** · **`Registration type:`** *(TBC 22905, 26473)* |
 | 4 | **SBET filename on disk** | `sbet_<date>_reg_####.out`, incrementing per registration, in the project folder |
 
-### Look at
+### 27.2 Look at
 
 Project Explorer, expanded. A run that has been registered has **two trajectories and two sets of
 scans**:
@@ -1614,7 +1702,7 @@ Run 14
 
 **They look identical in plan.** Tree position and the suffix are the difference.
 
-### A fifth, incidental indicator
+### 27.3 A fifth, incidental indicator
 
 Registered trajectory segments render as **"Undefined RMS"** in the RMS colouring (§10), because a
 registered trajectory no longer matches its `smrmsg` file *(TBC 27248)*.
@@ -1622,11 +1710,11 @@ registered trajectory no longer matches its `smrmsg` file *(TBC 27248)*.
 That makes the **extent** of a registration visible in plan — including where a **Local**
 adjustment stopped adjusting, which nothing else shows you.
 
-### Expect
+### 27.4 Expect
 
 All four layers agreeing.
 
-### Stop if
+### 27.5 Stop if
 
 - **They disagree.** A cloud beneath `Sbet` whose stations carry `_reg_####` is telling you
   something you need to resolve before exporting
@@ -1634,7 +1722,7 @@ All four layers agreeing.
 
 > **Nothing in this is conclusive once the data leaves the project.** That is what §28 is about.
 
-### Record
+### 27.6 Record
 
 The trajectory node name and the SBET filename **with its `_reg_####` number**, in the delivery
 record.
@@ -1643,7 +1731,7 @@ record.
 
 # 28. Trajectory Provenance — What to Record Before You Go Further
 
-### The limitation, stated plainly
+### 28.1 The limitation, stated plainly
 
 > **IMPORTANT**
 >
@@ -1654,7 +1742,7 @@ record.
 Inside the project, §27 gives you four layers of evidence. **Outside it, you have what you wrote
 down.**
 
-### Do
+### 28.2 Do
 
 Record these, now, before Cleanup (§29) and before export (§30):
 
@@ -1670,12 +1758,12 @@ Record these, now, before Cleanup (§29) and before export (§30):
 
 *(SOP §20.2)*
 
-### Expect
+### 28.3 Expect
 
 **Five of the seven already exist as files.** Two are written by a person. The whole package is a
 few hundred kilobytes beside a project of tens of gigabytes.
 
-### Stop if
+### 28.4 Stop if
 
 - You are about to run Cleanup and any of items 3 to 5 is not archived
 - You are about to export and item 1 does not exist
@@ -1699,7 +1787,7 @@ few hundred kilobytes beside a project of tens of gigabytes.
 > the most recent. Trimble states: *"Please, have a backup copy of your project prior performing
 > the operation, it cannot be undone."* *(TBC 26466)*
 
-### Do — the archive-first sequence
+### 29.1 Do — the archive-first sequence
 
 **[EQUIPMENT] Cleanup cannot be undone.** That is Trimble's own statement about the command and it
 binds today. **[PROPOSED · SOP §18.3 · D-35]** — the ten-step sequence, and the requirement for
@@ -1723,16 +1811,16 @@ is not settled**, which is why step 8 names an authority that does not exist yet
 
 *(SOP §18.3)*
 
-### Look at
+### 29.2 Look at
 
 Before running it: the project tree, so you know what you are about to lose. Registered
 trajectories, their scans, and the numbered SBET files.
 
-### Expect
+### 29.3 Expect
 
 Only the most recent registration surviving.
 
-### Stop if
+### 29.4 Stop if
 
 - **You do not have written authorisation** — **[PROPOSED · D-35]** *(SOP §18.2)*. Until D-35 is
   answered there is no appointed authoriser; raise it rather than proceeding on your own
@@ -1747,7 +1835,7 @@ Only the most recent registration surviving.
 > **PARAMETRIX DECISION REQUIRED · D-35 · blocks operation** — when Cleanup may be performed, by
 > whom, and what must be archived first.
 
-### Record
+### 29.5 Record
 
 Authorisation; what was archived and where; that Cleanup was run, by whom, on what date.
 
@@ -1760,7 +1848,7 @@ project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 
 **Do §31 first.** Every path below assumes the pre-export check has passed.
 
-### The paths
+### 30.1 The paths
 
 | Path | Where | Carries the trajectory? |
 |---|---|---|
@@ -1771,7 +1859,7 @@ project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 | **Generic Point Cloud Export** | **Point Cloud tab** | **No** |
 | **Publish to TRCPS** | Home ▸ Data Exchange ▸ Publish to TRCPS | **Yes** — point cloud and trajectories are exported by default |
 
-### Do — Export to LAS (Trajectory Split)
+### 30.2 Do — Export to LAS (Trajectory Split)
 
 1. **Run Extract Classified Point Cloud first** — *Point Clouds ▸ Regions*. Without it there is
    nothing to export
@@ -1789,7 +1877,7 @@ project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 > is destructive thinning with no documented spatial rule — no minimum spacing, no preservation of
 > edges or breaklines. Its default state is not stated. **Check it before exporting.**
 
-### Do — Export to TMX
+### 30.3 Do — Export to TMX
 
 1. **Mobile Mapping tab ▸ Export to TMX**
 2. Decide the **Export timestamps** setting — **read §31 first**
@@ -1798,7 +1886,7 @@ project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 Produces panoramic images, side camera images, laser point clouds **and the trajectory**, plus a
 `reference.csv` *(TBC 22501)*.
 
-### Do — Export to TopoDot
+### 30.4 Do — Export to TopoDot
 
 1. **Generate scans first.** "Otherwise, nothing will be exported"
 2. **Close all run views.** "Otherwise, a warning message will pop up"
@@ -1806,7 +1894,7 @@ Produces panoramic images, side camera images, laser point clouds **and the traj
 
 Produces LAS 1.4, one couple per run *(TBC 23339)*.
 
-### Do — Export to Solv3D
+### 30.5 Do — Export to Solv3D
 
 1. **Mobile Mapping tab ▸ Export to Solv3D**
 2. Trimble recommends **disabling timestamps** on this path
@@ -1816,7 +1904,7 @@ Produces a mission-named folder with `Lasers` and `Panorama` sub-folders, LAS 1.
 > On this path the recommended setting is also the safe one: timestamps off means the **generated**
 > scans are exported rather than reprocessed ones (§31).
 
-### Do — Generic Point Cloud Export
+### 30.6 Do — Generic Point Cloud Export
 
 1. **Home ▸ Data Exchange ▸ Export ▸ Point Cloud tab**
 2. **This tab selects by region or a drawn rectangle — not by run** *(TBC 11769)*
@@ -1840,7 +1928,7 @@ Produces a mission-named folder with `Lasers` and `Panorama` sub-folders, LAS 1.
 > **TESTING REQUIRED · T23** — what happens when a Point Cloud tab selection is drawn across scans
 > belonging to two different trajectories. Not documented.
 
-### Do — Publish to TRCPS
+### 30.7 Do — Publish to TRCPS
 
 1. **Home ▸ Data Exchange ▸ Publish to TRCPS ▸ Mobile Mapping tab**
 2. Requires a **Trimble ID**; uploads via the **Trimble Desktop Utility**, installed with TBC
@@ -1854,7 +1942,7 @@ Produces a mission-named folder with `Lasers` and `Panorama` sub-folders, LAS 1.
 > **From TBC 2026.10, Trimble ID sign-in requires two-step verification** — a code by email each
 > time. Worth knowing before it stops a session.
 
-### Record
+### 30.8 Record
 
 Export path, date, by whom, format, scaling — into the delivery record (§28, Appendix F).
 
@@ -1868,7 +1956,7 @@ Export path, date, by whom, format, scaling — into the delivery record (§28, 
 the unregistered cloud succeeds and produces a valid file. **[PROPOSED · SOP §19.2 · D-36]** —
 whether the check is *mandatory*, and whether export may proceed without it, is not yet decided.
 
-### Do
+### 31.1 Do
 
 1. In **Project Explorer**, find the scan nodes you are about to export
 2. Confirm they sit **beneath the intended registered trajectory**
@@ -1879,7 +1967,7 @@ whether the check is *mandatory*, and whether export may proceed without it, is 
 
 *(SOP §19.2)*
 
-### Look at
+### 31.2 Look at
 
 ```
 Run 14
@@ -1889,7 +1977,7 @@ Run 14
         └── Run_14_Laser Right_reg_0001 (S3)
 ```
 
-### Stop if
+### 31.3 Stop if
 
 > **CAUTION · W-02**
 >
@@ -1901,7 +1989,7 @@ Run 14
 
 Stop if the scans sit beneath `Sbet`, or the stations have no `_reg_####`. Go back to §21.
 
-### Export timestamps
+### 31.4 Export timestamps
 
 > **CAUTION · W-03**
 >
@@ -1927,7 +2015,7 @@ checked dataset, and do not enable it on a delivered dataset without a recorded 
 > **TESTING REQUIRED · T29** — the reliable export-state verification method for each path. How an
 > export dialog resolves its selection is not documented.
 
-### Record
+### 31.5 Record
 
 The screen capture, and the timestamps setting used.
 
@@ -1937,7 +2025,7 @@ The screen capture, and the timestamps setting used.
 
 **Each layer catches something the others cannot.** None is optional because another was performed.
 
-### Do
+### 32.1 Do
 
 Work them in order and record each.
 
@@ -1954,19 +2042,19 @@ Work them in order and record each.
 
 *(SOP §16.2)*
 
-### Look at
+### 32.2 Look at
 
 Layer 5 especially. **Residuals on points that took no part in the adjustment are the only
 numerical evidence that means anything**, and they exist only if somebody designated check points
 before registration began (§15).
 
-### Expect
+### 32.3 Expect
 
 Layers 6 and 7 to produce nothing you can file unless you write it. **Two of the eight layers have
 no software artefact at all.** If a reviewer asks whether the visual check was performed and over
 what extent, the only possible answer is a record somebody wrote.
 
-### Stop if
+### 32.4 Stop if
 
 - **There are no As Check residuals**
 - Any layer was skipped because another one looked fine
@@ -1977,7 +2065,7 @@ what extent, the only possible answer is a record somebody wrote.
 > **"Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886, 25096)*
 
-### Acceptance is not yours
+### 32.5 Acceptance is not yours
 
 **Acceptance is a decision by the person with the authority under SOP §4**, recorded, against the
 project's stated accuracy requirement. Your job is to produce the evidence, not to conclude.
@@ -1996,7 +2084,7 @@ project's stated accuracy requirement. Your job is to produce the evidence, not 
 > The decision put to Parametrix — whether interim acceptance against a project-specific written
 > requirement is permitted at all — is **SOP §17.2**.
 
-### Record
+### 32.6 Record
 
 The QA/QC record: every layer, who performed it, when, and over what extent. Appendix C and
 Appendix F.
@@ -2005,14 +2093,14 @@ Appendix F.
 
 # 33. Archiving
 
-### Do
+### 33.1 Do
 
 1. Assemble the **record package** (§28) — seven artefacts, a few hundred kilobytes
 2. Decide and apply the **retention tier** for everything else
 3. Write the **archive record** — one page
 4. Put it where somebody who was not involved can find it
 
-### Look at — the three tiers
+### 33.2 Look at — the three tiers
 
 **Tier 1 — small, irreplaceable, keep indefinitely**
 
@@ -2037,7 +2125,7 @@ SBET and its processing report and the frame-and-epoch log · numbered registere
 
 *(SOP §21.2)*
 
-### Stop if
+### 33.3 Stop if
 
 - **You are about to delete `POS_1/raw/` or `Targets.csv` on your own judgement.** Neither is
   recoverable: one cannot be recomputed, the other was picked by a person and would be different if
@@ -2049,7 +2137,7 @@ SBET and its processing report and the frame-and-epoch log · numbered registere
 
 > **PARAMETRIX DECISION REQUIRED · D-53** — folder structure, naming and storage location.
 
-### The archive record
+### 33.4 The archive record
 
 One page per project: what was archived, where, when, by whom; the retention tier applied; whether
 Cleanup was run and what was archived first; and where the raw mission data is, if it is held
@@ -2057,7 +2145,7 @@ elsewhere.
 
 **Without it, the archive is a folder somebody has to reverse-engineer.**
 
-### Record
+### 33.5 Record
 
 The archive record itself. Appendix F.
 
@@ -2068,7 +2156,7 @@ The archive record itself. Appendix F.
 **One list, so nothing is discovered missing at the end.** Everything here is required by the SOP;
 its full index is SOP Appendix B.
 
-### The package
+### 34.1 The package
 
 | # | Artefact | From | Exists as a file? |
 |---|---|---|---|
@@ -2088,17 +2176,17 @@ its full index is SOP Appendix B.
 | 14 | Cleanup authorisation and what was archived | §29 | **No — you write it** |
 | 15 | Archive record | §33 | **No — you write it** |
 
-### Look at
+### 34.2 Look at
 
 **Eight of the fifteen do not exist unless a person writes them.** That is not an oversight in the
 software; several of these facts have no representation in it at all.
 
-### Expect
+### 34.3 Expect
 
 To spend perhaps thirty minutes across a project producing all of them, most of it copying files
 out before Cleanup.
 
-### Stop if
+### 34.4 Stop if
 
 You are at delivery and items 7, 8 or 12 do not exist. Those are the three a reviewer asks for
 first, and none can be reconstructed afterwards.
@@ -2131,7 +2219,7 @@ first, and none can be reconstructed afterwards.
 | **MTA / GPU driver documentation** | **Not applicable to the MX60.** That is the MX9 and MX90 path | §11 |
 | **TBC sign-in asks for an emailed code** | From TBC 2026.10, Trimble ID requires two-step verification | §30 |
 
-### When the answer is "re-collect"
+### 35.1 When the answer is "re-collect"
 
 Some of these are not office problems. Missing coverage, missing overlap, a mission with no closing
 sequence and a sensor that logged nothing are all field problems, and the only remedy is a

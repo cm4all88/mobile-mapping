@@ -3,7 +3,7 @@
 This is not a lesson in datums. It is the four places mobile mapping treats them differently
 *(Technical Manual §12)*.
 
-### Do
+### 6.1 Do
 
 | # | | |
 |---|---|---|
@@ -12,7 +12,7 @@ This is not a lesson in datums. It is the four places mobile mapping treats them
 | 3 | After trajectory processing, **read the SBET filename** | §10 |
 | 4 | At export, know whether you are producing grid or ground | §30 |
 
-### Look at
+### 6.2 Look at
 
 The SBET filename once the trajectory exists:
 
@@ -23,11 +23,11 @@ The SBET filename once the trajectory exists:
 
 *(TBC 25943)*
 
-### Expect
+### 6.3 Expect
 
 Either form. Neither is an error.
 
-### Stop if
+### 6.4 Stop if
 
 Nothing here stops you on its own. But **record which form you got**, because the second means an
 additional transformation happened that nobody chose.
@@ -41,6 +41,6 @@ additional transformation happened that nobody chose.
 > Which of Parametrix's normal coordinate systems POSPac recognises directly, and which trigger the
 > ITRF00 path. Answerable once, then known.
 
-### Record
+### 6.5 Record
 
 The SBET filename, in full, in the delivery record (§28).

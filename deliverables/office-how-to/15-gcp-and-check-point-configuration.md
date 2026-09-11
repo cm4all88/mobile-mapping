@@ -3,7 +3,7 @@
 **Three independent choices per point.** This is the most consequential configuration in the
 office workflow and it is three checkboxes.
 
-### Do
+### 15.1 Do
 
 For each point, in the **Control Points** list of a registration command:
 
@@ -16,16 +16,16 @@ For each point, in the **Control Points** list of a registration command:
 They are per-point and per-component. A point can be **Use XY** and **As Check** in Z — used
 horizontally, held out vertically.
 
-### Look at
+### 15.2 Look at
 
 The designation you were given (§14), and set it. **Do not decide it here.**
 
-### Expect
+### 15.3 Expect
 
 A mixture. A painted road-surface mark is usually Use XY and not Use Z. A point held out entirely
 is a validation point.
 
-### Stop if
+### 15.4 Stop if
 
 - **Every point is set As Check.** TBC will not compute — the adjustment has nothing to fit
 - **No point is set As Check.** Then nothing measures the result, and the residuals you are about
@@ -45,7 +45,7 @@ is a validation point.
 > step is well intentioned. The result is an adjustment with **no independent check at all**, and a
 > set of residuals that now measure nothing *(Technical Manual §22.4)*.
 
-### Record
+### 15.5 Record
 
 Point ID, Use XY, Use Z, As Check — for every point, **outside TBC**. The software does not
 appear to report it (§20, §28).

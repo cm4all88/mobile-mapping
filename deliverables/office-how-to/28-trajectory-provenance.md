@@ -1,6 +1,6 @@
 # 28. Trajectory Provenance — What to Record Before You Go Further
 
-### The limitation, stated plainly
+### 28.1 The limitation, stated plainly
 
 > **IMPORTANT**
 >
@@ -11,7 +11,7 @@
 Inside the project, §27 gives you four layers of evidence. **Outside it, you have what you wrote
 down.**
 
-### Do
+### 28.2 Do
 
 Record these, now, before Cleanup (§29) and before export (§30):
 
@@ -27,12 +27,12 @@ Record these, now, before Cleanup (§29) and before export (§30):
 
 *(SOP §20.2)*
 
-### Expect
+### 28.3 Expect
 
 **Five of the seven already exist as files.** Two are written by a person. The whole package is a
 few hundred kilobytes beside a project of tens of gigabytes.
 
-### Stop if
+### 28.4 Stop if
 
 - You are about to run Cleanup and any of items 3 to 5 is not archived
 - You are about to export and item 1 does not exist

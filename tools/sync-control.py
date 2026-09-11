@@ -5,6 +5,7 @@ Two columns were written before the four deliverables existed and have drifted:
 
   master-register.csv  affected_documents   where each open item is actually raised
   ownership-matrix.md  the ref / — columns  which documents reference each topic
+  _control/README.md   the "Current state" table  counts of what the register holds
 
 Both are *descriptions* of the documents, so both are derived here rather than
 maintained by hand. What is NOT derived: the ● column of the ownership matrix,
@@ -18,6 +19,7 @@ column of the register, which is judgement.
 import csv, glob, os, re, sys
 
 REG   = 'deliverables/_control/master-register.csv'
+RDME  = 'deliverables/_control/README.md'
 MATRIX = 'deliverables/_control/ownership-matrix.md'
 DOCS = {'Manual': 'deliverables/technical-manual/*.md',
         'SOP':    'deliverables/sop/*.md',
@@ -88,6 +90,29 @@ for line in txt.split('\n'):
 if not check:
     open(MATRIX, 'w').write('\n'.join(out))
 
+# ---- the README "Current state" table ------------------------------------
+TYPES = [('Decisions', 'decision'), ('Tests', 'test'), ('Vendor questions', 'vendor')]
+def blocking(rs): return [r for r in rs if r.get('blocks', 'nothing').strip() != 'nothing']
+tbl = ['| | Items | P1 | Blocking |', '|---|---|---|---|']
+for label, t in TYPES:
+    rs = [r for r in rows if r['type'] == t]
+    tbl.append(f"| {label} | {len(rs)} | {sum(1 for r in rs if r['priority']=='P1')} | {len(blocking(rs))} |")
+blk = blocking(rows)
+distinct = len({r['id'] for r in blk} - {'V-4'}) if any(r['id'] == 'V-4' for r in blk) else len(blk)
+tbl.append(f"| **Total** | **{len(rows)}** | **{sum(1 for r in rows if r['priority']=='P1')}** | "
+           f"**{len(blk)} rows, {distinct} distinct** |")
+rd = open(RDME).read()
+m = re.search(r'\| \| Items \| P1 \| Blocking \|\n(?:\|.*\n)+', rd)
+new_tbl = '\n'.join(tbl) + '\n'
+readme_drift = 0
+if not m:
+    print('  README "Current state" table not found — not re-derived')
+elif m.group(0) != new_tbl:
+    readme_drift = 1
+    if check: print('  README   Current state table is stale')
+    else: open(RDME, 'w').write(rd[:m.start()] + new_tbl + rd[m.end():])
+
 print(f'register rows re-derived: {drift}')
 print(f'matrix rows re-derived:   {changed}')
-if check and (drift or changed): sys.exit(1)
+print(f'README table re-derived:  {readme_drift}')
+if check and (drift or changed or readme_drift): sys.exit(1)

@@ -58,9 +58,9 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 >
 > **"Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886, 25096)*
->
-> **TRIMBLE REQUIREMENT** — *binding now.* Trimble states that a visual check **is needed**, in
-> identical words in two topics.
+
+> **TRIMBLE REQUIREMENT** — *binding now.* Trimble does not recommend the visual check; it states
+> that one **is needed**, in identical words in two topics.
 >
 > **A calibration shall not be accepted on RMS alone.** The visual check is part of the acceptance,
 > not an optional extra *(Technical Manual §23.1, §25)*.

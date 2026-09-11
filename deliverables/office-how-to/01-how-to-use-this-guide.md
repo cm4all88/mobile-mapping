@@ -12,6 +12,10 @@ section, read **Stop if**.
 | **Expect** | What normal looks like, so you can tell when it isn't |
 | **Stop if** | What means you do not proceed. **These are not suggestions.** Stopping costs an hour; not stopping has cost a remobilisation |
 
+**Each of the four is numbered** — §16.1 *Do*, §16.5 *Stop if* — because "Stop if" appears in
+every section and is not an address on its own. Cite the number when you report a problem with
+this guide: **Office How To §16.5**, not "the stop-if in registration".
+
 ## 1.2 The order
 
 The guide follows the processing sequence. §2 to §12 get you from a disk to a point cloud you can
@@ -40,12 +44,18 @@ recommendation today, while **a Trimble instruction and an equipment limit bind 
 
 | Marker | Who says so | Force today |
 |---|---|---|
-| **[TRIMBLE]** | Trimble, in the cited topic or manual page | **Binding.** Does not wait on a Parametrix decision |
+| **[TRIMBLE]** | Trimble states it as a requirement, in the cited topic or manual page | **Binding.** Does not wait on a Parametrix decision |
+| **[TRIMBLE METHOD]** | Trimble documents the method, but does not state it as a requirement | **Strong advice.** The method is Trimble's; the obligation is not |
 | **[EQUIPMENT]** | A hardware limit or an irreversible software operation | **Binding.** It is a fact about the tool |
 | **[SOP §n]** | A Parametrix requirement, at that clause | As strong as that clause — check its state |
 | **[PROPOSED]** | Recommended by this project | **Not company policy.** Do it unless told otherwise, and record it if you do not |
 | **[TESTING · Tn]** | Depends on a result nobody has yet | An interim posture, not a rule |
 | **[DECISION · D-n]** | Parametrix has not decided | **Raise it.** Do not improvise a standing rule |
+
+> **[TRIMBLE] and [TRIMBLE METHOD] are not the same thing.** Where Trimble states a rule —
+> *"A visual check is needed"* — the marker is **[TRIMBLE]**. Where it documents a way of working
+> without making it mandatory, the marker is **[TRIMBLE METHOD]**. This guide does not promote the
+> second into the first.
 
 > **This is why §1.1 says "Stop if" is not a suggestion.** A *Stop if* whose authority is
 > **[TRIMBLE]** or **[EQUIPMENT]** is not negotiable today. A *Stop if* marked **[PROPOSED]** is

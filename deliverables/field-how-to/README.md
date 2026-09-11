@@ -1,6 +1,6 @@
 # MX60 Field How To
 
-**Draft A · Not issued · 2026-09-11**
+**Working draft `2026-09-11-a` · LIVING DRAFT — INTERNAL REVIEW**
 
 One of four coordinated deliverables. This one shows **how to run the MX60 in the field**. Meant to
 be used in or near the vehicle.

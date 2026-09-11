@@ -1,6 +1,6 @@
 # 20. Residual Review
 
-### Do
+### 20.1 Do
 
 1. Read the residuals in the **Targets** pane and in the **Validate Picking** window
 2. Separate them: **residuals on points used in the adjustment** and **residuals on points held As
@@ -8,7 +8,7 @@
 3. Write both into the control-and-check table (Appendix F)
 4. Read the three-axis breakdown where you have one
 
-### Look at — what TBC gives you, at four levels
+### 20.2 Look at — what TBC gives you, at four levels
 
 | Level | Indicator | Where |
 |---|---|---|
@@ -17,7 +17,7 @@
 | **Whole calibration** | Overall Overlap %, Overall RMS, per-pair three-axis | Calibrate Laser Scanners *(TBC 24886)* |
 | **Trajectory-wide** | Position, orientation, velocity RMS after smoothing | Plan View colouring (§10) |
 
-### Look at — the three axes, when you have them
+### 20.3 Look at — the three axes, when you have them
 
 | Dominant component | Points at |
 |---|---|
@@ -29,13 +29,13 @@ Three similar-sized components mean random disagreement, which is what good data
 much larger than the other two is the solution telling you which part of itself is struggling**
 *(Technical Manual §23.3)*.
 
-### Expect
+### 20.4 Expect
 
 Residuals on the **used** points to be small. That is not evidence of anything — an adjustment with
 few observations fits them exactly, and one whose observations share a systematic error fits them
 beautifully and carries the error straight through.
 
-### Stop if
+### 20.5 Stop if
 
 > **CAUTION**
 >
@@ -60,7 +60,7 @@ Stop if:
 > without naming it, and the only mobile mapping report topic does not mention residuals. Ten
 > minutes with the software answers it.
 
-### Record
+### 20.6 Record
 
 The control-and-check table: point ID, Use XY, Use Z, As Check, and the residual on each. **Six
 columns, written once.** It is the single most important record in the workflow and the software

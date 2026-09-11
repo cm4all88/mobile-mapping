@@ -22,7 +22,7 @@ They exist so the four documents cannot drift apart.
 | `type` | `decision` · `test` · `vendor` |
 | `status` | `open` · `in_progress` · `resolved` · `superseded` |
 | `priority` | `P1` · `P2` · `P3` |
-| `blocks_operation` | `yes` · `no` — can defensible work proceed while it is open |
+| `blocks` | **What this item actually prevents**, precisely: `nothing` · `collection` · `processing` · `formal acceptance` · `delivery for a stated accuracy purpose` · `one workflow branch`. Most items block **nothing** — they leave a question open, not the work |
 | `owner` | Person or role, once assigned. Empty until *D-3* |
 | `question` | The question, stated once |
 | `why_it_matters` | The consequence of leaving it open |
@@ -36,14 +36,22 @@ They exist so the four documents cannot drift apart.
 
 | | Items | P1 | Blocking |
 |---|---|---|---|
-| Decisions | 34 | 20 | 9 |
-| Tests | 24 | 6 | 0 |
+| Decisions | 35 | 20 | 9 |
+| Tests | 25 | 6 | 0 |
 | Vendor questions | 16 | 5 | 1 |
-| **Total** | **74** | **31** | **10 rows, 9 distinct** |
+| **Total** | **76** | **31** | **10 rows, 9 distinct** |
 
 > `D-2` and `V-4` are the same question — *which system do we own* — asked of Parametrix and of
 > the vendor. They are kept as two rows because they have different owners and close
 > independently, but they are one blocker.
+
+### The circulation blocks
+
+`circulation/` holds the three blocks that appear identically in all four front matters — the
+**LIVING DRAFT — INTERNAL REVIEW** banner, the *How to review this draft* panel, and the temporary
+working revision block. They are written into the documents by `tools/sync-circulation.py` and are
+**never hand-edited in a document**, for the same reason the register is not: four copies of a
+statement drift, and a status that differs between two documents is worse than no status at all.
 
 ### Views, not copies
 
@@ -78,10 +86,10 @@ wrong, the CSV is wrong.
 
 | Document | Temporary identifier |
 |---|---|
-| Technical Manual | `MX60 Technical Manual — Draft A` |
-| SOP | `MX60 Mobile Mapping SOP — Draft A` |
-| Field How To | `MX60 Field How To — Draft A` |
-| Office How To | `MX60 Office How To — Draft A` |
+| Technical Manual | working draft `2026-09-11-a` |
+| SOP | working draft `2026-09-11-a` |
+| Field How To | working draft `2026-09-11-a` |
+| Office How To | working draft `2026-09-11-a` |
 
 Each carries a **document control block with the fields present but the conventions unset**, so
 the real scheme can be dropped in without restructuring. The three supporting documents state

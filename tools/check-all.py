@@ -24,6 +24,8 @@ def run(name, argv):
 run('warnings verbatim',      ['tools/check-warnings.py'])
 run('stage names',            ['tools/check-stage-names.py'])
 run('control artefacts fresh',['tools/sync-control.py', '--check'])
+run('circulation blocks',     ['tools/sync-circulation.py', '--check'])
+run('subsection numbering',   ['tools/number-subsections.py', '--check'])
 run('authority of shall',     ['tools/check-authority.py'])
 
 DIRS = {'Manual':'technical-manual','SOP':'sop','Office':'office-how-to','Field':'field-how-to'}
@@ -33,7 +35,7 @@ def heads(d):
         for l in open(f):
             m = re.match(r'^# (\d+)\.', l)
             if m: s.add(m.group(1))
-            m = re.match(r'^## (\d+\.\d+) ', l)
+            m = re.match(r'^#{2,3} (\d+\.\d+) ', l)
             if m: u.add(m.group(1))
     return s,u
 P = {d: heads(d) for d in DIRS}
@@ -53,6 +55,8 @@ for d in DIRS:
                 # a table cell or a new sentence starts a fresh context: an earlier
                 # "Technical Manual" in the same paragraph does not own this reference
                 pre = re.split(r'\|| \u00b7 |(?<=[a-z0-9)])\. ', pre)[-1]
+                # a section of a Trimble document is not a reference into this set
+                if re.search(r'QSG|User Guide|UG Rev|TBC|TMI|Brand Guide|Spec ?Sheet', pre): continue
                 pool = P['Manual'] if 'Technical Manual' in pre else (P['SOP'] if 'SOP' in pre else P[d])
                 t = m.group(1)
                 if t not in (pool[1] if '.' in t else pool[0]):

@@ -3,7 +3,7 @@
 You are here because §10 showed a degraded stretch. **Four remedies, and they are not
 interchangeable.**
 
-### Look at — what each costs and what it needs
+### 25.1 Look at — what each costs and what it needs
 
 | Remedy | Acts on | Needs | Section |
 |---|---|---|---|
@@ -16,14 +16,14 @@ interchangeable.**
 > matters: a registered trajectory has been adjusted to agree with the control it was given, so its
 > agreement with that control is no longer evidence of anything *(Technical Manual §8.5)*.
 
-### Do
+### 25.2 Do
 
 1. Establish how long the degraded stretch is **in time**, not in metres
 2. Check what you actually have: overlap? control bracketing it? a POSPac licence?
 3. Choose. Prefer a remedy that improves the solution over one that improves the fit
 4. Apply it, then **re-check against independent check points** (§20)
 
-### Expect
+### 25.3 Expect
 
 Trimble publishes positioning performance at **no outage** and after a **60-second outage**, and
 nothing beyond *(MX60 UG Rev B, p.56)*:
@@ -33,7 +33,7 @@ nothing beyond *(MX60 UG Rev B, p.56)*:
 | No outage | X,Y < 0.01 m · Z 0.01 m | X,Y < 0.01 m · Z 0.01 m |
 | **After 60 s outage** | X,Y **0.12 m** · Z **0.1 m** | X,Y **0.1 m** · Z **0.07 m** |
 
-### Stop if
+### 25.4 Stop if
 
 - **The outage is materially longer than 60 seconds.** Beyond the published figure you are
   extrapolating past the manufacturer's stated envelope. Inertial drift is not linear
@@ -48,6 +48,6 @@ nothing beyond *(MX60 UG Rev B, p.56)*:
 > and control bracketing a hostile stretch are mission-planning decisions *(SOP §8)*. If they were
 > not made, the option does not exist today.
 
-### Record
+### 25.5 Record
 
 Which remedy, why, and the check-point residuals before and after.

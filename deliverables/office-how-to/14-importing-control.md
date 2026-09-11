@@ -1,22 +1,22 @@
 # 14. Importing Control
 
-### Do
+### 14.1 Do
 
 1. Obtain the control file — **Shape, ASCII or CSV** *(TBC 22905)*
 2. Confirm it is in the project's coordinate system (§5)
 3. Import it
 4. Confirm the points appear in **Plan View** and under the **Points** node
 
-### Look at
+### 14.2 Look at
 
 The points, in plan, against the trajectory and the scans. Do they fall where the field record says
 they should?
 
-### Expect
+### 14.3 Expect
 
 Every point you surveyed, in the right place, in the right frame.
 
-### Stop if
+### 14.4 Stop if
 
 - The points plot in the wrong place — that is a coordinate system or units problem, and it is much
   cheaper to fix now than after a registration
@@ -31,6 +31,6 @@ Every point you surveyed, in the right place, in the right frame.
 > prism. A painted stop-bar corner is excellent horizontally and poor vertically; a survey nail in
 > asphalt is below cloud resolution *(Technical Manual §22.5)*.
 
-### Record
+### 14.5 Record
 
 The control file used, and the control-versus-check designation with the name of whoever made it.
