@@ -52,10 +52,10 @@ criteria. **Read this before editing any section.**
 | 15 | [Registration](15-registration.md) | Drafted |
 | 16 | [Run to Run Registration](16-run-to-run-registration.md) | Drafted |
 | 17 | [Control and Independent Check Points](17-control-and-independent-check-points.md) | Drafted |
-| 18 | Point Cloud QC | Pending |
-| 19 | Imagery QC | Pending |
-| 20 | Degraded GNSS Conditions | Pending |
-| 21 | Cleanup Mobile Mapping Mission | Pending |
+| 18 | [Point Cloud QC](18-point-cloud-qc.md) | Drafted |
+| 19 | [Imagery QC](19-imagery-qc.md) | Drafted |
+| 20 | [Degraded GNSS Conditions](20-degraded-gnss-conditions.md) | Drafted |
+| 21 | [Cleanup Mobile Mapping Mission](21-cleanup-mobile-mapping-mission.md) | Drafted |
 
 ### Part V — Delivery and closeout
 
