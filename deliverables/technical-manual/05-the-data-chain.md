@@ -32,7 +32,7 @@ MTA stage**, which removes a whole category of setup and a whole category of fai
 sensor-relative. It becomes a georeferenced point cloud only when combined with a trajectory —
 which is why improving the trajectory later means regenerating the cloud (§19, §21).
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22503)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22503)*
 >
 > MX50 and MX60 convert **TMX → RWCX in one step**. MX9 and MX90 go RXP → TMX → RWCX in two, and
 > the intermediate stage requires **MTA** (Multiple Times Around) range-ambiguity correction.
@@ -45,7 +45,7 @@ which is why improving the trajectory later means regenerating the cloud (§19, 
 
 What the system writes in the field:
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 20736-1, 22503, 22554, 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 20736-1, 22503, 22554, 25943)*
 
 ```
 TMX<serial>-<mission id>/

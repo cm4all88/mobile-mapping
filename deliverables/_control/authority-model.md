@@ -33,7 +33,7 @@ Every statement that carries procedural force carries one of these.
 | **TRIMBLE REQUIREMENT** | Trimble states it as a requirement — *"must"*, *"is required"*, a stated limit, or the software refuses | **shall** / **do not** |
 | **EQUIPMENT LIMIT** | A hardware or safety limit, with manufacturer evidence | **shall** / **do not** |
 | **PARAMETRIX REQUIREMENT (ADOPTED)** | Recorded in SOP Appendix A with a date and an approver | **shall** |
-| **TRIMBLE DOCUMENTED PROCEDURE** | Trimble documents the method but does not require it — *"should"*, *"it is advised"*, *"Proposal of a checklist"* | **should** |
+| **TRIMBLE DOCUMENTED METHOD** | Trimble documents the method but does not require it — *"should"*, *"it is advised"*, *"Proposal of a checklist"* | **should** |
 | **PARAMETRIX PROCEDURE (PROPOSED)** | Recommended by this project. **Not company policy** | **should** |
 | **PARAMETRIX DECISION REQUIRED** | The requirement is identified; the answer is not set | *no imperative* |
 | **TESTING REQUIRED** | The requirement depends on a result nobody has obtained | *no imperative*, or a stated interim posture |

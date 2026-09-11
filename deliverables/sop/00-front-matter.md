@@ -12,6 +12,11 @@
 > **Items marked Parametrix Decision Required, Proposed, Testing Required or Vendor Clarification
 > Required are unresolved.** There are a lot of them, and that is deliberate — an open question is
 > shown as an open question rather than filled in with a guess.
+>
+> **Two things follow from that.** Some requirements here **bind anyway** — Trimble's and the
+> equipment's, because their authority was never Parametrix's to grant or withhold; they are listed
+> with their sources at **SOP §2.4**. And there is **no Parametrix MX60 acceptance standard** to
+> claim, because **D-13** is open.
 <!-- /circulation -->
 
 > **What this SOP requires of Parametrix today: nothing.**
@@ -19,10 +24,10 @@
 > | | |
 > |---|---|
 > | **Parametrix-originated requirements adopted** | **0** |
-> | **Externally binding requirements restated here** | **7** — Trimble's and the equipment's, listed at **§2.4** |
+> | **Externally binding requirements restated here** | <!-- derived:binding-count -->**10**<!-- /derived --> — Trimble's and the equipment's, listed with their sources at **§2.4** |
 >
-> The seven are not Parametrix policy. They would bind an MX60 operator at any company, working
-> from no SOP at all. **This draft does not authorise an MX60 accuracy statement** — it sets no
+> Those are not Parametrix policy. They would bind an MX60 operator at any company, working from
+> no SOP at all. **This draft does not authorise an MX60 accuracy statement** — it sets no
 > tolerance, and **D-13** is open (§17.2).
 
 ---
@@ -31,7 +36,7 @@
 ## How to review this draft
 
 **This is not primarily a copy-editing exercise.** Typos and awkward sentences are worth reporting,
-but they are not what this draft needs. Four questions are:
+but they are not what this draft needs. Four questions matter:
 
 | | |
 |---|---|
@@ -80,6 +85,10 @@ question carries an identifier that is the same in all four documents:
 | **V-n** | An open question for Trimble |
 
 > *"The registration part is confusing"* cannot be acted on. *"`SOP §14.5` is confusing"* can.
+
+**Comments go to the MX60 Internal Review Log.** That is the working channel until Parametrix
+assigns a document owner and a review process under **D-1** — there is no named owner to send them
+to, and inventing one would be worse than saying so.
 <!-- /circulation -->
 
 ---
@@ -92,27 +101,26 @@ question carries an identifier that is the same in all four documents:
 > The block below is a temporary working scheme for this review only (**D-1**).
 
 <!-- circulation:working-revision -->
-### Working revision — internal draft only
+### Working Version — internal circulation only
 
-> **This is a temporary working revision scheme, used only while the set is in internal review.**
-> It is deliberately **not** a revision letter or number, so it cannot be mistaken for the
-> Parametrix document-control convention that **D-1** will establish. When D-1 is answered, this
-> block is replaced by the real one.
+> **This is a temporary working identifier, used only while the set is in internal review.** It is
+> deliberately **not** a revision letter or number, so it cannot be mistaken for the Parametrix
+> document-control convention that **D-1** will establish. A second circulation package on the same
+> date becomes `-b`, then `-c`. When D-1 is answered, this block is replaced by the real one.
 
 | | |
 |---|---|
 | **Document** | **MX60 Mobile Mapping Standard Operating Procedure** |
-| **Working draft** | `2026-09-11-a` — date of circulation, plus a letter for same-day reissues |
+| **Working Version** | `2026-09-11-a` |
+| **Status** | **LIVING DRAFT — INTERNAL REVIEW** |
 | **Supersedes** | — first circulated draft |
-| **Status** | **LIVING DRAFT — INTERNAL REVIEW.** Not issued, not approved |
+| **Formal revision** | *Not assigned* — **D-1** |
+| **Document owner** | *Not assigned* — **D-1** |
+| **Approval status** | **Not approved — Living Draft** |
 | **Circulated for** | Internal review, training, testing and workflow development |
 | **Prepared by** | MX60 mobile mapping documentation project |
-| **Document identifier** | *Not assigned* — **D-1** |
-| **Formal revision** | *Not assigned* — **D-1** |
-| **Owner** | *Not assigned* — **D-1** |
-| **Approved by** | **Nobody.** This draft is not approved and not issued |
-| **Comments to** | *Not assigned* |
-| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at `2026-09-11-a` |
+| **Review comments** | Record in the **MX60 Internal Review Log** |
+| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at Working Version `2026-09-11-a` |
 <!-- /circulation -->
 
 ---
@@ -144,7 +152,7 @@ the clause and is not decoration. **§3.2** is the full key; this is the short v
 |---|---|
 | **TRIMBLE REQUIREMENT** · **EQUIPMENT LIMIT** | **Yes** — the manufacturer's, not Parametrix's |
 | **PARAMETRIX REQUIREMENT (ADOPTED)** | **Yes** — recorded in Appendix A. **None exists at this draft** |
-| **TRIMBLE DOCUMENTED PROCEDURE** | No — Trimble documents the method without requiring it |
+| **TRIMBLE DOCUMENTED METHOD** | No — Trimble documents the method without requiring it |
 | **PARAMETRIX PROCEDURE (PROPOSED)** | No — a recommendation from this project |
 | **PARAMETRIX DECISION REQUIRED** · **TESTING REQUIRED** | No — the answer is not set, or nobody has it yet |
 

@@ -11,13 +11,18 @@
 > **Items marked Parametrix Decision Required, Proposed, Testing Required or Vendor Clarification
 > Required are unresolved.** There are a lot of them, and that is deliberate — an open question is
 > shown as an open question rather than filled in with a guess.
+>
+> **Two things follow from that.** Some requirements here **bind anyway** — Trimble's and the
+> equipment's, because their authority was never Parametrix's to grant or withhold; they are listed
+> with their sources at **SOP §2.4**. And there is **no Parametrix MX60 acceptance standard** to
+> claim, because **D-13** is open.
 
 ---
 
 ## How to review this draft
 
 **This is not primarily a copy-editing exercise.** Typos and awkward sentences are worth reporting,
-but they are not what this draft needs. Four questions are:
+but they are not what this draft needs. Four questions matter:
 
 | | |
 |---|---|
@@ -67,6 +72,10 @@ question carries an identifier that is the same in all four documents:
 
 > *"The registration part is confusing"* cannot be acted on. *"`Field How To §17.3` is confusing"* can.
 
+**Comments go to the MX60 Internal Review Log.** That is the working channel until Parametrix
+assigns a document owner and a review process under **D-1** — there is no named owner to send them
+to, and inventing one would be worse than saying so.
+
 ---
 
 ## Document control
@@ -74,27 +83,26 @@ question carries an identifier that is the same in all four documents:
 > **Provisional.** Parametrix's document-control convention is not established (**D-1**). The
 > block below is a temporary working scheme for this review only.
 
-### Working revision — internal draft only
+### Working Version — internal circulation only
 
-> **This is a temporary working revision scheme, used only while the set is in internal review.**
-> It is deliberately **not** a revision letter or number, so it cannot be mistaken for the
-> Parametrix document-control convention that **D-1** will establish. When D-1 is answered, this
-> block is replaced by the real one.
+> **This is a temporary working identifier, used only while the set is in internal review.** It is
+> deliberately **not** a revision letter or number, so it cannot be mistaken for the Parametrix
+> document-control convention that **D-1** will establish. A second circulation package on the same
+> date becomes `-b`, then `-c`. When D-1 is answered, this block is replaced by the real one.
 
 | | |
 |---|---|
 | **Document** | **MX60 Field How To** |
-| **Working draft** | `2026-09-11-a` — date of circulation, plus a letter for same-day reissues |
+| **Working Version** | `2026-09-11-a` |
+| **Status** | **LIVING DRAFT — INTERNAL REVIEW** |
 | **Supersedes** | — first circulated draft |
-| **Status** | **LIVING DRAFT — INTERNAL REVIEW.** Not issued, not approved |
+| **Formal revision** | *Not assigned* — **D-1** |
+| **Document owner** | *Not assigned* — **D-1** |
+| **Approval status** | **Not approved — Living Draft** |
 | **Circulated for** | Internal review, training, testing and workflow development |
 | **Prepared by** | MX60 mobile mapping documentation project |
-| **Document identifier** | *Not assigned* — **D-1** |
-| **Formal revision** | *Not assigned* — **D-1** |
-| **Owner** | *Not assigned* — **D-1** |
-| **Approved by** | **Nobody.** This draft is not approved and not issued |
-| **Comments to** | *Not assigned* |
-| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at `2026-09-11-a` |
+| **Review comments** | Record in the **MX60 Internal Review Log** |
+| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at Working Version `2026-09-11-a` |
 
 ## What this guide is
 
@@ -655,7 +663,7 @@ One line each. Full explanation: **Technical Manual §13**.
 
 ## 13.1 What it changes
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.67)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.67)*
 >
 > GAMS **reduces initialization time and eliminates the special driving manoeuvres** otherwise
 > required.
@@ -759,7 +767,7 @@ Each run becomes a **Run** node in the office.
 
 ## 15.2 Minimum mission time
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > **Minimum mission time: 30 minutes** *(MX60 QSG Rev B, pp.13–14)*.
 
@@ -1697,7 +1705,7 @@ calibration is computed in the office and applied to the system rather than to a
 
 # Appendix E — Quick Card
 
-**The ten things that cost the most if missed.** One page. Keep it in the vehicle.
+**The ten things that cost the most if missed.** One sheet, both sides. Keep it in the vehicle.
 
 ---
 

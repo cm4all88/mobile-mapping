@@ -14,7 +14,7 @@ shows it. The time of day is part of the GNSS assessment.
 
 ## 15.2 The 60-second boundary in the specification
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.56)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.56)*
 >
 > Trimble publishes positioning performance at **no outage** and after a **60-second GNSS
 > outage**, and nothing in between or beyond:

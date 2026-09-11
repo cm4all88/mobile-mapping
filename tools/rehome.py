@@ -2,7 +2,7 @@
 """Re-home a section from the single-document draft into the Technical Manual.
 
 Rule, applied mechanically so nothing is lost by accident:
-  KEEP   TRIMBLE DOCUMENTED PROCEDURE, OBSERVED SOFTWARE BEHAVIOR,
+  KEEP   TRIMBLE DOCUMENTED METHOD, OBSERVED SOFTWARE BEHAVIOR,
          FIELD TESTING REQUIRED, VENDOR CLARIFICATION REQUIRED,
          CAUTION, IMPORTANT, FIELD TIP, WHY THIS MATTERS, ADVANCED,
          IN PLAIN ENGLISH, and all body text, tables and citations.

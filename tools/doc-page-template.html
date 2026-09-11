@@ -1,5 +1,7 @@
 <title>{{DOCTITLE}}</title>
 <style>
+.printhead{display:none}
+
 /* ============================================================================
    Parametrix MX60 document family — brand tokens
    The single source of every visual value in all four deliverables.
@@ -381,6 +383,81 @@ td code{font-size:.84em}
   font:400 11.5px/1.5 var(--sans);color:var(--muted)}
 .docfoot-t .nb{color:var(--red);font-weight:700}
 @media (max-width:420px){ main{padding:0 16px 80px} .hero h2{font-family:var(--head);font-weight:600;letter-spacing:-.008em;font-size:26px} }
+
+/* ============================================================================
+   PRINT LAYER                                                  [extension]
+   For internal review printing only. These are not controlled PDFs, and the
+   page says so: the Working Version and the Living Draft status print on
+   every page where the browser supports running headers.
+   The guide is silent on print furniture; the values below are the screen
+   values re-expressed in points.
+   ============================================================================ */
+@media print{
+  /* the shell is screen furniture */
+  .rail,.find,.menu,#theme,.rail-end,nav{display:none !important}
+
+  @page{
+    size:A4;
+    margin:18mm 16mm 20mm 16mm;
+  }
+
+  :root{color-scheme:light}
+  html,body{background:#fff !important;color:#231F20 !important}
+  main{margin:0 !important;padding:0 !important;max-width:none !important;width:auto !important}
+
+  body{font-size:10.5pt;line-height:1.45}
+  h1{font-size:20pt} h2{font-size:15pt} h3{font-size:12pt} h4{font-size:11pt}
+
+  /* a heading with nothing under it is a wasted page break */
+  h1,h2,h3,h4,.sec-h{break-after:avoid-page;page-break-after:avoid}
+  h1,h2,h3,h4{break-inside:avoid;page-break-inside:avoid}
+  p,li{orphans:3;widows:3}
+
+  /* each numbered section starts a page; its own furniture does not */
+  .sec{break-before:page;page-break-before:always;border:0 !important;padding:0 !important;
+       margin:0 0 6mm 0 !important}
+  .sec:first-of-type{break-before:auto;page-break-before:auto}
+  .arrow{display:none}
+
+  /* a callout must stay identifiable without colour, and must not straddle
+     a page break unless it is genuinely long */
+  .co{break-inside:avoid;page-break-inside:avoid;
+      border:0.4pt solid #B3B4B5 !important;border-left-width:3pt !important;
+      background:#fff !important;padding:3mm 4mm !important}
+  .co .co-h{color:#231F20 !important}
+  .co-caution,.co-important{border-left-color:#C8102E !important}
+  .co-caution .co-h,.co-important .co-h{color:#C8102E !important}
+  .co-status{border:1pt solid #231F20 !important;border-left-width:3pt !important}
+
+  /* tables split, they do not overflow a page silently */
+  .tw{overflow:visible !important}
+  table{break-inside:auto;page-break-inside:auto;width:100% !important;font-size:9.5pt}
+  thead{display:table-header-group}
+  tfoot{display:table-footer-group}
+  tr,td,th{break-inside:avoid;page-break-inside:avoid}
+  th{background:#F2F2F2 !important;color:#231F20 !important;
+     border-bottom:0.6pt solid #939598 !important}
+  td,th{border-color:#D1D3D4 !important}
+
+  /* checklist boxes are the point of the field sheets */
+  .cb,input[type=checkbox]{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  pre,code{background:#F2F2F2 !important;color:#231F20 !important}
+  pre{break-inside:avoid;page-break-inside:avoid;border:0.4pt solid #D1D3D4 !important}
+  img{max-width:100% !important;break-inside:avoid;page-break-inside:avoid}
+  a{color:#231F20 !important;text-decoration:none}
+
+  /* the footer becomes the print identity block, on the first page */
+  .docfoot{border-top:0.6pt solid #939598 !important;margin-top:8mm;padding-top:3mm}
+  .docfoot .nb{font-weight:600}
+  .hero{padding:0 0 8mm}
+  .hero h2{max-width:none;font-size:26pt}
+  .hero p{max-width:none;font-size:11pt}
+  .meta,.legend{break-inside:avoid;page-break-inside:avoid}
+  .printhead{display:block !important;font:600 8.5pt/1.4 var(--sans);
+    letter-spacing:.06em;text-transform:uppercase;color:#231F20;
+    border-bottom:0.6pt solid #939598;padding-bottom:2mm;margin-bottom:6mm}
+}
 </style>
 
 <div class="rail" id="rail">
@@ -402,6 +479,7 @@ td code{font-size:.84em}
 </div>
 
 <main>
+<div class="printhead" aria-hidden="true">{{DOCTITLE}} · Working Version {{WORKVER}} · LIVING DRAFT — INTERNAL REVIEW · not a controlled document</div>
 {{HERO}}
   {{BODY}}
   <footer class="docfoot">
@@ -409,7 +487,7 @@ td code{font-size:.84em}
     <div class="docfoot-t">
       <span>{{DOCTITLE}}</span>
       <span>{{DOCSUB}}</span>
-      <span class="nb">Not issued</span>
+      <span class="nb">Working Version {{WORKVER}} · LIVING DRAFT — INTERNAL REVIEW</span>
     </div>
   </footer>
 </main>

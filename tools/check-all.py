@@ -26,6 +26,8 @@ run('stage names',            ['tools/check-stage-names.py'])
 run('control artefacts fresh',['tools/sync-control.py', '--check'])
 run('circulation blocks',     ['tools/sync-circulation.py', '--check'])
 run('subsection numbering',   ['tools/number-subsections.py', '--check'])
+run('binding requirements',   ['tools/build-binding-table.py', '--check'])
+run('style and build',        ['tools/check-style.py'])
 run('authority of shall',     ['tools/check-authority.py'])
 
 DIRS = {'Manual':'technical-manual','SOP':'sop','Office':'office-how-to','Field':'field-how-to'}

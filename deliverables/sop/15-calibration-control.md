@@ -80,7 +80,7 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 
 Distinct from per-project QC: the check that the **instrument** is still performing.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.7)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.7)*
 >
 > Scan approximately **eight flat retro-reflecting targets** at varied distances over more than
 > **180° horizontally**, previously surveyed by total station. The system passes if residuals fall

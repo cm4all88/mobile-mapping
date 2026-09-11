@@ -75,6 +75,8 @@ An earlier version used `sec` for both and the navigation rendered with ~195px g
 
 | Check | Tool |
 |---|---|
+| The externally binding requirements table and every count of them match the register | `build-binding-table.py --check` |
+| Every built page carries the current Working Version, the Living Draft status, the print layer and its documented accent | `check-style.py` |
 | Registered warnings appear **verbatim** in their owner document, and wherever the register says | `check-warnings.py` |
 | No forbidden workflow stage-name synonyms | `check-stage-names.py` |
 | The derived control artefacts still match the documents | `sync-control.py --check` |
@@ -109,7 +111,7 @@ label and the circulation date are set at the top of the script.
 Classifies every labelled block in all four documents and fails any `shall` that does not rest on
 **TRIMBLE REQUIREMENT**, **EQUIPMENT LIMIT** or **PARAMETRIX REQUIREMENT (ADOPTED)**.
 
-`-v` prints the classification table — the authority audit. A **TRIMBLE DOCUMENTED PROCEDURE** is
+`-v` prints the classification table — the authority audit. A **TRIMBLE DOCUMENTED METHOD** is
 deliberately *not* a binding authority: Trimble documenting a method is not Trimble requiring it,
 and `deliverables/_control/authority-model.md` explains why that distinction is enforced.
 
@@ -117,3 +119,40 @@ and `deliverables/_control/authority-model.md` explains why that distinction is 
 
 Numbers the Office How To's task steps — `### 16.5 Stop if` — so a reviewer can cite one. The
 step names repeat in every section, so the name alone is not an address. Idempotent.
+
+
+## Building the circulation package
+
+Order matters only in that the derived artefacts come first.
+
+```bash
+python3 tools/sync-control.py            # register + ownership matrix + register README
+python3 tools/sync-circulation.py        # the shared front-matter blocks
+python3 tools/build-binding-table.py     # SOP §2.4 and its counts
+python3 tools/build-register-views.py    # SOP Appendix A, Manual Appendix E/F, _control views
+python3 tools/build-records-index.py     # SOP Appendix B
+for d in manual sop office field; do
+  python3 tools/build-doc.py "$d"        # assembled markdown
+  python3 tools/build-doc-page.py "$d"   # the browsable page
+done
+python3 tools/build-field-sheets.py      # the four standalone printable sheets
+python3 tools/build-index.py             # deliverables/index.html, the landing page
+python3 tools/check-all.py               # the gate. Nine checks
+python3 tools/build-pdfs.py              # PDFs, through the print layer
+```
+
+**The Working Version is set in one place** — `DRAFT` at the top of `sync-circulation.py`. Every
+page, sheet, PDF header and footer reads it from there, and `check-style.py` fails any built page
+that still carries an older one.
+
+## build-pdfs.py
+
+Renders the nine circulation pages to PDF through the print layer in
+`tools/doc-page-template.html`, with a running header carrying the Working Version and the Living
+Draft status, and `Page n of m` in the footer.
+
+**These are not controlled PDFs**, and every page says so. They exist because some reviewers would
+rather read on paper; the HTML remains the living implementation.
+
+Uses the preinstalled Chromium at `/opt/pw-browsers`. There is no LibreOffice or pdftoppm in this
+environment, so do not add a pipeline that assumes one.

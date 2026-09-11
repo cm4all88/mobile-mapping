@@ -1,7 +1,7 @@
 ## How to review this draft
 
 **This is not primarily a copy-editing exercise.** Typos and awkward sentences are worth reporting,
-but they are not what this draft needs. Four questions are:
+but they are not what this draft needs. Four questions matter:
 
 | | |
 |---|---|
@@ -50,3 +50,7 @@ question carries an identifier that is the same in all four documents:
 | **V-n** | An open question for Trimble |
 
 > *"The registration part is confusing"* cannot be acted on. *"`{EXAMPLE}` is confusing"* can.
+
+**Comments go to the MX60 Internal Review Log.** That is the working channel until Parametrix
+assigns a document owner and a review process under **D-1** — there is no named owner to send them
+to, and inventing one would be worse than saying so.

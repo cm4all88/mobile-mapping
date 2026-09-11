@@ -4,7 +4,7 @@
 
 ## 13.1 What it changes
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.67)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.67)*
 >
 > GAMS **reduces initialization time and eliminates the special driving manoeuvres** otherwise
 > required.

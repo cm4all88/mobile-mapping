@@ -1,6 +1,6 @@
 # MX60 Mobile Mapping Standard Operating Procedure
 
-**Working draft `2026-09-11-a` · LIVING DRAFT — INTERNAL REVIEW · no Parametrix clause adopted**
+**Working Version `2026-09-11-a` · LIVING DRAFT — INTERNAL REVIEW · no Parametrix clause adopted**
 
 One of four coordinated deliverables. This one states **what Parametrix requires**. It is short by
 design: requirements here, explanation in the Technical Manual, method in the How To guides.

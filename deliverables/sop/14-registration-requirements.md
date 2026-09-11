@@ -43,6 +43,16 @@ The requirement is §7.3 and is not restated here. Two consequences belong to re
 | The designation is **fixed before** registration begins | **PROPOSED — D-15** |
 | A point's **As Check** state is **not changed during** processing. If a designation was wrong, it is changed by the person with the authority, recorded, and the registration recomputed from the imported trajectory | **PROPOSED — D-15** |
 
+> **TRIMBLE REQUIREMENT** — *an enforced software limit*
+>
+> **At least one control point in a registration shall not be a validation point.** Trimble states
+> that if every selected GCP is set **As Check**, *"an error will pop-up and will prompt you to
+> have at least one ground control point (GCP) for the calculation"* *(TBC 22905)*.
+>
+> It is worth knowing which way this cuts: TBC protects the *calculation*, not the *check*. It will
+> stop you holding nothing back for the adjustment. **It will not stop you holding nothing back for
+> the check**, which is the failure below.
+
 > **The failure this prevents.** A processor registers, finds one check point with a larger
 > residual than expected, and adds it to the adjustment to bring it in. Every step is well
 > intentioned. The result is an adjustment with no independent check at all, and a set of residuals

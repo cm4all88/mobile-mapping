@@ -11,7 +11,7 @@ Each run becomes a **Run** node in the office.
 
 ## 15.2 Minimum mission time
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > **Minimum mission time: 30 minutes** *(MX60 QSG Rev B, pp.13–14)*.
 

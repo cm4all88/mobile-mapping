@@ -36,7 +36,7 @@ The method is in the **Field How To**. This section states what shall be done, a
 > **A mission shall be at least 30 minutes long.** *"Important! A minimum mission time of ≥30 min is
 > required."*
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, §5.3, p.11; §6, p.14)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, §5.3, p.11; §6, p.14)*
 >
 > Trimble documents an initialization sequence — static logging, a straight run, then dynamic
 > manoeuvres — and it **should** be performed at the start of every mission, in the order given.
@@ -64,7 +64,7 @@ To**.
 
 ## 9.3 The closing sequence
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, §5.5, p.13)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, §5.5, p.13)*
 >
 > Trimble documents a closing sequence and instructs that the mission be finalized *"according to
 > the following sequence"* — dynamic manoeuvres, varying speed, then 2–3 minutes static — and it

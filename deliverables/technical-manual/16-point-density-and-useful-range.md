@@ -6,7 +6,7 @@ geometry and settings. Useful range is trajectory quality.
 
 ## 16.1 The instrument's own numbers
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, pp.54–55)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, pp.54–55)*
 >
 > | | Value |
 > |---|---|
@@ -42,7 +42,7 @@ Point density along a corridor is set by three things, and only three:
 Vehicle speed is the lever that changes most between projects and the one with the least
 guidance attached to it.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B)*
 >
 > | | Value |
 > |---|---|
@@ -82,7 +82,7 @@ a painted stop-bar corner is a good horizontal target and a poor vertical one (�
 
 ## 16.4 The range specification is a laboratory figure
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.55)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.55)*
 >
 > The maximum range figures apply to **flat targets larger than the beam diameter, at
 > perpendicular incidence, with 23 km atmospheric visibility**. Range is **shorter in bright

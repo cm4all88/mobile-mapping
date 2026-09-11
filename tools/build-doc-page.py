@@ -174,12 +174,15 @@ DOCS = {
     dir='deliverables/technical-manual', out='technical-manual.html', accent='var(--brand-blue)', accent_on='var(--brand-white)',
     doctype='Technical Manual', docname='MX60 Mobile Mapping',
     title='MX60 Mobile Mapping Technical Manual',
-    sub='Draft A · Evidence revision E1 · TBC 2026.10',
+    sub='{{SUB}} · Evidence revision E1 · TBC 2026.10',
     order=MANUAL_ORDER,
     lead=('Why the system behaves the way it does, and how we know. '
           'The evidence base for the SOP and the two How To guides.'),
-    stats=[('Sections','31 + 7 appendices'),('Words','57,000'),
-           ('In Plain English','29 boxes'),('Open technical questions','41')],
+    stats=lambda ns, na, w, reg: [
+        ('Sections', f'{ns} + {na} appendices'), ('Words', f'{w:,}'),
+        ('In Plain English', f"{stats['plain']} boxes"),
+        ('Open technical questions', str(sum(1 for r in reg if r['type'] in ('test', 'vendor')
+                                             and r['status'] != 'resolved')))],
     flag=('<b>This manual states no Parametrix procedure.</b> It explains what Trimble\'s software '
           'does and what has been observed; it decides nothing. Requirements live in the SOP. '
           'Where a Parametrix decision would resolve a question, the manual names the decision and '
@@ -189,13 +192,16 @@ DOCS = {
     dir='deliverables/sop', out='sop.html', accent='var(--brand-orange)', accent_on='var(--brand-charcoal)',
     doctype='Standard Operating Procedure', docname='MX60 Mobile Mapping',
     title='MX60 Mobile Mapping SOP',
-    sub='Draft A · Not issued · TBC 2026.10',
+    sub='{{SUB}} · TBC 2026.10',
     order=SOP_ORDER,
     lead=('What Parametrix requires of MX60 mobile mapping work. Short by design: it states '
           'requirements and points to the Technical Manual for explanation and to the How To '
           'guides for method.'),
-    stats=[('Sections','22 + 3 appendices'),('Words','18,800'),
-           ('Clauses adopted','0 of 34'),('Blocking decisions','9')],
+    stats=lambda ns, na, w, reg: [
+        ('Sections', f'{ns} + {na} appendices'), ('Words', f'{w:,}'),
+        ('Parametrix requirements adopted', '0'),
+        ('Externally binding', str(len(list(__import__('csv').DictReader(
+            open('deliverables/_control/binding-requirements.csv'))))))],
     flag=('<b>No clause in this SOP has been adopted.</b> Every requirement is marked '
           '<b>PROPOSED</b> until Parametrix records a decision against it, with a date and an '
           'owner, in Appendix A. Nothing here may be quoted to a client as an existing '
@@ -204,12 +210,13 @@ DOCS = {
  'field': dict(
     dir='deliverables/field-how-to', out='field-how-to.html', accent='var(--brand-green)', accent_on='var(--brand-charcoal)',
     doctype='Field How To', docname='MX60 Mobile Mapping',
-    title='MX60 Field How To', sub='Draft A · Not issued',
+    title='MX60 Field How To', sub='{{SUB}}',
     order=FIELD_ORDER,
     lead=('How to run the MX60 in the field. Short numbered steps, meant to be used in or near '
           'the vehicle.'),
-    stats=[('Sections','27 + 5 appendices'),('Words','9,800'),
-           ('Printable checklists','2'),('Quick card','Appendix E')],
+    stats=lambda ns, na, w, reg: [
+        ('Sections', f'{ns} + {na} appendices'), ('Words', f'{w:,}'),
+        ('Standalone sheets', '4'), ('Quick card', 'Appendix E')],
     flag=('<b>Start with Appendix E</b> &mdash; the ten things that cost the most if missed, on '
           'one page. Four of them cannot be fixed from the office: an aiding sensor that was never '
           'activated, missed overlap, a mission with no closing sequence, and a disk cleared before '
@@ -219,13 +226,14 @@ DOCS = {
  'office': dict(
     dir='deliverables/office-how-to', out='office-how-to.html', accent='var(--brand-yellow)', accent_on='var(--brand-charcoal)',
     doctype='Office How To', docname='MX60 Mobile Mapping',
-    title='MX60 Office How To', sub='Draft A · Not issued · TBC 2026.10',
+    title='MX60 Office How To', sub='{{SUB}} · TBC 2026.10',
     order=OFFICE_ORDER,
     lead=('How to process MX60 data in Trimble Business Center, in the order you do it. '
           'Every section answers four questions: what to do, what to look at, what to expect, '
           'and what should make you stop.'),
-    stats=[('Sections','35 + 6 appendices'),('Words','15,800'),
-           ('Checklists','5'),('Record templates','5')],
+    stats=lambda ns, na, w, reg: [
+        ('Sections', f'{ns} + {na} appendices'), ('Words', f'{w:,}'),
+        ('Checklists', '5'), ('Record templates', '5')],
     flag=('<b>Read &ldquo;Stop if&rdquo; in every section.</b> Three mistakes cost more than all '
           'the others and all three are silent: registration does not change the point cloud until '
           '<b>Update Scans</b> runs; a good RMS does not prove the work succeeded; and '
@@ -243,6 +251,9 @@ ORDER = CFG['order'] or [
     for p in sorted(SOP.glob('*.md'))]
 
 
+WORKING_VERSION = re.search(r"^DRAFT = '([^']+)'", open('tools/sync-circulation.py').read(),
+                            re.M).group(1)
+
 CALLOUTS = [
     ('LIVING DRAFT — INTERNAL REVIEW', 'status'),
     ('WHAT YOU SHOULD KNOW BEFORE MOVING ON', 'retain'),
@@ -253,7 +264,7 @@ CALLOUTS = [
     ('PARAMETRIX PROCEDURE (ADOPTED)', 'adopted'),
     ('PARAMETRIX REQUIREMENT (ADOPTED)', 'adopted'),
     ('PARAMETRIX DECISION REQUIRED', 'decision'),
-    ('TRIMBLE DOCUMENTED PROCEDURE', 'trimble'),
+    ('TRIMBLE DOCUMENTED METHOD', 'trimble'),
     ('TRIMBLE REQUIREMENT', 'binding'),
     ('EQUIPMENT LIMIT', 'binding'),
     ('OBSERVED SOFTWARE BEHAVIOR', 'observed'),
@@ -283,6 +294,8 @@ def inline(t):
     # non-greedy, so bold may contain italics or a stashed code span
     t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
     t = re.sub(r'(?<![\*\w])\*([^*\n]+)\*(?!\*)', r'<em>\1</em>', t)
+    # markdown links: used by the landing page, not by the four documents
+    t = re.sub(r'\[([^\]]+)\]\(([^)\s]+)\)', r'<a href="\2">\1</a>', t)
     t = re.sub(r'\x00(\d+)\x00', lambda m: f'<code>{code[int(m.group(1))]}</code>', t)
     # (MX60 UG Rev B, p.54) -> citation
     t = re.sub(r'\(((?:MX60|Trimble|TMI|QSG|TMR|NCHRP|Rack|Dust|TBC|Queensland)[^()]*?(?:p\.|pp\.|§)[^()]*?)\)',
@@ -409,7 +422,7 @@ LEGEND_ROWS = {
  'important': ('Important', 'Gets the job wrong if ignored'),
  'why':       ('Why this matters', 'The reason behind a behaviour or a requirement'),
  'plain':     ('In Plain English', 'What we did, why it matters, what can go wrong, what good looks like'),
- 'trimble':   ('Trimble documented procedure', 'Trimble states this, in the cited topic or page'),
+ 'trimble':   ('Trimble documented method', 'Trimble documents this, in the cited topic or page &mdash; <b style="color:inherit">not necessarily a requirement</b>'),
  'observed':  ('Observed software behavior', 'Seen in the software; not stated by Trimble as procedure'),
  'proposed':  ('Parametrix procedure (proposed)', 'Recommended &mdash; <b style="color:inherit">not company policy</b>'),
  'adopted':   ('Parametrix procedure (adopted)', 'Decided by Parametrix, with a date and an owner'),
@@ -418,7 +431,7 @@ LEGEND_ROWS = {
 }
 MARKERS = {
  'caution':'CAUTION','important':'IMPORTANT','why':'WHY THIS MATTERS','plain':'IN PLAIN ENGLISH',
- 'trimble':'TRIMBLE DOCUMENTED PROCEDURE','observed':'OBSERVED SOFTWARE BEHAVIOR',
+ 'trimble':'TRIMBLE DOCUMENTED METHOD','observed':'OBSERVED SOFTWARE BEHAVIOR',
  'proposed':'PARAMETRIX PROCEDURE (PROPOSED)','adopted':'PARAMETRIX PROCEDURE (ADOPTED)',
  'decision':'PARAMETRIX DECISION REQUIRED','testing':'TESTING REQUIRED',
  'binding':'TRIMBLE REQUIREMENT','status':'LIVING DRAFT — INTERNAL REVIEW',
@@ -429,7 +442,7 @@ _OLD_LEGEND = """    <div class="legend">
       <div class="lg-important"><b>Important</b>Gets the job wrong if ignored</div>
       <div class="lg-why"><b>Why this matters</b>The reason behind a behaviour or a requirement</div>
       <div class="lg-plain"><b>In Plain English</b>What we did, why it matters, what can go wrong, what good looks like</div>
-      <div class="lg-trimble"><b>Trimble documented procedure</b>Trimble states this, in the cited topic or page</div>
+      <div class="lg-trimble"><b>Trimble documented method</b>Trimble documents this &mdash; not necessarily a requirement</div>
       <div class="lg-observed"><b>Observed software behavior</b>Seen in the software; not stated by Trimble as procedure</div>
       <div class="lg-proposed"><b>Parametrix procedure (proposed)</b>Recommended &mdash; <b style="color:inherit">not company policy</b></div>
       <div class="lg-decision"><b>Parametrix decision required</b>An internal standard still to be established</div>
@@ -460,10 +473,15 @@ logo_ko = b64('brand/logo/parametrix-logo-knockout.png')
 ixmark  = b64('brand/parametrix-x-mark.png')
 # count decisions from the source markdown, not the truncated search text
 alltext = ''.join(strip_markers((SOP / f'{fn}.md').read_text()) for fn, _, _ in ORDER)
+SUBTITLE = f'Working Version {WORKING_VERSION} · LIVING DRAFT — INTERNAL REVIEW'
+_reg = list(__import__('csv').DictReader(open('deliverables/_control/master-register.csv')))
+_nsec = sum(1 for _, n, _ in ORDER if not n.isalpha() and n != '0')
+_napp = sum(1 for _, n, _ in ORDER if n.isalpha())
 stats = {
     'decisions': alltext.count('Open Parametrix decision'),
-    'raw': alltext.count('TRIMBLE DOCUMENTED PROCEDURE'),
-    'words': sum(len(s['x'].split()) for s in search),
+    'raw': alltext.count('TRIMBLE DOCUMENTED METHOD'),
+    'plain': alltext.count('IN PLAIN ENGLISH'),
+    'words': len(re.sub(r'[#>|*`_\-]', ' ', alltext).split()),
 }
 
 # ---- the legend, listing only the callouts this document actually uses ----
@@ -477,9 +495,9 @@ LEGEND = ('    <div class="legend">\n'
 
 # ---- the hero, built from the document's config ----
 meta = ''.join(f'<div><dt>{html.escape(k)}</dt><dd>{html.escape(v)}</dd></div>'
-               for k, v in CFG['stats'])
+               for k, v in CFG['stats'](_nsec, _napp, stats['words'], _reg))
 hero = (f'  <div class="hero">\n'
-        f'    <div class="k">Draft — not approved for use</div>\n'
+        f'    <div class="k">Living Draft — internal review · Working Version {WORKING_VERSION}</div>\n'
         f'    <h2>{html.escape(CFG["docname"])} — {html.escape(CFG["doctype"])}</h2>\n'
         f'    <p>{CFG["lead"]}</p>\n'
         + (f'    <div class="meta">{meta}</div>\n' if meta else '')
@@ -495,10 +513,11 @@ page = (TPL.replace('{{LOGO}}', logo)
            .replace('{{DOCTITLE}}', html.escape(CFG['title']))
            .replace('{{DOCTYPE}}', html.escape(CFG['doctype']))
            .replace('{{DOCNAME}}', html.escape(CFG['docname']))
-           .replace('{{DOCSUB}}', html.escape(CFG['sub']))
+           .replace('{{DOCSUB}}', html.escape(CFG['sub'].replace('{{SUB}}', SUBTITLE)))
            .replace('{{LOGO_KO}}', logo_ko)
            .replace('{{IX}}', ixmark)
            .replace('{{ACCENT}}', CFG['accent'])
-           .replace('{{ACCENT_ON}}', CFG['accent_on']))
+           .replace('{{ACCENT_ON}}', CFG['accent_on'])
+           .replace('{{WORKVER}}', WORKING_VERSION))
 OUT.write_text(page)
 print(f'{KEY:7} -> {OUT.name}  {len(page)/1024:.0f} KB  ·  {len(ORDER)} sections  ·  accent {CFG["accent"]}')

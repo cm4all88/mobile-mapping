@@ -24,10 +24,10 @@ deliverable produced on that date. This section reserves the machinery. **It doe
 > colour, typography, logo, layout — and says nothing about document control. The two should not be
 > confused: applying the brand to this document does not make it a controlled document.
 
-Until D-1 is answered, this procedure carries a **temporary working draft label** on its front
-matter — a circulation date, not a revision — and the status **LIVING DRAFT — INTERNAL REVIEW**.
-The working label exists so that two reviewers can tell whether they are reading the same text. It
-is not a revision convention and does not become one by being used.
+Until D-1 is answered, this procedure carries a **Working Version** on its front matter — a
+circulation date, not a revision — and the status **LIVING DRAFT — INTERNAL REVIEW**. The term is
+deliberately not *revision*: a Working Version exists so two reviewers can tell whether they are
+reading the same text, and it does not become a revision convention by being used.
 
 ## 2.3 The document family
 
@@ -58,10 +58,12 @@ of it.
 
 Two different things are easily confused, and this procedure keeps them apart.
 
-| | Count at this revision |
+| | Count at this Working Version |
 |---|---|
+<!-- derived:binding-summary -->
 | **Parametrix-originated requirements adopted** | **0** |
-| **Externally binding requirements restated here** | **7** |
+| **Externally binding requirements restated here** | **10** — 7 trimble requirement · 3 equipment limit |
+<!-- /derived -->
 
 **Parametrix has adopted nothing.** Every Parametrix-originated clause in this procedure is a
 proposal, carries **PARAMETRIX PROCEDURE (PROPOSED)**, and uses **should**. Nothing in this
@@ -69,28 +71,53 @@ document becomes company policy by being written down here.
 
 **The externally binding requirements are not Parametrix's and do not wait for Parametrix.** They
 are restated here because an operator needs them in one place, not because this procedure creates
-them. They would bind an MX60 operator at any company, working from no SOP at all:
+them. They would bind an MX60 operator at any company, working from no SOP at all.
 
-| # | Requirement | Authority | Clause |
-|---|---|---|---|
-| 1 | Navigation alignment complete before data logging — *"must be done first before data logging is allowed"* | Trimble, stated · system-enforced | §9.2 |
-| 2 | Minimum mission length **30 minutes** — *"is required"* | Trimble, stated | §9.2 |
-| 3 | A GCP and its picked target no more than **30 m** apart | Trimble · TBC rejects the pair | §14.5 |
-| 4 | Data outside the outermost control point not described as registered to it | Trimble, stated limitation | §7.2, §14.5 |
-| 5 | A calibration not accepted on RMS alone — *"a visual check is needed"* | Trimble, stated | §15.4 |
-| 6 | A registration not judged on residuals alone — same instruction, same wording | Trimble, stated | §14.9, §16.7 |
-| 7 | Equipment and power limits — speed, voltage, Battery Protect, load | Manufacturer limits | §9.4 |
+The table below is **generated** from `deliverables/_control/binding-requirements.csv`, where each
+row carries its exact source quotation. The count is generated with it, so the two cannot drift
+apart — and if the evidence audit changes the number, the number changes.
+
+<!-- derived:binding-table -->
+| # | Requirement | Authority | Source | SOP | Enforced by |
+|---|---|---|---|---|---|
+| **1** | Navigation alignment is complete before data logging begins | TRIMBLE REQUIREMENT | MX60 QSG Rev B, §5.3 p.11 — "Navigation alignment must be done first before data logging is allowed!" | §9.2 | Software — TMI does not allow logging until alignment is done |
+| **2** | A mission is at least 30 minutes long | TRIMBLE REQUIREMENT | MX60 QSG Rev B, §5.4 p.13 — "Important! A minimum mission time of >=30 min is required." Repeated §6 p.14 | §9.2 | Not established |
+| **3** | A ground control point and its picked target are no more than 30 m (100 ft) apart | TRIMBLE REQUIREMENT | TBC 22905 — "NOTE: The distance in a pair of points cannot exceed the allowed maximum distance of 30 meters (or 100 feet)." | §14.5 | Software — stated as an allowed maximum that cannot be exceeded |
+| **4** | At least one control point in a registration is not a validation point | TRIMBLE REQUIREMENT | TBC 22905 — "If you set all the selected ground control points (GCPs) as validation points (VPs), an error will pop-up and will prompt you to have at least one ground control point (GCP) for the calculation." | §14.3 | Software — an error blocks the calculation |
+| **5** | Data outside the outermost control point is not described as registered to that control | TRIMBLE REQUIREMENT | TBC 22905 — Local is "suitable for a local adjustment of a run, not for systematic error along the run or for adjusting outside the ground control points set" (W-08) | §7.2, §14.5 | None — the software gives no indication of where the adjustment stopped |
+| **6** | A calibration is not accepted on RMS alone; a visual check is performed | TRIMBLE REQUIREMENT | TBC 24886 — "Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the other side, bad RMS values mean that the calibration failed." | §15.4 | None |
+| **7** | A registration is not judged on its residuals alone; a visual check is performed | TRIMBLE REQUIREMENT | TBC 25096 — the same sentence, word for word, in the run-to-run registration topic | §14.9, §16.7 | None |
+| **8** | Vehicle speed does not exceed 110 km/h (68 mph), system operating or not | EQUIPMENT LIMIT | MX60 UG Rev B, p.53 specification table — "Maximum Vehicle Speed (with operating or non-operating system on board) 110 km/h (68 mph)" | §9.4 | None |
+| **9** | Supply voltage is kept above the Battery Protect thresholds | EQUIPMENT LIMIT | MX60 UG Rev B, p.27 — audible warning below 10.5 V for longer than 12 s; power cut below 10.5 V for more than 90 s; normal status recovered if voltage rises above 12.0 V within those 90 s | §9.4 | Hardware — the Power Unit cuts power itself (W-11) |
+| **10** | The system is operated inside its rated environmental envelope | EQUIPMENT LIMIT | MX60 UG Rev B, p.53 — operating -10 to +50 C, 20-80 % RH, footnote 1: "Not exposed to direct sun and without driving less than 10 km/h (6 mph)" | §9.4 | None |
+
+**Qualifications.** 3 of the 10 carry none. These do.
+
+| # | |
+|---|---|
+| **2** | Trimble states the requirement but not whether TMI enforces it, and gives no reason. V-18 |
+| **3** | The topic states the limit. It does not describe what TBC does when a pair exceeds it |
+| **5** | Trimble states the scope of the method, not a prohibition. What follows — that unadjusted data is not described as adjusted — is a statement of fact, not a Parametrix policy choice |
+| **7** | Trimble writes "calibration" in both topics. One of the two is a registration topic, which is why it is read as covering both |
+| **8** | The specification table states it as the maximum. The body text at p.9 words it "should not exceed" |
+| **9** | The roughly 78 s of usable warning is arithmetic from the two published figures, not a Trimble number |
+| **10** | The temperature rating is conditional. Stationary or below 10 km/h in direct sun is outside the stated envelope, whatever the air temperature |
+<!-- /derived -->
 
 > **CAUTION**
 >
 > **A documented Trimble method is not in this table.** Trimble's initialization sequence, its
 > closing sequence and its in-field checklist are documented method — Trimble writes *"should"*,
 > *"it is advised"*, and *"Proposal of a checklist for system operation"*. They carry
-> **TRIMBLE DOCUMENTED PROCEDURE** and **should**, and whether Parametrix makes them mandatory is
+> **TRIMBLE DOCUMENTED METHOD** and **should**, and whether Parametrix makes them mandatory is
 > **D-56**.
 >
 > Presenting a manufacturer's method as a manufacturer's requirement borrows an authority the
 > manufacturer did not grant. It also makes the real requirements harder to see.
+
+<!-- derived:binding-enforced -->
+> **6 of the 10 are enforced by nothing.** Software or hardware stops you breaking 4 of these. The rest are true whether or not anyone notices, which is the harder kind.
+<!-- /derived -->
 
 > **This procedure does not authorise an accuracy statement.** It restates what Trimble and the
 > equipment require, and it proposes how Parametrix might work. It sets no accuracy tolerance, no

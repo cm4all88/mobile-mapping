@@ -11,16 +11,21 @@
 > **Items marked Parametrix Decision Required, Proposed, Testing Required or Vendor Clarification
 > Required are unresolved.** There are a lot of them, and that is deliberate — an open question is
 > shown as an open question rather than filled in with a guess.
+>
+> **Two things follow from that.** Some requirements here **bind anyway** — Trimble's and the
+> equipment's, because their authority was never Parametrix's to grant or withhold; they are listed
+> with their sources at **SOP §2.4**. And there is **no Parametrix MX60 acceptance standard** to
+> claim, because **D-13** is open.
 
 > **What this SOP requires of Parametrix today: nothing.**
 >
 > | | |
 > |---|---|
 > | **Parametrix-originated requirements adopted** | **0** |
-> | **Externally binding requirements restated here** | **7** — Trimble's and the equipment's, listed at **§2.4** |
+> | **Externally binding requirements restated here** | <!-- derived:binding-count -->**10**<!-- /derived --> — Trimble's and the equipment's, listed with their sources at **§2.4** |
 >
-> The seven are not Parametrix policy. They would bind an MX60 operator at any company, working
-> from no SOP at all. **This draft does not authorise an MX60 accuracy statement** — it sets no
+> Those are not Parametrix policy. They would bind an MX60 operator at any company, working from
+> no SOP at all. **This draft does not authorise an MX60 accuracy statement** — it sets no
 > tolerance, and **D-13** is open (§17.2).
 
 ---
@@ -28,7 +33,7 @@
 ## How to review this draft
 
 **This is not primarily a copy-editing exercise.** Typos and awkward sentences are worth reporting,
-but they are not what this draft needs. Four questions are:
+but they are not what this draft needs. Four questions matter:
 
 | | |
 |---|---|
@@ -78,6 +83,10 @@ question carries an identifier that is the same in all four documents:
 
 > *"The registration part is confusing"* cannot be acted on. *"`SOP §14.5` is confusing"* can.
 
+**Comments go to the MX60 Internal Review Log.** That is the working channel until Parametrix
+assigns a document owner and a review process under **D-1** — there is no named owner to send them
+to, and inventing one would be worse than saying so.
+
 ---
 
 ## Document control
@@ -87,27 +96,26 @@ question carries an identifier that is the same in all four documents:
 > conventions, approval authorities, effective dates, retention or controlled-copy terminology.
 > The block below is a temporary working scheme for this review only (**D-1**).
 
-### Working revision — internal draft only
+### Working Version — internal circulation only
 
-> **This is a temporary working revision scheme, used only while the set is in internal review.**
-> It is deliberately **not** a revision letter or number, so it cannot be mistaken for the
-> Parametrix document-control convention that **D-1** will establish. When D-1 is answered, this
-> block is replaced by the real one.
+> **This is a temporary working identifier, used only while the set is in internal review.** It is
+> deliberately **not** a revision letter or number, so it cannot be mistaken for the Parametrix
+> document-control convention that **D-1** will establish. A second circulation package on the same
+> date becomes `-b`, then `-c`. When D-1 is answered, this block is replaced by the real one.
 
 | | |
 |---|---|
 | **Document** | **MX60 Mobile Mapping Standard Operating Procedure** |
-| **Working draft** | `2026-09-11-a` — date of circulation, plus a letter for same-day reissues |
+| **Working Version** | `2026-09-11-a` |
+| **Status** | **LIVING DRAFT — INTERNAL REVIEW** |
 | **Supersedes** | — first circulated draft |
-| **Status** | **LIVING DRAFT — INTERNAL REVIEW.** Not issued, not approved |
+| **Formal revision** | *Not assigned* — **D-1** |
+| **Document owner** | *Not assigned* — **D-1** |
+| **Approval status** | **Not approved — Living Draft** |
 | **Circulated for** | Internal review, training, testing and workflow development |
 | **Prepared by** | MX60 mobile mapping documentation project |
-| **Document identifier** | *Not assigned* — **D-1** |
-| **Formal revision** | *Not assigned* — **D-1** |
-| **Owner** | *Not assigned* — **D-1** |
-| **Approved by** | **Nobody.** This draft is not approved and not issued |
-| **Comments to** | *Not assigned* |
-| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at `2026-09-11-a` |
+| **Review comments** | Record in the **MX60 Internal Review Log** |
+| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at Working Version `2026-09-11-a` |
 
 ---
 
@@ -138,7 +146,7 @@ the clause and is not decoration. **§3.2** is the full key; this is the short v
 |---|---|
 | **TRIMBLE REQUIREMENT** · **EQUIPMENT LIMIT** | **Yes** — the manufacturer's, not Parametrix's |
 | **PARAMETRIX REQUIREMENT (ADOPTED)** | **Yes** — recorded in Appendix A. **None exists at this draft** |
-| **TRIMBLE DOCUMENTED PROCEDURE** | No — Trimble documents the method without requiring it |
+| **TRIMBLE DOCUMENTED METHOD** | No — Trimble documents the method without requiring it |
 | **PARAMETRIX PROCEDURE (PROPOSED)** | No — a recommendation from this project |
 | **PARAMETRIX DECISION REQUIRED** · **TESTING REQUIRED** | No — the answer is not set, or nobody has it yet |
 
@@ -278,10 +286,10 @@ deliverable produced on that date. This section reserves the machinery. **It doe
 > colour, typography, logo, layout — and says nothing about document control. The two should not be
 > confused: applying the brand to this document does not make it a controlled document.
 
-Until D-1 is answered, this procedure carries a **temporary working draft label** on its front
-matter — a circulation date, not a revision — and the status **LIVING DRAFT — INTERNAL REVIEW**.
-The working label exists so that two reviewers can tell whether they are reading the same text. It
-is not a revision convention and does not become one by being used.
+Until D-1 is answered, this procedure carries a **Working Version** on its front matter — a
+circulation date, not a revision — and the status **LIVING DRAFT — INTERNAL REVIEW**. The term is
+deliberately not *revision*: a Working Version exists so two reviewers can tell whether they are
+reading the same text, and it does not become a revision convention by being used.
 
 ## 2.3 The document family
 
@@ -312,10 +320,12 @@ of it.
 
 Two different things are easily confused, and this procedure keeps them apart.
 
-| | Count at this revision |
+| | Count at this Working Version |
 |---|---|
+<!-- derived:binding-summary -->
 | **Parametrix-originated requirements adopted** | **0** |
-| **Externally binding requirements restated here** | **7** |
+| **Externally binding requirements restated here** | **10** — 7 trimble requirement · 3 equipment limit |
+<!-- /derived -->
 
 **Parametrix has adopted nothing.** Every Parametrix-originated clause in this procedure is a
 proposal, carries **PARAMETRIX PROCEDURE (PROPOSED)**, and uses **should**. Nothing in this
@@ -323,28 +333,53 @@ document becomes company policy by being written down here.
 
 **The externally binding requirements are not Parametrix's and do not wait for Parametrix.** They
 are restated here because an operator needs them in one place, not because this procedure creates
-them. They would bind an MX60 operator at any company, working from no SOP at all:
+them. They would bind an MX60 operator at any company, working from no SOP at all.
 
-| # | Requirement | Authority | Clause |
-|---|---|---|---|
-| 1 | Navigation alignment complete before data logging — *"must be done first before data logging is allowed"* | Trimble, stated · system-enforced | §9.2 |
-| 2 | Minimum mission length **30 minutes** — *"is required"* | Trimble, stated | §9.2 |
-| 3 | A GCP and its picked target no more than **30 m** apart | Trimble · TBC rejects the pair | §14.5 |
-| 4 | Data outside the outermost control point not described as registered to it | Trimble, stated limitation | §7.2, §14.5 |
-| 5 | A calibration not accepted on RMS alone — *"a visual check is needed"* | Trimble, stated | §15.4 |
-| 6 | A registration not judged on residuals alone — same instruction, same wording | Trimble, stated | §14.9, §16.7 |
-| 7 | Equipment and power limits — speed, voltage, Battery Protect, load | Manufacturer limits | §9.4 |
+The table below is **generated** from `deliverables/_control/binding-requirements.csv`, where each
+row carries its exact source quotation. The count is generated with it, so the two cannot drift
+apart — and if the evidence audit changes the number, the number changes.
+
+<!-- derived:binding-table -->
+| # | Requirement | Authority | Source | SOP | Enforced by |
+|---|---|---|---|---|---|
+| **1** | Navigation alignment is complete before data logging begins | TRIMBLE REQUIREMENT | MX60 QSG Rev B, §5.3 p.11 — "Navigation alignment must be done first before data logging is allowed!" | §9.2 | Software — TMI does not allow logging until alignment is done |
+| **2** | A mission is at least 30 minutes long | TRIMBLE REQUIREMENT | MX60 QSG Rev B, §5.4 p.13 — "Important! A minimum mission time of >=30 min is required." Repeated §6 p.14 | §9.2 | Not established |
+| **3** | A ground control point and its picked target are no more than 30 m (100 ft) apart | TRIMBLE REQUIREMENT | TBC 22905 — "NOTE: The distance in a pair of points cannot exceed the allowed maximum distance of 30 meters (or 100 feet)." | §14.5 | Software — stated as an allowed maximum that cannot be exceeded |
+| **4** | At least one control point in a registration is not a validation point | TRIMBLE REQUIREMENT | TBC 22905 — "If you set all the selected ground control points (GCPs) as validation points (VPs), an error will pop-up and will prompt you to have at least one ground control point (GCP) for the calculation." | §14.3 | Software — an error blocks the calculation |
+| **5** | Data outside the outermost control point is not described as registered to that control | TRIMBLE REQUIREMENT | TBC 22905 — Local is "suitable for a local adjustment of a run, not for systematic error along the run or for adjusting outside the ground control points set" (W-08) | §7.2, §14.5 | None — the software gives no indication of where the adjustment stopped |
+| **6** | A calibration is not accepted on RMS alone; a visual check is performed | TRIMBLE REQUIREMENT | TBC 24886 — "Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the other side, bad RMS values mean that the calibration failed." | §15.4 | None |
+| **7** | A registration is not judged on its residuals alone; a visual check is performed | TRIMBLE REQUIREMENT | TBC 25096 — the same sentence, word for word, in the run-to-run registration topic | §14.9, §16.7 | None |
+| **8** | Vehicle speed does not exceed 110 km/h (68 mph), system operating or not | EQUIPMENT LIMIT | MX60 UG Rev B, p.53 specification table — "Maximum Vehicle Speed (with operating or non-operating system on board) 110 km/h (68 mph)" | §9.4 | None |
+| **9** | Supply voltage is kept above the Battery Protect thresholds | EQUIPMENT LIMIT | MX60 UG Rev B, p.27 — audible warning below 10.5 V for longer than 12 s; power cut below 10.5 V for more than 90 s; normal status recovered if voltage rises above 12.0 V within those 90 s | §9.4 | Hardware — the Power Unit cuts power itself (W-11) |
+| **10** | The system is operated inside its rated environmental envelope | EQUIPMENT LIMIT | MX60 UG Rev B, p.53 — operating -10 to +50 C, 20-80 % RH, footnote 1: "Not exposed to direct sun and without driving less than 10 km/h (6 mph)" | §9.4 | None |
+
+**Qualifications.** 3 of the 10 carry none. These do.
+
+| # | |
+|---|---|
+| **2** | Trimble states the requirement but not whether TMI enforces it, and gives no reason. V-18 |
+| **3** | The topic states the limit. It does not describe what TBC does when a pair exceeds it |
+| **5** | Trimble states the scope of the method, not a prohibition. What follows — that unadjusted data is not described as adjusted — is a statement of fact, not a Parametrix policy choice |
+| **7** | Trimble writes "calibration" in both topics. One of the two is a registration topic, which is why it is read as covering both |
+| **8** | The specification table states it as the maximum. The body text at p.9 words it "should not exceed" |
+| **9** | The roughly 78 s of usable warning is arithmetic from the two published figures, not a Trimble number |
+| **10** | The temperature rating is conditional. Stationary or below 10 km/h in direct sun is outside the stated envelope, whatever the air temperature |
+<!-- /derived -->
 
 > **CAUTION**
 >
 > **A documented Trimble method is not in this table.** Trimble's initialization sequence, its
 > closing sequence and its in-field checklist are documented method — Trimble writes *"should"*,
 > *"it is advised"*, and *"Proposal of a checklist for system operation"*. They carry
-> **TRIMBLE DOCUMENTED PROCEDURE** and **should**, and whether Parametrix makes them mandatory is
+> **TRIMBLE DOCUMENTED METHOD** and **should**, and whether Parametrix makes them mandatory is
 > **D-56**.
 >
 > Presenting a manufacturer's method as a manufacturer's requirement borrows an authority the
 > manufacturer did not grant. It also makes the real requirements harder to see.
+
+<!-- derived:binding-enforced -->
+> **6 of the 10 are enforced by nothing.** Software or hardware stops you breaking 4 of these. The rest are true whether or not anyone notices, which is the harder kind.
+<!-- /derived -->
 
 > **This procedure does not authorise an accuracy statement.** It restates what Trimble and the
 > equipment require, and it proposes how Parametrix might work. It sets no accuracy tolerance, no
@@ -411,7 +446,7 @@ label**:
 | **TRIMBLE REQUIREMENT** | **Yes** | shall · do not |
 | **EQUIPMENT LIMIT** | **Yes** | shall · do not |
 | **PARAMETRIX REQUIREMENT (ADOPTED)** | **Yes** — recorded in Appendix A | shall |
-| **TRIMBLE DOCUMENTED PROCEDURE** | No — Trimble documents the method without requiring it | **should** |
+| **TRIMBLE DOCUMENTED METHOD** | No — Trimble documents the method without requiring it | **should** |
 | **PARAMETRIX PROCEDURE (PROPOSED)** | No — a recommendation from this project | **should** |
 | **PARAMETRIX DECISION REQUIRED** | No — the answer is not set | *no imperative* |
 | **TESTING REQUIRED** | No — nobody has the answer yet | *no imperative, or a stated interim posture* |
@@ -420,11 +455,11 @@ label**:
 > uses **should**. When Parametrix adopts it, the label changes to **(ADOPTED)** and the verb
 > changes to **shall** — one edit, recorded in Appendix A.
 
-> **A documented procedure is not a requirement.** Trimble publishes a great deal of method and
+> **A documented method is not a requirement.** Trimble publishes a great deal of method and
 > requires comparatively little of it. Where Trimble writes *"must"*, or the software refuses, or
 > a stated limit exists, the label is **TRIMBLE REQUIREMENT**. Where Trimble documents how to do
 > something — including where it writes *"should"*, *"it is advised"*, or heads a list *"Proposal
-> of a checklist"* — the label is **TRIMBLE DOCUMENTED PROCEDURE** and the verb is **should**.
+> of a checklist"* — the label is **TRIMBLE DOCUMENTED METHOD** and the verb is **should**.
 >
 > **This procedure does not promote Trimble's methods into Trimble's requirements**, which would
 > borrow the manufacturer's authority for a rule the manufacturer did not make.
@@ -985,7 +1020,7 @@ The method is in the **Field How To**. This section states what shall be done, a
 > **A mission shall be at least 30 minutes long.** *"Important! A minimum mission time of ≥30 min is
 > required."*
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, §5.3, p.11; §6, p.14)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, §5.3, p.11; §6, p.14)*
 >
 > Trimble documents an initialization sequence — static logging, a straight run, then dynamic
 > manoeuvres — and it **should** be performed at the start of every mission, in the order given.
@@ -1013,7 +1048,7 @@ To**.
 
 ## 9.3 The closing sequence
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, §5.5, p.13)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, §5.5, p.13)*
 >
 > Trimble documents a closing sequence and instructs that the mission be finalized *"according to
 > the following sequence"* — dynamic manoeuvres, varying speed, then 2–3 minutes static — and it
@@ -1419,6 +1454,16 @@ The requirement is §7.3 and is not restated here. Two consequences belong to re
 | The designation is **fixed before** registration begins | **PROPOSED — D-15** |
 | A point's **As Check** state is **not changed during** processing. If a designation was wrong, it is changed by the person with the authority, recorded, and the registration recomputed from the imported trajectory | **PROPOSED — D-15** |
 
+> **TRIMBLE REQUIREMENT** — *an enforced software limit*
+>
+> **At least one control point in a registration shall not be a validation point.** Trimble states
+> that if every selected GCP is set **As Check**, *"an error will pop-up and will prompt you to
+> have at least one ground control point (GCP) for the calculation"* *(TBC 22905)*.
+>
+> It is worth knowing which way this cuts: TBC protects the *calculation*, not the *check*. It will
+> stop you holding nothing back for the adjustment. **It will not stop you holding nothing back for
+> the check**, which is the failure below.
+
 > **The failure this prevents.** A processor registers, finds one check point with a larger
 > residual than expected, and adds it to the adjustment to bring it in. Every step is well
 > intentioned. The result is an adjustment with no independent check at all, and a set of residuals
@@ -1648,7 +1693,7 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 
 Distinct from per-project QC: the check that the **instrument** is still performing.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.7)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.7)*
 >
 > Scan approximately **eight flat retro-reflecting targets** at varied distances over more than
 > **180° horizontally**, previously surveyed by total station. The system passes if residuals fall
@@ -2787,7 +2832,7 @@ is a defensible accuracy claim and a formal acceptance.
 
 **P2** · open
 
-**Why it matters.** Trimble documents these methods but does not state them as requirements - it writes 'should', 'it is advised', and 'Proposal of a checklist for system operation'. They carry TRIMBLE DOCUMENTED PROCEDURE and 'should' until Parametrix decides. Nothing else makes them mandatory.
+**Why it matters.** Trimble documents these methods but does not state them as requirements - it writes 'should', 'it is advised', and 'Proposal of a checklist for system operation'. They carry TRIMBLE DOCUMENTED METHOD and 'should' until Parametrix decides. Nothing else makes them mandatory.
 
 **Evidence.** MX60 QSG Rev B sec 5.3 p.11, sec 5.5 p.13, sec 6 p.14; TBC 22905
 
@@ -2971,17 +3016,24 @@ governs them is not established** and they are not filled in.
 |---|---|---|---|
 | Prepared by | | | |
 | Technical review | | | |
-| Approved by | | | |
+
+**Approval status: Not approved — Living Draft.** There is no approver to name, and no approval
+authority is established (**D-1**). An empty signature block is not an oversight here; it is the
+accurate state of the document.
 
 > **PARAMETRIX DECISION REQUIRED · D-1**
 >
 > Whether technical review and procedural approval are separate, and who holds each.
 
-## C4 · Revision history
+## C4 · Working Version history
 
-| Revision | Date | Issued with | Summary of change | Approved |
+**These are Working Versions, not revisions.** The revision convention is **D-1**; until it exists
+there is nothing to number. The full change log for the whole set is
+`deliverables/_control/living-draft-change-log.md`.
+
+| Working Version | Date | Circulated with | Summary of change | Approval status |
 |---|---|---|---|---|
-| `2026-09-11-a` | 2026-09-11 | Technical Manual `2026-09-11-a` / Evidence revision E1 | First draft circulated for internal review. 22 sections, three appendices. **No Parametrix clause adopted**; seven externally binding requirements restated (§2.4) | *Not approved — living draft* |
+| `2026-09-11-a` | 2026-09-11 | Technical Manual · Field How To · Office How To, all `2026-09-11-a` · Evidence revision E1 | First circulation for internal review. 22 sections, three appendices. **No Parametrix clause adopted**; ten externally binding requirements restated (§2.4) | **Not approved — Living Draft** |
 
 ## C5 · What triggers a review
 

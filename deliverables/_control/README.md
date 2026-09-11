@@ -38,8 +38,8 @@ They exist so the four documents cannot drift apart.
 |---|---|---|---|
 | Decisions | 35 | 20 | 9 |
 | Tests | 25 | 6 | 0 |
-| Vendor questions | 16 | 5 | 1 |
-| **Total** | **76** | **31** | **10 rows, 9 distinct** |
+| Vendor questions | 17 | 5 | 1 |
+| **Total** | **77** | **31** | **10 rows, 9 distinct** |
 
 > `D-2` and `V-4` are the same question — *which system do we own* — asked of Parametrix and of
 > the vendor. They are kept as two rows because they have different owners and close
@@ -48,10 +48,22 @@ They exist so the four documents cannot drift apart.
 ### The circulation blocks
 
 `circulation/` holds the three blocks that appear identically in all four front matters — the
-**LIVING DRAFT — INTERNAL REVIEW** banner, the *How to review this draft* panel, and the temporary
-working revision block. They are written into the documents by `tools/sync-circulation.py` and are
-**never hand-edited in a document**, for the same reason the register is not: four copies of a
+**LIVING DRAFT — INTERNAL REVIEW** banner, the *How to review this draft* panel, and the
+**Working Version** block. They are written into the documents by `tools/sync-circulation.py` and
+are **never hand-edited in a document**, for the same reason the register is not: four copies of a
 statement drift, and a status that differs between two documents is worse than no status at all.
+
+The Working Version and its date live in one place — the top of `tools/sync-circulation.py` — and
+every page, sheet, PDF header and footer reads it from there.
+
+### The other registers here
+
+| File | What it is | Derived? |
+|---|---|---|
+| `binding-requirements.csv` | The externally binding requirements, one row each: requirement, authority type, exact source quotation, SOP clause, what enforces it, and any qualification. **SOP §2.4 and every count of them are generated from it** | Source |
+| `living-draft-change-log.md` | What changed at each Working Version, and what caused it | Hand |
+| `mx60-internal-review-log.md` | The comment log template. The working channel until **D-1** names an owner | Hand |
+| `figure-production-register.md` | Figures still to be cropped and placed, across all four documents. **Project material** — it was Technical Manual Appendix C and was moved here | Hand |
 
 ### Views, not copies
 
@@ -86,10 +98,10 @@ wrong, the CSV is wrong.
 
 | Document | Temporary identifier |
 |---|---|
-| Technical Manual | working draft `2026-09-11-a` |
-| SOP | working draft `2026-09-11-a` |
-| Field How To | working draft `2026-09-11-a` |
-| Office How To | working draft `2026-09-11-a` |
+| Technical Manual | Working Version `2026-09-11-a` |
+| SOP | Working Version `2026-09-11-a` |
+| Field How To | Working Version `2026-09-11-a` |
+| Office How To | Working Version `2026-09-11-a` |
 
 Each carries a **document control block with the fields present but the conventions unset**, so
 the real scheme can be dropped in without restructuring. The three supporting documents state

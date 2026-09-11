@@ -13,7 +13,7 @@ anchored by gravity — an accelerometer knows which way is down. Nothing anchor
 a second antenna, heading has to be solved out of the vehicle's motion, which requires the
 vehicle to move in ways that make it observable (§13).
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.67)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.67)*
 >
 > GAMS **reduces initialization time and eliminates the special driving manoeuvres** otherwise
 > required.
@@ -26,7 +26,7 @@ vehicle to move in ways that make it observable (§13).
 
 ### What GAMS requires to work
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, pp.67–68)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, pp.67–68)*
 >
 > | Requirement | Value |
 > |---|---|
@@ -41,7 +41,7 @@ vehicle to move in ways that make it observable (§13).
 > one.** All Parametrix mobile mapping is post-processed, so the requirement is millimetres, not
 > centimetres. A GAMS offset good enough to navigate with is not good enough to survey with.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.68)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.68)*
 >
 > Known offsets from the **top-left front corner of the standard Trimble Roof Rack** to the
 > external reference point: **X +1.006 m · Y −0.469 m · Z +0.025 m**.
@@ -60,7 +60,7 @@ vehicle to move in ways that make it observable (§13).
 
 ### What GAMS is worth
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.56)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.56)*
 >
 > Heading accuracy, all configurations: **0.015°**, with the GAMS option and a 2 m baseline.
 
@@ -74,7 +74,7 @@ A **DMI** (Distance Measuring Indicator) is a wheel-mounted sensor giving an ind
 along-track distance. It constrains the inertial solution when GNSS is poor: the IMU can drift in
 along-track scale, and the DMI does not.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.46; TMI UG Rev L, p.21)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.46; TMI UG Rev L, p.21)*
 >
 > - The DMI wheel must be a **non-steering** wheel
 > - The lever arm is measured to **the centre of the tread where the DMI wheel contacts the road**
@@ -106,7 +106,7 @@ they carry **opposite** signs.
 
 ### The 5 % that is an assumption, not a measurement
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > DMI scale factor standard deviation: **default 5 %**. "Increase the setting if the scale factor
 > is not known with 5% accuracy, and **set it to 100% if it is not known at all**."
@@ -126,7 +126,7 @@ they carry **opposite** signs.
 
 ## 9.3 The failure mode both share
 
-> **OBSERVED SOFTWARE BEHAVIOR / TRIMBLE DOCUMENTED PROCEDURE** — *(TMI UG Rev L, p.21)*
+> **OBSERVED SOFTWARE BEHAVIOR / TRIMBLE DOCUMENTED METHOD** — *(TMI UG Rev L, p.21)*
 >
 > "If an aiding navigation sensor is not activated in Vehicle Settings its data will **not** be
 > logged — even though all connections may have been made properly."

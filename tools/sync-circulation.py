@@ -40,10 +40,10 @@ for d, v in DOCS.items():
     s = open(p).read()
     out = s
     for name in BLOCKS:
-        pat = re.compile(rf'(<!-- circulation:{name} -->\n).*?(\n<!-- /circulation -->)', re.S)
+        pat = re.compile(rf'(<!-- circulation:{name} -->\n)(?:.*\n)*?(<!-- /circulation -->)')
         if not pat.search(out):
             drift.append(f'  {d}: marker circulation:{name} is missing'); continue
-        out = pat.sub(lambda m: m.group(1) + rendered(name, v) + m.group(2), out)
+        out = pat.sub(lambda m: m.group(1) + rendered(name, v) + '\n' + m.group(2), out)
     if out != s:
         drift.append(f'  {d}: circulation blocks are stale')
         if not check: open(p, 'w').write(out)

@@ -18,7 +18,7 @@
 
 ### The MX60 has no MTA stage
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22503)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22503)*
 >
 > MX50 and MX60 convert **TMX → RWCX in one step**. MX9 and MX90 go RXP → TMX → RWCX in two, and
 > the intermediate stage requires **MTA** (Multiple Times Around) range-ambiguity correction.
@@ -29,7 +29,7 @@
 
 ## 18.2 Running it
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22499)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22499)*
 
 Select a run or a mission in **Project Explorer** and choose **Generate Scans** from the context
 menu. Scans appear beneath the trajectory node they were computed from.
@@ -43,7 +43,7 @@ full mission.
 The Filters pane is where most of the judgement in this command lives, and where most of the
 untested defaults are.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22499)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22499)*
 
 | Filter | What Trimble says it does |
 |---|---|
@@ -96,7 +96,7 @@ and Reflective Panels.
 
 Scans can be generated with colour from the imagery, or without.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Colour is exported "if the scans have been generated with the color option set to on"
 > *(TBC 23339, 22501)* — so the decision made here propagates all the way to the deliverable.
@@ -110,7 +110,7 @@ Scans can be generated with colour from the imagery, or without.
 
 ## 18.5 The Results record
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22499)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22499)*
 >
 > A **Results of Scan Generation** dialog records, per run: the **filters applied**, the **range**,
 > and whether **colorization** was on.
@@ -119,7 +119,7 @@ Scans can be generated with colour from the imagery, or without.
 
 ## 18.6 Recovering failed scans
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 28155)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 28155)*
 >
 > **Recover Mobile Mapping Scans** exists for scan generation that failed or was interrupted.
 > Treated as a recovery procedure in §26.

@@ -34,17 +34,24 @@ governs them is not established** and they are not filled in.
 |---|---|---|---|
 | Prepared by | | | |
 | Technical review | | | |
-| Approved by | | | |
+
+**Approval status: Not approved — Living Draft.** There is no approver to name, and no approval
+authority is established (**D-1**). An empty signature block is not an oversight here; it is the
+accurate state of the document.
 
 > **PARAMETRIX DECISION REQUIRED · D-1**
 >
 > Whether technical review and procedural approval are separate, and who holds each.
 
-## C4 · Revision history
+## C4 · Working Version history
 
-| Revision | Date | Issued with | Summary of change | Approved |
+**These are Working Versions, not revisions.** The revision convention is **D-1**; until it exists
+there is nothing to number. The full change log for the whole set is
+`deliverables/_control/living-draft-change-log.md`.
+
+| Working Version | Date | Circulated with | Summary of change | Approval status |
 |---|---|---|---|---|
-| `2026-09-11-a` | 2026-09-11 | Technical Manual `2026-09-11-a` / Evidence revision E1 | First draft circulated for internal review. 22 sections, three appendices. **No Parametrix clause adopted**; seven externally binding requirements restated (§2.4) | *Not approved — living draft* |
+| `2026-09-11-a` | 2026-09-11 | Technical Manual · Field How To · Office How To, all `2026-09-11-a` · Evidence revision E1 | First circulation for internal review. 22 sections, three appendices. **No Parametrix clause adopted**; ten externally binding requirements restated (§2.4) | **Not approved — Living Draft** |
 
 ## C5 · What triggers a review
 

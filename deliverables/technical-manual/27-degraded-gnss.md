@@ -89,7 +89,7 @@ Two constraints from §21 govern how control must be placed for this to work:
 
 ## 27.5 Remedy two — Generate POSPac Position Fixes (PFIX)
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24460)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24460)*
 >
 > "**Generate POSPac Position Fixes** is a method that lets you improve the trajectories of a
 > mission in the Applanix's POSPac MMS software **where there is no GNSS coverage or the coverage
@@ -116,7 +116,7 @@ Two constraints from §21 govern how control must be placed for this to work:
 
 ### Prerequisites
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24460)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24460)*
 >
 > - **POSPac MMS installed, with a valid licence** for the IN-Fusion processing methods
 > - An SBET processed in POSPac, or the real-time NAV trajectory "in case of POSPac processing not
@@ -143,7 +143,7 @@ Two constraints from §21 govern how control must be placed for this to work:
 
 ### The second pass, in POSPac
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24460)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24460)*
 >
 > 1. Start POSPac MMS, create and save a project
 > 2. Import the POS logged files from `POS_1/raw`
@@ -155,7 +155,7 @@ Two constraints from §21 govern how control must be placed for this to work:
 
 ### Bringing it back
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24460)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24460)*
 >
 > 1. Select the mission in Project Explorer and display its properties
 > 2. **Replace the initial trajectory file with the new SBET** computed with PFIXes

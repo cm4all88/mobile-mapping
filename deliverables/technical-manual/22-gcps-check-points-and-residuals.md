@@ -14,7 +14,7 @@ inadvertently.
 
 ## 22.2 How control participates — three independent choices per point
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905, 26473)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905, 26473)*
 >
 > In the **Control Points** list, each point carries three checkboxes:
 >
@@ -29,7 +29,7 @@ inadvertently.
 
 ### The validation point definition, in full
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "A validation point (VP) (As Check) is a ground control point (GCP) that is used **only for
 > measuring the quality of the registration**. In the same manner as a normal ground control
@@ -112,7 +112,7 @@ residuals that now measure nothing.
 
 ## 22.5 What makes a feature usable as a mobile mapping GCP
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 >
 > A **GCP** is "an accurately surveyed coordinate location for a physical feature that can be
 > identified on the ground, e.g., **a corner on the pavement markings**." A **target** is "a point
@@ -149,7 +149,7 @@ two indications of the **scale** at which control matters, and one hard constrai
 
 ### The constraint: Local does not extrapolate
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 >
 > A **Local** registration is "suitable for a local adjustment of a run, **not for systematic error
 > along the run or for adjusting outside the ground control points set**."
@@ -191,7 +191,7 @@ than two, so control and checks at the ends are worth more than control in the m
 
 ## 22.7 What TBC reports, and what it does not
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Per pick, live in the **Validate Picking** window and in the **Targets** pane: **Easting
 > residual**, **Northing residual**, **Elevation residual**, "with their corresponding directional

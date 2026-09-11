@@ -31,7 +31,7 @@ several documented ways exist for them to do so silently:
 
 ### How to verify, using documented evidence
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > | Evidence | What it shows | Source |
 > |---|---|---|
@@ -58,7 +58,7 @@ several documented ways exist for them to do so silently:
 
 ## 29.3 Export timestamps — an unresolved question about what is exported
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Stated in identical wording in two export topics *(TBC 23339, 22501)*:
 >
@@ -97,7 +97,7 @@ Until T18 and the vendor question are resolved:
 
 ## 29.4 Two export tabs that behave differently
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Mobile mapping exporters: **Home ▸ Data Exchange ▸ Export ▸ Mobile Mapping tab.** "A list of
 > available exporters displays" *(TBC 23339, 23888, 22501)*.
@@ -127,7 +127,7 @@ Until T18 and the vendor question are resolved:
 
 ## 29.5 Coordinate handling — common to the point cloud exporters
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 11769, 27279)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 11769, 27279)*
 >
 > Identical wording appears in both the generic exporter and the classified-regions exporter, so
 > this is TBC's standard point-cloud export behaviour rather than a mobile mapping special case.

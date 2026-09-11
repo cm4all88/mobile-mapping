@@ -2,7 +2,7 @@
 
 ## 23.1 The governing principle
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > **"Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886, 25096)*

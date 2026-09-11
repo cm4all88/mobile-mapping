@@ -396,7 +396,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **P2** · open
 
-**Why it matters.** Trimble documents these methods but does not state them as requirements - it writes 'should', 'it is advised', and 'Proposal of a checklist for system operation'. They carry TRIMBLE DOCUMENTED PROCEDURE and 'should' until Parametrix decides. Nothing else makes them mandatory.
+**Why it matters.** Trimble documents these methods but does not state them as requirements - it writes 'should', 'it is advised', and 'Proposal of a checklist for system operation'. They carry TRIMBLE DOCUMENTED METHOD and 'should' until Parametrix decides. Nothing else makes them mandatory.
 
 **Evidence.** MX60 QSG Rev B sec 5.3 p.11, sec 5.5 p.13, sec 6 p.14; TBC 22905
 

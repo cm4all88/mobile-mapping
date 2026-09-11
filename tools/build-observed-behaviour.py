@@ -55,7 +55,7 @@ hdr = f"""# Appendix D — Observed Software Behaviour
 this.
 
 An entry here is something seen in the software, or stated in a release note, that Trimble does
-**not** document as procedure. It is weaker evidence than a **TRIMBLE DOCUMENTED PROCEDURE** block
+**not** document as procedure. It is weaker evidence than a **TRIMBLE DOCUMENTED METHOD** block
 and stronger than an inference. Where behaviour of this kind carries a real consequence, it also
 appears in the warning register.
 

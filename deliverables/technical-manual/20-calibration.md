@@ -17,7 +17,7 @@ a reader meeting registration in §21 needs to already know what a boresight ang
 
 ## 20.2 What is calibrated, and what is not
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886, 24868)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886, 24868)*
 >
 > "A system calibration describes the estimation of the exact translation and orientation of each
 > sensor referring to an internal virtual reference point of the sensor head. For a Trimble MX
@@ -58,7 +58,7 @@ pointing**, and it displaces points **in proportion to range** — exactly as de
 
 ## 20.3 Calibrating the laser scanners
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886; also documented at TBC 20716)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886; also documented at TBC 20716)*
 
 ### Where it runs
 
@@ -73,7 +73,7 @@ systems in TBC."
 
 ### The acquisition geometry
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886 / 20716)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886 / 20716)*
 >
 > The mission must contain **four runs: two in one direction (forward and backward), and two
 > orthogonal (forward and backward as well)** — in practice, two roads crossing.
@@ -125,7 +125,7 @@ Compare with the LiDAR QC pattern *(TBC 28972; §11)*:
 
 ### The result, and how to read it
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886)*
 >
 > The calibration reports:
 >
@@ -139,7 +139,7 @@ at heading, a large vertical component at pitch or height.
 
 ### The rule that governs acceptance
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > **"Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886)*
@@ -152,7 +152,7 @@ at heading, a large vertical component at pitch or height.
 
 ### The visual check
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886)*
 >
 > Check **Cutting Plane View**. A plane named **Mobile Mapping Cutting Plane** is created, visible
 > as a yellow plane in 3D View at the beginning of the first run pair (`Run_0 <-> Run_1`).
@@ -180,7 +180,7 @@ at heading, a large vertical component at pitch or height.
 
 ## 20.4 Calibrating the cameras
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24868, 20728)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24868, 20728)*
 
 The camera frames on an MX-series vehicle are the **360° camera frame**, the **vehicle frame**,
 the **oblique camera frame (1/2)** and the **down-looking camera frame**.
@@ -214,7 +214,7 @@ in TBC **by entering the calibration values directly**."
 
 ### Where the values end up
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24868)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24868)*
 >
 > In the camera properties, as **Boresight refinement** — distinct from **Boresight
 > installation**, which is the as-built value. Lever arm installation and lever arm refinement
@@ -222,7 +222,7 @@ in TBC **by entering the calibration values directly**."
 
 ## 20.5 The calibration file
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22920)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22920)*
 >
 > "In TBC, a **JSON** format file contains the parameters **before** calibration (**Installation
 > Matrix**) and the parameters **after** calibration (**Refinement Matrix**), of **each sensor** of
@@ -239,7 +239,7 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 
 ## 20.6 The calibration record — and the date
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24868)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24868)*
 >
 > The **Mission Report** contains a **Capture devices** table carrying, per sensor:
 >

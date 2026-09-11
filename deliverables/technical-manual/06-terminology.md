@@ -141,7 +141,7 @@ statement's tag is part of its meaning.
 
 | Tag | Meaning |
 |---|---|
-| **TRIMBLE DOCUMENTED PROCEDURE** | Trimble states this, in the cited topic or page |
+| **TRIMBLE DOCUMENTED METHOD** | Trimble states this, in the cited topic or page |
 | **OBSERVED SOFTWARE BEHAVIOR** | Seen in the software; not stated by Trimble as procedure |
 | **PARAMETRIX PROCEDURE (PROPOSED)** | Recommended by this document. **Not company policy** |
 | **PARAMETRIX PROCEDURE (ADOPTED)** | Decided by Parametrix, with a date and owner in Appendix H |

@@ -92,7 +92,7 @@ TBC renumbered from `5.x` to `YYYY.MM` after 5.90.1; releases run 2023.10 throug
 **Applanix POSPac MMS** computes the SBET from raw GNSS and inertial observations. Whether
 Parametrix holds a licence determines which office workflow is even available.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > TBC's **Process Raw Trajectory Data** command computes an SBET inside TBC — but "the
 > requirement to run the feature is to have the Applanix's POSPac MMS application (**from version

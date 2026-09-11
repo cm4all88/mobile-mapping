@@ -12,6 +12,11 @@
 > **Items marked Parametrix Decision Required, Proposed, Testing Required or Vendor Clarification
 > Required are unresolved.** There are a lot of them, and that is deliberate — an open question is
 > shown as an open question rather than filled in with a guess.
+>
+> **Two things follow from that.** Some requirements here **bind anyway** — Trimble's and the
+> equipment's, because their authority was never Parametrix's to grant or withhold; they are listed
+> with their sources at **SOP §2.4**. And there is **no Parametrix MX60 acceptance standard** to
+> claim, because **D-13** is open.
 <!-- /circulation -->
 
 ---
@@ -20,7 +25,7 @@
 ## How to review this draft
 
 **This is not primarily a copy-editing exercise.** Typos and awkward sentences are worth reporting,
-but they are not what this draft needs. Four questions are:
+but they are not what this draft needs. Four questions matter:
 
 | | |
 |---|---|
@@ -69,6 +74,10 @@ question carries an identifier that is the same in all four documents:
 | **V-n** | An open question for Trimble |
 
 > *"The registration part is confusing"* cannot be acted on. *"`Manual §21.4` is confusing"* can.
+
+**Comments go to the MX60 Internal Review Log.** That is the working channel until Parametrix
+assigns a document owner and a review process under **D-1** — there is no named owner to send them
+to, and inventing one would be worse than saying so.
 <!-- /circulation -->
 
 ---
@@ -80,27 +89,26 @@ question carries an identifier that is the same in all four documents:
 > revision convention and must not be treated as one.**
 
 <!-- circulation:working-revision -->
-### Working revision — internal draft only
+### Working Version — internal circulation only
 
-> **This is a temporary working revision scheme, used only while the set is in internal review.**
-> It is deliberately **not** a revision letter or number, so it cannot be mistaken for the
-> Parametrix document-control convention that **D-1** will establish. When D-1 is answered, this
-> block is replaced by the real one.
+> **This is a temporary working identifier, used only while the set is in internal review.** It is
+> deliberately **not** a revision letter or number, so it cannot be mistaken for the Parametrix
+> document-control convention that **D-1** will establish. A second circulation package on the same
+> date becomes `-b`, then `-c`. When D-1 is answered, this block is replaced by the real one.
 
 | | |
 |---|---|
 | **Document** | **MX60 Mobile Mapping Technical Manual** |
-| **Working draft** | `2026-09-11-a` — date of circulation, plus a letter for same-day reissues |
+| **Working Version** | `2026-09-11-a` |
+| **Status** | **LIVING DRAFT — INTERNAL REVIEW** |
 | **Supersedes** | — first circulated draft |
-| **Status** | **LIVING DRAFT — INTERNAL REVIEW.** Not issued, not approved |
+| **Formal revision** | *Not assigned* — **D-1** |
+| **Document owner** | *Not assigned* — **D-1** |
+| **Approval status** | **Not approved — Living Draft** |
 | **Circulated for** | Internal review, training, testing and workflow development |
 | **Prepared by** | MX60 mobile mapping documentation project |
-| **Document identifier** | *Not assigned* — **D-1** |
-| **Formal revision** | *Not assigned* — **D-1** |
-| **Owner** | *Not assigned* — **D-1** |
-| **Approved by** | **Nobody.** This draft is not approved and not issued |
-| **Comments to** | *Not assigned* |
-| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at `2026-09-11-a` |
+| **Review comments** | Record in the **MX60 Internal Review Log** |
+| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at Working Version `2026-09-11-a` |
 <!-- /circulation -->
 
 ### Evidence revision
@@ -167,7 +175,7 @@ Every technical statement carries a tag saying where its authority comes from.
 
 | Tag | Meaning |
 |---|---|
-| **TRIMBLE DOCUMENTED PROCEDURE** | Trimble documents this, in the cited topic or manual page. **It records what Trimble says, not how strongly.** Where a statement is a Trimble *requirement*, the SOP says so and cites it there — see SOP §2.4 |
+| **TRIMBLE DOCUMENTED METHOD** | Trimble documents this, in the cited topic or manual page. **It records what Trimble says, not how strongly.** Where a statement is a Trimble *requirement*, the SOP says so and cites it there — see SOP §2.4 |
 | **OBSERVED SOFTWARE BEHAVIOR** | Seen in the software or a captured screenshot; Trimble does not state it |
 | **FIELD TESTING REQUIRED** | Answerable by test, not by reading. Appendix E |
 | **VENDOR CLARIFICATION REQUIRED** | Answerable only by Trimble. Appendix E |

@@ -29,7 +29,7 @@ It needs a workstation well beyond an ordinary one.
 
 ## 11.2 What it actually computes
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 28972)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 28972)*
 >
 > "LiDAR QC is an advanced trajectory processing technology that, **similar to LiDAR SLAM**, is
 > using scan data as an aiding sensor to improve georeferencing accuracies in areas of poor GNSS

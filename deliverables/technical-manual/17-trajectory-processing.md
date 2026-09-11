@@ -19,7 +19,7 @@ the trajectory or improves it — nothing else creates it.
 
 ## 17.2 What Process Raw Trajectory Data does
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > "The feature enables you to compute a Smoothed Best Estimate of Trajectory (SBET) within TBC
 > using the raw inertial, GNSS satellites, and base station data, without having to use the
@@ -42,7 +42,7 @@ Run from the **Mission** node context menu. TBC loads the raw POS data automatic
 
 ## 17.3 Settings — with Trimble's stated defaults
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > "TBC automatically fills the below fields with the information found in the POS logged files,
 > like GNSS/Inertial/DMI Sensors Lever Arms and GAMS Baselines settings which are set in the
@@ -75,7 +75,7 @@ No default is stated.
 
 ### The MX60 antenna model — check this one
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "the rover antenna model should be **Tallysman/33-3970 GNSS** for an MX9 (or MX50) system and
 > **Trimble 112735 GNSS for a MX90 (or MX60) system**." *(TBC 25943)*
@@ -125,7 +125,7 @@ No default is stated.
 
 ### Lever arms and the vehicle frame
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "**Lever Arm** refers to the displacement between two body coordinate frames… expressed as a
 > three-dimensional vector."
@@ -144,7 +144,7 @@ No default is stated.
 
 ## 17.4 Outputs, and a filename that means something
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > | Condition | Output filename |
 > |---|---|
@@ -190,7 +190,7 @@ No default is stated.
 
 ### The SBET is coloured by its own quality
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "The created SBET trajectory file will be **colored according to the values of the computed
 > RMS**." *(TBC 25943)*
@@ -219,7 +219,7 @@ values**, with user-defined ranges and colours. Settings are persistent.
 
 ## 17.5 Trajectory Plots
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 27415)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 27415)*
 >
 > "After computing a SBET with the Process Raw Trajectory Data command, the resulting plots open
 > **only once**. The **Trajectory Plots** feature lets you open the plots without running again
@@ -244,7 +244,7 @@ its only symptom.
 
 **Dynamic datum epoch selection**, added in TBC 2026.10:
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "When working with a time-dependent datum, you can now work at a specific epoch that is not the
 > default reference epoch for the selected datum… **Note that this feature is intended for

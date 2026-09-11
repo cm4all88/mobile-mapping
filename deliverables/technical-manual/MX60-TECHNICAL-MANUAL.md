@@ -11,13 +11,18 @@
 > **Items marked Parametrix Decision Required, Proposed, Testing Required or Vendor Clarification
 > Required are unresolved.** There are a lot of them, and that is deliberate — an open question is
 > shown as an open question rather than filled in with a guess.
+>
+> **Two things follow from that.** Some requirements here **bind anyway** — Trimble's and the
+> equipment's, because their authority was never Parametrix's to grant or withhold; they are listed
+> with their sources at **SOP §2.4**. And there is **no Parametrix MX60 acceptance standard** to
+> claim, because **D-13** is open.
 
 ---
 
 ## How to review this draft
 
 **This is not primarily a copy-editing exercise.** Typos and awkward sentences are worth reporting,
-but they are not what this draft needs. Four questions are:
+but they are not what this draft needs. Four questions matter:
 
 | | |
 |---|---|
@@ -67,6 +72,10 @@ question carries an identifier that is the same in all four documents:
 
 > *"The registration part is confusing"* cannot be acted on. *"`Manual §21.4` is confusing"* can.
 
+**Comments go to the MX60 Internal Review Log.** That is the working channel until Parametrix
+assigns a document owner and a review process under **D-1** — there is no named owner to send them
+to, and inventing one would be worse than saying so.
+
 ---
 
 ## Document control
@@ -75,27 +84,26 @@ question carries an identifier that is the same in all four documents:
 > block below is a temporary working scheme for this review only; **it is not a Parametrix
 > revision convention and must not be treated as one.**
 
-### Working revision — internal draft only
+### Working Version — internal circulation only
 
-> **This is a temporary working revision scheme, used only while the set is in internal review.**
-> It is deliberately **not** a revision letter or number, so it cannot be mistaken for the
-> Parametrix document-control convention that **D-1** will establish. When D-1 is answered, this
-> block is replaced by the real one.
+> **This is a temporary working identifier, used only while the set is in internal review.** It is
+> deliberately **not** a revision letter or number, so it cannot be mistaken for the Parametrix
+> document-control convention that **D-1** will establish. A second circulation package on the same
+> date becomes `-b`, then `-c`. When D-1 is answered, this block is replaced by the real one.
 
 | | |
 |---|---|
 | **Document** | **MX60 Mobile Mapping Technical Manual** |
-| **Working draft** | `2026-09-11-a` — date of circulation, plus a letter for same-day reissues |
+| **Working Version** | `2026-09-11-a` |
+| **Status** | **LIVING DRAFT — INTERNAL REVIEW** |
 | **Supersedes** | — first circulated draft |
-| **Status** | **LIVING DRAFT — INTERNAL REVIEW.** Not issued, not approved |
+| **Formal revision** | *Not assigned* — **D-1** |
+| **Document owner** | *Not assigned* — **D-1** |
+| **Approval status** | **Not approved — Living Draft** |
 | **Circulated for** | Internal review, training, testing and workflow development |
 | **Prepared by** | MX60 mobile mapping documentation project |
-| **Document identifier** | *Not assigned* — **D-1** |
-| **Formal revision** | *Not assigned* — **D-1** |
-| **Owner** | *Not assigned* — **D-1** |
-| **Approved by** | **Nobody.** This draft is not approved and not issued |
-| **Comments to** | *Not assigned* |
-| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at `2026-09-11-a` |
+| **Review comments** | Record in the **MX60 Internal Review Log** |
+| **Set circulated together** | Technical Manual · SOP · Field How To · Office How To, all at Working Version `2026-09-11-a` |
 
 ### Evidence revision
 
@@ -161,7 +169,7 @@ Every technical statement carries a tag saying where its authority comes from.
 
 | Tag | Meaning |
 |---|---|
-| **TRIMBLE DOCUMENTED PROCEDURE** | Trimble documents this, in the cited topic or manual page. **It records what Trimble says, not how strongly.** Where a statement is a Trimble *requirement*, the SOP says so and cites it there — see SOP §2.4 |
+| **TRIMBLE DOCUMENTED METHOD** | Trimble documents this, in the cited topic or manual page. **It records what Trimble says, not how strongly.** Where a statement is a Trimble *requirement*, the SOP says so and cites it there — see SOP §2.4 |
 | **OBSERVED SOFTWARE BEHAVIOR** | Seen in the software or a captured screenshot; Trimble does not state it |
 | **FIELD TESTING REQUIRED** | Answerable by test, not by reading. Appendix E |
 | **VENDOR CLARIFICATION REQUIRED** | Answerable only by Trimble. Appendix E |
@@ -704,7 +712,7 @@ MTA stage**, which removes a whole category of setup and a whole category of fai
 sensor-relative. It becomes a georeferenced point cloud only when combined with a trajectory —
 which is why improving the trajectory later means regenerating the cloud (§19, §21).
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22503)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22503)*
 >
 > MX50 and MX60 convert **TMX → RWCX in one step**. MX9 and MX90 go RXP → TMX → RWCX in two, and
 > the intermediate stage requires **MTA** (Multiple Times Around) range-ambiguity correction.
@@ -717,7 +725,7 @@ which is why improving the trajectory later means regenerating the cloud (§19, 
 
 What the system writes in the field:
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 20736-1, 22503, 22554, 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 20736-1, 22503, 22554, 25943)*
 
 ```
 TMX<serial>-<mission id>/
@@ -988,7 +996,7 @@ statement's tag is part of its meaning.
 
 | Tag | Meaning |
 |---|---|
-| **TRIMBLE DOCUMENTED PROCEDURE** | Trimble states this, in the cited topic or page |
+| **TRIMBLE DOCUMENTED METHOD** | Trimble states this, in the cited topic or page |
 | **OBSERVED SOFTWARE BEHAVIOR** | Seen in the software; not stated by Trimble as procedure |
 | **PARAMETRIX PROCEDURE (PROPOSED)** | Recommended by this document. **Not company policy** |
 | **PARAMETRIX PROCEDURE (ADOPTED)** | Decided by Parametrix, with a date and owner in Appendix H |
@@ -1081,7 +1089,7 @@ quoted to a client without checking.
 Every offset and every angle in this system is expressed in one convention, and it is worth
 fixing in mind once because it is not the convention most surveyors carry around.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943, 24886)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943, 24886)*
 >
 > - **Positive X = forward driving direction**
 > - **Positive Y = right side of the vehicle**
@@ -1110,7 +1118,7 @@ different ways, and conflating them is the most common conceptual error in this 
 | Changes when | The hardware is remounted or the rack changes | Thermal cycling, vibration, remounting — it drifts |
 | Error behaviour | A constant offset, the same at every range | **Multiplies with range** (§3.1) |
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > "**Lever Arm** refers to the displacement between two body coordinate frames… expressed as a
 > three-dimensional vector."
@@ -1159,7 +1167,7 @@ register as a blocking item rather than a detail.
 The Control Unit manages vehicle power. The specifications below are what the installation has to
 satisfy; the installation procedure itself is the **Field How To §6**.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > | | Value | Source |
 > |---|---|---|
@@ -1392,7 +1400,7 @@ anchored by gravity — an accelerometer knows which way is down. Nothing anchor
 a second antenna, heading has to be solved out of the vehicle's motion, which requires the
 vehicle to move in ways that make it observable (§13).
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.67)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.67)*
 >
 > GAMS **reduces initialization time and eliminates the special driving manoeuvres** otherwise
 > required.
@@ -1405,7 +1413,7 @@ vehicle to move in ways that make it observable (§13).
 
 ### What GAMS requires to work
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, pp.67–68)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, pp.67–68)*
 >
 > | Requirement | Value |
 > |---|---|
@@ -1420,7 +1428,7 @@ vehicle to move in ways that make it observable (§13).
 > one.** All Parametrix mobile mapping is post-processed, so the requirement is millimetres, not
 > centimetres. A GAMS offset good enough to navigate with is not good enough to survey with.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.68)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.68)*
 >
 > Known offsets from the **top-left front corner of the standard Trimble Roof Rack** to the
 > external reference point: **X +1.006 m · Y −0.469 m · Z +0.025 m**.
@@ -1439,7 +1447,7 @@ vehicle to move in ways that make it observable (§13).
 
 ### What GAMS is worth
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.56)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.56)*
 >
 > Heading accuracy, all configurations: **0.015°**, with the GAMS option and a 2 m baseline.
 
@@ -1453,7 +1461,7 @@ A **DMI** (Distance Measuring Indicator) is a wheel-mounted sensor giving an ind
 along-track distance. It constrains the inertial solution when GNSS is poor: the IMU can drift in
 along-track scale, and the DMI does not.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.46; TMI UG Rev L, p.21)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.46; TMI UG Rev L, p.21)*
 >
 > - The DMI wheel must be a **non-steering** wheel
 > - The lever arm is measured to **the centre of the tread where the DMI wheel contacts the road**
@@ -1485,7 +1493,7 @@ they carry **opposite** signs.
 
 ### The 5 % that is an assumption, not a measurement
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > DMI scale factor standard deviation: **default 5 %**. "Increase the setting if the scale factor
 > is not known with 5% accuracy, and **set it to 100% if it is not known at all**."
@@ -1505,7 +1513,7 @@ they carry **opposite** signs.
 
 ## 9.3 The failure mode both share
 
-> **OBSERVED SOFTWARE BEHAVIOR / TRIMBLE DOCUMENTED PROCEDURE** — *(TMI UG Rev L, p.21)*
+> **OBSERVED SOFTWARE BEHAVIOR / TRIMBLE DOCUMENTED METHOD** — *(TMI UG Rev L, p.21)*
 >
 > "If an aiding navigation sensor is not activated in Vehicle Settings its data will **not** be
 > logged — even though all connections may have been made properly."
@@ -1656,7 +1664,7 @@ TBC renumbered from `5.x` to `YYYY.MM` after 5.90.1; releases run 2023.10 throug
 **Applanix POSPac MMS** computes the SBET from raw GNSS and inertial observations. Whether
 Parametrix holds a licence determines which office workflow is even available.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > TBC's **Process Raw Trajectory Data** command computes an SBET inside TBC — but "the
 > requirement to run the feature is to have the Applanix's POSPac MMS application (**from version
@@ -1763,7 +1771,7 @@ It needs a workstation well beyond an ordinary one.
 
 ## 11.2 What it actually computes
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 28972)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 28972)*
 >
 > "LiDAR QC is an advanced trajectory processing technology that, **similar to LiDAR SLAM**, is
 > using scan data as an aiding sensor to improve georeferencing accuracies in areas of poor GNSS
@@ -1864,7 +1872,7 @@ Everything else about datums and projections is assumed.
 
 ## 12.2 Set the project coordinate system before importing
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "Create a VCE project and if necessary, change the coordinate system so that it matches the
 > coordinate system for the mobile mapping data to import." *(TBC 24886, 24460)*
@@ -1879,7 +1887,7 @@ Everything else about datums and projections is assumed.
 
 ### The database
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > The **Coordinate System Database v115** ships with TBC 2026.10. Selecting a predefined geoid
 > model now enters the vertical datum name automatically *(TBC RN 2026.10)*.
@@ -1893,7 +1901,7 @@ Everything else about datums and projections is assumed.
 The trajectory is produced by POSPac, not by TBC (§17), and POSPac has its own view of the
 project's coordinate system.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > | Condition | SBET filename |
 > |---|---|
@@ -1917,7 +1925,7 @@ project's coordinate system.
 
 ## 12.4 Epoch
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > From TBC 2026.10: "When working with a time-dependent datum, you can now work at a specific
 > epoch that is not the default reference epoch for the selected datum… **Note that this feature
@@ -1931,7 +1939,7 @@ project's coordinate system.
 Decided at export (§29.5), but it belongs in project setup because the client agreement depends
 on it.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 11769, 27279)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 11769, 27279)*
 >
 > | Option | Behaviour |
 > |---|---|
@@ -1998,7 +2006,7 @@ driven straight for 20 m — knows which part of the sequence they are trading a
 
 ## 13.1 The sequence Trimble documents
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)*
 >
 > 1. **Park in an open-sky area** with good GNSS visibility and PDOP, avoiding high buildings and
 >    obstructions
@@ -2055,7 +2063,7 @@ Heading is the hardest attitude component for the reason given in §9.1: gravity
 pitch, and nothing anchors heading. The manoeuvres are how a system without GAMS obtains it, and
 they still help a system with GAMS.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, p.12; MX60 UG Rev B, p.67)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, p.12; MX60 UG Rev B, p.67)*
 >
 > **Straight driving is more important if a GAMS antenna is not used.** GAMS reduces
 > initialization time and eliminates the special driving manoeuvres otherwise required.
@@ -2173,7 +2181,7 @@ same is true in reverse at the start of the mission, which is what initializatio
 
 ## 14.2 The sequence
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, p.13; MX60 UG Rev B)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, p.13; MX60 UG Rev B)*
 >
 > 1. Finish the last run
 > 2. Drive to an open-sky location
@@ -2281,7 +2289,7 @@ shows it. The time of day is part of the GNSS assessment.
 
 ## 15.2 The 60-second boundary in the specification
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.56)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.56)*
 >
 > Trimble publishes positioning performance at **no outage** and after a **60-second GNSS
 > outage**, and nothing in between or beyond:
@@ -2401,7 +2409,7 @@ geometry and settings. Useful range is trajectory quality.
 
 ## 16.1 The instrument's own numbers
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, pp.54–55)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, pp.54–55)*
 >
 > | | Value |
 > |---|---|
@@ -2437,7 +2445,7 @@ Point density along a corridor is set by three things, and only three:
 Vehicle speed is the lever that changes most between projects and the one with the least
 guidance attached to it.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B)*
 >
 > | | Value |
 > |---|---|
@@ -2477,7 +2485,7 @@ a painted stop-bar corner is a good horizontal target and a poor vertical one (�
 
 ## 16.4 The range specification is a laboratory figure
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.55)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.55)*
 >
 > The maximum range figures apply to **flat targets larger than the beam diameter, at
 > perpendicular incidence, with 23 km atmospheric visibility**. Range is **shorter in bright
@@ -2588,7 +2596,7 @@ the trajectory or improves it — nothing else creates it.
 
 ## 17.2 What Process Raw Trajectory Data does
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > "The feature enables you to compute a Smoothed Best Estimate of Trajectory (SBET) within TBC
 > using the raw inertial, GNSS satellites, and base station data, without having to use the
@@ -2611,7 +2619,7 @@ Run from the **Mission** node context menu. TBC loads the raw POS data automatic
 
 ## 17.3 Settings — with Trimble's stated defaults
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > "TBC automatically fills the below fields with the information found in the POS logged files,
 > like GNSS/Inertial/DMI Sensors Lever Arms and GAMS Baselines settings which are set in the
@@ -2644,7 +2652,7 @@ No default is stated.
 
 ### The MX60 antenna model — check this one
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "the rover antenna model should be **Tallysman/33-3970 GNSS** for an MX9 (or MX50) system and
 > **Trimble 112735 GNSS for a MX90 (or MX60) system**." *(TBC 25943)*
@@ -2694,7 +2702,7 @@ No default is stated.
 
 ### Lever arms and the vehicle frame
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "**Lever Arm** refers to the displacement between two body coordinate frames… expressed as a
 > three-dimensional vector."
@@ -2713,7 +2721,7 @@ No default is stated.
 
 ## 17.4 Outputs, and a filename that means something
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > | Condition | Output filename |
 > |---|---|
@@ -2759,7 +2767,7 @@ No default is stated.
 
 ### The SBET is coloured by its own quality
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "The created SBET trajectory file will be **colored according to the values of the computed
 > RMS**." *(TBC 25943)*
@@ -2788,7 +2796,7 @@ values**, with user-defined ranges and colours. Settings are persistent.
 
 ## 17.5 Trajectory Plots
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 27415)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 27415)*
 >
 > "After computing a SBET with the Process Raw Trajectory Data command, the resulting plots open
 > **only once**. The **Trajectory Plots** feature lets you open the plots without running again
@@ -2813,7 +2821,7 @@ its only symptom.
 
 **Dynamic datum epoch selection**, added in TBC 2026.10:
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "When working with a time-dependent datum, you can now work at a specific epoch that is not the
 > default reference epoch for the selected datum… **Note that this feature is intended for
@@ -2880,7 +2888,7 @@ substantial hardware requirement and its own acquisition geometry, and it is tre
 
 ### The MX60 has no MTA stage
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22503)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22503)*
 >
 > MX50 and MX60 convert **TMX → RWCX in one step**. MX9 and MX90 go RXP → TMX → RWCX in two, and
 > the intermediate stage requires **MTA** (Multiple Times Around) range-ambiguity correction.
@@ -2891,7 +2899,7 @@ substantial hardware requirement and its own acquisition geometry, and it is tre
 
 ## 18.2 Running it
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22499)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22499)*
 
 Select a run or a mission in **Project Explorer** and choose **Generate Scans** from the context
 menu. Scans appear beneath the trajectory node they were computed from.
@@ -2905,7 +2913,7 @@ full mission.
 The Filters pane is where most of the judgement in this command lives, and where most of the
 untested defaults are.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22499)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22499)*
 
 | Filter | What Trimble says it does |
 |---|---|
@@ -2958,7 +2966,7 @@ and Reflective Panels.
 
 Scans can be generated with colour from the imagery, or without.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Colour is exported "if the scans have been generated with the color option set to on"
 > *(TBC 23339, 22501)* — so the decision made here propagates all the way to the deliverable.
@@ -2972,7 +2980,7 @@ Scans can be generated with colour from the imagery, or without.
 
 ## 18.5 The Results record
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22499)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22499)*
 >
 > A **Results of Scan Generation** dialog records, per run: the **filters applied**, the **range**,
 > and whether **colorization** was on.
@@ -2981,7 +2989,7 @@ Scans can be generated with colour from the imagery, or without.
 
 ## 18.6 Recovering failed scans
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 28155)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 28155)*
 >
 > **Recover Mobile Mapping Scans** exists for scan generation that failed or was interrupted.
 > Treated as a recovery procedure in §26.
@@ -3048,7 +3056,7 @@ office workflow, and it is why Update Scans has a section of its own.
 
 ## 19.1 What it does
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22638)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22638)*
 
 **Update Scans** regenerates scans against a different trajectory. It is how a registration (§21)
 reaches the point cloud.
@@ -3125,7 +3133,7 @@ a reader meeting registration in §21 needs to already know what a boresight ang
 
 ## 20.2 What is calibrated, and what is not
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886, 24868)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886, 24868)*
 >
 > "A system calibration describes the estimation of the exact translation and orientation of each
 > sensor referring to an internal virtual reference point of the sensor head. For a Trimble MX
@@ -3166,7 +3174,7 @@ pointing**, and it displaces points **in proportion to range** — exactly as de
 
 ## 20.3 Calibrating the laser scanners
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886; also documented at TBC 20716)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886; also documented at TBC 20716)*
 
 ### Where it runs
 
@@ -3181,7 +3189,7 @@ systems in TBC."
 
 ### The acquisition geometry
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886 / 20716)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886 / 20716)*
 >
 > The mission must contain **four runs: two in one direction (forward and backward), and two
 > orthogonal (forward and backward as well)** — in practice, two roads crossing.
@@ -3233,7 +3241,7 @@ Compare with the LiDAR QC pattern *(TBC 28972; §11)*:
 
 ### The result, and how to read it
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886)*
 >
 > The calibration reports:
 >
@@ -3247,7 +3255,7 @@ at heading, a large vertical component at pitch or height.
 
 ### The rule that governs acceptance
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > **"Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886)*
@@ -3260,7 +3268,7 @@ at heading, a large vertical component at pitch or height.
 
 ### The visual check
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24886)*
 >
 > Check **Cutting Plane View**. A plane named **Mobile Mapping Cutting Plane** is created, visible
 > as a yellow plane in 3D View at the beginning of the first run pair (`Run_0 <-> Run_1`).
@@ -3288,7 +3296,7 @@ at heading, a large vertical component at pitch or height.
 
 ## 20.4 Calibrating the cameras
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24868, 20728)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24868, 20728)*
 
 The camera frames on an MX-series vehicle are the **360° camera frame**, the **vehicle frame**,
 the **oblique camera frame (1/2)** and the **down-looking camera frame**.
@@ -3322,7 +3330,7 @@ in TBC **by entering the calibration values directly**."
 
 ### Where the values end up
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24868)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24868)*
 >
 > In the camera properties, as **Boresight refinement** — distinct from **Boresight
 > installation**, which is the as-built value. Lever arm installation and lever arm refinement
@@ -3330,7 +3338,7 @@ in TBC **by entering the calibration values directly**."
 
 ## 20.5 The calibration file
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22920)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22920)*
 >
 > "In TBC, a **JSON** format file contains the parameters **before** calibration (**Installation
 > Matrix**) and the parameters **after** calibration (**Refinement Matrix**), of **each sensor** of
@@ -3347,7 +3355,7 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 
 ## 20.6 The calibration record — and the date
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24868)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24868)*
 >
 > The **Mission Report** contains a **Capture devices** table carrying, per sensor:
 >
@@ -3458,7 +3466,7 @@ observation.
 
 ## 21.2 What TBC means by "target"
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > A **ground control point (GCP)** is "an accurately surveyed coordinate location for a physical
 > feature that can be identified on the ground, e.g., a corner on the pavement markings."
@@ -3479,7 +3487,7 @@ as a checkerboard panel — and in corridor work, far more common.
 
 ## 21.3 Register a Run
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 
 ### Prerequisites
 
@@ -3511,7 +3519,7 @@ as a checkerboard panel — and in corridor work, far more common.
 
 ### What Apply produces
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 >
 > - An **adjusted trajectory node** nested beneath the run, beside `Sbet`
 > - A new **SBET file on disk**: `sbet_<date>_reg_####.out`, in the project folder,
@@ -3526,14 +3534,14 @@ as a checkerboard panel — and in corridor work, far more common.
 
 ### A note for single-scanner acquisition
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "In case of a single head configuration (one high-end laser scanner acquisition), it does not
 > matter which scan is used (left or right) for the registration." *(TBC 22905)*
 
 ## 21.4 Register a Mission
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 26473)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 26473)*
 
 Register a Mission registers "a set of runs at the same time" rather than sequentially, and —
 this is the point of it — **lets every GCP be used more than once**, with different run point
@@ -3564,7 +3572,7 @@ out mutually consistent because they were adjusted against the same observation.
 
 ## 21.5 Registration Type — and the one that does not extrapolate
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905, 26473)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905, 26473)*
 
 | Method | What it does | Trimble's stated use |
 |---|---|---|
@@ -3598,7 +3606,7 @@ out mutually consistent because they were adjusted against the same observation.
 
 This is where the operator's judgement enters the adjustment, and TBC gives real help.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 
 ### Picking types
 
@@ -3647,7 +3655,7 @@ targets with reflective parts.
 
 ### Two warnings TBC raises
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > One icon means "the picked point is not a 3D point (no Z coordinate) and/or does not belong to
 > the scan of the run to register."
@@ -3664,7 +3672,7 @@ targets with reflective parts.
 
 ### The 30 m rule
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "The distance in a pair of points cannot exceed the allowed maximum distance of **30 meters (or
 > 100 feet)**." *(TBC 22905, 26473)*
@@ -3675,7 +3683,7 @@ limit means the wrong feature was picked.
 
 ### Minimum observations
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "A pair of a ground control point (GCP) and a picked target is **enough to perform the
 > registration**." *(TBC 22905)*
@@ -3706,7 +3714,7 @@ limit means the wrong feature was picked.
 
 ## 21.7 Target-Bundle Adjustment — the option whose name reads backwards
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905, 26473)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905, 26473)*
 
 | State | Bundle adjustment interval | Trimble's stated fit |
 |---|---|---|
@@ -3731,7 +3739,7 @@ limit means the wrong feature was picked.
 
 ## 21.8 Editing a registration — not the same as registering again
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25362, 26578)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25362, 26578)*
 
 **Edit a Run** and **Edit a Mission** reopen an existing registration and improve it "not by
 incrementing each time the adjusted trajectory but by **editing the same (imported)
@@ -3761,7 +3769,7 @@ or re-pick pairs, then recompute **from the imported trajectory**.
 Covered fully in §23, but the governing principle belongs here because it is where the temptation
 to shortcut is greatest.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Trimble's position, in identical wording in two separate topics:
 >
@@ -3785,7 +3793,7 @@ to shortcut is greatest.
 
 ## 21.11 What it is, and what it is not
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 >
 > **Register Run to Run** "provides a way to register a set of runs, two by two in batch mode,
 > from the same mission or from different missions. In a pair of runs, one has to be defined as
@@ -3823,7 +3831,7 @@ trajectory error.
 
 ## 21.13 Prerequisites
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 >
 > In a pair, the two runs need to have:
 >
@@ -3832,7 +3840,7 @@ trajectory error.
 
 ### A useful exception
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > *"Missing TMX Files for 'Runname_X and Runname_X+1'" in the Status column means that no scan
 > data has been generated… "Missing TMX files" does not prevent you from launching the Register
@@ -3844,7 +3852,7 @@ is dimmed without them.
 
 ## 21.14 The sequence
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 
 1. Import the missions into the TBC project
 2. **Mobile Mapping ▸ Processing ▸ Register Run to Run**
@@ -3871,7 +3879,7 @@ is dimmed without them.
 
 ## 21.15 Update Scans is an option inside this command
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 >
 > - **Unchecked** — do not generate the scan data after the registration
 > - **Checked** — generate the scan data for the **Run to Adjust** on the adjusted trajectory,
@@ -3887,7 +3895,7 @@ is dimmed without them.
 
 ## 21.16 The result — and TBC's most informative QC output
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 >
 > "TBC also computes some statistics and displays them in the **Results** tab. **Timestamps are
 > computed every twenty meters depending on the speed of the vehicle.** For each Timestamp,
@@ -3934,7 +3942,7 @@ on 10 % of its length and extrapolated across the rest.**
 
 ## 21.17 The visual check
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 
 Checking **Open Cutting Plane View** creates, per pair, a plane named *MissionID Last Two Digits
 - Run to Adjust*, appearing as:
@@ -3966,7 +3974,7 @@ To read it:
 
 ## 21.18 Improving a run-to-run result
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "You can use the **Register a Run** command to improve the trajectory resulting from
 > registering two runs together. The improvement can be done by editing the same (run_to_run)
@@ -4056,7 +4064,7 @@ inadvertently.
 
 ## 22.2 How control participates — three independent choices per point
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905, 26473)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905, 26473)*
 >
 > In the **Control Points** list, each point carries three checkboxes:
 >
@@ -4071,7 +4079,7 @@ inadvertently.
 
 ### The validation point definition, in full
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "A validation point (VP) (As Check) is a ground control point (GCP) that is used **only for
 > measuring the quality of the registration**. In the same manner as a normal ground control
@@ -4154,7 +4162,7 @@ residuals that now measure nothing.
 
 ## 22.5 What makes a feature usable as a mobile mapping GCP
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 >
 > A **GCP** is "an accurately surveyed coordinate location for a physical feature that can be
 > identified on the ground, e.g., **a corner on the pavement markings**." A **target** is "a point
@@ -4191,7 +4199,7 @@ two indications of the **scale** at which control matters, and one hard constrai
 
 ### The constraint: Local does not extrapolate
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 >
 > A **Local** registration is "suitable for a local adjustment of a run, **not for systematic error
 > along the run or for adjusting outside the ground control points set**."
@@ -4233,7 +4241,7 @@ than two, so control and checks at the ends are worth more than control in the m
 
 ## 22.7 What TBC reports, and what it does not
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Per pick, live in the **Validate Picking** window and in the **Targets** pane: **Easting
 > residual**, **Northing residual**, **Elevation residual**, "with their corresponding directional
@@ -4315,7 +4323,7 @@ calibration does not substitute for them.
 
 ## 23.1 The governing principle
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > **"Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886, 25096)*
@@ -4542,7 +4550,7 @@ errors and improves — or does not — in the same way.
 
 ## 26.2 Resolution depends on the configuration
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22501, 23888)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22501, 23888)*
 
 | Image | MX60 **Core** | MX60 **Pro** / **Premium** |
 |---|---|---|
@@ -4584,7 +4592,7 @@ errors and improves — or does not — in the same way.
 
 ## 26.4 Corrupted side camera images are exported as black
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "**Corrupted side camera images are exported as black images.**" *(TBC 23339, 22501)*
 
@@ -4621,7 +4629,7 @@ errors and improves — or does not — in the same way.
 
 Colour on the point cloud comes from the imagery, at scan generation (§18.4).
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Colour is exported "if the scans have been generated with the color option set to on"
 > *(TBC 23339, 22501)*.
@@ -4644,7 +4652,7 @@ neighbours, where the camera's automatic exposure changed between passes.
 
 ## 26.6 Privacy and blurring
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > **Blur people** and **Blur vehicles** options exist on the **Publish to TRCPS** command
 > *(TBC 29527)*, and the export commands cross-reference a **Blur Exported Images** topic
@@ -4802,7 +4810,7 @@ Two constraints from §21 govern how control must be placed for this to work:
 
 ## 27.5 Remedy two — Generate POSPac Position Fixes (PFIX)
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24460)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24460)*
 >
 > "**Generate POSPac Position Fixes** is a method that lets you improve the trajectories of a
 > mission in the Applanix's POSPac MMS software **where there is no GNSS coverage or the coverage
@@ -4829,7 +4837,7 @@ Two constraints from §21 govern how control must be placed for this to work:
 
 ### Prerequisites
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24460)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24460)*
 >
 > - **POSPac MMS installed, with a valid licence** for the IN-Fusion processing methods
 > - An SBET processed in POSPac, or the real-time NAV trajectory "in case of POSPac processing not
@@ -4856,7 +4864,7 @@ Two constraints from §21 govern how control must be placed for this to work:
 
 ### The second pass, in POSPac
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24460)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24460)*
 >
 > 1. Start POSPac MMS, create and save a project
 > 2. Import the POS logged files from `POS_1/raw`
@@ -4868,7 +4876,7 @@ Two constraints from §21 govern how control must be placed for this to work:
 
 ### Bringing it back
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24460)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 24460)*
 >
 > 1. Select the mission in Project Explorer and display its properties
 > 2. **Replace the initial trajectory file with the new SBET** computed with PFIXes
@@ -4962,7 +4970,7 @@ at six times installed RAM, and the MATLAB Runtime (§11.1).
 
 ## 28.1 What it does
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 26466)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 26466)*
 >
 > "The feature enables you to cleanup your project by **keeping the most recent registration (and
 > related scans), and trajectory consistent with the latest version of navigation and trajectory
@@ -5040,7 +5048,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 
 Stated carefully, because the gap matters.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Trimble recommends **one** thing before Cleanup: **"have a backup copy of your project."**
 > *(TBC 26466)*
@@ -5154,7 +5162,7 @@ several documented ways exist for them to do so silently:
 
 ### How to verify, using documented evidence
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > | Evidence | What it shows | Source |
 > |---|---|---|
@@ -5181,7 +5189,7 @@ several documented ways exist for them to do so silently:
 
 ## 29.3 Export timestamps — an unresolved question about what is exported
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Stated in identical wording in two export topics *(TBC 23339, 22501)*:
 >
@@ -5220,7 +5228,7 @@ Until T18 and the vendor question are resolved:
 
 ## 29.4 Two export tabs that behave differently
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Mobile mapping exporters: **Home ▸ Data Exchange ▸ Export ▸ Mobile Mapping tab.** "A list of
 > available exporters displays" *(TBC 23339, 23888, 22501)*.
@@ -5250,7 +5258,7 @@ Until T18 and the vendor question are resolved:
 
 ## 29.5 Coordinate handling — common to the point cloud exporters
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 11769, 27279)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 11769, 27279)*
 >
 > Identical wording appears in both the generic exporter and the classified-regions exporter, so
 > this is TBC's standard point-cloud export behaviour rather than a mobile mapping special case.
@@ -5776,7 +5784,7 @@ caveat: it requires retention, and it distinguishes candidates only where they d
 
 Distinct from per-project QC. This is the check that the **instrument** is still performing.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 UG Rev B, p.7)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.7)*
 >
 > Scan approximately **eight flat retro-reflecting targets** at varied distances over **more than
 > 180° horizontally**, previously surveyed by total station. The system passes if residuals fall
@@ -6047,132 +6055,33 @@ sheet gives as system totals and the User Guide gives per scanner (§16.1).
 
 ---
 
-# Appendix C — Figures and Screenshots
+# Appendix C — Figures
 
-Figures identified during source ingestion, to be cropped from the Trimble help captures held in
-`sources/`. **No figure has been cropped or placed yet** — this is the production list, and it
-serves **all four deliverables**, not this manual alone.
+**There are no figures in this manual at this Working Version.** That is a deliberate state, not an
+omission in progress, and it is worth one page of explanation because the absence is visible.
 
-The **Manual §** column gives the section each figure supports where that section exists in this
-manual. Figures that belong in the **Field How To** or the **Office How To** are marked as such;
-their final placement is settled when those documents are built, and this list is the single place
-where figure production is tracked.
+## C1 · Why there are none yet
 
-> **Crops, not whole pages.** A full help-portal screenshot carries Trimble's navigation, header
-> and footer, which would make a Parametrix document look like a Trimble one (§1).
-> Each entry below names the specific element to crop.
+Every figure this manual would use is a crop from a Trimble help topic or manual page held in
+`sources/`. A full help-portal screenshot carries Trimble's navigation, header and footer, which
+would make a Parametrix document look like a Trimble one. **Crops, not whole pages** — and the crop
+list, the caption rule and the attribution rule are production work that has not been done.
 
-## C1 · Captions and attribution
+The list of figures to produce — 40-odd of them, across all four documents — is held at
+`deliverables/_control/figure-production-register.md`. It is project material and does not belong
+in a document a reader opens.
 
-> **PROPOSED — not adopted**
+## C2 · What this means for a reviewer
+
+**Where this manual describes a dialog, a pane or a reading, it describes it in words.** If a
+description is one you cannot follow without seeing the screen, that is exactly the feedback the
+review needs — say which section, and it goes on the production list with a reason attached.
+
+> **PARAMETRIX DECISION REQUIRED · D-1**
 >
-> Every figure carries: a Parametrix-style caption stating what the reader should see; the source
-> citation; and a note that the interface shown is **TBC 2026.10** *(§1.6)*.
->
-> Trimble screenshots are preserved as technical evidence and are **not** redrawn or paraphrased
-> away. Trimble's page layout, typography and iconography are **not** carried over.
-
-## C2 · The list
-
-### Field and system
-
-| # | Figure | Source | Manual § |
-|---|---|---|---|
-| F01 | MX60 sensor layout — two scanners, 360° camera, back-down camera | MX60 UG Rev B | 7.1 |
-| F02 | Vehicle frame axes — **+X forward, +Y right, +Z down** | TBC 24886 / 25943 | 7.5 |
-| F03 | Lever arm vs boresight, on a vehicle | TBC 24886 | 7.6 |
-| F04 | TMI status display with colour indications | TMI UG Rev L | *Field How To* |
-| F05 | Initialization manoeuvre profile — **speed against time** | *To be drawn — Parametrix original* | 13.1 |
-
-### Trajectory and scans
-
-| # | Figure | Source | Manual § |
-|---|---|---|---|
-| F06 | Raw mission folder tree — `POS_1/raw`, `Base`, `Camera_*`, `Laser_*`, `Extcal.json`, `.mxdb` | TBC 25943 | 5.2 |
-| F07 | Process Raw Trajectory Data settings pane | TBC 25943 | 17.3 |
-| F08 | **Trajectory coloured by RMS in Plan View** — the single most useful QC view | TBC 25943 / 27248 | 17.4 |
-| F09 | The data chain — TMX → RWCX, one step on MX60 | *To be drawn — Parametrix original* | 5.1, 18.1 |
-| F10 | Generate Scans filter pane | TBC 22499 | 18.3 |
-| F11 | Results of Scan Generation dialog | TBC 22499 | 18.5 |
-| F12 | Project Explorer showing scans nested beneath their trajectory | TBC 22638 | 5.3, 29.2 |
-
-### Calibration
-
-| # | Figure | Source | Manual § |
-|---|---|---|---|
-| F13 | Calibration site geometry — two roads crossing, four runs, 90° ± 30° | *To be drawn from TBC 24886 values* | 20.3 |
-| F14 | Calibration results — Overall Overlap, Overall RMS, per-pair three-axis RMS | TBC 24886 | 20.3 |
-| F15 | **Mission Report Capture devices table** — boresight installation vs calibration, **date of calibration** | TBC 24868 | 20.6 |
-| F16 | Camera properties — Boresight installation vs Boresight refinement | TBC 24868 | 20.4 |
-
-### Registration
-
-| # | Figure | Source | Manual § |
-|---|---|---|---|
-| F17 | Control Points grid — **Use XY / Use Z / As Check / Target** columns | TBC 22905 | 22.2 |
-| F18 | Targets pane with signed E / N / Elev residuals populated | TBC 22905 | 21.6, 22.7 |
-| F19 | **Validate Picking** — overhead view, perpendicular side view, RMS of plane | TBC 22905 | 21.6 |
-| F20 | Project Explorer — `Unnamed Run 0 › Sbet` / `Reg. Trajectory` | TBC 22905 | 21.3 |
-| F21 | **Trajectory properties** — `Origin: Registration result`, Input trajectory, Registration type | TBC 22905 / 26473 | 21.3, 30.3 |
-| F22 | Project folder listing `sbet_…_reg_0001…0004.out` | TBC 22905 | 21.3, 30.3 |
-| F23 | Mission control list — one GCP, five instances, one per run | TBC 26473 | 21.4 |
-| F24 | Project Explorer after mission registration — `RegTrajectory` under each run | TBC 26473 | 21.4 |
-| F25 | **Tangential / Orthogonal / Vertical** axes on a curved trajectory | TBC 25096 | 21.15, 23.3 |
-| F26 | Run-to-run **Results tab** — RMS statistics with `No overlap` rows | TBC 25096 | 21.15 |
-| F27 | **Cutting Plane View** profile across two runs | TBC 25096 | 21.16, 25.1 |
-| F28 | Plan View — Run to Adjust green, Reference Run red | TBC 25096 | 21.13 |
-
-### Export and delivery
-
-| # | Figure | Source | Manual § |
-|---|---|---|---|
-| F29 | **MX60** export folder tree — Camera 3 Back Down, Camera 4 360° with six `.cal` faces | TBC 23339 | 26.2, 29.6 |
-| F30 | **TMX MX60 tree showing the `trajectory` sub-folder** beside `laser` and `panorama` | TBC 22501 | 29.6, 30.3 |
-| F31 | Classified LAS Settings pane — splitting distance, per-laser, Format, Export unit | TBC 27279 | 29.6 |
-| F32 | Solv3D output tree with `reference.csv` | TBC 23888 | 29.6 |
-| F33 | Export Point Cloud Files Settings — Scaling, ECEF, Split | TBC 11769 | 29.5, 29.6 |
-| F34 | **Publish to TRCPS** — "point cloud and trajectories will be automatically exported" | TBC 29527 | 29.6 |
-| F35 | Trimble Connect 3D+ view — colorized cloud with **trajectory and camera markers** | TBC 29527 | 29.6 |
-
-### Parametrix originals to be drawn
-
-| # | Figure | Manual § |
-|---|---|---|
-| F36 | **The workflow at a glance** — field to delivery, one page | 2.3, 4 |
-| F37 | **The degraded-GNSS branch diagram** — showing the two backward loops | 27.1 |
-| F38 | **The provenance chain** — seven transitions, what survives each | 30.3 |
-| F39 | **The ten QA/QC layers** | *SOP §16* |
-
-## C3 · Source availability
-
-| Batch | Held as files? |
-|---|---|
-| TBC help batch 2 — 17 topics | ✅ `sources/tbc-help-captures/` |
-| TBC help batch 4 — 15 topics | ✅ `sources/tbc-help-captures-batch4/` |
-| TBC help batch 7 — 7 topics | ✅ `sources/tbc-help-captures-batch7/` |
-| **TBC help batch 6 — 4 export topics** (27279, 22501, 23339, 23888) | ❌ **Arrived inline; not archived** |
-| MX60 / TMI / QSG manuals | ✅ repository root |
-
-> **F29–F32 cannot be cropped until the batch 6 pages are supplied as files.** Their content is
-> recorded and cited in §29; only the images are missing. This blocks figure production, not
-> drafting.
-
-## C4 · Branding
-
-Settled. The **Parametrix Brand Guide v6, November 2023** governs, and the visual system built from
-it is specified in `deliverables/_control/style/style-system.md`.
-
-| | |
-|---|---|
-| Figure captions | Franklin Gothic 13.5 px, Medium Gray, `Figure n` in weight 600, then the caption, then the source citation |
-| Screenshot crops | Crops, never whole help-portal pages. Trimble's navigation, header and footer are excluded |
-| Frames | 1 px Light Gray 3 rule, square corners. No shadows |
-| Callouts on figures | Parametrix Red, matching the CAUTION treatment, used only to mark the element the caption names |
-| Parametrix originals | Charcoal and the document accent; Parametrix Red reserved for the element that carries the warning. The **spacer arrow** is the divider in any diagram that needs one |
-
-> **The logo does not appear on figures.** It appears once in the running header and once in the
-> footer, as the ix formation *(brand guide pp.13, 23)*. Adding it to a figure would breach the
-> clear-space and no-added-elements rules of pp.13–14.
+> Figure captions, source attribution and the statement of which TBC version is shown are all
+> document-control conventions, and none is established. The proposed form is recorded in the
+> production register, unadopted.
 
 ---
 
@@ -6183,7 +6092,7 @@ it is specified in `deliverables/_control/style/style-system.md`.
 this.
 
 An entry here is something seen in the software, or stated in a release note, that Trimble does
-**not** document as procedure. It is weaker evidence than a **TRIMBLE DOCUMENTED PROCEDURE** block
+**not** document as procedure. It is weaker evidence than a **TRIMBLE DOCUMENTED METHOD** block
 and stronger than an inference. Where behaviour of this kind carries a real consequence, it also
 appears in the warning register.
 
@@ -6274,7 +6183,7 @@ Parametrix, but it confirms Publish to TRCPS is a Connected Workspace function.
 
 # Appendix E — Open Technical Questions
 
-**41 items.** Generated from `deliverables/_control/master-register.csv` on 2026-09-11. **Do not edit this file** — edit the register and re-run `tools/build-register-views.py`.
+**42 items.** Generated from `deliverables/_control/master-register.csv` on 2026-09-11. **Do not edit this file** — edit the register and re-run `tools/build-register-views.py`.
 
 This appendix is the Technical Manual's **view** of the project's single master register. It shows
 the questions that are answerable by **evidence** — by running a test, or by asking Trimble. The
@@ -6284,7 +6193,7 @@ repeated here.
 | | Count |
 |---|---|
 | **FIELD TESTING REQUIRED** — answerable by testing | **25** |
-| **VENDOR CLARIFICATION REQUIRED** — answerable only by Trimble | **16** |
+| **VENDOR CLARIFICATION REQUIRED** — answerable only by Trimble | **17** |
 | Of those, priority P1 | 11 |
 | Of those, blocking something | 1 |
 
@@ -6714,6 +6623,16 @@ unknown.*
 **Evidence.** TBC 22501
 
 *Stage: export · Documents: Manual*
+
+### V-18 · Is the 30-minute minimum mission time enforced by TMI, and what is the reason for it?
+
+**P3** · open
+
+**Why it matters.** Trimble states it as a requirement in two places and gives no reason and no indication whether the software prevents a shorter mission. A crew that has to abandon a mission at 20 minutes needs to know whether the data is unusable or merely suboptimal.
+
+**Evidence.** MX60 QSG Rev B sec 5.4 p.13; sec 6 p.14
+
+*Stage: Field · Documents: Manual; SOP*
 
 ---
 

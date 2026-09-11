@@ -12,7 +12,7 @@
 
 ## 28.1 What it does
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 26466)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 26466)*
 >
 > "The feature enables you to cleanup your project by **keeping the most recent registration (and
 > related scans), and trajectory consistent with the latest version of navigation and trajectory
@@ -90,7 +90,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 
 Stated carefully, because the gap matters.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Trimble recommends **one** thing before Cleanup: **"have a backup copy of your project."**
 > *(TBC 26466)*

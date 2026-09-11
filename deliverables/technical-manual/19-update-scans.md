@@ -6,7 +6,7 @@ office workflow, and it is why Update Scans has a section of its own.
 
 ## 19.1 What it does
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22638)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22638)*
 
 **Update Scans** regenerates scans against a different trajectory. It is how a registration (§21)
 reaches the point cloud.

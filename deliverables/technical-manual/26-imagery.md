@@ -24,7 +24,7 @@ errors and improves — or does not — in the same way.
 
 ## 26.2 Resolution depends on the configuration
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22501, 23888)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22501, 23888)*
 
 | Image | MX60 **Core** | MX60 **Pro** / **Premium** |
 |---|---|---|
@@ -66,7 +66,7 @@ errors and improves — or does not — in the same way.
 
 ## 26.4 Corrupted side camera images are exported as black
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "**Corrupted side camera images are exported as black images.**" *(TBC 23339, 22501)*
 
@@ -103,7 +103,7 @@ errors and improves — or does not — in the same way.
 
 Colour on the point cloud comes from the imagery, at scan generation (§18.4).
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Colour is exported "if the scans have been generated with the color option set to on"
 > *(TBC 23339, 22501)*.
@@ -126,7 +126,7 @@ neighbours, where the camera's automatic exposure changed between passes.
 
 ## 26.6 Privacy and blurring
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > **Blur people** and **Blur vehicles** options exist on the **Publish to TRCPS** command
 > *(TBC 29527)*, and the export commands cross-reference a **Blur Exported Images** topic

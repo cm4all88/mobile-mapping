@@ -10,7 +10,7 @@ driven straight for 20 m — knows which part of the sequence they are trading a
 
 ## 13.1 The sequence Trimble documents
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)*
 >
 > 1. **Park in an open-sky area** with good GNSS visibility and PDOP, avoiding high buildings and
 >    obstructions
@@ -67,7 +67,7 @@ Heading is the hardest attitude component for the reason given in §9.1: gravity
 pitch, and nothing anchors heading. The manoeuvres are how a system without GAMS obtains it, and
 they still help a system with GAMS.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, p.12; MX60 UG Rev B, p.67)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, p.12; MX60 UG Rev B, p.67)*
 >
 > **Straight driving is more important if a GAMS antenna is not used.** GAMS reduces
 > initialization time and eliminates the special driving manoeuvres otherwise required.

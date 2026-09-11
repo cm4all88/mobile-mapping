@@ -1,6 +1,6 @@
 # MX60 Field How To
 
-**Working draft `2026-09-11-a` · LIVING DRAFT — INTERNAL REVIEW**
+**Working Version `2026-09-11-a` · LIVING DRAFT — INTERNAL REVIEW**
 
 One of four coordinated deliverables. This one shows **how to run the MX60 in the field**. Meant to
 be used in or near the vehicle.
@@ -15,7 +15,7 @@ be used in or near the vehicle.
 **This guide cannot create a requirement.** If it says something must be done and the SOP does not
 require it, the SOP governs.
 
-**Start with Appendix E** — the ten things that cost the most if missed. One page, for the vehicle.
+**Start with Appendix E** — the ten things that cost the most if missed. One sheet, both sides, for the vehicle.
 
 ## Files
 

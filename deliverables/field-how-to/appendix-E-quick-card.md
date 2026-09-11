@@ -1,6 +1,6 @@
 # Appendix E — Quick Card
 
-**The ten things that cost the most if missed.** One page. Keep it in the vehicle.
+**The ten things that cost the most if missed.** One sheet, both sides. Keep it in the vehicle.
 
 ---
 

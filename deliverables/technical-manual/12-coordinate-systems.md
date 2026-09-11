@@ -19,7 +19,7 @@ Everything else about datums and projections is assumed.
 
 ## 12.2 Set the project coordinate system before importing
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "Create a VCE project and if necessary, change the coordinate system so that it matches the
 > coordinate system for the mobile mapping data to import." *(TBC 24886, 24460)*
@@ -34,7 +34,7 @@ Everything else about datums and projections is assumed.
 
 ### The database
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > The **Coordinate System Database v115** ships with TBC 2026.10. Selecting a predefined geoid
 > model now enters the vertical datum name automatically *(TBC RN 2026.10)*.
@@ -48,7 +48,7 @@ Everything else about datums and projections is assumed.
 The trajectory is produced by POSPac, not by TBC (§17), and POSPac has its own view of the
 project's coordinate system.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > | Condition | SBET filename |
 > |---|---|
@@ -72,7 +72,7 @@ project's coordinate system.
 
 ## 12.4 Epoch
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > From TBC 2026.10: "When working with a time-dependent datum, you can now work at a specific
 > epoch that is not the default reference epoch for the selected datum… **Note that this feature
@@ -86,7 +86,7 @@ project's coordinate system.
 Decided at export (§29.5), but it belongs in project setup because the client agreement depends
 on it.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 11769, 27279)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 11769, 27279)*
 >
 > | Option | Behaviour |
 > |---|---|

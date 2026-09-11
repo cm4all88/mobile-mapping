@@ -56,7 +56,7 @@ quoted to a client without checking.
 Every offset and every angle in this system is expressed in one convention, and it is worth
 fixing in mind once because it is not the convention most surveyors carry around.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943, 24886)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943, 24886)*
 >
 > - **Positive X = forward driving direction**
 > - **Positive Y = right side of the vehicle**
@@ -85,7 +85,7 @@ different ways, and conflating them is the most common conceptual error in this 
 | Changes when | The hardware is remounted or the rack changes | Thermal cycling, vibration, remounting — it drifts |
 | Error behaviour | A constant offset, the same at every range | **Multiplies with range** (§3.1) |
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25943)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25943)*
 >
 > "**Lever Arm** refers to the displacement between two body coordinate frames… expressed as a
 > three-dimensional vector."
@@ -134,7 +134,7 @@ register as a blocking item rather than a detail.
 The Control Unit manages vehicle power. The specifications below are what the installation has to
 satisfy; the installation procedure itself is the **Field How To §6**.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > | | Value | Source |
 > |---|---|---|

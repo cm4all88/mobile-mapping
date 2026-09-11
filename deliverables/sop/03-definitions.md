@@ -39,7 +39,7 @@ label**:
 | **TRIMBLE REQUIREMENT** | **Yes** | shall · do not |
 | **EQUIPMENT LIMIT** | **Yes** | shall · do not |
 | **PARAMETRIX REQUIREMENT (ADOPTED)** | **Yes** — recorded in Appendix A | shall |
-| **TRIMBLE DOCUMENTED PROCEDURE** | No — Trimble documents the method without requiring it | **should** |
+| **TRIMBLE DOCUMENTED METHOD** | No — Trimble documents the method without requiring it | **should** |
 | **PARAMETRIX PROCEDURE (PROPOSED)** | No — a recommendation from this project | **should** |
 | **PARAMETRIX DECISION REQUIRED** | No — the answer is not set | *no imperative* |
 | **TESTING REQUIRED** | No — nobody has the answer yet | *no imperative, or a stated interim posture* |
@@ -48,11 +48,11 @@ label**:
 > uses **should**. When Parametrix adopts it, the label changes to **(ADOPTED)** and the verb
 > changes to **shall** — one edit, recorded in Appendix A.
 
-> **A documented procedure is not a requirement.** Trimble publishes a great deal of method and
+> **A documented method is not a requirement.** Trimble publishes a great deal of method and
 > requires comparatively little of it. Where Trimble writes *"must"*, or the software refuses, or
 > a stated limit exists, the label is **TRIMBLE REQUIREMENT**. Where Trimble documents how to do
 > something — including where it writes *"should"*, *"it is advised"*, or heads a list *"Proposal
-> of a checklist"* — the label is **TRIMBLE DOCUMENTED PROCEDURE** and the verb is **should**.
+> of a checklist"* — the label is **TRIMBLE DOCUMENTED METHOD** and the verb is **should**.
 >
 > **This procedure does not promote Trimble's methods into Trimble's requirements**, which would
 > borrow the manufacturer's authority for a rule the manufacturer did not make.

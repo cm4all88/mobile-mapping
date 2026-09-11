@@ -39,7 +39,7 @@ same is true in reverse at the start of the mission, which is what initializatio
 
 ## 14.2 The sequence
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(MX60 QSG Rev B, p.13; MX60 UG Rev B)*
+> **TRIMBLE DOCUMENTED METHOD** — *(MX60 QSG Rev B, p.13; MX60 UG Rev B)*
 >
 > 1. Finish the last run
 > 2. Drive to an open-sky location

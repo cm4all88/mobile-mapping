@@ -34,7 +34,7 @@ observation.
 
 ## 21.2 What TBC means by "target"
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > A **ground control point (GCP)** is "an accurately surveyed coordinate location for a physical
 > feature that can be identified on the ground, e.g., a corner on the pavement markings."
@@ -55,7 +55,7 @@ as a checkerboard panel — and in corridor work, far more common.
 
 ## 21.3 Register a Run
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 
 ### Prerequisites
 
@@ -87,7 +87,7 @@ as a checkerboard panel — and in corridor work, far more common.
 
 ### What Apply produces
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 >
 > - An **adjusted trajectory node** nested beneath the run, beside `Sbet`
 > - A new **SBET file on disk**: `sbet_<date>_reg_####.out`, in the project folder,
@@ -102,14 +102,14 @@ as a checkerboard panel — and in corridor work, far more common.
 
 ### A note for single-scanner acquisition
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "In case of a single head configuration (one high-end laser scanner acquisition), it does not
 > matter which scan is used (left or right) for the registration." *(TBC 22905)*
 
 ## 21.4 Register a Mission
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 26473)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 26473)*
 
 Register a Mission registers "a set of runs at the same time" rather than sequentially, and —
 this is the point of it — **lets every GCP be used more than once**, with different run point
@@ -140,7 +140,7 @@ out mutually consistent because they were adjusted against the same observation.
 
 ## 21.5 Registration Type — and the one that does not extrapolate
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905, 26473)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905, 26473)*
 
 | Method | What it does | Trimble's stated use |
 |---|---|---|
@@ -174,7 +174,7 @@ out mutually consistent because they were adjusted against the same observation.
 
 This is where the operator's judgement enters the adjustment, and TBC gives real help.
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905)*
 
 ### Picking types
 
@@ -223,7 +223,7 @@ targets with reflective parts.
 
 ### Two warnings TBC raises
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > One icon means "the picked point is not a 3D point (no Z coordinate) and/or does not belong to
 > the scan of the run to register."
@@ -240,7 +240,7 @@ targets with reflective parts.
 
 ### The 30 m rule
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "The distance in a pair of points cannot exceed the allowed maximum distance of **30 meters (or
 > 100 feet)**." *(TBC 22905, 26473)*
@@ -251,7 +251,7 @@ limit means the wrong feature was picked.
 
 ### Minimum observations
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "A pair of a ground control point (GCP) and a picked target is **enough to perform the
 > registration**." *(TBC 22905)*
@@ -282,7 +282,7 @@ limit means the wrong feature was picked.
 
 ## 21.7 Target-Bundle Adjustment — the option whose name reads backwards
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 22905, 26473)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 22905, 26473)*
 
 | State | Bundle adjustment interval | Trimble's stated fit |
 |---|---|---|
@@ -307,7 +307,7 @@ limit means the wrong feature was picked.
 
 ## 21.8 Editing a registration — not the same as registering again
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25362, 26578)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25362, 26578)*
 
 **Edit a Run** and **Edit a Mission** reopen an existing registration and improve it "not by
 incrementing each time the adjusted trajectory but by **editing the same (imported)
@@ -337,7 +337,7 @@ or re-pick pairs, then recompute **from the imported trajectory**.
 Covered fully in §23, but the governing principle belongs here because it is where the temptation
 to shortcut is greatest.
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > Trimble's position, in identical wording in two separate topics:
 >
@@ -361,7 +361,7 @@ to shortcut is greatest.
 
 ## 21.11 What it is, and what it is not
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 >
 > **Register Run to Run** "provides a way to register a set of runs, two by two in batch mode,
 > from the same mission or from different missions. In a pair of runs, one has to be defined as
@@ -399,7 +399,7 @@ trajectory error.
 
 ## 21.13 Prerequisites
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 >
 > In a pair, the two runs need to have:
 >
@@ -408,7 +408,7 @@ trajectory error.
 
 ### A useful exception
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > *"Missing TMX Files for 'Runname_X and Runname_X+1'" in the Status column means that no scan
 > data has been generated… "Missing TMX files" does not prevent you from launching the Register
@@ -420,7 +420,7 @@ is dimmed without them.
 
 ## 21.14 The sequence
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 
 1. Import the missions into the TBC project
 2. **Mobile Mapping ▸ Processing ▸ Register Run to Run**
@@ -447,7 +447,7 @@ is dimmed without them.
 
 ## 21.15 Update Scans is an option inside this command
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 >
 > - **Unchecked** — do not generate the scan data after the registration
 > - **Checked** — generate the scan data for the **Run to Adjust** on the adjusted trajectory,
@@ -463,7 +463,7 @@ is dimmed without them.
 
 ## 21.16 The result — and TBC's most informative QC output
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 >
 > "TBC also computes some statistics and displays them in the **Results** tab. **Timestamps are
 > computed every twenty meters depending on the speed of the vehicle.** For each Timestamp,
@@ -510,7 +510,7 @@ on 10 % of its length and extrapolated across the rest.**
 
 ## 21.17 The visual check
 
-> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 25096)*
+> **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 
 Checking **Open Cutting Plane View** creates, per pair, a plane named *MissionID Last Two Digits
 - Run to Adjust*, appearing as:
@@ -542,7 +542,7 @@ To read it:
 
 ## 21.18 Improving a run-to-run result
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED METHOD**
 >
 > "You can use the **Register a Run** command to improve the trajectory resulting from
 > registering two runs together. The improvement can be done by editing the same (run_to_run)
