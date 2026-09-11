@@ -40,7 +40,7 @@ and QC are told once in Section 13 rather than five times across five sections.
 
 ## Reference data
 
-`../reference/mx60-reference-data.csv` — 366 structured records of every specification,
+`../reference/mx60-reference-data.csv` — 388 structured records of every specification,
 limit, requirement, warning, procedure and setting drawn from the Trimble sources.
 
 Each row carries: `id`, `category`, `topic`, `item`, `value`, `notes`, `source`, `page`,
@@ -86,17 +86,22 @@ still reflects the earlier source set.
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md) — 16 topics classified
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md) — chain model tested; registration source gap identified
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-4.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-4.md) — **registration and calibration branches; six of the eight questions answered**
-- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md) — export provenance pass; **trajectory identity at export is *partly confirmed*, and the Export topic is still uncaptured**
+- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md) — export provenance pass; release notes 2025.21
+- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md) — **four export topics; the captured help is confirmed to be TBC 2026.10; trajectory identity at export remains *partly confirmed***
 - [`../analysis/GUIDE-REQUIREMENTS.md`](../analysis/GUIDE-REQUIREMENTS.md) — branding and comprehension-layer requirements
 
 ## Still needed
 
-- **TBC Help: the Export branch — eight pages.** The one remaining material gap. Exact topic
-  IDs and URLs are listed in
-  [`../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md) §1.
+- **Four remaining TBC export topics** — the trajectory and station-position exports
+  (`20926`, `20927`, `21713_1`) and the generic point cloud exporter (`11769`), plus the two
+  **Publish to Trimble Connect** topics and a recapture of **Run a Mission Report** at
+  `23991_1`. Listed in
+  [`../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-6.md) §9.
   Outbound access to the help portal is blocked from the build environment, so these have to
-  arrive as an upload. *(Import, scan generation, registration, calibration, trajectory
-  processing and cleanup are all now captured — see the batch 2–4 inventories.)*
+  arrive as an upload.
+- **The four batch 6 export pages as image files.** They arrived inline rather than as an
+  archive, so the page images are not held in `../sources/` and no figure can be cropped from
+  them.
 - **Confirmation of the POSPac MMS licence and the TBC version.** Both gate which office
   workflow is even available; see `../analysis/VENDOR-QUESTIONS.md` items 2a and 2b.
 - **Trimble GAMS Antenna Kit** and **DMI Installation & Operation** manuals, if those
