@@ -65,6 +65,13 @@ Two behaviours in this document depend on TBC version. Both are legacy.
 TBC renumbered from `5.x` to `YYYY.MM` after 5.90.1; releases run 2023.10 through 2026.10
 *(TBC RN 2025.21)*.
 
+> **VENDOR CLARIFICATION REQUIRED · V-3**
+>
+> **Which TBC version is installed on the Parametrix workstation?** This manual documents
+> **2026.10**. Several behaviours it describes were introduced in 2025.21 or 2026.10, and an older
+> installation will not have them. It is a one-line answer that nobody has written down.
+> *(Appendix E)*
+
 ### Licensing
 
 | Release | Requires warranty or subscription valid to |

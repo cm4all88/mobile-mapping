@@ -57,6 +57,13 @@ Imagery follows the same logic on its own clock: the spherical camera captures a
 and the down camera at up to **9 fps**, by distance or by time *(MX60 Spec Sheet, p.2)*. Capture
 by distance decouples image spacing from vehicle speed; capture by time does not.
 
+> **VENDOR CLARIFICATION REQUIRED · V-7**
+>
+> **Does the Lateral Range Limit affect accuracy, or is it purely a data-volume tool?** TMI offers
+> a lateral range limit at acquisition. If it only discards returns beyond a distance, it is a file
+> size control and nothing else. If it changes what the scanner does, it belongs in this section as
+> a fourth lever. The documentation held does not say which. *(Appendix E)*
+
 ## 16.3 Geometry does more than settings
 
 Two effects change density more than any setting, and neither is adjustable.

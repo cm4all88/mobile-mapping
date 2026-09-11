@@ -1511,6 +1511,13 @@ Two behaviours in this document depend on TBC version. Both are legacy.
 TBC renumbered from `5.x` to `YYYY.MM` after 5.90.1; releases run 2023.10 through 2026.10
 *(TBC RN 2025.21)*.
 
+> **VENDOR CLARIFICATION REQUIRED · V-3**
+>
+> **Which TBC version is installed on the Parametrix workstation?** This manual documents
+> **2026.10**. Several behaviours it describes were introduced in 2025.21 or 2026.10, and an older
+> installation will not have them. It is a one-line answer that nobody has written down.
+> *(Appendix E)*
+
 ### Licensing
 
 | Release | Requires warranty or subscription valid to |
@@ -2326,6 +2333,13 @@ guidance attached to it.
 Imagery follows the same logic on its own clock: the spherical camera captures at up to **10 fps**
 and the down camera at up to **9 fps**, by distance or by time *(MX60 Spec Sheet, p.2)*. Capture
 by distance decouples image spacing from vehicle speed; capture by time does not.
+
+> **VENDOR CLARIFICATION REQUIRED · V-7**
+>
+> **Does the Lateral Range Limit affect accuracy, or is it purely a data-volume tool?** TMI offers
+> a lateral range limit at acquisition. If it only discards returns beyond a distance, it is a file
+> size control and nothing else. If it changes what the scanner does, it belongs in this section as
+> a fourth lever. The documentation held does not say which. *(Appendix E)*
 
 ## 16.3 Geometry does more than settings
 
@@ -5638,6 +5652,13 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 >
 > Trimble recommends doing this "regularly" and "especially before starting an extensive data
 > acquisition campaign" — and **gives no interval**.
+
+> **VENDOR CLARIFICATION REQUIRED · V-14**
+>
+> **Is the retro-reflective target check the recommended periodic verification for the MX60, and
+> at what interval?** The User Guide describes the check and says to do it "regularly" without
+> naming a period. Trimble or the dealer can say what interval they expect, and whether any other
+> verification is expected alongside it. *(Appendix E)*
 
 > **Open Parametrix decision — D-28.** *Is this the periodic verification Parametrix adopts, and at what interval?* Stated and tracked in the **SOP §13**; see also the master register.
 

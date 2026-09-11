@@ -13,5 +13,12 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 > Trimble recommends doing this "regularly" and "especially before starting an extensive data
 > acquisition campaign" — and **gives no interval**.
 
+> **VENDOR CLARIFICATION REQUIRED · V-14**
+>
+> **Is the retro-reflective target check the recommended periodic verification for the MX60, and
+> at what interval?** The User Guide describes the check and says to do it "regularly" without
+> naming a period. Trimble or the dealer can say what interval they expect, and whether any other
+> verification is expected alongside it. *(Appendix E)*
+
 > **Open Parametrix decision — D-28.** *Is this the periodic verification Parametrix adopts, and at what interval?* Stated and tracked in the **SOP §13**; see also the master register.
 
