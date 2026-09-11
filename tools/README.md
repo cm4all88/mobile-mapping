@@ -45,3 +45,25 @@ which does not work in this environment. Edit the HTML to change the checklist; 
 layout is plain CSS with `@page` print rules.
 
 Output was rendered to images and visually checked — all four pages verified.
+
+
+## build-sop-page.py
+
+Builds `SOP/sop-page.html` — the browsable single-page version of the SOP, published as
+an Artifact.
+
+```bash
+python tools/build-sop-page.py
+```
+
+Reads the section markdown files in the order set by `ORDER` in the script, converts
+each to HTML (headings, tables, callouts, code, lists, inline emphasis, and Trimble page
+citations), and injects them into `tools/sop-page-template.html` along with the sidebar
+navigation and a per-section search index.
+
+Edit the template for design changes and the markdown sections for content. Re-run after
+either, then republish the artifact from the same file path to keep its URL.
+
+**Watch the cascade.** The nav list items use `nv-sec` / `nv-app` classes specifically to
+avoid colliding with the `.sec` section rule, which carries large padding and a border.
+An earlier version used `sec` for both and the navigation rendered with ~195px gaps.
