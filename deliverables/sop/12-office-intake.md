@@ -38,13 +38,17 @@ boresight and lever-arm calibration **with a date of calibration** *(TBC 24868)*
 
 > **That dated calibration record is the only one found anywhere in the workflow**
 > *(Technical Manual §30)*. It is captured at intake because a later Cleanup can remove the
-> objects that would have produced it (§17).
+> objects that would have produced it (§18).
 
-## 12.4 What intake shall not do
+## 12.4 What intake does not do
 
-**Intake shall not correct anything.** If a check fails, it is recorded and raised (§21). A
-processor who quietly fixes a coordinate system mismatch at intake has removed the evidence that
-the field and office disagreed.
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> **Intake should not correct anything.** If a check fails, it is recorded and raised (§22).
+
+A processor who quietly fixes a coordinate system mismatch at intake has removed the evidence that
+the field and office disagreed — which is the reason the practice is proposed, and the reason it
+matters more than it looks.
 
 ## 12.5 Records this section requires
 
@@ -52,4 +56,4 @@ the field and office disagreed.
 |---|---|
 | Intake checks performed, by whom, with the result of each | **D-18** |
 | Calibration state at collection — `Extcal.json` and the Mission Report | **D-55** |
-| Any intake check that failed, and what was done | **D-18, §21** |
+| Any intake check that failed, and what was done | **D-18, §22** |

@@ -1733,7 +1733,7 @@ Trimble prescribes a specific acquisition geometry for LiDAR QC:
 
 > This is materially the same geometry the laser scanner calibration requires (§20.3) — four runs,
 > two orthogonal pairs, both directions. **One site can serve both**, which matters because
-> establishing a calibration site is a real piece of work (the **SOP §14**).
+> establishing a calibration site is a real piece of work (the **SOP §15**).
 
 ---
 
@@ -1819,7 +1819,7 @@ project's coordinate system.
 > | Datum and epoch **known** by POSPac | `sbet_[mission name].out` |
 > | Datum and epoch **unknown** by POSPac | `sbet_[mission name]_[frame].out` — computed "first in ITRF00 and then in the datum and epoch of the project" |
 
-> **The filename is a processing-path indicator and nothing more** (§17.4, and Layer 3 of the layered verification — the **SOP §15**). It tells
+> **The filename is a processing-path indicator and nothing more** (§17.4, and Layer 3 of the layered verification — the **SOP §16**). It tells
 > you an additional transformation occurred. It does not tell you the parameters were right, that
 > the project CRS is set up correctly, or that the result is accurate. The plain form is equally
 > not proof of correctness.
@@ -2435,6 +2435,11 @@ with distance either — but its *effect* does, in direct proportion.
 > publish, and why the honest answer to "how far out is this good for?" begins with looking at the
 > trajectory RMS for that stretch (§24).
 
+> **This is where D-13 comes from.** Because no attitude error budget is published, a useful range
+> for a given tolerance cannot be derived from the documentation — so an acceptance criterion cannot
+> be calculated either. It has to be **tested**, or **decided**. The decision Parametrix faces
+> meanwhile is set out in the **SOP §17.2**; this manual does not propose an answer to it.
+
 > **FIELD TESTING REQUIRED · T1**
 >
 > **Establishing a working useful range for Parametrix deliverables is a test, not a calculation.**
@@ -3015,7 +3020,7 @@ also the mechanism for reverting.
 >
 > **What good looks like.** After Update Scans the scans sit beneath the registered trajectory in
 > Project Explorer and their stations carry a `_reg_####` suffix. If you cannot see that suffix,
-> the adjustment has not reached the data. **For the required check before export, see SOP §18;
+> the adjustment has not reached the data. **For the required check before export, see SOP §19;
 > for how to verify it, see Office How To §21.**
 
 ---
@@ -3143,7 +3148,7 @@ Compare with the LiDAR QC pattern *(TBC 28972; §11)*:
 > Trimble's statement. It is the conservative reading: a site meeting it also meets any
 > non-intersecting arrangement of the same total length.
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §14** (D-24); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §15** (D-24); it is not decided here.
 
 ### The result, and how to read it
 
@@ -3167,7 +3172,7 @@ at heading, a large vertical component at pitch or height.
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886)*
 
 > **This is the origin of the principle that governs §21, §23 and §25**, and of the QC
-> requirements in the **SOP §15**. Trimble states it here and repeats it verbatim in the
+> requirements in the **SOP §16**. Trimble states it here and repeats it verbatim in the
 > run-to-run registration topic. It is not a hedge — it
 > follows from what a residual measures. **A number can prove failure. A number cannot prove
 > success.**
@@ -3257,7 +3262,7 @@ in TBC **by entering the calibration values directly**."
 The MX60 also accepts a boresight JSON in the field through TMI's **Calibration Import**, via USB1
 *(TMI UG Rev L, p.18)*.
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §14** (D-55); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §15** (D-55); it is not decided here.
 
 ## 20.6 The calibration record — and the date
 
@@ -3280,7 +3285,7 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 
 ## 20.7 When to recalibrate
 
-> **Open Parametrix decision — D-26, D-3.** *On what interval, and after what events, is the MX60 recalibrated?* Stated and tracked in the **SOP §14**; see also the master register.
+> **Open Parametrix decision — D-26, D-3.** *On what interval, and after what events, is the MX60 recalibrated?* Stated and tracked in the **SOP §15**; see also the master register.
 
 > **VENDOR CLARIFICATION REQUIRED · V-13**
 >
@@ -4165,7 +4170,7 @@ than two, so control and checks at the ends are worth more than control in the m
 >
 > This matters because the residuals on check points are the primary numerical evidence in the
 > accuracy statement, and whether they can be produced as a report — rather than transcribed by
-> hand from a dialog — determines how the record is kept (§30, and the **SOP §20**). *(Appendix E)*
+> hand from a dialog — determines how the record is kept (§30, and the **SOP §21**). *(Appendix E)*
 
 > **FIELD TESTING REQUIRED · T21**
 >
@@ -4265,13 +4270,13 @@ correct, a calibration that has drifted.
 | **Whole calibration** | Overall Overlap %, Overall RMS, per-pair RMS in three axes | Calibrate Laser Scanners | *(TBC 24886)* |
 | **Trajectory-wide** | Position, orientation and velocity RMS after smoothing, from `smrmsg_xxx.out` — rendered as **trajectory colour** | Plan View | *(TBC 25943, 27248)* |
 
-Plus the visual check (§25.1) and the records in the **SOP §19**.
+Plus the visual check (§25.1) and the records in the **SOP §20**.
 
 > **Note what is missing from that table: a single number that describes the quality of a
 > registration.** There is no registration report equivalent to a least-squares adjustment
 > summary. The evidence is distributed across a dialog, a results tab, a trajectory colour and
 > the operator's eyes — which is why §30, the provenance problem, matters more here than it would
-> in a conventional adjustment, and why the records the **SOP §19** requires are not a formality.
+> in a conventional adjustment, and why the records the **SOP §20** requires are not a formality.
 
 ## 23.3 Reading the three axes
 
@@ -4494,7 +4499,7 @@ errors and improves — or does not — in the same way.
 
 ## 26.3 What to check
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §15** (D-27); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §16** (D-27); it is not decided here.
 
 ## 26.4 Corrupted side camera images are exported as black
 
@@ -4516,7 +4521,7 @@ errors and improves — or does not — in the same way.
 > **This is not a Trimble procedure. It is a screening method proposed by this document and not
 > yet validated.**
 >
-> Include a **file-size scan** of the exported imagery in the delivery check (the **SOP §18**). The logic: a
+> Include a **file-size scan** of the exported imagery in the delivery check (the **SOP §19**). The logic: a
 > uniformly black JPEG typically compresses far smaller than a valid image, so **anomalously small
 > files are a useful screening flag** and a sorted file listing surfaces candidates without
 > opening a single image.
@@ -4572,7 +4577,7 @@ neighbours, where the camera's automatic exposure changed between passes.
 > requirement on a live job. It is not a gap in the technical workflow — blurring is a delivery
 > option, not a processing stage.
 
-> **Open Parametrix decision — D-32.** *What is Parametrix's position on imagery privacy?* Stated and tracked in the **SOP §15**; see also the master register.
+> **Open Parametrix decision — D-32.** *What is Parametrix's position on imagery privacy?* Stated and tracked in the **SOP §16**; see also the master register.
 
 ## 26.7 Imagery in the delivered dataset
 
@@ -4948,7 +4953,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 
 ## 28.4 The Parametrix decision
 
-> **Open Parametrix decision — D-3, D-35.** Stated and tracked in the **SOP §17**; see also the master register.
+> **Open Parametrix decision — D-3, D-35.** Stated and tracked in the **SOP §18**; see also the master register.
 
 ## 28.5 What Trimble recommends, precisely
 
@@ -4972,7 +4977,7 @@ three years.
 
 ## 28.6 A recordkeeping framework, offered for decision
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §17** (D-35); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §18** (D-35); it is not decided here.
 
 ## 28.7 The relationship to provenance
 
@@ -5077,7 +5082,7 @@ several documented ways exist for them to do so silently:
 > | **The adjusted trajectory's properties** — `Origin: Registration result`, `Input trajectory`, `Registration type` | Which trajectory is the registered one | *(TBC 22905, 26473)* |
 > | **Registered segments render in the "Undefined RMS" colour** | Which stretches of trajectory an adjustment actually affected | *(TBC 27248)* |
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §18** (D-36); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §19** (D-36); it is not decided here.
 
 > **FIELD TESTING REQUIRED · T29**
 >
@@ -5130,7 +5135,7 @@ several documented ways exist for them to do so silently:
 
 Until T18 and the vendor question are resolved:
 
-> **Open Parametrix decision — D-36.** *May exports be made with Export timestamps enabled before this behaviour is established?* Stated and tracked in the **SOP §18**; see also the master register.
+> **Open Parametrix decision — D-36.** *May exports be made with Export timestamps enabled before this behaviour is established?* Stated and tracked in the **SOP §19**; see also the master register.
 
 ## 29.4 Two export tabs that behave differently
 
@@ -5192,7 +5197,7 @@ Until T18 and the vendor question are resolved:
 Six documented paths. **No preference between them is expressed or implied here — the choice of
 deliverable format is a project and client matter that Parametrix has not decided.**
 
-> **Open Parametrix decision — D-38.** Stated and tracked in the **SOP §18**; see also the master register.
+> **Open Parametrix decision — D-38.** Stated and tracked in the **SOP §19**; see also the master register.
 
 ### 29.6.1 Export to LAS (Trajectory Split) — classified point cloud regions
 
@@ -5601,7 +5606,7 @@ export.
 
 That is a finding, not a prohibition.
 
-> **Open Parametrix decision — D-35.** Stated and tracked in the **SOP §19**; see also the master register.
+> **Open Parametrix decision — D-35.** Stated and tracked in the **SOP §20**; see also the master register.
 
 ### T28 — why it is high priority here
 
@@ -5628,9 +5633,9 @@ That is a finding, not a prohibition.
 
 Stated as a gap analysis, not as policy.
 
-> **Open Parametrix decision — D-29.** *What provenance record must accompany a mobile mapping deliverable, and where does it live?* Stated and tracked in the **SOP §19**; see also the master register.
+> **Open Parametrix decision — D-29.** *What provenance record must accompany a mobile mapping deliverable, and where does it live?* Stated and tracked in the **SOP §20**; see also the master register.
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §19** (D-29); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §20** (D-29); it is not decided here.
 
 ## 30.7 Reconstruction paths that do exist
 
@@ -6055,7 +6060,7 @@ where figure production is tracked.
 | F36 | **The workflow at a glance** — field to delivery, one page | 2.3, 4 |
 | F37 | **The degraded-GNSS branch diagram** — showing the two backward loops | 27.1 |
 | F38 | **The provenance chain** — seven transitions, what survives each | 30.3 |
-| F39 | **The ten QA/QC layers** | *SOP §15* |
+| F39 | **The ten QA/QC layers** | *SOP §16* |
 
 ## C3 · Source availability
 
@@ -6200,7 +6205,7 @@ repeated here.
 | **FIELD TESTING REQUIRED** — answerable by testing | **25** |
 | **VENDOR CLARIFICATION REQUIRED** — answerable only by Trimble | **16** |
 | Of those, priority P1 | 11 |
-| Of those, blocking an operation | 1 |
+| Of those, blocking something | 1 |
 
 > **An open item here is not a defect in this manual.** It is a statement that the evidence does
 > not yet reach, recorded rather than papered over. Where a question is open, the body of the
@@ -6501,7 +6506,7 @@ unknown.*
 
 ### V-4 · Which MX60 configuration do we have from the serial number? Are GAMS and DMI fitted? Which rack?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks delivery for a stated accuracy purpose**
 
 **Why it matters.** Answers D-2. Imagery and accuracy commitments cannot be made without it
 

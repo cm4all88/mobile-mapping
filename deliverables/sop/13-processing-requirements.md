@@ -50,7 +50,7 @@ Technical Manual §§17–21.
 >
 > **Enable Backup SBET Next to MXDB.** That log is the only artefact found anywhere in the workflow
 > that records the frame and epoch a trajectory was computed in, and it lives with the raw data
-> rather than inside a TBC project that may later be cleaned up (§17) or lost.
+> rather than inside a TBC project that may later be cleaned up (§18) or lost.
 
 ## 13.3 Scan generation
 
@@ -72,62 +72,9 @@ Technical Manual §§17–21.
 
 ## 13.4 Registration
 
-| # | Requirement | State |
-|---|---|---|
-| 1 | The control/check designation is fixed **before** registration and is not changed during it | **PROPOSED — D-15** (§7.3) |
-| 2 | A registration that needs changing is **recomputed from the imported trajectory using Edit**, not layered on a previous one | **PROPOSED — D-12** |
-| 3 | **Update Scans is run before the result is inspected, accepted, or exported** | **PROPOSED — D-36** |
-| 4 | Registration type, the trajectory node produced, and its SBET filename are recorded | **PROPOSED — D-29** |
-
-> **CAUTION · W-02**
->
-> **Registration does not modify the point cloud until Update Scans is performed.**
->
-> An operator can complete a registration, obtain good residuals, accept the result, and then
-> export point cloud data that still reflects the pre-registration trajectory. **The export
-> succeeds. The file is valid. The data is unregistered.**
-
-> **CAUTION · W-07**
->
-> **Getting this wrong stacks adjustments on adjustments.** A processor who registers, dislikes
-> the residuals, and registers again has applied a second correction on top of the first. The
-> residuals will look better. The trajectory has been bent twice against the same control.
->
-> **To improve a registration, use Edit.** To start over, edit and Reset.
->
-> *(Technical Manual §21.8)*
-
-> **PARAMETRIX DECISION REQUIRED · D-12**
->
-> **Registration command selection.** Is **Register a Mission** the corridor default, with Register
-> a Run reserved for single-run cases and for repairing one run in an otherwise accepted mission?
-> And where does **run-to-run** sit?
-
-> **PARAMETRIX PROCEDURE (PROPOSED)** — *where run-to-run belongs*
->
-> 1. Register the mission to surveyed control first. This establishes absolute position
-> 2. Assess against independent check points and visually (§15)
-> 3. **Only then**, if overlapping passes still disagree, use run-to-run — choosing as **Reference
->    Run** the pass with the better GNSS conditions and the better residuals against control
-> 4. **Re-check against the independent check points afterwards**, because the Run to Adjust has
->    moved
->
-> Step 4 is the one most likely to be skipped, and is why the sequence matters: adjusting a run to
-> match another run changes its residuals against control, and if the reference run was itself
-> slightly off, run-to-run propagates that error faithfully into the run you adjusted.
-
-> **TESTING REQUIRED · T15, T9, T24, T7**
->
-> Which registration type when; whether Target-Bundle Adjustment should be checked; how much
-> overlap run-to-run needs; and whether Registration Auto-Saving is on by default.
-
-> **CAUTION · W-06**
->
-> Picked targets are written to **`Targets.csv`** when Registration Auto-Saving is on. Reopening
-> the command prompts to reload them, and *"if you choose 'No', they will be emptied from the
-> Targets.csv file and you will not be able to retrieve them"* *(TBC 22905)*.
->
-> `Targets.csv` holds the registration's observations. **Answering "No" discards the field book.**
+**Registration has its own section: §14.** It is not a processing step like the others — it is the
+step that decides whether the deliverable sits where it is supposed to, and it carries its own
+authority, designation, command-selection and record requirements.
 
 ## 13.5 Records this section requires
 
@@ -135,6 +82,5 @@ Technical Manual §§17–21.
 |---|---|
 | Trajectory processing settings, and the frame and epoch log | **D-55** |
 | Results of Scan Generation | **D-55** |
-| Registration type, trajectory node, SBET filename with its `_reg_####` number | **D-29** |
-| Confirmation that Update Scans was run | **D-36** |
-| `Targets.csv` | **D-55** |
+
+*Registration records are §14.10.*

@@ -1,6 +1,6 @@
 # 13. Calibration
 
-**Periodic, not per-job.** Run it when the interval or a trigger says so (SOP §14.2), not because
+**Periodic, not per-job.** Run it when the interval or a trigger says so (SOP §15.2), not because
 a dataset looks wrong.
 
 ## 13.1 The laser scanners
@@ -76,14 +76,14 @@ you can nudge out.
 
 > **PARAMETRIX DECISION REQUIRED · D-24**
 >
-> **Where is the calibration site, and who maintains it?** *(SOP §14.3)*
+> **Where is the calibration site, and who maintains it?** *(SOP §15.3)*
 
 ## 13.3 Afterwards
 
 ### Do
 
 1. **Export the calibration JSON and archive it outside the TBC project**, named with the system
-   serial number and the calibration date *(SOP §14.5)*
+   serial number and the calibration date *(SOP §15.5)*
 2. Record the calibration: date, site, who, and the result **including the visual check**
 
 > The JSON is the complete calibration state in one small file. It imports into any later project

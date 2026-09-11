@@ -4,7 +4,7 @@
    stretches, and the two initialization locations *(SOP §8)*
 2. Confirm the **primary and backup initialization locations** are scouted, not assumed
 3. Confirm the **data disk** is the intended one and has space (§11)
-4. Confirm **calibration currency** — when was the system last calibrated? *(SOP §14.2)*
+4. Confirm **calibration currency** — when was the system last calibrated? *(SOP §15.2)*
 5. Take the **field record form** (Appendix C) and this guide
 6. Confirm the vehicle's power supply is sound (§6)
 

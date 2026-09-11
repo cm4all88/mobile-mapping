@@ -14,7 +14,7 @@ DOCS = {
             {1: ('Part I', 'The Procedure and Who Runs It'),
              6: ('Part II', 'Before and During Collection'),
              11: ('Part III', 'Office and Delivery'),
-             19: ('Part IV', 'Records, Retention and Departure')},
+             20: ('Part IV', 'Records, Retention and Departure')},
             ('Appendices', 'Decisions, Records and Approval')),
  'field':  ('deliverables/field-how-to', 'MX60-FIELD-HOW-TO.md', {}, ('Appendices', '')),
  'office': ('deliverables/office-how-to', 'MX60-OFFICE-HOW-TO.md', {}, ('Appendices', '')),

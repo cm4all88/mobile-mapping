@@ -32,8 +32,10 @@ Two facts constrain the answer, and both are in the Technical Manual:
 
 ## 8.3 GNSS assessment
 
-The plan shall identify GNSS-hostile stretches **before mobilising**, and for each state the
-expected duration at realistic collection speed.
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> The plan **should** identify GNSS-hostile stretches **before mobilising**, and for each state the
+> expected duration at realistic collection speed.
 
 > **Duration, not length.** Inertial drift is a function of time. A 300 m tunnel at 80 km/h is 13
 > seconds; the same tunnel at 20 km/h in traffic is nearly a minute *(Technical Manual §15.1)*.

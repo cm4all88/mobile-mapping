@@ -121,7 +121,7 @@ Compare with the LiDAR QC pattern *(TBC 28972; §11)*:
 > Trimble's statement. It is the conservative reading: a site meeting it also meets any
 > non-intersecting arrangement of the same total length.
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §14** (D-24); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §15** (D-24); it is not decided here.
 
 ### The result, and how to read it
 
@@ -145,7 +145,7 @@ at heading, a large vertical component at pitch or height.
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886)*
 
 > **This is the origin of the principle that governs §21, §23 and §25**, and of the QC
-> requirements in the **SOP §15**. Trimble states it here and repeats it verbatim in the
+> requirements in the **SOP §16**. Trimble states it here and repeats it verbatim in the
 > run-to-run registration topic. It is not a hedge — it
 > follows from what a residual measures. **A number can prove failure. A number cannot prove
 > success.**
@@ -235,7 +235,7 @@ in TBC **by entering the calibration values directly**."
 The MX60 also accepts a boresight JSON in the field through TMI's **Calibration Import**, via USB1
 *(TMI UG Rev L, p.18)*.
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §14** (D-55); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §15** (D-55); it is not decided here.
 
 ## 20.6 The calibration record — and the date
 
@@ -258,7 +258,7 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 
 ## 20.7 When to recalibrate
 
-> **Open Parametrix decision — D-26, D-3.** *On what interval, and after what events, is the MX60 recalibrated?* Stated and tracked in the **SOP §14**; see also the master register.
+> **Open Parametrix decision — D-26, D-3.** *On what interval, and after what events, is the MX60 recalibrated?* Stated and tracked in the **SOP §15**; see also the master register.
 
 > **VENDOR CLARIFICATION REQUIRED · V-13**
 >

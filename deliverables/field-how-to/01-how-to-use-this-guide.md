@@ -32,17 +32,36 @@ Three things you may always do without asking first:
 
 | | |
 |---|---|
-| **Stand down** on safety or data-quality grounds | The decision and its reason are recorded. **This is not conditional on you being right** *(SOP §9.5)* |
+| **Stand down** on safety or data-quality grounds · **[SOP §9.5 · PROPOSED]** | The decision and its reason are recorded. **This is not conditional on you being right.** The authority is proposed, not adopted — but nobody has to wait for D-3 to stop an unsafe job |
 | **Record a comment** about anything unusual | §19 |
 | **Re-drive a run while you are still on site** | §24 |
 
-## 1.5 Where a decision is open
+## 1.5 Who is telling you — the authority key
+
+**This guide cannot require anything.** Everything in it is somebody else's instruction, and the
+marker says whose. That matters because the SOP is not adopted: a Parametrix practice is a
+recommendation today, while **a Trimble instruction and an equipment limit bind regardless.**
+
+| Marker | Who says so | Force today |
+|---|---|---|
+| **[TRIMBLE]** | Trimble, in the cited manual page or topic | **Binding.** Does not wait on a Parametrix decision |
+| **[EQUIPMENT]** | A hardware or safety limit, with manufacturer evidence | **Binding.** It is a fact about the machine |
+| **[SOP §n]** | A Parametrix requirement, at that clause | As strong as that clause — check its state |
+| **[PROPOSED]** | Recommended by this project | **Not company policy.** Do it unless told otherwise, and say so if you cannot |
+| **[TESTING · Tn]** | Depends on a result nobody has yet | An interim posture, not a rule |
+| **[DECISION · D-n]** | Parametrix has not decided | **Ask.** Do not improvise a standing rule |
+
+> **A marker never softens a Trimble instruction.** *Do not clear the disk* is as firm on day one
+> as it will be after the SOP is adopted, because Trimble and the physics of a wiped disk are not
+> waiting for a meeting.
+
+## 1.6 Where a decision is open
 
 A **PARAMETRIX DECISION REQUIRED** marker means the SOP has identified a requirement whose answer
 is not set. Where this guide suggests what to do meanwhile, it is a suggestion and not a Parametrix
 standard.
 
-## 1.6 The field record
+## 1.7 The field record
 
 **No software produces it.** Conditions, incidents, what was not collected and why — if you do not
 write it down, nothing else will. §26 and Appendix C.

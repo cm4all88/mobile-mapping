@@ -84,7 +84,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 
 ## 28.4 The Parametrix decision
 
-> **Open Parametrix decision — D-3, D-35.** Stated and tracked in the **SOP §17**; see also the master register.
+> **Open Parametrix decision — D-3, D-35.** Stated and tracked in the **SOP §18**; see also the master register.
 
 ## 28.5 What Trimble recommends, precisely
 
@@ -108,7 +108,7 @@ three years.
 
 ## 28.6 A recordkeeping framework, offered for decision
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §17** (D-35); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §18** (D-35); it is not decided here.
 
 ## 28.7 The relationship to provenance
 

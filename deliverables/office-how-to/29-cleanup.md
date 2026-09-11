@@ -10,6 +10,11 @@
 
 ### Do — the archive-first sequence
 
+**[EQUIPMENT] Cleanup cannot be undone.** That is Trimble's own statement about the command and it
+binds today. **[PROPOSED · SOP §18.3 · D-35]** — the ten-step sequence, and the requirement for
+written authorisation, are this project's recommendation. **Who may authorise a Cleanup is D-35 and
+is not settled**, which is why step 8 names an authority that does not exist yet.
+
 **In this order.** Steps 2 to 6 are small files; the whole set is a few megabytes.
 
 | # | Step | Why here |
@@ -21,11 +26,11 @@
 | 5 | **Archive the numbered SBET files** `sbet_<date>_reg_####.out` | Pending **T28**, assume Cleanup removes them |
 | 6 | **Archive the calibration JSON** (§13.3) | The system state the mission was processed under |
 | 7 | **Take the project backup Trimble asks for** — into the project archive, not a local copy | A backup nobody can find is not a backup |
-| 8 | **Obtain the written authorisation** | SOP §17.2 |
+| 8 | **Obtain the written authorisation** | SOP §18.2 |
 | 9 | **Run Cleanup** | |
 | 10 | **Record that it was run** — by whom, on what date, what was archived first | Otherwise the absence of history is itself unexplained |
 
-*(SOP §17.3)*
+*(SOP §18.3)*
 
 ### Look at
 
@@ -38,7 +43,8 @@ Only the most recent registration surviving.
 
 ### Stop if
 
-- **You do not have written authorisation** (SOP §17.2, **D-35**)
+- **You do not have written authorisation** — **[PROPOSED · D-35]** *(SOP §18.2)*. Until D-35 is
+  answered there is no appointed authoriser; raise it rather than proceeding on your own
 - Any of steps 2 to 6 is not done
 - The backup went to your own machine rather than into the project archive
 

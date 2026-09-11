@@ -90,17 +90,36 @@ Three things you may always do without asking first:
 
 | | |
 |---|---|
-| **Stand down** on safety or data-quality grounds | The decision and its reason are recorded. **This is not conditional on you being right** *(SOP §9.5)* |
+| **Stand down** on safety or data-quality grounds · **[SOP §9.5 · PROPOSED]** | The decision and its reason are recorded. **This is not conditional on you being right.** The authority is proposed, not adopted — but nobody has to wait for D-3 to stop an unsafe job |
 | **Record a comment** about anything unusual | §19 |
 | **Re-drive a run while you are still on site** | §24 |
 
-## 1.5 Where a decision is open
+## 1.5 Who is telling you — the authority key
+
+**This guide cannot require anything.** Everything in it is somebody else's instruction, and the
+marker says whose. That matters because the SOP is not adopted: a Parametrix practice is a
+recommendation today, while **a Trimble instruction and an equipment limit bind regardless.**
+
+| Marker | Who says so | Force today |
+|---|---|---|
+| **[TRIMBLE]** | Trimble, in the cited manual page or topic | **Binding.** Does not wait on a Parametrix decision |
+| **[EQUIPMENT]** | A hardware or safety limit, with manufacturer evidence | **Binding.** It is a fact about the machine |
+| **[SOP §n]** | A Parametrix requirement, at that clause | As strong as that clause — check its state |
+| **[PROPOSED]** | Recommended by this project | **Not company policy.** Do it unless told otherwise, and say so if you cannot |
+| **[TESTING · Tn]** | Depends on a result nobody has yet | An interim posture, not a rule |
+| **[DECISION · D-n]** | Parametrix has not decided | **Ask.** Do not improvise a standing rule |
+
+> **A marker never softens a Trimble instruction.** *Do not clear the disk* is as firm on day one
+> as it will be after the SOP is adopted, because Trimble and the physics of a wiped disk are not
+> waiting for a meeting.
+
+## 1.6 Where a decision is open
 
 A **PARAMETRIX DECISION REQUIRED** marker means the SOP has identified a requirement whose answer
 is not set. Where this guide suggests what to do meanwhile, it is a suggestion and not a Parametrix
 standard.
 
-## 1.6 The field record
+## 1.7 The field record
 
 **No software produces it.** Conditions, incidents, what was not collected and why — if you do not
 write it down, nothing else will. §26 and Appendix C.
@@ -113,7 +132,7 @@ write it down, nothing else will. §26 and Appendix C.
    stretches, and the two initialization locations *(SOP §8)*
 2. Confirm the **primary and backup initialization locations** are scouted, not assumed
 3. Confirm the **data disk** is the intended one and has space (§11)
-4. Confirm **calibration currency** — when was the system last calibrated? *(SOP §14.2)*
+4. Confirm **calibration currency** — when was the system last calibrated? *(SOP §15.2)*
 5. Take the **field record form** (Appendix C) and this guide
 6. Confirm the vehicle's power supply is sound (§6)
 
@@ -203,7 +222,7 @@ systematic error nobody will attribute to its real cause *(Technical Manual §7.
 >
 > **Does removing and refitting the Sensor Unit count as disturbing the calibration?** If the unit
 > comes off between jobs, the answer decides whether calibration is annual or per-mobilisation
-> *(SOP §14.2)*.
+> *(SOP §15.2)*.
 
 > **PARAMETRIX DECISION REQUIRED · D-46**
 >
@@ -391,10 +410,12 @@ Full status reference: **Appendix D**.
 
 ## 10.1 Vehicle settings
 
-> **CAUTION**
+> **CAUTION · [TRIMBLE]**
 >
 > **If an aiding navigation sensor is not activated in Vehicle Settings, its data will NOT be
 > logged — even though all connections may have been made properly** *(TMI UG Rev L, p.21)*.
+>
+> This is Trimble stating how the system behaves. It is not a rule anybody can relax.
 >
 > This applies to **DMI and GAMS**. The hardware can be correctly installed, wired and present, and
 > log nothing. There is no cabling fault to find and nothing looks wrong.
@@ -500,7 +521,9 @@ office confirms a verified copy exists in two places and the `.mxdb` opens.
 6. Watch the navigation status progress **red → orange → green**
 7. **Allow up to 10 further minutes of settling before logging data that matters**
 
-*(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)*
+**[TRIMBLE]** *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)* — steps 1–6 are Trimble's documented
+sequence and bind today. **Step 7 is also Trimble's**, and it is the one the system does not
+enforce (§14.2).
 
 ## 12.2 What each step is doing
 
@@ -589,7 +612,7 @@ GAMS does not replace, and whether this system has GAMS is not yet established.
 
 ## 14.2 What green does not mean
 
-> **IMPORTANT**
+> **IMPORTANT · [TRIMBLE]**
 >
 > **Green means the solution met the accuracy thresholds — not that it has finished converging.**
 > That is why Trimble asks for **up to ten more minutes** before recording anything that matters
@@ -674,10 +697,10 @@ better than any setting change, because it turns grazing incidence into direct i
 
 ## 16.1 Speed
 
-| | Value | Source |
+| | Value | Authority |
 |---|---|---|
-| **Recommended maximum with the system operating** | **80 km/h (50 mph)** | MX60 UG Rev B |
-| Absolute maximum, operating or not | 110 km/h (68 mph) | MX60 UG Rev B |
+| **Recommended maximum with the system operating** | **80 km/h (50 mph)** | **[TRIMBLE]** *(MX60 UG Rev B)* — Trimble's recommendation, not a Parametrix rule |
+| Absolute maximum, operating or not | 110 km/h (68 mph) | **[EQUIPMENT]** *(MX60 UG Rev B)* |
 
 > **PARAMETRIX DECISION REQUIRED · D-43**
 >
@@ -685,7 +708,10 @@ better than any setting change, because it turns grazing incidence into direct i
 > absolute maximum and **no guidance relating speed to deliverable quality** *(SOP §9.4)*.
 >
 > *For consideration, not adopted:* collect at or near prevailing traffic speed up to 80 km/h,
-> reducing where point density requires it. **Never exceed 80 km/h with the system operating.**
+> reducing where point density requires it.
+>
+> **[TRIMBLE] Do not exceed 80 km/h with the system operating.** That part is not waiting on
+> D-43 — it is Trimble's recommended maximum and it stands today.
 
 ## 16.2 Smoothness
 
@@ -899,7 +925,8 @@ sequence (§21). You cannot append to a closed mission.
 7. **Close the mission** in TMI
 8. **Wait for the Control Unit power button light to go out — up to 90 seconds**
 
-*(MX60 QSG Rev B, p.13; MX60 UG Rev B)*
+**[TRIMBLE]** *(MX60 QSG Rev B, p.13; MX60 UG Rev B)* — Trimble's documented sequence. **Binding
+today**, whatever the SOP's adoption state.
 
 ## 21.2 It is initialization, backwards
 
@@ -1005,6 +1032,10 @@ mobilisation from the office.
 
 # 24. Re-collect or Not
 
+**[PROPOSED]** — everything in this section is a recommendation from this project. **Who decides
+a re-collection is D-3 and D-34, and neither is settled** (§24.5). What is not proposed is the
+arithmetic: on site a re-drive costs twenty minutes, and from the office it costs a mobilisation.
+
 ## 24.1 The rule of thumb
 
 **On site, a re-drive costs twenty minutes. From the office, it costs a mobilisation.**
@@ -1042,7 +1073,7 @@ Where no amount of re-driving will produce an acceptable result, the honest find
 raise it — that is a project decision, not yours to absorb.
 
 > **PARAMETRIX DECISION REQUIRED · D-34** — who decides, against what, and what the client is told
-> *(SOP §21.5)*.
+> *(SOP §22.5)*.
 
 ---
 
@@ -1085,8 +1116,12 @@ from the plan with its reason.
 > A cleared disk is not recoverable, and a mobile mapping mission is not re-drivable at reasonable
 > cost.
 
-**Not on a promise, not on a message, not because the disk is needed tomorrow.** The office
-confirms it, in writing *(SOP §11.2)*.
+**[PROPOSED · SOP §11.2]** — the *confirmation-in-writing* step is a Parametrix practice and is
+not yet adopted.
+
+**[EQUIPMENT] The underlying fact is not proposed.** A cleared disk is not recoverable and a
+mission is not re-drivable at reasonable cost. **Not on a promise, not on a message, not because
+the disk is needed tomorrow.**
 
 ## 25.4 Handoff is a transfer of responsibility
 
@@ -1107,8 +1142,10 @@ What was transferred, to whom, when.
 
 ## 26.1 The field record
 
-**No software produces it.** It is the only record of everything the software cannot see, and the
-office depends on it *(SOP §9.6)*.
+**[PROPOSED · SOP §9.6 · D-49]** — what the record contains is not yet decided.
+
+**No software produces it.** That part is a fact, not a proposal: it is the only record of
+everything the software cannot see, and the office depends on it.
 
 Recorded **at the time**, per mission:
 

@@ -2,10 +2,10 @@
 
 ## 16.1 Speed
 
-| | Value | Source |
+| | Value | Authority |
 |---|---|---|
-| **Recommended maximum with the system operating** | **80 km/h (50 mph)** | MX60 UG Rev B |
-| Absolute maximum, operating or not | 110 km/h (68 mph) | MX60 UG Rev B |
+| **Recommended maximum with the system operating** | **80 km/h (50 mph)** | **[TRIMBLE]** *(MX60 UG Rev B)* — Trimble's recommendation, not a Parametrix rule |
+| Absolute maximum, operating or not | 110 km/h (68 mph) | **[EQUIPMENT]** *(MX60 UG Rev B)* |
 
 > **PARAMETRIX DECISION REQUIRED · D-43**
 >
@@ -13,7 +13,10 @@
 > absolute maximum and **no guidance relating speed to deliverable quality** *(SOP §9.4)*.
 >
 > *For consideration, not adopted:* collect at or near prevailing traffic speed up to 80 km/h,
-> reducing where point density requires it. **Never exceed 80 km/h with the system operating.**
+> reducing where point density requires it.
+>
+> **[TRIMBLE] Do not exceed 80 km/h with the system operating.** That part is not waiting on
+> D-43 — it is Trimble's recommended maximum and it stands today.
 
 ## 16.2 Smoothness
 

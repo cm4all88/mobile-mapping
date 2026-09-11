@@ -9,7 +9,7 @@ afterwards:
   computing the adjustment also chooses what it is measured against, the check is not independent
 - **Accepting a registration** — because acceptance is the point at which the data becomes the
   deliverable
-- **Running a destructive operation** — because it cannot be undone (§17)
+- **Running a destructive operation** — because it cannot be undone (§18)
 
 TBC makes the first of these a checkbox *(Technical Manual §22.2)*, which makes it easy to change
 quietly. That is the reason this SOP treats authority as a control and not as an organisation chart.
@@ -21,8 +21,10 @@ quietly. That is the reason this SOP treats authority as a control and not as an
 > **Who may operate the system, who may register, who may accept a registration, who may run
 > Cleanup, and who signs an accuracy statement?**
 >
-> Until this is answered, every clause in this procedure that says *the Project Surveyor shall* is
-> naming a role that has not been assigned.
+> Until this is answered, every clause in this procedure that names a role — *the Project
+> Surveyor*, *the Processor*, *the System Owner* — is naming something nobody holds. That is why
+> those clauses are **proposed** rather than binding, and why §18 cannot require an authorisation
+> from a person who has not been appointed.
 
 ### The structure proposed, for decision
 
@@ -52,7 +54,7 @@ quietly. That is the reason this SOP treats authority as a control and not as an
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-15**
 >
-> **The person who designates control versus independent check shall not be the person who
+> **The person who designates control versus independent check should not be the person who
 > computes the registration.**
 >
 > If both are the same person, the residuals on the check points measure the fit of an adjustment
@@ -76,7 +78,7 @@ Whoever holds a role, these attach to it:
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
-> Whatever Parametrix decides about roles, the project record shall be able to answer, for any
+> Whatever Parametrix decides about roles, the project record **should** be able to answer, for any
 > dataset, years later:
 >
 > 1. Who collected it, when, and in what conditions

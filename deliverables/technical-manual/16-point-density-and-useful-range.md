@@ -121,6 +121,11 @@ with distance either — but its *effect* does, in direct proportion.
 > publish, and why the honest answer to "how far out is this good for?" begins with looking at the
 > trajectory RMS for that stretch (§24).
 
+> **This is where D-13 comes from.** Because no attitude error budget is published, a useful range
+> for a given tolerance cannot be derived from the documentation — so an acceptance criterion cannot
+> be calculated either. It has to be **tested**, or **decided**. The decision Parametrix faces
+> meanwhile is set out in the **SOP §17.2**; this manual does not propose an answer to it.
+
 > **FIELD TESTING REQUIRED · T1**
 >
 > **Establishing a working useful range for Parametrix deliverables is a test, not a calculation.**

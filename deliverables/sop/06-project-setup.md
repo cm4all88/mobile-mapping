@@ -2,12 +2,15 @@
 
 ## 6.1 Before any data is collected
 
-Four things shall exist in writing before mobilisation. None is onerous and all three of the
-failures they prevent are expensive.
+Four things **should** exist in writing before mobilisation. None is onerous, and the failures
+they prevent are expensive.
+
+> **PARAMETRIX PROCEDURE (PROPOSED)** — *the practice of recording them.* **What** each one says is
+> a separate open decision, named in the table.
 
 | # | Requirement | State |
 |---|---|---|
-| 1 | **The accuracy requirement**, stated in writing, with the client agreement or scope it derives from | **PARAMETRIX DECISION REQUIRED — D-13.** The requirement to state one is not in doubt; what constitutes meeting it is §16 |
+| 1 | **The accuracy requirement**, stated in writing, with the client agreement or scope it derives from | **PARAMETRIX DECISION REQUIRED — D-13.** The requirement to state one is not in doubt; what constitutes meeting it is §17 |
 | 2 | **The coordinate reference system, datum, epoch and geoid model**, stated in writing and matching the control network | **PARAMETRIX DECISION REQUIRED — D-21** |
 | 3 | **Grid or ground**, agreed with the client in writing | **PARAMETRIX DECISION REQUIRED — D-38** |
 | 4 | **The system configuration and fitment** the work assumes | **PARAMETRIX DECISION REQUIRED — D-2 · blocks operation** |
@@ -56,7 +59,7 @@ may compute in ITRF00 and then transform. The only outward sign is the SBET file
 > a sidecar naming the coordinate system and scale factor *(TBC 11769; Technical Manual §12.5)*.
 >
 > The recipient of a ground-scaled file cannot recover the scale factor from the file. Agree it in
-> writing, and make sure the delivery can say what it is (§18).
+> writing, and make sure the delivery can say what it is (§19).
 
 > **PARAMETRIX DECISION REQUIRED · D-38**
 >

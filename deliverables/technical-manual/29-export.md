@@ -40,7 +40,7 @@ several documented ways exist for them to do so silently:
 > | **The adjusted trajectory's properties** — `Origin: Registration result`, `Input trajectory`, `Registration type` | Which trajectory is the registered one | *(TBC 22905, 26473)* |
 > | **Registered segments render in the "Undefined RMS" colour** | Which stretches of trajectory an adjustment actually affected | *(TBC 27248)* |
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §18** (D-36); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §19** (D-36); it is not decided here.
 
 > **FIELD TESTING REQUIRED · T29**
 >
@@ -93,7 +93,7 @@ several documented ways exist for them to do so silently:
 
 Until T18 and the vendor question are resolved:
 
-> **Open Parametrix decision — D-36.** *May exports be made with Export timestamps enabled before this behaviour is established?* Stated and tracked in the **SOP §18**; see also the master register.
+> **Open Parametrix decision — D-36.** *May exports be made with Export timestamps enabled before this behaviour is established?* Stated and tracked in the **SOP §19**; see also the master register.
 
 ## 29.4 Two export tabs that behave differently
 
@@ -155,7 +155,7 @@ Until T18 and the vendor question are resolved:
 Six documented paths. **No preference between them is expressed or implied here — the choice of
 deliverable format is a project and client matter that Parametrix has not decided.**
 
-> **Open Parametrix decision — D-38.** Stated and tracked in the **SOP §18**; see also the master register.
+> **Open Parametrix decision — D-38.** Stated and tracked in the **SOP §19**; see also the master register.
 
 ### 29.6.1 Export to LAS (Trajectory Split) — classified point cloud regions
 

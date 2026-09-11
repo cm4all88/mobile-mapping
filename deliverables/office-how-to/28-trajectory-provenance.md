@@ -25,7 +25,7 @@ Record these, now, before Cleanup (§29) and before export (§30):
 | 6 | **The field record** | It came with the data (§2) |
 | 7 | **The QC record** — including the visual and imagery checks | Written by you (§22, §23) |
 
-*(SOP §19.2)*
+*(SOP §20.2)*
 
 ### Expect
 
@@ -38,7 +38,7 @@ few hundred kilobytes beside a project of tens of gigabytes.
 - You are about to export and item 1 does not exist
 
 > **PARAMETRIX DECISION REQUIRED · D-29** — what provenance record accompanies a deliverable, where
-> it lives, and who produces it *(SOP §19.2)*.
+> it lives, and who produces it *(SOP §20.2)*.
 
 > **TESTING REQUIRED · T19, T22, T30** — which trajectory travels with a publish or an export; what
 > a LAS file actually carries in its header, VLRs and sidecar; and whether a delivered dataset can

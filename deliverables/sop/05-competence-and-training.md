@@ -19,8 +19,8 @@ you."**
 | Qualification | Covers |
 |---|---|
 | **Qualified to operate** | Installation and pre-flight; initialization and the closing sequence, and why each exists; operating limits and stand-down authority; field quality checks and the field record |
-| **Qualified to process and register** | The data chain and what regenerates from what; trajectory processing; scan generation; registration and the three commands; **what RMS can and cannot prove**; the layered QC in §15 |
-| **Qualified to accept** | All of the above, plus the accuracy framework in §16 and the authority under §4 |
+| **Qualified to process and register** | The data chain and what regenerates from what; trajectory processing; scan generation; registration and the three commands; **what RMS can and cannot prove**; the layered QC in §16 |
+| **Qualified to accept** | All of the above, plus the accuracy framework in §17 and the authority under §4 |
 
 ## 5.3 The five things a qualified person is expected to know
 

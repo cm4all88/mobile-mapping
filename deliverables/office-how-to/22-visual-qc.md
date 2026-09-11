@@ -14,7 +14,8 @@ not record it, there is no evidence it happened.
 
 ### The setting that makes or breaks this
 
-> **IMPORTANT**
+> **IMPORTANT · [TRIMBLE]** — the visual check itself is Trimble's instruction (§20).
+> **[PROPOSED · SOP §16.5 · D-27]** — what the pass covers is this project's checklist.
 >
 > **Set rendering to Scan Color** — one colour per scan. Without it, two offset surfaces read as
 > one thick surface and the exact defect this check exists to find is invisible
@@ -33,7 +34,7 @@ not record it, there is no evidence it happened.
 | **Vertical surfaces against horizontal** | Systematic tilt |
 | **Features near control versus far from control** | Residual growth with distance from constraint |
 
-*(SOP §15.5)*
+*(SOP §16.5)*
 
 ### Expect
 
@@ -49,12 +50,12 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 > **PARAMETRIX DECISION REQUIRED · D-27**
 >
 > **What does a visual point-cloud QC pass cover?** The checklist above is proposed, not adopted
-> *(SOP §15.5)*.
+> *(SOP §16.5)*.
 
 > **TESTING REQUIRED · T16** — the working cutting-plane thickness for these checks.
 
 > **PARAMETRIX DECISION REQUIRED · D-39** — how much of a corridor is inspected, and how that is
-> decided *(SOP §15.5)*.
+> decided *(SOP §16.5)*.
 
 ### Record
 

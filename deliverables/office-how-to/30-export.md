@@ -1,7 +1,7 @@
 # 30. Export — by Path
 
 **Six documented MX60 paths.** No preference between them is expressed here; format choice is a
-project and client matter Parametrix has not decided *(SOP §18.4, **D-38**)*.
+project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 
 **Do §31 first.** Every path below assumes the pre-export check has passed.
 

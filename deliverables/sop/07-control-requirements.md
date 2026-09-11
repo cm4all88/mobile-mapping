@@ -26,6 +26,11 @@ and not the other *(Technical Manual §22.2, §22.3)*.
 
 ## 7.2 Control shall bracket the delivered extent
 
+> **TRIMBLE REQUIREMENT** — *binding now, on Trimble's authority, not Parametrix's*
+>
+> This is not a Parametrix preference. Trimble states the limitation of the **Local** method
+> directly, and the consequence follows from it.
+
 > **CAUTION · W-08**
 >
 > **Local does not extrapolate.** Trimble states it is *"not for systematic error along the run or

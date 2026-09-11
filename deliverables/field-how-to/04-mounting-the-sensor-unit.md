@@ -34,7 +34,7 @@ systematic error nobody will attribute to its real cause *(Technical Manual §7.
 >
 > **Does removing and refitting the Sensor Unit count as disturbing the calibration?** If the unit
 > comes off between jobs, the answer decides whether calibration is annual or per-mobilisation
-> *(SOP §14.2)*.
+> *(SOP §15.2)*.
 
 > **PARAMETRIX DECISION REQUIRED · D-46**
 >

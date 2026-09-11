@@ -55,7 +55,7 @@ project's coordinate system.
 > | Datum and epoch **known** by POSPac | `sbet_[mission name].out` |
 > | Datum and epoch **unknown** by POSPac | `sbet_[mission name]_[frame].out` — computed "first in ITRF00 and then in the datum and epoch of the project" |
 
-> **The filename is a processing-path indicator and nothing more** (§17.4, and Layer 3 of the layered verification — the **SOP §15**). It tells
+> **The filename is a processing-path indicator and nothing more** (§17.4, and Layer 3 of the layered verification — the **SOP §16**). It tells
 > you an additional transformation occurred. It does not tell you the parameters were right, that
 > the project CRS is set up correctly, or that the result is accurate. The plain form is equally
 > not proof of correctness.

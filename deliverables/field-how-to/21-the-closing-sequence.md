@@ -19,7 +19,8 @@
 7. **Close the mission** in TMI
 8. **Wait for the Control Unit power button light to go out — up to 90 seconds**
 
-*(MX60 QSG Rev B, p.13; MX60 UG Rev B)*
+**[TRIMBLE]** *(MX60 QSG Rev B, p.13; MX60 UG Rev B)* — Trimble's documented sequence. **Binding
+today**, whatever the SOP's adoption state.
 
 ## 21.2 It is initialization, backwards
 

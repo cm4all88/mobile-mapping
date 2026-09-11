@@ -34,7 +34,7 @@ minutes.
 > | The complete mission folder | Not the `.mxdb` alone — that is an index, not the data *(Technical Manual §5.2)* |
 > | The field record | §9.6 |
 > | Base station data | If a local base was occupied |
-> | Any deviation from the plan, and its reason | §8, §21 |
+> | Any deviation from the plan, and its reason | §8, §22 |
 
 ## 10.4 Handoff is a transfer of responsibility
 

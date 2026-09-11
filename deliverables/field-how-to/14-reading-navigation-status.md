@@ -10,7 +10,7 @@
 
 ## 14.2 What green does not mean
 
-> **IMPORTANT**
+> **IMPORTANT · [TRIMBLE]**
 >
 > **Green means the solution met the accuracy thresholds — not that it has finished converging.**
 > That is why Trimble asks for **up to ten more minutes** before recording anything that matters

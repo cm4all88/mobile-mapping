@@ -26,7 +26,7 @@
 
 Some of these are not office problems. Missing coverage, missing overlap, a mission with no closing
 sequence and a sensor that logged nothing are all field problems, and the only remedy is a
-mobilisation *(SOP §21.3)*.
+mobilisation *(SOP §22.3)*.
 
 **Raise it. Do not absorb it.** A non-conformance fixed quietly leaves no trace that the workflow
 failed, which means it happens again to somebody else on a job where it costs more.

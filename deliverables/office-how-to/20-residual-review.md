@@ -64,4 +64,4 @@ Stop if:
 
 The control-and-check table: point ID, Use XY, Use Z, As Check, and the residual on each. **Six
 columns, written once.** It is the single most important record in the workflow and the software
-does not produce it (§28, SOP §19).
+does not produce it (§28, SOP §20).

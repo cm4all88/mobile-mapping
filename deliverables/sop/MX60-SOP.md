@@ -79,7 +79,7 @@ not decoration.
 
 | | Why |
 |---|---|
-| **Numerical acceptance tolerances** | Trimble publishes no acceptance tolerance for the MX60, and none has been established by test. Inventing one would be worse than leaving it open. See §16 and **D-13** |
+| **Numerical acceptance tolerances** | Trimble publishes no acceptance tolerance for the MX60, and none has been established by test. Inventing one would be worse than leaving it open. See §17 and **D-13** |
 | **Explanation** | Technical Manual |
 | **Step-by-step method** | Field How To · Office How To |
 | **Terminology** | Technical Manual **§6** is the authoritative glossary for all four documents. §3 below defines only the terms that carry procedural force in this SOP |
@@ -141,7 +141,7 @@ project record.
 This procedure applies to every person performing any activity within its scope, in the roles
 defined in §4.
 
-Where a requirement cannot be met on a particular project, §21 states what happens. **A
+Where a requirement cannot be met on a particular project, §22 states what happens. **A
 requirement is not waived by being inconvenient on the day.**
 
 ## 1.5 Related documents
@@ -265,14 +265,41 @@ commands that perform it.
 
 | Term | Meaning |
 |---|---|
-| **shall** | A requirement. Departure is a non-conformance and is handled under §21 |
-| **shall not** | A prohibition. The same applies |
+| **shall** | A requirement that binds now. Departure is a non-conformance and is handled under §22 |
+| **shall not** | A prohibition that binds now. The same applies |
 | **should** | A recommendation. Departure is permitted and, where it affects the deliverable, is recorded |
 | **may** | A permission. No obligation either way |
 
-> Clauses in this procedure use **shall** only where the clause is **ADOPTED**. A clause in the
-> **PARAMETRIX DECISION REQUIRED** state describes what the requirement would govern; it does not
-> yet oblige anyone. That is the difference the state label carries.
+### Which clauses bind, and on whose authority
+
+A requirement does not become binding only by Parametrix adopting it. **Trimble's instructions and
+the equipment's limits bind regardless**, because their authority is the manufacturer's and does
+not wait for a company decision.
+
+Every clause in this procedure that carries procedural force therefore carries an **authority
+label**:
+
+| Label | Binding now? | Verb used |
+|---|---|---|
+| **TRIMBLE REQUIREMENT** | **Yes** | shall · do not |
+| **EQUIPMENT LIMIT** | **Yes** | shall · do not |
+| **PARAMETRIX REQUIREMENT (ADOPTED)** | **Yes** — recorded in Appendix A | shall |
+| **PARAMETRIX PROCEDURE (PROPOSED)** | No — a recommendation from this project | **should** |
+| **PARAMETRIX DECISION REQUIRED** | No — the answer is not set | *no imperative* |
+| **TESTING REQUIRED** | No — nobody has the answer yet | *no imperative, or a stated interim posture* |
+
+> **`shall` is reserved for the three authorities that bind now.** A proposed Parametrix practice
+> uses **should**. When Parametrix adopts it, the label changes to **(ADOPTED)** and the verb
+> changes to **shall** — one edit, recorded in Appendix A.
+
+> **CAUTION**
+>
+> **At this revision no clause carries PARAMETRIX REQUIREMENT (ADOPTED).** Every `shall` in this
+> procedure rests on **Trimble** or on an **equipment limit**. None of them is a Parametrix policy
+> decision, and none may be described to a client as one.
+
+The full model, including why it is built this way, is
+`deliverables/_control/authority-model.md`.
 
 ## 3.3 Terms with procedural force
 
@@ -281,11 +308,11 @@ commands that perform it.
 | **Approved** | A named person with the authority in §4 has recorded a decision, with a date. An approval that is not recorded did not occur |
 | **In writing** | Recorded in the project record in a form that survives the project and identifies its author and date. An instant message is not in writing |
 | **Recorded** | Written into the project record at the time, not reconstructed afterwards |
-| **The project record** | The durable record of the project, in the location §19 requires. Not a processor's local machine |
+| **The project record** | The durable record of the project, in the location §20 requires. Not a processor's local machine |
 | **Independent check** | An observation that **took no part in any adjustment** applied to the data it is checking, and whose designation was fixed **before** that adjustment was computed (§7.3) |
 | **Accepted** | The person with acceptance authority under §4 has recorded that the dataset meets the project's stated accuracy requirement. Acceptance is against a requirement, never against a feeling |
 | **Delivered** | Released outside Parametrix, or relied on by another discipline as final |
-| **Destructive operation** | An operation that removes data or history and cannot be undone within the software. §17 governs these |
+| **Destructive operation** | An operation that removes data or history and cannot be undone within the software. §18 governs these |
 | **Re-collection** | Returning to site to collect again. The remedy of last resort, and the only remedy for a field error |
 
 ## 3.4 Two words this procedure avoids
@@ -293,7 +320,7 @@ commands that perform it.
 | | |
 |---|---|
 | **"Verified"**, unqualified | Verified against what, by whom? The procedure names the comparison every time |
-| **"QC'd"** | §15 defines what a quality control activity consists of. The abbreviation hides whether anything was inspected |
+| **"QC'd"** | §16 defines what a quality control activity consists of. The abbreviation hides whether anything was inspected |
 
 ---
 
@@ -308,7 +335,7 @@ afterwards:
   computing the adjustment also chooses what it is measured against, the check is not independent
 - **Accepting a registration** — because acceptance is the point at which the data becomes the
   deliverable
-- **Running a destructive operation** — because it cannot be undone (§17)
+- **Running a destructive operation** — because it cannot be undone (§18)
 
 TBC makes the first of these a checkbox *(Technical Manual §22.2)*, which makes it easy to change
 quietly. That is the reason this SOP treats authority as a control and not as an organisation chart.
@@ -320,8 +347,10 @@ quietly. That is the reason this SOP treats authority as a control and not as an
 > **Who may operate the system, who may register, who may accept a registration, who may run
 > Cleanup, and who signs an accuracy statement?**
 >
-> Until this is answered, every clause in this procedure that says *the Project Surveyor shall* is
-> naming a role that has not been assigned.
+> Until this is answered, every clause in this procedure that names a role — *the Project
+> Surveyor*, *the Processor*, *the System Owner* — is naming something nobody holds. That is why
+> those clauses are **proposed** rather than binding, and why §18 cannot require an authorisation
+> from a person who has not been appointed.
 
 ### The structure proposed, for decision
 
@@ -351,7 +380,7 @@ quietly. That is the reason this SOP treats authority as a control and not as an
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-15**
 >
-> **The person who designates control versus independent check shall not be the person who
+> **The person who designates control versus independent check should not be the person who
 > computes the registration.**
 >
 > If both are the same person, the residuals on the check points measure the fit of an adjustment
@@ -375,7 +404,7 @@ Whoever holds a role, these attach to it:
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
-> Whatever Parametrix decides about roles, the project record shall be able to answer, for any
+> Whatever Parametrix decides about roles, the project record **should** be able to answer, for any
 > dataset, years later:
 >
 > 1. Who collected it, when, and in what conditions
@@ -420,8 +449,8 @@ you."**
 | Qualification | Covers |
 |---|---|
 | **Qualified to operate** | Installation and pre-flight; initialization and the closing sequence, and why each exists; operating limits and stand-down authority; field quality checks and the field record |
-| **Qualified to process and register** | The data chain and what regenerates from what; trajectory processing; scan generation; registration and the three commands; **what RMS can and cannot prove**; the layered QC in §15 |
-| **Qualified to accept** | All of the above, plus the accuracy framework in §16 and the authority under §4 |
+| **Qualified to process and register** | The data chain and what regenerates from what; trajectory processing; scan generation; registration and the three commands; **what RMS can and cannot prove**; the layered QC in §16 |
+| **Qualified to accept** | All of the above, plus the accuracy framework in §17 and the authority under §4 |
 
 ## 5.3 The five things a qualified person is expected to know
 
@@ -470,12 +499,15 @@ covered in the Technical Manual at the reference given.
 
 ## 6.1 Before any data is collected
 
-Four things shall exist in writing before mobilisation. None is onerous and all three of the
-failures they prevent are expensive.
+Four things **should** exist in writing before mobilisation. None is onerous, and the failures
+they prevent are expensive.
+
+> **PARAMETRIX PROCEDURE (PROPOSED)** — *the practice of recording them.* **What** each one says is
+> a separate open decision, named in the table.
 
 | # | Requirement | State |
 |---|---|---|
-| 1 | **The accuracy requirement**, stated in writing, with the client agreement or scope it derives from | **PARAMETRIX DECISION REQUIRED — D-13.** The requirement to state one is not in doubt; what constitutes meeting it is §16 |
+| 1 | **The accuracy requirement**, stated in writing, with the client agreement or scope it derives from | **PARAMETRIX DECISION REQUIRED — D-13.** The requirement to state one is not in doubt; what constitutes meeting it is §17 |
 | 2 | **The coordinate reference system, datum, epoch and geoid model**, stated in writing and matching the control network | **PARAMETRIX DECISION REQUIRED — D-21** |
 | 3 | **Grid or ground**, agreed with the client in writing | **PARAMETRIX DECISION REQUIRED — D-38** |
 | 4 | **The system configuration and fitment** the work assumes | **PARAMETRIX DECISION REQUIRED — D-2 · blocks operation** |
@@ -524,7 +556,7 @@ may compute in ITRF00 and then transform. The only outward sign is the SBET file
 > a sidecar naming the coordinate system and scale factor *(TBC 11769; Technical Manual §12.5)*.
 >
 > The recipient of a ground-scaled file cannot recover the scale factor from the file. Agree it in
-> writing, and make sure the delivery can say what it is (§18).
+> writing, and make sure the delivery can say what it is (§19).
 
 > **PARAMETRIX DECISION REQUIRED · D-38**
 >
@@ -581,6 +613,11 @@ and not the other *(Technical Manual §22.2, §22.3)*.
 > density and incidence angle. **This will shape control design more than any software setting.**
 
 ## 7.2 Control shall bracket the delivered extent
+
+> **TRIMBLE REQUIREMENT** — *binding now, on Trimble's authority, not Parametrix's*
+>
+> This is not a Parametrix preference. Trimble states the limitation of the **Local** method
+> directly, and the consequence follows from it.
 
 > **CAUTION · W-08**
 >
@@ -682,8 +719,10 @@ Two facts constrain the answer, and both are in the Technical Manual:
 
 ## 8.3 GNSS assessment
 
-The plan shall identify GNSS-hostile stretches **before mobilising**, and for each state the
-expected duration at realistic collection speed.
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> The plan **should** identify GNSS-hostile stretches **before mobilising**, and for each state the
+> expected duration at realistic collection speed.
 
 > **Duration, not length.** Inertial drift is a function of time. A 300 m tunnel at 80 km/h is 13
 > seconds; the same tunnel at 20 km/h in traffic is nearly a minute *(Technical Manual §15.1)*.
@@ -784,8 +823,13 @@ The method is in the **Field How To**. This section states what shall be done, a
 
 ## 9.2 Initialization
 
-**The full initialization sequence shall be performed at the start of every mission**, in the order
-Trimble specifies, and logging of data that matters shall not begin until it is complete.
+> **TRIMBLE REQUIREMENT** — *(MX60 QSG Rev B, pp.13–14)*
+>
+> **The full initialization sequence shall be performed at the start of every mission**, in the
+> order Trimble specifies.
+>
+> **Navigation alignment shall be complete before data logging begins.** The system enforces this —
+> it is not a matter of operator discipline.
 
 > **IMPORTANT**
 >
@@ -793,16 +837,22 @@ Trimble specifies, and logging of data that matters shall not begin until it is 
 > accuracy thresholds, not that it has converged. Trimble asks for **up to ten further minutes**
 > before recording anything that matters *(MX60 QSG Rev B)*.
 >
-> **The first data after the light turns green is the weakest data of the day.** It shall not be
-> spent on the most important part of the corridor.
+> **The first data after the light turns green is the weakest data of the day.**
+
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> That data **should not** be spent on the most important part of the corridor. Trimble asks for the
+> settling time; how the crew spends it is Parametrix's to decide.
 
 The sequence and its rationale are in **Technical Manual §13**; the steps are in the **Field How
 To**.
 
 ## 9.3 The closing sequence
 
-**The closing sequence shall be performed at the end of every mission, before the mission is
-closed in TMI.**
+> **TRIMBLE REQUIREMENT** — *(MX60 QSG Rev B, p.13; MX60 UG Rev B)*
+>
+> **The closing sequence shall be performed at the end of every mission, before the mission is
+> closed in TMI.**
 
 > **CAUTION**
 >
@@ -903,7 +953,7 @@ minutes.
 > | The complete mission folder | Not the `.mxdb` alone — that is an index, not the data *(Technical Manual §5.2)* |
 > | The field record | §9.6 |
 > | Base station data | If a local base was occupied |
-> | Any deviation from the plan, and its reason | §8, §21 |
+> | Any deviation from the plan, and its reason | §8, §22 |
 
 ## 10.4 Handoff is a transfer of responsibility
 
@@ -977,9 +1027,13 @@ Everything else in the chain is reproducible. These two are not.
 
 > **PARAMETRIX DECISION REQUIRED · D-53**
 >
-> **Folder structure, naming convention and storage location.** Two constraints are not
-> discretionary: the project record shall not live on a processor's local machine (§3.3), and raw
-> mission data shall be distinguishable from processed products without opening them.
+> **Folder structure, naming convention and storage location.**
+
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> Two constraints are proposed as non-discretionary whatever else D-53 decides: the project record
+> **should not** live on a processor's local machine (§3.3), and raw mission data **should** be
+> distinguishable from processed products without opening them.
 
 ## 11.5 Chain of custody
 
@@ -1039,13 +1093,17 @@ boresight and lever-arm calibration **with a date of calibration** *(TBC 24868)*
 
 > **That dated calibration record is the only one found anywhere in the workflow**
 > *(Technical Manual §30)*. It is captured at intake because a later Cleanup can remove the
-> objects that would have produced it (§17).
+> objects that would have produced it (§18).
 
-## 12.4 What intake shall not do
+## 12.4 What intake does not do
 
-**Intake shall not correct anything.** If a check fails, it is recorded and raised (§21). A
-processor who quietly fixes a coordinate system mismatch at intake has removed the evidence that
-the field and office disagreed.
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> **Intake should not correct anything.** If a check fails, it is recorded and raised (§22).
+
+A processor who quietly fixes a coordinate system mismatch at intake has removed the evidence that
+the field and office disagreed — which is the reason the practice is proposed, and the reason it
+matters more than it looks.
 
 ## 12.5 Records this section requires
 
@@ -1053,7 +1111,7 @@ the field and office disagreed.
 |---|---|
 | Intake checks performed, by whom, with the result of each | **D-18** |
 | Calibration state at collection — `Extcal.json` and the Mission Report | **D-55** |
-| Any intake check that failed, and what was done | **D-18, §21** |
+| Any intake check that failed, and what was done | **D-18, §22** |
 
 ---
 
@@ -1109,7 +1167,7 @@ Technical Manual §§17–21.
 >
 > **Enable Backup SBET Next to MXDB.** That log is the only artefact found anywhere in the workflow
 > that records the frame and epoch a trajectory was computed in, and it lives with the raw data
-> rather than inside a TBC project that may later be cleaned up (§17) or lost.
+> rather than inside a TBC project that may later be cleaned up (§18) or lost.
 
 ## 13.3 Scan generation
 
@@ -1131,20 +1189,128 @@ Technical Manual §§17–21.
 
 ## 13.4 Registration
 
-| # | Requirement | State |
-|---|---|---|
-| 1 | The control/check designation is fixed **before** registration and is not changed during it | **PROPOSED — D-15** (§7.3) |
-| 2 | A registration that needs changing is **recomputed from the imported trajectory using Edit**, not layered on a previous one | **PROPOSED — D-12** |
-| 3 | **Update Scans is run before the result is inspected, accepted, or exported** | **PROPOSED — D-36** |
-| 4 | Registration type, the trajectory node produced, and its SBET filename are recorded | **PROPOSED — D-29** |
+**Registration has its own section: §14.** It is not a processing step like the others — it is the
+step that decides whether the deliverable sits where it is supposed to, and it carries its own
+authority, designation, command-selection and record requirements.
 
-> **CAUTION · W-02**
+## 13.5 Records this section requires
+
+| Record | State |
+|---|---|
+| Trajectory processing settings, and the frame and epoch log | **D-55** |
+| Results of Scan Generation | **D-55** |
+
+*Registration records are §14.10.*
+
+---
+
+# 14. Registration Requirements
+
+Registration is the step that decides whether the deliverable sits where it is supposed to. It is
+also the step with the most ways to produce a confident, defensible-looking, wrong result — which
+is why it has a section of its own rather than a subsection of processing.
+
+**This section states what is required.** The three commands and their click sequences are the
+**Office How To §§16–21**; why registration behaves as it does is **Technical Manual §21**.
+
+## 14.1 When registration is required
+
+| | State |
+|---|---|
+| A dataset that will be **measured from, delivered, or relied on** is registered to surveyed control | **PARAMETRIX DECISION REQUIRED — D-12, D-16** |
+| A dataset used only to look at, internally, may not need it | **PARAMETRIX DECISION REQUIRED — D-13** (§17.2) |
+
+> **PARAMETRIX PROCEDURE (PROPOSED)**
 >
-> **Registration does not modify the point cloud until Update Scans is performed.**
+> Registration to surveyed control **should** be performed on every dataset for which an accuracy
+> statement will be issued. A trajectory that has never been fitted to control has no independent
+> evidence of its absolute position at all — the processing was internally consistent and nothing
+> more *(Technical Manual §8.5)*.
+
+## 14.2 Authority
+
+> **PARAMETRIX DECISION REQUIRED · D-3 · P1 · blocks formal acceptance**
 >
-> An operator can complete a registration, obtain good residuals, accept the result, and then
-> export point cloud data that still reflects the pre-registration trajectory. **The export
-> succeeds. The file is valid. The data is unregistered.**
+> **Who may perform a registration, and who may accept one?** Proposed at §4.2: performed by the
+> Processor, reviewed by the Project Surveyor.
+
+> **PARAMETRIX PROCEDURE (PROPOSED) · D-15, D-3**
+>
+> **The person who designates control versus independent check should not be the person who
+> computes the registration** (§4.3). Where one person must do both on a small job, the designation
+> is recorded **before** the registration is computed, and is not changed afterwards.
+
+## 14.3 Control and independent check designation
+
+The requirement is §7.3 and is not restated here. Two consequences belong to registration:
+
+| | State |
+|---|---|
+| The designation is **fixed before** registration begins | **PROPOSED — D-15** |
+| A point's **As Check** state is **not changed during** processing. If a designation was wrong, it is changed by the person with the authority, recorded, and the registration recomputed from the imported trajectory | **PROPOSED — D-15** |
+
+> **The failure this prevents.** A processor registers, finds one check point with a larger
+> residual than expected, and adds it to the adjustment to bring it in. Every step is well
+> intentioned. The result is an adjustment with no independent check at all, and a set of residuals
+> that now measure nothing *(Technical Manual §22.4)*.
+
+## 14.4 Command selection
+
+Three commands perform registration and they are not interchangeable *(Technical Manual §21)*.
+
+| Command | Uses surveyed control? | Scope |
+|---|---|---|
+| **Register a Run** | Yes | One run |
+| **Register a Mission** | Yes — **each GCP reusable across runs** | A set of runs |
+| **Register Run to Run** | **No — cloud-to-cloud against a fixed Reference Run** | A pair, batched |
+
+> **PARAMETRIX DECISION REQUIRED · D-12**
+>
+> **Is Register a Mission the corridor default**, with Register a Run reserved for single-run cases
+> and for repairing one run in an otherwise accepted mission? **And where does run-to-run sit?**
+>
+> The decision also has to say what happens to a mission registration when one run is later
+> re-collected.
+
+> **TESTING REQUIRED · T15, T9, T24**
+>
+> Which registration **type** — Global, Local, Global-then-Local — and when; whether Target-Bundle
+> Adjustment should be checked; and how much run overlap run-to-run actually needs. No selection
+> rule is published for any of the three.
+
+## 14.5 Use of surveyed control
+
+> **TRIMBLE REQUIREMENT** — *binding now, on Trimble's authority*
+>
+> A **Local** registration does not adjust beyond the outermost control point, and nothing
+> indicates where the adjustment stopped. **Control shall bracket the extent to be delivered**
+> (§7.2, **W-08**).
+
+> **TRIMBLE REQUIREMENT**
+>
+> A GCP and its picked target **shall not** be more than **30 m** apart. Trimble refuses the pair
+> beyond that distance *(TBC 22905)*.
+
+## 14.6 Run-to-run — what it cannot do
+
+> **PARAMETRIX PROCEDURE (PROPOSED) · D-12**
+>
+> Run-to-run registration improves **relative** agreement between passes. It uses no surveyed
+> control and cannot establish absolute position. It **should** therefore be used only in this
+> order:
+>
+> 1. Register to surveyed control first
+> 2. Assess against independent check points and visually (§16)
+> 3. **Only then**, if overlapping passes still disagree, use run-to-run — choosing as **Reference
+>    Run** the pass with the better GNSS conditions and the better residuals against control
+> 4. **Re-check against the independent check points afterwards**, because the Run to Adjust has
+>    moved
+>
+> **Step 4 is the one that gets skipped**, and it is why the sequence matters: adjusting one run to
+> match another changes its residuals against control, and if the Reference Run was itself
+> displaced, run-to-run propagates that displacement faithfully into the run you adjusted.
+
+## 14.7 Re-registration, Edit and Reset
 
 > **CAUTION · W-07**
 >
@@ -1153,32 +1319,11 @@ Technical Manual §§17–21.
 > residuals will look better. The trajectory has been bent twice against the same control.
 >
 > **To improve a registration, use Edit.** To start over, edit and Reset.
->
-> *(Technical Manual §21.8)*
 
-> **PARAMETRIX DECISION REQUIRED · D-12**
+> **PARAMETRIX PROCEDURE (PROPOSED) · D-12**
 >
-> **Registration command selection.** Is **Register a Mission** the corridor default, with Register
-> a Run reserved for single-run cases and for repairing one run in an otherwise accepted mission?
-> And where does **run-to-run** sit?
-
-> **PARAMETRIX PROCEDURE (PROPOSED)** — *where run-to-run belongs*
->
-> 1. Register the mission to surveyed control first. This establishes absolute position
-> 2. Assess against independent check points and visually (§15)
-> 3. **Only then**, if overlapping passes still disagree, use run-to-run — choosing as **Reference
->    Run** the pass with the better GNSS conditions and the better residuals against control
-> 4. **Re-check against the independent check points afterwards**, because the Run to Adjust has
->    moved
->
-> Step 4 is the one most likely to be skipped, and is why the sequence matters: adjusting a run to
-> match another run changes its residuals against control, and if the reference run was itself
-> slightly off, run-to-run propagates that error faithfully into the run you adjusted.
-
-> **TESTING REQUIRED · T15, T9, T24, T7**
->
-> Which registration type when; whether Target-Bundle Adjustment should be checked; how much
-> overlap run-to-run needs; and whether Registration Auto-Saving is on by default.
+> A registration that needs changing **should** be recomputed from the **imported** trajectory
+> using **Edit**, never layered on a previous result.
 
 > **CAUTION · W-06**
 >
@@ -1188,21 +1333,66 @@ Technical Manual §§17–21.
 >
 > `Targets.csv` holds the registration's observations. **Answering "No" discards the field book.**
 
-## 13.5 Records this section requires
+> **TESTING REQUIRED · T7** — whether Registration Auto-Saving is on by default.
+
+## 14.8 Update Scans
+
+> **CAUTION · W-02**
+>
+> **Registration does not modify the point cloud until Update Scans is performed.**
+>
+> An operator can complete a registration, obtain good residuals, accept the result, and then
+> export point cloud data that still reflects the pre-registration trajectory. **The export
+> succeeds. The file is valid. The data is unregistered.**
+
+> **PARAMETRIX PROCEDURE (PROPOSED) · D-36**
+>
+> **Update Scans should be run before a registration result is inspected, accepted or exported.**
+> The confirmation that it was run is the export gate at §19.2.
+
+## 14.9 Review after registration
+
+| # | | State |
+|---|---|---|
+| 1 | Residuals on **independent check points** are read and recorded, by component | **PROPOSED — D-29** |
+| 2 | The **visual check** is performed against the registered cloud, not the unregistered one | **PROPOSED — D-27** (§16.5) |
+| 3 | Where run-to-run was used, check points are re-read **after** it | **PROPOSED — D-12** (§14.6) |
+
+> **TRIMBLE REQUIREMENT**
+>
+> **"Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the
+> other side, bad RMS values mean that the calibration failed."** *(TBC 24886, 25096)*
+>
+> A registration **shall not** be judged on its residuals alone. The visual check is Trimble's
+> instruction and does not wait on a Parametrix decision.
+
+## 14.10 Records this section requires
 
 | Record | State |
 |---|---|
-| Trajectory processing settings, and the frame and epoch log | **D-55** |
-| Results of Scan Generation | **D-55** |
-| Registration type, trajectory node, SBET filename with its `_reg_####` number | **D-29** |
-| Confirmation that Update Scans was run | **D-36** |
-| `Targets.csv` | **D-55** |
+| Registration name, type, and the runs included | **D-29** |
+| The trajectory node produced, and its SBET filename **with its `_reg_####` number** | **D-29** |
+| **Control and check designation, with the residual on each point, by component** | **D-29** — *no software artefact exists* |
+| Confirmation that **Update Scans** was run | **D-36** |
+| `Targets.csv`, archived | **D-55** |
+| That the visual check was performed, by whom, over what extent | **D-27** — *no software artefact exists* |
+
+## 14.11 Acceptance of a registration
+
+A registration is **accepted** under §17, against the project's stated accuracy requirement, by the
+person with the authority under §4. **Acceptance is not the registrant's** (§17.5).
+
+> **PARAMETRIX DECISION REQUIRED · D-13 · P1**
+>
+> **What constitutes an acceptable registration is not established** (§17.2). Until it is,
+> acceptance rests on documented professional judgement supported by the evidence above — and the
+> decision at §17.2 is whether that is permitted at all.
 
 ---
 
-# 14. Calibration Control
+# 15. Calibration Control
 
-## 14.1 What calibration is, in one line
+## 15.1 What calibration is, in one line
 
 TBC's laser scanner calibration estimates the **angular** offsets between sensors. Lever arms are
 **measured, not estimated** *(Technical Manual §7.6, §20.2)*. A wrong lever arm cannot be
@@ -1211,7 +1401,7 @@ calibrated out, because the adjustment has no parameter for it.
 An angular error acts through range: the same error is ten times larger at 100 m than at 10 m
 *(Technical Manual §3.1)*.
 
-## 14.2 Currency
+## 15.2 Currency
 
 > **PARAMETRIX DECISION REQUIRED · D-26 · P1**
 >
@@ -1221,10 +1411,15 @@ An angular error acts through range: the same error is ten times larger at 100 m
 > the Sensor Unit count as disturbing the calibration?** If the unit comes off the vehicle between
 > jobs, the answer determines whether calibration is an annual event or a per-mobilisation one.
 
-**No mission shall be processed against a calibration whose currency cannot be established.** The
-calibration state in force is captured at intake (§12.3), which is what makes this checkable.
+> **PARAMETRIX PROCEDURE (PROPOSED) · D-26**
+>
+> **No mission should be processed against a calibration whose currency cannot be established.**
 
-## 14.3 The calibration site
+The calibration state in force is captured at intake (§12.3), which is what makes this checkable.
+The proposal is not controversial; what makes it undecided is that **the interval it would be
+checked against does not exist yet.**
+
+## 15.3 The calibration site
 
 > **PARAMETRIX DECISION REQUIRED · D-24**
 >
@@ -1247,7 +1442,7 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 > is real work — reconnaissance, a traffic plan, possibly permission — and doing it once, well,
 > before it is needed under schedule pressure is worth more than the procedure it supports.
 
-## 14.4 Judging a calibration
+## 15.4 Judging a calibration
 
 > **CAUTION**
 >
@@ -1256,10 +1451,13 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 > **"Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886, 25096)*
 >
-> **A calibration shall not be accepted on RMS alone.** The visual check is part of the
-> acceptance, not an optional extra *(Technical Manual §23.1, §25)*.
+> **TRIMBLE REQUIREMENT** — *binding now.* Trimble states that a visual check **is needed**, in
+> identical words in two topics.
+>
+> **A calibration shall not be accepted on RMS alone.** The visual check is part of the acceptance,
+> not an optional extra *(Technical Manual §23.1, §25)*.
 
-## 14.5 The calibration record
+## 15.5 The calibration record
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-55**
 >
@@ -1268,9 +1466,9 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 >
 > It is the complete calibration state of the system in one small file, it can be imported into any
 > subsequent project, and it is the only portable record of what the system's angles were on a
-> given date. Cleanup (§17) or a lost workstation should not take it with them.
+> given date. Cleanup (§18) or a lost workstation should not take it with them.
 
-## 14.6 Periodic system verification
+## 15.6 Periodic system verification
 
 Distinct from per-project QC: the check that the **instrument** is still performing.
 
@@ -1289,7 +1487,7 @@ Distinct from per-project QC: the check that the **instrument** is still perform
 >
 > Whether Trimble or the dealer expects this check specifically, and at what period.
 
-## 14.7 Records this section requires
+## 15.7 Records this section requires
 
 | Record | State |
 |---|---|
@@ -1300,9 +1498,9 @@ Distinct from per-project QC: the check that the **instrument** is still perform
 
 ---
 
-# 15. Quality Control Requirements
+# 16. Quality Control Requirements
 
-## 15.1 The principle this section rests on
+## 16.1 The principle this section rests on
 
 > **CAUTION**
 >
@@ -1319,7 +1517,7 @@ Everything in this section follows from that, and it is why QC here is **layered
 single test. A residual measures how well an adjustment fitted the observations it was given. That
 is a narrower question than the one that matters.
 
-## 15.2 The layers
+## 16.2 The layers
 
 Each layer catches something the others cannot. **None of them is optional because another was
 performed.**
@@ -1333,21 +1531,23 @@ performed.**
 | 5 | **Residuals on independent check points** | An adjustment that fits its own observations and is still wrong | **Recorded manually** |
 | 6 | **Visual inspection of the point cloud** | Doubled surfaces, thickening at range, systematic tilt | **No software artefact** |
 | 7 | **Imagery inspection** | Coverage gaps, exposure, blur, corrupted images | **No software artefact** |
-| 8 | **Export-state confirmation** (§18.2) | Delivering the unregistered cloud | Screen capture |
+| 8 | **Export-state confirmation** (§19.2) | Delivering the unregistered cloud | Screen capture |
 
 > **Two of the eight layers produce no software artefact at all.** If a reviewer asks whether the
 > visual check was performed and over what extent, the only possible answer is a record somebody
 > wrote.
 
-## 15.3 Trajectory RMS review
+## 16.3 Trajectory RMS review
 
-**The trajectory shall be reviewed in RMS colouring before the point cloud is inspected.**
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> **The trajectory should be reviewed in RMS colouring before the point cloud is inspected.**
 
 It is available before any point cloud exists, it costs seconds, and it says where the solution
 degraded, for how long, and whether the degradation is at the ends of the mission
 *(Technical Manual §24)*. That determines where to look in every later layer.
 
-## 15.4 Residuals
+## 16.4 Residuals
 
 | | |
 |---|---|
@@ -1362,7 +1562,7 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 > produced as a report, or must be transcribed by hand, determines how this record is kept.**
 > Answerable in ten minutes with the software open.
 
-## 15.5 Visual inspection
+## 16.5 Visual inspection
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-27**
 >
@@ -1397,7 +1597,7 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 > **The corridor continuity inspection method and its coverage** — how much of a corridor is
 > inspected, and how that is decided.
 
-## 15.6 Imagery inspection
+## 16.6 Imagery inspection
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-27**
 >
@@ -1416,12 +1616,19 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 > Whether the proposed **file-size scan** for detecting silently corrupted imagery is adopted. It is
 > a screening method proposed by this project and **not validated** *(Technical Manual §26)*.
 
-## 15.7 What QC shall not do
+## 16.7 What QC does not do
 
-**A QC layer shall not be substituted by another.** In particular, good residuals do not remove the
-requirement for visual inspection, for the reason in §15.1.
+> **TRIMBLE REQUIREMENT** — *the visual check is Trimble's instruction, not ours*
+>
+> Good residuals **shall not** be treated as removing the need for visual inspection. Trimble
+> states that a visual check is needed, and says so in identical words in two topics (§16.1).
 
-## 15.8 Records this section requires
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> More generally, **a QC layer should not be substituted by another.** Each catches something the
+> others cannot, and which layers Parametrix requires is **D-27** and **D-39**.
+
+## 16.8 Records this section requires
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-29**
 >
@@ -1437,13 +1644,13 @@ requirement for visual inspection, for the reason in §15.1.
 > | **Visual check performed, by whom, covering what extent** | **No software artefact exists** |
 > | **Imagery check performed, by whom** | **No software artefact exists** |
 > | Results of Scan Generation | §13.3 |
-> | Mission Report | §17.3 |
+> | Mission Report | §18.3 |
 
 ---
 
-# 16. Acceptance and Approval
+# 17. Acceptance and Approval
 
-## 16.1 What acceptance is
+## 17.1 What acceptance is
 
 **Acceptance is the point at which the data becomes the deliverable.** It is a decision by a named
 person, recorded, that a dataset meets the project's stated accuracy requirement (§6.1).
@@ -1451,30 +1658,57 @@ person, recorded, that a dataset meets the project's stated accuracy requirement
 Acceptance is always **against a requirement**. A dataset is not accepted because it looks good, or
 because the residuals are small, or because the schedule has run out.
 
-## 16.2 The criterion is not established
+## 17.2 The criterion is not established — and the decision that follows from it
 
-> **PARAMETRIX DECISION REQUIRED · D-13 · P1 · blocks operation**
+> **PARAMETRIX DECISION REQUIRED · D-13 · P1 · blocks formal acceptance**
 >
 > **What constitutes an acceptable registration, and an acceptable point cloud?**
 >
 > **This SOP states no numerical acceptance tolerance, and one has not been invented.**
->
-> | | |
-> |---|---|
-> | Trimble publishes **no acceptance tolerance** for the MX60 | The published figures are instrument performance under stated conditions, not deliverable acceptance criteria |
-> | Trimble publishes **no attitude error budget** for the point cloud | So a useful range for a given tolerance cannot be calculated from the documentation *(Technical Manual §16.5)* |
-> | The relationship between achieved accuracy and GNSS conditions on this system **has not been tested** | **T31** |
-> | Which features are fit for horizontal or vertical control at MX60 density **has not been tested** | **T25** |
->
-> Until D-13 is answered, **a Parametrix accuracy statement for an MX60 deliverable rests on the
-> judgement of the person signing it**, supported by the evidence in §15 — and that should be
-> understood by whoever signs it and whoever receives it.
+
+### What is established
+
+| | |
+|---|---|
+| Trimble publishes **no acceptance tolerance** for the MX60 | Its published figures are **instrument performance under stated conditions**, which is not a project acceptance criterion |
+| Trimble publishes **no attitude error budget** for the point cloud | A useful range for a given tolerance therefore cannot be calculated from the documentation *(Technical Manual §16.5)* |
+| **A good RMS does not prove success** | Trimble states it twice, in identical words. Only observations held out of the adjustment, and looking at the data, can suggest success *(Technical Manual §23)* |
+| The relationship between achieved accuracy and GNSS conditions on this system **has not been tested** | **T31** |
+| Which features are fit for horizontal or vertical control at MX60 density **has not been tested** | **T25** |
 
 > **A number here would be worse than the gap.** An invented tolerance would be quoted, relied on
-> and eventually defended, and there is nothing behind it. The gap is visible; a fabricated
+> and eventually defended, and there would be nothing behind it. The gap is visible; a fabricated
 > threshold would not be.
 
-## 16.3 What acceptance requires regardless
+### The decision Parametrix has to make
+
+The absence of a general standard does not by itself say whether work may proceed. **That is a
+separate question, and it is the one that is actually blocking:**
+
+> ### Until a general Parametrix acceptance standard exists, may MX60 work be accepted against a **project-specific written accuracy requirement**, using independent check evidence, visual QC and documented professional judgement?
+
+| | Outcome | What it means in practice |
+|---|---|---|
+| **A** | **No.** | MX60 survey-grade delivery is **blocked** until a corporate acceptance framework is adopted. The system may still be used for work where no accuracy claim is made |
+| **B** | **Yes, project by project.** | Interim acceptance is permitted where the accuracy requirement is **stated in writing before collection** and the acceptance evidence at §17.3 is documented. Each acceptance stands on its own project record, not on a company standard |
+| **C** | **Another Parametrix-approved interim framework.** | For example a tiered scheme, an approver-limited scheme, or acceptance restricted to named clients or work types |
+
+> **This SOP does not choose between A, B and C, and no other document in the set implies a
+> choice.** The decision is Parametrix's, it is recorded in Appendix A, and it changes §17.3 from
+> proposed to adopted the day it is made.
+
+### What is true under every outcome
+
+**D-13 blocks formal acceptance. It does not block operating the system.** Data may be collected,
+processed, registered and inspected with D-13 open. What cannot happen while it is open is a
+**formal acceptance** and, with it, an accuracy claim that rests on a Parametrix standard rather
+than on one person's documented judgement.
+
+> **Whoever signs an accuracy statement today is signing on their own professional judgement,
+> supported by the evidence in §16 — not on a Parametrix standard, because there is not one.**
+> That should be understood by the person signing and by whoever receives it.
+
+## 17.3 What acceptance requires regardless
 
 Even without D-13, five things are required before a dataset is accepted. These are structural and
 do not depend on the number.
@@ -1483,31 +1717,31 @@ do not depend on the number.
 |---|---|---|
 | 1 | The project's **accuracy requirement is stated in writing** (§6.1) | **PROPOSED — D-13** |
 | 2 | **Independent check points exist**, were designated before registration, and took no part in any adjustment (§7.3) | **PROPOSED — D-15** |
-| 3 | **Residuals on those check points are recorded**, by component (§15.4) | **PROPOSED — D-29** |
-| 4 | **The visual inspection was performed and recorded** (§15.5) | **PROPOSED — D-27** |
+| 3 | **Residuals on those check points are recorded**, by component (§16.4) | **PROPOSED — D-29** |
+| 4 | **The visual inspection was performed and recorded** (§16.5) | **PROPOSED — D-27** |
 | 5 | **Update Scans was run**, and the accepted cloud is the registered one (§13.4) | **PROPOSED — D-36** |
 
 > **Requirement 2 is the one that cannot be recovered afterwards.** If no point was held out, the
 > dataset cannot be checked later without re-surveying, because every point it might be checked
 > against helped produce it.
 
-## 16.4 What acceptance shall not rest on
+## 17.4 What acceptance does not rest on
 
 | | Why |
 |---|---|
-| **RMS alone** | A good RMS does not prove success; Trimble says so twice (§15.1) |
+| **RMS alone** | **TRIMBLE REQUIREMENT** — a visual check is needed. Trimble says so twice, in identical words (§16.1) |
 | **Residuals on control points used in the adjustment** | They measure the fit of the adjustment to observations it was given |
 | **A clean-looking point cloud** | Mobile mapping data does not look wrong when it is wrong *(Technical Manual §3.2)* |
 | **Agreement between two passes** | Two passes can agree with each other and both be displaced, if the trajectory was drifting through the stretch |
 
-## 16.5 Who accepts
+## 17.5 Who accepts
 
 > **PARAMETRIX DECISION REQUIRED · D-3**
 >
 > Who may accept a registration, and who signs an accuracy statement. Proposed at §4.2: the
 > Project Surveyor, and not the person who computed the registration.
 
-## 16.6 The accuracy statement
+## 17.6 The accuracy statement
 
 An accuracy statement issued to a client states:
 
@@ -1517,13 +1751,13 @@ An accuracy statement issued to a client states:
 | **The evidence** — residuals on independent check points, by component | |
 | **The basis of the check** — how many points, where, in which GNSS environments | |
 | The extent it applies to | Accuracy is not uniform along a corridor *(Technical Manual §3)* |
-| Any segment excluded, and why | §8.6, §21 |
+| Any segment excluded, and why | §8.6, §22 |
 
 > **Accuracy varies along the corridor.** A single figure for a whole corridor implies a uniformity
 > the method does not have. Where the statement is a single figure, the extent and the conditions
 > it applies to are stated with it.
 
-## 16.7 Records this section requires
+## 17.7 Records this section requires
 
 | Record | State |
 |---|---|
@@ -1533,9 +1767,9 @@ An accuracy statement issued to a client states:
 
 ---
 
-# 17. Destructive Operation Controls
+# 18. Destructive Operation Controls
 
-## 17.1 What this section governs
+## 18.1 What this section governs
 
 An operation that removes data or history and cannot be undone within the software. In the MX60
 workflow, one command is in this class.
@@ -1548,11 +1782,11 @@ workflow, one command is in this class.
 > the most recent. Trimble states: *"Please, have a backup copy of your project prior performing
 > the operation, it cannot be undone."* *(TBC 26466)*
 
-Clearing a data disk before a verified copy exists (§11.2) and deleting raw mission data (§20) are
+Clearing a data disk before a verified copy exists (§11.2) and deleting raw mission data (§21) are
 destructive in the same sense, and are governed by the same principle: **authorisation, and the
 record made before the act, not after.**
 
-## 17.2 Authorisation
+## 18.2 Authorisation
 
 > **PARAMETRIX DECISION REQUIRED · D-35 · P1 · blocks operation**
 >
@@ -1560,10 +1794,13 @@ record made before the act, not after.**
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-3, D-35**
 >
-> **Cleanup shall not be run without written authorisation** from the person with the authority
+> **Cleanup should not be run without written authorisation** from the person with the authority
 > under §4 — proposed there as the Project Surveyor. "In writing" carries the meaning in §3.3.
+>
+> **The verb is *should* because the authority does not exist yet.** D-35 blocks this operation:
+> until Parametrix names who may authorise a Cleanup, there is nobody for the clause to name.
 
-## 17.3 What is archived first
+## 18.3 What is archived first
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-35**
 >
@@ -1571,14 +1808,14 @@ record made before the act, not after.**
 >
 > | # | Step | Why in this order |
 > |---|---|---|
-> | 1 | **Complete and accept QC** (§15, §16) | Cleanup is an end-of-preparation step. Running it before acceptance removes the alternatives you might need to go back to |
+> | 1 | **Complete and accept QC** (§16, §17) | Cleanup is an end-of-preparation step. Running it before acceptance removes the alternatives you might need to go back to |
 > | 2 | **Run the Mission Report and archive it** | It records capture devices, runs, trajectories, generated scans, and per-sensor calibration with date *(TBC 23991_1, 24868)*. **Run it before Cleanup** — afterwards it can only report what survives |
-> | 3 | **Record the registration evidence** (§15.8) | Control/check designation and residuals. TBC does not appear to report these |
+> | 3 | **Record the registration evidence** (§16.8) | Control/check designation and residuals. TBC does not appear to report these |
 > | 4 | **Archive `Targets.csv`** *(TBC 22905)* | The picked registration observations — the registration's field book, and not recoverable |
 > | 5 | **Archive the numbered SBET files** `sbet_<date>_reg_####.out` | Pending **T28**, assume Cleanup removes them |
-> | 6 | **Archive the calibration JSON** (§14.5) | The system state the mission was processed under |
-> | 7 | **Take the project backup Trimble asks for**, to a location that is part of the project archive (§20) | A backup nobody can find is not a backup. Not a local copy on the processor's machine |
-> | 8 | **Obtain the authorisation** §17.2 requires | |
+> | 6 | **Archive the calibration JSON** (§15.5) | The system state the mission was processed under |
+> | 7 | **Take the project backup Trimble asks for**, to a location that is part of the project archive (§21) | A backup nobody can find is not a backup. Not a local copy on the processor's machine |
+> | 8 | **Obtain the authorisation** §18.2 requires | |
 > | 9 | **Run Cleanup** | |
 > | 10 | **Record that it was run** — by whom, on what date, and what was archived first | Otherwise the absence of history is itself unexplained |
 >
@@ -1591,16 +1828,16 @@ record made before the act, not after.**
 > **Does Cleanup delete `sbet_*_reg_####.out` from storage, or only remove the project objects?**
 > The answer determines what step 5 has to cover. Until it is known, assume the worse case.
 
-## 17.4 Why this matters more here than elsewhere
+## 18.4 Why this matters more here than elsewhere
 
 Cleanup removes the evidence of how a deliverable was produced, and MX60 provenance is already the
 hardest part of this workflow *(Technical Manual §30)*. A project that has been cleaned up can no
 longer show which of several trajectories a delivered cloud was built on, because the alternatives
 are gone along with the record of which one was chosen.
 
-**That is not an argument against running Cleanup.** It is the argument for §17.3.
+**That is not an argument against running Cleanup.** It is the argument for §18.3.
 
-## 17.5 Records this section requires
+## 18.5 Records this section requires
 
 | Record | State |
 |---|---|
@@ -1610,14 +1847,14 @@ are gone along with the record of which one was chosen.
 
 ---
 
-# 18. Export and Delivery Controls
+# 19. Export and Delivery Controls
 
-## 18.1 The release gate
+## 19.1 The release gate
 
 **Export is the last point at which a mistake is still internal.** This section is a gate, not a
 procedure: the method is in the Office How To.
 
-## 18.2 Before any export
+## 19.2 Before any export
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-36**
 >
@@ -1645,7 +1882,7 @@ procedure: the method is in the Office How To.
 > Point Cloud tab selection is drawn across scans belonging to two different trajectories. Neither
 > is documented.
 
-## 18.3 Export timestamps
+## 19.3 Export timestamps
 
 > **CAUTION · W-03**
 >
@@ -1660,25 +1897,31 @@ procedure: the method is in the Office How To.
 >
 > Export the same registered run twice, timestamps off and on, and compare point geometry.
 >
-> **Until T18 is answered, an export with timestamps enabled shall be treated as unverified**
-> against the checked dataset, and the option shall not be enabled on a delivered dataset without
-> a recorded reason.
+> **TESTING REQUIRED · T18 — and an interim posture until it is answered**
+>
+> **An export with timestamps enabled should be treated as unverified** against the checked
+> dataset, and the option **should not** be enabled on a delivered dataset without a recorded
+> reason.
+>
+> This is an interim posture, not a Parametrix rule and not a Trimble one. It exists because
+> Trimble documents a behaviour whose consequence it does not state, and it is withdrawn the day
+> T18 is answered — in either direction.
 
-## 18.4 What the delivery carries
+## 19.4 What the delivery carries
 
 | | Requirement | State |
 |---|---|---|
 | Grid or ground, as agreed (§6.3) | A ground-scaled export **does not record the scale factor it used**; a grid export writes a sidecar | **D-38** |
 | The coordinate reference system, datum and epoch | Stated in the delivery, not only in the file | **D-38** |
-| The delivery record (§19) | | **D-29** |
-| The accuracy statement (§16.6) | Where accuracy is relied on | **D-13** |
+| The delivery record (§20) | | **D-29** |
+| The accuracy statement (§17.6) | Where accuracy is relied on | **D-13** |
 
 > **PARAMETRIX DECISION REQUIRED · D-38**
 >
 > **Deliverable specification** — standard formats, which export path produces each, and the
 > default scaling.
 
-## 18.5 Provenance limitation, stated plainly
+## 19.5 Provenance limitation, stated plainly
 
 > **IMPORTANT**
 >
@@ -1686,7 +1929,7 @@ procedure: the method is in the Office How To.
 > information, but the captured Trimble documentation does not establish that the output uniquely
 > identifies the adjusted trajectory or registration result used to create it.**
 >
-> That is why the delivery record in §19 exists, and why it is not optional.
+> That is why the delivery record in §20 exists, and why it is not optional.
 
 > **TESTING REQUIRED · T19, T22, T26, T30**
 >
@@ -1694,7 +1937,7 @@ procedure: the method is in the Office How To.
 > header, VLRs and sidecar; whether exported imagery reflects a registration; and whether a
 > delivered dataset can be matched back to its trajectory after the fact.
 
-## 18.6 Imagery
+## 19.6 Imagery
 
 > **PARAMETRIX DECISION REQUIRED · D-32 · P1**
 >
@@ -1702,12 +1945,12 @@ procedure: the method is in the Office How To.
 > how long? Mobile mapping imagery captures faces, number plates and private property as a matter
 > of course. **The decision is made before collection, not on request.**
 
-## 18.7 Records this section requires
+## 19.7 Records this section requires
 
 | Record | State |
 |---|---|
 | Export-state confirmation, before export | **D-36** |
-| The delivery record — §19 | **D-29** |
+| The delivery record — §20 | **D-29** |
 | What was delivered, to whom, when, in what format and scaling | **D-38** |
 
 ---
@@ -1722,9 +1965,9 @@ procedure: the method is in the Office How To.
 
 ---
 
-# 19. Documentation and Records
+# 20. Documentation and Records
 
-## 19.1 Why the record carries unusual weight here
+## 20.1 Why the record carries unusual weight here
 
 In conventional survey work the observations are the record: field notes, raw files, an adjustment
 report. In mobile mapping, several of the things that determine whether a deliverable is correct
@@ -1740,7 +1983,7 @@ report. In mobile mapping, several of the things that determine whether a delive
 
 **Those five facts are either written down at the time or lost.**
 
-## 19.2 The record package
+## 20.2 The record package
 
 > **PARAMETRIX DECISION REQUIRED · D-29 · P1**
 >
@@ -1754,16 +1997,16 @@ report. In mobile mapping, several of the things that determine whether a delive
 > |---|---|---|
 > | 1 | **A one-page delivery record** per dataset: mission ID, trajectory node name, SBET filename including its `_reg_####` number, registration type, export path and date, exported by whom | kB |
 > | 2 | **The control and check table** — point ID, Use XY, Use Z, As Check, and the residual on each | kB |
-> | 3 | **The Mission Report**, run **before** Cleanup (§17.3) | kB |
-> | 4 | **The calibration JSON** in force (§14.5) | kB |
-> | 5 | **`Targets.csv`** (§17.3) | kB |
+> | 3 | **The Mission Report**, run **before** Cleanup (§18.3) | kB |
+> | 4 | **The calibration JSON** in force (§15.5) | kB |
+> | 5 | **`Targets.csv`** (§18.3) | kB |
 > | 6 | **The field record** (§9.6) | kB |
-> | 7 | **The QC record** (§15.8), including the two layers with no software artefact | kB |
+> | 7 | **The QC record** (§16.8), including the two layers with no software artefact | kB |
 >
 > Seven artefacts. Five of them are small files that already exist; two are written by a person.
 > **The whole package is a few hundred kilobytes.**
 
-## 19.3 Where records live
+## 20.3 Where records live
 
 **In the project record** (§3.3) — durable, not on a processor's local machine, and findable by
 someone who was not involved.
@@ -1772,16 +2015,16 @@ someone who was not involved.
 >
 > Folder structure, naming and storage location (§11.4).
 
-## 19.4 When they are made
+## 20.4 When they are made
 
 **At the time.** A record reconstructed later is a reconstruction, and the facts most worth having
 are exactly the ones that cannot be reconstructed.
 
-## 19.5 Index of records this procedure requires
+## 20.5 Index of records this procedure requires
 
 The full index, section by section, is **Appendix B**.
 
-## 19.6 What a record is for
+## 20.6 What a record is for
 
 Not compliance. Three specific uses, each of which has happened to somebody:
 
@@ -1791,19 +2034,19 @@ Not compliance. Three specific uses, each of which has happened to somebody:
 | **A test result that changes what a past deliverable means** | **T18** and **T19** both have this shape. If either returns a result meaning a past export was not what it was believed to be, the record is what identifies which deliverables are affected |
 | **Improving the work** | The relationship between GNSS conditions, control density and achieved accuracy on Parametrix corridors is not published anywhere and cannot be, because it is specific to this system and these roads. It can only be learned from a record of what was done and what came out |
 
-## 19.7 Records this section requires
+## 20.7 Records this section requires
 
 | Record | State |
 |---|---|
-| The delivery record, per §19.2 | **D-29** |
+| The delivery record, per §20.2 | **D-29** |
 | The control and check table, with residuals | **D-29** |
 | Where the record package lives for a given project | **D-53** |
 
 ---
 
-# 20. Retention and Archive
+# 21. Retention and Archive
 
-## 20.1 What has to survive, and for how long
+## 21.1 What has to survive, and for how long
 
 > **PARAMETRIX DECISION REQUIRED · D-55 · P1**
 >
@@ -1812,7 +2055,7 @@ Not compliance. Three specific uses, each of which has happened to somebody:
 The decision is genuinely a decision — storage cost against the ability to reprocess — but it
 divides cleanly, because the artefacts fall into three tiers of very different size.
 
-## 20.2 The three tiers
+## 21.2 The three tiers
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-55**
 
@@ -1825,8 +2068,8 @@ divides cleanly, because the artefacts fall into three tiers of very different s
 | Mission Report, run **before** Cleanup | kB |
 | Calibration JSON in force at processing | kB |
 | Results of Scan Generation | kB |
-| Delivery record (§19.2) | kB |
-| QC record (§15.8) | kB |
+| Delivery record (§20.2) | kB |
+| QC record (§16.8) | kB |
 | The accuracy statement issued to the client | kB |
 
 > **The whole of Tier 1 is a few hundred kilobytes.** There is no storage argument against
@@ -1853,13 +2096,18 @@ divides cleanly, because the artefacts fall into three tiers of very different s
 > better trajectory later is possible — from better base data, a POSPac upgrade, or LiDAR QC.
 > Discarding it means the deliverable is final in a way it need not have been.
 
-## 20.3 What shall not be discarded on judgement
+## 21.3 What is not discarded on one person's judgement
 
-**`POS_1/raw/` and `Targets.csv` shall not be deleted by an individual acting alone.** Both are
-irreplaceable: one cannot be recomputed and the other was picked by a person and would be different
-if picked again *(Technical Manual §5.4)*.
+> **PARAMETRIX PROCEDURE (PROPOSED) · D-55**
+>
+> **`POS_1/raw/` and `Targets.csv` should not be deleted by an individual acting alone.**
 
-## 20.4 The archive record
+Both are irreplaceable, and the reason is a fact about the data rather than a policy: one cannot be
+recomputed from anything, and the other was picked by a person and would be different if picked
+again *(Technical Manual §5.4)*. **What the proposal needs from Parametrix is who else has to
+agree**, which is part of D-55.
+
+## 21.4 The archive record
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-55**
 >
@@ -1869,7 +2117,7 @@ if picked again *(Technical Manual §5.4)*.
 >
 > **Without it, the archive is a folder somebody has to reverse-engineer.**
 
-## 20.5 Records this section requires
+## 21.5 Records this section requires
 
 | Record | State |
 |---|---|
@@ -1879,18 +2127,18 @@ if picked again *(Technical Manual §5.4)*.
 
 ---
 
-# 21. Non-conformance and Re-collection
+# 22. Non-conformance and Re-collection
 
-## 21.1 What counts
+## 22.1 What counts
 
 A non-conformance is a departure from a **shall** in this procedure, or a dataset that does not
-meet the project's accuracy requirement (§16).
+meet the project's accuracy requirement (§17).
 
 It is not a non-conformance to be unable to meet a requirement that has not been adopted. At this
 revision that covers most of this document, which is a reason to answer the decisions rather than a
 reason to relax.
 
-## 21.2 Raise it, do not absorb it
+## 22.2 Raise it, do not absorb it
 
 **Anyone who identifies a non-conformance raises it.** The person who finds it is frequently the
 person who caused it, and the procedure is designed so that raising it is the normal thing to do.
@@ -1898,17 +2146,17 @@ person who caused it, and the procedure is designed so that raising it is the no
 > **A non-conformance that is fixed quietly leaves no trace that the workflow failed** — which
 > means it will happen again, to somebody else, on a job where it costs more.
 
-## 21.3 The two categories
+## 22.3 The two categories
 
 | | |
 |---|---|
-| **Recoverable in the office** | Reprocess the trajectory, regenerate scans, re-register, re-export. Costs hours. **Requires that the raw data was retained** (§20) |
+| **Recoverable in the office** | Reprocess the trajectory, regenerate scans, re-register, re-export. Costs hours. **Requires that the raw data was retained** (§21) |
 | **Recoverable only in the field** | Missing coverage, missing overlap, a mission with no closing sequence, a weak initialization. Costs a mobilisation |
 
 The second category is why §10 exists: **the field stage is the only stage with no office remedy**
 *(Technical Manual §5.5)*.
 
-## 21.4 Re-collection
+## 22.4 Re-collection
 
 > **PARAMETRIX DECISION REQUIRED · D-3, D-34**
 >
@@ -1917,7 +2165,7 @@ The second category is why §10 exists: **the field stage is the only stage with
 > The decision is uncomfortable and is therefore the one most likely to be deferred until it is
 > more expensive. Naming the decision-maker in advance is most of the control.
 
-## 21.5 When a segment cannot be served
+## 22.5 When a segment cannot be served
 
 Where a corridor segment produces an unacceptable trajectory and no remedy applies, the honest
 finding is that **mobile mapping may not be the appropriate acquisition method for that segment**.
@@ -1928,7 +2176,7 @@ finding is that **mobile mapping may not be the appropriate acquisition method f
 > counterpart is §8.6 — identifying such segments before mobilising is much cheaper than finding
 > them afterwards.
 
-## 21.6 When a test result changes what a past deliverable means
+## 22.6 When a test result changes what a past deliverable means
 
 Two open tests have this shape: **T18** (whether exporting with timestamps substitutes reprocessed
 data) and **T19** (which trajectory travels with an export or publish).
@@ -1942,7 +2190,7 @@ data) and **T19** (which trajectory travels with an export or publish).
 > **The decision about what a client is told is not the tester's to make**, and it is not specified
 > here. Who it escalates to is part of **D-3**.
 
-## 21.7 Records this section requires
+## 22.7 Records this section requires
 
 | Record | State |
 |---|---|
@@ -1976,7 +2224,7 @@ answerable by evidence are the Technical Manual's Appendix E, and are not repeat
 | Decisions open | **34** |
 | **Adopted** | **0** |
 | Priority P1 | 20 |
-| Blocking an operation | 9 |
+| Blocking something | 9 |
 
 > **CAUTION**
 >
@@ -1996,26 +2244,30 @@ anything**, because it is regenerated from the register.
 | — | *No decision has been adopted at this revision.* | — | — |
 
 
-## A2 · Decisions that block operation
+## A2 · Decisions that block something
 
-9 of the 34 decisions block an operation: work cannot proceed correctly
-until they are settled, as distinct from work being harder without them.
+9 of the 34 decisions block something. **"Blocking" is not one thing** —
+an item that stops a crew leaving the yard and an item that stops a signature at the end are both
+blockers, and treating them alike hides which have to be answered first.
 
-| ID | Decision | SOP § |
-|---|---|---|
-| **D-2** | Which MX60 configuration is ours - Core, Pro or Premium? Are GAMS and DMI fitted? Which rack? | §6.4 |
-| **D-10** | Do we hold a POSPac MMS 8.6+ licence, and where is it installed? | §13.1 |
-| **D-13** | What constitutes an acceptable registration and an acceptable point cloud? | §16.2 |
-| **D-16** | Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions? | §7.4 |
-| **D-19** | IN-Fusion+ Single Base or PP-RTX? | §6.2 |
-| **D-21** | Which datum and epoch do we work in, who sets it, who checks it? | §6.2 |
-| **D-35** | When may Cleanup be performed, by whom, and what must be archived first? | §17.2 |
-| **D-41** | How many passes, in what pattern, by roadway type? | §8.2 |
-| **D-42** | Base station strategy and maximum baseline? | §8.5 |
+**Nothing here blocks operating the MX60 or inspecting what it collects.** What these items prevent
+is a defensible accuracy claim and a formal acceptance.
+
+| ID | What is blocked | Decision | SOP § |
+|---|---|---|---|
+| **D-2** | delivery for a stated accuracy purpose | Which MX60 configuration is ours - Core, Pro or Premium? Are GAMS and DMI fitted? Which rack? | §6.4 |
+| **D-10** | processing | Do we hold a POSPac MMS 8.6+ licence, and where is it installed? | §13.1 |
+| **D-13** | formal acceptance | What constitutes an acceptable registration and an acceptable point cloud? | §14.11, §17.2 |
+| **D-16** | delivery for a stated accuracy purpose | Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions? | §7.4 |
+| **D-19** | collection | IN-Fusion+ Single Base or PP-RTX? | §6.2, §13.1 |
+| **D-21** | processing | Which datum and epoch do we work in, who sets it, who checks it? | §6.2 |
+| **D-35** | one workflow branch | When may Cleanup be performed, by whom, and what must be archived first? | §18.2 |
+| **D-41** | collection | How many passes, in what pattern, by roadway type? | §8.2 |
+| **D-42** | collection | Base station strategy and maximum baseline? | §8.5 |
 
 ## A3 · The full register
 
-### D-1 · Who owns this SOP, who approves revisions, on what review cycle? · SOP §2
+### D-1 · Who owns this SOP, who approves revisions, on what review cycle? · SOP §1.6, §2.2
 
 **P2** · open
 
@@ -2025,7 +2277,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-2 · Which MX60 configuration is ours - Core, Pro or Premium? Are GAMS and DMI fitted? Which rack? · SOP §6.4
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks delivery for a stated accuracy purpose**
 
 **Why it matters.** Panoramic imagery is 8192x4096 on Core and 12288x6144 on Pro/Premium. Changes every imagery and accuracy statement
 
@@ -2033,7 +2285,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: system · Documents: Manual; SOP; Field; Office*
 
-### D-3 · Roles and authorities - who may operate, register, accept a registration, run Cleanup, sign the accuracy statement, own calibration currency · SOP §4.2
+### D-3 · Roles and authorities - who may operate, register, accept a registration, run Cleanup, sign the accuracy statement, own calibration currency · SOP §4.2, §5.2, §5.4, §14.2, §17.5, §22.4
 
 **P1** · open
 
@@ -2043,7 +2295,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-10 · Do we hold a POSPac MMS 8.6+ licence, and where is it installed? · SOP §13.1
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks processing**
 
 **Why it matters.** Determines whether trajectory processing and PFIX are available at all, and removes one of three degraded-GNSS remedies
 
@@ -2061,7 +2313,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: trajectory processing · Documents: Manual; SOP*
 
-### D-12 · Registration command selection - is Register a Mission the corridor default, and where does run-to-run sit? · SOP §13.4
+### D-12 · Registration command selection - is Register a Mission the corridor default, and where does run-to-run sit? · SOP §14.4
 
 **P2** · open
 
@@ -2071,9 +2323,9 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: registration · Documents: Manual; SOP; Office*
 
-### D-13 · What constitutes an acceptable registration and an acceptable point cloud? · SOP §16.2
+### D-13 · What constitutes an acceptable registration and an acceptable point cloud? · SOP §14.11, §17.2
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks formal acceptance**
 
 **Why it matters.** No Trimble source provides a threshold. Must combine residuals, independent checks, visual inspection and the project accuracy requirement
 
@@ -2081,7 +2333,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: QC · Documents: Manual; SOP; Office*
 
-### D-15 · Is the control/check designation fixed before registration and unchangeable during it? · SOP §7.3
+### D-15 · Is the control/check designation fixed before registration and unchangeable during it? · SOP §4.3
 
 **P1** · open
 
@@ -2093,7 +2345,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-16 · Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions? · SOP §7.4
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks delivery for a stated accuracy purpose**
 
 **Why it matters.** No Trimble source states any. TBC minimum of one pair is a mathematical floor. Local does not extrapolate
 
@@ -2111,9 +2363,9 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: intake · Documents: SOP; Office*
 
-### D-19 · IN-Fusion+ Single Base or PP-RTX? · SOP §6.2
+### D-19 · IN-Fusion+ Single Base or PP-RTX? · SOP §6.2, §13.1
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks collection**
 
 **Why it matters.** Determines whether a base station is occupied every mission, and the reference frame the solution is computed in
 
@@ -2123,7 +2375,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-21 · Which datum and epoch do we work in, who sets it, who checks it? · SOP §6.2
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks processing**
 
 **Why it matters.** A silent failure mode (the ITRF00 path) plus a user-settable epoch control Trimble flags as risky
 
@@ -2141,7 +2393,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: scan generation · Documents: Manual; SOP; Office*
 
-### D-24 · Where is the calibration site, and who maintains it? · SOP §14.3
+### D-24 · Where is the calibration site, and who maintains it? · SOP §15.3
 
 **P2** · open
 
@@ -2151,7 +2403,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: calibration · Documents: Manual; SOP; Office*
 
-### D-26 · Recalibration interval and triggers - does daily removal of the Sensor Unit count as disturbing it? What happens to data collected on a stale calibration? · SOP §14.2
+### D-26 · Recalibration interval and triggers - does daily removal of the Sensor Unit count as disturbing it? What happens to data collected on a stale calibration? · SOP §15.2
 
 **P1** · open
 
@@ -2161,7 +2413,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: calibration · Documents: Manual; SOP; Field; Office*
 
-### D-27 · QC inspection content - what does a visual point-cloud QC pass cover, and an imagery QC pass? · SOP §15.5
+### D-27 · QC inspection content - what does a visual point-cloud QC pass cover, and an imagery QC pass? · SOP §14.9
 
 **P2** · open
 
@@ -2171,7 +2423,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: QC · Documents: Manual; SOP; Office*
 
-### D-28 · Is the retro-reflective target check our periodic verification, and at what interval? · SOP §14.6
+### D-28 · Is the retro-reflective target check our periodic verification, and at what interval? · SOP §15.6
 
 **P2** · open
 
@@ -2181,7 +2433,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: calibration · Documents: Manual; SOP*
 
-### D-29 · The record package - what provenance record accompanies a deliverable, where does it live, and where is the control/check designation and its residuals recorded? · SOP §19.2
+### D-29 · The record package - what provenance record accompanies a deliverable, where does it live, and where is the control/check designation and its residuals recorded? · SOP §20.2
 
 **P1** · open
 
@@ -2191,7 +2443,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: provenance · Documents: Manual; SOP; Office*
 
-### D-31 · Is the imagery file-size scan adopted? · SOP §15.6
+### D-31 · Is the imagery file-size scan adopted? · SOP §16.6
 
 **P3** · open
 
@@ -2201,7 +2453,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: QC · Documents: Manual; SOP; Office*
 
-### D-32 · What is our position on imagery privacy? Are unblurred originals retained, and for how long? · SOP §18.6
+### D-32 · What is our position on imagery privacy? Are unblurred originals retained, and for how long? · SOP §19.6
 
 **P1** · open
 
@@ -2211,7 +2463,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: export · Documents: Manual; SOP; Office*
 
-### D-34 · Handling segments mobile mapping cannot serve - the decision rule when a corridor produces an unacceptable trajectory, and whether marginal segments are recorded before mobilising · SOP §8.6
+### D-34 · Handling segments mobile mapping cannot serve - the decision rule when a corridor produces an unacceptable trajectory, and whether marginal segments are recorded before mobilising · SOP §8.6, §22.4, §22.5
 
 **P2** · open
 
@@ -2219,9 +2471,9 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: mission planning · Documents: Manual; SOP; Field; Office*
 
-### D-35 · When may Cleanup be performed, by whom, and what must be archived first? · SOP §17.2
+### D-35 · When may Cleanup be performed, by whom, and what must be archived first? · SOP §18.2
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks one workflow branch**
 
 **Why it matters.** Destructive, not undoable, reduces registration history at the moment the project is handed on
 
@@ -2229,7 +2481,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: cleanup · Documents: Manual; SOP; Office*
 
-### D-36 · The export release gate - is the pre-export trajectory-node confirmation mandatory, and may exports be made with Export timestamps enabled before T18 resolves? · SOP §18.2
+### D-36 · The export release gate - is the pre-export trajectory-node confirmation mandatory, and may exports be made with Export timestamps enabled before T18 resolves? · SOP §19.2
 
 **P1** · open
 
@@ -2239,7 +2491,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: export · Documents: Manual; SOP; Office*
 
-### D-38 · Deliverable specification - standard formats, which export path produces each, and default scaling · SOP §18.4
+### D-38 · Deliverable specification - standard formats, which export path produces each, and default scaling · SOP §6.3, §19.4
 
 **P2** · open
 
@@ -2249,7 +2501,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: export · Documents: Manual; SOP; Office*
 
-### D-39 · What is the corridor continuity inspection method and coverage? · SOP §15.5
+### D-39 · What is the corridor continuity inspection method and coverage? · SOP §16.5
 
 **P1** · open
 
@@ -2259,7 +2511,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-41 · How many passes, in what pattern, by roadway type? · SOP §8.2
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks collection**
 
 **Why it matters.** Two of three degraded-GNSS remedies require overlap collected on the day
 
@@ -2269,7 +2521,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-42 · Base station strategy and maximum baseline? · SOP §8.5
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks collection**
 
 **Why it matters.** Field logistics on every mission. Interacts with D-19
 
@@ -2305,7 +2557,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: field QC · Documents: SOP; Field*
 
-### D-52 · Offload, verification and backup procedure · SOP §11.2
+### D-52 · Offload, verification and backup procedure · SOP §10.5
 
 **P1** · open
 
@@ -2315,7 +2567,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: transfer · Documents: SOP; Field; Office*
 
-### D-53 · Folder structure, naming and storage location · SOP §11.4
+### D-53 · Folder structure, naming and storage location · SOP §11.4, §20.3
 
 **P2** · open
 
@@ -2333,7 +2585,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: transfer · Documents: SOP; Field*
 
-### D-55 · Capture and retention - what is retained, where, for how long, by whom, including Backup SBET Next to MXDB, Results of Scan Generation, and the calibration JSON · SOP §20.1
+### D-55 · Capture and retention - what is retained, where, for how long, by whom, including Backup SBET Next to MXDB, Results of Scan Generation, and the calibration JSON · SOP §21.1
 
 **P1** · open
 
@@ -2363,7 +2615,7 @@ until they are settled, as distinct from work being harder without them.
 **Generated view — do not edit by hand.** Produced by `tools/build-records-index.py` from the
 *Records this section requires* table at the end of each section. Edit the section; regenerate this.
 
-**69 records**, across 19 sections.
+**72 records**, across 20 sections.
 Last generated 2026-09-11.
 
 > **Read the State column.** A record whose state names a **D-** identifier is required by a clause
@@ -2372,7 +2624,7 @@ Last generated 2026-09-11.
 
 > **Five of these records have no software artefact behind them** — the control and check
 > designation, the visual inspection, the imagery inspection, the field conditions, and the
-> disposition of a non-conformance. They are written by a person or they do not exist (§19.1).
+> disposition of a non-conformance. They are written by a person or they do not exist (§20.1).
 
 ---
 
@@ -2411,17 +2663,20 @@ Last generated 2026-09-11.
 |  |  | Custody, where required | **D-54** |
 | 12 | Office Intake Requirements | Intake checks performed, by whom, with the result of each | **D-18** |
 |  |  | Calibration state at collection — `Extcal.json` and the Mission Report | **D-55** |
-|  |  | Any intake check that failed, and what was done | **D-18, §21** |
+|  |  | Any intake check that failed, and what was done | **D-18, §22** |
 | 13 | Processing Requirements | Trajectory processing settings, and the frame and epoch log | **D-55** |
 |  |  | Results of Scan Generation | **D-55** |
-|  |  | Registration type, trajectory node, SBET filename with its `_reg_####` number | **D-29** |
-|  |  | Confirmation that Update Scans was run | **D-36** |
-|  |  | `Targets.csv` | **D-55** |
-| 14 | Calibration Control | Calibration performed — date, site, who, and the result including the visual check | **D-26** |
+| 14 | Registration Requirements | Registration name, type, and the runs included | **D-29** |
+|  |  | The trajectory node produced, and its SBET filename **with its `_reg_####` number** | **D-29** |
+|  |  | **Control and check designation, with the residual on each point, by component** | **D-29** — *no software artefact exists* |
+|  |  | Confirmation that **Update Scans** was run | **D-36** |
+|  |  | `Targets.csv`, archived | **D-55** |
+|  |  | That the visual check was performed, by whom, over what extent | **D-27** — *no software artefact exists* |
+| 15 | Calibration Control | Calibration performed — date, site, who, and the result including the visual check | **D-26** |
 |  |  | The calibration JSON, archived outside the project | **D-55** |
 |  |  | Which calibration each mission was processed against | **D-55** |
 |  |  | Periodic verification, when performed | **D-28** |
-| 15 | Quality Control Requirements | Residuals on control points used, by component | Targets pane |
+| 16 | Quality Control Requirements | Residuals on control points used, by component | Targets pane |
 |  |  | Residuals on independent check points, by component | Same |
 |  |  | **Which points were control and which were checks** | **Manual — TBC does not report it** |
 |  |  | Run-to-run RMS statistics, if used | Results tab |
@@ -2429,23 +2684,23 @@ Last generated 2026-09-11.
 |  |  | **Visual check performed, by whom, covering what extent** | **No software artefact exists** |
 |  |  | **Imagery check performed, by whom** | **No software artefact exists** |
 |  |  | Results of Scan Generation | §13.3 |
-|  |  | Mission Report | §17.3 |
-| 16 | Acceptance and Approval | Acceptance decision — dataset, by whom, date, against what requirement | **D-3, D-13** |
+|  |  | Mission Report | §18.3 |
+| 17 | Acceptance and Approval | Acceptance decision — dataset, by whom, date, against what requirement | **D-3, D-13** |
 |  |  | The evidence the decision rested on | **D-29** |
 |  |  | The accuracy statement issued | **D-29** |
-| 17 | Destructive Operation Controls | Authorisation — who, when, for which mission | **D-35** |
+| 18 | Destructive Operation Controls | Authorisation — who, when, for which mission | **D-35** |
 |  |  | What was archived before, and where it is | **D-35, D-55** |
 |  |  | That Cleanup was run, by whom, on what date | **D-35** |
-| 18 | Export and Delivery Controls | Export-state confirmation, before export | **D-36** |
-|  |  | The delivery record — §19 | **D-29** |
+| 19 | Export and Delivery Controls | Export-state confirmation, before export | **D-36** |
+|  |  | The delivery record — §20 | **D-29** |
 |  |  | What was delivered, to whom, when, in what format and scaling | **D-38** |
-| 19 | Documentation and Records | The delivery record, per §19.2 | **D-29** |
+| 20 | Documentation and Records | The delivery record, per §20.2 | **D-29** |
 |  |  | The control and check table, with residuals | **D-29** |
 |  |  | Where the record package lives for a given project | **D-53** |
-| 20 | Retention and Archive | The archive record | **D-55** |
+| 21 | Retention and Archive | The archive record | **D-55** |
 |  |  | Retention tier applied, and the date the period runs from | **D-55** |
 |  |  | Disposal, where it occurs — what, when, authorised by whom | **D-55** |
-| 21 | Non-conformance and Re-collection | The non-conformance — what, when, found by whom | **D-3** |
+| 22 | Non-conformance and Re-collection | The non-conformance — what, when, found by whom | **D-3** |
 |  |  | Disposition — accepted with qualification, reprocessed, re-collected, or rejected | **D-3** |
 |  |  | Where re-collection occurred, what changed | **D-3** |
 |  |  | Any deliverable affected, and what was done about it | **D-29** |
@@ -2455,8 +2710,8 @@ Last generated 2026-09-11.
 | | |
 |---|---|
 | Records required by an **adopted** clause | **0** |
-| Records required by a clause awaiting a decision | **69** |
-| Distinct decisions they depend on | **23** — D-1, D-2, D-3, D-13, D-15, D-18, D-21, D-26, D-28, D-29, D-34, D-35, D-36, D-38, D-41, D-42, D-43, D-46, D-49, D-52, D-53, D-54, D-55 |
+| Records required by a clause awaiting a decision | **72** |
+| Distinct decisions they depend on | **24** — D-1, D-2, D-3, D-13, D-15, D-18, D-21, D-26, D-27, D-28, D-29, D-34, D-35, D-36, D-38, D-41, D-42, D-43, D-46, D-49, D-52, D-53, D-54, D-55 |
 
 **Every record in this index is currently proposed.** That follows from no clause having been
 adopted, not from any doubt about whether the records are worth keeping.
@@ -2468,16 +2723,16 @@ complains when they are absent.
 
 | Record | Section | Why nothing produces it |
 |---|---|---|
-| **Which points were control and which were independent checks** | §7.3, §15.4 | TBC shows the state while the command is open and reloads it on Edit, but no report of it has been found *(Technical Manual §22.7)* |
-| **That the visual inspection was performed, and over what extent** | §15.5 | It is a human act in a viewer |
-| **That the imagery inspection was performed** | §15.6 | The same |
+| **Which points were control and which were independent checks** | §7.3, §14.10, §16.4 | TBC shows the state while the command is open and reloads it on Edit, but no report of it has been found *(Technical Manual §22.7)* |
+| **That the visual inspection was performed, and over what extent** | §16.5 | It is a human act in a viewer |
+| **That the imagery inspection was performed** | §16.6 | The same |
 | **Conditions at collection** — occlusion, weather, traffic, what was not collected and why | §9.6 | Nothing in the vehicle records them |
-| **Disposition of a non-conformance** | §21.7 | — |
+| **Disposition of a non-conformance** | §22.7 | — |
 
 ## B4 · The smallest package that would satisfy the record
 
-§19.2 proposes seven artefacts totalling a few hundred kilobytes. **Five of the seven already exist
-as files** and need only to be copied out of the project before it is cleaned up (§17.3). Two are
+§20.2 proposes seven artefacts totalling a few hundred kilobytes. **Five of the seven already exist
+as files** and need only to be copied out of the project before it is cleaned up (§18.3). Two are
 written by a person.
 
 ---
@@ -2503,11 +2758,11 @@ written by a person.
 | 2 | An owner and an approver | **D-1**, **D-3** |
 | 3 | Roles assigned, so that the clauses naming a role name somebody | **D-3** |
 | 4 | The nine decisions that **block operation** answered, or the clauses depending on them removed from scope | Appendix A, §A2 |
-| 5 | The acceptance criterion, or an explicit statement that acceptance rests on documented professional judgement | **D-13**, §16.2 |
+| 5 | The acceptance criterion, or an explicit statement that acceptance rests on documented professional judgement | **D-13**, §17.2 |
 
 > Item 5 is the one that cannot be deferred silently. A procedure that governs acceptance without
 > saying what acceptance means is incomplete in a way the reader must be told about, which is why
-> §16.2 says it rather than hiding it.
+> §17.2 says it rather than hiding it.
 
 ## C3 · Approval
 
@@ -2536,10 +2791,10 @@ governs them is not established** and they are not filled in.
 |---|---|
 | **A TBC release** | TBC is on an annual cycle and releases have changed mobile mapping behaviour. This revision documents **2026.10** |
 | **A decision adopted** | The clause changes state, and its *should* becomes *shall* |
-| **A test result** | Technical Manual Appendix F. **T18** and **T19** could change what §18 requires |
+| **A test result** | Technical Manual Appendix F. **T18** and **T19** could change what §19 requires |
 | **A vendor answer** | Especially **V-4** — the system configuration, which nine other items depend on |
 | A change to the system — reconfiguration, a fitted sensor, a new vehicle | §6.4, §9.1 |
-| A non-conformance that the procedure did not prevent | §21 |
+| A non-conformance that the procedure did not prevent | §22 |
 
 ## C6 · How this appendix relates to the register
 

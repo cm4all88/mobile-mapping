@@ -14,7 +14,9 @@
 6. Watch the navigation status progress **red → orange → green**
 7. **Allow up to 10 further minutes of settling before logging data that matters**
 
-*(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)*
+**[TRIMBLE]** *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)* — steps 1–6 are Trimble's documented
+sequence and bind today. **Step 7 is also Trimble's**, and it is the one the system does not
+enforce (§14.2).
 
 ## 12.2 What each step is doing
 

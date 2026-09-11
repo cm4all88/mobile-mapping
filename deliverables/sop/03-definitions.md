@@ -20,14 +20,41 @@ commands that perform it.
 
 | Term | Meaning |
 |---|---|
-| **shall** | A requirement. Departure is a non-conformance and is handled under §21 |
-| **shall not** | A prohibition. The same applies |
+| **shall** | A requirement that binds now. Departure is a non-conformance and is handled under §22 |
+| **shall not** | A prohibition that binds now. The same applies |
 | **should** | A recommendation. Departure is permitted and, where it affects the deliverable, is recorded |
 | **may** | A permission. No obligation either way |
 
-> Clauses in this procedure use **shall** only where the clause is **ADOPTED**. A clause in the
-> **PARAMETRIX DECISION REQUIRED** state describes what the requirement would govern; it does not
-> yet oblige anyone. That is the difference the state label carries.
+### Which clauses bind, and on whose authority
+
+A requirement does not become binding only by Parametrix adopting it. **Trimble's instructions and
+the equipment's limits bind regardless**, because their authority is the manufacturer's and does
+not wait for a company decision.
+
+Every clause in this procedure that carries procedural force therefore carries an **authority
+label**:
+
+| Label | Binding now? | Verb used |
+|---|---|---|
+| **TRIMBLE REQUIREMENT** | **Yes** | shall · do not |
+| **EQUIPMENT LIMIT** | **Yes** | shall · do not |
+| **PARAMETRIX REQUIREMENT (ADOPTED)** | **Yes** — recorded in Appendix A | shall |
+| **PARAMETRIX PROCEDURE (PROPOSED)** | No — a recommendation from this project | **should** |
+| **PARAMETRIX DECISION REQUIRED** | No — the answer is not set | *no imperative* |
+| **TESTING REQUIRED** | No — nobody has the answer yet | *no imperative, or a stated interim posture* |
+
+> **`shall` is reserved for the three authorities that bind now.** A proposed Parametrix practice
+> uses **should**. When Parametrix adopts it, the label changes to **(ADOPTED)** and the verb
+> changes to **shall** — one edit, recorded in Appendix A.
+
+> **CAUTION**
+>
+> **At this revision no clause carries PARAMETRIX REQUIREMENT (ADOPTED).** Every `shall` in this
+> procedure rests on **Trimble** or on an **equipment limit**. None of them is a Parametrix policy
+> decision, and none may be described to a client as one.
+
+The full model, including why it is built this way, is
+`deliverables/_control/authority-model.md`.
 
 ## 3.3 Terms with procedural force
 
@@ -36,11 +63,11 @@ commands that perform it.
 | **Approved** | A named person with the authority in §4 has recorded a decision, with a date. An approval that is not recorded did not occur |
 | **In writing** | Recorded in the project record in a form that survives the project and identifies its author and date. An instant message is not in writing |
 | **Recorded** | Written into the project record at the time, not reconstructed afterwards |
-| **The project record** | The durable record of the project, in the location §19 requires. Not a processor's local machine |
+| **The project record** | The durable record of the project, in the location §20 requires. Not a processor's local machine |
 | **Independent check** | An observation that **took no part in any adjustment** applied to the data it is checking, and whose designation was fixed **before** that adjustment was computed (§7.3) |
 | **Accepted** | The person with acceptance authority under §4 has recorded that the dataset meets the project's stated accuracy requirement. Acceptance is against a requirement, never against a feeling |
 | **Delivered** | Released outside Parametrix, or relied on by another discipline as final |
-| **Destructive operation** | An operation that removes data or history and cannot be undone within the software. §17 governs these |
+| **Destructive operation** | An operation that removes data or history and cannot be undone within the software. §18 governs these |
 | **Re-collection** | Returning to site to collect again. The remedy of last resort, and the only remedy for a field error |
 
 ## 3.4 Two words this procedure avoids
@@ -48,4 +75,4 @@ commands that perform it.
 | | |
 |---|---|
 | **"Verified"**, unqualified | Verified against what, by whom? The procedure names the comparison every time |
-| **"QC'd"** | §15 defines what a quality control activity consists of. The abbreviation hides whether anything was inspected |
+| **"QC'd"** | §16 defines what a quality control activity consists of. The abbreviation hides whether anything was inspected |

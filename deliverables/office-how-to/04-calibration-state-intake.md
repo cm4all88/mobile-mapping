@@ -28,7 +28,7 @@ A date of calibration you can point at, for each sensor.
 > **PARAMETRIX DECISION REQUIRED · D-26**
 >
 > The recalibration interval and its triggers — including whether daily removal of the Sensor Unit
-> counts as disturbing the calibration *(SOP §14.2)*.
+> counts as disturbing the calibration *(SOP §15.2)*.
 
 > **That dated record is the only one found anywhere in the workflow** *(Technical Manual §30)*.
 > There is no other place the software tells you when the system was last calibrated.

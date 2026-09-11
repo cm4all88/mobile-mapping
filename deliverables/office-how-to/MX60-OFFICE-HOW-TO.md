@@ -86,13 +86,33 @@ the Technical Manual at the reference given.
 | 2 | **A good RMS does not prove the work succeeded.** A bad one proves it failed. Trimble says this in identical words in two places | §23 |
 | 3 | **Cleanup cannot be undone** | §28 |
 
-## 1.4 When a section says a decision is open
+## 1.4 Who is telling you — the authority key
+
+**This guide cannot require anything.** Everything in it is somebody else's instruction, and the
+marker says whose. That matters because the SOP is not adopted: a Parametrix practice is a
+recommendation today, while **a Trimble instruction and an equipment limit bind regardless.**
+
+| Marker | Who says so | Force today |
+|---|---|---|
+| **[TRIMBLE]** | Trimble, in the cited topic or manual page | **Binding.** Does not wait on a Parametrix decision |
+| **[EQUIPMENT]** | A hardware limit or an irreversible software operation | **Binding.** It is a fact about the tool |
+| **[SOP §n]** | A Parametrix requirement, at that clause | As strong as that clause — check its state |
+| **[PROPOSED]** | Recommended by this project | **Not company policy.** Do it unless told otherwise, and record it if you do not |
+| **[TESTING · Tn]** | Depends on a result nobody has yet | An interim posture, not a rule |
+| **[DECISION · D-n]** | Parametrix has not decided | **Raise it.** Do not improvise a standing rule |
+
+> **This is why §1.1 says "Stop if" is not a suggestion.** A *Stop if* whose authority is
+> **[TRIMBLE]** or **[EQUIPMENT]** is not negotiable today. A *Stop if* marked **[PROPOSED]** is
+> this project's recommendation — you may proceed past it, and if you do, **record that you did
+> and why.** Either way the instruction stays direct, because a hedged instruction gets ignored.
+
+## 1.5 When a section says a decision is open
 
 A **PARAMETRIX DECISION REQUIRED** marker means the SOP identifies a requirement whose answer is
 not set. You still have to do something today. Where this guide suggests what, it is marked as a
 suggestion and it is not a Parametrix standard.
 
-## 1.5 Record as you go
+## 1.6 Record as you go
 
 Several sections end with **Record**. Those entries are the SOP's required records (SOP Appendix
 B), and five of them have **no software artefact behind them** — if you do not write them down at
@@ -258,7 +278,7 @@ A date of calibration you can point at, for each sensor.
 > **PARAMETRIX DECISION REQUIRED · D-26**
 >
 > The recalibration interval and its triggers — including whether daily removal of the Sensor Unit
-> counts as disturbing the calibration *(SOP §14.2)*.
+> counts as disturbing the calibration *(SOP §15.2)*.
 
 > **That dated record is the only one found anywhere in the workflow** *(Technical Manual §30)*.
 > There is no other place the software tells you when the system was last calibrated.
@@ -554,7 +574,7 @@ overpass, through the tree cover — and short.
 
 ### Record
 
-A screen capture of the RMS-coloured trajectory. It is a required QC record (SOP §15.8) and it is
+A screen capture of the RMS-coloured trajectory. It is a required QC record (SOP §16.8) and it is
 one click.
 
 ---
@@ -662,7 +682,7 @@ sanity, not for accuracy.
 
 # 13. Calibration
 
-**Periodic, not per-job.** Run it when the interval or a trigger says so (SOP §14.2), not because
+**Periodic, not per-job.** Run it when the interval or a trigger says so (SOP §15.2), not because
 a dataset looks wrong.
 
 ## 13.1 The laser scanners
@@ -738,14 +758,14 @@ you can nudge out.
 
 > **PARAMETRIX DECISION REQUIRED · D-24**
 >
-> **Where is the calibration site, and who maintains it?** *(SOP §14.3)*
+> **Where is the calibration site, and who maintains it?** *(SOP §15.3)*
 
 ## 13.3 Afterwards
 
 ### Do
 
 1. **Export the calibration JSON and archive it outside the TBC project**, named with the system
-   serial number and the calibration date *(SOP §14.5)*
+   serial number and the calibration date *(SOP §15.5)*
 2. Record the calibration: date, site, who, and the result **including the visual check**
 
 > The JSON is the complete calibration state in one small file. It imports into any later project
@@ -875,7 +895,7 @@ One run, against surveyed control.
 
 *(TBC 22905)*
 
-> **The 30 m rule**
+> **The 30 m rule · [TRIMBLE]**
 >
 > "The distance in a pair of points cannot exceed the allowed maximum distance of **30 meters**"
 > *(TBC 22905)*. If a pick is further than that from its GCP, it is not a valid pair — pick a
@@ -1037,7 +1057,7 @@ to Adjust's scans inline *(TBC 25096)*. Everywhere else, Update Scans is a separ
 - **You have not re-checked against independent check points afterwards.** The Run to Adjust has
   moved; its residuals against control have changed
 
-> **The order that matters** *(SOP §13.4)*:
+> **The order that matters** — **[PROPOSED · SOP §14.6 · D-12]**:
 >
 > 1. Register the mission to surveyed control (§17)
 > 2. Assess against independent check points (§20) and visually (§22)
@@ -1183,7 +1203,7 @@ Stop if:
 
 The control-and-check table: point ID, Use XY, Use Z, As Check, and the residual on each. **Six
 columns, written once.** It is the single most important record in the workflow and the software
-does not produce it (§28, SOP §19).
+does not produce it (§28, SOP §20).
 
 ---
 
@@ -1257,7 +1277,8 @@ not record it, there is no evidence it happened.
 
 ### The setting that makes or breaks this
 
-> **IMPORTANT**
+> **IMPORTANT · [TRIMBLE]** — the visual check itself is Trimble's instruction (§20).
+> **[PROPOSED · SOP §16.5 · D-27]** — what the pass covers is this project's checklist.
 >
 > **Set rendering to Scan Color** — one colour per scan. Without it, two offset surfaces read as
 > one thick surface and the exact defect this check exists to find is invisible
@@ -1276,7 +1297,7 @@ not record it, there is no evidence it happened.
 | **Vertical surfaces against horizontal** | Systematic tilt |
 | **Features near control versus far from control** | Residual growth with distance from constraint |
 
-*(SOP §15.5)*
+*(SOP §16.5)*
 
 ### Expect
 
@@ -1292,12 +1313,12 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 > **PARAMETRIX DECISION REQUIRED · D-27**
 >
 > **What does a visual point-cloud QC pass cover?** The checklist above is proposed, not adopted
-> *(SOP §15.5)*.
+> *(SOP §16.5)*.
 
 > **TESTING REQUIRED · T16** — the working cutting-plane thickness for these checks.
 
 > **PARAMETRIX DECISION REQUIRED · D-39** — how much of a corridor is inspected, and how that is
-> decided *(SOP §15.5)*.
+> decided *(SOP §16.5)*.
 
 ### Record
 
@@ -1326,7 +1347,7 @@ exists. This is the record.
 | **Corrupted images** | **Silent** — see below |
 | **Alignment with the cloud** | Colour in the wrong place at feature edges: a camera boresight issue (§13.2) |
 
-*(SOP §15.6)*
+*(SOP §16.6)*
 
 ### Expect
 
@@ -1360,7 +1381,7 @@ Resolution by configuration *(TBC 22501, 23888)*:
 That the imagery check was performed and by whom. **No software artefact exists.**
 
 > **PARAMETRIX DECISION REQUIRED · D-32** — imagery privacy. Whether unblurred originals are
-> retained, and for how long. Decided before collection, not on request *(SOP §18.6)*.
+> retained, and for how long. Decided before collection, not on request *(SOP §19.6)*.
 
 ---
 
@@ -1430,7 +1451,7 @@ trajectory, position and orientation, from voxels matched in overlapping scan re
 *(TBC 28972)*
 
 **That is materially the same geometry the laser scanner calibration wants (§13).** One site can
-serve both, which matters because establishing one is real work *(SOP §14.3)*.
+serve both, which matters because establishing one is real work *(SOP §15.3)*.
 
 ### Record
 
@@ -1482,7 +1503,7 @@ nothing beyond *(MX60 UG Rev B, p.56)*:
   goes up, not into the deliverable
 
 > **PARAMETRIX DECISION REQUIRED · D-34** — the decision rule when a corridor produces an
-> unacceptable trajectory: who decides, against what, and what the client is told *(SOP §21.5)*.
+> unacceptable trajectory: who decides, against what, and what the client is told *(SOP §22.5)*.
 
 > **The remedies that need something from the field cannot be arranged now.** Overlap for LiDAR QC
 > and control bracketing a hostile stretch are mission-planning decisions *(SOP §8)*. If they were
@@ -1647,7 +1668,7 @@ Record these, now, before Cleanup (§29) and before export (§30):
 | 6 | **The field record** | It came with the data (§2) |
 | 7 | **The QC record** — including the visual and imagery checks | Written by you (§22, §23) |
 
-*(SOP §19.2)*
+*(SOP §20.2)*
 
 ### Expect
 
@@ -1660,7 +1681,7 @@ few hundred kilobytes beside a project of tens of gigabytes.
 - You are about to export and item 1 does not exist
 
 > **PARAMETRIX DECISION REQUIRED · D-29** — what provenance record accompanies a deliverable, where
-> it lives, and who produces it *(SOP §19.2)*.
+> it lives, and who produces it *(SOP §20.2)*.
 
 > **TESTING REQUIRED · T19, T22, T30** — which trajectory travels with a publish or an export; what
 > a LAS file actually carries in its header, VLRs and sidecar; and whether a delivered dataset can
@@ -1680,6 +1701,11 @@ few hundred kilobytes beside a project of tens of gigabytes.
 
 ### Do — the archive-first sequence
 
+**[EQUIPMENT] Cleanup cannot be undone.** That is Trimble's own statement about the command and it
+binds today. **[PROPOSED · SOP §18.3 · D-35]** — the ten-step sequence, and the requirement for
+written authorisation, are this project's recommendation. **Who may authorise a Cleanup is D-35 and
+is not settled**, which is why step 8 names an authority that does not exist yet.
+
 **In this order.** Steps 2 to 6 are small files; the whole set is a few megabytes.
 
 | # | Step | Why here |
@@ -1691,11 +1717,11 @@ few hundred kilobytes beside a project of tens of gigabytes.
 | 5 | **Archive the numbered SBET files** `sbet_<date>_reg_####.out` | Pending **T28**, assume Cleanup removes them |
 | 6 | **Archive the calibration JSON** (§13.3) | The system state the mission was processed under |
 | 7 | **Take the project backup Trimble asks for** — into the project archive, not a local copy | A backup nobody can find is not a backup |
-| 8 | **Obtain the written authorisation** | SOP §17.2 |
+| 8 | **Obtain the written authorisation** | SOP §18.2 |
 | 9 | **Run Cleanup** | |
 | 10 | **Record that it was run** — by whom, on what date, what was archived first | Otherwise the absence of history is itself unexplained |
 
-*(SOP §17.3)*
+*(SOP §18.3)*
 
 ### Look at
 
@@ -1708,7 +1734,8 @@ Only the most recent registration surviving.
 
 ### Stop if
 
-- **You do not have written authorisation** (SOP §17.2, **D-35**)
+- **You do not have written authorisation** — **[PROPOSED · D-35]** *(SOP §18.2)*. Until D-35 is
+  answered there is no appointed authoriser; raise it rather than proceeding on your own
 - Any of steps 2 to 6 is not done
 - The backup went to your own machine rather than into the project archive
 
@@ -1729,7 +1756,7 @@ Authorisation; what was archived and where; that Cleanup was run, by whom, on wh
 # 30. Export — by Path
 
 **Six documented MX60 paths.** No preference between them is expressed here; format choice is a
-project and client matter Parametrix has not decided *(SOP §18.4, **D-38**)*.
+project and client matter Parametrix has not decided *(SOP §19.4, **D-38**)*.
 
 **Do §31 first.** Every path below assumes the pre-export check has passed.
 
@@ -1837,6 +1864,10 @@ Export path, date, by whom, format, scaling — into the delivery record (§28, 
 
 **One minute. It prevents the most expensive failure in the workflow.**
 
+**[EQUIPMENT]** — the behaviour this guards against is Trimble's, and it is silent: an export of
+the unregistered cloud succeeds and produces a valid file. **[PROPOSED · SOP §19.2 · D-36]** —
+whether the check is *mandatory*, and whether export may proceed without it, is not yet decided.
+
 ### Do
 
 1. In **Project Explorer**, find the scan nodes you are about to export
@@ -1846,7 +1877,7 @@ Export path, date, by whom, format, scaling — into the delivery record (§28, 
 5. Decide the **Export timestamps** setting — see below
 6. Only then export
 
-*(SOP §18.2)*
+*(SOP §19.2)*
 
 ### Look at
 
@@ -1881,12 +1912,14 @@ Stop if the scans sit beneath `Sbet`, or the stations have no `_reg_####`. Go ba
 > **Which trajectory that reprocessing uses is not stated.** Until this is established, the
 > exported data may not be the data that was registered and checked.
 
-**Until T18 is answered, treat an export with timestamps enabled as unverified against the checked
-dataset, and do not enable it on a delivered dataset without a recorded reason** *(SOP §18.3)*.
+**[TESTING · T18]** — an interim posture, not a rule, and it is withdrawn the day T18 is answered
+in either direction. Until then: **treat an export with timestamps enabled as unverified against the
+checked dataset, and do not enable it on a delivered dataset without a recorded reason**
+*(SOP §19.3)*.
 
 > **PARAMETRIX DECISION REQUIRED · D-36**
 >
-> **Is this confirmation mandatory, and may export be performed without it?** *(SOP §18.2)*
+> **Is this confirmation mandatory, and may export be performed without it?** *(SOP §19.2)*
 
 > **TESTING REQUIRED · T18 — the highest-priority test in the register.** Export the same
 > registered run twice, timestamps off and on, and compare point geometry.
@@ -1919,7 +1952,7 @@ Work them in order and record each.
 | 7 | **Imagery inspection** | Coverage, exposure, blur, corruption | §23 | **No software artefact** |
 | 8 | **Export-state confirmation** | Delivering the unregistered cloud | §31 | Screen capture |
 
-*(SOP §15.2)*
+*(SOP §16.2)*
 
 ### Look at
 
@@ -1949,11 +1982,19 @@ what extent, the only possible answer is a record somebody wrote.
 **Acceptance is a decision by the person with the authority under SOP §4**, recorded, against the
 project's stated accuracy requirement. Your job is to produce the evidence, not to conclude.
 
-> **PARAMETRIX DECISION REQUIRED · D-13 · blocks operation**
+> **PARAMETRIX DECISION REQUIRED · D-13 · blocks formal acceptance**
 >
 > **What constitutes an acceptable registration and an acceptable point cloud is not established.**
 > Trimble publishes no acceptance tolerance for the MX60 and none has been set by test. **Do not
-> invent one, and do not quote one** *(SOP §16.2)*.
+> invent one, and do not quote one.**
+>
+> **What is blocked is formal acceptance, not the work.** You can process, register and inspect a
+> dataset with D-13 open — this section is how. What cannot happen is an acceptance resting on a
+> Parametrix standard, because there is not one. Whoever signs is signing on their own documented
+> judgement.
+>
+> The decision put to Parametrix — whether interim acceptance against a project-specific written
+> requirement is permitted at all — is **SOP §17.2**.
 
 ### Record
 
@@ -1994,17 +2035,17 @@ SBET and its processing report and the frame-and-epoch log · numbered registere
 | **Raw mission folder** | Tens to hundreds of GB | **The only thing that permits reprocessing.** Once gone, the deliverable cannot be improved, only re-collected |
 | TBC project | Tens to hundreds of GB | The provenance record |
 
-*(SOP §20.2)*
+*(SOP §21.2)*
 
 ### Stop if
 
 - **You are about to delete `POS_1/raw/` or `Targets.csv` on your own judgement.** Neither is
   recoverable: one cannot be recomputed, the other was picked by a person and would be different if
-  picked again *(SOP §20.3)*
+  picked again *(SOP §21.3)*
 - The archive record does not exist
 
 > **PARAMETRIX DECISION REQUIRED · D-55** — what is retained, where, for how long, by whom
-> *(SOP §20.1)*.
+> *(SOP §21.1)*.
 
 > **PARAMETRIX DECISION REQUIRED · D-53** — folder structure, naming and storage location.
 
@@ -2094,7 +2135,7 @@ first, and none can be reconstructed afterwards.
 
 Some of these are not office problems. Missing coverage, missing overlap, a mission with no closing
 sequence and a sensor that logged nothing are all field problems, and the only remedy is a
-mobilisation *(SOP §21.3)*.
+mobilisation *(SOP §22.3)*.
 
 **Raise it. Do not absorb it.** A non-conformance fixed quietly leaves no trace that the workflow
 failed, which means it happens again to somebody else on a job where it costs more.

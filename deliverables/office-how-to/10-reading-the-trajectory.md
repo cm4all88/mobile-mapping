@@ -39,5 +39,5 @@ overpass, through the tree cover — and short.
 
 ### Record
 
-A screen capture of the RMS-coloured trajectory. It is a required QC record (SOP §15.8) and it is
+A screen capture of the RMS-coloured trajectory. It is a required QC record (SOP §16.8) and it is
 one click.

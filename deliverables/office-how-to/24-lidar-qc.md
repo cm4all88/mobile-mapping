@@ -64,7 +64,7 @@ trajectory, position and orientation, from voxels matched in overlapping scan re
 *(TBC 28972)*
 
 **That is materially the same geometry the laser scanner calibration wants (§13).** One site can
-serve both, which matters because establishing one is real work *(SOP §14.3)*.
+serve both, which matters because establishing one is real work *(SOP §15.3)*.
 
 ### Record
 

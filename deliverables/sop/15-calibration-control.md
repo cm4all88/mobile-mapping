@@ -1,6 +1,6 @@
-# 14. Calibration Control
+# 15. Calibration Control
 
-## 14.1 What calibration is, in one line
+## 15.1 What calibration is, in one line
 
 TBC's laser scanner calibration estimates the **angular** offsets between sensors. Lever arms are
 **measured, not estimated** *(Technical Manual §7.6, §20.2)*. A wrong lever arm cannot be
@@ -9,7 +9,7 @@ calibrated out, because the adjustment has no parameter for it.
 An angular error acts through range: the same error is ten times larger at 100 m than at 10 m
 *(Technical Manual §3.1)*.
 
-## 14.2 Currency
+## 15.2 Currency
 
 > **PARAMETRIX DECISION REQUIRED · D-26 · P1**
 >
@@ -19,10 +19,15 @@ An angular error acts through range: the same error is ten times larger at 100 m
 > the Sensor Unit count as disturbing the calibration?** If the unit comes off the vehicle between
 > jobs, the answer determines whether calibration is an annual event or a per-mobilisation one.
 
-**No mission shall be processed against a calibration whose currency cannot be established.** The
-calibration state in force is captured at intake (§12.3), which is what makes this checkable.
+> **PARAMETRIX PROCEDURE (PROPOSED) · D-26**
+>
+> **No mission should be processed against a calibration whose currency cannot be established.**
 
-## 14.3 The calibration site
+The calibration state in force is captured at intake (§12.3), which is what makes this checkable.
+The proposal is not controversial; what makes it undecided is that **the interval it would be
+checked against does not exist yet.**
+
+## 15.3 The calibration site
 
 > **PARAMETRIX DECISION REQUIRED · D-24**
 >
@@ -45,7 +50,7 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 > is real work — reconnaissance, a traffic plan, possibly permission — and doing it once, well,
 > before it is needed under schedule pressure is worth more than the procedure it supports.
 
-## 14.4 Judging a calibration
+## 15.4 Judging a calibration
 
 > **CAUTION**
 >
@@ -54,10 +59,13 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 > **"Good RMS values do not mean that the calibration succeeded. A visual check is needed. On the
 > other side, bad RMS values mean that the calibration failed."** *(TBC 24886, 25096)*
 >
-> **A calibration shall not be accepted on RMS alone.** The visual check is part of the
-> acceptance, not an optional extra *(Technical Manual §23.1, §25)*.
+> **TRIMBLE REQUIREMENT** — *binding now.* Trimble states that a visual check **is needed**, in
+> identical words in two topics.
+>
+> **A calibration shall not be accepted on RMS alone.** The visual check is part of the acceptance,
+> not an optional extra *(Technical Manual §23.1, §25)*.
 
-## 14.5 The calibration record
+## 15.5 The calibration record
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-55**
 >
@@ -66,9 +74,9 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 >
 > It is the complete calibration state of the system in one small file, it can be imported into any
 > subsequent project, and it is the only portable record of what the system's angles were on a
-> given date. Cleanup (§17) or a lost workstation should not take it with them.
+> given date. Cleanup (§18) or a lost workstation should not take it with them.
 
-## 14.6 Periodic system verification
+## 15.6 Periodic system verification
 
 Distinct from per-project QC: the check that the **instrument** is still performing.
 
@@ -87,7 +95,7 @@ Distinct from per-project QC: the check that the **instrument** is still perform
 >
 > Whether Trimble or the dealer expects this check specifically, and at what period.
 
-## 14.7 Records this section requires
+## 15.7 Records this section requires
 
 | Record | State |
 |---|---|

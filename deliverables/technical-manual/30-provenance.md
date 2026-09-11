@@ -166,7 +166,7 @@ export.
 
 That is a finding, not a prohibition.
 
-> **Open Parametrix decision — D-35.** Stated and tracked in the **SOP §19**; see also the master register.
+> **Open Parametrix decision — D-35.** Stated and tracked in the **SOP §20**; see also the master register.
 
 ### T28 — why it is high priority here
 
@@ -193,9 +193,9 @@ That is a finding, not a prohibition.
 
 Stated as a gap analysis, not as policy.
 
-> **Open Parametrix decision — D-29.** *What provenance record must accompany a mobile mapping deliverable, and where does it live?* Stated and tracked in the **SOP §19**; see also the master register.
+> **Open Parametrix decision — D-29.** *What provenance record must accompany a mobile mapping deliverable, and where does it live?* Stated and tracked in the **SOP §20**; see also the master register.
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §19** (D-29); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §20** (D-29); it is not decided here.
 
 ## 30.7 Reconstruction paths that do exist
 

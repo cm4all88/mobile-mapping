@@ -17,7 +17,7 @@ Work them in order and record each.
 | 7 | **Imagery inspection** | Coverage, exposure, blur, corruption | §23 | **No software artefact** |
 | 8 | **Export-state confirmation** | Delivering the unregistered cloud | §31 | Screen capture |
 
-*(SOP §15.2)*
+*(SOP §16.2)*
 
 ### Look at
 
@@ -47,11 +47,19 @@ what extent, the only possible answer is a record somebody wrote.
 **Acceptance is a decision by the person with the authority under SOP §4**, recorded, against the
 project's stated accuracy requirement. Your job is to produce the evidence, not to conclude.
 
-> **PARAMETRIX DECISION REQUIRED · D-13 · blocks operation**
+> **PARAMETRIX DECISION REQUIRED · D-13 · blocks formal acceptance**
 >
 > **What constitutes an acceptable registration and an acceptable point cloud is not established.**
 > Trimble publishes no acceptance tolerance for the MX60 and none has been set by test. **Do not
-> invent one, and do not quote one** *(SOP §16.2)*.
+> invent one, and do not quote one.**
+>
+> **What is blocked is formal acceptance, not the work.** You can process, register and inspect a
+> dataset with D-13 open — this section is how. What cannot happen is an acceptance resting on a
+> Parametrix standard, because there is not one. Whoever signs is signing on their own documented
+> judgement.
+>
+> The decision put to Parametrix — whether interim acceptance against a project-specific written
+> requirement is permitted at all — is **SOP §17.2**.
 
 ### Record
 

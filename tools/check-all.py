@@ -40,13 +40,21 @@ for d in DIRS:
     for f in sorted(glob.glob(f'deliverables/{DIRS[d]}/*.md')):
         b = os.path.basename(f)
         if b.startswith('MX60-') or b == 'README.md': continue
-        for i, l in enumerate(open(f), 1):
-            for m in re.finditer(r'(Technical Manual\s+|SOP\s+)?§(\d+(?:\.\d+)?)', l):
-                pre = (m.group(1) or '') + l[max(0, m.start()-70):m.start()]
+        # scan paragraph-wise: a reference and its "Technical Manual" prefix are
+        # routinely split by a soft line break, and a line-wise scan misreads those
+        raw = open(f).read()
+        for para in re.split(r'\n\s*\n', raw):
+            line0 = raw[:raw.index(para)].count('\n') + 1 if para in raw else 0
+            flat = re.sub(r'\s+', ' ', re.sub(r'^>\s?', '', para, flags=re.M))
+            for m in re.finditer(r'§(\d+(?:\.\d+)?)', flat):
+                pre = flat[max(0, m.start()-70):m.start()]
+                # a table cell or a new sentence starts a fresh context: an earlier
+                # "Technical Manual" in the same paragraph does not own this reference
+                pre = re.split(r'\|| \u00b7 |(?<=[a-z0-9)])\. ', pre)[-1]
                 pool = P['Manual'] if 'Technical Manual' in pre else (P['SOP'] if 'SOP' in pre else P[d])
-                t = m.group(2)
+                t = m.group(1)
                 if t not in (pool[1] if '.' in t else pool[0]):
-                    print(f'      {d} {b} line {i}: §{t}'); bad += 1
+                    print(f'      {d} {b} ~line {line0}: §{t}  |  {flat[max(0,m.start()-60):m.start()+10]}'); bad += 1
 print(f'{"ok  " if not bad else "FAIL"}  cross-references resolve')
 if bad: fail.append('cross-references')
 

@@ -32,7 +32,7 @@ changes, which documents need review?*
 | The workflow end to end | Manual §4 | ● | ref | — | — |
 | The data chain — `.mxdb`, SBET, TMX, RWCX; no MTA on MX60 | Manual §5 | ● | ref | ref | ref |
 | **Terminology and glossary** | **Manual §6** | ● | ref | ref | ref |
-| GNSS/INS integration | Manual §8 | ● | — | — | ref |
+| GNSS/INS integration | Manual §8 | ● | ref | — | ref |
 | GAMS and DMI — what each contributes | Manual §9 | ● | ref | ref | — |
 | Coordinate systems, datums, epochs as mobile mapping uses them | Manual §12 | ● | ref | — | ref |
 

@@ -30,17 +30,17 @@ SBET and its processing report and the frame-and-epoch log · numbered registere
 | **Raw mission folder** | Tens to hundreds of GB | **The only thing that permits reprocessing.** Once gone, the deliverable cannot be improved, only re-collected |
 | TBC project | Tens to hundreds of GB | The provenance record |
 
-*(SOP §20.2)*
+*(SOP §21.2)*
 
 ### Stop if
 
 - **You are about to delete `POS_1/raw/` or `Targets.csv` on your own judgement.** Neither is
   recoverable: one cannot be recomputed, the other was picked by a person and would be different if
-  picked again *(SOP §20.3)*
+  picked again *(SOP §21.3)*
 - The archive record does not exist
 
 > **PARAMETRIX DECISION REQUIRED · D-55** — what is retained, where, for how long, by whom
-> *(SOP §20.1)*.
+> *(SOP §21.1)*.
 
 > **PARAMETRIX DECISION REQUIRED · D-53** — folder structure, naming and storage location.
 

@@ -92,7 +92,7 @@ where figure production is tracked.
 | F36 | **The workflow at a glance** — field to delivery, one page | 2.3, 4 |
 | F37 | **The degraded-GNSS branch diagram** — showing the two backward loops | 27.1 |
 | F38 | **The provenance chain** — seven transitions, what survives each | 30.3 |
-| F39 | **The ten QA/QC layers** | *SOP §15* |
+| F39 | **The ten QA/QC layers** | *SOP §16* |
 
 ## C3 · Source availability
 

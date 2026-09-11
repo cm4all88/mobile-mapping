@@ -1,5 +1,9 @@
 # 24. Re-collect or Not
 
+**[PROPOSED]** — everything in this section is a recommendation from this project. **Who decides
+a re-collection is D-3 and D-34, and neither is settled** (§24.5). What is not proposed is the
+arithmetic: on site a re-drive costs twenty minutes, and from the office it costs a mobilisation.
+
 ## 24.1 The rule of thumb
 
 **On site, a re-drive costs twenty minutes. From the office, it costs a mobilisation.**
@@ -37,4 +41,4 @@ Where no amount of re-driving will produce an acceptable result, the honest find
 raise it — that is a project decision, not yours to absorb.
 
 > **PARAMETRIX DECISION REQUIRED · D-34** — who decides, against what, and what the client is told
-> *(SOP §21.5)*.
+> *(SOP §22.5)*.

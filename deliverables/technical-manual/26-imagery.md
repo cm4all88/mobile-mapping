@@ -62,7 +62,7 @@ errors and improves — or does not — in the same way.
 
 ## 26.3 What to check
 
-> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §15** (D-27); it is not decided here.
+> **This manual states no Parametrix procedure.** A practice covering this is proposed in the **SOP §16** (D-27); it is not decided here.
 
 ## 26.4 Corrupted side camera images are exported as black
 
@@ -84,7 +84,7 @@ errors and improves — or does not — in the same way.
 > **This is not a Trimble procedure. It is a screening method proposed by this document and not
 > yet validated.**
 >
-> Include a **file-size scan** of the exported imagery in the delivery check (the **SOP §18**). The logic: a
+> Include a **file-size scan** of the exported imagery in the delivery check (the **SOP §19**). The logic: a
 > uniformly black JPEG typically compresses far smaller than a valid image, so **anomalously small
 > files are a useful screening flag** and a sorted file listing surfaces candidates without
 > opening a single image.
@@ -140,7 +140,7 @@ neighbours, where the camera's automatic exposure changed between passes.
 > requirement on a live job. It is not a gap in the technical workflow — blurring is a delivery
 > option, not a processing stage.
 
-> **Open Parametrix decision — D-32.** *What is Parametrix's position on imagery privacy?* Stated and tracked in the **SOP §15**; see also the master register.
+> **Open Parametrix decision — D-32.** *What is Parametrix's position on imagery privacy?* Stated and tracked in the **SOP §16**; see also the master register.
 
 ## 26.7 Imagery in the delivered dataset
 

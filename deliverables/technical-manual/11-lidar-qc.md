@@ -80,7 +80,7 @@ Trimble prescribes a specific acquisition geometry for LiDAR QC:
 
 > This is materially the same geometry the laser scanner calibration requires (§20.3) — four runs,
 > two orthogonal pairs, both directions. **One site can serve both**, which matters because
-> establishing a calibration site is a real piece of work (the **SOP §14**).
+> establishing a calibration site is a real piece of work (the **SOP §15**).
 
 ---
 

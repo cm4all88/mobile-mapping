@@ -1,11 +1,11 @@
-# 18. Export and Delivery Controls
+# 19. Export and Delivery Controls
 
-## 18.1 The release gate
+## 19.1 The release gate
 
 **Export is the last point at which a mistake is still internal.** This section is a gate, not a
 procedure: the method is in the Office How To.
 
-## 18.2 Before any export
+## 19.2 Before any export
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-36**
 >
@@ -33,7 +33,7 @@ procedure: the method is in the Office How To.
 > Point Cloud tab selection is drawn across scans belonging to two different trajectories. Neither
 > is documented.
 
-## 18.3 Export timestamps
+## 19.3 Export timestamps
 
 > **CAUTION · W-03**
 >
@@ -48,25 +48,31 @@ procedure: the method is in the Office How To.
 >
 > Export the same registered run twice, timestamps off and on, and compare point geometry.
 >
-> **Until T18 is answered, an export with timestamps enabled shall be treated as unverified**
-> against the checked dataset, and the option shall not be enabled on a delivered dataset without
-> a recorded reason.
+> **TESTING REQUIRED · T18 — and an interim posture until it is answered**
+>
+> **An export with timestamps enabled should be treated as unverified** against the checked
+> dataset, and the option **should not** be enabled on a delivered dataset without a recorded
+> reason.
+>
+> This is an interim posture, not a Parametrix rule and not a Trimble one. It exists because
+> Trimble documents a behaviour whose consequence it does not state, and it is withdrawn the day
+> T18 is answered — in either direction.
 
-## 18.4 What the delivery carries
+## 19.4 What the delivery carries
 
 | | Requirement | State |
 |---|---|---|
 | Grid or ground, as agreed (§6.3) | A ground-scaled export **does not record the scale factor it used**; a grid export writes a sidecar | **D-38** |
 | The coordinate reference system, datum and epoch | Stated in the delivery, not only in the file | **D-38** |
-| The delivery record (§19) | | **D-29** |
-| The accuracy statement (§16.6) | Where accuracy is relied on | **D-13** |
+| The delivery record (§20) | | **D-29** |
+| The accuracy statement (§17.6) | Where accuracy is relied on | **D-13** |
 
 > **PARAMETRIX DECISION REQUIRED · D-38**
 >
 > **Deliverable specification** — standard formats, which export path produces each, and the
 > default scaling.
 
-## 18.5 Provenance limitation, stated plainly
+## 19.5 Provenance limitation, stated plainly
 
 > **IMPORTANT**
 >
@@ -74,7 +80,7 @@ procedure: the method is in the Office How To.
 > information, but the captured Trimble documentation does not establish that the output uniquely
 > identifies the adjusted trajectory or registration result used to create it.**
 >
-> That is why the delivery record in §19 exists, and why it is not optional.
+> That is why the delivery record in §20 exists, and why it is not optional.
 
 > **TESTING REQUIRED · T19, T22, T26, T30**
 >
@@ -82,7 +88,7 @@ procedure: the method is in the Office How To.
 > header, VLRs and sidecar; whether exported imagery reflects a registration; and whether a
 > delivered dataset can be matched back to its trajectory after the fact.
 
-## 18.6 Imagery
+## 19.6 Imagery
 
 > **PARAMETRIX DECISION REQUIRED · D-32 · P1**
 >
@@ -90,10 +96,10 @@ procedure: the method is in the Office How To.
 > how long? Mobile mapping imagery captures faces, number plates and private property as a matter
 > of course. **The decision is made before collection, not on request.**
 
-## 18.7 Records this section requires
+## 19.7 Records this section requires
 
 | Record | State |
 |---|---|
 | Export-state confirmation, before export | **D-36** |
-| The delivery record — §19 | **D-29** |
+| The delivery record — §20 | **D-29** |
 | What was delivered, to whom, when, in what format and scaling | **D-38** |

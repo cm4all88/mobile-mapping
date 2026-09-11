@@ -50,7 +50,7 @@ to Adjust's scans inline *(TBC 25096)*. Everywhere else, Update Scans is a separ
 - **You have not re-checked against independent check points afterwards.** The Run to Adjust has
   moved; its residuals against control have changed
 
-> **The order that matters** *(SOP §13.4)*:
+> **The order that matters** — **[PROPOSED · SOP §14.6 · D-12]**:
 >
 > 1. Register the mission to surveyed control (§17)
 > 2. Assess against independent check points (§20) and visually (§22)

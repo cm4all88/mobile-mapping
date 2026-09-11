@@ -42,7 +42,7 @@ nothing beyond *(MX60 UG Rev B, p.56)*:
   goes up, not into the deliverable
 
 > **PARAMETRIX DECISION REQUIRED · D-34** — the decision rule when a corridor produces an
-> unacceptable trajectory: who decides, against what, and what the client is told *(SOP §21.5)*.
+> unacceptable trajectory: who decides, against what, and what the client is told *(SOP §22.5)*.
 
 > **The remedies that need something from the field cannot be arranged now.** Overlap for LiDAR QC
 > and control bracketing a hostile stretch are mission-planning decisions *(SOP §8)*. If they were

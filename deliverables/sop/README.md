@@ -33,15 +33,16 @@ design: requirements here, explanation in the Technical Manual, method in the Ho
 | `11-data-transfer-and-custody.md` | 11 |
 | `12-office-intake.md` | 12 |
 | `13-processing-requirements.md` | 13 |
-| `14-calibration-control.md` | 14 |
-| `15-qc-requirements.md` | 15 |
-| `16-acceptance-and-approval.md` | 16 |
-| `17-destructive-operations.md` | 17 |
-| `18-export-and-delivery.md` | 18 |
+| `14-registration-requirements.md` | **14** |
+| `15-calibration-control.md` | 15 |
+| `16-qc-requirements.md` | 16 |
+| `17-acceptance-and-approval.md` | 17 |
+| `18-destructive-operations.md` | 18 |
+| `19-export-and-delivery.md` | 19 |
 | **Part IV — Records, retention and departure** | |
-| `19-documentation-and-records.md` | 19 |
-| `20-retention-and-archive.md` | 20 |
-| `21-non-conformance.md` | 21 |
+| `20-documentation-and-records.md` | 20 |
+| `21-retention-and-archive.md` | 21 |
+| `22-non-conformance.md` | 22 |
 | **Appendices** | |
 | `appendix-A-decision-register.md` | A — **generated** |
 | `appendix-B-records-index.md` | B — **generated** |

@@ -36,7 +36,7 @@ project record.
 This procedure applies to every person performing any activity within its scope, in the roles
 defined in §4.
 
-Where a requirement cannot be met on a particular project, §21 states what happens. **A
+Where a requirement cannot be met on a particular project, §22 states what happens. **A
 requirement is not waived by being inconvenient on the day.**
 
 ## 1.5 Related documents

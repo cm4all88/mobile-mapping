@@ -1,6 +1,6 @@
-# 15. Quality Control Requirements
+# 16. Quality Control Requirements
 
-## 15.1 The principle this section rests on
+## 16.1 The principle this section rests on
 
 > **CAUTION**
 >
@@ -17,7 +17,7 @@ Everything in this section follows from that, and it is why QC here is **layered
 single test. A residual measures how well an adjustment fitted the observations it was given. That
 is a narrower question than the one that matters.
 
-## 15.2 The layers
+## 16.2 The layers
 
 Each layer catches something the others cannot. **None of them is optional because another was
 performed.**
@@ -31,21 +31,23 @@ performed.**
 | 5 | **Residuals on independent check points** | An adjustment that fits its own observations and is still wrong | **Recorded manually** |
 | 6 | **Visual inspection of the point cloud** | Doubled surfaces, thickening at range, systematic tilt | **No software artefact** |
 | 7 | **Imagery inspection** | Coverage gaps, exposure, blur, corrupted images | **No software artefact** |
-| 8 | **Export-state confirmation** (§18.2) | Delivering the unregistered cloud | Screen capture |
+| 8 | **Export-state confirmation** (§19.2) | Delivering the unregistered cloud | Screen capture |
 
 > **Two of the eight layers produce no software artefact at all.** If a reviewer asks whether the
 > visual check was performed and over what extent, the only possible answer is a record somebody
 > wrote.
 
-## 15.3 Trajectory RMS review
+## 16.3 Trajectory RMS review
 
-**The trajectory shall be reviewed in RMS colouring before the point cloud is inspected.**
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> **The trajectory should be reviewed in RMS colouring before the point cloud is inspected.**
 
 It is available before any point cloud exists, it costs seconds, and it says where the solution
 degraded, for how long, and whether the degradation is at the ends of the mission
 *(Technical Manual §24)*. That determines where to look in every later layer.
 
-## 15.4 Residuals
+## 16.4 Residuals
 
 | | |
 |---|---|
@@ -60,7 +62,7 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 > produced as a report, or must be transcribed by hand, determines how this record is kept.**
 > Answerable in ten minutes with the software open.
 
-## 15.5 Visual inspection
+## 16.5 Visual inspection
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-27**
 >
@@ -95,7 +97,7 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 > **The corridor continuity inspection method and its coverage** — how much of a corridor is
 > inspected, and how that is decided.
 
-## 15.6 Imagery inspection
+## 16.6 Imagery inspection
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-27**
 >
@@ -114,12 +116,19 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 > Whether the proposed **file-size scan** for detecting silently corrupted imagery is adopted. It is
 > a screening method proposed by this project and **not validated** *(Technical Manual §26)*.
 
-## 15.7 What QC shall not do
+## 16.7 What QC does not do
 
-**A QC layer shall not be substituted by another.** In particular, good residuals do not remove the
-requirement for visual inspection, for the reason in §15.1.
+> **TRIMBLE REQUIREMENT** — *the visual check is Trimble's instruction, not ours*
+>
+> Good residuals **shall not** be treated as removing the need for visual inspection. Trimble
+> states that a visual check is needed, and says so in identical words in two topics (§16.1).
 
-## 15.8 Records this section requires
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> More generally, **a QC layer should not be substituted by another.** Each catches something the
+> others cannot, and which layers Parametrix requires is **D-27** and **D-39**.
+
+## 16.8 Records this section requires
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-29**
 >
@@ -135,4 +144,4 @@ requirement for visual inspection, for the reason in §15.1.
 > | **Visual check performed, by whom, covering what extent** | **No software artefact exists** |
 > | **Imagery check performed, by whom** | **No software artefact exists** |
 > | Results of Scan Generation | §13.3 |
-> | Mission Report | §17.3 |
+> | Mission Report | §18.3 |

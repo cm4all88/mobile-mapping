@@ -209,7 +209,7 @@ than two, so control and checks at the ends are worth more than control in the m
 >
 > This matters because the residuals on check points are the primary numerical evidence in the
 > accuracy statement, and whether they can be produced as a report — rather than transcribed by
-> hand from a dialog — determines how the record is kept (§30, and the **SOP §20**). *(Appendix E)*
+> hand from a dialog — determines how the record is kept (§30, and the **SOP §21**). *(Appendix E)*
 
 > **FIELD TESTING REQUIRED · T21**
 >

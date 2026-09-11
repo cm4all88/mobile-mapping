@@ -11,7 +11,7 @@ answerable by evidence are the Technical Manual's Appendix E, and are not repeat
 | Decisions open | **34** |
 | **Adopted** | **0** |
 | Priority P1 | 20 |
-| Blocking an operation | 9 |
+| Blocking something | 9 |
 
 > **CAUTION**
 >
@@ -31,26 +31,30 @@ anything**, because it is regenerated from the register.
 | — | *No decision has been adopted at this revision.* | — | — |
 
 
-## A2 · Decisions that block operation
+## A2 · Decisions that block something
 
-9 of the 34 decisions block an operation: work cannot proceed correctly
-until they are settled, as distinct from work being harder without them.
+9 of the 34 decisions block something. **"Blocking" is not one thing** —
+an item that stops a crew leaving the yard and an item that stops a signature at the end are both
+blockers, and treating them alike hides which have to be answered first.
 
-| ID | Decision | SOP § |
-|---|---|---|
-| **D-2** | Which MX60 configuration is ours - Core, Pro or Premium? Are GAMS and DMI fitted? Which rack? | §6.4 |
-| **D-10** | Do we hold a POSPac MMS 8.6+ licence, and where is it installed? | §13.1 |
-| **D-13** | What constitutes an acceptable registration and an acceptable point cloud? | §16.2 |
-| **D-16** | Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions? | §7.4 |
-| **D-19** | IN-Fusion+ Single Base or PP-RTX? | §6.2 |
-| **D-21** | Which datum and epoch do we work in, who sets it, who checks it? | §6.2 |
-| **D-35** | When may Cleanup be performed, by whom, and what must be archived first? | §17.2 |
-| **D-41** | How many passes, in what pattern, by roadway type? | §8.2 |
-| **D-42** | Base station strategy and maximum baseline? | §8.5 |
+**Nothing here blocks operating the MX60 or inspecting what it collects.** What these items prevent
+is a defensible accuracy claim and a formal acceptance.
+
+| ID | What is blocked | Decision | SOP § |
+|---|---|---|---|
+| **D-2** | delivery for a stated accuracy purpose | Which MX60 configuration is ours - Core, Pro or Premium? Are GAMS and DMI fitted? Which rack? | §6.4 |
+| **D-10** | processing | Do we hold a POSPac MMS 8.6+ licence, and where is it installed? | §13.1 |
+| **D-13** | formal acceptance | What constitutes an acceptable registration and an acceptable point cloud? | §14.11, §17.2 |
+| **D-16** | delivery for a stated accuracy purpose | Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions? | §7.4 |
+| **D-19** | collection | IN-Fusion+ Single Base or PP-RTX? | §6.2, §13.1 |
+| **D-21** | processing | Which datum and epoch do we work in, who sets it, who checks it? | §6.2 |
+| **D-35** | one workflow branch | When may Cleanup be performed, by whom, and what must be archived first? | §18.2 |
+| **D-41** | collection | How many passes, in what pattern, by roadway type? | §8.2 |
+| **D-42** | collection | Base station strategy and maximum baseline? | §8.5 |
 
 ## A3 · The full register
 
-### D-1 · Who owns this SOP, who approves revisions, on what review cycle? · SOP §2
+### D-1 · Who owns this SOP, who approves revisions, on what review cycle? · SOP §1.6, §2.2
 
 **P2** · open
 
@@ -60,7 +64,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-2 · Which MX60 configuration is ours - Core, Pro or Premium? Are GAMS and DMI fitted? Which rack? · SOP §6.4
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks delivery for a stated accuracy purpose**
 
 **Why it matters.** Panoramic imagery is 8192x4096 on Core and 12288x6144 on Pro/Premium. Changes every imagery and accuracy statement
 
@@ -68,7 +72,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: system · Documents: Manual; SOP; Field; Office*
 
-### D-3 · Roles and authorities - who may operate, register, accept a registration, run Cleanup, sign the accuracy statement, own calibration currency · SOP §4.2
+### D-3 · Roles and authorities - who may operate, register, accept a registration, run Cleanup, sign the accuracy statement, own calibration currency · SOP §4.2, §5.2, §5.4, §14.2, §17.5, §22.4
 
 **P1** · open
 
@@ -78,7 +82,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-10 · Do we hold a POSPac MMS 8.6+ licence, and where is it installed? · SOP §13.1
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks processing**
 
 **Why it matters.** Determines whether trajectory processing and PFIX are available at all, and removes one of three degraded-GNSS remedies
 
@@ -96,7 +100,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: trajectory processing · Documents: Manual; SOP*
 
-### D-12 · Registration command selection - is Register a Mission the corridor default, and where does run-to-run sit? · SOP §13.4
+### D-12 · Registration command selection - is Register a Mission the corridor default, and where does run-to-run sit? · SOP §14.4
 
 **P2** · open
 
@@ -106,9 +110,9 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: registration · Documents: Manual; SOP; Office*
 
-### D-13 · What constitutes an acceptable registration and an acceptable point cloud? · SOP §16.2
+### D-13 · What constitutes an acceptable registration and an acceptable point cloud? · SOP §14.11, §17.2
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks formal acceptance**
 
 **Why it matters.** No Trimble source provides a threshold. Must combine residuals, independent checks, visual inspection and the project accuracy requirement
 
@@ -116,7 +120,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: QC · Documents: Manual; SOP; Office*
 
-### D-15 · Is the control/check designation fixed before registration and unchangeable during it? · SOP §7.3
+### D-15 · Is the control/check designation fixed before registration and unchangeable during it? · SOP §4.3
 
 **P1** · open
 
@@ -128,7 +132,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-16 · Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions? · SOP §7.4
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks delivery for a stated accuracy purpose**
 
 **Why it matters.** No Trimble source states any. TBC minimum of one pair is a mathematical floor. Local does not extrapolate
 
@@ -146,9 +150,9 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: intake · Documents: SOP; Office*
 
-### D-19 · IN-Fusion+ Single Base or PP-RTX? · SOP §6.2
+### D-19 · IN-Fusion+ Single Base or PP-RTX? · SOP §6.2, §13.1
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks collection**
 
 **Why it matters.** Determines whether a base station is occupied every mission, and the reference frame the solution is computed in
 
@@ -158,7 +162,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-21 · Which datum and epoch do we work in, who sets it, who checks it? · SOP §6.2
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks processing**
 
 **Why it matters.** A silent failure mode (the ITRF00 path) plus a user-settable epoch control Trimble flags as risky
 
@@ -176,7 +180,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: scan generation · Documents: Manual; SOP; Office*
 
-### D-24 · Where is the calibration site, and who maintains it? · SOP §14.3
+### D-24 · Where is the calibration site, and who maintains it? · SOP §15.3
 
 **P2** · open
 
@@ -186,7 +190,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: calibration · Documents: Manual; SOP; Office*
 
-### D-26 · Recalibration interval and triggers - does daily removal of the Sensor Unit count as disturbing it? What happens to data collected on a stale calibration? · SOP §14.2
+### D-26 · Recalibration interval and triggers - does daily removal of the Sensor Unit count as disturbing it? What happens to data collected on a stale calibration? · SOP §15.2
 
 **P1** · open
 
@@ -196,7 +200,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: calibration · Documents: Manual; SOP; Field; Office*
 
-### D-27 · QC inspection content - what does a visual point-cloud QC pass cover, and an imagery QC pass? · SOP §15.5
+### D-27 · QC inspection content - what does a visual point-cloud QC pass cover, and an imagery QC pass? · SOP §14.9
 
 **P2** · open
 
@@ -206,7 +210,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: QC · Documents: Manual; SOP; Office*
 
-### D-28 · Is the retro-reflective target check our periodic verification, and at what interval? · SOP §14.6
+### D-28 · Is the retro-reflective target check our periodic verification, and at what interval? · SOP §15.6
 
 **P2** · open
 
@@ -216,7 +220,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: calibration · Documents: Manual; SOP*
 
-### D-29 · The record package - what provenance record accompanies a deliverable, where does it live, and where is the control/check designation and its residuals recorded? · SOP §19.2
+### D-29 · The record package - what provenance record accompanies a deliverable, where does it live, and where is the control/check designation and its residuals recorded? · SOP §20.2
 
 **P1** · open
 
@@ -226,7 +230,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: provenance · Documents: Manual; SOP; Office*
 
-### D-31 · Is the imagery file-size scan adopted? · SOP §15.6
+### D-31 · Is the imagery file-size scan adopted? · SOP §16.6
 
 **P3** · open
 
@@ -236,7 +240,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: QC · Documents: Manual; SOP; Office*
 
-### D-32 · What is our position on imagery privacy? Are unblurred originals retained, and for how long? · SOP §18.6
+### D-32 · What is our position on imagery privacy? Are unblurred originals retained, and for how long? · SOP §19.6
 
 **P1** · open
 
@@ -246,7 +250,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: export · Documents: Manual; SOP; Office*
 
-### D-34 · Handling segments mobile mapping cannot serve - the decision rule when a corridor produces an unacceptable trajectory, and whether marginal segments are recorded before mobilising · SOP §8.6
+### D-34 · Handling segments mobile mapping cannot serve - the decision rule when a corridor produces an unacceptable trajectory, and whether marginal segments are recorded before mobilising · SOP §8.6, §22.4, §22.5
 
 **P2** · open
 
@@ -254,9 +258,9 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: mission planning · Documents: Manual; SOP; Field; Office*
 
-### D-35 · When may Cleanup be performed, by whom, and what must be archived first? · SOP §17.2
+### D-35 · When may Cleanup be performed, by whom, and what must be archived first? · SOP §18.2
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks one workflow branch**
 
 **Why it matters.** Destructive, not undoable, reduces registration history at the moment the project is handed on
 
@@ -264,7 +268,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: cleanup · Documents: Manual; SOP; Office*
 
-### D-36 · The export release gate - is the pre-export trajectory-node confirmation mandatory, and may exports be made with Export timestamps enabled before T18 resolves? · SOP §18.2
+### D-36 · The export release gate - is the pre-export trajectory-node confirmation mandatory, and may exports be made with Export timestamps enabled before T18 resolves? · SOP §19.2
 
 **P1** · open
 
@@ -274,7 +278,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: export · Documents: Manual; SOP; Office*
 
-### D-38 · Deliverable specification - standard formats, which export path produces each, and default scaling · SOP §18.4
+### D-38 · Deliverable specification - standard formats, which export path produces each, and default scaling · SOP §6.3, §19.4
 
 **P2** · open
 
@@ -284,7 +288,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: export · Documents: Manual; SOP; Office*
 
-### D-39 · What is the corridor continuity inspection method and coverage? · SOP §15.5
+### D-39 · What is the corridor continuity inspection method and coverage? · SOP §16.5
 
 **P1** · open
 
@@ -294,7 +298,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-41 · How many passes, in what pattern, by roadway type? · SOP §8.2
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks collection**
 
 **Why it matters.** Two of three degraded-GNSS remedies require overlap collected on the day
 
@@ -304,7 +308,7 @@ until they are settled, as distinct from work being harder without them.
 
 ### D-42 · Base station strategy and maximum baseline? · SOP §8.5
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks collection**
 
 **Why it matters.** Field logistics on every mission. Interacts with D-19
 
@@ -340,7 +344,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: field QC · Documents: SOP; Field*
 
-### D-52 · Offload, verification and backup procedure · SOP §11.2
+### D-52 · Offload, verification and backup procedure · SOP §10.5
 
 **P1** · open
 
@@ -350,7 +354,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: transfer · Documents: SOP; Field; Office*
 
-### D-53 · Folder structure, naming and storage location · SOP §11.4
+### D-53 · Folder structure, naming and storage location · SOP §11.4, §20.3
 
 **P2** · open
 
@@ -368,7 +372,7 @@ until they are settled, as distinct from work being harder without them.
 
 *Stage: transfer · Documents: SOP; Field*
 
-### D-55 · Capture and retention - what is retained, where, for how long, by whom, including Backup SBET Next to MXDB, Results of Scan Generation, and the calibration JSON · SOP §20.1
+### D-55 · Capture and retention - what is retained, where, for how long, by whom, including Backup SBET Next to MXDB, Results of Scan Generation, and the calibration JSON · SOP §21.1
 
 **P1** · open
 

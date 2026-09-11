@@ -19,11 +19,11 @@
 | 2 | An owner and an approver | **D-1**, **D-3** |
 | 3 | Roles assigned, so that the clauses naming a role name somebody | **D-3** |
 | 4 | The nine decisions that **block operation** answered, or the clauses depending on them removed from scope | Appendix A, §A2 |
-| 5 | The acceptance criterion, or an explicit statement that acceptance rests on documented professional judgement | **D-13**, §16.2 |
+| 5 | The acceptance criterion, or an explicit statement that acceptance rests on documented professional judgement | **D-13**, §17.2 |
 
 > Item 5 is the one that cannot be deferred silently. A procedure that governs acceptance without
 > saying what acceptance means is incomplete in a way the reader must be told about, which is why
-> §16.2 says it rather than hiding it.
+> §17.2 says it rather than hiding it.
 
 ## C3 · Approval
 
@@ -52,10 +52,10 @@ governs them is not established** and they are not filled in.
 |---|---|
 | **A TBC release** | TBC is on an annual cycle and releases have changed mobile mapping behaviour. This revision documents **2026.10** |
 | **A decision adopted** | The clause changes state, and its *should* becomes *shall* |
-| **A test result** | Technical Manual Appendix F. **T18** and **T19** could change what §18 requires |
+| **A test result** | Technical Manual Appendix F. **T18** and **T19** could change what §19 requires |
 | **A vendor answer** | Especially **V-4** — the system configuration, which nine other items depend on |
 | A change to the system — reconfiguration, a fitted sensor, a new vehicle | §6.4, §9.1 |
-| A non-conformance that the procedure did not prevent | §21 |
+| A non-conformance that the procedure did not prevent | §22 |
 
 ## C6 · How this appendix relates to the register
 

@@ -25,8 +25,13 @@ The method is in the **Field How To**. This section states what shall be done, a
 
 ## 9.2 Initialization
 
-**The full initialization sequence shall be performed at the start of every mission**, in the order
-Trimble specifies, and logging of data that matters shall not begin until it is complete.
+> **TRIMBLE REQUIREMENT** — *(MX60 QSG Rev B, pp.13–14)*
+>
+> **The full initialization sequence shall be performed at the start of every mission**, in the
+> order Trimble specifies.
+>
+> **Navigation alignment shall be complete before data logging begins.** The system enforces this —
+> it is not a matter of operator discipline.
 
 > **IMPORTANT**
 >
@@ -34,16 +39,22 @@ Trimble specifies, and logging of data that matters shall not begin until it is 
 > accuracy thresholds, not that it has converged. Trimble asks for **up to ten further minutes**
 > before recording anything that matters *(MX60 QSG Rev B)*.
 >
-> **The first data after the light turns green is the weakest data of the day.** It shall not be
-> spent on the most important part of the corridor.
+> **The first data after the light turns green is the weakest data of the day.**
+
+> **PARAMETRIX PROCEDURE (PROPOSED)**
+>
+> That data **should not** be spent on the most important part of the corridor. Trimble asks for the
+> settling time; how the crew spends it is Parametrix's to decide.
 
 The sequence and its rationale are in **Technical Manual §13**; the steps are in the **Field How
 To**.
 
 ## 9.3 The closing sequence
 
-**The closing sequence shall be performed at the end of every mission, before the mission is
-closed in TMI.**
+> **TRIMBLE REQUIREMENT** — *(MX60 QSG Rev B, p.13; MX60 UG Rev B)*
+>
+> **The closing sequence shall be performed at the end of every mission, before the mission is
+> closed in TMI.**
 
 > **CAUTION**
 >

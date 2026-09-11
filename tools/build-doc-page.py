@@ -74,14 +74,15 @@ SOP_ORDER = [
  ('11-data-transfer-and-custody','11','Data Transfer and Custody'),
  ('12-office-intake','12','Office Intake Requirements'),
  ('13-processing-requirements','13','Processing Requirements'),
- ('14-calibration-control','14','Calibration Control'),
- ('15-qc-requirements','15','Quality Control Requirements'),
- ('16-acceptance-and-approval','16','Acceptance and Approval'),
- ('17-destructive-operations','17','Destructive Operation Controls'),
- ('18-export-and-delivery','18','Export and Delivery Controls'),
- ('19-documentation-and-records','19','Documentation and Records'),
- ('20-retention-and-archive','20','Retention and Archive'),
- ('21-non-conformance','21','Non-conformance and Re-collection'),
+ ('14-registration-requirements','14','Registration Requirements'),
+ ('15-calibration-control','15','Calibration Control'),
+ ('16-qc-requirements','16','Quality Control Requirements'),
+ ('17-acceptance-and-approval','17','Acceptance and Approval'),
+ ('18-destructive-operations','18','Destructive Operation Controls'),
+ ('19-export-and-delivery','19','Export and Delivery Controls'),
+ ('20-documentation-and-records','20','Documentation and Records'),
+ ('21-retention-and-archive','21','Retention and Archive'),
+ ('22-non-conformance','22','Non-conformance and Re-collection'),
  ('appendix-A-decision-register','A','Parametrix Decision Register'),
  ('appendix-B-records-index','B','Index of Required Records'),
  ('appendix-C-approval-and-revision-history','C','Approval and Revision History'),
@@ -193,7 +194,7 @@ DOCS = {
     lead=('What Parametrix requires of MX60 mobile mapping work. Short by design: it states '
           'requirements and points to the Technical Manual for explanation and to the How To '
           'guides for method.'),
-    stats=[('Sections','21 + 3 appendices'),('Words','18,800'),
+    stats=[('Sections','22 + 3 appendices'),('Words','18,800'),
            ('Clauses adopted','0 of 34'),('Blocking decisions','9')],
     flag=('<b>No clause in this SOP has been adopted.</b> Every requirement is marked '
           '<b>PROPOSED</b> until Parametrix records a decision against it, with a date and an '

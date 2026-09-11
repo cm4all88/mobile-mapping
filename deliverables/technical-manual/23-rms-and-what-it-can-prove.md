@@ -38,13 +38,13 @@ correct, a calibration that has drifted.
 | **Whole calibration** | Overall Overlap %, Overall RMS, per-pair RMS in three axes | Calibrate Laser Scanners | *(TBC 24886)* |
 | **Trajectory-wide** | Position, orientation and velocity RMS after smoothing, from `smrmsg_xxx.out` — rendered as **trajectory colour** | Plan View | *(TBC 25943, 27248)* |
 
-Plus the visual check (§25.1) and the records in the **SOP §19**.
+Plus the visual check (§25.1) and the records in the **SOP §20**.
 
 > **Note what is missing from that table: a single number that describes the quality of a
 > registration.** There is no registration report equivalent to a least-squares adjustment
 > summary. The evidence is distributed across a dialog, a results tab, a trajectory colour and
 > the operator's eyes — which is why §30, the provenance problem, matters more here than it would
-> in a conventional adjustment, and why the records the **SOP §19** requires are not a formality.
+> in a conventional adjustment, and why the records the **SOP §20** requires are not a formality.
 
 ## 23.3 Reading the three axes
 

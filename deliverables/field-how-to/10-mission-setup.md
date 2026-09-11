@@ -2,10 +2,12 @@
 
 ## 10.1 Vehicle settings
 
-> **CAUTION**
+> **CAUTION · [TRIMBLE]**
 >
 > **If an aiding navigation sensor is not activated in Vehicle Settings, its data will NOT be
 > logged — even though all connections may have been made properly** *(TMI UG Rev L, p.21)*.
+>
+> This is Trimble stating how the system behaves. It is not a rule anybody can relax.
 >
 > This applies to **DMI and GAMS**. The hardware can be correctly installed, wired and present, and
 > log nothing. There is no cabling fault to find and nothing looks wrong.

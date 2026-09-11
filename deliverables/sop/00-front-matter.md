@@ -79,7 +79,7 @@ not decoration.
 
 | | Why |
 |---|---|
-| **Numerical acceptance tolerances** | Trimble publishes no acceptance tolerance for the MX60, and none has been established by test. Inventing one would be worse than leaving it open. See §16 and **D-13** |
+| **Numerical acceptance tolerances** | Trimble publishes no acceptance tolerance for the MX60, and none has been established by test. Inventing one would be worse than leaving it open. See §17 and **D-13** |
 | **Explanation** | Technical Manual |
 | **Step-by-step method** | Field How To · Office How To |
 | **Terminology** | Technical Manual **§6** is the authoritative glossary for all four documents. §3 below defines only the terms that carry procedural force in this SOP |

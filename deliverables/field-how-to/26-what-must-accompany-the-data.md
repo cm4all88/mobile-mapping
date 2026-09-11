@@ -2,8 +2,10 @@
 
 ## 26.1 The field record
 
-**No software produces it.** It is the only record of everything the software cannot see, and the
-office depends on it *(SOP §9.6)*.
+**[PROPOSED · SOP §9.6 · D-49]** — what the record contains is not yet decided.
+
+**No software produces it.** That part is a fact, not a proposal: it is the only record of
+everything the software cannot see, and the office depends on it.
 
 Recorded **at the time**, per mission:
 

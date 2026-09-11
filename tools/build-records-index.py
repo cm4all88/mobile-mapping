@@ -54,7 +54,7 @@ Last generated {datetime.date.today().isoformat()}.
 
 > **Five of these records have no software artefact behind them** — the control and check
 > designation, the visual inspection, the imagery inspection, the field conditions, and the
-> disposition of a non-conformance. They are written by a person or they do not exist (§19.1).
+> disposition of a non-conformance. They are written by a person or they do not exist (§20.1).
 
 ---
 
@@ -90,16 +90,16 @@ complains when they are absent.
 
 | Record | Section | Why nothing produces it |
 |---|---|---|
-| **Which points were control and which were independent checks** | §7.3, §15.4 | TBC shows the state while the command is open and reloads it on Edit, but no report of it has been found *(Technical Manual §22.7)* |
-| **That the visual inspection was performed, and over what extent** | §15.5 | It is a human act in a viewer |
-| **That the imagery inspection was performed** | §15.6 | The same |
+| **Which points were control and which were independent checks** | §7.3, §14.10, §16.4 | TBC shows the state while the command is open and reloads it on Edit, but no report of it has been found *(Technical Manual §22.7)* |
+| **That the visual inspection was performed, and over what extent** | §16.5 | It is a human act in a viewer |
+| **That the imagery inspection was performed** | §16.6 | The same |
 | **Conditions at collection** — occlusion, weather, traffic, what was not collected and why | §9.6 | Nothing in the vehicle records them |
-| **Disposition of a non-conformance** | §21.7 | — |
+| **Disposition of a non-conformance** | §22.7 | — |
 
 ## B4 · The smallest package that would satisfy the record
 
-§19.2 proposes seven artefacts totalling a few hundred kilobytes. **Five of the seven already exist
-as files** and need only to be copied out of the project before it is cleaned up (§17.3). Two are
+§20.2 proposes seven artefacts totalling a few hundred kilobytes. **Five of the seven already exist
+as files** and need only to be copied out of the project before it is cleaned up (§18.3). Two are
 written by a person.
 """
 open(OUT, 'w').write(head + '\n'.join(body) + tail)

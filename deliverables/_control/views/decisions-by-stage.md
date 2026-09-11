@@ -20,7 +20,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ### D-2 · Which MX60 configuration is ours - Core, Pro or Premium? Are GAMS and DMI fitted? Which rack?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks delivery for a stated accuracy purpose**
 
 **Why it matters.** Panoramic imagery is 8192x4096 on Core and 12288x6144 on Pro/Premium. Changes every imagery and accuracy statement
 
@@ -44,7 +44,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ### D-10 · Do we hold a POSPac MMS 8.6+ licence, and where is it installed?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks processing**
 
 **Why it matters.** Determines whether trajectory processing and PFIX are available at all, and removes one of three degraded-GNSS remedies
 
@@ -64,7 +64,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ### D-19 · IN-Fusion+ Single Base or PP-RTX?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks collection**
 
 **Why it matters.** Determines whether a base station is occupied every mission, and the reference frame the solution is computed in
 
@@ -100,7 +100,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ### D-13 · What constitutes an acceptable registration and an acceptable point cloud?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks formal acceptance**
 
 **Why it matters.** No Trimble source provides a threshold. Must combine residuals, independent checks, visual inspection and the project accuracy requirement
 
@@ -141,7 +141,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ### D-16 · Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks delivery for a stated accuracy purpose**
 
 **Why it matters.** No Trimble source states any. TBC minimum of one pair is a mathematical floor. Local does not extrapolate
 
@@ -151,7 +151,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ### D-21 · Which datum and epoch do we work in, who sets it, who checks it?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks processing**
 
 **Why it matters.** A silent failure mode (the ITRF00 path) plus a user-settable epoch control Trimble flags as risky
 
@@ -277,7 +277,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ### D-41 · How many passes, in what pattern, by roadway type?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks collection**
 
 **Why it matters.** Two of three degraded-GNSS remedies require overlap collected on the day
 
@@ -287,7 +287,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ### D-42 · Base station strategy and maximum baseline?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks collection**
 
 **Why it matters.** Field logistics on every mission. Interacts with D-19
 
@@ -300,7 +300,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ### D-35 · When may Cleanup be performed, by whom, and what must be archived first?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks one workflow branch**
 
 **Why it matters.** Destructive, not undoable, reduces registration history at the moment the project is handed on
 

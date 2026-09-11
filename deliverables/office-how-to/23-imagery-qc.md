@@ -18,7 +18,7 @@
 | **Corrupted images** | **Silent** — see below |
 | **Alignment with the cloud** | Colour in the wrong place at feature edges: a camera boresight issue (§13.2) |
 
-*(SOP §15.6)*
+*(SOP §16.6)*
 
 ### Expect
 
@@ -52,4 +52,4 @@ Resolution by configuration *(TBC 22501, 23888)*:
 That the imagery check was performed and by whom. **No software artefact exists.**
 
 > **PARAMETRIX DECISION REQUIRED · D-32** — imagery privacy. Whether unblurred originals are
-> retained, and for how long. Decided before collection, not on request *(SOP §18.6)*.
+> retained, and for how long. Decided before collection, not on request *(SOP §19.6)*.

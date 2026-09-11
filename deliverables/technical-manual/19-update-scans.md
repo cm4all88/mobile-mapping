@@ -60,5 +60,5 @@ also the mechanism for reverting.
 >
 > **What good looks like.** After Update Scans the scans sit beneath the registered trajectory in
 > Project Explorer and their stations carry a `_reg_####` suffix. If you cannot see that suffix,
-> the adjustment has not reached the data. **For the required check before export, see SOP §18;
+> the adjustment has not reached the data. **For the required check before export, see SOP §19;
 > for how to verify it, see Office How To §21.**

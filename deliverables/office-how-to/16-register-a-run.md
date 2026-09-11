@@ -26,7 +26,7 @@ One run, against surveyed control.
 
 *(TBC 22905)*
 
-> **The 30 m rule**
+> **The 30 m rule · [TRIMBLE]**
 >
 > "The distance in a pair of points cannot exceed the allowed maximum distance of **30 meters**"
 > *(TBC 22905)*. If a pick is further than that from its GCP, it is not a valid pair — pick a

@@ -32,13 +32,33 @@ the Technical Manual at the reference given.
 | 2 | **A good RMS does not prove the work succeeded.** A bad one proves it failed. Trimble says this in identical words in two places | §23 |
 | 3 | **Cleanup cannot be undone** | §28 |
 
-## 1.4 When a section says a decision is open
+## 1.4 Who is telling you — the authority key
+
+**This guide cannot require anything.** Everything in it is somebody else's instruction, and the
+marker says whose. That matters because the SOP is not adopted: a Parametrix practice is a
+recommendation today, while **a Trimble instruction and an equipment limit bind regardless.**
+
+| Marker | Who says so | Force today |
+|---|---|---|
+| **[TRIMBLE]** | Trimble, in the cited topic or manual page | **Binding.** Does not wait on a Parametrix decision |
+| **[EQUIPMENT]** | A hardware limit or an irreversible software operation | **Binding.** It is a fact about the tool |
+| **[SOP §n]** | A Parametrix requirement, at that clause | As strong as that clause — check its state |
+| **[PROPOSED]** | Recommended by this project | **Not company policy.** Do it unless told otherwise, and record it if you do not |
+| **[TESTING · Tn]** | Depends on a result nobody has yet | An interim posture, not a rule |
+| **[DECISION · D-n]** | Parametrix has not decided | **Raise it.** Do not improvise a standing rule |
+
+> **This is why §1.1 says "Stop if" is not a suggestion.** A *Stop if* whose authority is
+> **[TRIMBLE]** or **[EQUIPMENT]** is not negotiable today. A *Stop if* marked **[PROPOSED]** is
+> this project's recommendation — you may proceed past it, and if you do, **record that you did
+> and why.** Either way the instruction stays direct, because a hedged instruction gets ignored.
+
+## 1.5 When a section says a decision is open
 
 A **PARAMETRIX DECISION REQUIRED** marker means the SOP identifies a requirement whose answer is
 not set. You still have to do something today. Where this guide suggests what, it is marked as a
 suggestion and it is not a Parametrix standard.
 
-## 1.5 Record as you go
+## 1.6 Record as you go
 
 Several sections end with **Record**. Those entries are the SOP's required records (SOP Appendix
 B), and five of them have **no software artefact behind them** — if you do not write them down at

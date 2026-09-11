@@ -12,7 +12,7 @@ repeated here.
 | **FIELD TESTING REQUIRED** — answerable by testing | **25** |
 | **VENDOR CLARIFICATION REQUIRED** — answerable only by Trimble | **16** |
 | Of those, priority P1 | 11 |
-| Of those, blocking an operation | 1 |
+| Of those, blocking something | 1 |
 
 > **An open item here is not a defect in this manual.** It is a statement that the evidence does
 > not yet reach, recorded rather than papered over. Where a question is open, the body of the
@@ -313,7 +313,7 @@ unknown.*
 
 ### V-4 · Which MX60 configuration do we have from the serial number? Are GAMS and DMI fitted? Which rack?
 
-**P1** · open · **blocks operation**
+**P1** · open · **blocks delivery for a stated accuracy purpose**
 
 **Why it matters.** Answers D-2. Imagery and accuracy commitments cannot be made without it
 
