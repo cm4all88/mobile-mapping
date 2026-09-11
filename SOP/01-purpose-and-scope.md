@@ -128,7 +128,7 @@ The captured TBC help documents **TBC 2026.10**, confirmed by cross-reference: a
 feature listed as new in the 2026.10 release notes is present in the captured help topic
 *(TBC RN 2026.10; TBC 22905)*.
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-3**
 >
 > **Which TBC version is installed on the Parametrix processing workstation?** Two behaviours
 > in this document depend on it, and both are legacy: calibrating outside TBC (versions up to

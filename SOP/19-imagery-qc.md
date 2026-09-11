@@ -58,7 +58,7 @@ errors and improves — or does not — in the same way.
 >
 > **Do not write MX9 or MX90 camera behaviour into MX60 procedure on the strength of a shared
 > dialog.** The option's presence in the export pane is not evidence that the sensor exists.
-> *(Appendix I)*
+> *(Appendix I; V-8)*
 
 ## 19.3 What to check
 
@@ -74,7 +74,7 @@ errors and improves — or does not — in the same way.
 > | **Corrupted images** | See §19.4 — these are **silent** |
 > | **Alignment with the point cloud** | Colorized points in the wrong colour at feature edges indicates a camera boresight issue (§14.4) |
 >
-> **Not adopted.** *(D-30)*
+> **Not adopted.** *(D-27)*
 
 ## 19.4 Corrupted side camera images are exported as black
 

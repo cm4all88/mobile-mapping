@@ -113,7 +113,7 @@ TBC 22905)*. URLs follow `https://help.fieldsystems.trimble.com/tbc/<id>.htm`.
 | Document | Needed for | Item |
 |---|---|---|
 | **Trimble GAMS Antenna Kit Installation & Operation Manual** | Lever-arm procedure if GAMS is fitted | V-5 |
-| **Trimble DMI Installation & Operation Manual** | DMI scale factor for the measured wheel diameter | V-6 |
+| **Trimble DMI Installation & Operation Manual** | DMI scale factor for the measured wheel diameter | V-5 |
 | **TBC Help: Blur Exported Images** | Imagery privacy procedure | §19.6 — capture when privacy is drafted |
 
 ## C4 · Non-Trimble sources — reference only

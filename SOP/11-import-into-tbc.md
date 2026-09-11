@@ -108,9 +108,24 @@ distance**, and the **active trajectory file**.
 >    camera or laser here means a sensor was disabled or failed in the field
 > 6. **Base station data** is present in `Base/` if the trajectory will be processed in-house
 >    (§12)
+> 7. **The calibration state the mission was collected under is recorded.** `Extcal.json` sits
+>    with the raw data, and the **Mission Report** carries per-sensor boresight and lever-arm
+>    calibration **with a date of calibration** *(TBC 24868; §14.6)* — the only dated calibration
+>    record found anywhere in the workflow (§23.3)
 >
-> **Not adopted.** Six checks, none taking more than a minute, all cheaper now than later.
+> **Not adopted.** Seven checks, none taking more than a minute, all cheaper now than later.
 > *(D-18)*
+
+> **Check 7 exists because of a handoff.** Calibration currency is confirmed in the field (§7.9)
+> and owned by the System Owner (§3.2), but **the processor is the last person who can record what
+> it was** before the project moves on. If a mission turns out to have been collected on a stale
+> calibration, that is a §14.7 question — and it can only be asked if somebody noted the date.
+
+> **PARAMETRIX DECISION REQUIRED · D-26**
+>
+> **What happens to data collected on an out-of-date calibration?** Reprocess after
+> recalibration, accept with a note, or re-collect? The question belongs to the recalibration
+> policy in §14.7 and is recorded there.
 
 ## 11.6 Multiple missions in one project
 

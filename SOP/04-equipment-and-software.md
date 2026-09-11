@@ -55,7 +55,7 @@ quoted to a client without checking.
 
 | | Source A | Source B | Status |
 |---|---|---|---|
-| Scanner field of view | ~346° beam deflection *(MX60 UG Rev B, p.54)* | Full 360° *(Spec sheet, p.2)* | **VENDOR CLARIFICATION REQUIRED** — matters for occlusion geometry |
+| Scanner field of view | ~346° beam deflection *(MX60 UG Rev B, p.54)* | Full 360° *(Spec sheet, p.2)* | **VENDOR CLARIFICATION REQUIRED · V-15** — matters for occlusion geometry |
 | Mounting rack | MX SCAN Roof Rack, 18 kg | MX Shock Absorbing Mounting Rack, 28 kg | **PARAMETRIX DECISION REQUIRED** — which is fitted. The published GAMS corner offsets apply to the standard rack **only** *(MX60 UG Rev B, p.68)* |
 
 *(Recorded as `CONFLICT-002` and `CONFLICT-003` in `reference/mx60-reference-data.csv`.)*
@@ -79,7 +79,7 @@ MX60 support arrived in TMI in **December 2024** *(TMI UG Rev L, p.2)*, which is
 older than that — including the TBC Technical Notes of October 2022 — do not mention the MX60 at
 all.
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-2**
 >
 > **Which TMI version is on the Parametrix system, and how are firmware updates distributed?**
 > One documented behaviour differs between versions: the Quick Start Guide describes two separate
@@ -202,7 +202,7 @@ It needs a workstation well beyond an ordinary one.
 > software setting, and it only becomes urgent on a job with a genuinely bad GNSS corridor — at
 > which point it is too late to buy a workstation. *(D-11)*
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-9**
 >
 > **Does LiDAR QC have its own POSPac dependency?** Trimble does not state one, but it is an
 > Applanix technology and the topic directs configuration questions to the **Applanix Support
@@ -222,7 +222,7 @@ paths that carries the trajectory out of TBC with the data** (§22, §23).
 
 The full list is §1.6. Two gaps:
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-5, V-5**
 >
 > **Trimble GAMS Antenna Kit Installation & Operation Manual** *(referenced MX60 UG p.43)* and
 > **Trimble DMI Installation & Operation Manual** *(referenced MX60 UG p.42)* are both needed to

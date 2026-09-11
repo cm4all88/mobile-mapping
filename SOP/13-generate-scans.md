@@ -57,7 +57,7 @@ untested defaults are.
 Two presets are offered — **Default** and **High Quality** — where High Quality enables Fog, Sun
 and Reflective Panels.
 
-> **FIELD TESTING REQUIRED · T1–T5**
+> **FIELD TESTING REQUIRED · T1–T1**
 >
 > **The filter defaults are the largest block of untested settings in the workflow.** Each removes
 > real returns under conditions that may or may not have occurred.
@@ -66,18 +66,18 @@ and Reflective Panels.
 > selection criteria. High Quality enables three filters unconditionally, including on data
 > collected in conditions where none of them applies.
 >
-> **T2 — Isolated Points.** Trimble's own text contradicts itself: the prose says the filter is
+> **T1 — Isolated Points.** Trimble's own text contradicts itself: the prose says the filter is
 > on, the Restore Default Values behaviour says off.
 >
 > **T3 — Reflective Panels.** "Removes the noise before and after a target." **Does it also
 > remove legitimate retro-reflective returns from signs and line marking?** This bears directly on
 > sign inventory and retroreflectivity work, where those returns are the deliverable.
 >
-> **T4 — Range Max.** The MX60 default matches the scanner's maximum range at the lower pulse
+> **T1 — Range Max.** The MX60 default matches the scanner's maximum range at the lower pulse
 > rate. The User Guide separately warns that real-world range is shorter in bright sunlight and at
 > oblique incidence *(MX60 UG Rev B)*, so points may be retained well beyond useful range.
 >
-> **T5 — Fog and Sun.** Both remove real returns under defined conditions. Applying them when
+> **T1 — Fog and Sun.** Both remove real returns under defined conditions. Applying them when
 > those conditions did not occur removes valid data.
 >
 > *(Appendix I)*
@@ -125,7 +125,7 @@ Scans can be generated with colour from the imagery, or without.
 > states which filters produced a given cloud, and filter choice is a defensible-or-not decision
 > that a reviewer may need to see years later.
 >
-> **Not adopted.** *(D-23; §23, §25)*
+> **Not adopted.** *(D-55; §23, §25)*
 
 ## 13.6 Update Scans — switching a cloud onto a different trajectory
 

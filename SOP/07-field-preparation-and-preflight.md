@@ -99,7 +99,7 @@ DMI-equipped wheel contacts the road** *(TBC 25943)*.
 > determined by the installation, so **record which side it is on at installation** — the
 > processor will not be able to see the vehicle.
 
-> **VENDOR CLARIFICATION REQUIRED · V-6**
+> **VENDOR CLARIFICATION REQUIRED · V-5**
 >
 > The **Trimble DMI Installation & Operation Manual** *(referenced MX60 UG p.42)* is not held. It
 > contains the scale-factor value for the measured wheel diameter, which §12.3 needs.
@@ -132,11 +132,20 @@ measured. Any doubt about seating is a doubt about the lever arms.
 4. Sensor Unit and Control Unit LEDs **blink for about 10 seconds**
 5. Wait for the system to reach a ready state before connecting to TMI
 
-> **CAUTION**
+> **CAUTION · Battery Protect** — *(MX60 UG Rev B, p.27)*
 >
-> **Battery Protect** gives an audible warning below **10.5 V** and cuts power **90 seconds**
-> later *(MX60 UG Rev B)*. If the alarm sounds during preflight, restore charge before doing
-> anything else — a mission that starts on a marginal battery will end unexpectedly.
+> | Event | Trigger |
+> |---|---|
+> | **Audible warning** | Supply below **10.5 V for longer than 12 seconds** |
+> | **Power cut** | Supply below **10.5 V for more than 90 seconds** |
+> | **Recovery** | If the voltage rises above **12.0 V within that 90 seconds**, the system recovers |
+>
+> So the alarm leaves roughly **78 seconds** to restore charge before the cut — that figure is the
+> arithmetic of the two sourced timings, not a separately published one.
+>
+> If the alarm sounds during preflight, restore charge before doing anything else. **A mission
+> that starts on a marginal battery will end unexpectedly**, and an interrupted run takes the
+> closing sequence with it (§8.7).
 
 ## 7.6 Connecting to TMI
 
@@ -195,7 +204,7 @@ mission, and is the intended disk.
 > **Never connect the USB cable while the exchangeable data disk is inside the Control Unit.**
 > Remove the disk first *(MX60 UG Rev B, p.10)*.
 
-> **PARAMETRIX DECISION REQUIRED · D-47**
+> **PARAMETRIX DECISION REQUIRED · D-43**
 >
 > **What free-space margin is required before a mission is permitted to start?** A mission that
 > fills the disk mid-corridor ends the run and takes the closing sequence with it (§8.7).

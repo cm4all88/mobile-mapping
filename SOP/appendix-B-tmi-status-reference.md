@@ -62,7 +62,7 @@ What to do when it will not reach its ready state:
 
 | Indication | Meaning | Response |
 |---|---|---|
-| **Audible alarm** | **Battery Protect** — supply below **10.5 V** | Power is cut in **78–90 seconds**. Restore charge immediately; do not continue *(MX60 UG Rev B)* |
+| **Audible alarm** | **Battery Protect** — supply below **10.5 V for more than 12 s** | Power cuts at **90 s** below 10.5 V, leaving roughly **78 s** from the alarm. Recovery needs the voltage above **12.0 V** within that window. Restore charge immediately; do not continue *(MX60 UG Rev B, p.27)* |
 | Sensor absent from the device list | Cable, power or sensor fault | Stop. A run with a sensor down is incomplete (§9.4) |
 | Storage warning | Disk filling | Reassess before it fills mid-run — an interrupted run loses the closing sequence (§8.7) |
 

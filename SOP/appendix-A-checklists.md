@@ -16,7 +16,7 @@ as summaries. Each names its section for the detail.
 |---|---|
 | ☐ | Client accuracy requirement stated **in writing, per component** |
 | ☐ | Deliverable formats agreed ⚠ *D-38* |
-| ☐ | **Grid or ground** agreed, and what accompanies it ⚠ *D-40* |
+| ☐ | **Grid or ground** agreed, and what accompanies it ⚠ *D-38* |
 | ☐ | Project CRS, vertical datum and geoid fixed |
 | ☐ | **Epoch** confirmed where a time-dependent datum is in use ⚠ *D-21* |
 | ☐ | Corridor extent defined, including extent beyond the deliverable needed to bracket control |
@@ -33,7 +33,7 @@ as summaries. Each names its section for the detail.
 | ☐ | **Segments unsuitable for mobile mapping identified and communicated** — §6.8 |
 | ☐ | Initialization locations identified — primary and backup, scouted on imagery |
 | ☐ | Collection window agreed against GNSS, imagery and traffic |
-| ☐ | Weather go/no-go understood by the operator ⚠ *D-44* |
+| ☐ | Weather go/no-go understood by the operator ⚠ *D-43* |
 | ☐ | **Calibration currency confirmed** — §14.7 ⚠ *D-26* |
 | ☐ | Road occupancy, permits, access and notifications arranged |
 
@@ -58,7 +58,7 @@ as summaries. Each names its section for the detail.
 | ☐ | DMI mounting side recorded, if fitted — determines the scale factor sign |
 | ☐ | Capture settings configured **and written down** |
 | ☐ | Dust filter set appropriately — unpaved or mine sites only |
-| ☐ | Data disk installed, correct disk, **sufficient free space with margin** ⚠ *D-47* |
+| ☐ | Data disk installed, correct disk, **sufficient free space with margin** ⚠ *D-43* |
 | ☐ | Scanner windows and camera dome clean |
 | ☐ | Initialization location confirmed available |
 | ☐ | Weather within the go/no-go rule |
@@ -76,7 +76,9 @@ as summaries. Each names its section for the detail.
 |---|---|
 | ☐ | Last run finished |
 | ☐ | Driven to an **open-sky** location |
-| ☐ | **Dynamic manoeuvres performed** — the mirror of initialization |
+| ☐ | **Dynamic steering manoeuvres performed** |
+| ☐ | **Speed varied** |
+| ☐ | **Driven straight** |
 | ☐ | **Stationary 2–3 minutes**, logging static data |
 | ☐ | Mission closed in TMI |
 | ☐ | **Power button light out** — up to 90 s — before power or disk is disturbed |
@@ -93,7 +95,7 @@ as summaries. Each names its section for the detail.
 | ☐ | **Planned overlap actually collected** — §9.3 |
 | ☐ | Sections not collected recorded, with the reason |
 | ☐ | Field record complete — conditions, incidents, occlusions, comments |
-| ☐ | **Any re-drive decided and performed now** ⚠ *D-51* |
+| ☐ | **Any re-drive decided and performed now** ⚠ *D-49* |
 
 > **The overlap check is the one worth being pedantic about.** Missed overlap removes two of the
 > three office remedies for degraded GNSS, with no software warning.
@@ -120,6 +122,7 @@ as summaries. Each names its section for the detail.
 | ☐ | Run count matches the field record |
 | ☐ | Active trajectory is the intended one, and is **SBET not NAV** unless recorded otherwise |
 | ☐ | Capture Devices lists the expected sensors |
+| ☐ | **Calibration state recorded** — run the Mission Report; it carries the date of calibration per sensor ⚠ *D-26* |
 
 ---
 
@@ -139,7 +142,7 @@ as summaries. Each names its section for the detail.
 | ☐ | GAMS settings reviewed, if fitted |
 | ☐ | DMI lever arm, **scale factor and sign**, and SD reviewed, if fitted ⚠ *T12* |
 | ☐ | Vehicle-frame convention confirmed — **+X forward, +Y right, +Z down** |
-| ☐ | **Backup SBET Next to MXDB enabled** ⚠ *D-20* |
+| ☐ | **Backup SBET Next to MXDB enabled** ⚠ *D-55* |
 | ☐ | LiDAR QC considered where GNSS was degraded and overlap exists — §12.7 |
 | ☐ | Generate QC Report enabled |
 | ☐ | **SBET filename read** — `sbet_<mission>.out` or `sbet_<mission>_<frame>.out` |
@@ -157,14 +160,14 @@ as summaries. Each names its section for the detail.
 | ☐ | Item |
 |---|---|
 | ☐ | Correct trajectory active on the mission |
-| ☐ | Filter settings chosen deliberately, not accepted ⚠ *T1–T5* |
+| ☐ | Filter settings chosen deliberately, not accepted ⚠ *T1–T1* |
 | ☐ | **Reflective Panels considered** if signs or line marking are in the deliverable ⚠ *T3* |
-| ☐ | Range max considered against useful range in the day's conditions ⚠ *T4* |
+| ☐ | Range max considered against useful range in the day's conditions ⚠ *T1* |
 | ☐ | Colorization decision made ⚠ *D-22* |
 | ☐ | **One representative run generated and inspected before committing the mission** |
 | ☐ | Expected features still present — signs, line marking, a wall at range |
 | ☐ | Mission generated |
-| ☐ | **Results of Scan Generation captured into the project record** ⚠ *D-23* |
+| ☐ | **Results of Scan Generation captured into the project record** ⚠ *D-55* |
 | ☐ | Scans visible beneath the expected trajectory node |
 
 ---
@@ -189,7 +192,7 @@ as summaries. Each names its section for the detail.
 | ☐ | **BOTH run pairs checked** — `Run_0 ↔ Run_1` **and** `Run_2 ↔ Run_3` |
 | ☐ | Applied only after both visual checks |
 | ☐ | Camera calibration performed if required — §14.4 |
-| ☐ | **Calibration JSON exported and archived** with serial number and date ⚠ *D-25* |
+| ☐ | **Calibration JSON exported and archived** with serial number and date ⚠ *D-55* |
 | ☐ | Mission Report run — it carries the **date of calibration** per sensor |
 
 > **Good RMS does not prove the calibration succeeded. Bad RMS proves it failed. Look at the
@@ -234,7 +237,7 @@ as summaries. Each names its section for the detail.
 |---|---|
 | ☐ | Adjusted trajectory node present, with `Origin: Registration result` |
 | ☐ | Numbered `sbet_<date>_reg_####.out` present in the project folder |
-| ☐ | **Residuals on control and on independent checks recorded outside TBC** ⚠ *D-17* |
+| ☐ | **Residuals on control and on independent checks recorded outside TBC** ⚠ *D-29* |
 | ☐ | **Update Scans run** — §13.6 |
 | ☐ | Scan stations carry the **`_reg_####`** suffix |
 | ☐ | `Targets.csv` archived |
@@ -294,7 +297,7 @@ as summaries. Each names its section for the detail.
 | ☐ | Trajectory properties read `Origin: Registration result`, with expected input and type |
 | ☐ | Correct export tab chosen — **Mobile Mapping (run-aware)** or **Point Cloud (region-based)** |
 | ☐ | Export path chosen ⚠ *D-38* |
-| ☐ | **Export timestamps setting decided and recorded** ⚠ *D-37 · T18 · V-1* |
+| ☐ | **Export timestamps setting decided and recorded** ⚠ *D-36 · T18 · V-1* |
 | ☐ | Scaling decided — **grid writes a `.txt` sidecar; ground does not expose its scale factor** |
 | ☐ | ECEF considered where the global CRS must travel |
 | ☐ | Path-specific prerequisites met — scans generated; run views closed for TopoDot |
@@ -351,7 +354,7 @@ as summaries. Each names its section for the detail.
 
 | ☐ | Item |
 |---|---|
-| ☐ | **Authorisation obtained** ⚠ *D-6 · D-35* |
+| ☐ | **Authorisation obtained** ⚠ *D-3 · D-35* |
 | ☐ | Cleanup Mobile Mapping Mission run |
 | ☐ | **Recorded** — by whom, on what date, and what was archived first |
 

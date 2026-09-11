@@ -76,7 +76,7 @@ several documented ways exist for them to do so silently:
 > raw data** and directly written to the LAS format files, the color information will be exported
 > in the LAS format files."
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-1**
 >
 > **When Export timestamps causes TBC to reprocess from the raw source data, which trajectory is
 > used for that reprocessing?**
@@ -105,7 +105,7 @@ Until T18 and the vendor question are resolved:
 >
 > GPS Time per point is genuinely useful and some downstream software requires it. The question is
 > not whether timestamps are wanted but whether the cost of obtaining them is understood.
-> *(D-37)*
+> *(D-36)*
 
 ## 22.4 Two export tabs that behave differently
 
@@ -232,8 +232,8 @@ Output structure: a **Mission folder** plus one folder per device, with `laser`,
 > the deliverable.** A run carrying both an imported `Sbet` and a registered trajectory has two
 > candidates, and **the topic does not state which is written.**
 >
-> **VENDOR CLARIFICATION REQUIRED** — which trajectory does the TMX export write when several
-> exist under a run? *(Appendix I)* · **FIELD TESTING REQUIRED · T20** *(Appendix I)*
+> **VENDOR CLARIFICATION REQUIRED · V-10** — which trajectory does the TMX export write when
+> several exist under a run? *(Appendix I)* · **FIELD TESTING REQUIRED · T19** *(Appendix I)*
 
 ### 22.6.3 Export to TopoDot
 
@@ -320,7 +320,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 > options govern imagery only — and it is a first-class, viewable object in the delivered dataset.
 > **Which trajectory is published when several exist under a run is not documented.**
 >
-> **VENDOR CLARIFICATION REQUIRED** *(Appendix I)* · **FIELD TESTING REQUIRED · T19** *(Appendix I)*
+> **VENDOR CLARIFICATION REQUIRED · V-10** *(Appendix I)* · **FIELD TESTING REQUIRED · T19** *(Appendix I)*
 
 > **OBSERVED SOFTWARE BEHAVIOR** · Trimble Connect's **UK region** is currently unavailable for
 > Publish to TRCPS and Trimble Mobile Mapping data *(TBC RN 2026.10)*. Not applicable to
@@ -361,7 +361,9 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 >
 > This is therefore a **software-behaviour testing question**, not an unresolved documentation
 > research question. All known MX60 export and publish paths have been reviewed.
-> **FIELD TESTING REQUIRED · T22** — export and inspect the file directly. *(Appendix I; §23)*
+> **FIELD TESTING REQUIRED · T22** — export and inspect the file directly. **VENDOR CLARIFICATION
+> REQUIRED · V-12** — does any TBC export write the source trajectory into a LAS header, VLR or
+> sidecar? *(Appendix I; §23)*
 
 ## 22.8 Known limitations and silent failures
 
@@ -372,7 +374,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 | Scans must be generated first or nothing is exported | TopoDot, Solv3D | *(TBC 23339, 23888)* |
 | Ground scaling does not expose its scale factor | All point cloud exports | *(TBC 11769, 27279)* |
 | Grid-scaled re-import may double-scale | All point cloud exports | *(TBC 11769, 27279)* |
-| MX9 Export to TMX requires a coordinate system without Geoid | TMX — **MX60 applicability not stated** | *(TBC 22501)* |
+| MX9 Export to TMX requires a coordinate system without Geoid | TMX — **MX60 applicability not stated · V-17** | *(TBC 22501)* |
 | Random sampling with no spatial rule | Classified LAS | *(TBC 27279)* · T17 |
 
 ---

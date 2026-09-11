@@ -33,22 +33,25 @@ proposal becomes policy.
 
 ## H4 · Priority order for the first round
 
-From **Appendix I**, the ten items that genuinely block operation:
+From **Appendix I**, the nine items that genuinely block operation:
 
 | ID | Decision | Why it blocks |
 |---|---|---|
 | **D-2 / V-4** | MX60 configuration, GAMS, DMI, rack | Imagery and accuracy commitments cannot be made |
 | **D-10** | POSPac MMS licence | Determines whether trajectory processing and PFIX exist at all |
 | **D-13** | Acceptance criteria | Acceptance cannot be signed |
-| **D-16** | Control density and check ratio | Control design cannot be specified |
+| **D-16** | Control design | Control design cannot be specified |
 | **D-19** | Computation mode — Single Base or PP-RTX | Field logistics on every mission |
 | **D-21** | Datum and epoch | A silent failure mode with a user-settable control |
 | **D-35** | Cleanup policy | Otherwise decided by default by whoever finishes a project first |
 | **D-41** | Pass pattern | Two of three degraded-GNSS remedies need overlap collected on the day |
 | **D-42** | Base station strategy | Field logistics; interacts with D-19 |
 
-Fourteen further **P1** items should follow. The remaining items improve consistency and
-efficiency without preventing defensible work.
+Ten further **P1** items should follow. **Appendix I §Suggested sequence** sets out six rounds,
+and the fourth of them is a single afternoon with the software that closes the export and
+Cleanup questions.
+
+The remaining items improve consistency and efficiency without preventing defensible work.
 
 ## H5 · Review
 

@@ -355,17 +355,13 @@ to shortcut is greatest.
 > **No numerical threshold appears anywhere in this document, because none exists in any Trimble
 > source and inventing one would be indefensible.**
 >
-> The acceptance framework should combine four things, and a rule built on any one alone will
-> fail:
->
-> 1. **Numerical residuals** on the control used in the adjustment
-> 2. **Independent check information** — residuals on points held out of it (§17)
-> 3. **Visual inspection** — Cutting Plane View across overlapping runs (§18)
-> 4. **The project accuracy requirement**, which is set per job and is the only thing that makes
->    any threshold meaningful
+> The framework must combine **numerical residuals**, **independent check information** (§17),
+> **visual inspection** (§18) and **the project accuracy requirement** — and a rule built on any
+> one alone will fail. **The full framework, with why each component is necessary and why none is
+> sufficient, is set out once in §24.3.**
 >
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
-> pass."** *(D-13; §18, §24)*
+> pass."** *(D-13; §18.9, §24.3)*
 
 ---
 

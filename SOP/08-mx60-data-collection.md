@@ -19,15 +19,23 @@
 > **EXISTING PARAMETRIX DRAFT PROCEDURE — CONFIRM BEFORE FINAL** — sourced to
 > *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)*
 
-1. Position the vehicle at the initialization location — **open sky**, clear of buildings and
-   canopy (§6.3)
+1. **Park in an open-sky area** with good GNSS visibility and PDOP, avoiding high buildings and
+   obstructions (§6.3)
 2. Start the mission in TMI
-3. **Remain stationary for 2–3 minutes**, logging static data
-4. Drive **straight** for a short distance
-5. Perform **dynamic manoeuvres** — a speed profile such as
-   **0 → 50 → 20 → 50 → 20 km/h**, with turns
-6. Watch for the navigation status to reach its ready indication
-7. **Allow additional settling time — up to 10 minutes — before logging data that matters**
+3. **Log 2–3 minutes of static data** before driving
+4. **Drive straight ahead for approximately 20 m**, with no larger dynamic steering. The
+   navigation status switches on completing this
+5. **Drive straight at varying speed** — accelerate then decelerate — **and perform dynamic
+   steering manoeuvres.** An example profile: **0 → 50 → 20 → 50 → 20 km/h**
+6. Watch the navigation status progress **red → orange → green**. Green means the user accuracies
+   for the navigation system are met
+7. **Allow up to 10 further minutes of settling before logging data that matters**
+
+> **IMPORTANT**
+>
+> **Navigation alignment must be completed before data logging is allowed** *(MX60 QSG Rev B)*.
+> The system enforces this — it is not a matter of operator discipline. What is *not* enforced is
+> step 7.
 
 ### With GAMS fitted
 
@@ -36,8 +44,12 @@ considerably *(TBC 25943)*.
 
 > **FIELD TIP**
 >
-> **Perform the full sequence anyway.** It costs a few minutes, it is what the Quick Start Guide
-> describes, and the static period is doing more than heading determination (§8.3).
+> Trimble states that **straight driving is more important if a GAMS antenna is NOT used**
+> *(MX60 QSG Rev B, p.12)* — without GAMS, heading has to be recovered from motion, and the
+> straight run at step 4 is doing that work.
+>
+> **Perform the full sequence either way.** It costs a few minutes, and the static period is
+> doing more than heading determination (§8.3).
 
 ## 8.3 What the system is actually doing — and why green is not finished
 
@@ -81,7 +93,7 @@ Runs are started and stopped within a mission. Each becomes a **Run** node in TB
 | **Recommended maximum, system operating** | **80 km/h (50 mph)** | *(MX60 UG Rev B)* |
 | Absolute maximum, operating or not | 110 km/h (68 mph) | *(MX60 UG Rev B)* |
 
-> **PARAMETRIX DECISION REQUIRED · D-48**
+> **PARAMETRIX DECISION REQUIRED · D-43**
 >
 > **What collection speed, by deliverable type?** Speed determines point density along the
 > corridor and the number of images per unit length. Trimble publishes a recommended maximum and
@@ -115,7 +127,7 @@ the office knows why the trajectory does what it does there.
 | **Navigation status** | Any degradation from the ready state |
 | **Storage** | Remaining capacity against remaining corridor |
 | **Sensor status** | A camera or laser that has stopped |
-| **Audible alarm** | **Battery Protect — 78 seconds to restore charge** *(MX60 UG Rev B)* |
+| **Audible alarm** | **Battery Protect.** Supply has been below 10.5 V for 12 s; power cuts at 90 s. Roughly **78 seconds to restore charge** — recovery needs the voltage above 12.0 V *(MX60 UG Rev B, p.27; §7.5)* |
 
 > **FIELD TIP**
 >
@@ -149,10 +161,16 @@ outside the go/no-go rule (§6.5).
 
 1. Finish the last run
 2. Drive to an open-sky location
-3. Perform **dynamic manoeuvres** — the mirror of initialization
-4. **Remain stationary for 2–3 minutes**, logging static data
-5. Close the mission in TMI
-6. **Wait for the Control Unit power button light to go out — up to 90 seconds**
+3. **Dynamic steering manoeuvres**
+4. **Vary the speed**
+5. **Drive straight**
+6. **Remain stationary for 2–3 minutes**, logging static data
+7. Close the mission in TMI
+8. **Wait for the Control Unit power button light to go out — up to 90 seconds**
+
+> Steps 3–6 are the initialization sequence **run in reverse order** *(MX60 QSG Rev B, p.13)* —
+> manoeuvres, then speed variation, then straight, then static, where the start was static,
+> straight, speed variation, manoeuvres (§8.2).
 
 > **The whole sequence takes about five minutes and is the cheapest quality improvement available
 > in the entire workflow.**

@@ -90,7 +90,7 @@ Two constraints from §15 govern how control must be placed for this to work:
 > **Does mission planning require control density to vary with predicted GNSS conditions?** A
 > uniform spacing along a corridor puts the same control in the open sections, where it adds
 > little, as in the obstructed ones, where it is the only thing holding the data together.
-> *(D-33; §6, §17)*
+> *(D-16; §6, §17)*
 
 ## 20.5 Remedy two — Generate POSPac Position Fixes (PFIX)
 
@@ -116,7 +116,7 @@ Two constraints from §15 govern how control must be placed for this to work:
 > between control points.
 >
 > ⚠ *That framing is this document's, inferred from Trimble's descriptions of the two commands.
-> Trimble never states the contrast directly.* **VENDOR CLARIFICATION REQUIRED** — when should
+> Trimble never states the contrast directly.* **VENDOR CLARIFICATION REQUIRED · V-16** — when should
 > PFIX be preferred over registration? *(Appendix I)*
 
 ### Prerequisites
@@ -220,7 +220,7 @@ at six times installed RAM, and the MATLAB Runtime (§4.5).
 > overlap for LiDAR QC, or a different method — because two of the three have to be arranged in
 > the field.
 >
-> **Not adopted.** *(D-33)*
+> **Not adopted.** *(D-16)*
 
 ---
 

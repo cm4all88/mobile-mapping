@@ -48,7 +48,7 @@ trajectory error.
 > **Not adopted.** Step 4 is the part most likely to be skipped and is the reason this sequence
 > matters: adjusting a run to match another run will change its residuals against control, and
 > if the reference run was itself slightly off, run-to-run will faithfully propagate that error
-> into the run you adjusted. *(D-14)*
+> into the run you adjusted. *(D-12)*
 
 > **The choice of which run is the Reference is a survey decision, not a processing convenience.**
 > Whatever the Reference Run's absolute error is, the Run to Adjust inherits it.

@@ -28,9 +28,9 @@
 > **Nothing in this document may be quoted to a client as an existing Parametrix standard.**
 >
 > The technical content is complete and evidenced against Trimble documentation. The company
-> decisions that would make it binding have not been made. **Appendix I lists all 100 of them**,
-> in priority order; **ten genuinely block operation** and should be settled before the first
-> production job.
+> decisions that would make it binding have not been made. **Appendix I lists all 74 of them**,
+> grouped and prioritised; **nine genuinely block operation** and should be settled before the
+> first production job.
 
 ---
 

@@ -82,7 +82,7 @@ The one substantive quality check available in the field.
 >   missed (§20.3)
 > - Sections not collected, and why, are recorded
 >
-> *(D-50)*
+> *(D-49)*
 
 > **IMPORTANT**
 >
@@ -98,7 +98,7 @@ The one substantive quality check available in the field.
 > Re-driving a run while the vehicle is on site costs minutes. Re-driving from the office costs a
 > mobilisation and, on a corridor requiring traffic control, considerably more.
 
-> **PARAMETRIX DECISION REQUIRED · D-51**
+> **PARAMETRIX DECISION REQUIRED · D-49**
 >
 > **What triggers a re-drive, and who decides?**
 >

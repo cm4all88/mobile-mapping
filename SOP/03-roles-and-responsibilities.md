@@ -97,25 +97,25 @@ The role with no obvious home, and the one most likely to go unassigned.
 
 > **PARAMETRIX DECISION REQUIRED**
 >
-> **D-3.1 · Who may operate the MX60?** Is there a qualification, a training requirement, a
+> **D-3 · Who may operate the MX60?** Is there a qualification, a training requirement, a
 > supervised-run count, or a sign-off before someone collects production data alone?
 >
-> **D-3.2 · Who may perform a registration?** Registration is an adjustment. Is it restricted,
+> **D-3 · Who may perform a registration?** Registration is an adjustment. Is it restricted,
 > and if so to whom?
 >
-> **D-3.3 · Who accepts a registration?** Must the accepting person be someone other than the
+> **D-3 · Who accepts a registration?** Must the accepting person be someone other than the
 > person who performed it? *(§17, §24)*
 >
-> **D-3.4 · Who may run Cleanup Mobile Mapping Mission?** It is destructive and not undoable.
+> **D-3 · Who may run Cleanup Mobile Mapping Mission?** It is destructive and not undoable.
 > *(§21 — this is the sharpest single instance of the problem)*
 >
-> **D-3.5 · Who signs the accuracy statement?** Under what licensure, and against what evidence?
+> **D-3 · Who signs the accuracy statement?** Under what licensure, and against what evidence?
 >
-> **D-3.6 · Who owns calibration currency?** *(§14)*
+> **D-3 · Who owns calibration currency?** *(§14)*
 >
-> **D-3.7 · Who owns this SOP?** *(§1.7)*
+> Ownership of this SOP itself is **D-1** *(§1.7)*.
 >
-> *D-3 to D-9. See Appendix I.*
+> *See Appendix I.*
 
 ## 3.4 A proposed structure, offered for decision
 

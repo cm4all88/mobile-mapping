@@ -197,7 +197,7 @@ on it.
 > convert without being told. Grid writes a sidecar; ECEF embeds the global CRS. Agree with the
 > client which they are receiving, and make sure the file can say so.
 
-> **PARAMETRIX DECISION REQUIRED · D-40**
+> **PARAMETRIX DECISION REQUIRED · D-38**
 >
 > **What is Parametrix's default deliverable scaling, and what accompanies it?** *(§22)*
 

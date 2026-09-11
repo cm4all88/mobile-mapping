@@ -173,7 +173,7 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 >
 > Needs: an interval, a site, a target specification, and a pass criterion tied to the
 > manufacturer's specified accuracy for the configuration Parametrix owns (§4.1).
-> *(D-28; Appendix I)*
+> *(D-28, V-14; Appendix I)*
 
 ## 18.8 What to record
 
@@ -203,17 +203,16 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 > **No numerical acceptance criterion appears anywhere in this document. No Trimble source in the
 > set provides one, and inventing one would be indefensible.**
 >
-> The framework must combine four things. A rule built on any one alone will fail:
+> The framework must combine **numerical residuals**, **independent check information** (§17),
+> **visual inspection** (§18.5) and **the project accuracy requirement**. **It is set out in full
+> once, in §24.3**, with why each component is necessary and why none is sufficient alone.
 >
-> | Component | Why it is necessary | Why it is not sufficient |
-> |---|---|---|
-> | **Numerical residuals** on control used | Objective, repeatable | Measures fit to its own observations — see §18.1 |
-> | **Independent check information** | The only numerical evidence of accuracy | Sparse; a handful of points cannot characterise a whole corridor |
-> | **Visual inspection** | Catches what no number reports | Subjective, unrecorded, and dependent on who looked |
-> | **Project accuracy requirement** | The only thing that makes any threshold meaningful | Varies per job; not a property of the system |
+> The reason no single component suffices is §18.1: residuals measure fit to the observations
+> that shaped the adjustment, and an adjustment with few observations — or with a systematic
+> error common to all of them — fits beautifully and is wrong.
 >
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
-> pass."** *(D-13; §15.9, §24)*
+> pass."** *(D-13; §15.9, §24.3)*
 
 ---
 

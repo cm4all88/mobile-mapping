@@ -140,7 +140,7 @@ Weather is a go/no-go decision, not a driving adjustment.
 > The Control Unit and Power Unit are **IP30 — not waterproof.** They live inside the vehicle for
 > a reason. *(MX60 UG Rev B, p.53)*
 
-> **PARAMETRIX DECISION REQUIRED · D-44**
+> **PARAMETRIX DECISION REQUIRED · D-43**
 >
 > **One clear wet-weather rule.** Trimble says avoid operating in rain or mist; TMR says do not
 > capture imagery in wet conditions; **neither defines "wet."**
@@ -205,7 +205,7 @@ planning task, not a processing one.
 >
 > Record, in the project file before mobilising: the segments where mobile mapping is expected to
 > be marginal, the mitigation chosen for each, and the segments where another method is proposed.
-> *(D-45)*
+> *(D-34)*
 
 ## 6.9 The planning record
 

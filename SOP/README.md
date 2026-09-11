@@ -10,8 +10,8 @@
 > and that is correct on first issue. **Nothing here may be quoted to a client as an existing
 > Parametrix standard.**
 >
-> [**Appendix I**](appendix-I-open-items.md) is the backlog — 100 open items, 35 at P1, **10 that
-> genuinely block operation.**
+> [**Appendix I**](appendix-I-open-items.md) is the backlog — **74 open items**, 30 at P1, **9 that
+> genuinely block operation**, with a six-round sequence for working through them.
 
 ## Read
 

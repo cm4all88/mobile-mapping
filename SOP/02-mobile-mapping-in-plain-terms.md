@@ -174,7 +174,42 @@ each other and to control. Mobile mapping is different in an instructive way.
 > point cloud" is misleading. You are not moving points. You are improving the path the sensor
 > took, and then recomputing where the points must therefore have been.
 
-## 2.7 Vocabulary
+## 2.7 The whole workflow, once
+
+Every stage, in order, with what it produces and where it is. **Read this once and the rest of
+the document has a shape.**
+
+| | Stage | What it produces | § |
+|---|---|---|---|
+| **Plan** | Project setup and control | A CRS, a control network that brackets the job, designated check points | 5 |
+| | Mission planning | A route, a pass pattern, mapped GNSS-hostile stretches and a mitigation for each | 6 |
+| **Field** | Preparation and preflight | A mounted, calibrated, measured system | 7 |
+| | Acquisition | A mission: raw scanner, imagery and navigation data | 8 |
+| | Field QC | Confirmation the data **exists and is complete** — not that it is good | 9 |
+| | Transfer | A verified copy, in two places | 10 |
+| **Office** | Import | An **index** in TBC. Still no point cloud | 11 |
+| | **Trajectory processing** | The **SBET** — the computed path. *The accuracy ceiling is set here* | 12 |
+| | **Generate Scans** | The point cloud, by applying the trajectory to the raw scanner data | 13 |
+| | *(Calibration)* | Sensor boresight angles. **Periodic — most projects skip this** | 14 |
+| | **Registration** | A **better trajectory**, fitted to surveyed control. *The cloud has not moved* | 15, 16 |
+| | **Update Scans** | A **new point cloud**, on the registered trajectory. **Without this the registration reaches nothing** | 13.6 |
+| | QC | Residuals, independent checks, and a visual inspection | 17, 18, 19 |
+| | *(Degraded GNSS)* | A branch, if QC fails — and two of its three remedies had to be arranged in the field | 20 |
+| | *(Cleanup)* | A light project with one answer. **Destructive and not undoable** | 21 |
+| **Deliver** | Export | The deliverable — which may not identify the trajectory that produced it | 22, 23 |
+| | Final QA/QC | Ten layers of verification, before it leaves | 24 |
+| | Archive | The records that let the work be defended later | 25 |
+
+Three things to carry out of that table:
+
+1. **The trajectory is computed once and improved twice** — at §12, then at §15/§16. Everything
+   else either applies it or checks it.
+2. **Registration and Update Scans are two steps.** Doing the first without the second leaves the
+   deliverable unadjusted, and it looks identical.
+3. **Bracketed stages are conditional.** Calibration is periodic. The degraded-GNSS branch and
+   Cleanup happen only when the job calls for them.
+
+## 2.8 Vocabulary
 
 Enough to read the next several sections. The full glossary is §27.
 

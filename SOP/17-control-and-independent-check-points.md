@@ -107,7 +107,7 @@ residuals that now measure nothing.
 >   imported trajectory using **Edit** (§15.8) — not layered on top
 > - **The designation is recorded in the project record** and travels with the accuracy statement
 >
-> **Not adopted.** *(D-15; §3.3 D-3.3)*
+> **Not adopted.** *(D-15, D-3; §3.3)*
 
 ## 17.5 How much control, and where
 
@@ -159,7 +159,7 @@ residuals that now measure nothing.
 > From TBC 2025.21: those residuals "are now **signed** and included in **the report**"
 > *(TBC RN 2025.21)*.
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-11**
 >
 > **Which report?** The 2025.21 release note says the signed residuals are included in "the
 > report" without naming it. The only mobile mapping report topic — *Run a Mission Report*
@@ -189,7 +189,7 @@ control and which as checks** in a registration that has already been applied. T
 >
 > This is the single most important record in the whole workflow and the software does not appear
 > to produce it. Six columns in a spreadsheet, written once. **Not adopted.**
-> *(D-17; §23)*
+> *(D-29; §23)*
 
 ## 17.7 Control for calibration is a different thing
 

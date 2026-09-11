@@ -103,7 +103,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 > The decision needs to answer four things:
 >
 > 1. **When** — at what point in the workflow, and after which approvals
-> 2. **By whom** — and with whose authorisation (§3.3 D-3.4)
+> 2. **By whom** — and with whose authorisation (D-3; §3.3)
 > 3. **What must be archived first**, and where the archive lives (§25)
 > 4. **Whether it is required, permitted, or prohibited** on Parametrix projects
 >

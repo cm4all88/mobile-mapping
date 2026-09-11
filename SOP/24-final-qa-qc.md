@@ -251,7 +251,9 @@ Performed on the exported files, not in TBC.
 > **No numerical acceptance criterion appears anywhere in this document. No Trimble source in the
 > set provides one, and inventing one would be indefensible.**
 >
-> The framework must combine four things, and a rule built on any one alone will fail:
+> **This is the single statement of the acceptance framework.** §15.9 and §18.9 point here.
+>
+> It must combine four things, and a rule built on any one alone will fail:
 >
 > | Component | Why necessary | Why not sufficient |
 > |---|---|---|

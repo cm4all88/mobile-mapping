@@ -113,6 +113,13 @@ Compare with the LiDAR QC pattern *(TBC 28972; §12.7)*:
 
 > **The two are compatible, and LiDAR QC is the stricter on length.** A site of two roads crossing
 > near 90°, with 125–150 m of façade-lined street available on each arm, satisfies both.
+>
+> ⚠ **One assumption is being made and should be stated.** Trimble specifies the laser scanner
+> pattern as two roads **crossing**, and specifies the LiDAR QC pattern as two **perpendicular
+> strips** without saying the strips intersect. Treating a LiDAR QC strip as centred on the
+> crossing — and therefore needing half its length on each arm — is this document's reading, not
+> Trimble's statement. It is the conservative reading: a site meeting it also meets any
+> non-intersecting arrangement of the same total length.
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
@@ -248,7 +255,7 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 > any subsequent project, and it is the only portable record of what the system's angles were on
 > a given date. A project cleanup (§21) or a lost workstation should not take it with them.
 >
-> **Not adopted.** *(D-25; §25)*
+> **Not adopted.** *(D-55; §25)*
 
 ## 14.6 The calibration record — and the date
 
@@ -287,11 +294,11 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 > - **Whether daily removal of the Sensor Unit counts as disturbing the calibration.** This is the
 >   live question for Parametrix: if the head comes off the vehicle every night, the answer
 >   determines whether calibration is a periodic activity or a routine one
-> - **Who owns currency** (§3.3 D-3.6)
+> - **Who owns currency** (D-3; §3.3)
 >
 > *(D-26; Appendix I)*
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-13**
 >
 > **Does removing and refitting the Sensor Unit disturb the calibration?** And what symptoms
 > indicate a calibration has drifted? *(Appendix I)*

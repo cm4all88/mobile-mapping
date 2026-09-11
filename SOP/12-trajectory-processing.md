@@ -203,7 +203,7 @@ No default is stated.
 > workflow that records the frame and epoch a trajectory was computed in, and it lives with the
 > raw data rather than inside a TBC project that may later be cleaned up (§21) or lost.
 >
-> **Not adopted.** *(D-20; §23, §25)*
+> **Not adopted.** *(D-55; §23, §25)*
 
 ### The SBET is coloured by its own quality
 
@@ -232,9 +232,8 @@ values**, with user-defined ranges and colours. Settings are persistent.
 >
 > "If the mission contains some registrations then the **modified segments will be colorized with
 > the 'Undefined RMS' color**" *(TBC 27248)*. A registered trajectory no longer matches the
-> `smrmsg` file, so the adjusted stretches lose their RMS colouring. Incidentally, this makes the
-> extent of a registration's effect visible in plan — which is one way to see where a **Local**
-> adjustment stopped adjusting (§15.5).
+> `smrmsg` file, so the adjusted stretches lose their RMS colouring. **§18.4 makes a QC technique
+> out of that side effect.**
 
 ## 12.5 Trajectory Plots
 
@@ -300,13 +299,13 @@ adds a LiDAR QC tab. Requires **MATLAB Runtime R2024b (24.2)** and a substantial
 | **Noise** | 5, 10, 50, 80, 100, 200 mm | **5 mm for MX50/MX60**; 10 mm for MX9/MX90 |
 | **Lasers** | Left · Right · All | **All** |
 
-> **FIELD TESTING REQUIRED · T13, T14**
+> **FIELD TESTING REQUIRED · T13, T13**
 >
 > **T13 — the 3–100 m range.** The MX60's useful range and the range over which scan geometry
 > usefully aids a trajectory solution are different questions. 100 m may include returns too noisy
 > to help.
 >
-> **T14 — Lasers = All.** Trimble's own text beside the setting says using both "can increase
+> **T13 — Lasers = All.** Trimble's own text beside the setting says using both "can increase
 > computation time without significantly improving the accuracy, as it compares the left versus
 > right laser of isolated runs." **The default contradicts the guidance printed next to it.**
 > *(Appendix I)*

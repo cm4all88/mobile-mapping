@@ -28,9 +28,9 @@
 > **Nothing in this document may be quoted to a client as an existing Parametrix standard.**
 >
 > The technical content is complete and evidenced against Trimble documentation. The company
-> decisions that would make it binding have not been made. **Appendix I lists all 100 of them**,
-> in priority order; **ten genuinely block operation** and should be settled before the first
-> production job.
+> decisions that would make it binding have not been made. **Appendix I lists all 74 of them**,
+> grouped and prioritised; **nine genuinely block operation** and should be settled before the
+> first production job.
 
 ---
 
@@ -238,7 +238,7 @@ The captured TBC help documents **TBC 2026.10**, confirmed by cross-reference: a
 feature listed as new in the 2026.10 release notes is present in the captured help topic
 *(TBC RN 2026.10; TBC 22905)*.
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-3**
 >
 > **Which TBC version is installed on the Parametrix processing workstation?** Two behaviours
 > in this document depend on it, and both are legacy: calibrating outside TBC (versions up to
@@ -465,7 +465,42 @@ each other and to control. Mobile mapping is different in an instructive way.
 > point cloud" is misleading. You are not moving points. You are improving the path the sensor
 > took, and then recomputing where the points must therefore have been.
 
-## 2.7 Vocabulary
+## 2.7 The whole workflow, once
+
+Every stage, in order, with what it produces and where it is. **Read this once and the rest of
+the document has a shape.**
+
+| | Stage | What it produces | § |
+|---|---|---|---|
+| **Plan** | Project setup and control | A CRS, a control network that brackets the job, designated check points | 5 |
+| | Mission planning | A route, a pass pattern, mapped GNSS-hostile stretches and a mitigation for each | 6 |
+| **Field** | Preparation and preflight | A mounted, calibrated, measured system | 7 |
+| | Acquisition | A mission: raw scanner, imagery and navigation data | 8 |
+| | Field QC | Confirmation the data **exists and is complete** — not that it is good | 9 |
+| | Transfer | A verified copy, in two places | 10 |
+| **Office** | Import | An **index** in TBC. Still no point cloud | 11 |
+| | **Trajectory processing** | The **SBET** — the computed path. *The accuracy ceiling is set here* | 12 |
+| | **Generate Scans** | The point cloud, by applying the trajectory to the raw scanner data | 13 |
+| | *(Calibration)* | Sensor boresight angles. **Periodic — most projects skip this** | 14 |
+| | **Registration** | A **better trajectory**, fitted to surveyed control. *The cloud has not moved* | 15, 16 |
+| | **Update Scans** | A **new point cloud**, on the registered trajectory. **Without this the registration reaches nothing** | 13.6 |
+| | QC | Residuals, independent checks, and a visual inspection | 17, 18, 19 |
+| | *(Degraded GNSS)* | A branch, if QC fails — and two of its three remedies had to be arranged in the field | 20 |
+| | *(Cleanup)* | A light project with one answer. **Destructive and not undoable** | 21 |
+| **Deliver** | Export | The deliverable — which may not identify the trajectory that produced it | 22, 23 |
+| | Final QA/QC | Ten layers of verification, before it leaves | 24 |
+| | Archive | The records that let the work be defended later | 25 |
+
+Three things to carry out of that table:
+
+1. **The trajectory is computed once and improved twice** — at §12, then at §15/§16. Everything
+   else either applies it or checks it.
+2. **Registration and Update Scans are two steps.** Doing the first without the second leaves the
+   deliverable unadjusted, and it looks identical.
+3. **Bracketed stages are conditional.** Calibration is periodic. The degraded-GNSS branch and
+   Cleanup happen only when the job calls for them.
+
+## 2.8 Vocabulary
 
 Enough to read the next several sections. The full glossary is §27.
 
@@ -617,25 +652,25 @@ The role with no obvious home, and the one most likely to go unassigned.
 
 > **PARAMETRIX DECISION REQUIRED**
 >
-> **D-3.1 · Who may operate the MX60?** Is there a qualification, a training requirement, a
+> **D-3 · Who may operate the MX60?** Is there a qualification, a training requirement, a
 > supervised-run count, or a sign-off before someone collects production data alone?
 >
-> **D-3.2 · Who may perform a registration?** Registration is an adjustment. Is it restricted,
+> **D-3 · Who may perform a registration?** Registration is an adjustment. Is it restricted,
 > and if so to whom?
 >
-> **D-3.3 · Who accepts a registration?** Must the accepting person be someone other than the
+> **D-3 · Who accepts a registration?** Must the accepting person be someone other than the
 > person who performed it? *(§17, §24)*
 >
-> **D-3.4 · Who may run Cleanup Mobile Mapping Mission?** It is destructive and not undoable.
+> **D-3 · Who may run Cleanup Mobile Mapping Mission?** It is destructive and not undoable.
 > *(§21 — this is the sharpest single instance of the problem)*
 >
-> **D-3.5 · Who signs the accuracy statement?** Under what licensure, and against what evidence?
+> **D-3 · Who signs the accuracy statement?** Under what licensure, and against what evidence?
 >
-> **D-3.6 · Who owns calibration currency?** *(§14)*
+> **D-3 · Who owns calibration currency?** *(§14)*
 >
-> **D-3.7 · Who owns this SOP?** *(§1.7)*
+> Ownership of this SOP itself is **D-1** *(§1.7)*.
 >
-> *D-3 to D-9. See Appendix I.*
+> *See Appendix I.*
 
 ## 3.4 A proposed structure, offered for decision
 
@@ -767,7 +802,7 @@ quoted to a client without checking.
 
 | | Source A | Source B | Status |
 |---|---|---|---|
-| Scanner field of view | ~346° beam deflection *(MX60 UG Rev B, p.54)* | Full 360° *(Spec sheet, p.2)* | **VENDOR CLARIFICATION REQUIRED** — matters for occlusion geometry |
+| Scanner field of view | ~346° beam deflection *(MX60 UG Rev B, p.54)* | Full 360° *(Spec sheet, p.2)* | **VENDOR CLARIFICATION REQUIRED · V-15** — matters for occlusion geometry |
 | Mounting rack | MX SCAN Roof Rack, 18 kg | MX Shock Absorbing Mounting Rack, 28 kg | **PARAMETRIX DECISION REQUIRED** — which is fitted. The published GAMS corner offsets apply to the standard rack **only** *(MX60 UG Rev B, p.68)* |
 
 *(Recorded as `CONFLICT-002` and `CONFLICT-003` in `reference/mx60-reference-data.csv`.)*
@@ -791,7 +826,7 @@ MX60 support arrived in TMI in **December 2024** *(TMI UG Rev L, p.2)*, which is
 older than that — including the TBC Technical Notes of October 2022 — do not mention the MX60 at
 all.
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-2**
 >
 > **Which TMI version is on the Parametrix system, and how are firmware updates distributed?**
 > One documented behaviour differs between versions: the Quick Start Guide describes two separate
@@ -914,7 +949,7 @@ It needs a workstation well beyond an ordinary one.
 > software setting, and it only becomes urgent on a job with a genuinely bad GNSS corridor — at
 > which point it is too late to buy a workstation. *(D-11)*
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-9**
 >
 > **Does LiDAR QC have its own POSPac dependency?** Trimble does not state one, but it is an
 > Applanix technology and the topic directs configuration questions to the **Applanix Support
@@ -934,7 +969,7 @@ paths that carries the trajectory out of TBC with the data** (§22, §23).
 
 The full list is §1.6. Two gaps:
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-5, V-5**
 >
 > **Trimble GAMS Antenna Kit Installation & Operation Manual** *(referenced MX60 UG p.43)* and
 > **Trimble DMI Installation & Operation Manual** *(referenced MX60 UG p.42)* are both needed to
@@ -1172,7 +1207,7 @@ on it.
 > convert without being told. Grid writes a sidecar; ECEF embeds the global CRS. Agree with the
 > client which they are receiving, and make sure the file can say so.
 
-> **PARAMETRIX DECISION REQUIRED · D-40**
+> **PARAMETRIX DECISION REQUIRED · D-38**
 >
 > **What is Parametrix's default deliverable scaling, and what accompanies it?** *(§22)*
 
@@ -1361,7 +1396,7 @@ Weather is a go/no-go decision, not a driving adjustment.
 > The Control Unit and Power Unit are **IP30 — not waterproof.** They live inside the vehicle for
 > a reason. *(MX60 UG Rev B, p.53)*
 
-> **PARAMETRIX DECISION REQUIRED · D-44**
+> **PARAMETRIX DECISION REQUIRED · D-43**
 >
 > **One clear wet-weather rule.** Trimble says avoid operating in rain or mist; TMR says do not
 > capture imagery in wet conditions; **neither defines "wet."**
@@ -1426,7 +1461,7 @@ planning task, not a processing one.
 >
 > Record, in the project file before mobilising: the segments where mobile mapping is expected to
 > be marginal, the mitigation chosen for each, and the segments where another method is proposed.
-> *(D-45)*
+> *(D-34)*
 
 ## 6.9 The planning record
 
@@ -1577,7 +1612,7 @@ DMI-equipped wheel contacts the road** *(TBC 25943)*.
 > determined by the installation, so **record which side it is on at installation** — the
 > processor will not be able to see the vehicle.
 
-> **VENDOR CLARIFICATION REQUIRED · V-6**
+> **VENDOR CLARIFICATION REQUIRED · V-5**
 >
 > The **Trimble DMI Installation & Operation Manual** *(referenced MX60 UG p.42)* is not held. It
 > contains the scale-factor value for the measured wheel diameter, which §12.3 needs.
@@ -1610,11 +1645,20 @@ measured. Any doubt about seating is a doubt about the lever arms.
 4. Sensor Unit and Control Unit LEDs **blink for about 10 seconds**
 5. Wait for the system to reach a ready state before connecting to TMI
 
-> **CAUTION**
+> **CAUTION · Battery Protect** — *(MX60 UG Rev B, p.27)*
 >
-> **Battery Protect** gives an audible warning below **10.5 V** and cuts power **90 seconds**
-> later *(MX60 UG Rev B)*. If the alarm sounds during preflight, restore charge before doing
-> anything else — a mission that starts on a marginal battery will end unexpectedly.
+> | Event | Trigger |
+> |---|---|
+> | **Audible warning** | Supply below **10.5 V for longer than 12 seconds** |
+> | **Power cut** | Supply below **10.5 V for more than 90 seconds** |
+> | **Recovery** | If the voltage rises above **12.0 V within that 90 seconds**, the system recovers |
+>
+> So the alarm leaves roughly **78 seconds** to restore charge before the cut — that figure is the
+> arithmetic of the two sourced timings, not a separately published one.
+>
+> If the alarm sounds during preflight, restore charge before doing anything else. **A mission
+> that starts on a marginal battery will end unexpectedly**, and an interrupted run takes the
+> closing sequence with it (§8.7).
 
 ## 7.6 Connecting to TMI
 
@@ -1673,7 +1717,7 @@ mission, and is the intended disk.
 > **Never connect the USB cable while the exchangeable data disk is inside the Control Unit.**
 > Remove the disk first *(MX60 UG Rev B, p.10)*.
 
-> **PARAMETRIX DECISION REQUIRED · D-47**
+> **PARAMETRIX DECISION REQUIRED · D-43**
 >
 > **What free-space margin is required before a mission is permitted to start?** A mission that
 > fills the disk mid-corridor ends the run and takes the closing sequence with it (§8.7).
@@ -1748,15 +1792,23 @@ Full version in **Appendix C**.
 > **EXISTING PARAMETRIX DRAFT PROCEDURE — CONFIRM BEFORE FINAL** — sourced to
 > *(MX60 QSG Rev B, pp.13–14; MX60 UG Rev B)*
 
-1. Position the vehicle at the initialization location — **open sky**, clear of buildings and
-   canopy (§6.3)
+1. **Park in an open-sky area** with good GNSS visibility and PDOP, avoiding high buildings and
+   obstructions (§6.3)
 2. Start the mission in TMI
-3. **Remain stationary for 2–3 minutes**, logging static data
-4. Drive **straight** for a short distance
-5. Perform **dynamic manoeuvres** — a speed profile such as
-   **0 → 50 → 20 → 50 → 20 km/h**, with turns
-6. Watch for the navigation status to reach its ready indication
-7. **Allow additional settling time — up to 10 minutes — before logging data that matters**
+3. **Log 2–3 minutes of static data** before driving
+4. **Drive straight ahead for approximately 20 m**, with no larger dynamic steering. The
+   navigation status switches on completing this
+5. **Drive straight at varying speed** — accelerate then decelerate — **and perform dynamic
+   steering manoeuvres.** An example profile: **0 → 50 → 20 → 50 → 20 km/h**
+6. Watch the navigation status progress **red → orange → green**. Green means the user accuracies
+   for the navigation system are met
+7. **Allow up to 10 further minutes of settling before logging data that matters**
+
+> **IMPORTANT**
+>
+> **Navigation alignment must be completed before data logging is allowed** *(MX60 QSG Rev B)*.
+> The system enforces this — it is not a matter of operator discipline. What is *not* enforced is
+> step 7.
 
 ### With GAMS fitted
 
@@ -1765,8 +1817,12 @@ considerably *(TBC 25943)*.
 
 > **FIELD TIP**
 >
-> **Perform the full sequence anyway.** It costs a few minutes, it is what the Quick Start Guide
-> describes, and the static period is doing more than heading determination (§8.3).
+> Trimble states that **straight driving is more important if a GAMS antenna is NOT used**
+> *(MX60 QSG Rev B, p.12)* — without GAMS, heading has to be recovered from motion, and the
+> straight run at step 4 is doing that work.
+>
+> **Perform the full sequence either way.** It costs a few minutes, and the static period is
+> doing more than heading determination (§8.3).
 
 ## 8.3 What the system is actually doing — and why green is not finished
 
@@ -1810,7 +1866,7 @@ Runs are started and stopped within a mission. Each becomes a **Run** node in TB
 | **Recommended maximum, system operating** | **80 km/h (50 mph)** | *(MX60 UG Rev B)* |
 | Absolute maximum, operating or not | 110 km/h (68 mph) | *(MX60 UG Rev B)* |
 
-> **PARAMETRIX DECISION REQUIRED · D-48**
+> **PARAMETRIX DECISION REQUIRED · D-43**
 >
 > **What collection speed, by deliverable type?** Speed determines point density along the
 > corridor and the number of images per unit length. Trimble publishes a recommended maximum and
@@ -1844,7 +1900,7 @@ the office knows why the trajectory does what it does there.
 | **Navigation status** | Any degradation from the ready state |
 | **Storage** | Remaining capacity against remaining corridor |
 | **Sensor status** | A camera or laser that has stopped |
-| **Audible alarm** | **Battery Protect — 78 seconds to restore charge** *(MX60 UG Rev B)* |
+| **Audible alarm** | **Battery Protect.** Supply has been below 10.5 V for 12 s; power cuts at 90 s. Roughly **78 seconds to restore charge** — recovery needs the voltage above 12.0 V *(MX60 UG Rev B, p.27; §7.5)* |
 
 > **FIELD TIP**
 >
@@ -1878,10 +1934,16 @@ outside the go/no-go rule (§6.5).
 
 1. Finish the last run
 2. Drive to an open-sky location
-3. Perform **dynamic manoeuvres** — the mirror of initialization
-4. **Remain stationary for 2–3 minutes**, logging static data
-5. Close the mission in TMI
-6. **Wait for the Control Unit power button light to go out — up to 90 seconds**
+3. **Dynamic steering manoeuvres**
+4. **Vary the speed**
+5. **Drive straight**
+6. **Remain stationary for 2–3 minutes**, logging static data
+7. Close the mission in TMI
+8. **Wait for the Control Unit power button light to go out — up to 90 seconds**
+
+> Steps 3–6 are the initialization sequence **run in reverse order** *(MX60 QSG Rev B, p.13)* —
+> manoeuvres, then speed variation, then straight, then static, where the start was static,
+> straight, speed variation, manoeuvres (§8.2).
 
 > **The whole sequence takes about five minutes and is the cheapest quality improvement available
 > in the entire workflow.**
@@ -2037,7 +2099,7 @@ The one substantive quality check available in the field.
 >   missed (§20.3)
 > - Sections not collected, and why, are recorded
 >
-> *(D-50)*
+> *(D-49)*
 
 > **IMPORTANT**
 >
@@ -2053,7 +2115,7 @@ The one substantive quality check available in the field.
 > Re-driving a run while the vehicle is on site costs minutes. Re-driving from the office costs a
 > mobilisation and, on a corridor requiring traffic control, considerably more.
 
-> **PARAMETRIX DECISION REQUIRED · D-51**
+> **PARAMETRIX DECISION REQUIRED · D-49**
 >
 > **What triggers a re-drive, and who decides?**
 >
@@ -2381,9 +2443,24 @@ distance**, and the **active trajectory file**.
 >    camera or laser here means a sensor was disabled or failed in the field
 > 6. **Base station data** is present in `Base/` if the trajectory will be processed in-house
 >    (§12)
+> 7. **The calibration state the mission was collected under is recorded.** `Extcal.json` sits
+>    with the raw data, and the **Mission Report** carries per-sensor boresight and lever-arm
+>    calibration **with a date of calibration** *(TBC 24868; §14.6)* — the only dated calibration
+>    record found anywhere in the workflow (§23.3)
 >
-> **Not adopted.** Six checks, none taking more than a minute, all cheaper now than later.
+> **Not adopted.** Seven checks, none taking more than a minute, all cheaper now than later.
 > *(D-18)*
+
+> **Check 7 exists because of a handoff.** Calibration currency is confirmed in the field (§7.9)
+> and owned by the System Owner (§3.2), but **the processor is the last person who can record what
+> it was** before the project moves on. If a mission turns out to have been collected on a stale
+> calibration, that is a §14.7 question — and it can only be asked if somebody noted the date.
+
+> **PARAMETRIX DECISION REQUIRED · D-26**
+>
+> **What happens to data collected on an out-of-date calibration?** Reprocess after
+> recalibration, accept with a note, or re-collect? The question belongs to the recalibration
+> policy in §14.7 and is recorded there.
 
 ## 11.6 Multiple missions in one project
 
@@ -2629,7 +2706,7 @@ No default is stated.
 > workflow that records the frame and epoch a trajectory was computed in, and it lives with the
 > raw data rather than inside a TBC project that may later be cleaned up (§21) or lost.
 >
-> **Not adopted.** *(D-20; §23, §25)*
+> **Not adopted.** *(D-55; §23, §25)*
 
 ### The SBET is coloured by its own quality
 
@@ -2658,9 +2735,8 @@ values**, with user-defined ranges and colours. Settings are persistent.
 >
 > "If the mission contains some registrations then the **modified segments will be colorized with
 > the 'Undefined RMS' color**" *(TBC 27248)*. A registered trajectory no longer matches the
-> `smrmsg` file, so the adjusted stretches lose their RMS colouring. Incidentally, this makes the
-> extent of a registration's effect visible in plan — which is one way to see where a **Local**
-> adjustment stopped adjusting (§15.5).
+> `smrmsg` file, so the adjusted stretches lose their RMS colouring. **§18.4 makes a QC technique
+> out of that side effect.**
 
 ## 12.5 Trajectory Plots
 
@@ -2726,13 +2802,13 @@ adds a LiDAR QC tab. Requires **MATLAB Runtime R2024b (24.2)** and a substantial
 | **Noise** | 5, 10, 50, 80, 100, 200 mm | **5 mm for MX50/MX60**; 10 mm for MX9/MX90 |
 | **Lasers** | Left · Right · All | **All** |
 
-> **FIELD TESTING REQUIRED · T13, T14**
+> **FIELD TESTING REQUIRED · T13, T13**
 >
 > **T13 — the 3–100 m range.** The MX60's useful range and the range over which scan geometry
 > usefully aids a trajectory solution are different questions. 100 m may include returns too noisy
 > to help.
 >
-> **T14 — Lasers = All.** Trimble's own text beside the setting says using both "can increase
+> **T13 — Lasers = All.** Trimble's own text beside the setting says using both "can increase
 > computation time without significantly improving the accuracy, as it compares the left versus
 > right laser of isolated runs." **The default contradicts the guidance printed next to it.**
 > *(Appendix I)*
@@ -2849,7 +2925,7 @@ untested defaults are.
 Two presets are offered — **Default** and **High Quality** — where High Quality enables Fog, Sun
 and Reflective Panels.
 
-> **FIELD TESTING REQUIRED · T1–T5**
+> **FIELD TESTING REQUIRED · T1–T1**
 >
 > **The filter defaults are the largest block of untested settings in the workflow.** Each removes
 > real returns under conditions that may or may not have occurred.
@@ -2858,18 +2934,18 @@ and Reflective Panels.
 > selection criteria. High Quality enables three filters unconditionally, including on data
 > collected in conditions where none of them applies.
 >
-> **T2 — Isolated Points.** Trimble's own text contradicts itself: the prose says the filter is
+> **T1 — Isolated Points.** Trimble's own text contradicts itself: the prose says the filter is
 > on, the Restore Default Values behaviour says off.
 >
 > **T3 — Reflective Panels.** "Removes the noise before and after a target." **Does it also
 > remove legitimate retro-reflective returns from signs and line marking?** This bears directly on
 > sign inventory and retroreflectivity work, where those returns are the deliverable.
 >
-> **T4 — Range Max.** The MX60 default matches the scanner's maximum range at the lower pulse
+> **T1 — Range Max.** The MX60 default matches the scanner's maximum range at the lower pulse
 > rate. The User Guide separately warns that real-world range is shorter in bright sunlight and at
 > oblique incidence *(MX60 UG Rev B)*, so points may be retained well beyond useful range.
 >
-> **T5 — Fog and Sun.** Both remove real returns under defined conditions. Applying them when
+> **T1 — Fog and Sun.** Both remove real returns under defined conditions. Applying them when
 > those conditions did not occur removes valid data.
 >
 > *(Appendix I)*
@@ -2917,7 +2993,7 @@ Scans can be generated with colour from the imagery, or without.
 > states which filters produced a given cloud, and filter choice is a defensible-or-not decision
 > that a reviewer may need to see years later.
 >
-> **Not adopted.** *(D-23; §23, §25)*
+> **Not adopted.** *(D-55; §23, §25)*
 
 ## 13.6 Update Scans — switching a cloud onto a different trajectory
 
@@ -3130,6 +3206,13 @@ Compare with the LiDAR QC pattern *(TBC 28972; §12.7)*:
 
 > **The two are compatible, and LiDAR QC is the stricter on length.** A site of two roads crossing
 > near 90°, with 125–150 m of façade-lined street available on each arm, satisfies both.
+>
+> ⚠ **One assumption is being made and should be stated.** Trimble specifies the laser scanner
+> pattern as two roads **crossing**, and specifies the LiDAR QC pattern as two **perpendicular
+> strips** without saying the strips intersect. Treating a LiDAR QC strip as centred on the
+> crossing — and therefore needing half its length on each arm — is this document's reading, not
+> Trimble's statement. It is the conservative reading: a site meeting it also meets any
+> non-intersecting arrangement of the same total length.
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
@@ -3265,7 +3348,7 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 > any subsequent project, and it is the only portable record of what the system's angles were on
 > a given date. A project cleanup (§21) or a lost workstation should not take it with them.
 >
-> **Not adopted.** *(D-25; §25)*
+> **Not adopted.** *(D-55; §25)*
 
 ## 14.6 The calibration record — and the date
 
@@ -3304,11 +3387,11 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 > - **Whether daily removal of the Sensor Unit counts as disturbing the calibration.** This is the
 >   live question for Parametrix: if the head comes off the vehicle every night, the answer
 >   determines whether calibration is a periodic activity or a routine one
-> - **Who owns currency** (§3.3 D-3.6)
+> - **Who owns currency** (D-3; §3.3)
 >
 > *(D-26; Appendix I)*
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-13**
 >
 > **Does removing and refitting the Sensor Unit disturb the calibration?** And what symptoms
 > indicate a calibration has drifted? *(Appendix I)*
@@ -3719,17 +3802,13 @@ to shortcut is greatest.
 > **No numerical threshold appears anywhere in this document, because none exists in any Trimble
 > source and inventing one would be indefensible.**
 >
-> The acceptance framework should combine four things, and a rule built on any one alone will
-> fail:
->
-> 1. **Numerical residuals** on the control used in the adjustment
-> 2. **Independent check information** — residuals on points held out of it (§17)
-> 3. **Visual inspection** — Cutting Plane View across overlapping runs (§18)
-> 4. **The project accuracy requirement**, which is set per job and is the only thing that makes
->    any threshold meaningful
+> The framework must combine **numerical residuals**, **independent check information** (§17),
+> **visual inspection** (§18) and **the project accuracy requirement** — and a rule built on any
+> one alone will fail. **The full framework, with why each component is necessary and why none is
+> sufficient, is set out once in §24.3.**
 >
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
-> pass."** *(D-13; §18, §24)*
+> pass."** *(D-13; §18.9, §24.3)*
 
 ---
 
@@ -3815,7 +3894,7 @@ trajectory error.
 > **Not adopted.** Step 4 is the part most likely to be skipped and is the reason this sequence
 > matters: adjusting a run to match another run will change its residuals against control, and
 > if the reference run was itself slightly off, run-to-run will faithfully propagate that error
-> into the run you adjusted. *(D-14)*
+> into the run you adjusted. *(D-12)*
 
 > **The choice of which run is the Reference is a survey decision, not a processing convenience.**
 > Whatever the Reference Run's absolute error is, the Run to Adjust inherits it.
@@ -4116,7 +4195,7 @@ residuals that now measure nothing.
 >   imported trajectory using **Edit** (§15.8) — not layered on top
 > - **The designation is recorded in the project record** and travels with the accuracy statement
 >
-> **Not adopted.** *(D-15; §3.3 D-3.3)*
+> **Not adopted.** *(D-15, D-3; §3.3)*
 
 ## 17.5 How much control, and where
 
@@ -4168,7 +4247,7 @@ residuals that now measure nothing.
 > From TBC 2025.21: those residuals "are now **signed** and included in **the report**"
 > *(TBC RN 2025.21)*.
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-11**
 >
 > **Which report?** The 2025.21 release note says the signed residuals are included in "the
 > report" without naming it. The only mobile mapping report topic — *Run a Mission Report*
@@ -4198,7 +4277,7 @@ control and which as checks** in a registration that has already been applied. T
 >
 > This is the single most important record in the whole workflow and the software does not appear
 > to produce it. Six columns in a spreadsheet, written once. **Not adopted.**
-> *(D-17; §23)*
+> *(D-29; §23)*
 
 ## 17.7 Control for calibration is a different thing
 
@@ -4419,7 +4498,7 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 >
 > Needs: an interval, a site, a target specification, and a pass criterion tied to the
 > manufacturer's specified accuracy for the configuration Parametrix owns (§4.1).
-> *(D-28; Appendix I)*
+> *(D-28, V-14; Appendix I)*
 
 ## 18.8 What to record
 
@@ -4449,17 +4528,16 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 > **No numerical acceptance criterion appears anywhere in this document. No Trimble source in the
 > set provides one, and inventing one would be indefensible.**
 >
-> The framework must combine four things. A rule built on any one alone will fail:
+> The framework must combine **numerical residuals**, **independent check information** (§17),
+> **visual inspection** (§18.5) and **the project accuracy requirement**. **It is set out in full
+> once, in §24.3**, with why each component is necessary and why none is sufficient alone.
 >
-> | Component | Why it is necessary | Why it is not sufficient |
-> |---|---|---|
-> | **Numerical residuals** on control used | Objective, repeatable | Measures fit to its own observations — see §18.1 |
-> | **Independent check information** | The only numerical evidence of accuracy | Sparse; a handful of points cannot characterise a whole corridor |
-> | **Visual inspection** | Catches what no number reports | Subjective, unrecorded, and dependent on who looked |
-> | **Project accuracy requirement** | The only thing that makes any threshold meaningful | Varies per job; not a property of the system |
+> The reason no single component suffices is §18.1: residuals measure fit to the observations
+> that shaped the adjustment, and an adjustment with few observations — or with a systematic
+> error common to all of them — fits beautifully and is wrong.
 >
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
-> pass."** *(D-13; §15.9, §24)*
+> pass."** *(D-13; §15.9, §24.3)*
 
 ---
 
@@ -4555,7 +4633,7 @@ errors and improves — or does not — in the same way.
 >
 > **Do not write MX9 or MX90 camera behaviour into MX60 procedure on the strength of a shared
 > dialog.** The option's presence in the export pane is not evidence that the sensor exists.
-> *(Appendix I)*
+> *(Appendix I; V-8)*
 
 ## 19.3 What to check
 
@@ -4571,7 +4649,7 @@ errors and improves — or does not — in the same way.
 > | **Corrupted images** | See §19.4 — these are **silent** |
 > | **Alignment with the point cloud** | Colorized points in the wrong colour at feature edges indicates a camera boresight issue (§14.4) |
 >
-> **Not adopted.** *(D-30)*
+> **Not adopted.** *(D-27)*
 
 ## 19.4 Corrupted side camera images are exported as black
 
@@ -4811,7 +4889,7 @@ Two constraints from §15 govern how control must be placed for this to work:
 > **Does mission planning require control density to vary with predicted GNSS conditions?** A
 > uniform spacing along a corridor puts the same control in the open sections, where it adds
 > little, as in the obstructed ones, where it is the only thing holding the data together.
-> *(D-33; §6, §17)*
+> *(D-16; §6, §17)*
 
 ## 20.5 Remedy two — Generate POSPac Position Fixes (PFIX)
 
@@ -4837,7 +4915,7 @@ Two constraints from §15 govern how control must be placed for this to work:
 > between control points.
 >
 > ⚠ *That framing is this document's, inferred from Trimble's descriptions of the two commands.
-> Trimble never states the contrast directly.* **VENDOR CLARIFICATION REQUIRED** — when should
+> Trimble never states the contrast directly.* **VENDOR CLARIFICATION REQUIRED · V-16** — when should
 > PFIX be preferred over registration? *(Appendix I)*
 
 ### Prerequisites
@@ -4941,7 +5019,7 @@ at six times installed RAM, and the MATLAB Runtime (§4.5).
 > overlap for LiDAR QC, or a different method — because two of the three have to be arranged in
 > the field.
 >
-> **Not adopted.** *(D-33)*
+> **Not adopted.** *(D-16)*
 
 ---
 
@@ -5085,7 +5163,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 > The decision needs to answer four things:
 >
 > 1. **When** — at what point in the workflow, and after which approvals
-> 2. **By whom** — and with whose authorisation (§3.3 D-3.4)
+> 2. **By whom** — and with whose authorisation (D-3; §3.3)
 > 3. **What must be archived first**, and where the archive lives (§25)
 > 4. **Whether it is required, permitted, or prohibited** on Parametrix projects
 >
@@ -5279,7 +5357,7 @@ several documented ways exist for them to do so silently:
 > raw data** and directly written to the LAS format files, the color information will be exported
 > in the LAS format files."
 
-> **VENDOR CLARIFICATION REQUIRED**
+> **VENDOR CLARIFICATION REQUIRED · V-1**
 >
 > **When Export timestamps causes TBC to reprocess from the raw source data, which trajectory is
 > used for that reprocessing?**
@@ -5308,7 +5386,7 @@ Until T18 and the vendor question are resolved:
 >
 > GPS Time per point is genuinely useful and some downstream software requires it. The question is
 > not whether timestamps are wanted but whether the cost of obtaining them is understood.
-> *(D-37)*
+> *(D-36)*
 
 ## 22.4 Two export tabs that behave differently
 
@@ -5435,8 +5513,8 @@ Output structure: a **Mission folder** plus one folder per device, with `laser`,
 > the deliverable.** A run carrying both an imported `Sbet` and a registered trajectory has two
 > candidates, and **the topic does not state which is written.**
 >
-> **VENDOR CLARIFICATION REQUIRED** — which trajectory does the TMX export write when several
-> exist under a run? *(Appendix I)* · **FIELD TESTING REQUIRED · T20** *(Appendix I)*
+> **VENDOR CLARIFICATION REQUIRED · V-10** — which trajectory does the TMX export write when
+> several exist under a run? *(Appendix I)* · **FIELD TESTING REQUIRED · T19** *(Appendix I)*
 
 ### 22.6.3 Export to TopoDot
 
@@ -5523,7 +5601,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 > options govern imagery only — and it is a first-class, viewable object in the delivered dataset.
 > **Which trajectory is published when several exist under a run is not documented.**
 >
-> **VENDOR CLARIFICATION REQUIRED** *(Appendix I)* · **FIELD TESTING REQUIRED · T19** *(Appendix I)*
+> **VENDOR CLARIFICATION REQUIRED · V-10** *(Appendix I)* · **FIELD TESTING REQUIRED · T19** *(Appendix I)*
 
 > **OBSERVED SOFTWARE BEHAVIOR** · Trimble Connect's **UK region** is currently unavailable for
 > Publish to TRCPS and Trimble Mobile Mapping data *(TBC RN 2026.10)*. Not applicable to
@@ -5564,7 +5642,9 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 >
 > This is therefore a **software-behaviour testing question**, not an unresolved documentation
 > research question. All known MX60 export and publish paths have been reviewed.
-> **FIELD TESTING REQUIRED · T22** — export and inspect the file directly. *(Appendix I; §23)*
+> **FIELD TESTING REQUIRED · T22** — export and inspect the file directly. **VENDOR CLARIFICATION
+> REQUIRED · V-12** — does any TBC export write the source trajectory into a LAS header, VLR or
+> sidecar? *(Appendix I; §23)*
 
 ## 22.8 Known limitations and silent failures
 
@@ -5575,7 +5655,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 | Scans must be generated first or nothing is exported | TopoDot, Solv3D | *(TBC 23339, 23888)* |
 | Ground scaling does not expose its scale factor | All point cloud exports | *(TBC 11769, 27279)* |
 | Grid-scaled re-import may double-scale | All point cloud exports | *(TBC 11769, 27279)* |
-| MX9 Export to TMX requires a coordinate system without Geoid | TMX — **MX60 applicability not stated** | *(TBC 22501)* |
+| MX9 Export to TMX requires a coordinate system without Geoid | TMX — **MX60 applicability not stated · V-17** | *(TBC 22501)* |
 | Random sampling with no spatial rule | Classified LAS | *(TBC 27279)* · T17 |
 
 ---
@@ -6149,7 +6229,9 @@ Performed on the exported files, not in TBC.
 > **No numerical acceptance criterion appears anywhere in this document. No Trimble source in the
 > set provides one, and inventing one would be indefensible.**
 >
-> The framework must combine four things, and a rule built on any one alone will fail:
+> **This is the single statement of the acceptance framework.** §15.9 and §18.9 point here.
+>
+> It must combine four things, and a rule built on any one alone will fail:
 >
 > | Component | Why necessary | Why not sufficient |
 > |---|---|---|
@@ -6635,7 +6717,7 @@ as summaries. Each names its section for the detail.
 |---|---|
 | ☐ | Client accuracy requirement stated **in writing, per component** |
 | ☐ | Deliverable formats agreed ⚠ *D-38* |
-| ☐ | **Grid or ground** agreed, and what accompanies it ⚠ *D-40* |
+| ☐ | **Grid or ground** agreed, and what accompanies it ⚠ *D-38* |
 | ☐ | Project CRS, vertical datum and geoid fixed |
 | ☐ | **Epoch** confirmed where a time-dependent datum is in use ⚠ *D-21* |
 | ☐ | Corridor extent defined, including extent beyond the deliverable needed to bracket control |
@@ -6652,7 +6734,7 @@ as summaries. Each names its section for the detail.
 | ☐ | **Segments unsuitable for mobile mapping identified and communicated** — §6.8 |
 | ☐ | Initialization locations identified — primary and backup, scouted on imagery |
 | ☐ | Collection window agreed against GNSS, imagery and traffic |
-| ☐ | Weather go/no-go understood by the operator ⚠ *D-44* |
+| ☐ | Weather go/no-go understood by the operator ⚠ *D-43* |
 | ☐ | **Calibration currency confirmed** — §14.7 ⚠ *D-26* |
 | ☐ | Road occupancy, permits, access and notifications arranged |
 
@@ -6677,7 +6759,7 @@ as summaries. Each names its section for the detail.
 | ☐ | DMI mounting side recorded, if fitted — determines the scale factor sign |
 | ☐ | Capture settings configured **and written down** |
 | ☐ | Dust filter set appropriately — unpaved or mine sites only |
-| ☐ | Data disk installed, correct disk, **sufficient free space with margin** ⚠ *D-47* |
+| ☐ | Data disk installed, correct disk, **sufficient free space with margin** ⚠ *D-43* |
 | ☐ | Scanner windows and camera dome clean |
 | ☐ | Initialization location confirmed available |
 | ☐ | Weather within the go/no-go rule |
@@ -6695,7 +6777,9 @@ as summaries. Each names its section for the detail.
 |---|---|
 | ☐ | Last run finished |
 | ☐ | Driven to an **open-sky** location |
-| ☐ | **Dynamic manoeuvres performed** — the mirror of initialization |
+| ☐ | **Dynamic steering manoeuvres performed** |
+| ☐ | **Speed varied** |
+| ☐ | **Driven straight** |
 | ☐ | **Stationary 2–3 minutes**, logging static data |
 | ☐ | Mission closed in TMI |
 | ☐ | **Power button light out** — up to 90 s — before power or disk is disturbed |
@@ -6712,7 +6796,7 @@ as summaries. Each names its section for the detail.
 | ☐ | **Planned overlap actually collected** — §9.3 |
 | ☐ | Sections not collected recorded, with the reason |
 | ☐ | Field record complete — conditions, incidents, occlusions, comments |
-| ☐ | **Any re-drive decided and performed now** ⚠ *D-51* |
+| ☐ | **Any re-drive decided and performed now** ⚠ *D-49* |
 
 > **The overlap check is the one worth being pedantic about.** Missed overlap removes two of the
 > three office remedies for degraded GNSS, with no software warning.
@@ -6739,6 +6823,7 @@ as summaries. Each names its section for the detail.
 | ☐ | Run count matches the field record |
 | ☐ | Active trajectory is the intended one, and is **SBET not NAV** unless recorded otherwise |
 | ☐ | Capture Devices lists the expected sensors |
+| ☐ | **Calibration state recorded** — run the Mission Report; it carries the date of calibration per sensor ⚠ *D-26* |
 
 ---
 
@@ -6758,7 +6843,7 @@ as summaries. Each names its section for the detail.
 | ☐ | GAMS settings reviewed, if fitted |
 | ☐ | DMI lever arm, **scale factor and sign**, and SD reviewed, if fitted ⚠ *T12* |
 | ☐ | Vehicle-frame convention confirmed — **+X forward, +Y right, +Z down** |
-| ☐ | **Backup SBET Next to MXDB enabled** ⚠ *D-20* |
+| ☐ | **Backup SBET Next to MXDB enabled** ⚠ *D-55* |
 | ☐ | LiDAR QC considered where GNSS was degraded and overlap exists — §12.7 |
 | ☐ | Generate QC Report enabled |
 | ☐ | **SBET filename read** — `sbet_<mission>.out` or `sbet_<mission>_<frame>.out` |
@@ -6776,14 +6861,14 @@ as summaries. Each names its section for the detail.
 | ☐ | Item |
 |---|---|
 | ☐ | Correct trajectory active on the mission |
-| ☐ | Filter settings chosen deliberately, not accepted ⚠ *T1–T5* |
+| ☐ | Filter settings chosen deliberately, not accepted ⚠ *T1–T1* |
 | ☐ | **Reflective Panels considered** if signs or line marking are in the deliverable ⚠ *T3* |
-| ☐ | Range max considered against useful range in the day's conditions ⚠ *T4* |
+| ☐ | Range max considered against useful range in the day's conditions ⚠ *T1* |
 | ☐ | Colorization decision made ⚠ *D-22* |
 | ☐ | **One representative run generated and inspected before committing the mission** |
 | ☐ | Expected features still present — signs, line marking, a wall at range |
 | ☐ | Mission generated |
-| ☐ | **Results of Scan Generation captured into the project record** ⚠ *D-23* |
+| ☐ | **Results of Scan Generation captured into the project record** ⚠ *D-55* |
 | ☐ | Scans visible beneath the expected trajectory node |
 
 ---
@@ -6808,7 +6893,7 @@ as summaries. Each names its section for the detail.
 | ☐ | **BOTH run pairs checked** — `Run_0 ↔ Run_1` **and** `Run_2 ↔ Run_3` |
 | ☐ | Applied only after both visual checks |
 | ☐ | Camera calibration performed if required — §14.4 |
-| ☐ | **Calibration JSON exported and archived** with serial number and date ⚠ *D-25* |
+| ☐ | **Calibration JSON exported and archived** with serial number and date ⚠ *D-55* |
 | ☐ | Mission Report run — it carries the **date of calibration** per sensor |
 
 > **Good RMS does not prove the calibration succeeded. Bad RMS proves it failed. Look at the
@@ -6853,7 +6938,7 @@ as summaries. Each names its section for the detail.
 |---|---|
 | ☐ | Adjusted trajectory node present, with `Origin: Registration result` |
 | ☐ | Numbered `sbet_<date>_reg_####.out` present in the project folder |
-| ☐ | **Residuals on control and on independent checks recorded outside TBC** ⚠ *D-17* |
+| ☐ | **Residuals on control and on independent checks recorded outside TBC** ⚠ *D-29* |
 | ☐ | **Update Scans run** — §13.6 |
 | ☐ | Scan stations carry the **`_reg_####`** suffix |
 | ☐ | `Targets.csv` archived |
@@ -6913,7 +6998,7 @@ as summaries. Each names its section for the detail.
 | ☐ | Trajectory properties read `Origin: Registration result`, with expected input and type |
 | ☐ | Correct export tab chosen — **Mobile Mapping (run-aware)** or **Point Cloud (region-based)** |
 | ☐ | Export path chosen ⚠ *D-38* |
-| ☐ | **Export timestamps setting decided and recorded** ⚠ *D-37 · T18 · V-1* |
+| ☐ | **Export timestamps setting decided and recorded** ⚠ *D-36 · T18 · V-1* |
 | ☐ | Scaling decided — **grid writes a `.txt` sidecar; ground does not expose its scale factor** |
 | ☐ | ECEF considered where the global CRS must travel |
 | ☐ | Path-specific prerequisites met — scans generated; run views closed for TopoDot |
@@ -6970,7 +7055,7 @@ as summaries. Each names its section for the detail.
 
 | ☐ | Item |
 |---|---|
-| ☐ | **Authorisation obtained** ⚠ *D-6 · D-35* |
+| ☐ | **Authorisation obtained** ⚠ *D-3 · D-35* |
 | ☐ | Cleanup Mobile Mapping Mission run |
 | ☐ | **Recorded** — by whom, on what date, and what was archived first |
 
@@ -7051,7 +7136,7 @@ What to do when it will not reach its ready state:
 
 | Indication | Meaning | Response |
 |---|---|---|
-| **Audible alarm** | **Battery Protect** — supply below **10.5 V** | Power is cut in **78–90 seconds**. Restore charge immediately; do not continue *(MX60 UG Rev B)* |
+| **Audible alarm** | **Battery Protect** — supply below **10.5 V for more than 12 s** | Power cuts at **90 s** below 10.5 V, leaving roughly **78 s** from the alarm. Recovery needs the voltage above **12.0 V** within that window. Restore charge immediately; do not continue *(MX60 UG Rev B, p.27)* |
 | Sensor absent from the device list | Cable, power or sensor fault | Stop. A run with a sensor down is incomplete (§9.4) |
 | Storage warning | Disk filling | Reassess before it fills mid-run — an interrupted run loses the closing sequence (§8.7) |
 
@@ -7219,7 +7304,7 @@ TBC 22905)*. URLs follow `https://help.fieldsystems.trimble.com/tbc/<id>.htm`.
 | Document | Needed for | Item |
 |---|---|---|
 | **Trimble GAMS Antenna Kit Installation & Operation Manual** | Lever-arm procedure if GAMS is fitted | V-5 |
-| **Trimble DMI Installation & Operation Manual** | DMI scale factor for the measured wheel diameter | V-6 |
+| **Trimble DMI Installation & Operation Manual** | DMI scale factor for the measured wheel diameter | V-5 |
 | **TBC Help: Blur Exported Images** | Imagery privacy procedure | §19.6 — capture when privacy is drafted |
 
 ## C4 · Non-Trimble sources — reference only
@@ -7560,22 +7645,25 @@ proposal becomes policy.
 
 ## H4 · Priority order for the first round
 
-From **Appendix I**, the ten items that genuinely block operation:
+From **Appendix I**, the nine items that genuinely block operation:
 
 | ID | Decision | Why it blocks |
 |---|---|---|
 | **D-2 / V-4** | MX60 configuration, GAMS, DMI, rack | Imagery and accuracy commitments cannot be made |
 | **D-10** | POSPac MMS licence | Determines whether trajectory processing and PFIX exist at all |
 | **D-13** | Acceptance criteria | Acceptance cannot be signed |
-| **D-16** | Control density and check ratio | Control design cannot be specified |
+| **D-16** | Control design | Control design cannot be specified |
 | **D-19** | Computation mode — Single Base or PP-RTX | Field logistics on every mission |
 | **D-21** | Datum and epoch | A silent failure mode with a user-settable control |
 | **D-35** | Cleanup policy | Otherwise decided by default by whoever finishes a project first |
 | **D-41** | Pass pattern | Two of three degraded-GNSS remedies need overlap collected on the day |
 | **D-42** | Base station strategy | Field logistics; interacts with D-19 |
 
-Fourteen further **P1** items should follow. The remaining items improve consistency and
-efficiency without preventing defensible work.
+Ten further **P1** items should follow. **Appendix I §Suggested sequence** sets out six rounds,
+and the fourth of them is a single afternoon with the software that closes the export and
+Cleanup questions.
+
+The remaining items improve consistency and efficiency without preventing defensible work.
 
 ## H5 · Review
 
@@ -7593,117 +7681,96 @@ efficiency without preventing defensible work.
 
 **This appendix is the backlog. It is not a blocker to using this SOP.**
 
-Every unresolved item in the document is collected here so it can be worked through
-systematically. The SOP is usable now; these items determine how much of it becomes binding
-company procedure and how much remains proposal.
+Every unresolved item in the document is collected here. The SOP is usable now; these items
+determine how much of it becomes binding company procedure and how much remains proposal.
 
-**"Can the SOP operate without it?"** means: can a competent processor follow this document and
-produce defensible work while this item is open. **Yes** usually means the item makes the work
-less efficient or less consistent, not less correct.
+**"Operate without?"** means: can a competent processor follow this document and produce
+defensible work while the item is open. **Yes** usually means the item makes the work less
+consistent or less efficient, not less correct.
+
+> **Consolidated 2026-09-11.** The first draft raised 100 separate items. Reviewing them for
+> duplication and dependency reduced that to **74** — several were the same decision asked in
+> different chapters, and several subordinate choices belong under one primary decision. Merged
+> items are named in the **Covers** column so nothing has been dropped, only grouped.
 
 ---
 
 ## Table 1 — Parametrix Decisions Required
 
-Company policy choices. Only Parametrix can make these.
+Company policy choices. Only Parametrix can make these. **34 items.**
 
-| ID | Question | Why it matters | § | Priority | Operate without? |
-|---|---|---|---|---|---|
-| **D-1** | Who owns this SOP, who approves revisions, on what review cycle? | TBC is on an annual release cycle and each release has changed mobile mapping behaviour. A procedure with no owner decays silently | 1.7 | **P2** | Yes |
-| **D-2** | Which MX60 configuration is ours — Core, Pro or Premium? Are GAMS and DMI fitted? Which rack? | Panoramic imagery is **8192×4096 on Core, 12288×6144 on Pro/Premium**. Changes every imagery and accuracy statement. Rack determines whether published GAMS offsets apply | 4.1, 19.2 | **P1** | **No** — imagery commitments cannot be made |
-| **D-3** | Who may operate the MX60? Qualification, training, supervised runs? | Field acquisition determines what the office can ever do | 3.3 | **P1** | Yes, with risk |
-| **D-4** | Who may perform a registration? | Registration is an adjustment | 3.3 | **P1** | Yes, with risk |
-| **D-5** | Who accepts a registration — and must it be someone other than the person who performed it? | Independence of the check | 3.3, 17.4 | **P1** | Yes, with risk |
-| **D-6** | Who may run Cleanup Mobile Mapping Mission? | Destructive and not undoable | 3.3, 21.4 | **P1** | **No** — see D-35 |
-| **D-7** | Who signs the accuracy statement, under what licensure, against what evidence? | — | 3.3 | **P1** | Yes, with risk |
-| **D-8** | Who owns calibration currency? | Nobody owns it today | 3.3, 14.7 | **P2** | Yes |
-| **D-10** | Do we hold a POSPac MMS 8.6+ licence, and where is it installed? | Determines whether trajectory processing and PFIX are available at all, and removes one of three degraded-GNSS remedies | 4.4, 12.1, 20.3 | **P1** | **No** — shapes the entire office workflow |
-| **D-11** | Is LiDAR QC a capability we intend to have? | 128–256 GB RAM, dedicated SSDs, MATLAB Runtime. A procurement question that becomes urgent only when it is too late | 4.5, 12.7 | **P2** | Yes |
-| **D-12** | Is Register a Mission the corridor default, with Register a Run the exception? | Production convention; affects consistency across processors | 15.4 | **P3** | Yes |
-| **D-13** | **What constitutes an acceptable registration and an acceptable point cloud?** | **No Trimble source provides a threshold.** Must combine numerical residuals, independent checks, visual inspection and the project accuracy requirement | 15.9, 18.9, 24.3 | **P1** | **No** — acceptance cannot be signed |
-| **D-14** | Where does run-to-run registration sit in a controlled workflow? | It uses no control and propagates the reference run's absolute error | 16.2 | **P2** | Yes |
-| **D-15** | Is the control/check designation fixed before registration and unchangeable during it? | Guards the one failure that looks like diligence | 17.4 | **P1** | Yes, with risk |
-| **D-16** | How many control points, at what spacing, and how many independent checks? | No Trimble source states any. TBC's minimum of one pair is a mathematical floor | 5.6, 17.5 | **P1** | **No** — control design cannot be specified |
-| **D-17** | Where is the control/check designation and its residuals recorded? | **TBC is not documented as reporting it.** The single most important record in the workflow | 17.6, 23.6 | **P1** | Yes, with risk |
-| **D-18** | What is verified at import, and by whom? | Six checks, each cheaper now than later | 11.5 | **P3** | Yes |
-| **D-19** | IN-Fusion+ Single Base or PP-RTX? | Determines whether a base station is occupied every mission, and the reference frame | 5.3, 12.3 | **P1** | **No** — field logistics depend on it |
-| **D-20** | Is Backup SBET Next to MXDB enabled as standard? | Its log is the only record of the frame and epoch a trajectory was computed in | 12.4, 23.3 | **P2** | Yes |
-| **D-21** | Which datum and epoch do we work in, who sets it, who checks it? | Silent failure mode, plus a new user-settable control Trimble flags as risky | 5.4, 12.6 | **P1** | **No** |
-| **D-22** | Are scans generated coloured by default? | Discovering later that colour was wanted means regenerating the mission | 13.4 | **P3** | Yes |
-| **D-23** | Is the Results of Scan Generation captured into the project record? | The only artefact stating which filters produced a cloud | 13.5, 23.3 | **P3** | Yes |
-| **D-24** | Where is the calibration site, and who maintains it? | Establishing one is a morning's work; finding one under schedule pressure is not | 6.7, 14.3 | **P2** | Yes |
-| **D-25** | Is the calibration JSON exported and archived after every calibration? | The only portable record of the system's angles on a date | 14.5, 25.3 | **P2** | Yes |
-| **D-26** | Recalibration interval and triggering events — **does daily removal of the Sensor Unit count as disturbing it?** | If the head comes off nightly, calibration is routine rather than periodic | 14.7 | **P1** | Yes, with risk |
-| **D-27** | What does a visual QC pass cover? | Two QC layers produce no software artefact at all | 18.5 | **P2** | Yes |
-| **D-28** | Is the retro-reflective target check our periodic verification, and at what interval? | The only independent check on the **instrument** in any source | 18.7 | **P2** | Yes |
-| **D-29** | What provenance record accompanies a deliverable, and where does it live? | Six facts cannot be reconstructed from the deliverable | 23.6, 24.4 | **P1** | Yes, with risk |
-| **D-30** | What does an imagery QC pass cover? | — | 19.3 | **P3** | Yes |
-| **D-31** | Is the imagery file-size scan adopted? **Validation required first** | Screening only; file size cannot establish validity | 19.4, 24 L8 | **P3** | Yes |
-| **D-32** | What is our position on imagery privacy? Are unblurred originals retained, and for how long? | Legal and reputational dimensions outside this SOP. Blurring is irreversible in the delivered product | 19.6, 25.5 | **P1** | Yes, with risk |
-| **D-33** | Does control density vary with predicted GNSS conditions? | Uniform spacing puts the same control where it adds little as where it holds the data together | 20.4, 6.3 | **P2** | Yes |
-| **D-34** | What is the decision rule when a corridor produces an unacceptable trajectory? | Includes the legitimate answer that mobile mapping is not the right method for that segment | 20.7 | **P2** | Yes |
-| **D-35** | **When may Cleanup be performed, by whom, and what must be archived first?** | Destructive, not undoable, and reduces the registration history at the moment the project is handed on | 21.4, 23.5 | **P1** | **No** — the first person to reach the end of a project decides it by default |
-| **D-36** | Is the pre-export trajectory-node confirmation mandatory? | The most consequential check in export | 22.2 | **P1** | Yes, with risk |
-| **D-37** | May exports be made with Export timestamps enabled before T18 resolves? | A documented option may substitute reprocessed data for the data that was checked | 22.3 | **P1** | Yes, with risk |
-| **D-38** | What are our standard deliverable formats, and which export path produces each? | — | 22.6 | **P2** | Yes |
-| **D-39** | What is the corridor continuity inspection method and coverage? | Must detect a degraded stretch shorter than the sampling interval | 24 L7 | **P1** | Yes, with risk |
-| **D-40** | What is our default deliverable scaling, and what accompanies it? | Ground scaling does not record its own scale factor | 5.7, 22.5 | **P2** | Yes |
-| **D-41** | How many passes, in what pattern, by roadway type? | **Two of three degraded-GNSS remedies require overlap collected on the day** | 6.2 | **P1** | **No** — mission planning cannot be specified |
-| **D-42** | Base station strategy and maximum baseline? | Interacts with D-19 | 6.3 | **P1** | **No** |
-| **D-43** | Is night collection permitted, and under what conditions? | Solves traffic occlusion, makes imagery unusable for interpretation | 6.4 | **P3** | Yes |
-| **D-44** | One clear wet-weather rule, with operator authority to stand down | Neither Trimble nor TMR defines "wet". An operator who must phone will drive | 6.5 | **P2** | Yes |
-| **D-45** | Are marginal segments and proposed alternative methods recorded before mobilising? | Professional judgement point | 6.8 | **P2** | Yes |
-| **D-46** | Where are lever arms, the Vehicle Preset and the installation configuration recorded and verified? | Entered once, used every mission. An error is systematic and invisible | 7.3 | **P1** | Yes, with risk |
-| **D-47** | What free-space margin is required before a mission may start? | A disk filling mid-corridor ends the run and the closing sequence with it | 7.8 | **P3** | Yes |
-| **D-48** | What collection speed, by deliverable type? | Trimble publishes maxima and no relationship to deliverable quality | 8.5 | **P2** | Yes |
-| **D-49** | What does the mission field record contain? | No software produces it; §9, §11, §24 all depend on it | 8.9 | **P1** | Yes, with risk |
-| **D-50** | What coverage verification happens before leaving site? | Missed overlap removes office options irrecoverably | 9.3 | **P1** | Yes, with risk |
-| **D-51** | What triggers a re-drive, and may the operator decide alone? | On site, minutes. From the office, a mobilisation | 9.4 | **P1** | Yes, with risk |
-| **D-52** | Offload, verification and backup procedure | The only irreversible step in the workflow | 10.3, 10.4 | **P1** | Yes, with risk |
-| **D-53** | Folder structure, naming and storage location | Several provenance artefacts are small files loose in a project folder | 10.5 | **P2** | Yes |
-| **D-54** | Is a chain-of-custody record required? | The deliverable may not be able to speak for itself | 10.6 | **P3** | Yes |
-| **D-55** | What is retained, where, for how long, and by whom? | Tier 1 is a few hundred kB. Tier 3 is hundreds of GB and determines whether reprocessing is ever possible | 25.1, 25.3 | **P1** | Yes, with risk |
+| ID | Decision | Covers | Why it matters | § | Priority | Operate without? |
+|---|---|---|---|---|---|---|
+| **D-1** | **Who owns this SOP, who approves revisions, on what review cycle?** | — | TBC is on an annual release cycle and **each release has changed mobile mapping behaviour**. A procedure with no owner decays silently | 1.7 | P2 | Yes |
+| **D-2** | **Which MX60 configuration is ours — Core, Pro or Premium? Are GAMS and DMI fitted? Which rack?** | — | Panoramic imagery is **8192×4096 on Core, 12288×6144 on Pro/Premium**. Changes every imagery and accuracy statement. The rack determines whether published GAMS offsets apply. **Answered by V-4** | 4.1, 19.2 | **P1** | **No** |
+| **D-3** | **Roles and authorities.** Who may operate the MX60; who may perform a registration; who accepts one; who may run Cleanup; who signs the accuracy statement; who owns calibration currency | *was D-3 to D-8* | One meeting, one output. **The accepting person should not be the person who performed the adjustment** — that separation is the whole basis of the independent check | 3.2–3.4 | **P1** | Yes, with risk |
+| **D-10** | **Do we hold a POSPac MMS 8.6+ licence, and where is it installed?** | — | Determines whether trajectory processing and PFIX are available **at all**, and removes one of three degraded-GNSS remedies | 4.4, 12.1, 20.3 | **P1** | **No** |
+| **D-11** | Is LiDAR QC a capability we intend to have? | — | 128–256 GB RAM, dedicated SSDs, MATLAB Runtime. A procurement question that becomes urgent only when it is too late | 4.5, 12.7 | P2 | Yes |
+| **D-12** | **Registration command selection.** Is Register a Mission the corridor default? Where does run-to-run sit in a controlled workflow? | *was D-12, D-14* | The three commands are not interchangeable. Run-to-run uses **no control** and propagates the reference run's absolute error | 15.4, 16.2 | P2 | Yes |
+| **D-13** | **What constitutes an acceptable registration and an acceptable point cloud?** | — | **No Trimble source provides a threshold.** Must combine numerical residuals, independent checks, visual inspection and the project accuracy requirement | 15.9, 18.9, 24.3 | **P1** | **No** |
+| **D-15** | **Is the control/check designation fixed before registration and unchangeable during it?** | — | Guards the one failure that looks like diligence — a processor who dislikes a check residual and ticks the point into the adjustment | 17.4 | **P1** | Yes, with risk |
+| **D-16** | **Control design.** How many control points, at what spacing, how many independent checks — and does density vary with predicted GNSS conditions? | *was D-16, D-33* | No Trimble source states any. TBC's minimum of one pair is a **mathematical floor**. Control must bracket the extent because Local does not extrapolate | 5.6, 17.5, 20.4 | **P1** | **No** |
+| **D-18** | What is verified at import, and by whom? | — | Seven checks, each cheaper now than later. Includes recording the calibration state the mission was collected under | 11.5 | P3 | Yes |
+| **D-19** | **IN-Fusion+ Single Base or PP-RTX?** | — | Determines whether a base station is occupied every mission, **and** the reference frame the solution is computed in | 5.3, 12.3 | **P1** | **No** |
+| **D-21** | **Which datum and epoch do we work in, who sets it, who checks it?** | — | A silent failure mode (the ITRF00 path), plus a user-settable epoch control Trimble itself flags as capable of producing inaccurate results | 5.4, 12.6 | **P1** | **No** |
+| **D-22** | Are scans generated coloured by default? | — | Discovering later that colour was wanted means regenerating the mission | 13.4 | P3 | Yes |
+| **D-24** | Where is the calibration site, and who maintains it? | — | Establishing one is a morning's work; finding one under schedule pressure is not | 6.7, 14.3 | P2 | Yes |
+| **D-26** | **Recalibration interval and triggers — does daily removal of the Sensor Unit count as disturbing it? And what happens to data collected on a stale calibration?** | — | If the head comes off nightly, calibration is routine rather than periodic. **Answered in part by V-13** | 11.5, 14.7 | **P1** | Yes, with risk |
+| **D-27** | **QC inspection content.** What does a visual point-cloud QC pass cover, and what does an imagery QC pass cover? | *was D-27, D-30* | **Two QC layers produce no software artefact at all** — if a reviewer asks whether the visual check happened, the only answer is a record somebody wrote | 18.5, 19.3, 24 L6 | P2 | Yes |
+| **D-28** | Is the retro-reflective target check our periodic verification, and at what interval? | — | The only independent check on **the instrument** in any source — the only one comparing the MX60 against conventionally surveyed truth. **Answered in part by V-14** | 18.7 | P2 | Yes |
+| **D-29** | **The record package.** What provenance record accompanies a deliverable, where does it live, and where is the control/check designation and its residuals recorded? | *was D-17, D-29* | **Six facts cannot be reconstructed from the deliverable**, and TBC is not documented as reporting the control/check designation at all | 17.6, 23.6, 24.4 | **P1** | Yes, with risk |
+| **D-31** | Is the imagery file-size scan adopted? | — | **Validation required first** — file size alone cannot establish image validity. It is a screening method, not proof | 19.4, 24 L8 | P3 | Yes |
+| **D-32** | **What is our position on imagery privacy? Are unblurred originals retained, and for how long?** | — | Legal and reputational dimensions outside this SOP. **Blurring is irreversible in the delivered product** | 19.6, 25.5 | **P1** | Yes, with risk |
+| **D-34** | **Handling segments mobile mapping cannot serve.** What is the decision rule when a corridor produces an unacceptable trajectory, and are marginal segments recorded before mobilising? | *was D-34, D-45* | Includes the legitimate professional answer that **another method would produce a more defensible result** | 6.8, 20.7 | P2 | Yes |
+| **D-35** | **When may Cleanup be performed, by whom, and what must be archived first?** | — | Destructive, not undoable, and reduces the registration history at the moment the project is handed on. **Otherwise decided by default by whoever finishes a project first** | 21.4, 23.5 | **P1** | **No** |
+| **D-36** | **The export release gate.** Is the pre-export trajectory-node confirmation mandatory, and may exports be made with Export timestamps enabled before T18 resolves? | *was D-36, D-37* | Registration does not reach the point cloud until Update Scans runs, and a documented export option may substitute reprocessed data for the data that was checked | 22.2, 22.3 | **P1** | Yes, with risk |
+| **D-38** | **Deliverable specification.** What are our standard formats, which export path produces each, and what is our default scaling? | *was D-38, D-40* | Ground scaling **does not record its own scale factor**; grid writes a sidecar that does | 5.7, 22.5, 22.6 | P2 | Yes |
+| **D-39** | **What is the corridor continuity inspection method and coverage?** | — | Must detect a degraded stretch **shorter than the sampling interval**, which rules out sparse spot checks | 24 L7 | **P1** | Yes, with risk |
+| **D-41** | **How many passes, in what pattern, by roadway type?** | — | **Two of three degraded-GNSS remedies require overlap collected on the day.** Without it they are unavailable in the office | 6.2 | **P1** | **No** |
+| **D-42** | **Base station strategy and maximum baseline?** | — | Field logistics on every mission. Interacts with D-19 | 6.3 | **P1** | **No** |
+| **D-43** | **Field operating rules.** Wet-weather go/no-go **with explicit operator authority to stand down**; whether night collection is permitted; collection speed by deliverable type; free-space margin before a mission may start | *was D-43, D-44, D-47, D-48* | One document the operator needs. **An operator who must phone for permission will drive.** Trimble publishes speed maxima and no relationship to deliverable quality | 6.4, 6.5, 7.8, 8.5 | P2 | Yes |
+| **D-46** | Where are lever arms, the Vehicle Preset and the installation configuration recorded and verified? | — | Entered once, used every mission. **An error is systematic, invisible, and persists until someone re-measures** | 7.3 | **P1** | Yes, with risk |
+| **D-49** | **Field close-out.** What does the mission field record contain, what coverage verification happens before leaving site, and what triggers a re-drive — may the operator decide alone? | *was D-49, D-50, D-51* | No software produces the field record, and §9, §11 and §24 all depend on it. **Missed overlap removes office options irrecoverably.** On site a re-drive is minutes; from the office it is a mobilisation | 8.9, 9.3, 9.4 | **P1** | Yes, with risk |
+| **D-52** | Offload, verification and backup procedure | — | **The only irreversible step in the workflow** | 10.3, 10.4 | **P1** | Yes, with risk |
+| **D-53** | Folder structure, naming and storage location | — | Several provenance artefacts are **small files loose in a project folder** | 10.5 | P2 | Yes |
+| **D-54** | Is a chain-of-custody record required? | — | The deliverable may not be able to speak for itself | 10.6 | P3 | Yes |
+| **D-55** | **Capture and retention.** What is retained, where, for how long, by whom — including whether Backup SBET Next to MXDB is enabled, the Results of Scan Generation captured, and the calibration JSON exported and archived as standard | *was D-20, D-23, D-25, D-55* | Tier 1 is a **few hundred kilobytes**. Tier 3 is hundreds of GB and determines whether reprocessing is ever possible. The frame/epoch log exists **only if the option was enabled** | 12.4, 13.5, 14.5, 25.3 | **P1** | Yes, with risk |
 
-**P1 items: 24.** These should be settled before the first production job.
+**P1 decisions: 19.**
 
 ---
 
 ## Table 2 — Field Tests Required
 
 Answerable with the software or the system in front of you. **No further documentation research
-will resolve any of these.**
+will resolve any of these.** **24 items.**
 
-| ID | Test | Why it matters | § | Priority | Operate without? |
-|---|---|---|---|---|---|
-| **T18** | **Export the same registered run twice, timestamps off and on, and compare the point geometry.** Does reprocessing from raw reflect the registered trajectory? | **The highest-priority test in the project.** A documented export option may deliver data that was never the data that was checked | 22.3, 13.8 | **P1** | Yes — by keeping timestamps off |
-| **T28** | **Does Cleanup delete `sbet_*_reg_####.out` from storage, or only remove the project objects?** Distinguish project object retention from underlying file retention | Determines what must be archived before Cleanup | 21.3, 23.5, 25.4 | **P1** | Yes — by archiving them anyway |
-| **T29** | Establish the reliable export-state verification method **for each export path** | How an export dialog resolves its selection is not documented | 22.2, 24 L9 | **P1** | Yes — by verifying project-side |
-| **T19** | Publish a registered run to TRCPS and inspect what arrives. Which trajectory is sent? | Trajectory is exported by default; which one is not stated | 22.6.6 | **P2** | Yes |
-| **T20** | Same, for the TMX export path | The trajectory file is written "once for all devices"; which one is not stated | 22.6.2 | **P2** | Yes |
-| **T21** | Register a mission, run a Mission Report, and look. Does it contain the signed GCP residuals? | The 2025.21 release note says residuals are "included in the report"; the Mission Report topic does not mention them | 17.6 | **P2** | Yes |
-| **T22** | Export a LAS and inspect the file directly — header fields, VLRs, sidecar contents | Trimble's topics do not enumerate LAS headers. Something undocumented may be written | 22.7, 23.4 | **P2** | Yes |
-| **T23** | Draw a Point Cloud tab selection across scans from two trajectories and observe | Whether TBC warns, prevents or silently permits is not stated | 22.4 | **P2** | Yes |
-| **T26** | **Does exported imagery inherit or otherwise reflect a registration adjustment?** Compare a station's position before and after | Imagery is positioned from the trajectory; nothing states whether it is recomputed | 19.1 | **P2** | Yes |
-| **T27** | **What imagery streams actually exist on the MX60, and which are exposed through TBC export?** Resolve the apparent inconsistency between the side-images export option and the MX60 export tree lacking Planar cameras. **Also a vendor question — V-8** | **Do not write MX9/MX90 camera behaviour into MX60 procedure.** The option's presence in a dialog is not evidence the sensor exists | 19.2 | **P2** | Yes |
-| **T30** | Attempt both reconstruction paths — timestamp matching and trajectory geometry comparison — on a dataset with two candidate trajectories | Neither has been attempted; both are the fallback if provenance is queried | 23.7 | **P3** | Yes |
-| **T1** | Default vs High Quality filter preset — selection criteria | High Quality enables three filters unconditionally | 13.3 | **P2** | Yes |
-| **T2** | Isolated Points default state | Trimble's own text contradicts itself | 13.3 | **P3** | Yes |
-| **T3** | **Does Reflective Panels remove legitimate retro-reflective returns from signs and line marking?** | On sign and retroreflectivity work, those returns **are** the deliverable | 13.3 | **P1** | Yes, with risk |
-| **T4** | Range Max default vs useful range in bright sun and at oblique incidence | Points may be retained well beyond useful range | 13.3 | **P2** | Yes |
-| **T5** | Fog and Sun filters applied when those conditions did not occur | Both remove real returns | 13.3 | **P2** | Yes |
-| **T6** | Colouriser forward vs backward camera preference, and its effect on fringing | No selection rule given | 13.4, 19.5 | **P3** | Yes |
-| **T7** | Registration Auto-Saving **default state** | `Targets.csv` is the registration's field book, and a wrong dialog answer empties it | 15.3 | **P2** | Yes |
-| **T9** | **Target-Bundle Adjustment** — test both states with independent checks | Checking it makes the adjustment **coarser** (250 m vs 70 m); the name reads backwards | 15.7 | **P2** | Yes |
-| **T10** | Which Parametrix coordinate systems does POSPac recognise directly, and which trigger the ITRF00 path? | Answerable once, then known | 5.3, 12.4 | **P2** | Yes |
-| **T11** | Multipath default **Medium** on open-sky corridors | Medium is described as being for *degraded* coverage | 12.3 | **P3** | Yes |
-| **T12** | DMI scale factor SD default **5 %** — was the wheel actually measured? | Trimble says set it to 100 % if unknown | 12.3 | **P3** | Yes |
-| **T13** | LiDAR QC range default 3–100 m | Useful scanner range and useful aiding range are different questions | 12.7 | **P3** | Yes |
-| **T14** | LiDAR QC **Lasers = All** | **The default contradicts the guidance printed beside it** | 12.7 | **P3** | Yes |
-| **T15** | **Which registration type, when?** Test Global, Local and Global-then-Local with independent checks | No selection rule published; Global-then-Local gets no guidance and appears in every screenshot | 15.5 | **P1** | Yes, with risk |
-| **T16** | Working cutting plane thickness for the visual checks | Trimble's own screenshots show 0.030 and 5.000 with no basis | 16.7, 18.6 | **P2** | Yes |
-| **T17** | **Sample points** random sampling in the classified LAS exporter | A destructive thinning with no documented spatial rule; default state not stated | 22.6.1 | **P2** | Yes |
-| **T24** | How much run overlap is enough for run-to-run registration? | Trimble states the requirement qualitatively only | 16.6 | **P2** | Yes |
-| **T25** | Which feature types are fit for horizontal control, vertical control, or both, at MX60 density and incidence? | Will shape control design more than any software setting | 5.5, 17.3 | **P1** | Yes, with risk |
+| ID | Test | Covers | Why it matters | § | Priority | Operate without? |
+|---|---|---|---|---|---|---|
+| **T18** | **Export the same registered run twice, timestamps off and on, and compare the point geometry.** Does reprocessing from raw reflect the registered trajectory? | — | **The highest-priority test in the project.** A documented export option may deliver data that was never the data that was checked. Pairs with **V-1** | 22.3, 13.8 | **P1** | Yes — by keeping timestamps off |
+| **T28** | **Does Cleanup delete `sbet_*_reg_####.out` from storage, or only remove the project objects?** | — | Distinguish **project object retention** from **underlying file retention**; do not assume one implies the other. Determines what must be archived before Cleanup | 21.3, 23.5, 25.4 | **P1** | Yes — by archiving them anyway |
+| **T29** | Establish the reliable export-state verification method **for each export path** | — | How an export dialog resolves its selection is not documented | 22.2, 24 L9 | **P1** | Yes — by verifying project-side |
+| **T3** | **Does Reflective Panels remove legitimate retro-reflective returns from signs and line marking?** | — | On sign and retroreflectivity work, **those returns are the deliverable** | 13.3 | **P1** | Yes, with risk |
+| **T15** | **Which registration type, when?** Test Global, Local and Global-then-Local with independent checks | — | No selection rule published. **Global-then-Local gets no guidance and appears in every Trimble screenshot** | 15.5 | **P1** | Yes, with risk |
+| **T25** | Which feature types are fit for horizontal control, vertical control, or both, at MX60 density and incidence? | — | Will shape control design more than any software setting | 5.5, 17.3 | **P1** | Yes, with risk |
+| **T1** | **Filter selection and defaults.** Default vs High Quality preset; Isolated Points default state; Range Max against useful range in bright sun and at oblique incidence; Fog and Sun applied when those conditions did not occur | *was T1, T2, T4, T5* | The largest block of untested settings in the workflow. Each removes real returns under conditions that may not have applied. **Trimble's own text contradicts itself on Isolated Points** | 13.3 | P2 | Yes |
+| **T6** | Colouriser forward vs backward camera preference, and its effect on fringing | — | No selection rule given | 13.4, 19.5 | P3 | Yes |
+| **T7** | Registration Auto-Saving **default state** | — | `Targets.csv` is the registration's field book, and a wrong answer to a dialog empties it permanently | 15.3 | P2 | Yes |
+| **T9** | **Target-Bundle Adjustment** — test both states with independent checks | — | **Checking it makes the adjustment coarser** (250 m vs 70 m); the name reads backwards | 15.7 | P2 | Yes |
+| **T10** | Which Parametrix coordinate systems does POSPac recognise directly, and which trigger the ITRF00 path? | — | Answerable once, then known | 5.3, 12.4 | P2 | Yes |
+| **T11** | Multipath default **Medium** on open-sky corridors | — | Medium is described as being for *degraded* coverage | 12.3 | P3 | Yes |
+| **T12** | DMI scale factor SD default **5 %** — was the wheel actually measured? | — | Trimble says set it to 100 % if unknown | 12.3 | P3 | Yes |
+| **T13** | **LiDAR QC settings.** Range default 3–100 m, and Lasers = All | *was T13, T14* | Useful scanner range and useful aiding range are different questions. **The Lasers default contradicts the guidance printed beside it** | 12.7 | P3 | Yes |
+| **T16** | Working cutting plane thickness for the visual checks | — | Trimble's own screenshots show 0.030 and 5.000 with no basis. **Too thick buries a real offset** | 16.7, 18.6 | P2 | Yes |
+| **T17** | **Sample points** random sampling in the classified LAS exporter | — | A destructive thinning with no documented spatial rule; default state not stated | 22.6.1 | P2 | Yes |
+| **T19** | **Which trajectory travels?** Publish a registered run to TRCPS, and export the same run to TMX, and inspect what arrives | *was T19, T20* | Both paths carry trajectory geometry; **neither states which trajectory**. Pairs with **V-10** | 22.6.2, 22.6.6 | P2 | Yes |
+| **T21** | Register a mission, run a Mission Report, and look. Does it contain the signed GCP residuals? | — | The 2025.21 release note says residuals are "included in the report"; the Mission Report topic does not mention them. Pairs with **V-11** | 17.6 | P2 | Yes |
+| **T22** | Export a LAS and inspect the file directly — header fields, VLRs, sidecar contents | — | Trimble's topics do not enumerate LAS headers. **Something undocumented may be written.** Pairs with **V-12** | 22.7, 23.4 | P2 | Yes |
+| **T23** | Draw a Point Cloud tab selection across scans from two trajectories and observe | — | Whether TBC warns, prevents or silently permits is not stated | 22.4 | P2 | Yes |
+| **T24** | How much run overlap is enough for run-to-run registration? | — | Trimble states the requirement qualitatively only. A pair overlapping for 200 m of a 2 km run is registered on a tenth of its length | 16.6 | P2 | Yes |
+| **T26** | **Does exported imagery inherit or otherwise reflect a registration adjustment?** Compare a station's position before and after | — | Imagery is positioned from the trajectory; **nothing states whether it is recomputed** | 19.1 | P2 | Yes |
+| **T27** | **What imagery streams actually exist on the MX60, and which are exposed through TBC export?** | — | The MX60 export tree shows no Planar cameras while the side-images export option persists. **Do not write MX9/MX90 camera behaviour into MX60 procedure.** Pairs with **V-8** | 19.2 | P2 | Yes |
+| **T30** | Attempt both reconstruction paths — timestamp matching and trajectory geometry comparison — on a dataset with two candidate trajectories | — | Neither has been attempted; both are the fallback if provenance is queried | 23.7 | P3 | Yes |
 
 **P1 tests: 6.**
 
@@ -7711,27 +7778,26 @@ will resolve any of these.**
 
 ## Table 3 — Vendor Clarifications Required
 
-Only Trimble can answer these.
+Only Trimble can answer these. **16 items.**
 
-| ID | Question | Why it matters | § | Priority | Operate without? |
-|---|---|---|---|---|---|
-| **V-1** | **When Export timestamps causes reprocessing from raw data, which trajectory is used?** | Pairs with T18. A direct yes/no question with the largest consequence in the workflow | 22.3 | **P1** | Yes — by keeping timestamps off |
-| **V-2** | Is the MX60 laser control presented as *Measurement Prog* + *Line Speed*, or as a combined *Laser Mode*? Which TMI version applies? | The Quick Start Guide and TMI Rev L disagree | 7.7 | **P2** | Yes |
-| **V-3** | Which TBC version is installed on our workstation? | Two version-dependent behaviours, both legacy | 1.6, 4.3 | **P2** | Yes |
-| **V-4** | Which MX60 configuration do we have — from the serial number? Are GAMS and DMI fitted? Which rack? | Pairs with D-2 | 4.1 | **P1** | **No** |
-| **V-5** | **Trimble GAMS Antenna Kit Installation & Operation Manual** — not held | Needed to complete the lever-arm procedure if GAMS is fitted | 7.3 | **P2** | Only if GAMS is not fitted |
-| **V-6** | **Trimble DMI Installation & Operation Manual** — not held | Contains the scale factor for the measured wheel diameter, which §12.3 needs | 7.3, 12.3 | **P2** | Only if DMI is not fitted |
-| **V-7** | Does the **Lateral Range Limit** affect accuracy, or is it purely a data-volume tool? | Undocumented | 7.7 | **P3** | Yes |
-| **V-8** | **What is the MX60's actual camera complement, and which streams are exposed through TBC export?** | Pairs with T27. The MX60 export tree shows no Planar cameras while the export option persists | 19.2 | **P2** | Yes |
-| **V-9** | Does **LiDAR QC** have its own POSPac dependency? | Trimble does not state one, but directs configuration questions to Applanix Support | 4.5 | **P2** | Yes |
-| **V-10** | Which trajectory do **TMX export** and **Publish to TRCPS** send when a run has both an imported and a registered trajectory? | Both carry trajectory geometry; neither says which | 22.6.2, 22.6.6 | **P1** | Yes, with risk |
-| **V-11** | **Which report contains the signed GCP residuals** added in TBC 2025.21? | The only mobile mapping report topic does not mention residuals | 17.6 | **P2** | Yes |
-| **V-12** | Does any TBC export write the source trajectory into a LAS header, VLR or sidecar? | The one provenance question documentation cannot answer | 23.4 | **P1** | Yes, with risk |
-| **V-13** | Does removing and refitting the Sensor Unit disturb the calibration? What symptoms indicate drift? | Determines whether calibration is periodic or routine | 14.7 | **P1** | Yes, with risk |
-| **V-14** | Is the retro-reflective target check the recommended periodic verification for the MX60, and at what interval? | Trimble says "regularly" and defines nothing | 18.7 | **P2** | Yes |
-| **V-15** | Scanner field of view — **346°** *(UG p.54)* or **360°** *(spec sheet p.2)*? | Matters for occlusion geometry | 4.1 | **P3** | Yes |
-| **V-16** | When should PFIX be preferred over registration? | This document's framing of the distinction is inferred, not stated by Trimble | 20.5 | **P2** | Yes |
-| **V-17** | Does the "coordinate system without Geoid" restriction on TMX export apply to the MX60, or only the MX9? | Stated for the MX9 only | 22.6.2 | **P2** | Yes |
+| ID | Question | Covers | Why it matters | § | Priority | Operate without? |
+|---|---|---|---|---|---|---|
+| **V-1** | **When Export timestamps causes reprocessing from raw data, which trajectory is used?** | — | A direct yes/no question with the largest consequence in the workflow. Pairs with **T18** | 22.3 | **P1** | Yes — by keeping timestamps off |
+| **V-4** | **Which MX60 configuration do we have — from the serial number? Are GAMS and DMI fitted? Which rack?** | — | **Answers D-2.** Imagery and accuracy commitments cannot be made without it | 4.1 | **P1** | **No** |
+| **V-10** | Which trajectory do **TMX export** and **Publish to TRCPS** send when a run has both an imported and a registered trajectory? | — | Both carry trajectory geometry; neither says which. Pairs with **T19** | 22.6.2, 22.6.6 | **P1** | Yes, with risk |
+| **V-12** | Does any TBC export write the source trajectory into a **LAS header, VLR or sidecar**? | — | **The one provenance question documentation cannot answer.** Pairs with **T22** | 23.4 | **P1** | Yes, with risk |
+| **V-13** | Does removing and refitting the Sensor Unit disturb the calibration? What symptoms indicate drift? | — | Determines whether calibration is **periodic or routine**. Answers part of D-26 | 14.7 | **P1** | Yes, with risk |
+| **V-2** | Is the MX60 laser control presented as *Measurement Prog* + *Line Speed*, or as a combined *Laser Mode*? Which TMI version applies? | — | The Quick Start Guide and TMI Rev L disagree — `CONFLICT-005` | 4.2, 7.7 | P2 | Yes |
+| **V-3** | Which TBC version is installed on our workstation? | — | Two version-dependent behaviours, **both legacy** — 5.21 and 5.80 both predate the oldest published release note | 1.6, 4.3 | P2 | Yes |
+| **V-5** | **Accessory manuals not held** — Trimble **GAMS Antenna Kit** and **DMI** Installation & Operation Manuals | *was V-5, V-6* | Needed to complete the lever-arm procedure if fitted. The DMI manual contains the scale factor for the measured wheel diameter, which §12.3 needs | 7.3, 12.3 | P2 | Only if neither is fitted |
+| **V-7** | Does the **Lateral Range Limit** affect accuracy, or is it purely a data-volume tool? | — | Undocumented | 7.7 | P3 | Yes |
+| **V-8** | What is the MX60's actual camera complement, and which streams are exposed through TBC export? | — | Pairs with **T27** | 19.2 | P2 | Yes |
+| **V-9** | Does **LiDAR QC** have its own POSPac dependency? | — | Trimble does not state one, but directs configuration questions to **Applanix Support** | 4.5 | P2 | Yes |
+| **V-11** | **Which report contains the signed GCP residuals** added in TBC 2025.21? | — | The only mobile mapping report topic does not mention residuals. Pairs with **T21** | 17.6 | P2 | Yes |
+| **V-14** | Is the retro-reflective target check the recommended periodic verification for the MX60, and at what interval? | — | Trimble says "regularly" and defines nothing. Answers part of D-28 | 18.7 | P2 | Yes |
+| **V-16** | When should PFIX be preferred over registration? | — | This document's framing of the distinction is **inferred, not stated by Trimble** | 20.5 | P2 | Yes |
+| **V-17** | Does the "coordinate system without Geoid" restriction on TMX export apply to the MX60, or only the MX9? | — | Stated for the MX9 only | 22.6.2 | P2 | Yes |
+| **V-15** | Scanner field of view — **346°** *(UG p.54)* or **360°** *(spec sheet p.2)*? | — | Matters for occlusion geometry — `CONFLICT-002` | 4.1 | P3 | Yes |
 
 **P1 vendor questions: 5.**
 
@@ -7739,20 +7805,40 @@ Only Trimble can answer these.
 
 ## Summary
 
-| | Total | P1 | Blocks operation |
+| | Items | P1 | Block operation |
 |---|---|---|---|
-| **Parametrix Decisions** | 54 | 24 | 9 |
-| **Field Tests** | 29 | 6 | 0 |
-| **Vendor Clarifications** | 17 | 5 | 1 |
-| **Total** | **100** | **35** | **10** |
+| **Parametrix Decisions** | 34 | 19 | 8 |
+| **Field Tests** | 24 | 6 | 0 |
+| **Vendor Clarifications** | 16 | 5 | 1 |
+| **Total** | **74** | **30** | **9** |
 
-> **Ten items genuinely block operation.** They are: D-2/V-4 (configuration), D-10 (POSPac
-> licence), D-13 (acceptance criteria), D-16 (control design), D-19 (computation mode), D-21
-> (datum and epoch), D-35 (Cleanup policy), D-41 (pass pattern), D-42 (base station strategy).
->
-> **The remaining ninety do not prevent defensible work.** They make it less consistent, less
-> efficient, or dependent on individual judgement — which is what an SOP exists to reduce, and is
-> exactly the work this backlog represents.
+### The nine that genuinely block operation
 
-*Contact for vendor questions: `mx_support@trimble.com` · Americas +1-289-695-4416
-*(MX60 UG Rev B, p.51)*
+| ID | What it blocks |
+|---|---|
+| **D-2 / V-4** | Imagery and accuracy commitments cannot be made |
+| **D-10** | Whether trajectory processing and PFIX exist at all |
+| **D-13** | Acceptance cannot be signed |
+| **D-16** | Control design cannot be specified |
+| **D-19** | Field logistics on every mission |
+| **D-21** | Datum and epoch — a silent failure mode |
+| **D-35** | Cleanup, otherwise decided by default |
+| **D-41** | Pass pattern — overlap must be collected on the day |
+| **D-42** | Base station strategy |
+
+**The remaining sixty-five do not prevent defensible work.** They make it less consistent, less
+efficient, or dependent on individual judgement — which is what an SOP exists to reduce, and is
+exactly the work this backlog represents.
+
+### Suggested sequence
+
+| Round | Items | Why first |
+|---|---|---|
+| **1** | **V-4**, then **D-2** · **D-10** · **V-3** | Facts about what we own and what we are licensed for. Three phone calls; everything else is easier afterwards |
+| **2** | **D-3** · **D-19** · **D-21** · **D-41** · **D-42** | The decisions that shape field work and must exist before a first job |
+| **3** | **D-13** · **D-16** · **D-15** · **D-29** · **D-39** | The accuracy and evidence framework — the defensibility core |
+| **4** | **T18** · **V-1** · **T28** · **T29** | The four tests that close the export and Cleanup questions. **An afternoon with the software** |
+| **5** | **D-35** · **D-36** · **D-55** | Cleanup, export release and retention — answerable once round 4 is done |
+| **6** | Everything else | Consistency and efficiency |
+
+*Vendor contact: `mx_support@trimble.com` · Americas +1-289-695-4416 *(MX60 UG Rev B, p.51)*
