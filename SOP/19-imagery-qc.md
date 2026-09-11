@@ -52,8 +52,13 @@ errors and improves — or does not — in the same way.
 > This suggests the **Export side images** option has nothing to export on an MX60. **Trimble does
 > not state this**, and the option remains present in the dialog.
 >
-> **FIELD TESTING REQUIRED · T27** — run an export with side images enabled and see what appears.
-> *(Appendix E)*
+> **FIELD TESTING / VENDOR CLARIFICATION REQUIRED · T27** — **what imagery streams actually
+> exist on the MX60, and which are exposed through TBC export?** Run an export with side images
+> enabled and see what appears; confirm with the vendor what the MX60 camera complement is.
+>
+> **Do not write MX9 or MX90 camera behaviour into MX60 procedure on the strength of a shared
+> dialog.** The option's presence in the export pane is not evidence that the sensor exists.
+> *(Appendix E; Appendix F)*
 
 ## 19.3 What to check
 
@@ -86,13 +91,24 @@ errors and improves — or does not — in the same way.
 > its imagery blank. **The only detection is looking at the imagery**, which on a corridor job
 > means sampling systematically rather than opening the first few.
 
-> **PARAMETRIX PROCEDURE (PROPOSED)**
+> **PROPOSED PARAMETRIX QC AUTOMATION — VALIDATION REQUIRED**
 >
-> Include a **file-size scan** of the exported imagery in the delivery check (§24). A black JPEG
-> compresses to a fraction of the size of a real one, so a sorted file listing surfaces them
-> immediately without opening a single image.
+> **This is not a Trimble procedure. It is a screening method proposed by this document and not
+> yet validated.**
 >
-> **Not adopted.** A two-minute check for a defect that is otherwise found by the client.
+> Include a **file-size scan** of the exported imagery in the delivery check (§24). The logic: a
+> uniformly black JPEG typically compresses far smaller than a valid image, so **anomalously small
+> files are a useful screening flag** and a sorted file listing surfaces candidates without
+> opening a single image.
+>
+> **File size alone cannot establish image validity.** It is a screening method, not proof. A
+> small file may be a legitimately low-detail frame — a plain sky, a blank wall, an unlit tunnel —
+> and a corrupted image is not guaranteed to be small. Anything the scan flags must be opened and
+> looked at; anything it does not flag is not thereby verified.
+>
+> **Validation required** before adoption: run it against a known-good export and a known-bad one
+> and establish whether a usable threshold exists for MX60 imagery.
+>
 > *(Register item 31)*
 
 ## 19.5 Colorized point clouds

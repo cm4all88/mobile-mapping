@@ -166,14 +166,23 @@ The provenance evidence inside a TBC project is genuinely good — trajectory pr
 origin, the input trajectory and the registration type; numbered SBET files; scans nested beneath
 the trajectory that produced them; a `_reg_####` station suffix (§15.3, §13.6).
 
-**None of that survives export** (§23). And Cleanup removes most of what does not get exported, at
-exactly the point where the project is being finalised.
+**IMPORTANT PROVENANCE LIMITATION.** Exported mobile mapping data may retain coordinate, timing,
+and in some formats trajectory information, but **the captured Trimble documentation does not
+establish that the output uniquely identifies the adjusted trajectory or registration result used
+to create it** (§23).
 
-> **The two findings compound.** Provenance does not leave the project, and Cleanup thins what is
-> in the project. A dataset delivered from a cleaned-up project, exported to LAS, is a point cloud
-> with a coordinate system and no history at all.
+> **The two findings compound.** Cleanup reduces the registration history available in the
+> project; export is not documented as providing unique registration lineage. **A LAS point cloud
+> exported after project cleanup may retain spatial and point-level metadata, but the captured
+> Trimble documentation does not establish that it preserves sufficient registration and
+> trajectory lineage to reconstruct how the final cloud was produced.**
 >
-> That is not an argument against Cleanup. It is an argument for §21.6 steps 2–6 happening first.
+> The practical concern is therefore not literally "no history." It is that **the deliverable may
+> not contain enough documented provenance to reconstruct its processing history independently of
+> the TBC project and Parametrix records.**
+>
+> That is not an argument against Cleanup. It is the reason §21.4 remains a Parametrix decision,
+> and the reason §21.6 steps 2–6 are proposed to happen first.
 
 ---
 

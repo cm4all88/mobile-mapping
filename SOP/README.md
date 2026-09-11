@@ -61,9 +61,9 @@ criteria. **Read this before editing any section.**
 
 | § | Section | Status |
 |---|---|---|
-| 22 | Export and Deliverables | Pending |
-| 23 | Data Provenance and Audit Trail | Pending |
-| 24 | Final QA/QC | Pending |
+| 22 | [Export and Deliverables](22-export-and-deliverables.md) | Drafted |
+| 23 | [Data Provenance and Audit Trail](23-data-provenance-and-audit-trail.md) | Drafted |
+| 24 | [Final QA/QC](24-final-qa-qc.md) | Drafted |
 | 25 | Archiving and Records | Pending |
 | 26 | Troubleshooting | Pending |
 | 27 | Terminology | Pending |

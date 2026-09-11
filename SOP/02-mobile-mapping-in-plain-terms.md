@@ -73,8 +73,13 @@ An error in the *position* of the sensor head displaces every point by the same 
 error in the *attitude* — which way it was pointing — displaces points by an amount
 proportional to how far away they are.
 
-A tenth of a degree of heading error puts a point 10 m away off by about 17 mm. The same error
-puts a point 50 m away off by about 87 mm.
+The relationship is simple geometry: lateral displacement is range multiplied by the angular
+error in radians. A given attitude error therefore costs five times as much at 50 m as at 10 m.
+
+> This is arithmetic, not a specification. **No Trimble source in the set publishes an attitude
+> error budget for the MX60**, so the useful range for a given tolerance has to be established
+> from the manufacturer's accuracy statement for the configuration Parametrix owns (§4.1), or by
+> test.
 
 > **WHY THIS MATTERS**
 >

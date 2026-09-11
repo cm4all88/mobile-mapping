@@ -41,9 +41,12 @@ a reader meeting registration in §15 needs to already know what a boresight ang
 ### Why boresight error is the error that grows with range
 
 An error in the boresight angle of a scanner is an error in **which direction it thinks it is
-pointing**, and it displaces points in proportion to range — exactly as described in §2.3. At
-10 m a hundredth of a degree is under 2 mm. At 60 m it is over 10 mm, on every point, always in
-the same direction.
+pointing**, and it displaces points **in proportion to range** — exactly as described in §2.3.
+
+> That proportionality is geometry, not a system specification. Multiplying any small angular
+> error by any distance gives the lateral displacement at that distance, and the arithmetic is
+> the reader's to do for the ranges and tolerances of a particular job. **No Trimble source in the
+> set states a boresight error budget for the MX60**, and none is asserted here.
 
 > **WHY THIS MATTERS**
 >

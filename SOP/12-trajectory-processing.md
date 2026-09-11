@@ -95,9 +95,16 @@ No default is stated.
 >
 > This is retrieved automatically from the RINEX file, which means it can be retrieved *wrongly*
 > if the RINEX carries a different antenna descriptor. **Verify it reads Trimble 112735 before
-> computing.** An incorrect antenna model puts a systematic vertical bias into the trajectory that
-> nothing downstream will reveal — registration will absorb part of it, and the rest will appear
-> as a height offset that looks like a geoid problem.
+> computing.**
+>
+> An antenna model defines the phase-centre offsets and variations the solver applies. An
+> incorrect model can therefore **introduce a systematic antenna-height and reference error into
+> the trajectory solution.** The evidence supports that statement and no more precise
+> characterisation of the resulting bias.
+>
+> The practical point is enough: **the mistake occurs upstream, it is a single field nobody looks
+> at, and it can contaminate everything derived from that trajectory** — the point cloud, the
+> registration that partially absorbs it, and the deliverable.
 
 ### DMI settings, if fitted
 
@@ -157,13 +164,25 @@ No default is stated.
 
 > **IMPORTANT · this is the trap in this section**
 >
-> **The second filename is a warning, and nothing else flags it.**
+> **The second filename is an indicator, and nothing else surfaces it.**
 >
-> It means POSPac did not recognise the project's coordinate system, computed the solution in
-> ITRF00, and then transformed it. That transformation is an extra step with its own assumptions
-> about the frame and the epoch — and the only indication you will ever get is a longer filename.
+> It tells you POSPac did not recognise the project's datum and epoch, computed the solution in
+> ITRF00, and then transformed it into the project frame. That is a **processing-path indicator**,
+> and it is the only one the software gives.
 >
-> **Look at the SBET filename after every computation.**
+> **Be precise about what it does and does not tell you:**
+>
+> | It tells you | It does **not** tell you |
+> |---|---|
+> | That POSPac used the frame-transformation workflow | That the transformation parameters were right |
+> | That an additional transformation step occurred | That the project CRS is set up correctly |
+> | Where to direct scrutiny | That the final point cloud is accurate |
+>
+> A plain `sbet_[mission].out` is equally not proof of correctness — it means only that POSPac
+> recognised the datum and epoch it was given, which may still be the wrong ones.
+>
+> **Look at the SBET filename after every computation, and treat it as a flag for review rather
+> than as a verdict.**
 
 > **FIELD TESTING REQUIRED · T10**
 >
