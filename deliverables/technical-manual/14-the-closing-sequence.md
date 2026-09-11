@@ -105,7 +105,7 @@ cloud (§24):
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We explained why the end of a mission gets its own five-minute routine,
 > and why that routine is the start-of-mission routine performed backwards.

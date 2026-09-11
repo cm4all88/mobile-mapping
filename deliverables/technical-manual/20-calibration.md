@@ -279,7 +279,7 @@ different geometry, and one Parametrix has not yet scheduled.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We worked out the exact angles at which each sensor is bolted to the
 > vehicle relative to the inertial unit. Not where they are — those distances are known from

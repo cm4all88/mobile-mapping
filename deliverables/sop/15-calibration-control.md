@@ -89,7 +89,7 @@ Distinct from per-project QC: the check that the **instrument** is still perform
 
 > **PARAMETRIX DECISION REQUIRED · D-28**
 >
-> **Is this the periodic verification Parametrix adopts, and at what interval?**
+> **Is this the periodic verification Parametrix uses, and at what interval?**
 
 > **TESTING REQUIRED · V-14**
 >

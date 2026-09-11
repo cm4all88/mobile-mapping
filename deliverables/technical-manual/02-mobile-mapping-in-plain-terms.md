@@ -82,7 +82,7 @@ each other and to control. Mobile mapping is different in an instructive way.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We established the one idea the rest of this manual rests on: a mobile
 > mapping system has no occupied point. It computes where it was, continuously, and every point it

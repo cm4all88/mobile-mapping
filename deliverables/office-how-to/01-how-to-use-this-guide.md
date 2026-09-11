@@ -39,8 +39,8 @@ the Technical Manual at the reference given.
 ## 1.4 Who is telling you — the authority key
 
 **This guide cannot require anything.** Everything in it is somebody else's instruction, and the
-marker says whose. That matters because the SOP is not adopted: a Parametrix practice is a
-recommendation today, while **a Trimble instruction and an equipment limit bind regardless.**
+marker says whose. That matters because the two are not the same: a Parametrix practice is a
+recommendation, while **a Trimble instruction and an equipment limit bind regardless.**
 
 | Marker | Who says so | Force today |
 |---|---|---|

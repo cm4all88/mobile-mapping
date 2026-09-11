@@ -75,13 +75,13 @@ Where a Parametrix decision would resolve an open question, this manual **names 
 
 | If you are… | Start at |
 |---|---|
-| **New to mobile mapping** | §2, then §3, then the **In Plain English** boxes end to end |
+| **New to mobile mapping** | §2, then §3, then the **In Plain Language** boxes end to end |
 | **Looking up one behaviour** | The contents, or **Appendix A** — the Trimble source index |
 | **Checking a number** | **Appendix B** — the reference dataset is the authority for numbers |
-| **Deriving a requirement** | The relevant Part IV section, then **Appendix E** for what is still open |
-| **Reviewing after a TBC update** | **Appendix A**, then `_control/ownership-matrix.md` |
+| **Deriving a requirement** | The relevant Part IV section, then the SOP clause it supports |
+| **Reviewing after a TBC update** | **Appendix A** — the source index, topic by topic |
 
-> **The In Plain English boxes are a complete document in themselves.** Read end to end, with
+> **The In Plain Language boxes are a complete document in themselves.** Read end to end, with
 > nothing else, they describe the whole workflow in ordinary language. That is deliberate — a
 > reviewer or project manager can get a true picture without working through the technical detail.
 
@@ -103,10 +103,10 @@ formats — LAS header fields and VLR content in particular. Where this manual s
 not documented, that is a statement about Trimble's documentation, not a claim that the software
 lacks the capability (§30).
 
-**Twenty-four questions require testing rather than reading** (Appendix E). They are not gaps in
+**Twenty-four questions require testing rather than reading.** They are not gaps in
 the research; they are questions no documentation would answer.
 
-**Sixteen questions require Trimble** (Appendix E). Five of them are P1.
+**Sixteen questions require Trimble**, and remain open with them.
 
 > **Source ingestion is complete for the purposes of this manual.** Every export and publish path
 > available to an MX60 has been read, and the remaining uncertainty is about software behaviour
@@ -114,7 +114,7 @@ the research; they are questions no documentation would answer.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We set out what this manual is for — explaining how the system works and
 > recording how we know — and, just as importantly, what it is not: it decides nothing and requires

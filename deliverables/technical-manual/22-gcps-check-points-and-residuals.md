@@ -186,7 +186,7 @@ than two, so control and checks at the ends are worth more than control in the m
 > the start and end of the project and at intersections of controlled roads *(TMR §11)*.
 >
 > **It is cited as an example of how another agency has answered D-16 — not as a Parametrix
-> standard and not as a Trimble requirement.** Parametrix's own accuracy tiers, if it adopts any,
+> standard and not as a Trimble requirement.** Parametrix's own accuracy tiers, if it sets any,
 > are D-16.
 
 ## 22.7 What TBC reports, and what it does not
@@ -239,7 +239,7 @@ calibration does not substitute for them.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We separated the surveyed points into two groups: ones the adjustment is
 > allowed to use, and ones it is not allowed to see. TBC does this with three checkboxes per

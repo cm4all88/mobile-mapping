@@ -65,3 +65,20 @@ The settings used, the computation mode, and the frame-and-epoch log that **Back
 MXDB** writes. That log is the only artefact anywhere in the workflow that records the frame and
 epoch a trajectory was computed in, and it lives beside the raw data rather than inside a project
 that may later be cleaned up *(SOP §13.2)*.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Recomputing the vehicle's path from the raw GNSS and inertial data,
+> forwards and backwards, to get a better answer than the system could produce in real time.
+>
+> **Why it matters.** The trajectory is the job. Every point in the cloud is placed relative to it, so
+> the quality of the trajectory sets a ceiling on the quality of everything downstream. No amount of
+> later processing raises that ceiling.
+>
+> **Remember this.** The post-processed result (SBET) is what survey work uses. If you end up working
+> from the real-time trajectory instead, that is a fact about the deliverable and has to be recorded,
+> not quietly accepted.
+>
+> **If this is skipped or done on the wrong input.** Everything after it is built on a path that is
+> not where the vehicle actually went — and the cloud will look completely normal.

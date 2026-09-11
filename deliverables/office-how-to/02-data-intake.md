@@ -45,8 +45,8 @@ file. `Extcal.json` is small and is there.
 
 > **PARAMETRIX DECISION REQUIRED · D-52**
 >
-> **The offload, verification and backup procedure** — the six steps above are proposed, not
-> adopted *(SOP §11.2)*.
+> **The offload, verification and backup procedure** — the six steps above are this guide's
+> recommendation *(SOP §11.2)*.
 
 > **CAUTION · W-04**
 >

@@ -136,7 +136,7 @@ with distance either — but its *effect* does, in direct proportion.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We separated two questions that get asked as if they were one: how many
 > points you get, and how far out you can trust them.

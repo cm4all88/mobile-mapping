@@ -58,7 +58,8 @@ requirement is not waived by being inconvenient on the day.**
 > **PARAMETRIX DECISION REQUIRED · D-1**
 >
 > **Who owns this procedure, who approves a revision, and on what review cycle?**
->
-> A review trigger that is not optional: **Trimble Business Center is on an annual release cycle,
-> and releases have changed mobile mapping behaviour.** This revision documents **TBC 2026.10**.
-> A TBC upgrade is a reason to review this procedure, not merely an IT event.
+
+> **A Trimble Business Center upgrade is a reason to re-read this procedure.** TBC is on an annual
+> release cycle and releases have changed mobile mapping behaviour before. This procedure describes
+> **TBC 2026.10**; where a step depends on a specific dialog or option, the Technical Manual cites
+> the Trimble topic it came from, so a changed interface can be checked rather than guessed at.

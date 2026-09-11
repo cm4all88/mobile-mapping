@@ -20,5 +20,5 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 > naming a period. Trimble or the dealer can say what interval they expect, and whether any other
 > verification is expected alongside it. *(Appendix E)*
 
-> **Open Parametrix decision — D-28.** *Is this the periodic verification Parametrix adopts, and at what interval?* Stated and tracked in the **SOP §13**; see also the master register.
+> **Open Parametrix decision — D-28.** *Is this the periodic verification Parametrix uses, and at what interval?* Stated and tracked in the **SOP §13**; see also the master register.
 

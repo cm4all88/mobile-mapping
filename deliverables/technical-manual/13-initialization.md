@@ -119,7 +119,7 @@ It also cannot be repaired in the office in any general way:
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took the start-of-mission routine apart and said what each piece is
 > for: the two or three minutes parked, the straight run, the speed changes, the turns, and the

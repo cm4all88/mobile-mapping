@@ -49,7 +49,7 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 
 > **PARAMETRIX DECISION REQUIRED · D-27**
 >
-> **What does a visual point-cloud QC pass cover?** The checklist above is proposed, not adopted
+> **What does a visual point-cloud QC pass cover?** The checklist above is this guide's recommendation
 > *(SOP §16.5)*.
 
 > **TESTING REQUIRED · T16** — the working cutting-plane thickness for these checks.
@@ -61,3 +61,19 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 
 **That the visual check was performed, by whom, and over what extent.** No software artefact
 exists. This is the record.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Actually looking at the data — in profile, across two passes, at
+> features you know the shape of — rather than only reading numbers about it.
+>
+> **Why it matters.** Trimble states it directly: good RMS values do not mean the work succeeded, and
+> a visual check is needed. Numbers can prove failure. They cannot prove success.
+>
+> **Remember this.** Two passes that agree with each other can both be wrong together, if the
+> trajectory was drifting through that stretch. Agreement is not accuracy. Check against something
+> independent as well as against the data's own consistency.
+>
+> **If this is skipped.** A dataset passes on statistics and fails on the ground, and the failure is
+> found by whoever builds on it rather than by us.

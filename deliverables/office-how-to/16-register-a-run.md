@@ -84,3 +84,22 @@ One run, against surveyed control.
 
 Registration name, type, the trajectory node produced, and the SBET filename **with its `_reg_####`
 number**.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Adjusting the trajectory so the point cloud lands on surveyed control,
+> by pairing each ground control point with a target you pick in the cloud.
+>
+> **Why it matters.** This is where the data acquires its absolute position. Which points you let the
+> adjustment use, and which you hold back as checks, decides whether you can demonstrate the result
+> afterwards or only assert it.
+>
+> **Remember this.** Read the residual *before* you validate a pick, not after — the software shows it
+> live. Choose the registration type deliberately: **Local** does not adjust anything outside the
+> outermost control point and does not tell you where it stopped. And a good RMS does not mean it
+> worked; Trimble says so explicitly, and asks for a visual check.
+>
+> **If this is skipped or rushed.** A registration that reports small residuals and has pulled the
+> cloud to the wrong place — because a target was picked on the wrong surface, or because every
+> control point was used and nothing was left to check against.

@@ -5,9 +5,9 @@
 A non-conformance is a departure from a **shall** in this procedure, or a dataset that does not
 meet the project's accuracy requirement (§17).
 
-It is not a non-conformance to be unable to meet a requirement that has not been adopted. At this
-revision that covers most of this document, which is a reason to answer the decisions rather than a
-reason to relax.
+It is not a non-conformance to be unable to meet a requirement Parametrix has not set. Where a
+clause here is a **recommended practice** rather than a requirement, departing from it is a
+decision to record, not a failure to report.
 
 ## 22.2 Raise it, do not absorb it
 

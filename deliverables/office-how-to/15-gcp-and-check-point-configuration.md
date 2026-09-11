@@ -38,7 +38,7 @@ is a validation point.
 > **PARAMETRIX DECISION REQUIRED · D-15**
 >
 > **Is the control/check designation fixed before registration and unchangeable during it?**
-> Proposed in the **SOP §7.3**; not adopted.
+> Recommended at **SOP §7.3**.
 
 > **The failure this prevents.** A conscientious processor registers a mission, finds one check
 > point with a larger residual than expected, and adds it to the adjustment to bring it in. Every

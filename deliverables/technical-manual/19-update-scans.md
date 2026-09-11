@@ -43,7 +43,7 @@ also the mechanism for reverting.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took a point cloud that had been built on one version of the vehicle's
 > path and rebuilt it on a better one. Nothing else in the software does this, and nothing does it

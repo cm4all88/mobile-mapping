@@ -261,7 +261,7 @@ substantial hardware requirement and its own acquisition geometry, and it is tre
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took the raw GNSS and inertial observations the vehicle recorded,
 > combined them with base station data, and computed the path the sensor head actually followed —

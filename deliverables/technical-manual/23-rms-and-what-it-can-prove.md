@@ -67,7 +67,7 @@ diagnose, not just describe.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at what a residual actually measures, and why Trimble says —
 > twice, in two unrelated parts of its documentation — that a good RMS does not prove the work

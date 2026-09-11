@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Parametrix MX60 Mobile Mapping — Internal Review</title>
 <style>
-.printhead{display:none}
 
 /* ============================================================================
    Parametrix MX60 document family — brand tokens
@@ -222,15 +221,18 @@ main{margin-left:var(--rail);padding:0 44px 120px;max-width:calc(var(--rail) + 1
 .hero h2{font-family:var(--head);margin:14px 0 0;font-size:42px;line-height:1.08;font-weight:600;
   letter-spacing:-.012em;text-wrap:balance;max-width:16ch;color:var(--charcoal)}
 .hero p{margin:16px 0 0;font-size:18px;color:var(--ink-2);max-width:60ch}
+.hero .cover-sub{margin:18px 0 0;padding-top:14px;border-top:2px solid var(--doc-accent);
+  font:600 12px/1.5 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  max-width:60ch}
 .meta{display:flex;flex-wrap:wrap;gap:0;margin:30px 0 0;border:1px solid var(--rule);
   border-radius:8px;overflow:hidden;background:var(--raise)}
 .meta div{flex:1 1 150px;padding:13px 16px;border-right:1px solid var(--rule)}
 .meta div:last-child{border-right:none}
 .meta dt{font:600 9.5px/1 var(--sans);letter-spacing:.13em;color:var(--muted);text-transform:uppercase}
 .meta dd{margin:6px 0 0;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
-.flag{margin:26px 0 0;padding:13px 17px;border-left:3px solid var(--red);
-  background:color-mix(in srgb,var(--red) 8%,var(--ground));border-radius:0;font-size:15px}
-.flag b{color:var(--red)}
+.flag{margin:26px 0 0;padding:14px 18px;border-left:3px solid var(--doc-accent);
+  background:var(--panel);border-radius:0;font-size:15px;color:var(--ink-2)}
+.flag b{color:var(--ink)}
 
 .sec{padding:52px 0 8px;scroll-margin-top:20px;border-bottom:1px solid var(--rule)}
 .sec:last-child{border-bottom:none}
@@ -343,22 +345,24 @@ td code{font-size:.84em}
 .lg-caution{border-left-color:var(--co-caution)!important;background:color-mix(in srgb,var(--co-caution) 7%,var(--ground))!important}
 .lg-caution b{color:var(--co-caution)}
 .lg-important{border-left-color:var(--warn)!important;background:color-mix(in srgb,var(--warn) 9%,var(--ground))!important}
-.lg-important b{color:var(--warn)}
+.lg-important b{color:var(--co-important)}
 .lg-tip{border-left-color:var(--ok)!important;background:color-mix(in srgb,var(--ok) 8%,var(--ground))!important}
 .lg-tip b{color:var(--ok)}
 .lg-why{border-left-color:var(--co-why)!important;background:var(--panel)!important}
 .lg-why b{color:var(--co-why)}
 .lg-decision{border-left-color:var(--violet)!important;background:color-mix(in srgb,var(--violet) 9%,var(--ground))!important}
-.lg-decision b{color:var(--violet)}
+.lg-decision b{color:var(--ink)}
 .lg-advanced b{color:var(--muted)}
+.lg-binding{border-left-color:var(--charcoal)!important;background:var(--panel)!important}
+.lg-binding b{color:var(--charcoal)}
 .lg-trimble{border-left-color:var(--co-trimble)!important;background:var(--panel)!important}
-.lg-trimble b{color:var(--co-trimble)}
+.lg-trimble b{color:var(--ink)}
 .lg-observed{border-left-color:var(--rule-2)!important;background:var(--panel)!important}
-.lg-observed b{color:var(--muted)}
+.lg-observed b{color:var(--ink-2)}
 .lg-proposed{border-left-color:var(--violet)!important;background:color-mix(in srgb,var(--violet) 5%,var(--ground))!important}
-.lg-proposed b{color:var(--violet)}
+.lg-proposed b{color:var(--ink)}
 .lg-testing{border-left-color:var(--warn)!important;background:color-mix(in srgb,var(--warn) 5%,var(--ground))!important}
-.lg-testing b{color:var(--warn)}
+.lg-testing b{color:var(--ink)}
 .lg-plain{border-left:none!important;border-top:2px solid var(--plain)!important;
   background:color-mix(in srgb,var(--plain) 6%,var(--ground))!important;border-radius:0 0 7px 7px}
 .lg-plain b{color:var(--plain)}
@@ -386,16 +390,14 @@ td code{font-size:.84em}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .docfoot .ix{opacity:1}}
 .docfoot-t{display:flex;flex-wrap:wrap;gap:6px 20px;padding-bottom:5px;
   font:400 11.5px/1.5 var(--sans);color:var(--muted)}
-.docfoot-t .nb{color:var(--red);font-weight:700}
 @media (max-width:420px){ main{padding:0 16px 80px} .hero h2{font-family:var(--head);font-weight:600;letter-spacing:-.008em;font-size:26px} }
 
 /* ============================================================================
    PRINT LAYER                                                  [extension]
-   For internal review printing only. These are not controlled PDFs, and the
-   page says so: the Working Version and the Living Draft status print on
-   every page where the browser supports running headers.
-   The guide is silent on print furniture; the values below are the screen
-   values re-expressed in points.
+   The screen document, laid out for paper: shell hidden, page breaks placed,
+   tables split, callouts identifiable without colour. The brand guide is
+   silent on print furniture; the values below are the screen values
+   re-expressed in points.
    ============================================================================ */
 @media print{
   /* the shell is screen furniture */
@@ -417,6 +419,10 @@ td code{font-size:.84em}
   h1,h2,h3,h4,.sec-h{break-after:avoid-page;page-break-after:avoid}
   h1,h2,h3,h4{break-inside:avoid;page-break-inside:avoid}
   p,li{orphans:3;widows:3}
+  /* a list that splits leaves a single orphaned item on a page of its own */
+  ul,ol{break-inside:avoid;page-break-inside:avoid}
+  /* ...unless it is long enough that keeping it whole would cost more */
+  ul:has(> li:nth-child(13)),ol:has(> li:nth-child(13)){break-inside:auto;page-break-inside:auto}
 
   /* each numbered section starts a page; its own furniture does not */
   .sec{break-before:page;page-break-before:always;border:0 !important;padding:0 !important;
@@ -432,7 +438,6 @@ td code{font-size:.84em}
   .co .co-h{color:#231F20 !important}
   .co-caution,.co-important{border-left-color:#C8102E !important}
   .co-caution .co-h,.co-important .co-h{color:#C8102E !important}
-  .co-status{border:1pt solid #231F20 !important;border-left-width:3pt !important}
 
   /* tables split, they do not overflow a page silently */
   .tw{overflow:visible !important}
@@ -454,14 +459,10 @@ td code{font-size:.84em}
 
   /* the footer becomes the print identity block, on the first page */
   .docfoot{border-top:0.6pt solid #939598 !important;margin-top:8mm;padding-top:3mm}
-  .docfoot .nb{font-weight:600}
   .hero{padding:0 0 8mm}
   .hero h2{max-width:none;font-size:26pt}
   .hero p{max-width:none;font-size:11pt}
   .meta,.legend{break-inside:avoid;page-break-inside:avoid}
-  .printhead{display:block !important;font:600 8.5pt/1.4 var(--sans);
-    letter-spacing:.06em;text-transform:uppercase;color:#231F20;
-    border-bottom:0.6pt solid #939598;padding-bottom:2mm;margin-bottom:6mm}
 }
 </style>
 
@@ -517,7 +518,7 @@ h1.ix-n{font:700 30px/1.15 var(--sans);margin:4px 0 8px;color:var(--ink)}
 <p>These four documents are a living draft for internal Parametrix review, training, testing and workflow development. <strong>They are not an issued Parametrix standard</strong>, and they do not replace professional judgement, project requirements, safety procedures or approved company policy.</p>
 <p><strong>Some of what is in them binds anyway.</strong> Ten requirements come from Trimble or from the equipment itself — they would bind an MX60 operator at any company, working from no SOP at all. They are listed with their sources at <strong>SOP §2.4</strong>. Everything Parametrix-originated is a proposal: <strong>Parametrix-originated requirements adopted: 0.</strong></p>
 <h3 id="ix-open-this-one">Open this one</h3>
-<div class="tw"><table><thead><tr><th>You are</th><th>Open</th><th>Start at</th></tr></thead><tbody><tr><td><strong>A field operator</strong></td><td><strong>Field How To</strong></td><td>The <strong>Quick Card</strong> (Appendix E), then the <strong>Preflight Checklist</strong> (Appendix A)</td></tr><tr><td><strong>An office processor</strong></td><td><strong>Office How To</strong></td><td>§1, then the section for the step you are on</td></tr><tr><td><strong>A surveyor new to mobile mapping</strong></td><td><strong>Technical Manual</strong></td><td>§4 <em>The workflow end to end</em>, then the <strong>In Plain English</strong> box at the end of each section</td></tr><tr><td><strong>A PLS or QA reviewer</strong></td><td><strong>SOP</strong> and the <strong>Technical Manual</strong></td><td>SOP §2.4, §16, §17 — what binds, what QC is, what acceptance is not</td></tr><tr><td><strong>A manager or policy reviewer</strong></td><td><strong>SOP</strong> and the <strong>decision register</strong></td><td>SOP §17.2 (<strong>D-13</strong>), then SOP Appendix A</td></tr></tbody></table></div>
+<div class="tw"><table><thead><tr><th>You are</th><th>Open</th><th>Start at</th></tr></thead><tbody><tr><td><strong>A field operator</strong></td><td><strong>Field How To</strong></td><td>The <strong>Quick Card</strong> (Appendix E), then the <strong>Preflight Checklist</strong> (Appendix A)</td></tr><tr><td><strong>An office processor</strong></td><td><strong>Office How To</strong></td><td>§1, then the section for the step you are on</td></tr><tr><td><strong>A surveyor new to mobile mapping</strong></td><td><strong>Technical Manual</strong></td><td>§4 <em>The workflow end to end</em>, then the <strong>In Plain Language</strong> box at the end of each section</td></tr><tr><td><strong>A PLS or QA reviewer</strong></td><td><strong>SOP</strong> and the <strong>Technical Manual</strong></td><td>SOP §2.4, §16, §17 — what binds, what QC is, what acceptance is not</td></tr><tr><td><strong>A manager or policy reviewer</strong></td><td><strong>SOP</strong> and the <strong>decision register</strong></td><td>SOP §17.2 (<strong>D-13</strong>), then SOP Appendix A</td></tr></tbody></table></div>
 <p><strong>Everyone should read the front matter of whichever document they open.</strong> It is short, and it says what the document is and is not.</p>
 <h3 id="ix-what-feedback-matters">What feedback matters</h3>
 <p><strong>This is not primarily a copy-editing exercise.</strong> Four questions matter:</p>
@@ -527,10 +528,10 @@ h1.ix-n{font:700 30px/1.15 var(--sans);margin:4px 0 8px;color:var(--ink)}
 <p><strong>Identify the document and the section.</strong> For example: <code>Field How To §17.3</code>, <code>Office How To §31</code>, or <code>SOP D-13</code>.</p>
 <p>Every section and subsection is numbered, and warnings (<code>W-n</code>), open decisions (<code>D-n</code>), tests (<code>Tn</code>) and vendor questions (<code>V-n</code>) carry identifiers that mean the same thing in all four documents.</p>
 <p><strong>Comments go to the MX60 Internal Review Log</strong> — <code>_control/mx60-internal-review-log.md</code>. There is no document owner to send them to yet; that is <strong>D-1</strong>.</p>
-<h3 id="ix-the-documents">The documents</h3><div class="cards"><a class="card" href="technical-manual/technical-manual.html" style="--c:var(--brand-blue)"><b>Technical Manual</b><span>Why it works this way, and the evidence</span></a><a class="card" href="sop/sop.html" style="--c:var(--brand-orange)"><b>SOP</b><span>What is required, and on whose authority</span></a><a class="card" href="field-how-to/field-how-to.html" style="--c:var(--brand-green)"><b>Field How To</b><span>How to run it in the vehicle</span></a><a class="card" href="office-how-to/office-how-to.html" style="--c:var(--brand-yellow)"><b>Office How To</b><span>How to process it in TBC</span></a></div>
+<h3 id="ix-the-documents">The documents</h3><div class="cards"><a class="card" href="../technical-manual/technical-manual.html" style="--c:var(--brand-blue)"><b>Technical Manual</b><span>Why it works this way, and the evidence</span></a><a class="card" href="../sop/sop.html" style="--c:var(--brand-orange)"><b>SOP</b><span>What is required, and on whose authority</span></a><a class="card" href="../field-how-to/field-how-to.html" style="--c:var(--brand-green)"><b>Field How To</b><span>How to run it in the vehicle</span></a><a class="card" href="../office-how-to/office-how-to.html" style="--c:var(--brand-yellow)"><b>Office How To</b><span>How to process it in TBC</span></a></div>
 <div class="tw"><table><thead><tr><th></th><th>Answers</th><th>Words</th></tr></thead><tbody><tr><td><strong><a href="technical-manual/technical-manual.html">Technical Manual</a></strong></td><td>Why does it work this way? What is the evidence?</td><td>~58,000</td></tr><tr><td><strong><a href="sop/sop.html">SOP</a></strong></td><td>Must I? And on whose authority?</td><td>~23,000</td></tr><tr><td><strong><a href="field-how-to/field-how-to.html">Field How To</a></strong></td><td>How do I do it in the vehicle?</td><td>~12,000</td></tr><tr><td><strong><a href="office-how-to/office-how-to.html">Office How To</a></strong></td><td>How do I do it in TBC?</td><td>~18,000</td></tr></tbody></table></div>
 <p><strong>The SOP governs.</strong> A How To cannot create a requirement; if one says something must be done and the SOP does not require it, the SOP is right and the How To is wrong — that is a Q1 comment.</p>
-<h4 id="ix-print-on-its-own">Print on its own</h4><div class="cards"><a class="card" href="field-how-to/sheets/a-preflight-checklist.html" style="--c:var(--brand-green)"><b>Preflight Checklist</b><span>Field How To Appendix A · prints on its own</span></a><a class="card" href="field-how-to/sheets/b-end-of-mission-checklist.html" style="--c:var(--brand-green)"><b>End-of-Mission Checklist</b><span>Field How To Appendix B · prints on its own</span></a><a class="card" href="field-how-to/sheets/c-field-record-form.html" style="--c:var(--brand-green)"><b>Field Record Form</b><span>Field How To Appendix C · prints on its own</span></a><a class="card" href="field-how-to/sheets/e-quick-card.html" style="--c:var(--brand-green)"><b>Quick Card</b><span>Field How To Appendix E · prints on its own</span></a></div>
+<h4 id="ix-print-on-its-own">Print on its own</h4><div class="cards"><a class="card" href="../field-how-to/sheets/a-preflight-checklist.html" style="--c:var(--brand-green)"><b>Preflight Checklist</b><span>Field How To Appendix A · prints on its own</span></a><a class="card" href="../field-how-to/sheets/b-end-of-mission-checklist.html" style="--c:var(--brand-green)"><b>End-of-Mission Checklist</b><span>Field How To Appendix B · prints on its own</span></a><a class="card" href="../field-how-to/sheets/c-field-record-form.html" style="--c:var(--brand-green)"><b>Field Record Form</b><span>Field How To Appendix C · prints on its own</span></a><a class="card" href="../field-how-to/sheets/e-quick-card.html" style="--c:var(--brand-green)"><b>Quick Card</b><span>Field How To Appendix E · prints on its own</span></a></div>
 <p>Four Field sheets are built to print without the browser navigation: <strong>Preflight Checklist</strong> · <strong>End-of-Mission Checklist</strong> · <strong>Field Record Form</strong> · <strong>Quick Card</strong> (Field How To appendices A, B, C and E). Each carries the Working Version and the Living Draft status on the page.</p>
 <h3 id="ix-what-is-deliberately-unresolved">What is deliberately unresolved</h3>
 <p><strong>Open questions are shown as open questions.</strong> There are 77 of them — 36 Parametrix decisions, 25 tests and 16 vendor questions — tracked in one register at <code>_control/master-register.csv</code> and surfaced as filtered views in the documents. No document carries an item's status independently.</p>

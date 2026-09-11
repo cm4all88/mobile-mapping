@@ -11,7 +11,7 @@ that decide whether a clause has been complied with.
 
 The nineteen workflow stages are named identically in all four documents and in every checklist and
 form. They are listed, with the synonyms that are not used, in **Technical Manual §4** and in
-`deliverables/_control/workflow-stage-names.md`.
+**Technical Manual §4**.
 
 **A stage is not a command.** *Registration* is the stage; *Register a Run* is one of three
 commands that perform it.
@@ -67,8 +67,7 @@ label**:
 > externally binding — they would bind an MX60 operator at any company, working from no SOP at
 > all. They are listed in full at **§2.4**.
 
-The full model, including why it is built this way, is
-`deliverables/_control/authority-model.md`.
+Every clause that tells you to do something therefore says who is telling you.
 
 ## 3.3 Terms with procedural force
 

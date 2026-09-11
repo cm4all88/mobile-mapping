@@ -41,7 +41,7 @@ The four deliverables are those four kinds, separated:
 ## A. Technical Manual — table of contents
 
 **Parametrix MX60 Mobile Mapping Technical Manual**
-Explains what the system does and why. Carries the evidence base and every **In Plain English**
+Explains what the system does and why. Carries the evidence base and every **In Plain Language**
 box. May remain long.
 
 ### Part I — Principles
@@ -107,7 +107,7 @@ box. May remain long.
 | F | **Test results** — populated as tests are run | *new, empty on issue* |
 | G | Source conflicts and resolutions | Appendix C §C5 |
 
-> **The In Plain English boxes live here and nowhere else.** ~26 of them, one per major technical
+> **The In Plain Language boxes live here and nowhere else.** ~26 of them, one per major technical
 > section. They are the manual's comprehension layer and the reason it remains usable by someone
 > learning mobile mapping.
 
@@ -421,7 +421,7 @@ Estimated from the existing content, allowing for de-duplication and the new mat
 
 | Document | Words | vs today | Rationale |
 |---|---|---|---|
-| **Technical Manual** | **38,000 – 44,000** | ~55 % of current + expansion | Holds all explanation, all evidence, all In Plain English boxes, the glossary, the source index and the figure catalogue. **No reduction in technical detail** |
+| **Technical Manual** | **38,000 – 44,000** | ~55 % of current + expansion | Holds all explanation, all evidence, all In Plain Language boxes, the glossary, the source index and the figure catalogue. **No reduction in technical detail** |
 | **SOP** | **9,000 – 12,000** | new form | Requirements only. Should read in under an hour. The decision register is a further ~4,000 as an appendix |
 | **Field How To** | **6,000 – 8,000** | new form | Must be usable in a vehicle. Heavily illustrated — figure count matters more than word count. Target **30–40 printed pages** including checklists |
 | **Office How To** | **10,000 – 13,000** | new form | More steps than the field guide and more screenshots. Target **50–60 printed pages** |

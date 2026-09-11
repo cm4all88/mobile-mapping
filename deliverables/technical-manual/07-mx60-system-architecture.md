@@ -185,7 +185,7 @@ mission. That priority is correct and worth knowing about in advance.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took the system apart on paper: two laser scanners, two cameras, a
 > GNSS/inertial unit, and optionally a second antenna and a wheel sensor — plus the conventions

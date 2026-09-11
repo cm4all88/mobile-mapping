@@ -49,7 +49,7 @@ and its size in the profile is its size in the data.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We went and looked at the point cloud — specifically at places where two
 > passes should agree — using a profile view with one colour per scan, dragged along the whole

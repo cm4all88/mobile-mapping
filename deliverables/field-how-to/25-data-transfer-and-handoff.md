@@ -37,8 +37,7 @@ from the plan with its reason.
 > A cleared disk is not recoverable, and a mobile mapping mission is not re-drivable at reasonable
 > cost.
 
-**[PROPOSED · SOP §11.2]** — the *confirmation-in-writing* step is a Parametrix practice and is
-not yet adopted.
+**[PROPOSED · SOP §11.2]** — the *confirmation-in-writing* step is a Parametrix practice.
 
 **[EQUIPMENT] The underlying fact is not proposed.** A cleared disk is not recoverable and a
 mission is not re-drivable at reasonable cost. **Not on a promise, not on a message, not because

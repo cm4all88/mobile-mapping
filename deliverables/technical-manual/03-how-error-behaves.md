@@ -59,7 +59,7 @@ The three properties above have direct consequences, and each has its own sectio
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at how mobile mapping gets things wrong, which is not how a
 > total station gets things wrong.

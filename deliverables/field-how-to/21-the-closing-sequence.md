@@ -53,3 +53,21 @@ procedure that buys it back *(Technical Manual §14.3)*.
 ## 21.5 Record
 
 **That the closing sequence was performed**, and the time. The office will look for it.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** The trajectory is computed twice — forwards through the mission and
+> backwards through it — and the two are merged. The closing sequence is what the backward pass starts
+> from.
+>
+> **Why it matters.** A bad stretch in the middle of a mission has good data on both sides of it, so
+> the merge bridges it. A bad stretch at the *end* has good data on one side only. The closing
+> sequence is what gives the end of the mission its second side.
+>
+> **Remember this.** Drive to open sky **with the mission still running**, do the manoeuvres, then sit
+> still for two to three minutes before closing. Logging stops the instant the mission closes.
+>
+> **If this is skipped.** The last part of the corridor — often the part you were most pressed for
+> time on — is the weakest part of the dataset, and it cannot be repaired the next day, because a new
+> mission is a new trajectory.

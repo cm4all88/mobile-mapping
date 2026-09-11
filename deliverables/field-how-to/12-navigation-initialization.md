@@ -50,3 +50,20 @@ One line each. Full explanation: **Technical Manual §13**.
 *(MX60 QSG Rev B)*.
 
 **It does not enforce step 7.** That one is yours (§14).
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** The start-of-mission routine is not the system warming up. It is the
+> system solving for things it cannot measure any other way, using your driving as the input.
+>
+> **Why it matters.** Parked, it knows its true speed is zero, so everything the motion sensors report
+> is error it can measure and remove. Driving straight separates one kind of error; changing speed
+> separates another; turning is the only thing that fixes heading, which is the hardest of the three
+> and the one that hurts most at range.
+>
+> **Remember this.** Do the whole profile, in order, and then wait. Green means the solution met its
+> accuracy thresholds — not that it has settled.
+>
+> **If this is skipped.** The first part of the job is collected on the weakest solution of the day.
+> Nothing warns you, and no office step recovers it.

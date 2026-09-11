@@ -28,6 +28,7 @@ run('circulation blocks',     ['tools/sync-circulation.py', '--check'])
 run('subsection numbering',   ['tools/number-subsections.py', '--check'])
 run('binding requirements',   ['tools/build-binding-table.py', '--check'])
 run('style and build',        ['tools/check-style.py'])
+run('publication layer',      ['tools/check-publication.py'])
 run('authority of shall',     ['tools/check-authority.py'])
 
 DIRS = {'Manual':'technical-manual','SOP':'sop','Office':'office-how-to','Field':'field-how-to'}
@@ -87,6 +88,8 @@ lit = 0
 for f in glob.glob('deliverables/*/[a-z]*.html'):
     h = open(f).read()
     lit += len([m for m in re.finditer(r'.{40}\*\*.{20}', h) if m.group(0).lower() != m.group(0)])
+    # a single asterisk that survived is an italic broken across a wrapped line
+    lit += len([m for m in re.finditer(r'[A-Za-z,.]\*(?!\*)[ ,.)]', h)])
 print(f'{"ok  " if not lit else "FAIL"}  rendered emphasis ({lit} unrendered)')
 if lit: fail.append('rendered emphasis')
 

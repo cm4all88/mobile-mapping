@@ -36,15 +36,15 @@ Three things you may always do without asking first:
 
 | | |
 |---|---|
-| **Stand down** on safety or data-quality grounds · **[SOP §9.5 · PROPOSED]** | The decision and its reason are recorded. **This is not conditional on you being right.** The authority is proposed, not adopted — but nobody has to wait for D-3 to stop an unsafe job |
+| **Stand down** on safety or data-quality grounds · **[SOP §9.5 · PROPOSED]** | The decision and its reason are recorded. **This is not conditional on you being right.** Nobody has to wait for anything to stop an unsafe job |
 | **Record a comment** about anything unusual | §19 |
 | **Re-drive a run while you are still on site** | §24 |
 
 ## 1.5 Who is telling you — the authority key
 
 **This guide cannot require anything.** Everything in it is somebody else's instruction, and the
-marker says whose. That matters because the SOP is not adopted: a Parametrix practice is a
-recommendation today, while **a Trimble instruction and an equipment limit bind regardless.**
+marker says whose. That matters because the two are not the same: a Parametrix practice is a
+recommendation, while **a Trimble instruction and an equipment limit bind regardless.**
 
 | Marker | Who says so | Force today |
 |---|---|---|

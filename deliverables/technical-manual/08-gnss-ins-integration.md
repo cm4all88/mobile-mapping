@@ -114,7 +114,7 @@ they are not interchangeable and their costs are different (§27):
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked inside the thing that produces the trajectory: two sensors that
 > fail in opposite ways, a filter that combines them, and a second pass run backwards through time

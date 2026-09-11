@@ -42,3 +42,18 @@ raise it — that is a project decision, not yours to absorb.
 
 > **PARAMETRIX DECISION REQUIRED · D-34** — who decides, against what, and what the client is told
 > *(SOP §22.5)*.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Deciding, while you are still on site, whether what you have is good
+> enough — because the cost of that decision changes enormously once you leave.
+>
+> **Why it matters.** On site, a re-drive is twenty minutes. From the office it is a mobilisation:
+> crew, vehicle, traffic control, and a corridor that may have changed.
+>
+> **Remember this.** Check coverage and the disk before the vehicle moves off. If you are unsure
+> whether a pass was good, drive it again — that is the cheapest decision available to you all day.
+>
+> **If this is skipped.** The gap is found in the office, and somebody has to choose between going
+> back and delivering something with a hole in it.

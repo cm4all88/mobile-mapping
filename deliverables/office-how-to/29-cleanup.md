@@ -59,3 +59,20 @@ Only the most recent registration surviving.
 ### 29.5 Record
 
 Authorisation; what was archived and where; that Cleanup was run, by whom, on what date.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Cleanup permanently deletes the intermediate data a mobile mapping
+> project accumulates, to get the project size back under control.
+>
+> **Why it matters.** It cannot be undone, and it removes things you may need to prove later what was
+> delivered and how it was produced.
+>
+> **Remember this.** Copy out everything you will want afterwards *before* you run it — the trajectory
+> file, the calibration, the registration record, the targets. Then confirm you have written
+> authorisation to run it at all.
+>
+> **If this is skipped — or run too early.** The deliverable survives and the evidence behind it does
+> not. When somebody later asks which trajectory produced the delivered cloud, there is no way to
+> answer.

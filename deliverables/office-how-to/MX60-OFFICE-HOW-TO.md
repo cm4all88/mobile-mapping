@@ -179,8 +179,8 @@ the Technical Manual at the reference given.
 ## 1.4 Who is telling you — the authority key
 
 **This guide cannot require anything.** Everything in it is somebody else's instruction, and the
-marker says whose. That matters because the SOP is not adopted: a Parametrix practice is a
-recommendation today, while **a Trimble instruction and an equipment limit bind regardless.**
+marker says whose. That matters because the two are not the same: a Parametrix practice is a
+recommendation, while **a Trimble instruction and an equipment limit bind regardless.**
 
 | Marker | Who says so | Force today |
 |---|---|---|
@@ -265,8 +265,8 @@ file. `Extcal.json` is small and is there.
 
 > **PARAMETRIX DECISION REQUIRED · D-52**
 >
-> **The offload, verification and backup procedure** — the six steps above are proposed, not
-> adopted *(SOP §11.2)*.
+> **The offload, verification and backup procedure** — the six steps above are this guide's
+> recommendation *(SOP §11.2)*.
 
 > **CAUTION · W-04**
 >
@@ -331,7 +331,7 @@ Mobile Mapping
 
 > **PARAMETRIX DECISION REQUIRED · D-18**
 >
-> **What is verified at import, and by whom?** The seven checks above are proposed, not adopted
+> **What is verified at import, and by whom?** The seven checks above are this guide's recommendation
 > *(SOP §12.2)*.
 
 > **Intake does not fix anything.** If a check fails, record it and raise it *(SOP §12.4)*. A
@@ -583,6 +583,23 @@ The settings used, the computation mode, and the frame-and-epoch log that **Back
 MXDB** writes. That log is the only artefact anywhere in the workflow that records the frame and
 epoch a trajectory was computed in, and it lives beside the raw data rather than inside a project
 that may later be cleaned up *(SOP §13.2)*.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Recomputing the vehicle's path from the raw GNSS and inertial data,
+> forwards and backwards, to get a better answer than the system could produce in real time.
+>
+> **Why it matters.** The trajectory is the job. Every point in the cloud is placed relative to it, so
+> the quality of the trajectory sets a ceiling on the quality of everything downstream. No amount of
+> later processing raises that ceiling.
+>
+> **Remember this.** The post-processed result (SBET) is what survey work uses. If you end up working
+> from the real-time trajectory instead, that is a fact about the deliverable and has to be recorded,
+> not quietly accepted.
+>
+> **If this is skipped or done on the wrong input.** Everything after it is built on a path that is
+> not where the vehicle actually went — and the cloud will look completely normal.
 
 ---
 
@@ -949,7 +966,7 @@ is a validation point.
 > **PARAMETRIX DECISION REQUIRED · D-15**
 >
 > **Is the control/check designation fixed before registration and unchangeable during it?**
-> Proposed in the **SOP §7.3**; not adopted.
+> Recommended at **SOP §7.3**.
 
 > **The failure this prevents.** A conscientious processor registers a mission, finds one check
 > point with a larger residual than expected, and adds it to the adjustment to bring it in. Every
@@ -1049,6 +1066,25 @@ One run, against surveyed control.
 
 Registration name, type, the trajectory node produced, and the SBET filename **with its `_reg_####`
 number**.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Adjusting the trajectory so the point cloud lands on surveyed control,
+> by pairing each ground control point with a target you pick in the cloud.
+>
+> **Why it matters.** This is where the data acquires its absolute position. Which points you let the
+> adjustment use, and which you hold back as checks, decides whether you can demonstrate the result
+> afterwards or only assert it.
+>
+> **Remember this.** Read the residual *before* you validate a pick, not after — the software shows it
+> live. Choose the registration type deliberately: **Local** does not adjust anything outside the
+> outermost control point and does not tell you where it stopped. And a good RMS does not mean it
+> worked; Trimble says so explicitly, and asks for a visual check.
+>
+> **If this is skipped or rushed.** A registration that reports small residuals and has pulled the
+> cloud to the wrong place — because a target was picked on the wrong surface, or because every
+> control point was used and nothing was left to check against.
 
 ---
 
@@ -1355,6 +1391,23 @@ the same raw data computed against two different trajectories *(Technical Manual
 That Update Scans was run, against which trajectory. The pre-export check in §31 confirms it again
 before anything leaves.
 
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Registration computes a new trajectory. **Update Scans is what moves
+> the point cloud onto it.**
+>
+> **Why it matters.** Until this runs, the project contains an adjusted trajectory and an unadjusted
+> cloud sitting next to each other. Everything looks finished. Measurements taken from that cloud are
+> taken from the unregistered data.
+>
+> **Remember this.** After Update Scans, the station names gain a suffix — that suffix is how you tell
+> by looking that the cloud in front of you is the registered one. Check it before you export.
+>
+> **If this is skipped.** You deliver the unregistered cloud while believing you delivered the
+> registered one. This is the single most common way this workflow goes wrong, and nothing in the
+> software warns you.
+
 ---
 
 # 22. Visual QC
@@ -1408,7 +1461,7 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 
 > **PARAMETRIX DECISION REQUIRED · D-27**
 >
-> **What does a visual point-cloud QC pass cover?** The checklist above is proposed, not adopted
+> **What does a visual point-cloud QC pass cover?** The checklist above is this guide's recommendation
 > *(SOP §16.5)*.
 
 > **TESTING REQUIRED · T16** — the working cutting-plane thickness for these checks.
@@ -1420,6 +1473,22 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 
 **That the visual check was performed, by whom, and over what extent.** No software artefact
 exists. This is the record.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Actually looking at the data — in profile, across two passes, at
+> features you know the shape of — rather than only reading numbers about it.
+>
+> **Why it matters.** Trimble states it directly: good RMS values do not mean the work succeeded, and
+> a visual check is needed. Numbers can prove failure. They cannot prove success.
+>
+> **Remember this.** Two passes that agree with each other can both be wrong together, if the
+> trajectory was drifting through that stretch. Agreement is not accuracy. Check against something
+> independent as well as against the data's own consistency.
+>
+> **If this is skipped.** A dataset passes on statistics and fails on the ground, and the failure is
+> found by whoever builds on it rather than by us.
 
 ---
 
@@ -1466,7 +1535,7 @@ Resolution by configuration *(TBC 22501, 23888)*:
 
 > **PARAMETRIX DECISION REQUIRED · D-31**
 >
-> Whether the proposed **file-size scan** for finding silently corrupted imagery is adopted. It is a
+> Whether the **file-size scan** for finding silently corrupted imagery is used. It is a
 > screening method proposed by this project and **not validated** *(Technical Manual §26)*.
 
 > **TESTING REQUIRED · T26, T27** — whether exported imagery reflects a registration at all, and
@@ -1608,6 +1677,24 @@ nothing beyond *(MX60 UG Rev B, p.56)*:
 ### 25.5 Record
 
 Which remedy, why, and the check-point residuals before and after.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** What you can and cannot do about a stretch where the satellites were
+> blocked and the trajectory drifted.
+>
+> **Why it matters.** Only some remedies actually add information. Control in the affected stretch
+> adds real, independent information. Registering the bad pass to a good one adds consistency but no
+> new truth. Knowing which is which keeps you from making a dataset look better without making it
+> better.
+>
+> **Remember this.** If there is no overlap, no control bracketing the stretch and no reprocessing
+> option, the honest outcome is to say the stretch does not meet the requirement — not to smooth it
+> until it looks acceptable.
+>
+> **If this is skipped.** A degraded stretch is delivered inside an otherwise good dataset, carrying
+> the same accuracy statement as the rest of it.
 
 ---
 
@@ -1846,6 +1933,23 @@ Only the most recent registration surviving.
 ### 29.5 Record
 
 Authorisation; what was archived and where; that Cleanup was run, by whom, on what date.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Cleanup permanently deletes the intermediate data a mobile mapping
+> project accumulates, to get the project size back under control.
+>
+> **Why it matters.** It cannot be undone, and it removes things you may need to prove later what was
+> delivered and how it was produced.
+>
+> **Remember this.** Copy out everything you will want afterwards *before* you run it — the trajectory
+> file, the calibration, the registration record, the targets. Then confirm you have written
+> authorisation to run it at all.
+>
+> **If this is skipped — or run too early.** The deliverable survives and the evidence behind it does
+> not. When somebody later asks which trajectory produced the delivered cloud, there is no way to
+> answer.
 
 ---
 

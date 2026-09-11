@@ -44,3 +44,20 @@ you meet one that was not planned for, record it and raise it.
 ## 17.5 Record
 
 Every hostile stretch: entry and exit time, conditions, whether the planned overlap was driven.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** The satellites are the only thing holding the trajectory to the ground.
+> Under trees, beside tall buildings and in tunnels, the system is running on its inertial sensors
+> alone and drifting.
+>
+> **Why it matters.** Drift is not random noise that averages out. It grows for as long as the sky is
+> blocked, and every point collected during that stretch inherits it. A short gap between good sky is
+> bridged well. A long one is not.
+>
+> **Remember this.** Watch where the sky closes in and note it. If a stretch was bad, say so in a
+> Comment as it happens — ten seconds in the vehicle saves an hour of office guesswork later.
+>
+> **If this is skipped.** The office sees a degraded stretch with no explanation, and has to decide
+> between re-collecting it and delivering it without knowing why it is poor.

@@ -180,15 +180,15 @@ Three things you may always do without asking first:
 
 | | |
 |---|---|
-| **Stand down** on safety or data-quality grounds · **[SOP §9.5 · PROPOSED]** | The decision and its reason are recorded. **This is not conditional on you being right.** The authority is proposed, not adopted — but nobody has to wait for D-3 to stop an unsafe job |
+| **Stand down** on safety or data-quality grounds · **[SOP §9.5 · PROPOSED]** | The decision and its reason are recorded. **This is not conditional on you being right.** Nobody has to wait for anything to stop an unsafe job |
 | **Record a comment** about anything unusual | §19 |
 | **Re-drive a run while you are still on site** | §24 |
 
 ## 1.5 Who is telling you — the authority key
 
 **This guide cannot require anything.** Everything in it is somebody else's instruction, and the
-marker says whose. That matters because the SOP is not adopted: a Parametrix practice is a
-recommendation today, while **a Trimble instruction and an equipment limit bind regardless.**
+marker says whose. That matters because the two are not the same: a Parametrix practice is a
+recommendation, while **a Trimble instruction and an equipment limit bind regardless.**
 
 | Marker | Who says so | Force today |
 |---|---|---|
@@ -655,6 +655,23 @@ One line each. Full explanation: **Technical Manual §13**.
 
 **It does not enforce step 7.** That one is yours (§14).
 
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** The start-of-mission routine is not the system warming up. It is the
+> system solving for things it cannot measure any other way, using your driving as the input.
+>
+> **Why it matters.** Parked, it knows its true speed is zero, so everything the motion sensors report
+> is error it can measure and remove. Driving straight separates one kind of error; changing speed
+> separates another; turning is the only thing that fixes heading, which is the hardest of the three
+> and the one that hurts most at range.
+>
+> **Remember this.** Do the whole profile, in order, and then wait. Green means the solution met its
+> accuracy thresholds — not that it has settled.
+>
+> **If this is skipped.** The first part of the job is collected on the weakest solution of the day.
+> Nothing warns you, and no office step recovers it.
+
 ---
 
 # 13. GAMS Considerations
@@ -813,7 +830,8 @@ better than any setting change, because it turns grazing incidence into direct i
 > **What collection speed, by deliverable type?** Trimble publishes a recommended maximum and an
 > absolute maximum and **no guidance relating speed to deliverable quality** *(SOP §9.4)*.
 >
-> *For consideration, not adopted:* collect at or near prevailing traffic speed up to 80 km/h,
+> *Recommended, where the project does not say otherwise:* collect at or near prevailing traffic
+> speed up to 80 km/h,
 > reducing where point density requires it.
 >
 > **[TRIMBLE METHOD] Trimble recommends not exceeding 80 km/h with the system operating.** That
@@ -901,6 +919,23 @@ you meet one that was not planned for, record it and raise it.
 ## 17.5 Record
 
 Every hostile stretch: entry and exit time, conditions, whether the planned overlap was driven.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** The satellites are the only thing holding the trajectory to the ground.
+> Under trees, beside tall buildings and in tunnels, the system is running on its inertial sensors
+> alone and drifting.
+>
+> **Why it matters.** Drift is not random noise that averages out. It grows for as long as the sky is
+> blocked, and every point collected during that stretch inherits it. A short gap between good sky is
+> bridged well. A long one is not.
+>
+> **Remember this.** Watch where the sky closes in and note it. If a stretch was bad, say so in a
+> Comment as it happens — ten seconds in the vehicle saves an hour of office guesswork later.
+>
+> **If this is skipped.** The office sees a degraded stretch with no explanation, and has to decide
+> between re-collecting it and delivering it without knowing why it is poor.
 
 ---
 
@@ -1068,6 +1103,24 @@ procedure that buys it back *(Technical Manual §14.3)*.
 
 **That the closing sequence was performed**, and the time. The office will look for it.
 
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** The trajectory is computed twice — forwards through the mission and
+> backwards through it — and the two are merged. The closing sequence is what the backward pass starts
+> from.
+>
+> **Why it matters.** A bad stretch in the middle of a mission has good data on both sides of it, so
+> the merge bridges it. A bad stretch at the *end* has good data on one side only. The closing
+> sequence is what gives the end of the mission its second side.
+>
+> **Remember this.** Drive to open sky **with the mission still running**, do the manoeuvres, then sit
+> still for two to three minutes before closing. Logging stops the instant the mission closes.
+>
+> **If this is skipped.** The last part of the corridor — often the part you were most pressed for
+> time on — is the weakest part of the dataset, and it cannot be repaired the next day, because a new
+> mission is a new trajectory.
+
 ---
 
 # 22. Shutdown
@@ -1187,6 +1240,21 @@ raise it — that is a project decision, not yours to absorb.
 > **PARAMETRIX DECISION REQUIRED · D-34** — who decides, against what, and what the client is told
 > *(SOP §22.5)*.
 
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Deciding, while you are still on site, whether what you have is good
+> enough — because the cost of that decision changes enormously once you leave.
+>
+> **Why it matters.** On site, a re-drive is twenty minutes. From the office it is a mobilisation:
+> crew, vehicle, traffic control, and a corridor that may have changed.
+>
+> **Remember this.** Check coverage and the disk before the vehicle moves off. If you are unsure
+> whether a pass was good, drive it again — that is the cheapest decision available to you all day.
+>
+> **If this is skipped.** The gap is found in the office, and somebody has to choose between going
+> back and delivering something with a hole in it.
+
 ---
 
 # 25. Data Transfer and Handoff
@@ -1228,8 +1296,7 @@ from the plan with its reason.
 > A cleared disk is not recoverable, and a mobile mapping mission is not re-drivable at reasonable
 > cost.
 
-**[PROPOSED · SOP §11.2]** — the *confirmation-in-writing* step is a Parametrix practice and is
-not yet adopted.
+**[PROPOSED · SOP §11.2]** — the *confirmation-in-writing* step is a Parametrix practice.
 
 **[EQUIPMENT] The underlying fact is not proposed.** A cleared disk is not recoverable and a
 mission is not re-drivable at reasonable cost. **Not on a promise, not on a message, not because

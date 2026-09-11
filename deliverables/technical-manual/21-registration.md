@@ -512,8 +512,8 @@ on 10 % of its length and extrapolated across the rest.**
 
 > **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 
-Checking **Open Cutting Plane View** creates, per pair, a plane named *MissionID Last Two Digits
-- Run to Adjust*, appearing as:
+Checking **Open Cutting Plane View** creates, per pair, a plane named
+`MissionID Last Two Digits - Run to Adjust`, appearing as:
 
 - A plane node beneath the parent **Plane** node in Project Explorer
 - A **yellow cutting plane** at the beginning of the Run to Adjust, visible in 3D View
@@ -554,7 +554,7 @@ addressed first.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took two passes down the same stretch of road that did not quite line
 > up, held one of them fixed, and bent the other until the two clouds sat on top of each other.
@@ -584,7 +584,7 @@ addressed first.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took surveyed control points, found each one in the point cloud by
 > eye, and told TBC to bend the vehicle's computed path so the cloud lands where the control says

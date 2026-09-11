@@ -41,7 +41,7 @@ Resolution by configuration *(TBC 22501, 23888)*:
 
 > **PARAMETRIX DECISION REQUIRED · D-31**
 >
-> Whether the proposed **file-size scan** for finding silently corrupted imagery is adopted. It is a
+> Whether the **file-size scan** for finding silently corrupted imagery is used. It is a
 > screening method proposed by this project and **not validated** *(Technical Manual §26)*.
 
 > **TESTING REQUIRED · T26, T27** — whether exported imagery reflects a registration at all, and

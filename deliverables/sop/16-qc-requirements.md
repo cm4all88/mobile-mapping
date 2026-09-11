@@ -113,7 +113,7 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 
 > **PARAMETRIX DECISION REQUIRED · D-31**
 >
-> Whether the proposed **file-size scan** for detecting silently corrupted imagery is adopted. It is
+> Whether the **file-size scan** for detecting silently corrupted imagery is used. It is
 > a screening method proposed by this project and **not validated** *(Technical Manual §26)*.
 
 ## 16.7 What QC does not do
@@ -146,3 +146,22 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 > | **Imagery check performed, by whom** | **No software artefact exists** |
 > | Results of Scan Generation | §13.3 |
 > | Mission Report | §18.3 |
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** How the work is checked before anyone accepts it: residuals on points
+> held out of the adjustment, a trajectory quality review, a visual inspection of the cloud, and a
+> look at the imagery.
+>
+> **Why it matters.** These layers catch different things, and none of them substitutes for another.
+> Numbers can prove failure but cannot prove success — Trimble states that directly. Looking at the
+> data catches things no statistic reports, and the statistics catch things the eye cannot.
+>
+> **Remember this.** Mobile mapping data does not look wrong when it is wrong. A cloud that is
+> uniformly 8 cm out of position looks exactly like a cloud that is correct. That is why the check has
+> to be against something independent, not against the data's own internal agreement.
+>
+> **If this is skipped.** A dataset passes on good-looking numbers, gets delivered, and the problem is
+> found by whoever builds on it — at which point the corridor has usually changed and re-surveying is
+> no longer a small job.

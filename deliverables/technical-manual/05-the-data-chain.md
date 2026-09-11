@@ -149,7 +149,7 @@ The chain is worth reading a second time as a sequence of irreversible commitmen
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We named the four things the data passes through — the mission database,
 > the trajectory, the polar scan data, and the point cloud — and said which command turns each one

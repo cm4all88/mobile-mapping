@@ -141,7 +141,7 @@ The full list is §1.6. Two gaps:
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We inventoried the hardware and the three pieces of software, and
 > identified the two questions that decide what the office workflow can even look like: which

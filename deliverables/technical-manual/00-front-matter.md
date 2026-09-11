@@ -200,7 +200,7 @@ from.
 
 ---
 
-## In Plain English
+## In Plain Language
 
 Every major technical section ends with a box addressed to **an experienced land surveyor who is
 new to mobile mapping**, answering four questions:

@@ -135,3 +135,24 @@ conditional on the decision later proving correct (§4.4).
 | The field record, per §9.6 | **D-49** |
 | Any exercise of stand-down authority, and its reason | **D-43** |
 | Operating-limit exceedance, if any, and what was done | **D-43** |
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** The rules for the hours the vehicle is actually moving: start the
+> system the way Trimble documents, do not log until the navigation solution is ready, stay inside the
+> machine's limits, and finish the mission properly before shutting it down.
+>
+> **Why it matters.** Almost nothing here can be fixed later. The trajectory is computed from what the
+> sensors saw on the day. If the start was rushed, the closing sequence was skipped, or an aiding
+> sensor was installed but never switched on, the office inherits the consequence and has no way to
+> undo it.
+>
+> **Remember this.** Green is not finished — the navigation status turning green means the solution
+> met its thresholds, not that it has settled, and Trimble asks for up to ten more minutes before
+> recording anything that matters. The closing sequence takes about five minutes and cannot be added
+> the next day, because a new mission is a new trajectory.
+>
+> **If this is skipped.** The weakest data of the day lands on the most important part of the
+> corridor, and the end of the mission has good data on one side only. Neither shows up as an error;
+> they show up as a dataset that quietly does not meet its accuracy requirement.

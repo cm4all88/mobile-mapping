@@ -5,7 +5,7 @@ Rule, applied mechanically so nothing is lost by accident:
   KEEP   TRIMBLE DOCUMENTED METHOD, OBSERVED SOFTWARE BEHAVIOR,
          FIELD TESTING REQUIRED, VENDOR CLARIFICATION REQUIRED,
          CAUTION, IMPORTANT, FIELD TIP, WHY THIS MATTERS, ADVANCED,
-         IN PLAIN ENGLISH, and all body text, tables and citations.
+         IN PLAIN LANGUAGE, and all body text, tables and citations.
   MOVE   PARAMETRIX PROCEDURE (PROPOSED)  -> SOP. Replaced by a pointer.
   REDUCE PARAMETRIX DECISION REQUIRED     -> named, one line, pointing at the SOP.
 

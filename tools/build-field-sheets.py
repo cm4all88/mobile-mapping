@@ -22,7 +22,7 @@ _argv = sys.argv[:]
 sys.argv = ['build-doc-page.py', 'field']
 mod = runpy.run_path(str(REPO / 'tools/build-doc-page.py'))
 sys.argv = _argv
-render, WORKVER = mod['render'], mod['WORKING_VERSION']
+render, pub = mod['render'], mod['pub']
 
 TPL = (REPO / 'tools/doc-page-template.html').read_text()
 STYLE = TPL[TPL.index('<style>'):TPL.index('</style>') + len('</style>')]
@@ -32,6 +32,8 @@ SHEETS = [
     ('appendix-B-end-of-mission-checklist', 'Appendix B', 'End-of-Mission Checklist'),
     ('appendix-C-field-record-form',    'Appendix C', 'Field Record Form'),
     ('appendix-E-quick-card',           'Appendix E', 'Quick Card'),
+    # the appendix letter is kept out of the sheet: a sheet used on its own is
+    # not "Appendix C", it is the Field Record Form
 ]
 
 SHEET_CSS = """
@@ -55,7 +57,6 @@ body{background:var(--ground);color:var(--ink);margin:0}
 @media print{
   .sheet{max-width:none;margin:0;padding:0}
   .sh-head{break-after:avoid-page;page-break-after:avoid}
-  .sh-status{border:0.6pt solid #231F20 !important;background:#fff !important;color:#231F20 !important}
   .sh-foot{position:running(sheetfoot)}
   .sec{break-before:auto !important;page-break-before:auto !important}
   /* the sheets are meant to fit: tighter than the documents, on purpose */
@@ -85,16 +86,14 @@ def page(name, appx, title, body):
   <header class="sh-head">
     <img src="data:image/png;base64,{LOGO}" alt="Parametrix">
     <div class="sh-t">
-      <div class="sh-k">MX60 Field How To · {html.escape(appx)}</div>
+      <div class="sh-k">MX60 Field How To</div>
       <div class="sh-n">{html.escape(title)}</div>
-      <div class="sh-m">Working Version {WORKVER} · Trimble MX60 · Trimble Mobile Imaging</div>
-      <div class="sh-status">Living Draft — Internal Review</div>
+      <div class="sh-m">Trimble MX60 · Trimble Mobile Imaging</div>
     </div>
   </header>
   {body}
   <footer class="sh-foot">
-    <span>Parametrix · MX60 Field How To · {html.escape(appx)} — {html.escape(title)}</span>
-    <span>Working Version {WORKVER} · <b>not a controlled document</b></span>
+    <span><b>Parametrix</b> &nbsp;|&nbsp; MX60 Field How To &nbsp;|&nbsp; {html.escape(title)}</span>
   </footer>
 </div>
 </body>
@@ -105,9 +104,9 @@ LOGO = base64.b64encode((REPO / 'brand/logo/parametrix-logo-primary.png').read_b
 
 OUT.mkdir(exist_ok=True)
 for fn, appx, title in SHEETS:
-    md = (SRC / f'{fn}.md').read_text()
+    md = pub.publish('field', fn, (SRC / f'{fn}.md').read_text())
     body = render(md, 'sh')
     out = OUT / f'{fn.replace("appendix-", "").lower()}.html'
     out.write_text(page(fn, appx, title, body))
     print(f'  {out.relative_to(REPO)}  {len(out.read_text())//1024} KB')
-print(f'{len(SHEETS)} field sheets, Working Version {WORKVER}')
+print(f'{len(SHEETS)} field sheets')

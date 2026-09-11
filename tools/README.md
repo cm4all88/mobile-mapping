@@ -75,6 +75,7 @@ An earlier version used `sec` for both and the navigation rendered with ~195px g
 
 | Check | Tool |
 |---|---|
+| **Nothing from the build reaches the reader** | `check-publication.py` |
 | The externally binding requirements table and every count of them match the register | `build-binding-table.py --check` |
 | Every built page carries the current Working Version, the Living Draft status, the print layer and its documented accent | `check-style.py` |
 | Registered warnings appear **verbatim** in their owner document, and wherever the register says | `check-warnings.py` |
@@ -156,3 +157,34 @@ rather read on paper; the HTML remains the living implementation.
 
 Uses the preinstalled Chromium at `/opt/pw-browsers`. There is no LibreOffice or pdftoppm in this
 environment, so do not add a pipeline that assumes one.
+
+
+## The publication layer
+
+`publication.py` is the single place that decides the difference between what the project keeps and
+what a reader sees. It is imported by the page and sheet builders; **it never edits a source file.**
+
+The source markdown keeps everything — authority labels, register identifiers, decision and testing
+callouts, document-control sections, circulation blocks — because the gates check it and the
+registers track it. None of that reaches a published document.
+
+| Removed | Relabelled |
+|---|---|
+| Circulation and status blocks, front matter | `PARAMETRIX PROCEDURE (PROPOSED)` → **Recommended practice** |
+| Document control, approval and revision sections | `PARAMETRIX DECISION REQUIRED` → **Set by the project** |
+| The decision register and open-question appendices | `TESTING REQUIRED` → **No published figure** |
+| Every `D-`, `T`, `V-` and `W-` identifier | `VENDOR CLARIFICATION REQUIRED` → **Not documented by Trimble** |
+| The editorial *State* column of requirement tables | `TRIMBLE DOCUMENTED METHOD` → **Trimble method** |
+
+**The distinction between authorities survives the rename**, because it is a fact a surveyor needs:
+"Trimble requires this" and "Parametrix recommends this" are not the same instruction. What does not
+survive is the vocabulary of the project's own document control.
+
+A few sections are *about* the editorial state — document control, the acceptance criterion — and
+cannot be fixed by stripping identifiers out of them. Each has a hand-written reader-facing version
+in `deliverables/_control/publication/<doc>/<section>.md`, which the layer publishes instead.
+
+`check-publication.py` runs the layer over every source file and fails on two things: vocabulary a
+reader should never have to interpret, and the debris that removing an identifier can leave behind
+(doubled separators, empty bold, orphaned punctuation, a reference to an appendix that is no longer
+published).

@@ -218,7 +218,7 @@ caveat: it requires retention, and it distinguishes candidates only where they d
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We traced the data from the raw mission to the delivered file and asked, at
 > every step, what record exists of what was done — inside TBC, on disk, and in the file the client

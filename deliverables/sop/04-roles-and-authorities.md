@@ -26,10 +26,9 @@ quietly. That is the reason this SOP treats authority as a control and not as an
 > those clauses are **proposed** rather than binding, and why §18 cannot require an authorisation
 > from a person who has not been appointed.
 
-### The structure proposed, for decision
+### How the duties divide
 
-> **PARAMETRIX PROCEDURE (PROPOSED)** — *not adopted. Offered so that D-3 has something concrete
-> to react to.*
+> **PARAMETRIX PROCEDURE (PROPOSED)** — *how the duties divide*
 >
 > | Activity | Performed by | Reviewed or approved by |
 > |---|---|---|

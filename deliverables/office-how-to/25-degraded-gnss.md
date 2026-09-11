@@ -51,3 +51,21 @@ nothing beyond *(MX60 UG Rev B, p.56)*:
 ### 25.5 Record
 
 Which remedy, why, and the check-point residuals before and after.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** What you can and cannot do about a stretch where the satellites were
+> blocked and the trajectory drifted.
+>
+> **Why it matters.** Only some remedies actually add information. Control in the affected stretch
+> adds real, independent information. Registering the bad pass to a good one adds consistency but no
+> new truth. Knowing which is which keeps you from making a dataset look better without making it
+> better.
+>
+> **Remember this.** If there is no overlap, no control bracketing the stretch and no reprocessing
+> option, the honest outcome is to say the stretch does not meet the requirement — not to smooth it
+> until it looks acceptable.
+>
+> **If this is skipped.** A degraded stretch is delivered inside an otherwise good dataset, carrying
+> the same accuracy statement as the rest of it.

@@ -102,7 +102,7 @@ A GNSS assessment made before mobilising is not a formality; it determines four 
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at what the sky does to the job: which environments hurt, how
 > much, and what Trimble actually publishes about it.

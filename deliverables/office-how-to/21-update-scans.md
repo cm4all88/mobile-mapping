@@ -49,3 +49,20 @@ the same raw data computed against two different trajectories *(Technical Manual
 
 That Update Scans was run, against which trajectory. The pre-export check in §31 confirms it again
 before anything leaves.
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Registration computes a new trajectory. **Update Scans is what moves
+> the point cloud onto it.**
+>
+> **Why it matters.** Until this runs, the project contains an adjusted trajectory and an unadjusted
+> cloud sitting next to each other. Everything looks finished. Measurements taken from that cloud are
+> taken from the unregistered data.
+>
+> **Remember this.** After Update Scans, the station names gain a suffix — that suffix is how you tell
+> by looking that the cloud in front of you is the registered one. Check it before you export.
+>
+> **If this is skipped.** You deliver the unregistered cloud while believing you delivered the
+> registered one. This is the single most common way this workflow goes wrong, and nothing in the
+> software warns you.

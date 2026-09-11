@@ -1,6 +1,5 @@
 <title>{{DOCTITLE}}</title>
 <style>
-.printhead{display:none}
 
 /* ============================================================================
    Parametrix MX60 document family — brand tokens
@@ -217,15 +216,18 @@ main{margin-left:var(--rail);padding:0 44px 120px;max-width:calc(var(--rail) + 1
 .hero h2{font-family:var(--head);margin:14px 0 0;font-size:42px;line-height:1.08;font-weight:600;
   letter-spacing:-.012em;text-wrap:balance;max-width:16ch;color:var(--charcoal)}
 .hero p{margin:16px 0 0;font-size:18px;color:var(--ink-2);max-width:60ch}
+.hero .cover-sub{margin:18px 0 0;padding-top:14px;border-top:2px solid var(--doc-accent);
+  font:600 12px/1.5 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  max-width:60ch}
 .meta{display:flex;flex-wrap:wrap;gap:0;margin:30px 0 0;border:1px solid var(--rule);
   border-radius:8px;overflow:hidden;background:var(--raise)}
 .meta div{flex:1 1 150px;padding:13px 16px;border-right:1px solid var(--rule)}
 .meta div:last-child{border-right:none}
 .meta dt{font:600 9.5px/1 var(--sans);letter-spacing:.13em;color:var(--muted);text-transform:uppercase}
 .meta dd{margin:6px 0 0;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
-.flag{margin:26px 0 0;padding:13px 17px;border-left:3px solid var(--red);
-  background:color-mix(in srgb,var(--red) 8%,var(--ground));border-radius:0;font-size:15px}
-.flag b{color:var(--red)}
+.flag{margin:26px 0 0;padding:14px 18px;border-left:3px solid var(--doc-accent);
+  background:var(--panel);border-radius:0;font-size:15px;color:var(--ink-2)}
+.flag b{color:var(--ink)}
 
 .sec{padding:52px 0 8px;scroll-margin-top:20px;border-bottom:1px solid var(--rule)}
 .sec:last-child{border-bottom:none}
@@ -338,22 +340,24 @@ td code{font-size:.84em}
 .lg-caution{border-left-color:var(--co-caution)!important;background:color-mix(in srgb,var(--co-caution) 7%,var(--ground))!important}
 .lg-caution b{color:var(--co-caution)}
 .lg-important{border-left-color:var(--warn)!important;background:color-mix(in srgb,var(--warn) 9%,var(--ground))!important}
-.lg-important b{color:var(--warn)}
+.lg-important b{color:var(--co-important)}
 .lg-tip{border-left-color:var(--ok)!important;background:color-mix(in srgb,var(--ok) 8%,var(--ground))!important}
 .lg-tip b{color:var(--ok)}
 .lg-why{border-left-color:var(--co-why)!important;background:var(--panel)!important}
 .lg-why b{color:var(--co-why)}
 .lg-decision{border-left-color:var(--violet)!important;background:color-mix(in srgb,var(--violet) 9%,var(--ground))!important}
-.lg-decision b{color:var(--violet)}
+.lg-decision b{color:var(--ink)}
 .lg-advanced b{color:var(--muted)}
+.lg-binding{border-left-color:var(--charcoal)!important;background:var(--panel)!important}
+.lg-binding b{color:var(--charcoal)}
 .lg-trimble{border-left-color:var(--co-trimble)!important;background:var(--panel)!important}
-.lg-trimble b{color:var(--co-trimble)}
+.lg-trimble b{color:var(--ink)}
 .lg-observed{border-left-color:var(--rule-2)!important;background:var(--panel)!important}
-.lg-observed b{color:var(--muted)}
+.lg-observed b{color:var(--ink-2)}
 .lg-proposed{border-left-color:var(--violet)!important;background:color-mix(in srgb,var(--violet) 5%,var(--ground))!important}
-.lg-proposed b{color:var(--violet)}
+.lg-proposed b{color:var(--ink)}
 .lg-testing{border-left-color:var(--warn)!important;background:color-mix(in srgb,var(--warn) 5%,var(--ground))!important}
-.lg-testing b{color:var(--warn)}
+.lg-testing b{color:var(--ink)}
 .lg-plain{border-left:none!important;border-top:2px solid var(--plain)!important;
   background:color-mix(in srgb,var(--plain) 6%,var(--ground))!important;border-radius:0 0 7px 7px}
 .lg-plain b{color:var(--plain)}
@@ -381,16 +385,14 @@ td code{font-size:.84em}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .docfoot .ix{opacity:1}}
 .docfoot-t{display:flex;flex-wrap:wrap;gap:6px 20px;padding-bottom:5px;
   font:400 11.5px/1.5 var(--sans);color:var(--muted)}
-.docfoot-t .nb{color:var(--red);font-weight:700}
 @media (max-width:420px){ main{padding:0 16px 80px} .hero h2{font-family:var(--head);font-weight:600;letter-spacing:-.008em;font-size:26px} }
 
 /* ============================================================================
    PRINT LAYER                                                  [extension]
-   For internal review printing only. These are not controlled PDFs, and the
-   page says so: the Working Version and the Living Draft status print on
-   every page where the browser supports running headers.
-   The guide is silent on print furniture; the values below are the screen
-   values re-expressed in points.
+   The screen document, laid out for paper: shell hidden, page breaks placed,
+   tables split, callouts identifiable without colour. The brand guide is
+   silent on print furniture; the values below are the screen values
+   re-expressed in points.
    ============================================================================ */
 @media print{
   /* the shell is screen furniture */
@@ -412,6 +414,10 @@ td code{font-size:.84em}
   h1,h2,h3,h4,.sec-h{break-after:avoid-page;page-break-after:avoid}
   h1,h2,h3,h4{break-inside:avoid;page-break-inside:avoid}
   p,li{orphans:3;widows:3}
+  /* a list that splits leaves a single orphaned item on a page of its own */
+  ul,ol{break-inside:avoid;page-break-inside:avoid}
+  /* ...unless it is long enough that keeping it whole would cost more */
+  ul:has(> li:nth-child(13)),ol:has(> li:nth-child(13)){break-inside:auto;page-break-inside:auto}
 
   /* each numbered section starts a page; its own furniture does not */
   .sec{break-before:page;page-break-before:always;border:0 !important;padding:0 !important;
@@ -427,7 +433,6 @@ td code{font-size:.84em}
   .co .co-h{color:#231F20 !important}
   .co-caution,.co-important{border-left-color:#C8102E !important}
   .co-caution .co-h,.co-important .co-h{color:#C8102E !important}
-  .co-status{border:1pt solid #231F20 !important;border-left-width:3pt !important}
 
   /* tables split, they do not overflow a page silently */
   .tw{overflow:visible !important}
@@ -449,14 +454,10 @@ td code{font-size:.84em}
 
   /* the footer becomes the print identity block, on the first page */
   .docfoot{border-top:0.6pt solid #939598 !important;margin-top:8mm;padding-top:3mm}
-  .docfoot .nb{font-weight:600}
   .hero{padding:0 0 8mm}
   .hero h2{max-width:none;font-size:26pt}
   .hero p{max-width:none;font-size:11pt}
   .meta,.legend{break-inside:avoid;page-break-inside:avoid}
-  .printhead{display:block !important;font:600 8.5pt/1.4 var(--sans);
-    letter-spacing:.06em;text-transform:uppercase;color:#231F20;
-    border-bottom:0.6pt solid #939598;padding-bottom:2mm;margin-bottom:6mm}
 }
 </style>
 
@@ -479,15 +480,13 @@ td code{font-size:.84em}
 </div>
 
 <main>
-<div class="printhead" aria-hidden="true">{{DOCTITLE}} · Working Version {{WORKVER}} · LIVING DRAFT — INTERNAL REVIEW · not a controlled document</div>
 {{HERO}}
   {{BODY}}
   <footer class="docfoot">
     <img class="ix" src="data:image/png;base64,{{IX}}" alt="" aria-hidden="true">
     <div class="docfoot-t">
+      <span><b>Parametrix</b></span>
       <span>{{DOCTITLE}}</span>
-      <span>{{DOCSUB}}</span>
-      <span class="nb">Working Version {{WORKVER}} · LIVING DRAFT — INTERNAL REVIEW</span>
     </div>
   </footer>
 </main>

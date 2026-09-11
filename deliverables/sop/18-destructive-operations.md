@@ -75,3 +75,21 @@ are gone along with the record of which one was chosen.
 | Authorisation — who, when, for which mission | **D-35** |
 | What was archived before, and where it is | **D-35, D-55** |
 | That Cleanup was run, by whom, on what date | **D-35** |
+
+
+> **IN PLAIN LANGUAGE**
+>
+> **What this section means.** Some operations delete data permanently — clearing a field disk,
+> running Cleanup on a TBC project, overwriting a registration. This section says what must exist
+> before any of them is allowed.
+>
+> **Why it matters.** These are the only steps in the whole workflow with no recovery path. Everything
+> else can be recomputed from something. A cleared disk cannot, and the mission is not re-drivable at
+> reasonable cost.
+>
+> **Remember this.** Do not clear a disk until the office has confirmed a verified copy exists in at
+> least two places. Cleanup cannot be undone, so anything you will want afterwards — the trajectory,
+> the calibration, the registration record — has to be copied out of the project first.
+>
+> **If this is skipped.** The data is gone. Not degraded, not harder to use: gone, along with any
+> possibility of proving what was delivered or why.

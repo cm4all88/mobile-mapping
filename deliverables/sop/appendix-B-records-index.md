@@ -27,7 +27,7 @@ Last generated 2026-09-11.
 |  |  | Who designated control versus independent check, and when | **D-15** |
 |  |  | Any exercise of stand-down authority, and its reason | **D-43** |
 | 5 | Competence and Training | Who holds which qualification, and from when | **D-3** |
-|  |  | Training delivered, and against which document revision | **D-3** |
+|  |  | Training delivered, and against which document | **D-3** |
 | 6 | Project Setup Requirements | Accuracy requirement, and its source | **D-13** |
 |  |  | CRS, datum, epoch, geoid — and who set them | **D-21** |
 |  |  | Grid or ground, as agreed | **D-38** |

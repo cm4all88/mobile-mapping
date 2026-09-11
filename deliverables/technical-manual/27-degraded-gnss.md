@@ -200,7 +200,7 @@ at six times installed RAM, and the MATLAB Runtime (§11.1).
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We set out what to do when the satellites were not visible enough for long
 > enough, and the computed path drifted. There are three fixes: put in more surveyed control and

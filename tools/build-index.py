@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Build deliverables/index.html -- the internal-review landing page.
+"""Build the internal review page, for the authors.
 
-One entry point, so a reviewer does not have to hunt through folders. The content
-is deliverables/README.md; this only renders it in the shared visual system.
+This is NOT part of the employee-facing package: it is the page that tells a
+reviewer what to open and how to comment, and no published manual links to it.
+It lives under deliverables/_internal/ for that reason, and build-pdfs.py does
+not render it.
 
     python3 tools/build-index.py
 """
@@ -57,16 +59,16 @@ h1.ix-n{font:700 30px/1.15 var(--sans);margin:4px 0 8px;color:var(--ink)}
 """
 
 CARDS = [
-    ('technical-manual/technical-manual.html', 'Technical Manual', 'Why it works this way, and the evidence', 'var(--brand-blue)'),
-    ('sop/sop.html', 'SOP', 'What is required, and on whose authority', 'var(--brand-orange)'),
-    ('field-how-to/field-how-to.html', 'Field How To', 'How to run it in the vehicle', 'var(--brand-green)'),
-    ('office-how-to/office-how-to.html', 'Office How To', 'How to process it in TBC', 'var(--brand-yellow)'),
+    ('../technical-manual/technical-manual.html', 'Technical Manual', 'Why it works this way, and the evidence', 'var(--brand-blue)'),
+    ('../sop/sop.html', 'SOP', 'What is required, and on whose authority', 'var(--brand-orange)'),
+    ('../field-how-to/field-how-to.html', 'Field How To', 'How to run it in the vehicle', 'var(--brand-green)'),
+    ('../office-how-to/office-how-to.html', 'Office How To', 'How to process it in TBC', 'var(--brand-yellow)'),
 ]
 SHEETS = [
-    ('field-how-to/sheets/a-preflight-checklist.html', 'Preflight Checklist', 'Field How To Appendix A'),
-    ('field-how-to/sheets/b-end-of-mission-checklist.html', 'End-of-Mission Checklist', 'Field How To Appendix B'),
-    ('field-how-to/sheets/c-field-record-form.html', 'Field Record Form', 'Field How To Appendix C'),
-    ('field-how-to/sheets/e-quick-card.html', 'Quick Card', 'Field How To Appendix E'),
+    ('../field-how-to/sheets/a-preflight-checklist.html', 'Preflight Checklist', 'Field How To Appendix A'),
+    ('../field-how-to/sheets/b-end-of-mission-checklist.html', 'End-of-Mission Checklist', 'Field How To Appendix B'),
+    ('../field-how-to/sheets/c-field-record-form.html', 'Field Record Form', 'Field How To Appendix C'),
+    ('../field-how-to/sheets/e-quick-card.html', 'Quick Card', 'Field How To Appendix E'),
 ]
 
 md = (REPO / 'deliverables/README.md').read_text()
@@ -127,6 +129,7 @@ out = f"""<!doctype html>
 </body>
 </html>
 """
-p = REPO / 'deliverables/index.html'
+p = REPO / 'deliverables/_internal/review-index.html'
+p.parent.mkdir(parents=True, exist_ok=True)
 p.write_text(out)
 print(f'  {p.relative_to(REPO)}  {len(out)//1024} KB  ·  Working Version {WORKVER}')

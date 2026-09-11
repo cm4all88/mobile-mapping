@@ -43,7 +43,7 @@ Mobile Mapping
 
 > **PARAMETRIX DECISION REQUIRED · D-18**
 >
-> **What is verified at import, and by whom?** The seven checks above are proposed, not adopted
+> **What is verified at import, and by whom?** The seven checks above are this guide's recommendation
 > *(SOP §12.2)*.
 
 > **Intake does not fix anything.** If a check fails, record it and raise it *(SOP §12.4)*. A

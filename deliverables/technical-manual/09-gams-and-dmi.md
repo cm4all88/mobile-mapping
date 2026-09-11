@@ -157,7 +157,7 @@ panes are dimmed and say so, while a re-collection is still cheap.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at the two optional sensors: a second GNSS antenna that measures
 > heading directly, and a wheel sensor that measures how far the vehicle actually travelled.

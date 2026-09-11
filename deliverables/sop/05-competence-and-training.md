@@ -35,7 +35,7 @@ covered in the Technical Manual at the reference given.
 | 4 | **A Local adjustment does not extrapolate** beyond the outermost control point, and nothing shows where it stopped | Technical Manual §21 |
 | 5 | **Cleanup cannot be undone** | Technical Manual §28 |
 
-> **The In Plain English boxes in the Technical Manual are the intended route to this.** Read end
+> **The In Plain Language boxes in the Technical Manual are the intended route to this.** Read end
 > to end with nothing else, they describe the whole workflow in ordinary language.
 
 ## 5.4 Currency
@@ -51,4 +51,4 @@ covered in the Technical Manual at the reference given.
 | Record | State |
 |---|---|
 | Who holds which qualification, and from when | **D-3** |
-| Training delivered, and against which document revision | **D-3** |
+| Training delivered, and against which document | **D-3** |

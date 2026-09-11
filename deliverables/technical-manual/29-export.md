@@ -364,7 +364,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We wrote the finished data out of TBC in whatever format the client needs
 > — a LAS file, a package for TopoDot or Solv3D, or a publication to Trimble Connect — and we

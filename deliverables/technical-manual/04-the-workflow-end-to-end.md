@@ -51,11 +51,11 @@ SOP, both How To guides, every checklist and form, and future training material.
 > is unusual in being both a stage name and a command name, and that is Trimble's doing.
 
 The authoritative list, with the synonyms that are not to be used, is
-`_control/workflow-stage-names.md`.
+the glossary at **§6**.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We laid out every stage from planning to archive on one page, with what
 > each produces.

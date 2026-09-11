@@ -12,7 +12,8 @@
 > **What collection speed, by deliverable type?** Trimble publishes a recommended maximum and an
 > absolute maximum and **no guidance relating speed to deliverable quality** *(SOP §9.4)*.
 >
-> *For consideration, not adopted:* collect at or near prevailing traffic speed up to 80 km/h,
+> *Recommended, where the project does not say otherwise:* collect at or near prevailing traffic
+> speed up to 80 km/h,
 > reducing where point density requires it.
 >
 > **[TRIMBLE METHOD] Trimble recommends not exceeding 80 km/h with the system operating.** That

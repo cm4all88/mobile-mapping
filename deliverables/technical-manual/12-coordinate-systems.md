@@ -104,7 +104,7 @@ on it.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We went through the four places where mobile mapping treats coordinate
 > systems differently from a conventional survey: when the CRS has to be set, what frame the

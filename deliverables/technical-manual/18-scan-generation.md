@@ -147,7 +147,7 @@ Scans can be generated with colour from the imagery, or without.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We combined the vehicle's computed path with the raw scanner measurements
 > to produce an actual point cloud — the first time in the workflow that the data has coordinates.

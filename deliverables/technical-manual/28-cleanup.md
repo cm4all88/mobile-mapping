@@ -138,7 +138,7 @@ to create it** (§30).
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at a command that tidies a finished project by throwing away
 > every registration attempt except the last one, along with the point clouds those attempts

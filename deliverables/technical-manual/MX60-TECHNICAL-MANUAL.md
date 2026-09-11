@@ -194,7 +194,7 @@ from.
 
 ---
 
-## In Plain English
+## In Plain Language
 
 Every major technical section ends with a box addressed to **an experienced land surveyor who is
 new to mobile mapping**, answering four questions:
@@ -347,13 +347,13 @@ Where a Parametrix decision would resolve an open question, this manual **names 
 
 | If you are… | Start at |
 |---|---|
-| **New to mobile mapping** | §2, then §3, then the **In Plain English** boxes end to end |
+| **New to mobile mapping** | §2, then §3, then the **In Plain Language** boxes end to end |
 | **Looking up one behaviour** | The contents, or **Appendix A** — the Trimble source index |
 | **Checking a number** | **Appendix B** — the reference dataset is the authority for numbers |
-| **Deriving a requirement** | The relevant Part IV section, then **Appendix E** for what is still open |
-| **Reviewing after a TBC update** | **Appendix A**, then `_control/ownership-matrix.md` |
+| **Deriving a requirement** | The relevant Part IV section, then the SOP clause it supports |
+| **Reviewing after a TBC update** | **Appendix A** — the source index, topic by topic |
 
-> **The In Plain English boxes are a complete document in themselves.** Read end to end, with
+> **The In Plain Language boxes are a complete document in themselves.** Read end to end, with
 > nothing else, they describe the whole workflow in ordinary language. That is deliberate — a
 > reviewer or project manager can get a true picture without working through the technical detail.
 
@@ -375,10 +375,10 @@ formats — LAS header fields and VLR content in particular. Where this manual s
 not documented, that is a statement about Trimble's documentation, not a claim that the software
 lacks the capability (§30).
 
-**Twenty-four questions require testing rather than reading** (Appendix E). They are not gaps in
+**Twenty-four questions require testing rather than reading.** They are not gaps in
 the research; they are questions no documentation would answer.
 
-**Sixteen questions require Trimble** (Appendix E). Five of them are P1.
+**Sixteen questions require Trimble**, and remain open with them.
 
 > **Source ingestion is complete for the purposes of this manual.** Every export and publish path
 > available to an MX60 has been read, and the remaining uncertainty is about software behaviour
@@ -386,7 +386,7 @@ the research; they are questions no documentation would answer.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We set out what this manual is for — explaining how the system works and
 > recording how we know — and, just as importantly, what it is not: it decides nothing and requires
@@ -493,7 +493,7 @@ each other and to control. Mobile mapping is different in an instructive way.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We established the one idea the rest of this manual rests on: a mobile
 > mapping system has no occupied point. It computes where it was, continuously, and every point it
@@ -578,7 +578,7 @@ The three properties above have direct consequences, and each has its own sectio
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at how mobile mapping gets things wrong, which is not how a
 > total station gets things wrong.
@@ -654,11 +654,11 @@ SOP, both How To guides, every checklist and form, and future training material.
 > is unusual in being both a stage name and a command name, and that is Trimble's doing.
 
 The authoritative list, with the synonyms that are not to be used, is
-`_control/workflow-stage-names.md`.
+the glossary at **§6**.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We laid out every stage from planning to archive on one page, with what
 > each produces.
@@ -829,7 +829,7 @@ The chain is worth reading a second time as a sequence of irreversible commitmen
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We named the four things the data passes through — the mission database,
 > the trajectory, the polar scan data, and the point cloud — and said which command turns each one
@@ -1218,7 +1218,7 @@ mission. That priority is correct and worth knowing about in advance.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took the system apart on paper: two laser scanners, two cameras, a
 > GNSS/inertial unit, and optionally a second antenna and a wheel sensor — plus the conventions
@@ -1360,7 +1360,7 @@ they are not interchangeable and their costs are different (§27):
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked inside the thing that produces the trajectory: two sensors that
 > fail in opposite ways, a filter that combines them, and a second pass run backwards through time
@@ -1544,7 +1544,7 @@ panes are dimmed and say so, while a re-collection is still cheap.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at the two optional sensors: a second GNSS antenna that measures
 > heading directly, and a wheel sensor that measures how far the vehicle actually travelled.
@@ -1713,7 +1713,7 @@ The full list is §1.6. Two gaps:
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We inventoried the hardware and the three pieces of software, and
 > identified the two questions that decide what the office workflow can even look like: which
@@ -1826,7 +1826,7 @@ Trimble prescribes a specific acquisition geometry for LiDAR QC:
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at a way of improving the trajectory using the scan data itself.
 > Instead of relying only on GNSS and the inertial sensor, LiDAR QC matches overlapping scans to
@@ -1957,7 +1957,7 @@ on it.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We went through the four places where mobile mapping treats coordinate
 > systems differently from a conventional survey: when the CRS has to be set, what frame the
@@ -2115,7 +2115,7 @@ It also cannot be repaired in the office in any general way:
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took the start-of-mission routine apart and said what each piece is
 > for: the two or three minutes parked, the straight run, the speed changes, the turns, and the
@@ -2247,7 +2247,7 @@ cloud (§24):
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We explained why the end of a mission gets its own five-minute routine,
 > and why that routine is the start-of-mission routine performed backwards.
@@ -2377,7 +2377,7 @@ A GNSS assessment made before mobilising is not a formality; it determines four 
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at what the sky does to the job: which environments hurt, how
 > much, and what Trimble actually publishes about it.
@@ -2539,7 +2539,7 @@ with distance either — but its *effect* does, in direct proportion.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We separated two questions that get asked as if they were one: how many
 > points you get, and how far out you can trust them.
@@ -2838,7 +2838,7 @@ substantial hardware requirement and its own acquisition geometry, and it is tre
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took the raw GNSS and inertial observations the vehicle recorded,
 > combined them with base station data, and computed the path the sensor head actually followed —
@@ -3017,7 +3017,7 @@ Scans can be generated with colour from the imagery, or without.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We combined the vehicle's computed path with the raw scanner measurements
 > to produce an actual point cloud — the first time in the workflow that the data has coordinates.
@@ -3092,7 +3092,7 @@ also the mechanism for reverting.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took a point cloud that had been built on one version of the vehicle's
 > path and rebuilt it on a better one. Nothing else in the software does this, and nothing does it
@@ -3395,7 +3395,7 @@ different geometry, and one Parametrix has not yet scheduled.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We worked out the exact angles at which each sensor is bolted to the
 > vehicle relative to the inertial unit. Not where they are — those distances are known from
@@ -3944,8 +3944,8 @@ on 10 % of its length and extrapolated across the rest.**
 
 > **TRIMBLE DOCUMENTED METHOD** — *(TBC 25096)*
 
-Checking **Open Cutting Plane View** creates, per pair, a plane named *MissionID Last Two Digits
-- Run to Adjust*, appearing as:
+Checking **Open Cutting Plane View** creates, per pair, a plane named
+`MissionID Last Two Digits - Run to Adjust`, appearing as:
 
 - A plane node beneath the parent **Plane** node in Project Explorer
 - A **yellow cutting plane** at the beginning of the Run to Adjust, visible in 3D View
@@ -3986,7 +3986,7 @@ addressed first.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took two passes down the same stretch of road that did not quite line
 > up, held one of them fixed, and bent the other until the two clouds sat on top of each other.
@@ -4016,7 +4016,7 @@ addressed first.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We took surveyed control points, found each one in the point cloud by
 > eye, and told TBC to bend the vehicle's computed path so the cloud lands where the control says
@@ -4236,7 +4236,7 @@ than two, so control and checks at the ends are worth more than control in the m
 > the start and end of the project and at intersections of controlled roads *(TMR §11)*.
 >
 > **It is cited as an example of how another agency has answered D-16 — not as a Parametrix
-> standard and not as a Trimble requirement.** Parametrix's own accuracy tiers, if it adopts any,
+> standard and not as a Trimble requirement.** Parametrix's own accuracy tiers, if it sets any,
 > are D-16.
 
 ## 22.7 What TBC reports, and what it does not
@@ -4289,7 +4289,7 @@ calibration does not substitute for them.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We separated the surveyed points into two groups: ones the adjustment is
 > allowed to use, and ones it is not allowed to see. TBC does this with three checkboxes per
@@ -4388,7 +4388,7 @@ diagnose, not just describe.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at what a residual actually measures, and why Trimble says —
 > twice, in two unrelated parts of its documentation — that a good RMS does not prove the work
@@ -4495,7 +4495,7 @@ and its size in the profile is its size in the data.
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We went and looked at the point cloud — specifically at places where two
 > passes should agree — using a profile view with one colour per scan, dragged along the whole
@@ -4620,7 +4620,7 @@ errors and improves — or does not — in the same way.
 > and a corrupted image is not guaranteed to be small. Anything the scan flags must be opened and
 > looked at; anything it does not flag is not thereby verified.
 >
-> **Validation required** before adoption: run it against a known-good export and a known-bad one
+> **Validation required** before it is relied on: run it against a known-good export and a known-bad one
 > and establish whether a usable threshold exists for MX60 imagery.
 >
 > *(D-31)*
@@ -4689,7 +4689,7 @@ Where imagery travels, and what travels with it:
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We checked the photographs: that they cover the whole route, that they are
 > properly exposed and sharp, that nothing is blocking the lens, and that where the imagery has
@@ -4921,7 +4921,7 @@ at six times installed RAM, and the MATLAB Runtime (§11.1).
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We set out what to do when the satellites were not visible enough for long
 > enough, and the computed path drifted. There are three fixes: put in more surveyed control and
@@ -5096,7 +5096,7 @@ to create it** (§30).
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at a command that tidies a finished project by throwing away
 > every registration attempt except the last one, along with the point clouds those attempts
@@ -5495,7 +5495,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We wrote the finished data out of TBC in whatever format the client needs
 > — a LAS file, a package for TopoDot or Solv3D, or a publication to Trimble Connect — and we
@@ -5747,7 +5747,7 @@ caveat: it requires retention, and it distinguishes candidates only where they d
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We traced the data from the raw mission to the delivered file and asked, at
 > every step, what record exists of what was done — inside TBC, on disk, and in the file the client
@@ -5800,7 +5800,7 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 > naming a period. Trimble or the dealer can say what interval they expect, and whether any other
 > verification is expected alongside it. *(Appendix E)*
 
-> **Open Parametrix decision — D-28.** *Is this the periodic verification Parametrix adopts, and at what interval?* Stated and tracked in the **SOP §13**; see also the master register.
+> **Open Parametrix decision — D-28.** *Is this the periodic verification Parametrix uses, and at what interval?* Stated and tracked in the **SOP §13**; see also the master register.
 
 ---
 

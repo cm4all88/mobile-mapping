@@ -94,7 +94,7 @@ errors and improves — or does not — in the same way.
 > and a corrupted image is not guaranteed to be small. Anything the scan flags must be opened and
 > looked at; anything it does not flag is not thereby verified.
 >
-> **Validation required** before adoption: run it against a known-good export and a known-bad one
+> **Validation required** before it is relied on: run it against a known-good export and a known-bad one
 > and establish whether a usable threshold exists for MX60 imagery.
 >
 > *(D-31)*
@@ -163,7 +163,7 @@ Where imagery travels, and what travels with it:
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We checked the photographs: that they cover the whole route, that they are
 > properly exposed and sharp, that nothing is blocking the lens, and that where the imagery has

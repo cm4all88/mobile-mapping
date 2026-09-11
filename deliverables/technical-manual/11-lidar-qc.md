@@ -84,7 +84,7 @@ Trimble prescribes a specific acquisition geometry for LiDAR QC:
 
 ---
 
-> **IN PLAIN ENGLISH**
+> **IN PLAIN LANGUAGE**
 >
 > **What we just did.** We looked at a way of improving the trajectory using the scan data itself.
 > Instead of relying only on GNSS and the inertial sensor, LiDAR QC matches overlapping scans to

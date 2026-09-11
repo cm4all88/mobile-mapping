@@ -19,7 +19,7 @@ listed with their sources at **SOP §2.4**. Everything Parametrix-originated is 
 |---|---|---|
 | **A field operator** | **Field How To** | The **Quick Card** (Appendix E), then the **Preflight Checklist** (Appendix A) |
 | **An office processor** | **Office How To** | §1, then the section for the step you are on |
-| **A surveyor new to mobile mapping** | **Technical Manual** | §4 *The workflow end to end*, then the **In Plain English** box at the end of each section |
+| **A surveyor new to mobile mapping** | **Technical Manual** | §4 *The workflow end to end*, then the **In Plain Language** box at the end of each section |
 | **A PLS or QA reviewer** | **SOP** and the **Technical Manual** | SOP §2.4, §16, §17 — what binds, what QC is, what acceptance is not |
 | **A manager or policy reviewer** | **SOP** and the **decision register** | SOP §17.2 (**D-13**), then SOP Appendix A |
 
