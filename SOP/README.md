@@ -40,7 +40,7 @@ and QC are told once in Section 13 rather than five times across five sections.
 
 ## Reference data
 
-`../reference/mx60-reference-data.csv` — 293 structured records of every specification,
+`../reference/mx60-reference-data.csv` — 356 structured records of every specification,
 limit, requirement, warning, procedure and setting drawn from the Trimble sources.
 
 Each row carries: `id`, `category`, `topic`, `item`, `value`, `notes`, `source`, `page`,
@@ -51,6 +51,9 @@ Trimble revision changes a value, update the CSV row.
 
 Categories: `spec` · `limit` · `requirement` · `warning` · `procedure` · `setting` ·
 `indicator` · `note` · `conflict` · `resolved` · `contact` · `reference`
+
+ID prefixes now include `REG-` (registration), `TRAJ-` (trajectory production), `QC-`
+(LiDAR QC) and `CLEAN-` (mission cleanup), added from the TBC help batch 4 captures.
 
 ## Source documents
 
@@ -82,13 +85,17 @@ still reflects the earlier source set.
 
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md) — 16 topics classified
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md) — chain model tested; registration source gap identified
+- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-4.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-4.md) — **registration and calibration branches; six of the eight questions answered**
 - [`../analysis/GUIDE-REQUIREMENTS.md`](../analysis/GUIDE-REQUIREMENTS.md) — branding and comprehension-layer requirements
 
 ## Still needed
 
-- **Current TBC mobile mapping documentation** for import, trajectory processing,
-  registration and export. The supplied Technical Notes is October 2022 and predates MX60
-  support. *(Boresight calibration is no longer missing — see §12.3.)*
+- **TBC Help: Export Mobile Mapping Data.** The one remaining material gap — it is the only
+  topic that can establish whether an export carries the identity of the trajectory its scans
+  were built on. *(Import, scan generation, registration, calibration, trajectory processing
+  and cleanup are all now captured — see the batch 2–4 inventories.)*
+- **Confirmation of the POSPac MMS licence and the TBC version.** Both gate which office
+  workflow is even available; see `../analysis/VENDOR-QUESTIONS.md` items 2a and 2b.
 - **Trimble GAMS Antenna Kit** and **DMI Installation & Operation** manuals, if those
   accessories are fitted.
 - **Parametrix logo in vector form.** Raster PNGs are in `../brand/`; vector (SVG/EPS)

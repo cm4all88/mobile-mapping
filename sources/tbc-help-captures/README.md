@@ -36,15 +36,15 @@ than embedding whole pages.
 complete **Mobile Mapping** topic tree. Batch 2 captured only the *Import, View and Process
 Mobile Mapping Data* branch.
 
+> **Updated 2026-09-11.** Items 1–3 below were captured in batch 4 —
+> see `../tbc-help-captures-batch4/`. The remaining gaps are items 4–7.
+
 Still to capture, in priority order:
 
-1. **Register Mobile Mapping Trajectories** — and all sub-topics
-2. **Cleanup Mobile Mapping Mission**
-3. **Perform Mobile Mapping Calibrations**
-4. Export Mobile Mapping Data
+1. ~~**Register Mobile Mapping Trajectories**~~ — captured, batch 4
+2. ~~**Cleanup Mobile Mapping Mission**~~ — captured, batch 4
+3. ~~**Perform Mobile Mapping Calibrations**~~ — captured, batch 4
+4. **Export Mobile Mapping Data** — now the only material gap
 5. Blur Exported Images
 6. Create Orthomosaics from a Trimble Back-Camera Mobile Mapping System
 7. Display Mobile Mapping Run Views (completes branch 4)
-
-Expand each section before capturing — items 1–3 are parents whose sub-topics the collapsed
-navigation does not reveal.

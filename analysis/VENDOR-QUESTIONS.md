@@ -45,7 +45,22 @@ That reads like the MX60 is factory-calibrated — but nothing states it.
 
 ---
 
-## 2. Current TBC documentation for the MX60
+## 2. Current TBC documentation for the MX60 — LARGELY ANSWERED
+
+> **Resolved 2026-09-11.** The TBC help portal at
+> <https://help.fieldsystems.trimble.com/tbc/> documents the mobile mapping workflow in
+> full, and 31 of its topics have now been captured and classified (see
+> `SOURCE-INVENTORY-TBC-BATCH-2.md` through `-BATCH-4.md`). Import, scan generation,
+> registration, calibration, trajectory processing and cleanup are all covered.
+>
+> **One topic still matters and has not been captured: Export Mobile Mapping Data.** It is
+> the only place that can answer whether an export carries the identity of the trajectory
+> the scans were built on.
+>
+> The help portal carries **no version number and no date**, which is why question 2b below
+> exists.
+
+### Original question, retained for context
 
 > **Is there TBC mobile mapping documentation that covers the MX60?**
 
@@ -57,6 +72,59 @@ We need step-by-step procedure for: importing the `mxdb`, trajectory processing,
 registration to control, colorization, classification, and export.
 
 **Blocks:** SOP §12 entirely
+
+---
+
+## 2a. POSPac MMS licence — added 2026-09-11
+
+> **Do we hold a POSPac MMS 8.6 or later licence, and is it installed on the processing
+> workstation alongside TBC?**
+
+This turns out to gate more than expected. TBC's **Process Raw Trajectory Data** command
+computes the SBET inside TBC, but *"the requirement to run the feature is to have the
+Applanix's POSPac MMS application (from version 8.6 and a valid license) installed alongside
+TBC"* *(TBC Help 25943)*. **Generate POSPac Position Fixes** — the documented remedy for
+corridors with no usable GNSS — also requires POSPac, and a second processing pass in it
+*(TBC Help 24460)*.
+
+Without the licence, neither is available, and trajectory production has to happen wherever
+POSPac lives.
+
+**Blocks:** the whole shape of the office workflow
+
+---
+
+## 2b. TBC version — added 2026-09-11
+
+> **Which TBC version is installed?**
+
+Already asked under item 1 for the calibration behaviour at 5.21. Two more version
+boundaries have since appeared:
+
+- **5.21** — after it, laser scanners *and* cameras calibrate in TBC; at or before it, both
+  calibrate externally and import as JSON *(TBC Help 24886, 24868)*
+- **5.80** — projects saved before it may carry a registration with no RMS file set, and TBC
+  prompts for one *(TBC Help 27248)*
+
+**Blocks:** SOP §12.3 and the registration QC procedure
+
+---
+
+## 2c. LiDAR QC capability — added 2026-09-11
+
+> **Is LiDAR QC processing something we intend to be able to do?**
+
+It is the only documented way to improve a trajectory in poor-GNSS corridors *without*
+placing additional ground control, and it needs a workstation well beyond a normal one:
+**128 GB RAM minimum, 256 GB recommended**, a dedicated 1–2 TB SSD for TEMP on the PCI bus,
+a further 1–2 TB for virtual memory, a paging file at 6× installed RAM, and the **MATLAB
+Runtime R2024b** installed after TBC *(TBC Help 28972)*.
+
+Worth confirming with the vendor whether Trimble considers this optional or expected for
+survey-grade MX60 work, and whether the requirements differ for the MX60's two-scanner
+configuration.
+
+**Relates to:** a capability decision, not a software setting
 
 ---
 
