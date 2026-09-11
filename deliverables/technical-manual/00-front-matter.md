@@ -90,7 +90,7 @@ Every technical statement carries a tag saying where its authority comes from.
 | **VENDOR CLARIFICATION REQUIRED** | Answerable only by Trimble. Appendix E |
 
 > **This manual contains no Parametrix procedure tags.** It does not decide anything. Where a
-> Parametrix decision would resolve a question, the manual names the decision — **D-*n***, cross-
+> Parametrix decision would resolve a question, the manual names the decision — **D-n**, cross-
 > referenced to the SOP — and moves on.
 
 ### Citations

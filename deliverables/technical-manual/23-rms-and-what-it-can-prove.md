@@ -43,8 +43,8 @@ Plus the visual check (§25.1) and the records in the **SOP §19**.
 > **Note what is missing from that table: a single number that describes the quality of a
 > registration.** There is no registration report equivalent to a least-squares adjustment
 > summary. The evidence is distributed across a dialog, a results tab, a trajectory colour and
-> the operator's eyes — which is why the recordkeeping in the **SOP §19** and §30 matters more here than it
-> would in a conventional adjustment.
+> the operator's eyes — which is why §30, the provenance problem, matters more here than it would
+> in a conventional adjustment, and why the records the **SOP §19** requires are not a formality.
 
 ## 23.3 Reading the three axes
 

@@ -89,6 +89,7 @@
        Technical Manual  Clean Blue        SOP           Progress Orange
        Field How To      Future Green      Office How To Optimistic Yellow  */
   --doc-accent:var(--brand-blue);
+  --doc-accent-on:var(--brand-white);   /* ink on the accent chip; see style-system.md §3 */
 
   /* --- scale ------------------------------------------------ [extension] */
   --base:17px;
@@ -147,6 +148,7 @@
   --accent:var(--doc-accent);
   --rail:282px;
   --doc-accent:{{ACCENT}};
+  --doc-accent-on:{{ACCENT_ON}};
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -173,7 +175,8 @@ body{margin:0;background:var(--ground);color:var(--ink);
 /* clear space >= the height of the right side of the x (brand p.13) */
 .rail-top{--x:7px;border-bottom:1px solid var(--rule);box-shadow:inset 0 -3px 0 -2px var(--accent)}
 .rail-top img{margin:var(--x) 0 calc(var(--x) + 7px)}
-.rail-top .k{font:700 10px/1.3 var(--sans);letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+.rail-top .k{display:inline-block;font:700 9.5px/1 var(--sans);letter-spacing:.13em;
+  color:var(--doc-accent-on);background:var(--accent);padding:5px 8px;text-transform:uppercase}
 .rail-top h1{margin:7px 0 0;font-family:var(--head);font-size:19px;line-height:1.22;
   font-weight:600;letter-spacing:-.004em}
 .rail-top .sub{margin-top:6px;font:400 11.5px/1.45 var(--sans);color:var(--muted)}
@@ -206,7 +209,7 @@ nav li.hide{display:none}
 /* ---------- main ---------- */
 main{margin-left:var(--rail);padding:0 44px 120px;max-width:calc(var(--rail) + 1080px)}
 .hero{padding:58px 0 30px;border-bottom:1px solid var(--rule)}
-.hero .k{font:600 10.5px/1 var(--sans);letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+.hero .k{font:600 10.5px/1 var(--sans);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
 .hero h2{font-family:var(--head);margin:14px 0 0;font-size:42px;line-height:1.08;font-weight:600;
   letter-spacing:-.012em;text-wrap:balance;max-width:16ch;color:var(--charcoal)}
 .hero p{margin:16px 0 0;font-size:18px;color:var(--ink-2);max-width:60ch}
@@ -224,7 +227,8 @@ main{margin-left:var(--rail);padding:0 44px 120px;max-width:calc(var(--rail) + 1
 .sec:last-child{border-bottom:none}
 .sec-h{display:flex;gap:18px;align-items:flex-start;margin-bottom:8px}
 .sec .arrow{margin:0 0 26px}
-.sec-n{flex:none;font:600 32px/1.05 var(--sans);color:var(--accent);letter-spacing:-.02em;
+.sec-n{flex:none;font:600 26px/1 var(--sans);color:var(--doc-accent-on);letter-spacing:-.01em;
+  background:var(--accent);padding:10px 12px;min-width:52px;text-align:center;
   min-width:52px;padding-top:2px;font-variant-numeric:tabular-nums}
 .sec-h h2{margin:0;font-family:var(--head);font-size:32px;line-height:1.14;font-weight:600;
   letter-spacing:-.006em;text-wrap:balance;color:var(--charcoal)}

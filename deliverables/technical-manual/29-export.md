@@ -157,7 +157,7 @@ deliverable format is a project and client matter that Parametrix has not decide
 
 > **Open Parametrix decision — D-38.** Stated and tracked in the **SOP §18**; see also the master register.
 
-### 22.6.1 Export to LAS (Trajectory Split) — classified point cloud regions
+### 29.6.1 Export to LAS (Trajectory Split) — classified point cloud regions
 
 *(TBC 27279)* · **Mobile Mapping tab**
 
@@ -196,7 +196,7 @@ deliverable format is a project and client matter that Parametrix has not decide
 > along the trajectory. Despite the name, **no trajectory information is documented as
 > accompanying the output.**
 
-### 22.6.2 Export to TMX
+### 29.6.2 Export to TMX
 
 *(TBC 22501)* · **Mobile Mapping tab**
 
@@ -220,7 +220,7 @@ Output structure: a **Mission folder** plus one folder per device, with `laser`,
 > **VENDOR CLARIFICATION REQUIRED · V-10** — which trajectory does the TMX export write when
 > several exist under a run? *(Appendix E)* · **FIELD TESTING REQUIRED · T19** *(Appendix E)*
 
-### 22.6.3 Export to TopoDot
+### 29.6.3 Export to TopoDot
 
 *(TBC 23339)* · **Mobile Mapping tab**
 
@@ -244,7 +244,7 @@ close all run views prior to export. Otherwise, a warning message will pop up."*
 > trajectory-derived information at the station level. **It is not documented as identifying the
 > trajectory it came from.**
 
-### 22.6.4 Export to Solv3D
+### 29.6.4 Export to Solv3D
 
 *(TBC 23888)* · **Mobile Mapping tab**
 
@@ -266,7 +266,7 @@ couple per run in case of a single scanner system and two when a double laser sy
 > exported rather than reprocessed ones. On this path the recommended setting is also the one
 > that preserves the processing you performed.
 
-### 22.6.5 Generic Point Cloud Export
+### 29.6.5 Generic Point Cloud Export
 
 *(TBC 11769)* · **Point Cloud tab**
 
@@ -284,7 +284,7 @@ couple per run in case of a single scanner system and two when a double laser sy
 > **This is the path most likely to be used for an ordinary LAS or E57 deliverable, and it is the
 > one with the least documented provenance and no run awareness** (§29.4).
 
-### 22.6.6 Publish to TRCPS
+### 29.6.6 Publish to TRCPS
 
 *(TBC 29527)* · **Home ▸ Data Exchange ▸ Publish to TRCPS**, then the **Mobile Mapping** tab
 

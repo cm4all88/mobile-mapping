@@ -89,9 +89,13 @@ Technical Manual §§17–21.
 
 > **CAUTION · W-07**
 >
-> **Registering a run again stacks adjustments.** Running a registration command a second time on a
-> run that has already been registered adjusts the adjusted trajectory. To change a registration,
-> use **Edit** *(Technical Manual §21.8)*.
+> **Getting this wrong stacks adjustments on adjustments.** A processor who registers, dislikes
+> the residuals, and registers again has applied a second correction on top of the first. The
+> residuals will look better. The trajectory has been bent twice against the same control.
+>
+> **To improve a registration, use Edit.** To start over, edit and Reset.
+>
+> *(Technical Manual §21.8)*
 
 > **PARAMETRIX DECISION REQUIRED · D-12**
 >

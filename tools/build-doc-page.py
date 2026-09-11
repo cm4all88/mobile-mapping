@@ -87,9 +87,54 @@ SOP_ORDER = [
  ('appendix-C-approval-and-revision-history','C','Approval and Revision History'),
 ]
 
+OFFICE_ORDER = [
+ ('00-front-matter','0','Front Matter'),
+ ('01-how-to-use-this-guide','1','How to Use This Guide'),
+ ('02-data-intake','2','Data Intake'),
+ ('03-checking-mission-information','3','Checking Mission Information'),
+ ('04-calibration-state-intake','4','Calibration-State Intake'),
+ ('05-project-setup','5','Project Setup'),
+ ('06-coordinate-systems','6','Coordinate Systems'),
+ ('07-importing-the-mission','7','Importing the Mission'),
+ ('08-trajectory-processing','8','Trajectory Processing'),
+ ('09-pospac-requirements','9','POSPac Requirements'),
+ ('10-reading-the-trajectory','10','Reading the Trajectory'),
+ ('11-generate-scans','11','Generate Scans'),
+ ('12-checking-the-scans','12','Checking the Scans'),
+ ('13-calibration','13','Calibration'),
+ ('14-importing-control','14','Importing Control'),
+ ('15-gcp-and-check-point-configuration','15','GCP and Check Point Configuration'),
+ ('16-register-a-run','16','Register a Run'),
+ ('17-register-a-mission','17','Register a Mission'),
+ ('18-register-run-to-run','18','Register Run to Run'),
+ ('19-editing-a-registration','19','Editing a Registration'),
+ ('20-residual-review','20','Residual Review'),
+ ('21-update-scans','21','Update Scans'),
+ ('22-visual-qc','22','Visual QC'),
+ ('23-imagery-qc','23','Imagery QC'),
+ ('24-lidar-qc','24','LiDAR QC'),
+ ('25-degraded-gnss','25','Degraded GNSS'),
+ ('26-pfix','26','PFIX'),
+ ('27-identifying-registration-results','27','Identifying Registration Results'),
+ ('28-trajectory-provenance','28','Trajectory Provenance'),
+ ('29-cleanup','29','Cleanup Mobile Mapping Mission'),
+ ('30-export','30','Export'),
+ ('31-the-pre-export-check','31','The Pre-export Check'),
+ ('32-final-qa-qc','32','Final QA/QC'),
+ ('33-archiving','33','Archiving'),
+ ('34-documentation-required','34','Documentation Required'),
+ ('35-common-problems','35','Common Problems'),
+ ('appendix-A-office-processing-checklist','A','Office Processing Checklist'),
+ ('appendix-B-registration-checklist','B','Registration Checklist'),
+ ('appendix-C-qc-checklist','C','QC Checklist'),
+ ('appendix-D-export-and-delivery-checklist','D','Export and Delivery Checklist'),
+ ('appendix-E-archive-and-cleanup-checklist','E','Archive and Cleanup Checklist'),
+ ('appendix-F-record-templates','F','Record Templates'),
+]
+
 DOCS = {
  'manual': dict(
-    dir='deliverables/technical-manual', out='technical-manual.html', accent='var(--brand-blue)',
+    dir='deliverables/technical-manual', out='technical-manual.html', accent='var(--brand-blue)', accent_on='var(--brand-white)',
     doctype='Technical Manual', docname='MX60 Mobile Mapping',
     title='MX60 Mobile Mapping Technical Manual',
     sub='Draft A · Evidence revision E1 · TBC 2026.10',
@@ -104,7 +149,7 @@ DOCS = {
           'moves on. Nothing here may be quoted to a client as an existing Parametrix standard.'),
  ),
  'sop': dict(
-    dir='deliverables/sop', out='sop.html', accent='var(--brand-orange)',
+    dir='deliverables/sop', out='sop.html', accent='var(--brand-orange)', accent_on='var(--brand-charcoal)',
     doctype='Standard Operating Procedure', docname='MX60 Mobile Mapping',
     title='MX60 Mobile Mapping SOP',
     sub='Draft A · Not issued · TBC 2026.10',
@@ -120,16 +165,26 @@ DOCS = {
           'Parametrix standard.'),
  ),
  'field': dict(
-    dir='deliverables/field-how-to', out='field-how-to.html', accent='var(--brand-green)',
+    dir='deliverables/field-how-to', out='field-how-to.html', accent='var(--brand-green)', accent_on='var(--brand-charcoal)',
     doctype='Field How To', docname='MX60 Mobile Mapping',
     title='MX60 Field How To', sub='Draft A · Not issued',
     order=None, lead='How to run the MX60 in the field.', stats=[], flag='',
  ),
  'office': dict(
-    dir='deliverables/office-how-to', out='office-how-to.html', accent='var(--brand-yellow)',
+    dir='deliverables/office-how-to', out='office-how-to.html', accent='var(--brand-yellow)', accent_on='var(--brand-charcoal)',
     doctype='Office How To', docname='MX60 Mobile Mapping',
-    title='MX60 Office How To', sub='Draft A · Not issued',
-    order=None, lead='How to process MX60 data in Trimble Business Center.', stats=[], flag='',
+    title='MX60 Office How To', sub='Draft A · Not issued · TBC 2026.10',
+    order=OFFICE_ORDER,
+    lead=('How to process MX60 data in Trimble Business Center, in the order you do it. '
+          'Every section answers four questions: what to do, what to look at, what to expect, '
+          'and what should make you stop.'),
+    stats=[('Sections','35 + 6 appendices'),('Words','15,800'),
+           ('Checklists','5'),('Record templates','5')],
+    flag=('<b>Read &ldquo;Stop if&rdquo; in every section.</b> Three mistakes cost more than all '
+          'the others and all three are silent: registration does not change the point cloud until '
+          '<b>Update Scans</b> runs; a good RMS does not prove the work succeeded; and '
+          '<b>Cleanup cannot be undone</b>. This guide cannot create a requirement &mdash; where it '
+          'differs from the SOP, the SOP governs.'),
  ),
 }
 
@@ -164,9 +219,16 @@ CALLOUTS = [
 
 def inline(t):
     t = html.escape(t, quote=False)
-    t = re.sub(r'`([^`]+)`', r'<code>\1</code>', t)
-    t = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', t)
+    # protect code spans: an identifier such as sbet_*_reg_####.out contains
+    # asterisks that must not be read as emphasis
+    code = []
+    def stash(m):
+        code.append(m.group(1)); return f'\x00{len(code)-1}\x00'
+    t = re.sub(r'`([^`]+)`', stash, t)
+    # non-greedy, so bold may contain italics or a stashed code span
+    t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
     t = re.sub(r'(?<![\*\w])\*([^*\n]+)\*(?!\*)', r'<em>\1</em>', t)
+    t = re.sub(r'\x00(\d+)\x00', lambda m: f'<code>{code[int(m.group(1))]}</code>', t)
     # (MX60 UG Rev B, p.54) -> citation
     t = re.sub(r'\(((?:MX60|Trimble|TMI|QSG|TMR|NCHRP|Rack|Dust|TBC|Queensland)[^()]*?(?:p\.|pp\.|§)[^()]*?)\)',
                r'<span class="cite">\1</span>', t)
@@ -222,19 +284,30 @@ def render(md, sec_id):
                     s = ' '.join(buf).strip()
                     if s: body.append(f'<p>{inline(s)}</p>')
                     buf.clear()
+            # list items may wrap over several lines; gather the raw text of an
+            # item before rendering it, so emphasis spanning a line break pairs up
+            item, item_cls = [], None
+            def flush_item():
+                if item:
+                    body.append(f'<p class="{item_cls}">{inline(" ".join(item))}</p>')
+                    item.clear()
             for ln in blk:
-                if not ln.strip(): flush(); continue
-                if re.match(r'^[-*]\s+', ln.strip()):
-                    flush()
-                    txt = re.sub(r'^[-*]\s+', '', ln.strip())
-                    body.append('<p class="co-li">' + inline(txt) + '</p>')
-                elif re.match(r'^\d+\.\s+', ln.strip()):
+                st = ln.strip()
+                if not st: flush_item(); flush(); continue
+                if re.match(r'^[-*]\s+', st):
+                    flush(); flush_item()
+                    item_cls = 'co-li'; item.append(re.sub(r'^[-*]\s+', '', st))
+                elif re.match(r'^\d+\.\s+', st):
                     # numbered item: keep the number, suppress the bullet marker
-                    flush(); body.append(f'<p class="co-li co-num">{inline(ln.strip())}</p>')
-                elif ln.strip().startswith('|'):
-                    flush(); body.append(f'<p>{inline(ln.strip().strip("|"))}</p>')
-                else: buf.append(ln.strip())
-            flush()
+                    flush(); flush_item()
+                    item_cls = 'co-li co-num'; item.append(st)
+                elif item and re.match(r'^\s{2,}\S', ln):
+                    item.append(st)                      # a continuation of the item
+                elif st.startswith('|'):
+                    flush_item(); flush(); body.append(f'<p>{inline(st.strip("|"))}</p>')
+                else:
+                    flush_item(); buf.append(st)
+            flush_item(); flush()
             out.append(f'<aside class="co co-{kind}">{head}{"".join(body)}</aside>')
             continue
 
@@ -249,18 +322,20 @@ def render(md, sec_id):
         if re.match(r'^\d+\.\s+', t):
             items = []
             while i < len(lines) and re.match(r'^\s*\d+\.\s+', lines[i]):
-                items.append(inline(re.sub(r'^\s*\d+\.\s+', '', lines[i]))); i += 1
+                raw = re.sub(r'^\s*\d+\.\s+', '', lines[i]); i += 1
                 while i < len(lines) and re.match(r'^\s{3,}\S', lines[i]) and not re.match(r'^\s*\d+\.', lines[i]):
-                    items[-1] += ' ' + inline(lines[i].strip()); i += 1
+                    raw += ' ' + lines[i].strip(); i += 1
+                items.append(inline(raw))
             out.append('<ol>' + ''.join(f'<li>{x}</li>' for x in items) + '</ol>')
             continue
 
         if re.match(r'^[-*]\s+', t):
             items = []
             while i < len(lines) and re.match(r'^\s*[-*]\s+', lines[i]):
-                items.append(inline(re.sub(r'^\s*[-*]\s+', '', lines[i]))); i += 1
+                raw = re.sub(r'^\s*[-*]\s+', '', lines[i]); i += 1
                 while i < len(lines) and re.match(r'^\s{3,}\S', lines[i]) and not re.match(r'^\s*[-*]', lines[i]):
-                    items[-1] += ' ' + inline(lines[i].strip()); i += 1
+                    raw += ' ' + lines[i].strip(); i += 1
+                items.append(inline(raw))
             out.append('<ul>' + ''.join(f'<li>{x}</li>' for x in items) + '</ul>')
             continue
 
@@ -367,6 +442,7 @@ page = (TPL.replace('{{LOGO}}', logo)
            .replace('{{DOCSUB}}', html.escape(CFG['sub']))
            .replace('{{LOGO_KO}}', logo_ko)
            .replace('{{IX}}', ixmark)
-           .replace('{{ACCENT}}', CFG['accent']))
+           .replace('{{ACCENT}}', CFG['accent'])
+           .replace('{{ACCENT_ON}}', CFG['accent_on']))
 OUT.write_text(page)
 print(f'{KEY:7} -> {OUT.name}  {len(page)/1024:.0f} KB  ·  {len(ORDER)} sections  ·  accent {CFG["accent"]}')

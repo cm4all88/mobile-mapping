@@ -76,7 +76,7 @@ alternate **the guide itself names**. No fourth typeface is introduced.
 |---|---|---|
 | **Title** | Klinic Slab, 44 px / 1.08, charcoal. Cover only. Followed by a red spacer arrow | brand p.16 · sizes extension |
 | **Subtitle** | Franklin Gothic, 19 px / 1.4, Medium Gray. 12 px below the Title | brand p.16 · extension |
-| **H1** | Section opener. Klinic Slab 32 px / 1.14, charcoal. The section number precedes it in Franklin Gothic, in the **document accent** colour. A red spacer arrow follows the heading | brand pp.16, 19 · extension |
+| **H1** | Section opener. Klinic Slab 32 px / 1.14, charcoal. The section number precedes it as a **filled chip in the document accent**, numeral knocked out in `--doc-accent-on`. A red spacer arrow follows the heading | brand pp.16, 19 · chip follows the guide's own page-number device · sizes extension |
 | **H2** | Franklin Gothic 22 px / 1.28, weight 600, charcoal. 40 px above, 12 px below, hairline rule above | brand p.16 · extension |
 | **H3** | Franklin Gothic 17.5 px / 1.3, weight 600. 28 px above, 8 px below | extension |
 | **H4** | Franklin Gothic 15 px / 1.3, weight 600, Medium Gray | extension |
@@ -96,7 +96,7 @@ alternate **the guide itself names**. No fourth typeface is introduced.
 | **Cross references** | `§n` or `§n.n` in body weight. Link-coloured on hover in HTML. **Never a bare "see above"** | project rule |
 | **Citations** | `*(TBC 22905)*` — 0.94 em, Medium Gray. Brackets neither added nor removed | project rule |
 | **Code and identifiers** | Monospace 0.92 em on Light Gray 4, 2 px horizontal pad. Filenames, paths and software identifiers only | extension |
-| **Header** | Running: document type left in the **document accent**, section number and title right, Franklin Gothic 11 px caps Medium Gray. A 1 px accent rule below | extension |
+| **Header** | Running: document type as a **filled accent chip**, section number and title in Franklin Gothic 11 px caps Medium Gray. A 1 px accent rule below | extension |
 | **Footer** | **ix formation at the bottom-left**, as the letterhead does. Left of centre: document identifier and revision. Right: page *n* of *n*, and `Not issued` while in draft | **brand p.23** · layout extension |
 | **Revision information** | Cover and footer. **The fields, their numbering convention and the approval block are document-control decisions, not branding** — see the note below | project rule |
 | **Appendix headings** | As H1; the letter replaces the number, and the word `APPENDIX` precedes it at 11 px in the document accent | extension |
@@ -115,8 +115,18 @@ alternate **the guide itself names**. No fourth typeface is introduced.
 All four are unmistakably one family: same logo, same palette, same typefaces, same callouts, same
 tables, same ix formation. One token differs.
 
-**`--doc-accent`** — one **secondary** colour per document, used for the section number, the
-document-type label, the header rule and the appendix letter. Nowhere else.
+**`--doc-accent`** — one **secondary** colour per document, used for the section number chip, the
+document-type chip, the header rule and the appendix letter. Nowhere else.
+
+It is applied as a **filled chip with knocked-out text**, not as coloured type. Two reasons, and
+both matter:
+
+- The guide numbers its own pages with a filled red square and a white numeral. A filled chip is
+  the brand's existing device, not a new one
+- As text on white, three of the four secondary colours fail ordinary contrast — Optimistic Yellow
+  at 1.6:1 is unreadable. On a chip, the ink is chosen per accent (`--doc-accent-on`): white on
+  Clean Blue at 5.0:1, charcoal on the other three at 4.3:1 to 7.7:1. **All four are legible, and
+  the treatment is identical across the family**
 
 | Document | Accent | Hex |
 |---|---|---|

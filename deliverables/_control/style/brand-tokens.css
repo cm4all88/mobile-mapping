@@ -87,6 +87,7 @@
        Technical Manual  Clean Blue        SOP           Progress Orange
        Field How To      Future Green      Office How To Optimistic Yellow  */
   --doc-accent:var(--brand-blue);
+  --doc-accent-on:var(--brand-white);   /* ink on the accent chip; see style-system.md §3 */
 
   /* --- scale ------------------------------------------------ [extension] */
   --base:17px;

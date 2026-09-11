@@ -53,7 +53,7 @@ operation, traffic control and site safety.
 > **Requirements live in the SOP. Steps live in the How To guides.**
 
 Where a Parametrix decision would resolve an open question, this manual **names the decision**
-— **D-*n*** — and moves on. It does not propose an answer.
+— **D-n** — and moves on. It does not propose an answer.
 
 ## 1.5 The four documents
 
