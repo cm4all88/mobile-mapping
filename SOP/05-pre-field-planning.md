@@ -276,7 +276,53 @@ Short baselines between base station and vehicle give the best positional outcom
 > achieved in areas of both good and poor GNSS coverage" *(Appendix F, p.32)*, which is
 > exactly what you need to know.
 
-## 5.7 Identify what mobile mapping will not get
+## 5.7 The calibration site
+
+Boresight calibration needs a **specific drive**, not a normal collection, and the site
+has to meet real geometric requirements. Plan it once and reuse it.
+
+**What the crew must collect** — four runs over one crossroad:
+
+| Run | Direction |
+|---|---|
+| Run_0 / Run_1 | Along the first road, forward and backward |
+| Run_2 / Run_3 | Along the crossing road, forward and backward |
+
+**Site requirements** *(TBC Help: Calibrate Mobile Mapping Laser Scanners)*:
+
+| Requirement | Value |
+|---|---|
+| Crossing angle | As near **90°** as possible, within **±30°** |
+| Run length | ≥ **20 m each side** of the crossing; ideally **80 m total, 40 m each side** |
+| Overlap | Sufficient between runs |
+| **Façades** | Present **in each direction**, in sufficient quantity |
+| Vegetation | **Few or none** |
+
+> **WHY THIS MATTERS**
+>
+> Boresight angles are solved by comparing the same surfaces seen from opposing
+> directions. Flat façades make an angular error show up as a visible gap between two
+> point clouds; pavement viewed at a grazing angle barely constrains it. The orthogonal
+> pair supplies the axes a single road cannot. Vegetation is excluded because soft,
+> non-repeating returns add noise to exactly that comparison.
+
+> **FIELD TIP**
+>
+> A quiet crossroad with buildings on all four approaches, few trees, and room for 40 m of
+> clean run each way is not common. Find one, record it, and use it every time.
+
+Section 12.3 covers what happens to the data afterwards.
+
+> **PARAMETRIX DECISION REQUIRED**
+>
+> Identify and record a standard Parametrix calibration site meeting the requirements
+> above.
+>
+> *Recommended practice:* scout one near the office, document it with an aerial image and
+> the four run lines, and note it in the field protocol whenever a calibration mission is
+> driven.
+
+## 5.8 Identify what mobile mapping will not get
 
 Do this at planning, not at delivery.
 
@@ -297,7 +343,7 @@ Walk the corridor on imagery and mark anything that will need conventional surve
 
 Section 13 covers the full picture of what the system can and cannot see.
 
-## 5.8 Planning checklist
+## 5.9 Planning checklist
 
 | ☐ | Item |
 |---|---|
@@ -315,6 +361,7 @@ Section 13 covers the full picture of what the system can and cannot see.
 | ☐ | Service level agreed — survey-grade or asset-grade |
 | ☐ | Control and check point plan set |
 | ☐ | Conventional supplementation identified and scoped |
+| ☐ | Calibration site identified, if a calibration mission is due |
 
 ---
 
@@ -324,5 +371,6 @@ Section 13 covers the full picture of what the system can and cannot see.
 |---|---|
 | Trimble MX60 User Guide, Rev B, May 2025 (P/N T001983) | 9, 49, 53, 56 |
 | Trimble MX60 Quick Start Guide, Rev B, March 2025 | 11, 14 |
+| Trimble Business Center Help: *Calibrate Mobile Mapping Laser Scanners* | help.fieldsystems.trimble.com/tbc/20716.htm |
 | Product Bulletin: Enabling the Dust Filter in TMI for MX60, January 2025 | 1 |
 | Queensland TMR, *Mobile Laser Scanning Technical Guideline*, March 2023 (CC BY 4.0) | §5.2 p.6; §7.2 p.8; §8 p.8; §8.1 pp.9–10; §8.2 p.10; §9.1 p.11; §9.3 p.12; §10 p.15; §11 p.17; App E p.31; App F p.32 |

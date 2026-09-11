@@ -137,49 +137,192 @@ point clouds overlaid on images for feature verification and object inspection
 Section 13 covers quality control. Delivery formats and archive policy are Parametrix
 decisions recorded in Section 11.
 
-## 12.3 Boresight calibration and the JSON file
+## 12.3 Boresight calibration
 
-Boresight calibration is where office processing feeds back into the field system.
+### What is actually being calibrated
 
-**The loop** *(TMI UG Rev L, pp.18, 20)*:
+A system calibration estimates where each sensor sits and how it is oriented relative to
+an internal virtual reference point inside the sensor head. Each sensor has two sets of
+offsets:
 
-1. Orientation values in the system are "good start" values
-2. They are refined in the office by a special processing called **boresight calibration**
-3. The result is saved to a **JSON file**
-4. That file is **imported back into the system** before the next missions:
-   - Copy the JSON to a USB memory stick
-   - Plug into the **USB1 socket** on the Control Unit
-   - `Settings → Calibration Import` → press Import next to the file name
+| Offset | What it is | Estimated? |
+|---|---|---|
+| **Lever arms** | Translation — X forward, Y right, **Z down** | **No — known for all sensors** |
+| **Boresight angles** | Rotation about those axes — roll, pitch, heading | **Yes — this is what calibration solves** |
+
+*(TBC Help: Calibrate Mobile Mapping Laser Scanners)*
+
+> **WHY THIS MATTERS**
+>
+> This is the point that makes the whole subject tractable. **You never measure the
+> scanners' positions** — Trimble knows where they are inside the head. What drifts, and
+> what calibration recovers, is the tiny **angular** misalignment between each scanner and
+> the inertial system.
+>
+> And per Section 13, angular error is the one that multiplies with range. A boresight
+> error of a few hundredths of a degree is invisible at the curb line and significant at
+> 50 m.
+
+Do not confuse these with the **vehicle** lever arms in Section 6. Those describe where
+GAMS and the DMI sit relative to the External Reference Point, and you do measure them.
+The sensor lever arms discussed here are internal to the head.
+
+### Where it happens
+
+**In TBC.** Trimble states that "up to the 5.21 version, laser scanners are calibrated out
+of the application and the calibration values are imported into TBC from a JSON format
+file," and that the *Calibrate Laser Scanners* feature now allows calibration inside TBC
+*(TBC Help: Calibrate Mobile Mapping Laser Scanners)*. The feature therefore arrived after
+5.21; the exact release is not stated.
 
 > **IMPORTANT**
 >
-> Until the JSON is imported, the system keeps using the old calibration. A boresight
-> calibration computed and left in the office improves nothing.
+> Both routes still exist, and which one applies depends on your TBC version:
+>
+> - **TBC after 5.21** — calibrate in TBC using *Calibrate Laser Scanners*, then **Apply**
+> - **TBC 5.21 and earlier** — calibrate outside TBC, then import the JSON via
+>   `Settings → Calibration Import` in TMI, from a USB stick in the **USB1** socket
+>   *(TMI UG Rev L, p.18)*
+>
+> Confirm which TBC version Parametrix runs before writing this into procedure.
 
-**How often?** Trimble does not state a frequency for the MX60. Queensland TMR does, and
-it is stricter than common practice:
+**This is office work.** Nothing is returned to Trimble and nothing is dismantled.
 
-> Boresight calibrations "shall occur immediately prior to any MLS capture for the
-> project and be performed again at the end of the project to ensure that the calibration
-> parameters have not changed during the project." If the system is disturbed or
-> disassembled and reassembled, another calibration shall be performed before further
-> capture.
-> *(TMR MLS Guideline §6, p.7)*
+### The calibration mission — what the field crew must collect
+
+This is the part that lands on the field crew, and it is a specific drive, not a normal
+collection.
+
+**Four runs over one crossroad:**
+
+| Run | Direction |
+|---|---|
+| Run_0 | Along the first road, forward |
+| Run_1 | Along the first road, backward |
+| Run_2 | Along the crossing road, forward |
+| Run_3 | Along the crossing road, backward |
+
+**Site requirements** *(TBC Help: Calibrate Mobile Mapping Laser Scanners)*:
+
+| Requirement | Detail |
+|---|---|
+| **Crossing angle** | As close to **90°** as possible, within **±30°** |
+| **Run length** | At least **20 m each side** of the crossing. **Ideally 80 m long — 40 m each side** |
+| **Overlap** | Enough overlap between runs |
+| **Façades** | **Present in each direction, in sufficient quantity** |
+| **Vegetation** | **Few or none, ideally** |
+
+> **WHY THIS MATTERS — why façades and why a crossing**
+>
+> Boresight angles are solved by comparing the same surfaces seen from different
+> directions. Flat vertical surfaces seen from two opposing passes make an angular error
+> show up as a visible gap between the two point clouds; pavement alone, viewed at a
+> grazing angle, barely constrains it.
+>
+> The orthogonal pair matters for the same reason in the other axis. A single road only
+> constrains the rotations that road's geometry is sensitive to — the crossing supplies
+> the rest.
+>
+> And vegetation is excluded because it gives soft, inconsistent returns that do not
+> repeat between passes, so it adds noise to exactly the comparison the solver depends on.
+
+> **FIELD TIP**
+>
+> Scout the calibration site once and reuse it. A quiet crossroad with buildings on all
+> four approaches, minimal trees, and room for 40 m of clean run each way is not common —
+> having a known good one saves an hour every time.
+
+### The TBC procedure
+
+1. Create a VCE project; set the coordinate system to match the mobile mapping data
+2. Import the `.mxdb`
+3. In **Project Explorer**, select a laser scanner under **Capture Devices**
+4. From the pop-up menu, choose **Calibrate Laser Scanners**
+5. Select the **four runs** (Run_0 – Run_3) of the same crossroad
+   — *fewer than four raises an error*
+6. Optionally **Toggle Active Trajectory** to see which runs intersect
+7. Optionally check **Open Cutting Plane View**
+8. Press **Compute** — this may take a while
+9. Review the results (below), and **perform the visual check**
+10. In the dialog, switch to **Run_2 <-> Run_3** and check that pair too
+11. Press **Apply**
+
+*(TBC Help: Calibrate Mobile Mapping Laser Scanners)*
+
+### Reading the result
+
+The dialog reports:
+
+| Output | Meaning |
+|---|---|
+| **Computed calibration values** | Heading, pitch and roll per laser scanner |
+| **Overall Overlap** | Percentage of points used against total points generated |
+| **Overall RMS** | Average of the RMS values between used scans |
+| **Per-pair Timestamps + 3 RMS values** | For each set of two parallel runs, over a 20 m section around the crossing |
+
+The three RMS directions are **Tangential**, **Orthogonal** and **Vertical** — how closely
+the parallel runs agree in each.
+
+> **CAUTION — the asymmetry that matters**
+>
+> **Good RMS values do not mean the calibration succeeded. A visual check is needed.**
+> Bad RMS values do mean it failed, and a visual check will confirm that.
+> *(TBC Help: Calibrate Mobile Mapping Laser Scanners)*
+>
+> So the numbers can only tell you when you have failed. They cannot tell you that you
+> have passed. **Never press Apply on RMS alone.**
+
+### The visual check
+
+With **Open Cutting Plane View** checked, a plane named *Mobile Mapping Cutting Plane*
+appears as a yellow plane in the 3D View at the start of the first run pair, and points
+intersecting it show as a profile in the Cutting Plane View tab.
+
+To use it well:
+
+- Set **rendering to Scan Color** so each scan draws in its own colour — this is what
+  makes a gap between passes obvious
+- Increase **Point Size** so thin surfaces read clearly
+- Adjust **cutting plane thickness** to control which points appear
+- **Drag the slider** along the run pair and watch the gap between the two scans at
+  several positions, not just one
+
+Then repeat for **Run_2 <-> Run_3**.
+
+> **FIELD TIP**
+>
+> You are looking for the two colours to sit on top of each other on flat surfaces —
+> especially building façades, which is why the site needs them. A consistent offset that
+> grows with distance from the vehicle is the signature of a residual angular error.
+
+### How often
+
+No Trimble document in our set states a frequency for the MX60. Queensland TMR, writing
+for any MLS system, requires calibration immediately before **and** again at the end of
+every project, plus any time the system is disturbed or reassembled
+*(TMR MLS Guideline §6, p.7)*.
 
 > **PARAMETRIX DECISION REQUIRED**
 >
-> Establish the boresight calibration policy: frequency, who performs it, what triggers an
-> unscheduled one, and how the JSON version in the system is tracked.
+> Set the boresight calibration policy: frequency, who performs it, what triggers an
+> unscheduled calibration, and how the calibration in force is recorded against each
+> mission.
 >
-> *Recommended practice:* calibrate on a defined interval and after any disturbance to the
-> Sensor Unit or rack. Record the JSON file version in the field protocol so every mission
-> can be traced to the calibration it was collected under. Note that if Parametrix removes
-> the Sensor Unit daily (Section 3), the question of what counts as "disturbed" needs an
-> explicit answer.
+> *Recommended practice:* calibrate on a defined interval and after any event that could
+> have disturbed the sensor head or rack. Record the calibration date and values in the
+> field protocol so any mission can be traced to the calibration it was collected under.
+> Establish one standard calibration site meeting the crossing requirements above.
 >
-> **This decision needs a procedure Parametrix does not currently have** — no document in
-> the collection describes *how* to perform an MX60 boresight calibration. Obtain it from
-> Trimble before adopting a policy that assumes it.
+> Two questions this needs answered first:
+>
+> - **Which TBC version** does Parametrix run? Versions after 5.21 calibrate in TBC;
+>   5.21 and earlier require the external-then-import route.
+> - **Does daily removal of the Sensor Unit count as "disturbed"?** If Parametrix follows
+>   Trimble's assumption and cases the head each night (Section 3), a literal reading of
+>   TMR would require calibration every day, which is not practical. A sensible position
+>   is that the fast-lock mount is repeatable and only rack disturbance or a suspected
+>   problem triggers recalibration — but that position should be tested against a
+>   calibration check, not assumed.
 
 ## 12.4 What this section still needs
 

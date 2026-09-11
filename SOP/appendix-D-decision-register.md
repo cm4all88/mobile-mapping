@@ -9,7 +9,7 @@ Every **PARAMETRIX DECISION REQUIRED** item in this SOP, consolidated.
 > Queensland TMR guideline, and NCHRP practice — they are **not** Parametrix standards
 > until formally adopted.
 
-**34 items.** Priority reflects what blocks first use of the system, not importance in the
+**35 items.** Priority reflects what blocks first use of the system, not importance in the
 abstract.
 
 | Priority | Meaning |
@@ -50,7 +50,7 @@ abstract.
 | 17 | 13 | **Useful range statement** with every deliverable? | Yes, every project. A few lines in the survey report; prevents the most common and expensive client misunderstanding |
 | 18 | 13 | **Imagery privacy** — blurring, access, delivery, retention, removal requests | Raw imagery internal and restricted. Blur faces and plates on anything delivered or published. Decide before the first project that publishes imagery |
 | 19 | 13 | **Who authorises recollection**, and how remobilisation cost is handled | Project surveyor decides, project manager informed before mobilising. Record the cause — a pattern is a training or equipment signal |
-| 20 | 12 | **Boresight calibration policy** — frequency, who, triggers, JSON version tracking | Defined interval plus after any disturbance. Record the JSON version in the field protocol. **Blocked: no MX60 boresight procedure exists in our sources — obtain it from Trimble first** |
+| 20 | 5, 12 | **Boresight calibration policy** — frequency, who performs it, what triggers an unscheduled one, and how the calibration in force is recorded | Defined interval plus after any event that could disturb the sensor head or rack. Record calibration date and values in the field protocol. Establish a standard calibration site (§5.7). **Two answers needed first: which TBC version Parametrix runs, and whether daily Sensor Unit removal counts as "disturbed"** |
 | 21 | — | **Document control** — owner, number, approval authority, review cycle, controlled copy | Owner in the survey technology group; approval by a licensed professional surveyor; annual review or on any new Trimble revision |
 
 ---
@@ -60,29 +60,31 @@ abstract.
 | # | § | Decision | Recommended |
 |---|---|---|---|
 | 22 | 3 | **Is the Sensor Unit removed and cased daily?** | Yes — follow Trimble's assumption. Protects an expensive item from weather, theft and clearance accidents. Note this means GAMS comes off too, so its lever arm is re-measured each morning |
-| 23 | 5 | **Night collection** — when permitted, safety measures, client handling | Permit where imagery is not a deliverable and parked-vehicle occlusion would otherwise force recollection. Agree with the client in advance — imagery **will** be unusable |
-| 24 | 6 | **How second-person torque verification is recorded** | Dated sign-off on the installation record naming both people. Repeat after any disassembly |
-| 25 | 7 | **Factory user-accuracy defaults, or Parametrix values?** Who may change them | Use factory defaults. Restrict changes to named trained personnel; record any change in the field protocol — a mission on altered thresholds is not comparable to one on defaults |
-| 26 | 7 | **Standard capture presets and naming** | Build named presets in advance — corridor, dust, urban — and export to file as a backup and for replication to a second system |
-| 27 | 7 | **Rule for proceeding past a disk Warning or Error** | Never start a production mission on Error. Treat Warning as grounds for swapping the disk before a long collection |
-| 28 | 8 | **Full manoeuvre sequence even with GAMS fitted?** | Perform it anyway. Costs minutes, matches the Quick Start checklist, and gives the office strong initialization at both ends regardless |
-| 29 | 8 | **Re-initialization triggers** | After NAV degradation not recovered in a few minutes of open sky; after any outage materially longer than 60 s if critical data follows; whenever a mission has been closed. Record every initialization |
-| 30 | 11 | **Retention and archive policy** — who may authorise deletion of raw data | Never deleted by the project team. Deletion requires survey technology group owner sign-off after the retention period |
-| 31 | 11 | **Chain of custody** — when formal handling applies | Standard projects: field protocol and dated backups suffice. Litigation or forensic work: documented chain from the moment disks leave the vehicle, with checksums |
-| 32 | 11 | **How many SSD sets in circulation** | At least one spare. A single set means the crew cannot mobilise until the previous offload verifies — which is exactly the pressure that causes someone to skip verification |
-| 33 | 13 | **Periodic system verification** using Trimble's retro-reflective target check | Permanent target array at a Parametrix facility, surveyed conventionally. Quarterly, before major campaigns, and after any disturbance. Retain results as a trend |
-| 34 | 14 | **Field escalation path**, and who may grant Trimble remote access | Operator contacts the survey technology group owner, who decides on Trimble contact. Remote access needs that owner's approval after confirming no client-confidential data is on the system |
+| 23 | 5 | **Standard calibration site** — identify and record one meeting the §12.3 crossing requirements | Scout one near the office; document with an aerial image and the four run lines; note it in the field protocol whenever a calibration mission is driven |
+| 24 | 5 | **Night collection** — when permitted, safety measures, client handling | Permit where imagery is not a deliverable and parked-vehicle occlusion would otherwise force recollection. Agree with the client in advance — imagery **will** be unusable |
+| 25 | 6 | **How second-person torque verification is recorded** | Dated sign-off on the installation record naming both people. Repeat after any disassembly |
+| 26 | 7 | **Factory user-accuracy defaults, or Parametrix values?** Who may change them | Use factory defaults. Restrict changes to named trained personnel; record any change in the field protocol — a mission on altered thresholds is not comparable to one on defaults |
+| 27 | 7 | **Standard capture presets and naming** | Build named presets in advance — corridor, dust, urban — and export to file as a backup and for replication to a second system |
+| 28 | 7 | **Rule for proceeding past a disk Warning or Error** | Never start a production mission on Error. Treat Warning as grounds for swapping the disk before a long collection |
+| 29 | 8 | **Full manoeuvre sequence even with GAMS fitted?** | Perform it anyway. Costs minutes, matches the Quick Start checklist, and gives the office strong initialization at both ends regardless |
+| 30 | 8 | **Re-initialization triggers** | After NAV degradation not recovered in a few minutes of open sky; after any outage materially longer than 60 s if critical data follows; whenever a mission has been closed. Record every initialization |
+| 31 | 11 | **Retention and archive policy** — who may authorise deletion of raw data | Never deleted by the project team. Deletion requires survey technology group owner sign-off after the retention period |
+| 32 | 11 | **Chain of custody** — when formal handling applies | Standard projects: field protocol and dated backups suffice. Litigation or forensic work: documented chain from the moment disks leave the vehicle, with checksums |
+| 33 | 11 | **How many SSD sets in circulation** | At least one spare. A single set means the crew cannot mobilise until the previous offload verifies — which is exactly the pressure that causes someone to skip verification |
+| 34 | 13 | **Periodic system verification** using Trimble's retro-reflective target check | Permanent target array at a Parametrix facility, surveyed conventionally. Quarterly, before major campaigns, and after any disturbance. Retain results as a trend |
+| 35 | 14 | **Field escalation path**, and who may grant Trimble remote access | Operator contacts the survey technology group owner, who decides on Trimble contact. Remote access needs that owner's approval after confirming no client-confidential data is on the system |
 
 ---
 
 ## Blocked pending Trimble documentation
 
-Two items cannot be settled from the current source set:
+One item remains blocked. **Boresight calibration is no longer among them** — the procedure
+is documented at §12.3, sourced from TBC Help.
 
-| # | Blocker | Needed |
-|---|---|---|
-| 20 | Boresight calibration policy | **No document in the collection describes how to perform an MX60 boresight calibration.** The TMI guide covers importing the resulting JSON, not producing it |
-| — | Section 12 office procedure | Current TBC mobile mapping documentation. The supplied Technical Notes is October 2022 and predates MX60 support |
+| Blocker | Needed |
+|---|---|
+| Section 12 office procedure | Current TBC mobile mapping documentation covering import, trajectory processing, registration and export for the MX60. The supplied Technical Notes is October 2022 and predates MX60 support |
+
 
 ---
 

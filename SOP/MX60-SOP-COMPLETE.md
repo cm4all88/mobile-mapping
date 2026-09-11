@@ -1244,7 +1244,53 @@ Short baselines between base station and vehicle give the best positional outcom
 > achieved in areas of both good and poor GNSS coverage" *(Appendix F, p.32)*, which is
 > exactly what you need to know.
 
-## 5.7 Identify what mobile mapping will not get
+## 5.7 The calibration site
+
+Boresight calibration needs a **specific drive**, not a normal collection, and the site
+has to meet real geometric requirements. Plan it once and reuse it.
+
+**What the crew must collect** — four runs over one crossroad:
+
+| Run | Direction |
+|---|---|
+| Run_0 / Run_1 | Along the first road, forward and backward |
+| Run_2 / Run_3 | Along the crossing road, forward and backward |
+
+**Site requirements** *(TBC Help: Calibrate Mobile Mapping Laser Scanners)*:
+
+| Requirement | Value |
+|---|---|
+| Crossing angle | As near **90°** as possible, within **±30°** |
+| Run length | ≥ **20 m each side** of the crossing; ideally **80 m total, 40 m each side** |
+| Overlap | Sufficient between runs |
+| **Façades** | Present **in each direction**, in sufficient quantity |
+| Vegetation | **Few or none** |
+
+> **WHY THIS MATTERS**
+>
+> Boresight angles are solved by comparing the same surfaces seen from opposing
+> directions. Flat façades make an angular error show up as a visible gap between two
+> point clouds; pavement viewed at a grazing angle barely constrains it. The orthogonal
+> pair supplies the axes a single road cannot. Vegetation is excluded because soft,
+> non-repeating returns add noise to exactly that comparison.
+
+> **FIELD TIP**
+>
+> A quiet crossroad with buildings on all four approaches, few trees, and room for 40 m of
+> clean run each way is not common. Find one, record it, and use it every time.
+
+Section 12.3 covers what happens to the data afterwards.
+
+> **PARAMETRIX DECISION REQUIRED**
+>
+> Identify and record a standard Parametrix calibration site meeting the requirements
+> above.
+>
+> *Recommended practice:* scout one near the office, document it with an aerial image and
+> the four run lines, and note it in the field protocol whenever a calibration mission is
+> driven.
+
+## 5.8 Identify what mobile mapping will not get
 
 Do this at planning, not at delivery.
 
@@ -1265,7 +1311,7 @@ Walk the corridor on imagery and mark anything that will need conventional surve
 
 Section 13 covers the full picture of what the system can and cannot see.
 
-## 5.8 Planning checklist
+## 5.9 Planning checklist
 
 | ☐ | Item |
 |---|---|
@@ -1283,6 +1329,7 @@ Section 13 covers the full picture of what the system can and cannot see.
 | ☐ | Service level agreed — survey-grade or asset-grade |
 | ☐ | Control and check point plan set |
 | ☐ | Conventional supplementation identified and scoped |
+| ☐ | Calibration site identified, if a calibration mission is due |
 
 ---
 
@@ -1292,6 +1339,7 @@ Section 13 covers the full picture of what the system can and cannot see.
 |---|---|
 | Trimble MX60 User Guide, Rev B, May 2025 (P/N T001983) | 9, 49, 53, 56 |
 | Trimble MX60 Quick Start Guide, Rev B, March 2025 | 11, 14 |
+| Trimble Business Center Help: *Calibrate Mobile Mapping Laser Scanners* | help.fieldsystems.trimble.com/tbc/20716.htm |
 | Product Bulletin: Enabling the Dust Filter in TMI for MX60, January 2025 | 1 |
 | Queensland TMR, *Mobile Laser Scanning Technical Guideline*, March 2023 (CC BY 4.0) | §5.2 p.6; §7.2 p.8; §8 p.8; §8.1 pp.9–10; §8.2 p.10; §9.1 p.11; §9.3 p.12; §10 p.15; §11 p.17; App E p.31; App F p.32 |
 
@@ -3078,49 +3126,192 @@ point clouds overlaid on images for feature verification and object inspection
 Section 13 covers quality control. Delivery formats and archive policy are Parametrix
 decisions recorded in Section 11.
 
-## 12.3 Boresight calibration and the JSON file
+## 12.3 Boresight calibration
 
-Boresight calibration is where office processing feeds back into the field system.
+### What is actually being calibrated
 
-**The loop** *(TMI UG Rev L, pp.18, 20)*:
+A system calibration estimates where each sensor sits and how it is oriented relative to
+an internal virtual reference point inside the sensor head. Each sensor has two sets of
+offsets:
 
-1. Orientation values in the system are "good start" values
-2. They are refined in the office by a special processing called **boresight calibration**
-3. The result is saved to a **JSON file**
-4. That file is **imported back into the system** before the next missions:
-   - Copy the JSON to a USB memory stick
-   - Plug into the **USB1 socket** on the Control Unit
-   - `Settings → Calibration Import` → press Import next to the file name
+| Offset | What it is | Estimated? |
+|---|---|---|
+| **Lever arms** | Translation — X forward, Y right, **Z down** | **No — known for all sensors** |
+| **Boresight angles** | Rotation about those axes — roll, pitch, heading | **Yes — this is what calibration solves** |
+
+*(TBC Help: Calibrate Mobile Mapping Laser Scanners)*
+
+> **WHY THIS MATTERS**
+>
+> This is the point that makes the whole subject tractable. **You never measure the
+> scanners' positions** — Trimble knows where they are inside the head. What drifts, and
+> what calibration recovers, is the tiny **angular** misalignment between each scanner and
+> the inertial system.
+>
+> And per Section 13, angular error is the one that multiplies with range. A boresight
+> error of a few hundredths of a degree is invisible at the curb line and significant at
+> 50 m.
+
+Do not confuse these with the **vehicle** lever arms in Section 6. Those describe where
+GAMS and the DMI sit relative to the External Reference Point, and you do measure them.
+The sensor lever arms discussed here are internal to the head.
+
+### Where it happens
+
+**In TBC.** Trimble states that "up to the 5.21 version, laser scanners are calibrated out
+of the application and the calibration values are imported into TBC from a JSON format
+file," and that the *Calibrate Laser Scanners* feature now allows calibration inside TBC
+*(TBC Help: Calibrate Mobile Mapping Laser Scanners)*. The feature therefore arrived after
+5.21; the exact release is not stated.
 
 > **IMPORTANT**
 >
-> Until the JSON is imported, the system keeps using the old calibration. A boresight
-> calibration computed and left in the office improves nothing.
+> Both routes still exist, and which one applies depends on your TBC version:
+>
+> - **TBC after 5.21** — calibrate in TBC using *Calibrate Laser Scanners*, then **Apply**
+> - **TBC 5.21 and earlier** — calibrate outside TBC, then import the JSON via
+>   `Settings → Calibration Import` in TMI, from a USB stick in the **USB1** socket
+>   *(TMI UG Rev L, p.18)*
+>
+> Confirm which TBC version Parametrix runs before writing this into procedure.
 
-**How often?** Trimble does not state a frequency for the MX60. Queensland TMR does, and
-it is stricter than common practice:
+**This is office work.** Nothing is returned to Trimble and nothing is dismantled.
 
-> Boresight calibrations "shall occur immediately prior to any MLS capture for the
-> project and be performed again at the end of the project to ensure that the calibration
-> parameters have not changed during the project." If the system is disturbed or
-> disassembled and reassembled, another calibration shall be performed before further
-> capture.
-> *(TMR MLS Guideline §6, p.7)*
+### The calibration mission — what the field crew must collect
+
+This is the part that lands on the field crew, and it is a specific drive, not a normal
+collection.
+
+**Four runs over one crossroad:**
+
+| Run | Direction |
+|---|---|
+| Run_0 | Along the first road, forward |
+| Run_1 | Along the first road, backward |
+| Run_2 | Along the crossing road, forward |
+| Run_3 | Along the crossing road, backward |
+
+**Site requirements** *(TBC Help: Calibrate Mobile Mapping Laser Scanners)*:
+
+| Requirement | Detail |
+|---|---|
+| **Crossing angle** | As close to **90°** as possible, within **±30°** |
+| **Run length** | At least **20 m each side** of the crossing. **Ideally 80 m long — 40 m each side** |
+| **Overlap** | Enough overlap between runs |
+| **Façades** | **Present in each direction, in sufficient quantity** |
+| **Vegetation** | **Few or none, ideally** |
+
+> **WHY THIS MATTERS — why façades and why a crossing**
+>
+> Boresight angles are solved by comparing the same surfaces seen from different
+> directions. Flat vertical surfaces seen from two opposing passes make an angular error
+> show up as a visible gap between the two point clouds; pavement alone, viewed at a
+> grazing angle, barely constrains it.
+>
+> The orthogonal pair matters for the same reason in the other axis. A single road only
+> constrains the rotations that road's geometry is sensitive to — the crossing supplies
+> the rest.
+>
+> And vegetation is excluded because it gives soft, inconsistent returns that do not
+> repeat between passes, so it adds noise to exactly the comparison the solver depends on.
+
+> **FIELD TIP**
+>
+> Scout the calibration site once and reuse it. A quiet crossroad with buildings on all
+> four approaches, minimal trees, and room for 40 m of clean run each way is not common —
+> having a known good one saves an hour every time.
+
+### The TBC procedure
+
+1. Create a VCE project; set the coordinate system to match the mobile mapping data
+2. Import the `.mxdb`
+3. In **Project Explorer**, select a laser scanner under **Capture Devices**
+4. From the pop-up menu, choose **Calibrate Laser Scanners**
+5. Select the **four runs** (Run_0 – Run_3) of the same crossroad
+   — *fewer than four raises an error*
+6. Optionally **Toggle Active Trajectory** to see which runs intersect
+7. Optionally check **Open Cutting Plane View**
+8. Press **Compute** — this may take a while
+9. Review the results (below), and **perform the visual check**
+10. In the dialog, switch to **Run_2 <-> Run_3** and check that pair too
+11. Press **Apply**
+
+*(TBC Help: Calibrate Mobile Mapping Laser Scanners)*
+
+### Reading the result
+
+The dialog reports:
+
+| Output | Meaning |
+|---|---|
+| **Computed calibration values** | Heading, pitch and roll per laser scanner |
+| **Overall Overlap** | Percentage of points used against total points generated |
+| **Overall RMS** | Average of the RMS values between used scans |
+| **Per-pair Timestamps + 3 RMS values** | For each set of two parallel runs, over a 20 m section around the crossing |
+
+The three RMS directions are **Tangential**, **Orthogonal** and **Vertical** — how closely
+the parallel runs agree in each.
+
+> **CAUTION — the asymmetry that matters**
+>
+> **Good RMS values do not mean the calibration succeeded. A visual check is needed.**
+> Bad RMS values do mean it failed, and a visual check will confirm that.
+> *(TBC Help: Calibrate Mobile Mapping Laser Scanners)*
+>
+> So the numbers can only tell you when you have failed. They cannot tell you that you
+> have passed. **Never press Apply on RMS alone.**
+
+### The visual check
+
+With **Open Cutting Plane View** checked, a plane named *Mobile Mapping Cutting Plane*
+appears as a yellow plane in the 3D View at the start of the first run pair, and points
+intersecting it show as a profile in the Cutting Plane View tab.
+
+To use it well:
+
+- Set **rendering to Scan Color** so each scan draws in its own colour — this is what
+  makes a gap between passes obvious
+- Increase **Point Size** so thin surfaces read clearly
+- Adjust **cutting plane thickness** to control which points appear
+- **Drag the slider** along the run pair and watch the gap between the two scans at
+  several positions, not just one
+
+Then repeat for **Run_2 <-> Run_3**.
+
+> **FIELD TIP**
+>
+> You are looking for the two colours to sit on top of each other on flat surfaces —
+> especially building façades, which is why the site needs them. A consistent offset that
+> grows with distance from the vehicle is the signature of a residual angular error.
+
+### How often
+
+No Trimble document in our set states a frequency for the MX60. Queensland TMR, writing
+for any MLS system, requires calibration immediately before **and** again at the end of
+every project, plus any time the system is disturbed or reassembled
+*(TMR MLS Guideline §6, p.7)*.
 
 > **PARAMETRIX DECISION REQUIRED**
 >
-> Establish the boresight calibration policy: frequency, who performs it, what triggers an
-> unscheduled one, and how the JSON version in the system is tracked.
+> Set the boresight calibration policy: frequency, who performs it, what triggers an
+> unscheduled calibration, and how the calibration in force is recorded against each
+> mission.
 >
-> *Recommended practice:* calibrate on a defined interval and after any disturbance to the
-> Sensor Unit or rack. Record the JSON file version in the field protocol so every mission
-> can be traced to the calibration it was collected under. Note that if Parametrix removes
-> the Sensor Unit daily (Section 3), the question of what counts as "disturbed" needs an
-> explicit answer.
+> *Recommended practice:* calibrate on a defined interval and after any event that could
+> have disturbed the sensor head or rack. Record the calibration date and values in the
+> field protocol so any mission can be traced to the calibration it was collected under.
+> Establish one standard calibration site meeting the crossing requirements above.
 >
-> **This decision needs a procedure Parametrix does not currently have** — no document in
-> the collection describes *how* to perform an MX60 boresight calibration. Obtain it from
-> Trimble before adopting a policy that assumes it.
+> Two questions this needs answered first:
+>
+> - **Which TBC version** does Parametrix run? Versions after 5.21 calibrate in TBC;
+>   5.21 and earlier require the external-then-import route.
+> - **Does daily removal of the Sensor Unit count as "disturbed"?** If Parametrix follows
+>   Trimble's assumption and cases the head each night (Section 3), a literal reading of
+>   TMR would require calibration every day, which is not practical. A sensible position
+>   is that the fast-lock mount is repeatable and only rack disturbance or a suspected
+>   problem triggers recalibration — but that position should be tested against a
+>   calibration check, not assumed.
 
 ## 12.4 What this section still needs
 
@@ -4564,7 +4755,7 @@ Every **PARAMETRIX DECISION REQUIRED** item in this SOP, consolidated.
 > Queensland TMR guideline, and NCHRP practice — they are **not** Parametrix standards
 > until formally adopted.
 
-**34 items.** Priority reflects what blocks first use of the system, not importance in the
+**35 items.** Priority reflects what blocks first use of the system, not importance in the
 abstract.
 
 | Priority | Meaning |
@@ -4605,7 +4796,7 @@ abstract.
 | 17 | 13 | **Useful range statement** with every deliverable? | Yes, every project. A few lines in the survey report; prevents the most common and expensive client misunderstanding |
 | 18 | 13 | **Imagery privacy** — blurring, access, delivery, retention, removal requests | Raw imagery internal and restricted. Blur faces and plates on anything delivered or published. Decide before the first project that publishes imagery |
 | 19 | 13 | **Who authorises recollection**, and how remobilisation cost is handled | Project surveyor decides, project manager informed before mobilising. Record the cause — a pattern is a training or equipment signal |
-| 20 | 12 | **Boresight calibration policy** — frequency, who, triggers, JSON version tracking | Defined interval plus after any disturbance. Record the JSON version in the field protocol. **Blocked: no MX60 boresight procedure exists in our sources — obtain it from Trimble first** |
+| 20 | 5, 12 | **Boresight calibration policy** — frequency, who performs it, what triggers an unscheduled one, and how the calibration in force is recorded | Defined interval plus after any event that could disturb the sensor head or rack. Record calibration date and values in the field protocol. Establish a standard calibration site (§5.7). **Two answers needed first: which TBC version Parametrix runs, and whether daily Sensor Unit removal counts as "disturbed"** |
 | 21 | — | **Document control** — owner, number, approval authority, review cycle, controlled copy | Owner in the survey technology group; approval by a licensed professional surveyor; annual review or on any new Trimble revision |
 
 ---
@@ -4615,29 +4806,31 @@ abstract.
 | # | § | Decision | Recommended |
 |---|---|---|---|
 | 22 | 3 | **Is the Sensor Unit removed and cased daily?** | Yes — follow Trimble's assumption. Protects an expensive item from weather, theft and clearance accidents. Note this means GAMS comes off too, so its lever arm is re-measured each morning |
-| 23 | 5 | **Night collection** — when permitted, safety measures, client handling | Permit where imagery is not a deliverable and parked-vehicle occlusion would otherwise force recollection. Agree with the client in advance — imagery **will** be unusable |
-| 24 | 6 | **How second-person torque verification is recorded** | Dated sign-off on the installation record naming both people. Repeat after any disassembly |
-| 25 | 7 | **Factory user-accuracy defaults, or Parametrix values?** Who may change them | Use factory defaults. Restrict changes to named trained personnel; record any change in the field protocol — a mission on altered thresholds is not comparable to one on defaults |
-| 26 | 7 | **Standard capture presets and naming** | Build named presets in advance — corridor, dust, urban — and export to file as a backup and for replication to a second system |
-| 27 | 7 | **Rule for proceeding past a disk Warning or Error** | Never start a production mission on Error. Treat Warning as grounds for swapping the disk before a long collection |
-| 28 | 8 | **Full manoeuvre sequence even with GAMS fitted?** | Perform it anyway. Costs minutes, matches the Quick Start checklist, and gives the office strong initialization at both ends regardless |
-| 29 | 8 | **Re-initialization triggers** | After NAV degradation not recovered in a few minutes of open sky; after any outage materially longer than 60 s if critical data follows; whenever a mission has been closed. Record every initialization |
-| 30 | 11 | **Retention and archive policy** — who may authorise deletion of raw data | Never deleted by the project team. Deletion requires survey technology group owner sign-off after the retention period |
-| 31 | 11 | **Chain of custody** — when formal handling applies | Standard projects: field protocol and dated backups suffice. Litigation or forensic work: documented chain from the moment disks leave the vehicle, with checksums |
-| 32 | 11 | **How many SSD sets in circulation** | At least one spare. A single set means the crew cannot mobilise until the previous offload verifies — which is exactly the pressure that causes someone to skip verification |
-| 33 | 13 | **Periodic system verification** using Trimble's retro-reflective target check | Permanent target array at a Parametrix facility, surveyed conventionally. Quarterly, before major campaigns, and after any disturbance. Retain results as a trend |
-| 34 | 14 | **Field escalation path**, and who may grant Trimble remote access | Operator contacts the survey technology group owner, who decides on Trimble contact. Remote access needs that owner's approval after confirming no client-confidential data is on the system |
+| 23 | 5 | **Standard calibration site** — identify and record one meeting the §12.3 crossing requirements | Scout one near the office; document with an aerial image and the four run lines; note it in the field protocol whenever a calibration mission is driven |
+| 24 | 5 | **Night collection** — when permitted, safety measures, client handling | Permit where imagery is not a deliverable and parked-vehicle occlusion would otherwise force recollection. Agree with the client in advance — imagery **will** be unusable |
+| 25 | 6 | **How second-person torque verification is recorded** | Dated sign-off on the installation record naming both people. Repeat after any disassembly |
+| 26 | 7 | **Factory user-accuracy defaults, or Parametrix values?** Who may change them | Use factory defaults. Restrict changes to named trained personnel; record any change in the field protocol — a mission on altered thresholds is not comparable to one on defaults |
+| 27 | 7 | **Standard capture presets and naming** | Build named presets in advance — corridor, dust, urban — and export to file as a backup and for replication to a second system |
+| 28 | 7 | **Rule for proceeding past a disk Warning or Error** | Never start a production mission on Error. Treat Warning as grounds for swapping the disk before a long collection |
+| 29 | 8 | **Full manoeuvre sequence even with GAMS fitted?** | Perform it anyway. Costs minutes, matches the Quick Start checklist, and gives the office strong initialization at both ends regardless |
+| 30 | 8 | **Re-initialization triggers** | After NAV degradation not recovered in a few minutes of open sky; after any outage materially longer than 60 s if critical data follows; whenever a mission has been closed. Record every initialization |
+| 31 | 11 | **Retention and archive policy** — who may authorise deletion of raw data | Never deleted by the project team. Deletion requires survey technology group owner sign-off after the retention period |
+| 32 | 11 | **Chain of custody** — when formal handling applies | Standard projects: field protocol and dated backups suffice. Litigation or forensic work: documented chain from the moment disks leave the vehicle, with checksums |
+| 33 | 11 | **How many SSD sets in circulation** | At least one spare. A single set means the crew cannot mobilise until the previous offload verifies — which is exactly the pressure that causes someone to skip verification |
+| 34 | 13 | **Periodic system verification** using Trimble's retro-reflective target check | Permanent target array at a Parametrix facility, surveyed conventionally. Quarterly, before major campaigns, and after any disturbance. Retain results as a trend |
+| 35 | 14 | **Field escalation path**, and who may grant Trimble remote access | Operator contacts the survey technology group owner, who decides on Trimble contact. Remote access needs that owner's approval after confirming no client-confidential data is on the system |
 
 ---
 
 ## Blocked pending Trimble documentation
 
-Two items cannot be settled from the current source set:
+One item remains blocked. **Boresight calibration is no longer among them** — the procedure
+is documented at §12.3, sourced from TBC Help.
 
-| # | Blocker | Needed |
-|---|---|---|
-| 20 | Boresight calibration policy | **No document in the collection describes how to perform an MX60 boresight calibration.** The TMI guide covers importing the resulting JSON, not producing it |
-| — | Section 12 office procedure | Current TBC mobile mapping documentation. The supplied Technical Notes is October 2022 and predates MX60 support |
+| Blocker | Needed |
+|---|---|
+| Section 12 office procedure | Current TBC mobile mapping documentation covering import, trajectory processing, registration and export for the MX60. The supplied Technical Notes is October 2022 and predates MX60 support |
+
 
 ---
 

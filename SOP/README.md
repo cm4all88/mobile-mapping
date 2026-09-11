@@ -18,13 +18,13 @@
 | 9 | [Collecting Data and Monitoring](09-collecting-and-monitoring.md) | Draft |
 | 10 | [Ending a Collection](10-ending-a-collection.md) | Draft |
 | 11 | [Data Handling](11-data-handling.md) | Draft |
-| 12 | [Office Workflow](12-office-workflow.md) | Draft — overview only; TBC Technical Notes (2022) predates MX60 support |
+| 12 | [Office Workflow](12-office-workflow.md) | Draft — calibration procedure complete; remaining workflow is overview only |
 | 13 | [Quality, Control and Limits](13-quality-control-and-limits.md) | Draft |
 | 14 | [Troubleshooting](14-troubleshooting.md) | Draft |
 | A | [Field Checklist](appendix-A-field-checklist.md) | Draft |
 | B | [TMI Status and Warning Reference](appendix-B-tmi-status-reference.md) | Draft |
 | C | [Glossary](appendix-C-glossary.md) | Draft |
-| D | [Parametrix Decision Register](appendix-D-decision-register.md) | Draft — **34 open items** |
+| D | [Parametrix Decision Register](appendix-D-decision-register.md) | Draft — **35 open items** |
 | E | [First Day Training Exercise](appendix-E-training-exercise.md) | Draft |
 | — | [**Assembled document**](MX60-SOP-COMPLETE.md) | All sections in one file (~37,000 words) |
 
@@ -34,7 +34,7 @@ and QC are told once in Section 13 rather than five times across five sections.
 
 ## Reference data
 
-`../reference/mx60-reference-data.csv` — 272 structured records of every specification,
+`../reference/mx60-reference-data.csv` — 293 structured records of every specification,
 limit, requirement, warning, procedure and setting drawn from the Trimble sources.
 
 Each row carries: `id`, `category`, `topic`, `item`, `value`, `notes`, `source`, `page`,
@@ -57,6 +57,7 @@ Categories: `spec` · `limit` · `requirement` · `warning` · `procedure` · `s
 | Trimble MX Shock Absorbing Mounting Rack User Guide | Rev B, May 2025 (P/N 37000001) | 10 |
 | Product Bulletin: Enabling the Dust Filter in TMI for MX60 | January 2025 | 3 |
 | Trimble Business Center Technical Notes: For Mobile Mapping | October 2022 | 8 |
+| TBC Help: *Calibrate Mobile Mapping Laser Scanners* | [help.fieldsystems.trimble.com/tbc/20716.htm](https://help.fieldsystems.trimble.com/tbc/20716.htm) | — |
 | Queensland TMR, Mobile Laser Scanning Technical Guideline | March 2023 (CC BY 4.0) | 65 |
 | NCHRP Synthesis: Practices for Collecting, Managing, and Using Lidar Data | 2024 | 211 |
 
@@ -64,15 +65,15 @@ Full assessment: [`../analysis/STAGE-1-SOURCE-ANALYSIS.md`](../analysis/STAGE-1-
 
 ## Open decisions
 
-**34 PARAMETRIX DECISION REQUIRED items** are consolidated in
+**35 PARAMETRIX DECISION REQUIRED items** are consolidated in
 [Appendix D](appendix-D-decision-register.md), prioritised P1/P2/P3. Eleven P1 items block
 first production use. Nothing in the register is current Parametrix policy.
 
 ## Still needed
 
-- **Current TBC mobile mapping documentation.** The supplied TBC Technical Notes is dated
-  October 2022 and lists raw import from MX7/MX50/MX9 only — MX60 support reached TMI in
-  December 2024. Section 12 can describe the workflow shape but not current procedure.
+- **Current TBC mobile mapping documentation** for import, trajectory processing,
+  registration and export. The supplied Technical Notes is October 2022 and predates MX60
+  support. *(Boresight calibration is no longer missing — see §12.3.)*
 - **Trimble GAMS Antenna Kit** and **DMI Installation & Operation** manuals, if those
   accessories are fitted.
 - **Parametrix logo in vector form.** Raster PNGs are in `../brand/`; vector (SVG/EPS)

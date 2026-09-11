@@ -8,7 +8,18 @@ Contact: `mx_support@trimble.com` · Americas +1-289-695-4416
 
 ---
 
-## 1. Boresight calibration — the actual blocker
+## 1. Boresight calibration — ANSWERED, see note
+
+> **Resolved 2026-09-11.** The procedure is documented at
+> <https://help.fieldsystems.trimble.com/tbc/20716.htm> and written up in SOP §12.3.
+> It is office work in TBC, not a shop job. Two questions remain, both narrower:
+>
+> - **Which TBC version does Parametrix run?** After 5.21 calibrates in TBC; 5.21 and
+>   earlier require calibrating outside TBC and importing a JSON.
+> - **Does daily removal of the Sensor Unit count as "disturbed"** for the purposes of
+>   recalibration frequency?
+
+### Original question, retained for context
 
 > **Does the MX60 require user boresight calibration? If so, what is the procedure?**
 

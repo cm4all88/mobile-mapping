@@ -271,3 +271,24 @@ TBC-007,workflow,TBC,Automated classification regions,"Buildings, Ground, High V
 TBC-008,workflow,TBC,Trajectory QA/QC,Run trajectory reports and QA/QC from within TBC,,TBC Technical Notes,3,"12, 13"
 TBC-009,limitation,TBC,Document currency,"TBC Technical Notes is dated October 2022 and lists raw import from MX7, MX50 and MX9 only - NOT MX60","MX60 support was added to TMI in December 2024 per the TMI revision history. Treat this document as indicative of workflow structure, not as current MX60 procedure.",TBC Technical Notes,3,12
 CONFLICT-005,conflict,TMI,MX60 laser setting presentation,"Quick Start Guide (Mar 2025) describes separate Measurement Prog [500/1000 kHz] and Line Speed [120/200 Hz]; TMI User Guide Rev L (Apr 2026) describes a single combined Laser Mode for MX60","Favour TMI Rev L as the newer document. Confirm against the installed TMI version before writing a numeric field instruction.","MX60 QSG Rev B p.10; TMI UG Rev L p.29","10, 29",9
+CAL-001,concept,Calibration,What a system calibration estimates,Exact translation and orientation of each sensor relative to an internal virtual reference point of the sensor head,,TBC Help 20716,-,12
+CAL-002,concept,Calibration,Sensor lever arms,"Translation offsets X forward / Y right / Z down","KNOWN for all sensors - do NOT need to be estimated. Distinct from the vehicle lever arms for GAMS and DMI in section 6.",TBC Help 20716,-,12
+CAL-003,concept,Calibration,Boresight angles,"Rotation offsets about X, Y and Z - roll, pitch and heading",THIS is what a calibration estimates,TBC Help 20716,-,12
+CAL-004,note,Calibration,Where calibration happens,"In TBC. Up to version 5.21 scanners were calibrated outside the application and values imported as a JSON file","The Calibrate Laser Scanners feature performs it inside TBC. Exact release after 5.21 not stated.",TBC Help 20716,-,12
+CAL-010,requirement,Calibration,Runs required,"Four runs - two along one road (forward and backward) and two orthogonal (forward and backward)",Fewer than four raises an error in the dialog,TBC Help 20716,-,"5, 12"
+CAL-011,requirement,Calibration,Crossing angle,As close to 90 degrees as possible,Precision of plus or minus 30 degrees,TBC Help 20716,-,"5, 12"
+CAL-012,requirement,Calibration,Minimum run length,At least 20 m from each side of the crossing,,TBC Help 20716,-,"5, 12"
+CAL-013,requirement,Calibration,Ideal run length,80 m long - 40 m from each side of the crossing,For an efficient calibration,TBC Help 20716,-,"5, 12"
+CAL-014,requirement,Calibration,Facades,Present in each direction and in sufficient quantity,Flat vertical surfaces are what make an angular error visible between opposing passes,TBC Help 20716,-,"5, 12"
+CAL-015,requirement,Calibration,Vegetation,A few or none ideally,Soft non-repeating returns add noise to the run-to-run comparison,TBC Help 20716,-,"5, 12"
+CAL-016,requirement,Calibration,Overlap,Enough overlap between runs,,TBC Help 20716,-,"5, 12"
+CAL-020,procedure,Calibration,TBC entry point,Project Explorer > Capture Devices > select a laser scanner > pop-up menu > Calibrate Laser Scanners,,TBC Help 20716,-,12
+CAL-021,procedure,Calibration,Prerequisite project,Create a VCE project and set the coordinate system to match the mobile mapping data,Then import the .mxdb,TBC Help 20716,-,12
+CAL-022,feature,Calibration,Toggle Active Trajectory,Visualizes which run intersects with others,Optional aid when selecting the four runs,TBC Help 20716,-,12
+CAL-023,output,Calibration,Overall Overlap,Percentage of points used compared to the total of points generated,,TBC Help 20716,-,12
+CAL-024,output,Calibration,Overall RMS,Average of the RMS values between used scans,,TBC Help 20716,-,12
+CAL-025,output,Calibration,Per-pair output,"Two Timestamps and three RMS values for each set of two parallel runs","Only sub-scans around the crossing are considered; each set represents a 20 m section",TBC Help 20716,-,12
+CAL-026,output,Calibration,RMS directions,"Tangential, Orthogonal and Vertical",Indicates how close parallel runs are after calibration in each direction,TBC Help 20716,-,12
+CAL-030,warning,Calibration,RMS asymmetry,"GOOD RMS values do NOT mean the calibration succeeded - a visual check is needed. BAD RMS values DO mean it failed.","The numbers can only prove failure, never success. Never press Apply on RMS alone.",TBC Help 20716,-,"12, 13"
+CAL-031,procedure,Calibration,Visual check,"Open Cutting Plane View; set rendering to Scan Color; increase Point Size; adjust plane thickness; drag the slider along the run pair","A plane named Mobile Mapping Cutting Plane appears yellow in the 3D View at the start of the first run pair",TBC Help 20716,-,12
+CAL-032,procedure,Calibration,Check both pairs,"Check Run_0 <-> Run_1, then switch to Run_2 <-> Run_3 and check that pair too",Then press Apply,TBC Help 20716,-,12
