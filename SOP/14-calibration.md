@@ -73,24 +73,52 @@ systems in TBC."
 
 ### The acquisition geometry
 
-> **TRIMBLE DOCUMENTED PROCEDURE**
+> **TRIMBLE DOCUMENTED PROCEDURE** — *(TBC 24886 / 20716)*
 >
 > The mission must contain **four runs: two in one direction (forward and backward), and two
-> orthogonal (forward and backward as well)** *(TBC 24886)*.
+> orthogonal (forward and backward as well)** — in practice, two roads crossing.
+>
+> | Run | Direction |
+> |---|---|
+> | Run_0 / Run_1 | Along the first road, forward and backward |
+> | Run_2 / Run_3 | Along the crossing road, forward and backward |
+>
+> **Site requirements:**
+>
+> | Requirement | Value |
+> |---|---|
+> | **Crossing angle** | As close to **90°** as possible, tolerance **± 30°** |
+> | **Minimum run length** | **At least 20 m from each side** of the crossing |
+> | **Ideal run length** | **80 m long — 40 m from each side** of the crossing, "for an efficient calibration" |
+> | **Overlap** | Enough overlap between runs |
+> | **Façades** | Present **in each direction**, in sufficient quantity |
+> | **Vegetation** | A few or none, ideally |
+
+> **WHY THIS MATTERS**
+>
+> **Façades are the measurement.** A boresight error shows up as the same flat vertical surface
+> appearing in two places when scanned from opposing directions. No façades, no signal.
+> **Vegetation is the opposite** — soft, non-repeating returns that add noise to exactly the
+> run-to-run comparison the calibration depends on.
 
 Compare with the LiDAR QC pattern *(TBC 28972; §12.7)*:
 
-| | Laser scanner calibration | LiDAR QC |
+| | Laser scanner calibration *(TBC 24886)* | LiDAR QC *(TBC 28972)* |
 |---|---|---|
 | Runs | Four — two orthogonal pairs, both directions | Four — two perpendicular strips, both directions |
-| Length | Not stated | **250–300 m per strip** |
-| Scene | Not stated | Structured — "a residential area with detached houses and objects within the LiDAR sensor's maximum range" |
+| Crossing angle | **90°, ± 30°** | Perpendicular |
+| Length | **≥ 20 m each side; ideally 80 m total** | **250–300 m per strip** |
+| Scene | **Façades in each direction; little or no vegetation** | Structured — "a residential area with detached houses and objects within the LiDAR sensor's maximum range" |
 | Sky | Not stated | **Open sky for good GNSS satellite visibility** |
+
+> **The two are compatible, and LiDAR QC is the stricter on length.** A site of two roads crossing
+> near 90°, with 125–150 m of façade-lined street available on each arm, satisfies both.
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
-> **Establish one calibration site that satisfies both patterns** — two perpendicular streets,
-> 250–300 m each, structured built environment, open sky, drivable in both directions without
+> **Establish one calibration site that satisfies both patterns** — two streets crossing near 90°,
+> façades on all four approaches, little vegetation, **125–150 m of usable street on each arm**
+> (satisfying LiDAR QC's 250–300 m strip), open sky, drivable in both directions without
 > traffic-control complications.
 >
 > The two requirements are compatible and the stricter one (LiDAR QC) should govern. Establishing
