@@ -49,9 +49,9 @@ criteria. **Read this before editing any section.**
 | 12 | Trajectory Processing | Pending |
 | 13 | Generate Scans | Pending |
 | 14 | Calibration | Pending |
-| 15 | Registration | Pending |
-| 16 | Run to Run Registration | Pending |
-| 17 | Control and Independent Check Points | Pending |
+| 15 | [Registration](15-registration.md) | Drafted |
+| 16 | [Run to Run Registration](16-run-to-run-registration.md) | Drafted |
+| 17 | [Control and Independent Check Points](17-control-and-independent-check-points.md) | Drafted |
 | 18 | Point Cloud QC | Pending |
 | 19 | Imagery QC | Pending |
 | 20 | Degraded GNSS Conditions | Pending |
