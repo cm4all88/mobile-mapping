@@ -45,10 +45,10 @@ criteria. **Read this before editing any section.**
 
 | § | Section | Status |
 |---|---|---|
-| 11 | Import into TBC | Pending |
-| 12 | Trajectory Processing | Pending |
-| 13 | Generate Scans | Pending |
-| 14 | Calibration | Pending |
+| 11 | [Import into TBC](11-import-into-tbc.md) | Drafted |
+| 12 | [Trajectory Processing](12-trajectory-processing.md) | Drafted |
+| 13 | [Generate Scans](13-generate-scans.md) | Drafted |
+| 14 | [Calibration](14-calibration.md) | Drafted |
 | 15 | [Registration](15-registration.md) | Drafted |
 | 16 | [Run to Run Registration](16-run-to-run-registration.md) | Drafted |
 | 17 | [Control and Independent Check Points](17-control-and-independent-check-points.md) | Drafted |
