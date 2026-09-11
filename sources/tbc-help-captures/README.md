@@ -28,3 +28,23 @@ it documents. Confirm the version before treating UI details as current.
 Analysis and classification: `../../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md`
 Figure recommendations are in section H of that document — crop from these captures rather
 than embedding whole pages.
+
+
+## Navigation tree
+
+`_nav-tree-mobile-mapping.png` is a crop of the help portal's left navigation showing the
+complete **Mobile Mapping** topic tree. Batch 2 captured only the *Import, View and Process
+Mobile Mapping Data* branch.
+
+Still to capture, in priority order:
+
+1. **Register Mobile Mapping Trajectories** — and all sub-topics
+2. **Cleanup Mobile Mapping Mission**
+3. **Perform Mobile Mapping Calibrations**
+4. Export Mobile Mapping Data
+5. Blur Exported Images
+6. Create Orthomosaics from a Trimble Back-Camera Mobile Mapping System
+7. Display Mobile Mapping Run Views (completes branch 4)
+
+Expand each section before capturing — items 1–3 are parents whose sub-topics the collapsed
+navigation does not reveal.
