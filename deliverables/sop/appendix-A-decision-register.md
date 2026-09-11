@@ -56,7 +56,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Why it matters.** TBC is on an annual release cycle and each release has changed mobile mapping behaviour
 
-*Stage: document control · Documents: SOP*
+*Stage: document control · Documents: Manual; SOP; Field; Office*
 
 ### D-2 · Which MX60 configuration is ours - Core, Pro or Premium? Are GAMS and DMI fitted? Which rack? · SOP §6.4
 
@@ -66,7 +66,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22501; TBC 23888; MX60 UG Rev B p.12
 
-*Stage: system · Documents: Manual; SOP; Office*
+*Stage: system · Documents: Manual; SOP; Field; Office*
 
 ### D-3 · Roles and authorities - who may operate, register, accept a registration, run Cleanup, sign the accuracy statement, own calibration currency · SOP §4.2
 
@@ -74,7 +74,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Why it matters.** The accepting person should not be the person who performed the adjustment
 
-*Stage: all · Documents: SOP; Field; Office*
+*Stage: all · Documents: Manual; SOP; Field*
 
 ### D-10 · Do we hold a POSPac MMS 8.6+ licence, and where is it installed? · SOP §13.1
 
@@ -104,7 +104,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22905; TBC 26473; TBC 25096
 
-*Stage: registration · Documents: SOP; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 ### D-13 · What constitutes an acceptable registration and an acceptable point cloud? · SOP §16.2
 
@@ -114,7 +114,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-15 · Is the control/check designation fixed before registration and unchangeable during it? · SOP §7.3
 
@@ -124,7 +124,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22905
 
-*Stage: registration · Documents: SOP; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 ### D-16 · Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions? · SOP §7.4
 
@@ -134,7 +134,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22905
 
-*Stage: project setup · Documents: SOP; Field; Office*
+*Stage: project setup · Documents: Manual; SOP*
 
 ### D-18 · What is verified at import, and by whom? · SOP §12.2
 
@@ -154,7 +154,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: SOP; Field; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Field*
 
 ### D-21 · Which datum and epoch do we work in, who sets it, who checks it? · SOP §6.2
 
@@ -174,7 +174,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22499; TBC 23339
 
-*Stage: scan generation · Documents: SOP; Office*
+*Stage: scan generation · Documents: Manual; SOP; Office*
 
 ### D-24 · Where is the calibration site, and who maintains it? · SOP §14.3
 
@@ -184,7 +184,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 24886; TBC 28972
 
-*Stage: calibration · Documents: SOP; Field*
+*Stage: calibration · Documents: Manual; SOP; Office*
 
 ### D-26 · Recalibration interval and triggers - does daily removal of the Sensor Unit count as disturbing it? What happens to data collected on a stale calibration? · SOP §14.2
 
@@ -194,7 +194,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** MX60 UG Rev B p.7
 
-*Stage: calibration · Documents: SOP; Field; Office*
+*Stage: calibration · Documents: Manual; SOP; Field; Office*
 
 ### D-27 · QC inspection content - what does a visual point-cloud QC pass cover, and an imagery QC pass? · SOP §15.5
 
@@ -204,7 +204,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-28 · Is the retro-reflective target check our periodic verification, and at what interval? · SOP §14.6
 
@@ -214,7 +214,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** MX60 UG Rev B p.7
 
-*Stage: calibration · Documents: SOP*
+*Stage: calibration · Documents: Manual; SOP*
 
 ### D-29 · The record package - what provenance record accompanies a deliverable, where does it live, and where is the control/check designation and its residuals recorded? · SOP §19.2
 
@@ -224,7 +224,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22905; TBC 23991_1
 
-*Stage: provenance · Documents: SOP; Office*
+*Stage: provenance · Documents: Manual; SOP; Office*
 
 ### D-31 · Is the imagery file-size scan adopted? · SOP §15.6
 
@@ -234,7 +234,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 23339; TBC 22501
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-32 · What is our position on imagery privacy? Are unblurred originals retained, and for how long? · SOP §18.6
 
@@ -244,7 +244,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 29527
 
-*Stage: export · Documents: SOP; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### D-34 · Handling segments mobile mapping cannot serve - the decision rule when a corridor produces an unacceptable trajectory, and whether marginal segments are recorded before mobilising · SOP §8.6
 
@@ -252,7 +252,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Why it matters.** Includes the legitimate professional answer that another method would be more defensible
 
-*Stage: mission planning · Documents: SOP; Field; Office*
+*Stage: mission planning · Documents: Manual; SOP; Field; Office*
 
 ### D-35 · When may Cleanup be performed, by whom, and what must be archived first? · SOP §17.2
 
@@ -262,7 +262,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 26466
 
-*Stage: cleanup · Documents: SOP; Office*
+*Stage: cleanup · Documents: Manual; SOP; Office*
 
 ### D-36 · The export release gate - is the pre-export trajectory-node confirmation mandatory, and may exports be made with Export timestamps enabled before T18 resolves? · SOP §18.2
 
@@ -272,7 +272,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22638; TBC 23339; TBC 22501
 
-*Stage: export · Documents: SOP; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### D-38 · Deliverable specification - standard formats, which export path produces each, and default scaling · SOP §18.4
 
@@ -282,7 +282,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 11769; TBC 27279
 
-*Stage: export · Documents: SOP; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### D-39 · What is the corridor continuity inspection method and coverage? · SOP §15.5
 
@@ -310,7 +310,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 25943
 
-*Stage: mission planning · Documents: SOP; Field*
+*Stage: mission planning · Documents: Manual; SOP; Field*
 
 ### D-43 · Field operating rules - wet-weather go/no-go with operator stand-down authority, night collection, collection speed by deliverable type, free-space margin · SOP §9.4
 
@@ -320,7 +320,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** MX60 UG Rev B p.49,53; TMR 9.1
 
-*Stage: acquisition · Documents: SOP; Field*
+*Stage: acquisition · Documents: Manual; SOP; Field*
 
 ### D-46 · Where are lever arms, the Vehicle Preset and the installation configuration recorded and verified? · SOP §9.1
 
@@ -358,7 +358,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 25943; TBC 22905
 
-*Stage: transfer · Documents: SOP; Office*
+*Stage: transfer · Documents: SOP; Field; Office*
 
 ### D-54 · Is a chain-of-custody record required? · SOP §11.5
 
@@ -366,7 +366,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Why it matters.** The deliverable may not be able to speak for itself
 
-*Stage: transfer · Documents: SOP*
+*Stage: transfer · Documents: SOP; Field*
 
 ### D-55 · Capture and retention - what is retained, where, for how long, by whom, including Backup SBET Next to MXDB, Results of Scan Generation, and the calibration JSON · SOP §20.1
 
@@ -376,7 +376,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 25943; TBC 22499; TBC 22920
 
-*Stage: archive · Documents: SOP; Office*
+*Stage: archive · Documents: Manual; SOP; Office*
 
 ---
 

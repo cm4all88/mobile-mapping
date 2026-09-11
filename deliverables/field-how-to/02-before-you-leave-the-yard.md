@@ -13,6 +13,12 @@
 > Discovering the chosen lot is fenced, occupied or under trees costs twenty minutes at the worst
 > moment of the day. Scout two on imagery before mobilising *(Technical Manual §15.4)*.
 
+> **PARAMETRIX DECISION REQUIRED · D-19, D-42**
+>
+> **Base station strategy** — whether a local base must be occupied for this mission depends on
+> whether Parametrix works in **IN-Fusion+ Single Base** or **PP-RTX**, which is not decided
+> *(SOP §6.2, §8.5)*. **Check the mission plan for this job.**
+
 ### Stop if
 
 - There is no mission plan

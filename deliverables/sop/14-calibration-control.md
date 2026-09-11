@@ -66,7 +66,7 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 >
 > It is the complete calibration state of the system in one small file, it can be imported into any
 > subsequent project, and it is the only portable record of what the system's angles were on a
-> given date. A project cleanup (§17) or a lost workstation should not take it with them.
+> given date. Cleanup (§17) or a lost workstation should not take it with them.
 
 ## 14.6 Periodic system verification
 

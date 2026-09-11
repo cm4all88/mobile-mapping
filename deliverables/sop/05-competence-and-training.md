@@ -27,13 +27,13 @@ you."**
 Not a training syllabus — a list of the misconceptions that have actual consequences. Each is
 covered in the Technical Manual at the reference given.
 
-| | | Technical Manual § |
+| | | Where |
 |---|---|---|
-| 1 | **The trajectory is the job.** Every point inherits its error, and an attitude error grows with range | 2, 3 |
-| 2 | **A good RMS does not prove success. A bad RMS proves failure.** Trimble states this in identical words in two places | 23 |
-| 3 | **Registration does not move points.** The cloud is unchanged until Update Scans runs | 19 |
-| 4 | **A Local adjustment does not extrapolate** beyond the outermost control point, and nothing shows where it stopped | 21 |
-| 5 | **Cleanup cannot be undone** | 28 |
+| 1 | **The trajectory is the job.** Every point inherits its error, and an attitude error grows with range | Technical Manual §2, §3 |
+| 2 | **A good RMS does not prove success. A bad RMS proves failure.** Trimble states this in identical words in two places | Technical Manual §23 |
+| 3 | **Registration does not move points.** The cloud is unchanged until Update Scans runs | Technical Manual §19 |
+| 4 | **A Local adjustment does not extrapolate** beyond the outermost control point, and nothing shows where it stopped | Technical Manual §21 |
+| 5 | **Cleanup cannot be undone** | Technical Manual §28 |
 
 > **The In Plain English boxes in the Technical Manual are the intended route to this.** Read end
 > to end with nothing else, they describe the whole workflow in ordinary language.

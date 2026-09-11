@@ -45,7 +45,7 @@ Everything else in the chain is reproducible. These two are not.
 > **PARAMETRIX DECISION REQUIRED · D-53**
 >
 > **Folder structure, naming convention and storage location.** Two constraints are not
-> discretionary: the project record shall not live on a processor's local machine (§3.2), and raw
+> discretionary: the project record shall not live on a processor's local machine (§3.3), and raw
 > mission data shall be distinguishable from processed products without opening them.
 
 ## 11.5 Chain of custody

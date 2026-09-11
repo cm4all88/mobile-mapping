@@ -84,6 +84,12 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 >
 > The working cutting-plane thickness for these checks.
 
+> **The constraint the decision has to satisfy.** Mobile mapping error is **localised** — it
+> arrives in stretches, not as scatter *(Technical Manual §3.2)*. **An inspection strategy must
+> therefore be capable of finding localised degradation, which means traversing the corridor rather
+> than sampling it.** A sampling scheme that inspects ten places will find a problem that affects
+> the whole job and miss the one that affects 300 m.
+
 > **PARAMETRIX DECISION REQUIRED · D-39**
 >
 > **The corridor continuity inspection method and its coverage** — how much of a corridor is

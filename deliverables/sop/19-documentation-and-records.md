@@ -41,7 +41,7 @@ report. In mobile mapping, several of the things that determine whether a delive
 
 ## 19.3 Where records live
 
-**In the project record** (§3.2) — durable, not on a processor's local machine, and findable by
+**In the project record** (§3.3) — durable, not on a processor's local machine, and findable by
 someone who was not involved.
 
 > **PARAMETRIX DECISION REQUIRED · D-53**

@@ -68,6 +68,15 @@ Three consequences worth stating plainly:
 > checks both boxes on every point because that is the default has made a survey decision without
 > noticing.
 
+> **IMPORTANT · control cannot be added afterwards**
+>
+> A point can be surveyed at any time. It can only be *used* if the feature it marks is visible in
+> data that was already collected — at the density and incidence angle the vehicle produced, on the
+> pass that was driven. **You cannot go back and occupy a new point to strengthen a registration.**
+>
+> That reverses the usual order of work: on a corridor job the control design has to be right
+> before the vehicle drives, not after the office has seen the residuals.
+
 > **FIELD TESTING REQUIRED · T25**
 >
 > **Which feature types are fit for horizontal control, vertical control, or both, at MX60 point

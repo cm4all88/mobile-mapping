@@ -252,7 +252,16 @@ rest are defined there and are not repeated here.
 This section defines only the words that carry **procedural force in this document** — the words
 that decide whether a clause has been complied with.
 
-## 3.1 Obligation
+## 3.1 Workflow stage names
+
+The nineteen workflow stages are named identically in all four documents and in every checklist and
+form. They are listed, with the synonyms that are not used, in **Technical Manual §4** and in
+`deliverables/_control/workflow-stage-names.md`.
+
+**A stage is not a command.** *Registration* is the stage; *Register a Run* is one of three
+commands that perform it.
+
+## 3.2 Obligation
 
 | Term | Meaning |
 |---|---|
@@ -265,7 +274,7 @@ that decide whether a clause has been complied with.
 > **PARAMETRIX DECISION REQUIRED** state describes what the requirement would govern; it does not
 > yet oblige anyone. That is the difference the state label carries.
 
-## 3.2 Terms with procedural force
+## 3.3 Terms with procedural force
 
 | Term | Meaning in this procedure |
 |---|---|
@@ -279,7 +288,7 @@ that decide whether a clause has been complied with.
 | **Destructive operation** | An operation that removes data or history and cannot be undone within the software. §17 governs these |
 | **Re-collection** | Returning to site to collect again. The remedy of last resort, and the only remedy for a field error |
 
-## 3.3 Two words this procedure avoids
+## 3.4 Two words this procedure avoids
 
 | | |
 |---|---|
@@ -419,13 +428,13 @@ you."**
 Not a training syllabus — a list of the misconceptions that have actual consequences. Each is
 covered in the Technical Manual at the reference given.
 
-| | | Technical Manual § |
+| | | Where |
 |---|---|---|
-| 1 | **The trajectory is the job.** Every point inherits its error, and an attitude error grows with range | 2, 3 |
-| 2 | **A good RMS does not prove success. A bad RMS proves failure.** Trimble states this in identical words in two places | 23 |
-| 3 | **Registration does not move points.** The cloud is unchanged until Update Scans runs | 19 |
-| 4 | **A Local adjustment does not extrapolate** beyond the outermost control point, and nothing shows where it stopped | 21 |
-| 5 | **Cleanup cannot be undone** | 28 |
+| 1 | **The trajectory is the job.** Every point inherits its error, and an attitude error grows with range | Technical Manual §2, §3 |
+| 2 | **A good RMS does not prove success. A bad RMS proves failure.** Trimble states this in identical words in two places | Technical Manual §23 |
+| 3 | **Registration does not move points.** The cloud is unchanged until Update Scans runs | Technical Manual §19 |
+| 4 | **A Local adjustment does not extrapolate** beyond the outermost control point, and nothing shows where it stopped | Technical Manual §21 |
+| 5 | **Cleanup cannot be undone** | Technical Manual §28 |
 
 > **The In Plain English boxes in the Technical Manual are the intended route to this.** Read end
 > to end with nothing else, they describe the whole workflow in ordinary language.
@@ -728,10 +737,9 @@ before the crew leaves.**
 > to be marginal, the mitigation chosen for each, and the segments where another method is
 > proposed.
 
-> **This is the clause people avoid.** It is easier to collect a corridor and discover the problem
-> in the office than to say beforehand that a particular 400 m should be collected another way. The
-> office discovery costs a remobilisation, and sometimes a conversation with the client about
-> accuracy that nobody wants to have.
+> **This is the clause people avoid**, and the reason it is a requirement rather than a
+> recommendation. What it costs to discover the same thing in the office instead is set out in
+> **Technical Manual §15.5**.
 
 > **PARAMETRIX DECISION REQUIRED · D-34**
 >
@@ -970,7 +978,7 @@ Everything else in the chain is reproducible. These two are not.
 > **PARAMETRIX DECISION REQUIRED · D-53**
 >
 > **Folder structure, naming convention and storage location.** Two constraints are not
-> discretionary: the project record shall not live on a processor's local machine (§3.2), and raw
+> discretionary: the project record shall not live on a processor's local machine (§3.3), and raw
 > mission data shall be distinguishable from processed products without opening them.
 
 ## 11.5 Chain of custody
@@ -1030,7 +1038,7 @@ point at which re-collection is still a small decision.
 boresight and lever-arm calibration **with a date of calibration** *(TBC 24868)*.
 
 > **That dated calibration record is the only one found anywhere in the workflow**
-> *(Technical Manual §30)*. It is captured at intake because a later project cleanup can remove the
+> *(Technical Manual §30)*. It is captured at intake because a later Cleanup can remove the
 > objects that would have produced it (§17).
 
 ## 12.4 What intake shall not do
@@ -1260,7 +1268,7 @@ Trimble specifies the geometry, and two different procedures need compatible sit
 >
 > It is the complete calibration state of the system in one small file, it can be imported into any
 > subsequent project, and it is the only portable record of what the system's angles were on a
-> given date. A project cleanup (§17) or a lost workstation should not take it with them.
+> given date. Cleanup (§17) or a lost workstation should not take it with them.
 
 ## 14.6 Periodic system verification
 
@@ -1377,6 +1385,12 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 > **TESTING REQUIRED · T16**
 >
 > The working cutting-plane thickness for these checks.
+
+> **The constraint the decision has to satisfy.** Mobile mapping error is **localised** — it
+> arrives in stretches, not as scatter *(Technical Manual §3.2)*. **An inspection strategy must
+> therefore be capable of finding localised degradation, which means traversing the corridor rather
+> than sampling it.** A sampling scheme that inspects ten places will find a problem that affects
+> the whole job and miss the one that affects 300 m.
 
 > **PARAMETRIX DECISION REQUIRED · D-39**
 >
@@ -1547,7 +1561,7 @@ record made before the act, not after.**
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-3, D-35**
 >
 > **Cleanup shall not be run without written authorisation** from the person with the authority
-> under §4 — proposed there as the Project Surveyor. "In writing" carries the meaning in §3.2.
+> under §4 — proposed there as the Project Surveyor. "In writing" carries the meaning in §3.3.
 
 ## 17.3 What is archived first
 
@@ -1751,7 +1765,7 @@ report. In mobile mapping, several of the things that determine whether a delive
 
 ## 19.3 Where records live
 
-**In the project record** (§3.2) — durable, not on a processor's local machine, and findable by
+**In the project record** (§3.3) — durable, not on a processor's local machine, and findable by
 someone who was not involved.
 
 > **PARAMETRIX DECISION REQUIRED · D-53**
@@ -2007,7 +2021,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Why it matters.** TBC is on an annual release cycle and each release has changed mobile mapping behaviour
 
-*Stage: document control · Documents: SOP*
+*Stage: document control · Documents: Manual; SOP; Field; Office*
 
 ### D-2 · Which MX60 configuration is ours - Core, Pro or Premium? Are GAMS and DMI fitted? Which rack? · SOP §6.4
 
@@ -2017,7 +2031,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22501; TBC 23888; MX60 UG Rev B p.12
 
-*Stage: system · Documents: Manual; SOP; Office*
+*Stage: system · Documents: Manual; SOP; Field; Office*
 
 ### D-3 · Roles and authorities - who may operate, register, accept a registration, run Cleanup, sign the accuracy statement, own calibration currency · SOP §4.2
 
@@ -2025,7 +2039,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Why it matters.** The accepting person should not be the person who performed the adjustment
 
-*Stage: all · Documents: SOP; Field; Office*
+*Stage: all · Documents: Manual; SOP; Field*
 
 ### D-10 · Do we hold a POSPac MMS 8.6+ licence, and where is it installed? · SOP §13.1
 
@@ -2055,7 +2069,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22905; TBC 26473; TBC 25096
 
-*Stage: registration · Documents: SOP; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 ### D-13 · What constitutes an acceptable registration and an acceptable point cloud? · SOP §16.2
 
@@ -2065,7 +2079,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-15 · Is the control/check designation fixed before registration and unchangeable during it? · SOP §7.3
 
@@ -2075,7 +2089,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22905
 
-*Stage: registration · Documents: SOP; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 ### D-16 · Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions? · SOP §7.4
 
@@ -2085,7 +2099,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22905
 
-*Stage: project setup · Documents: SOP; Field; Office*
+*Stage: project setup · Documents: Manual; SOP*
 
 ### D-18 · What is verified at import, and by whom? · SOP §12.2
 
@@ -2105,7 +2119,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: SOP; Field; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Field*
 
 ### D-21 · Which datum and epoch do we work in, who sets it, who checks it? · SOP §6.2
 
@@ -2125,7 +2139,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22499; TBC 23339
 
-*Stage: scan generation · Documents: SOP; Office*
+*Stage: scan generation · Documents: Manual; SOP; Office*
 
 ### D-24 · Where is the calibration site, and who maintains it? · SOP §14.3
 
@@ -2135,7 +2149,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 24886; TBC 28972
 
-*Stage: calibration · Documents: SOP; Field*
+*Stage: calibration · Documents: Manual; SOP; Office*
 
 ### D-26 · Recalibration interval and triggers - does daily removal of the Sensor Unit count as disturbing it? What happens to data collected on a stale calibration? · SOP §14.2
 
@@ -2145,7 +2159,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** MX60 UG Rev B p.7
 
-*Stage: calibration · Documents: SOP; Field; Office*
+*Stage: calibration · Documents: Manual; SOP; Field; Office*
 
 ### D-27 · QC inspection content - what does a visual point-cloud QC pass cover, and an imagery QC pass? · SOP §15.5
 
@@ -2155,7 +2169,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-28 · Is the retro-reflective target check our periodic verification, and at what interval? · SOP §14.6
 
@@ -2165,7 +2179,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** MX60 UG Rev B p.7
 
-*Stage: calibration · Documents: SOP*
+*Stage: calibration · Documents: Manual; SOP*
 
 ### D-29 · The record package - what provenance record accompanies a deliverable, where does it live, and where is the control/check designation and its residuals recorded? · SOP §19.2
 
@@ -2175,7 +2189,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22905; TBC 23991_1
 
-*Stage: provenance · Documents: SOP; Office*
+*Stage: provenance · Documents: Manual; SOP; Office*
 
 ### D-31 · Is the imagery file-size scan adopted? · SOP §15.6
 
@@ -2185,7 +2199,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 23339; TBC 22501
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-32 · What is our position on imagery privacy? Are unblurred originals retained, and for how long? · SOP §18.6
 
@@ -2195,7 +2209,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 29527
 
-*Stage: export · Documents: SOP; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### D-34 · Handling segments mobile mapping cannot serve - the decision rule when a corridor produces an unacceptable trajectory, and whether marginal segments are recorded before mobilising · SOP §8.6
 
@@ -2203,7 +2217,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Why it matters.** Includes the legitimate professional answer that another method would be more defensible
 
-*Stage: mission planning · Documents: SOP; Field; Office*
+*Stage: mission planning · Documents: Manual; SOP; Field; Office*
 
 ### D-35 · When may Cleanup be performed, by whom, and what must be archived first? · SOP §17.2
 
@@ -2213,7 +2227,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 26466
 
-*Stage: cleanup · Documents: SOP; Office*
+*Stage: cleanup · Documents: Manual; SOP; Office*
 
 ### D-36 · The export release gate - is the pre-export trajectory-node confirmation mandatory, and may exports be made with Export timestamps enabled before T18 resolves? · SOP §18.2
 
@@ -2223,7 +2237,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 22638; TBC 23339; TBC 22501
 
-*Stage: export · Documents: SOP; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### D-38 · Deliverable specification - standard formats, which export path produces each, and default scaling · SOP §18.4
 
@@ -2233,7 +2247,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 11769; TBC 27279
 
-*Stage: export · Documents: SOP; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### D-39 · What is the corridor continuity inspection method and coverage? · SOP §15.5
 
@@ -2261,7 +2275,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 25943
 
-*Stage: mission planning · Documents: SOP; Field*
+*Stage: mission planning · Documents: Manual; SOP; Field*
 
 ### D-43 · Field operating rules - wet-weather go/no-go with operator stand-down authority, night collection, collection speed by deliverable type, free-space margin · SOP §9.4
 
@@ -2271,7 +2285,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** MX60 UG Rev B p.49,53; TMR 9.1
 
-*Stage: acquisition · Documents: SOP; Field*
+*Stage: acquisition · Documents: Manual; SOP; Field*
 
 ### D-46 · Where are lever arms, the Vehicle Preset and the installation configuration recorded and verified? · SOP §9.1
 
@@ -2309,7 +2323,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 25943; TBC 22905
 
-*Stage: transfer · Documents: SOP; Office*
+*Stage: transfer · Documents: SOP; Field; Office*
 
 ### D-54 · Is a chain-of-custody record required? · SOP §11.5
 
@@ -2317,7 +2331,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Why it matters.** The deliverable may not be able to speak for itself
 
-*Stage: transfer · Documents: SOP*
+*Stage: transfer · Documents: SOP; Field*
 
 ### D-55 · Capture and retention - what is retained, where, for how long, by whom, including Backup SBET Next to MXDB, Results of Scan Generation, and the calibration JSON · SOP §20.1
 
@@ -2327,7 +2341,7 @@ until they are settled, as distinct from work being harder without them.
 
 **Evidence.** TBC 25943; TBC 22499; TBC 22920
 
-*Stage: archive · Documents: SOP; Office*
+*Stage: archive · Documents: Manual; SOP; Office*
 
 ---
 

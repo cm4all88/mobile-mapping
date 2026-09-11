@@ -1,6 +1,6 @@
 # 4. Calibration-State Intake
 
-**Do this at intake, not later.** A later project cleanup (§29) removes the objects that would
+**Do this at intake, not later.** A later Cleanup (§29) removes the objects that would
 produce the report.
 
 ### Do

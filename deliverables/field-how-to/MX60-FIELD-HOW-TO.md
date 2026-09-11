@@ -122,6 +122,12 @@ write it down, nothing else will. §26 and Appendix C.
 > Discovering the chosen lot is fenced, occupied or under trees costs twenty minutes at the worst
 > moment of the day. Scout two on imagery before mobilising *(Technical Manual §15.4)*.
 
+> **PARAMETRIX DECISION REQUIRED · D-19, D-42**
+>
+> **Base station strategy** — whether a local base must be occupied for this mission depends on
+> whether Parametrix works in **IN-Fusion+ Single Base** or **PP-RTX**, which is not decided
+> *(SOP §6.2, §8.5)*. **Check the mission plan for this job.**
+
 ### Stop if
 
 - There is no mission plan
@@ -181,6 +187,12 @@ A smear on the dome is in every image of the day. It is thirty seconds now.
 The lever arms — the fixed distances between sensors — are **measured, not computed**. The
 calibration solves angles only, so a seating change cannot be calibrated out later. It becomes a
 systematic error nobody will attribute to its real cause *(Technical Manual §7.6)*.
+
+> **CAUTION**
+>
+> **Changing the rack, the roof bars, the vehicle, or the Sensor Unit's position on the rack
+> invalidates the lever arms and may invalidate the calibration.** If any of those has changed,
+> say so before the mission rather than after it.
 
 ## 4.3 Stop if
 
@@ -421,6 +433,12 @@ Full status reference: **Appendix D**.
 > scanners.** TMI uses the per-scanner numbering above. Do not go looking for 2000 kHz on the
 > screen.
 
+> **TESTING REQUIRED · T12**
+>
+> **The DMI scale factor's 5 % default assumes somebody measured the wheel.** If the value came
+> from a manual for a nominal tyre, the office is weighting the DMI on an unverified claim. **If
+> you know whether this wheel was measured, record it** *(SOP §13.1)*.
+
 ## 10.3 Record
 
 Capture settings used, **and which presentation you saw**. Field record, Appendix C.
@@ -497,8 +515,8 @@ One line each. Full explanation: **Technical Manual §13**.
 
 ## 12.3 Stop if
 
-- **Open sky is not available at the start point.** Drive to open sky **before starting the
-  mission**, not after
+- **Open sky is not available at the start point.** Drive to open sky *before starting the
+  mission*, not after
 - The status will not progress. See §14 and Appendix D — ask TMI **which** parameter is holding it
 
 ## 12.4 The system enforces one part of this, and not the other
@@ -634,6 +652,11 @@ Direction matters. A second pass in the opposite direction fixes the far side of
 better than any setting change, because it turns grazing incidence into direct incidence
 *(Technical Manual §16.3)*.
 
+> **PARAMETRIX DECISION REQUIRED · D-41 · blocks operation**
+>
+> **How many passes, in what pattern, by roadway type?** The mission plan states it for this job;
+> the standing rule does not exist yet *(SOP §8.2)*.
+
 ## 15.4 Stop if
 
 - Navigation status will not hold
@@ -726,6 +749,12 @@ Your mission plan identified them (§2). As you reach each one:
 
 **If you cannot drive the planned overlap, say so in the field record and say so at handoff.** It
 is not recoverable in the office and it is cheap to fix while you are still here.
+
+> **TESTING REQUIRED · T31**
+>
+> Whether predicted GNSS conditions correlate with achieved trajectory RMS on this system. Until
+> that is established, the planning estimate is judgement — **so what you observe and record here
+> is the evidence that will settle it** *(SOP §8.3)*.
 
 ## 17.4 The published limit
 

@@ -37,7 +37,7 @@ point at which re-collection is still a small decision.
 boresight and lever-arm calibration **with a date of calibration** *(TBC 24868)*.
 
 > **That dated calibration record is the only one found anywhere in the workflow**
-> *(Technical Manual §30)*. It is captured at intake because a later project cleanup can remove the
+> *(Technical Manual §30)*. It is captured at intake because a later Cleanup can remove the
 > objects that would have produced it (§17).
 
 ## 12.4 What intake shall not do

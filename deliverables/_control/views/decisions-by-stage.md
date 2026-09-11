@@ -13,7 +13,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Why it matters.** TBC is on an annual release cycle and each release has changed mobile mapping behaviour
 
-*Stage: document control · Documents: SOP*
+*Stage: document control · Documents: Manual; SOP; Field; Office*
 
 
 ## system
@@ -26,7 +26,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 22501; TBC 23888; MX60 UG Rev B p.12
 
-*Stage: system · Documents: Manual; SOP; Office*
+*Stage: system · Documents: Manual; SOP; Field; Office*
 
 
 ## all
@@ -37,7 +37,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Why it matters.** The accepting person should not be the person who performed the adjustment
 
-*Stage: all · Documents: SOP; Field; Office*
+*Stage: all · Documents: Manual; SOP; Field*
 
 
 ## trajectory processing
@@ -70,7 +70,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: SOP; Field; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Field*
 
 
 ## registration
@@ -83,7 +83,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 22905; TBC 26473; TBC 25096
 
-*Stage: registration · Documents: SOP; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 ### D-15 · Is the control/check designation fixed before registration and unchangeable during it?
 
@@ -93,7 +93,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 22905
 
-*Stage: registration · Documents: SOP; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 
 ## QC
@@ -106,7 +106,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-27 · QC inspection content - what does a visual point-cloud QC pass cover, and an imagery QC pass?
 
@@ -116,7 +116,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-31 · Is the imagery file-size scan adopted?
 
@@ -126,7 +126,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 23339; TBC 22501
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-39 · What is the corridor continuity inspection method and coverage?
 
@@ -147,7 +147,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 22905
 
-*Stage: project setup · Documents: SOP; Field; Office*
+*Stage: project setup · Documents: Manual; SOP*
 
 ### D-21 · Which datum and epoch do we work in, who sets it, who checks it?
 
@@ -183,7 +183,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 22499; TBC 23339
 
-*Stage: scan generation · Documents: SOP; Office*
+*Stage: scan generation · Documents: Manual; SOP; Office*
 
 
 ## calibration
@@ -196,7 +196,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 24886; TBC 28972
 
-*Stage: calibration · Documents: SOP; Field*
+*Stage: calibration · Documents: Manual; SOP; Office*
 
 ### D-26 · Recalibration interval and triggers - does daily removal of the Sensor Unit count as disturbing it? What happens to data collected on a stale calibration?
 
@@ -206,7 +206,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** MX60 UG Rev B p.7
 
-*Stage: calibration · Documents: SOP; Field; Office*
+*Stage: calibration · Documents: Manual; SOP; Field; Office*
 
 ### D-28 · Is the retro-reflective target check our periodic verification, and at what interval?
 
@@ -216,7 +216,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** MX60 UG Rev B p.7
 
-*Stage: calibration · Documents: SOP*
+*Stage: calibration · Documents: Manual; SOP*
 
 
 ## provenance
@@ -229,7 +229,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 22905; TBC 23991_1
 
-*Stage: provenance · Documents: SOP; Office*
+*Stage: provenance · Documents: Manual; SOP; Office*
 
 
 ## export
@@ -242,7 +242,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 29527
 
-*Stage: export · Documents: SOP; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### D-36 · The export release gate - is the pre-export trajectory-node confirmation mandatory, and may exports be made with Export timestamps enabled before T18 resolves?
 
@@ -252,7 +252,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 22638; TBC 23339; TBC 22501
 
-*Stage: export · Documents: SOP; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### D-38 · Deliverable specification - standard formats, which export path produces each, and default scaling
 
@@ -262,7 +262,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 11769; TBC 27279
 
-*Stage: export · Documents: SOP; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 
 ## mission planning
@@ -273,7 +273,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Why it matters.** Includes the legitimate professional answer that another method would be more defensible
 
-*Stage: mission planning · Documents: SOP; Field; Office*
+*Stage: mission planning · Documents: Manual; SOP; Field; Office*
 
 ### D-41 · How many passes, in what pattern, by roadway type?
 
@@ -293,7 +293,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 25943
 
-*Stage: mission planning · Documents: SOP; Field*
+*Stage: mission planning · Documents: Manual; SOP; Field*
 
 
 ## cleanup
@@ -306,7 +306,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 26466
 
-*Stage: cleanup · Documents: SOP; Office*
+*Stage: cleanup · Documents: Manual; SOP; Office*
 
 
 ## acquisition
@@ -319,7 +319,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** MX60 UG Rev B p.49,53; TMR 9.1
 
-*Stage: acquisition · Documents: SOP; Field*
+*Stage: acquisition · Documents: Manual; SOP; Field*
 
 
 ## field preparation
@@ -366,7 +366,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 25943; TBC 22905
 
-*Stage: transfer · Documents: SOP; Office*
+*Stage: transfer · Documents: SOP; Field; Office*
 
 ### D-54 · Is a chain-of-custody record required?
 
@@ -374,7 +374,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Why it matters.** The deliverable may not be able to speak for itself
 
-*Stage: transfer · Documents: SOP*
+*Stage: transfer · Documents: SOP; Field*
 
 
 ## archive
@@ -387,4 +387,4 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 25943; TBC 22499; TBC 22920
 
-*Stage: archive · Documents: SOP; Office*
+*Stage: archive · Documents: Manual; SOP; Office*

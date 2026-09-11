@@ -8,10 +8,13 @@
    places
 2. **Verify the copy** — file count and total size at minimum; a checksum comparison if your
    tooling allows
-3. **Confirm `POS_1/raw/` is present and non-empty**
-4. **Confirm base station data** is in `Base/`, if a local base was occupied
-5. **Take the raw-data backup now**, before any processing
-6. Only then is the source disk available for reuse
+3. **Open the `.mxdb`** in a scratch TBC project — this is the definitive test that the copy
+   worked. **A file count can look right, the copy can seem fine, and the `.mxdb` still be
+   truncated**
+4. **Confirm `POS_1/raw/` is present and non-empty**
+5. **Confirm base station data** is in `Base/`, if a local base was occupied
+6. **Take the raw-data backup now**, before any processing
+7. Only then is the source disk available for reuse
 
 ### Look at
 
@@ -39,6 +42,11 @@ file. `Extcal.json` is small and is there.
   mission is NAV-only. Raise it now, while re-collection is still a small decision
 - The copy does not verify
 - The mission folder has arrived without the field record
+
+> **PARAMETRIX DECISION REQUIRED · D-52**
+>
+> **The offload, verification and backup procedure** — the six steps above are proposed, not
+> adopted *(SOP §11.2)*.
 
 > **CAUTION · W-04**
 >

@@ -26,7 +26,7 @@ record made before the act, not after.**
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-3, D-35**
 >
 > **Cleanup shall not be run without written authorisation** from the person with the authority
-> under §4 — proposed there as the Project Surveyor. "In writing" carries the meaning in §3.2.
+> under §4 — proposed there as the Project Surveyor. "In writing" carries the meaning in §3.3.
 
 ## 17.3 What is archived first
 

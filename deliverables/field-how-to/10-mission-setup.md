@@ -44,6 +44,12 @@
 > scanners.** TMI uses the per-scanner numbering above. Do not go looking for 2000 kHz on the
 > screen.
 
+> **TESTING REQUIRED · T12**
+>
+> **The DMI scale factor's 5 % default assumes somebody measured the wheel.** If the value came
+> from a manual for a nominal tyre, the office is weighting the DMI on an unverified claim. **If
+> you know whether this wheel was measured, record it** *(SOP §13.1)*.
+
 ## 10.3 Record
 
 Capture settings used, **and which presentation you saw**. Field record, Appendix C.

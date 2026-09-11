@@ -19,6 +19,12 @@ The lever arms — the fixed distances between sensors — are **measured, not c
 calibration solves angles only, so a seating change cannot be calibrated out later. It becomes a
 systematic error nobody will attribute to its real cause *(Technical Manual §7.6)*.
 
+> **CAUTION**
+>
+> **Changing the rack, the roof bars, the vehicle, or the Sensor Unit's position on the rack
+> invalidates the lever arms and may invalidate the calibration.** If any of those has changed,
+> say so before the mission rather than after it.
+
 ## 4.3 Stop if
 
 - You are alone

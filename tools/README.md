@@ -67,3 +67,21 @@ either, then republish the artifact from the same file path to keep its URL.
 **Watch the cascade.** The nav list items use `nv-sec` / `nv-app` classes specifically to
 avoid colliding with the `.sec` section rule, which carries large padding and a border.
 An earlier version used `sec` for both and the navigation rendered with ~195px gaps.
+
+## Consistency checks
+
+`tools/check-all.py` runs every cross-document check and exits non-zero on any failure.
+**Run it before any issue.**
+
+| Check | Tool |
+|---|---|
+| Registered warnings appear **verbatim** in their owner document, and wherever the register says | `check-warnings.py` |
+| No forbidden workflow stage-name synonyms | `check-stage-names.py` |
+| The derived control artefacts still match the documents | `sync-control.py --check` |
+| Every cross-reference resolves, in all four documents | `check-all.py` |
+| Every register identifier cited exists, and every register item is raised somewhere | `check-all.py` |
+| The page renderer leaves no unrendered emphasis | `check-all.py` |
+
+`sync-control.py` without `--check` re-derives the two control artefacts that *describe* the
+documents — the register's `affected_documents` column and the ownership matrix's ref / — columns.
+Everything else in both files is judgement and is set by hand.

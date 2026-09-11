@@ -37,6 +37,15 @@ processes all runs; at run level, one.
 - The filter set is not the one you intended. Regenerating is cheap in effort and expensive in
   time; getting it right on one run first is why step 1 says one run
 
+> **PARAMETRIX DECISION REQUIRED · D-22**
+>
+> **Are scans generated coloured by default?** *(SOP §13.3)*
+
+> **TESTING REQUIRED · T6**
+>
+> **Colouriser camera preference** — forward versus backward — and its effect on fringing at
+> feature edges. Untested.
+
 > **TESTING REQUIRED · T1, T3**
 >
 > Filter defaults are untested against Parametrix work. **T3:** whether **Reflective Panels**

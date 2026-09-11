@@ -7,7 +7,16 @@ rest are defined there and are not repeated here.
 This section defines only the words that carry **procedural force in this document** — the words
 that decide whether a clause has been complied with.
 
-## 3.1 Obligation
+## 3.1 Workflow stage names
+
+The nineteen workflow stages are named identically in all four documents and in every checklist and
+form. They are listed, with the synonyms that are not used, in **Technical Manual §4** and in
+`deliverables/_control/workflow-stage-names.md`.
+
+**A stage is not a command.** *Registration* is the stage; *Register a Run* is one of three
+commands that perform it.
+
+## 3.2 Obligation
 
 | Term | Meaning |
 |---|---|
@@ -20,7 +29,7 @@ that decide whether a clause has been complied with.
 > **PARAMETRIX DECISION REQUIRED** state describes what the requirement would govern; it does not
 > yet oblige anyone. That is the difference the state label carries.
 
-## 3.2 Terms with procedural force
+## 3.3 Terms with procedural force
 
 | Term | Meaning in this procedure |
 |---|---|
@@ -34,7 +43,7 @@ that decide whether a clause has been complied with.
 | **Destructive operation** | An operation that removes data or history and cannot be undone within the software. §17 governs these |
 | **Re-collection** | Returning to site to collect again. The remedy of last resort, and the only remedy for a field error |
 
-## 3.3 Two words this procedure avoids
+## 3.4 Two words this procedure avoids
 
 | | |
 |---|---|

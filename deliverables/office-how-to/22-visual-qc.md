@@ -7,7 +7,8 @@ not record it, there is no evidence it happened.
 
 1. **Point Clouds ▸ View ▸ Cutting Plane View**
 2. **Set rendering to Scan Color** — see below
-3. Drag the plane along the corridor, full length
+3. **Drag the plane along the corridor, full length.** It is tedious, and the tedium is the
+   check — error arrives in stretches, so a plane dropped in three places finds nothing
 4. Work the checklist under **Look at**
 5. Record what you covered, and by whom
 
@@ -44,6 +45,11 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 - A wall thickens with range
 - The cloud is good near control and degrades between — that is the shape of an adjustment that
   fitted its constraints and nothing else
+
+> **PARAMETRIX DECISION REQUIRED · D-27**
+>
+> **What does a visual point-cloud QC pass cover?** The checklist above is proposed, not adopted
+> *(SOP §15.5)*.
 
 > **TESTING REQUIRED · T16** — the working cutting-plane thickness for these checks.
 

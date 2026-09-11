@@ -6,6 +6,16 @@ checklist, form, figure caption and register entry, and in future training mater
 > **Do not introduce a synonym.** If a stage needs renaming, rename it here first and then in
 > every document — that is the point of freezing it.
 
+**Two things the *Never* column does not forbid:**
+
+| | |
+|---|---|
+| **Quoted source text** | A Trimble quotation is reproduced exactly, including its wording. *"…to improve georeferencing accuracies…"* stays as Trimble wrote it |
+| **The ordinary English word** | *Mobilisation* is forbidden as a name for the **Field preparation** stage. It is not forbidden as the ordinary word for a trip to site — "a field error costs a mobilisation" is correct. The same applies to *audit trail* and *lineage*, which are forbidden as stage names and fine as descriptions |
+
+The test is whether the word is being used **as the name of a stage**. If it is, use the frozen
+name.
+
 | # | Stage | Also acceptable | **Never** |
 |---|---|---|---|
 | 1 | **Project setup** | — | job setup, project creation |
@@ -26,7 +36,7 @@ checklist, form, figure caption and register entry, and in future training mater
 | 16 | **Export** | — | delivery generation, output |
 | 17 | **Final QA/QC** | — | final check, sign-off review |
 | 18 | **Archive** | — | storage, retention, filing |
-| 19 | **Provenance** *(cross-cutting)* | — | lineage, audit trail *(as a stage name)* |
+| 19 | **Provenance** *(cross-cutting)* | — | lineage, audit trail — **as a stage name.** Both are fine as ordinary descriptions |
 
 ## Command names
 

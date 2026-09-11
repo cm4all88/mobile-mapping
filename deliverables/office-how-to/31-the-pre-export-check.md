@@ -49,6 +49,10 @@ Stop if the scans sit beneath `Sbet`, or the stations have no `_reg_####`. Go ba
 **Until T18 is answered, treat an export with timestamps enabled as unverified against the checked
 dataset, and do not enable it on a delivered dataset without a recorded reason** *(SOP §18.3)*.
 
+> **PARAMETRIX DECISION REQUIRED · D-36**
+>
+> **Is this confirmation mandatory, and may export be performed without it?** *(SOP §18.2)*
+
 > **TESTING REQUIRED · T18 — the highest-priority test in the register.** Export the same
 > registered run twice, timestamps off and on, and compare point geometry.
 

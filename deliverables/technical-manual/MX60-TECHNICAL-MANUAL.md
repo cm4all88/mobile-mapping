@@ -110,8 +110,8 @@ from.
 Every major technical section ends with a box addressed to **an experienced land surveyor who is
 new to mobile mapping**, answering four questions:
 
-1. **What we just did** · 2. **Why it matters** · 3. **What can go wrong** · 4. **What a good
-result generally looks like**
+**What we just did** · **Why it matters** · **What can go wrong** ·
+**What a good result generally looks like**
 
 They re-explain rather than summarise. **Read end to end, with nothing else, they describe the
 whole workflow in ordinary language** — a reviewer or project manager can get a true picture from
@@ -951,8 +951,8 @@ this document and in TMI:
 
 | Component | Function |
 |---|---|
-| **Sensor Unit** | The roof-mounted head: scanners, cameras, GNSS antenna, IMU |
-| **Control Unit** | In-vehicle computer, data storage, power management |
+| **Sensor Unit** | The roof-mounted head: scanners, cameras, GNSS antenna, IMU. **24–28 kg** depending on configuration *(MX60 UG Rev B)* — a two-person lift |
+| **Control Unit** | In-vehicle computer, data storage, power management. **IP30 — not waterproof**, and lives inside the vehicle *(MX60 UG Rev B, p.53)* |
 | **Exchangeable data disk** | Removable storage inside the Control Unit |
 | **Mounting rack** | Attaches the Sensor Unit to the vehicle |
 | **GAMS antenna** *(optional)* | Second GNSS antenna for direct heading |
@@ -1039,6 +1039,12 @@ different ways, and conflating them is the most common conceptual error in this 
 > be absorbed partly into the boresight estimate, which then compensates for a translation with a
 > rotation, and the compensation is only correct at the range where it was determined.
 
+> **CAUTION**
+>
+> **Changing the rack, the roof bars, the vehicle, or the Sensor Unit's position on the rack
+> invalidates the lever arms and may invalidate the calibration.** None of those changes announces
+> itself in the data, and the resulting error is systematic rather than noisy.
+
 ### Where the values live
 
 `Extcal.json`, written alongside the raw mission data, carries the calibration state that
@@ -1067,7 +1073,31 @@ register as a blocking item rather than a detail.
 > **SOP §12** and in the master register; it is the single decision that unblocks the most other
 > items.
 
-## 7.8 Power, and the protection that ends a run
+## 7.8 Power
+
+The Control Unit manages vehicle power. The specifications below are what the installation has to
+satisfy; the installation procedure itself is the **Field How To §6**.
+
+> **TRIMBLE DOCUMENTED PROCEDURE**
+>
+> | | Value | Source |
+> |---|---|---|
+> | Input voltage | **12–16 V DC** | MX60 UG Rev B |
+> | Current at startup | **25 A at 12.8 V** (320 W) | MX60 UG Rev B |
+> | Current in operation | 12 A (160 W) | MX60 UG Rev B |
+> | **Supply rating required** | **30 A or more** | MX60 QSG Rev B, p.4 |
+> | Direct-connection fuse | **35 A**, close to the battery | MX60 UG Rev B |
+> | Data storage | 2 × 4 TB removable SSD | MX60 Spec Sheet, p.3 |
+>
+> An **auxiliary battery as a backup power source is recommended** *(MX60 QSG Rev B, p.4)*.
+
+> **WHY THIS MATTERS**
+>
+> The startup draw is twice the operating draw. A supply sized for the operating figure will brown
+> out at every power-on, and the symptom — a system that starts unreliably — does not look like a
+> supply problem.
+
+## 7.9 The protection that ends a run
 
 The Control Unit manages vehicle power, and it protects the vehicle's battery rather than the
 mission. That priority is correct and worth knowing about in advance.
@@ -3994,6 +4024,15 @@ Three consequences worth stating plainly:
 > checks both boxes on every point because that is the default has made a survey decision without
 > noticing.
 
+> **IMPORTANT · control cannot be added afterwards**
+>
+> A point can be surveyed at any time. It can only be *used* if the feature it marks is visible in
+> data that was already collected — at the density and incidence angle the vehicle produced, on the
+> pass that was driven. **You cannot go back and occupy a new point to strengthen a registration.**
+>
+> That reverses the usual order of work: on a corridor job the control design has to be right
+> before the vehicle drives, not after the office has seen the residuals.
+
 > **FIELD TESTING REQUIRED · T25**
 >
 > **Which feature types are fit for horizontal control, vertical control, or both, at MX60 point
@@ -4950,7 +4989,7 @@ to create it** (§30).
 
 > **The two findings compound.** Cleanup reduces the registration history available in the
 > project; export is not documented as providing unique registration lineage. **A LAS point cloud
-> exported after project cleanup may retain spatial and point-level metadata, but the captured
+> exported after Cleanup may retain spatial and point-level metadata, but the captured
 > Trimble documentation does not establish that it preserves sufficient registration and
 > trajectory lineage to reconstruct how the final cloud was produced.**
 >
@@ -5394,7 +5433,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 
 ---
 
-# 30. Data Provenance
+# 30. Provenance
 
 ## 30.1 The question this section answers
 
@@ -6182,7 +6221,7 @@ unknown.*
 
 **Evidence.** TBC 22499
 
-*Stage: scan generation · Documents: Manual; Office*
+*Stage: scan generation · Documents: Manual; SOP; Office*
 
 ### T3 · Does Reflective Panels remove legitimate retro-reflective returns from signs and line marking?
 
@@ -6192,7 +6231,7 @@ unknown.*
 
 **Evidence.** TBC 22499
 
-*Stage: scan generation · Documents: Manual; Office*
+*Stage: scan generation · Documents: Manual; SOP; Office*
 
 ### T6 · Colouriser forward vs backward camera preference and its effect on fringing
 
@@ -6212,7 +6251,7 @@ unknown.*
 
 **Evidence.** TBC 22905; TBC 21243-1
 
-*Stage: registration · Documents: Manual; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 ### T9 · Target-Bundle Adjustment - test both states with independent checks
 
@@ -6222,7 +6261,7 @@ unknown.*
 
 **Evidence.** TBC 22905
 
-*Stage: registration · Documents: Manual; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 ### T10 · Which Parametrix coordinate systems does POSPac recognise directly, and which trigger the ITRF00 path?
 
@@ -6232,7 +6271,7 @@ unknown.*
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: Manual; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Office*
 
 ### T11 · Multipath default Medium on open-sky corridors
 
@@ -6242,7 +6281,7 @@ unknown.*
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: Manual; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Office*
 
 ### T12 · DMI scale factor SD default 5 percent - was the wheel actually measured?
 
@@ -6252,7 +6291,7 @@ unknown.*
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: Manual; Field; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Field; Office*
 
 ### T13 · LiDAR QC settings - range default 3-100 m and Lasers = All
 
@@ -6262,7 +6301,7 @@ unknown.*
 
 **Evidence.** TBC 28972
 
-*Stage: trajectory processing · Documents: Manual; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Office*
 
 ### T15 · Which registration type, when? Test Global, Local and Global-then-Local with independent checks
 
@@ -6282,7 +6321,7 @@ unknown.*
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: Manual; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### T17 · Sample points random sampling in the classified LAS exporter
 
@@ -6312,7 +6351,7 @@ unknown.*
 
 **Evidence.** TBC 22501; TBC 29527
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### T21 · Register a mission, run a Mission Report, and look. Does it contain the signed GCP residuals?
 
@@ -6332,7 +6371,7 @@ unknown.*
 
 **Evidence.** TBC 11769
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### T23 · Draw a Point Cloud tab selection across scans from two trajectories and observe
 
@@ -6342,7 +6381,7 @@ unknown.*
 
 **Evidence.** TBC 11769
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### T24 · How much run overlap is enough for run-to-run registration?
 
@@ -6362,7 +6401,7 @@ unknown.*
 
 **Evidence.** TBC 22905
 
-*Stage: project setup · Documents: Manual; SOP; Field*
+*Stage: project setup · Documents: Manual; SOP*
 
 ### T26 · Does exported imagery inherit or otherwise reflect a registration adjustment?
 
@@ -6372,7 +6411,7 @@ unknown.*
 
 **Evidence.** TBC 22638
 
-*Stage: QC · Documents: Manual; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### T27 · What imagery streams actually exist on the MX60, and which are exposed through TBC export?
 
@@ -6402,7 +6441,7 @@ unknown.*
 
 **Evidence.** TBC 22638; TBC 11769
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### T30 · Attempt both reconstruction paths - timestamp matching and trajectory geometry comparison - on a dataset with two candidate trajectories
 
@@ -6412,7 +6451,7 @@ unknown.*
 
 **Evidence.** TBC 23339; TBC 22501
 
-*Stage: provenance · Documents: Manual; Office*
+*Stage: provenance · Documents: Manual; SOP; Office*
 
 ### T31 · Does a predicted GNSS environment (almanac PDOP, canopy, urban canyon) correlate with achieved trajectory RMS on this system? Drive a route with a range of predicted conditions and compare the prediction against the RMS colouring afterwards.
 
@@ -6422,7 +6461,7 @@ unknown.*
 
 **Evidence.** No source. MX60 UG Rev B p.56 publishes performance at no outage and at 60 s outage only
 
-*Stage: mission planning · Documents: Manual; SOP; Field How To*
+*Stage: mission planning · Documents: Manual; SOP; Field*
 
 ---
 
@@ -6438,7 +6477,7 @@ unknown.*
 
 **Evidence.** TBC 23339; TBC 22501
 
-*Stage: export · Documents: Manual; SOP; Office*
+*Stage: export · Documents: Manual*
 
 ### V-2 · Is the MX60 laser control presented as Measurement Prog plus Line Speed, or a combined Laser Mode? Which TMI version applies?
 
@@ -6458,7 +6497,7 @@ unknown.*
 
 **Evidence.** TBC 24886; TBC 27248
 
-*Stage: system · Documents: Manual; SOP; Office*
+*Stage: system · Documents: Manual*
 
 ### V-4 · Which MX60 configuration do we have from the serial number? Are GAMS and DMI fitted? Which rack?
 
@@ -6478,7 +6517,7 @@ unknown.*
 
 **Evidence.** MX60 UG Rev B p.42,43
 
-*Stage: field preparation · Documents: Manual; Field; Office*
+*Stage: field preparation · Documents: Manual; Field*
 
 ### V-7 · Does the Lateral Range Limit affect accuracy, or is it purely a data-volume tool?
 
@@ -6498,7 +6537,7 @@ unknown.*
 
 **Evidence.** TBC 23339; TBC 22501
 
-*Stage: system · Documents: Manual; Office*
+*Stage: system · Documents: Manual*
 
 ### V-9 · Does LiDAR QC have its own POSPac dependency?
 
@@ -6508,7 +6547,7 @@ unknown.*
 
 **Evidence.** TBC 28972
 
-*Stage: trajectory processing · Documents: Manual; SOP*
+*Stage: trajectory processing · Documents: Manual; Office*
 
 ### V-10 · Which trajectory do TMX export and Publish to TRCPS send when a run has both an imported and a registered trajectory?
 
@@ -6538,7 +6577,7 @@ unknown.*
 
 **Evidence.** TBC 11769
 
-*Stage: provenance · Documents: Manual; Office*
+*Stage: provenance · Documents: Manual*
 
 ### V-13 · Does removing and refitting the Sensor Unit disturb the calibration? What symptoms indicate drift?
 
@@ -6548,7 +6587,7 @@ unknown.*
 
 **Evidence.** MX60 UG Rev B p.7
 
-*Stage: calibration · Documents: Manual; SOP; Field*
+*Stage: calibration · Documents: Manual*
 
 ### V-14 · Is the retro-reflective target check the recommended periodic verification for the MX60, and at what interval?
 
@@ -6588,7 +6627,7 @@ unknown.*
 
 **Evidence.** TBC 22501
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual*
 
 ---
 

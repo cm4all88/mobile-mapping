@@ -41,6 +41,11 @@ Mobile Mapping
 - **Covered distance is materially short** of what the crew logged
 - **The trajectory is NAV, not SBET,** and you have no recorded reason
 
+> **PARAMETRIX DECISION REQUIRED · D-18**
+>
+> **What is verified at import, and by whom?** The seven checks above are proposed, not adopted
+> *(SOP §12.2)*.
+
 > **Intake does not fix anything.** If a check fails, record it and raise it *(SOP §12.4)*. A
 > processor who quietly corrects a coordinate system mismatch at intake has removed the evidence
 > that field and office disagreed.

@@ -7,8 +7,8 @@ this document and in TMI:
 
 | Component | Function |
 |---|---|
-| **Sensor Unit** | The roof-mounted head: scanners, cameras, GNSS antenna, IMU |
-| **Control Unit** | In-vehicle computer, data storage, power management |
+| **Sensor Unit** | The roof-mounted head: scanners, cameras, GNSS antenna, IMU. **24–28 kg** depending on configuration *(MX60 UG Rev B)* — a two-person lift |
+| **Control Unit** | In-vehicle computer, data storage, power management. **IP30 — not waterproof**, and lives inside the vehicle *(MX60 UG Rev B, p.53)* |
 | **Exchangeable data disk** | Removable storage inside the Control Unit |
 | **Mounting rack** | Attaches the Sensor Unit to the vehicle |
 | **GAMS antenna** *(optional)* | Second GNSS antenna for direct heading |
@@ -95,6 +95,12 @@ different ways, and conflating them is the most common conceptual error in this 
 > be absorbed partly into the boresight estimate, which then compensates for a translation with a
 > rotation, and the compensation is only correct at the range where it was determined.
 
+> **CAUTION**
+>
+> **Changing the rack, the roof bars, the vehicle, or the Sensor Unit's position on the rack
+> invalidates the lever arms and may invalidate the calibration.** None of those changes announces
+> itself in the data, and the resulting error is systematic rather than noisy.
+
 ### Where the values live
 
 `Extcal.json`, written alongside the raw mission data, carries the calibration state that
@@ -123,7 +129,31 @@ register as a blocking item rather than a detail.
 > **SOP §12** and in the master register; it is the single decision that unblocks the most other
 > items.
 
-## 7.8 Power, and the protection that ends a run
+## 7.8 Power
+
+The Control Unit manages vehicle power. The specifications below are what the installation has to
+satisfy; the installation procedure itself is the **Field How To §6**.
+
+> **TRIMBLE DOCUMENTED PROCEDURE**
+>
+> | | Value | Source |
+> |---|---|---|
+> | Input voltage | **12–16 V DC** | MX60 UG Rev B |
+> | Current at startup | **25 A at 12.8 V** (320 W) | MX60 UG Rev B |
+> | Current in operation | 12 A (160 W) | MX60 UG Rev B |
+> | **Supply rating required** | **30 A or more** | MX60 QSG Rev B, p.4 |
+> | Direct-connection fuse | **35 A**, close to the battery | MX60 UG Rev B |
+> | Data storage | 2 × 4 TB removable SSD | MX60 Spec Sheet, p.3 |
+>
+> An **auxiliary battery as a backup power source is recommended** *(MX60 QSG Rev B, p.4)*.
+
+> **WHY THIS MATTERS**
+>
+> The startup draw is twice the operating draw. A supply sized for the operating figure will brown
+> out at every power-on, and the symptom — a system that starts unreliably — does not look like a
+> supply problem.
+
+## 7.9 The protection that ends a run
 
 The Control Unit manages vehicle power, and it protects the vehicle's battery rather than the
 mission. That priority is correct and worth knowing about in advance.

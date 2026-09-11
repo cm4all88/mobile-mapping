@@ -15,7 +15,7 @@ when it would be useful to know. 10 rows, **9 distinct questions**.
 
 **Evidence.** TBC 22501; TBC 23888; MX60 UG Rev B p.12
 
-*Stage: system · Documents: Manual; SOP; Office*
+*Stage: system · Documents: Manual; SOP; Field; Office*
 
 ### V-4 · Which MX60 configuration do we have from the serial number? Are GAMS and DMI fitted? Which rack?
 
@@ -45,7 +45,7 @@ when it would be useful to know. 10 rows, **9 distinct questions**.
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: SOP; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### D-16 · Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions?
 
@@ -55,7 +55,7 @@ when it would be useful to know. 10 rows, **9 distinct questions**.
 
 **Evidence.** TBC 22905
 
-*Stage: project setup · Documents: SOP; Field; Office*
+*Stage: project setup · Documents: Manual; SOP*
 
 ### D-19 · IN-Fusion+ Single Base or PP-RTX?
 
@@ -65,7 +65,7 @@ when it would be useful to know. 10 rows, **9 distinct questions**.
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: SOP; Field; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Field*
 
 ### D-21 · Which datum and epoch do we work in, who sets it, who checks it?
 
@@ -85,7 +85,7 @@ when it would be useful to know. 10 rows, **9 distinct questions**.
 
 **Evidence.** TBC 26466
 
-*Stage: cleanup · Documents: SOP; Office*
+*Stage: cleanup · Documents: Manual; SOP; Office*
 
 ### D-41 · How many passes, in what pattern, by roadway type?
 
@@ -105,4 +105,4 @@ when it would be useful to know. 10 rows, **9 distinct questions**.
 
 **Evidence.** TBC 25943
 
-*Stage: mission planning · Documents: SOP; Field*
+*Stage: mission planning · Documents: Manual; SOP; Field*

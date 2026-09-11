@@ -87,10 +87,9 @@ before the crew leaves.**
 > to be marginal, the mitigation chosen for each, and the segments where another method is
 > proposed.
 
-> **This is the clause people avoid.** It is easier to collect a corridor and discover the problem
-> in the office than to say beforehand that a particular 400 m should be collected another way. The
-> office discovery costs a remobilisation, and sometimes a conversation with the client about
-> accuracy that nobody wants to have.
+> **This is the clause people avoid**, and the reason it is a requirement rather than a
+> recommendation. What it costs to discover the same thing in the office instead is set out in
+> **Technical Manual §15.5**.
 
 > **PARAMETRIX DECISION REQUIRED · D-34**
 >

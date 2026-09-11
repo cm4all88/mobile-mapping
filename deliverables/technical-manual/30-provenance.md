@@ -1,4 +1,4 @@
-# 30. Data Provenance
+# 30. Provenance
 
 ## 30.1 The question this section answers
 

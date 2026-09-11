@@ -125,7 +125,7 @@ to create it** (§30).
 
 > **The two findings compound.** Cleanup reduces the registration history available in the
 > project; export is not documented as providing unique registration lineage. **A LAS point cloud
-> exported after project cleanup may retain spatial and point-level metadata, but the captured
+> exported after Cleanup may retain spatial and point-level metadata, but the captured
 > Trimble documentation does not establish that it preserves sufficient registration and
 > trajectory lineage to reconstruct how the final cloud was produced.**
 >

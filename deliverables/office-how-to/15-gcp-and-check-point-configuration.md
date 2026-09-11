@@ -35,6 +35,11 @@ is a validation point.
   recorded and requires the registration to be recomputed from the imported trajectory using
   **Edit** (§19) — not layered on top *(SOP §7.3)*
 
+> **PARAMETRIX DECISION REQUIRED · D-15**
+>
+> **Is the control/check designation fixed before registration and unchangeable during it?**
+> Proposed in the **SOP §7.3**; not adopted.
+
 > **The failure this prevents.** A conscientious processor registers a mission, finds one check
 > point with a larger residual than expected, and adds it to the adjustment to bring it in. Every
 > step is well intentioned. The result is an adjustment with **no independent check at all**, and a

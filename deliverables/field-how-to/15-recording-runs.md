@@ -25,6 +25,11 @@ Direction matters. A second pass in the opposite direction fixes the far side of
 better than any setting change, because it turns grazing incidence into direct incidence
 *(Technical Manual §16.3)*.
 
+> **PARAMETRIX DECISION REQUIRED · D-41 · blocks operation**
+>
+> **How many passes, in what pattern, by roadway type?** The mission plan states it for this job;
+> the standing rule does not exist yet *(SOP §8.2)*.
+
 ## 15.4 Stop if
 
 - Navigation status will not hold

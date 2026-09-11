@@ -112,10 +112,13 @@ Templates are in **Appendix F**.
    places
 2. **Verify the copy** — file count and total size at minimum; a checksum comparison if your
    tooling allows
-3. **Confirm `POS_1/raw/` is present and non-empty**
-4. **Confirm base station data** is in `Base/`, if a local base was occupied
-5. **Take the raw-data backup now**, before any processing
-6. Only then is the source disk available for reuse
+3. **Open the `.mxdb`** in a scratch TBC project — this is the definitive test that the copy
+   worked. **A file count can look right, the copy can seem fine, and the `.mxdb` still be
+   truncated**
+4. **Confirm `POS_1/raw/` is present and non-empty**
+5. **Confirm base station data** is in `Base/`, if a local base was occupied
+6. **Take the raw-data backup now**, before any processing
+7. Only then is the source disk available for reuse
 
 ### Look at
 
@@ -143,6 +146,11 @@ file. `Extcal.json` is small and is there.
   mission is NAV-only. Raise it now, while re-collection is still a small decision
 - The copy does not verify
 - The mission folder has arrived without the field record
+
+> **PARAMETRIX DECISION REQUIRED · D-52**
+>
+> **The offload, verification and backup procedure** — the six steps above are proposed, not
+> adopted *(SOP §11.2)*.
 
 > **CAUTION · W-04**
 >
@@ -205,6 +213,11 @@ Mobile Mapping
 - **Covered distance is materially short** of what the crew logged
 - **The trajectory is NAV, not SBET,** and you have no recorded reason
 
+> **PARAMETRIX DECISION REQUIRED · D-18**
+>
+> **What is verified at import, and by whom?** The seven checks above are proposed, not adopted
+> *(SOP §12.2)*.
+
 > **Intake does not fix anything.** If a check fails, record it and raise it *(SOP §12.4)*. A
 > processor who quietly corrects a coordinate system mismatch at intake has removed the evidence
 > that field and office disagreed.
@@ -217,7 +230,7 @@ Each check, with its result. Anything that failed, and what was done.
 
 # 4. Calibration-State Intake
 
-**Do this at intake, not later.** A later project cleanup (§29) removes the objects that would
+**Do this at intake, not later.** A later Cleanup (§29) removes the objects that would
 produce the report.
 
 ### Do
@@ -585,6 +598,15 @@ processes all runs; at run level, one.
 - The filter set is not the one you intended. Regenerating is cheap in effort and expensive in
   time; getting it right on one run first is why step 1 says one run
 
+> **PARAMETRIX DECISION REQUIRED · D-22**
+>
+> **Are scans generated coloured by default?** *(SOP §13.3)*
+
+> **TESTING REQUIRED · T6**
+>
+> **Colouriser camera preference** — forward versus backward — and its effect on fringing at
+> feature edges. Untested.
+
 > **TESTING REQUIRED · T1, T3**
 >
 > Filter defaults are untested against Parametrix work. **T3:** whether **Reflective Panels**
@@ -714,6 +736,10 @@ with the cloud. There is no residual, and the quality is whatever care you took.
 You cannot get the imagery to sit on the cloud at more than one location. That is not a boresight
 you can nudge out.
 
+> **PARAMETRIX DECISION REQUIRED · D-24**
+>
+> **Where is the calibration site, and who maintains it?** *(SOP §14.3)*
+
 ## 13.3 Afterwards
 
 ### Do
@@ -804,6 +830,11 @@ is a validation point.
   recorded and requires the registration to be recomputed from the imported trajectory using
   **Edit** (§19) — not layered on top *(SOP §7.3)*
 
+> **PARAMETRIX DECISION REQUIRED · D-15**
+>
+> **Is the control/check designation fixed before registration and unchangeable during it?**
+> Proposed in the **SOP §7.3**; not adopted.
+
 > **The failure this prevents.** A conscientious processor registers a mission, finds one check
 > point with a larger residual than expected, and adds it to the adjustment to bring it in. Every
 > step is well intentioned. The result is an adjustment with **no independent check at all**, and a
@@ -844,6 +875,12 @@ One run, against surveyed control.
 
 *(TBC 22905)*
 
+> **The 30 m rule**
+>
+> "The distance in a pair of points cannot exceed the allowed maximum distance of **30 meters**"
+> *(TBC 22905)*. If a pick is further than that from its GCP, it is not a valid pair — pick a
+> feature nearer the control point, or the pairing is refused.
+
 ### Look at — Registration Type
 
 | Type | What it does |
@@ -879,8 +916,8 @@ One run, against surveyed control.
 - An **adjusted trajectory node** beneath the run, beside `Sbet`
 - A new SBET on disk: **`sbet_<date>_reg_####.out`**, incrementing with each registration
 - Picked targets renamed *RunName TrajectoryGCPName*, updated ones carrying a trailing `*`
-- Trajectory properties reading **`Origin: Registration result`**, **`Input trajectory: Imported
-  trajectory`**, and **`Registration type:`**
+- Trajectory properties reading `Origin: Registration result`, `Input trajectory: Imported
+  trajectory`, and `Registration type:`
 
 **Those four properties and the numbered SBET file are your provenance record** (§27).
 
@@ -1213,7 +1250,8 @@ not record it, there is no evidence it happened.
 
 1. **Point Clouds ▸ View ▸ Cutting Plane View**
 2. **Set rendering to Scan Color** — see below
-3. Drag the plane along the corridor, full length
+3. **Drag the plane along the corridor, full length.** It is tedious, and the tedium is the
+   check — error arrives in stretches, so a plane dropped in three places finds nothing
 4. Work the checklist under **Look at**
 5. Record what you covered, and by whom
 
@@ -1250,6 +1288,11 @@ Overlapping passes landing on each other. Flat surfaces that stay flat as range 
 - A wall thickens with range
 - The cloud is good near control and degrades between — that is the shape of an adjustment that
   fitted its constraints and nothing else
+
+> **PARAMETRIX DECISION REQUIRED · D-27**
+>
+> **What does a visual point-cloud QC pass cover?** The checklist above is proposed, not adopted
+> *(SOP §15.5)*.
 
 > **TESTING REQUIRED · T16** — the working cutting-plane thickness for these checks.
 
@@ -1840,6 +1883,10 @@ Stop if the scans sit beneath `Sbet`, or the stations have no `_reg_####`. Go ba
 
 **Until T18 is answered, treat an export with timestamps enabled as unverified against the checked
 dataset, and do not enable it on a delivered dataset without a recorded reason** *(SOP §18.3)*.
+
+> **PARAMETRIX DECISION REQUIRED · D-36**
+>
+> **Is this confirmation mandatory, and may export be performed without it?** *(SOP §18.2)*
 
 > **TESTING REQUIRED · T18 — the highest-priority test in the register.** Export the same
 > registered run twice, timestamps off and on, and compare point geometry.

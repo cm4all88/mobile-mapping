@@ -27,6 +27,12 @@ Your mission plan identified them (§2). As you reach each one:
 **If you cannot drive the planned overlap, say so in the field record and say so at handoff.** It
 is not recoverable in the office and it is cheap to fix while you are still here.
 
+> **TESTING REQUIRED · T31**
+>
+> Whether predicted GNSS conditions correlate with achieved trajectory RMS on this system. Until
+> that is established, the planning estimate is judgement — **so what you observe and record here
+> is the evidence that will settle it** *(SOP §8.3)*.
+
 ## 17.4 The published limit
 
 Trimble publishes positioning performance at **no outage** and after a **60-second outage**, and

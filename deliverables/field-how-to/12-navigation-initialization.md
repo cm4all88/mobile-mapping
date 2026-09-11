@@ -29,8 +29,8 @@ One line each. Full explanation: **Technical Manual §13**.
 
 ## 12.3 Stop if
 
-- **Open sky is not available at the start point.** Drive to open sky **before starting the
-  mission**, not after
+- **Open sky is not available at the start point.** Drive to open sky *before starting the
+  mission*, not after
 - The status will not progress. See §14 and Appendix D — ask TMI **which** parameter is holding it
 
 ## 12.4 The system enforces one part of this, and not the other

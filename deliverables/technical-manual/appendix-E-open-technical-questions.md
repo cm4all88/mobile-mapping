@@ -33,7 +33,7 @@ unknown.*
 
 **Evidence.** TBC 22499
 
-*Stage: scan generation · Documents: Manual; Office*
+*Stage: scan generation · Documents: Manual; SOP; Office*
 
 ### T3 · Does Reflective Panels remove legitimate retro-reflective returns from signs and line marking?
 
@@ -43,7 +43,7 @@ unknown.*
 
 **Evidence.** TBC 22499
 
-*Stage: scan generation · Documents: Manual; Office*
+*Stage: scan generation · Documents: Manual; SOP; Office*
 
 ### T6 · Colouriser forward vs backward camera preference and its effect on fringing
 
@@ -63,7 +63,7 @@ unknown.*
 
 **Evidence.** TBC 22905; TBC 21243-1
 
-*Stage: registration · Documents: Manual; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 ### T9 · Target-Bundle Adjustment - test both states with independent checks
 
@@ -73,7 +73,7 @@ unknown.*
 
 **Evidence.** TBC 22905
 
-*Stage: registration · Documents: Manual; Office*
+*Stage: registration · Documents: Manual; SOP; Office*
 
 ### T10 · Which Parametrix coordinate systems does POSPac recognise directly, and which trigger the ITRF00 path?
 
@@ -83,7 +83,7 @@ unknown.*
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: Manual; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Office*
 
 ### T11 · Multipath default Medium on open-sky corridors
 
@@ -93,7 +93,7 @@ unknown.*
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: Manual; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Office*
 
 ### T12 · DMI scale factor SD default 5 percent - was the wheel actually measured?
 
@@ -103,7 +103,7 @@ unknown.*
 
 **Evidence.** TBC 25943
 
-*Stage: trajectory processing · Documents: Manual; Field; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Field; Office*
 
 ### T13 · LiDAR QC settings - range default 3-100 m and Lasers = All
 
@@ -113,7 +113,7 @@ unknown.*
 
 **Evidence.** TBC 28972
 
-*Stage: trajectory processing · Documents: Manual; Office*
+*Stage: trajectory processing · Documents: Manual; SOP; Office*
 
 ### T15 · Which registration type, when? Test Global, Local and Global-then-Local with independent checks
 
@@ -133,7 +133,7 @@ unknown.*
 
 **Evidence.** TBC 24886; TBC 25096
 
-*Stage: QC · Documents: Manual; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### T17 · Sample points random sampling in the classified LAS exporter
 
@@ -163,7 +163,7 @@ unknown.*
 
 **Evidence.** TBC 22501; TBC 29527
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### T21 · Register a mission, run a Mission Report, and look. Does it contain the signed GCP residuals?
 
@@ -183,7 +183,7 @@ unknown.*
 
 **Evidence.** TBC 11769
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### T23 · Draw a Point Cloud tab selection across scans from two trajectories and observe
 
@@ -193,7 +193,7 @@ unknown.*
 
 **Evidence.** TBC 11769
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### T24 · How much run overlap is enough for run-to-run registration?
 
@@ -213,7 +213,7 @@ unknown.*
 
 **Evidence.** TBC 22905
 
-*Stage: project setup · Documents: Manual; SOP; Field*
+*Stage: project setup · Documents: Manual; SOP*
 
 ### T26 · Does exported imagery inherit or otherwise reflect a registration adjustment?
 
@@ -223,7 +223,7 @@ unknown.*
 
 **Evidence.** TBC 22638
 
-*Stage: QC · Documents: Manual; Office*
+*Stage: QC · Documents: Manual; SOP; Office*
 
 ### T27 · What imagery streams actually exist on the MX60, and which are exposed through TBC export?
 
@@ -253,7 +253,7 @@ unknown.*
 
 **Evidence.** TBC 22638; TBC 11769
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual; SOP; Office*
 
 ### T30 · Attempt both reconstruction paths - timestamp matching and trajectory geometry comparison - on a dataset with two candidate trajectories
 
@@ -263,7 +263,7 @@ unknown.*
 
 **Evidence.** TBC 23339; TBC 22501
 
-*Stage: provenance · Documents: Manual; Office*
+*Stage: provenance · Documents: Manual; SOP; Office*
 
 ### T31 · Does a predicted GNSS environment (almanac PDOP, canopy, urban canyon) correlate with achieved trajectory RMS on this system? Drive a route with a range of predicted conditions and compare the prediction against the RMS colouring afterwards.
 
@@ -273,7 +273,7 @@ unknown.*
 
 **Evidence.** No source. MX60 UG Rev B p.56 publishes performance at no outage and at 60 s outage only
 
-*Stage: mission planning · Documents: Manual; SOP; Field How To*
+*Stage: mission planning · Documents: Manual; SOP; Field*
 
 ---
 
@@ -289,7 +289,7 @@ unknown.*
 
 **Evidence.** TBC 23339; TBC 22501
 
-*Stage: export · Documents: Manual; SOP; Office*
+*Stage: export · Documents: Manual*
 
 ### V-2 · Is the MX60 laser control presented as Measurement Prog plus Line Speed, or a combined Laser Mode? Which TMI version applies?
 
@@ -309,7 +309,7 @@ unknown.*
 
 **Evidence.** TBC 24886; TBC 27248
 
-*Stage: system · Documents: Manual; SOP; Office*
+*Stage: system · Documents: Manual*
 
 ### V-4 · Which MX60 configuration do we have from the serial number? Are GAMS and DMI fitted? Which rack?
 
@@ -329,7 +329,7 @@ unknown.*
 
 **Evidence.** MX60 UG Rev B p.42,43
 
-*Stage: field preparation · Documents: Manual; Field; Office*
+*Stage: field preparation · Documents: Manual; Field*
 
 ### V-7 · Does the Lateral Range Limit affect accuracy, or is it purely a data-volume tool?
 
@@ -349,7 +349,7 @@ unknown.*
 
 **Evidence.** TBC 23339; TBC 22501
 
-*Stage: system · Documents: Manual; Office*
+*Stage: system · Documents: Manual*
 
 ### V-9 · Does LiDAR QC have its own POSPac dependency?
 
@@ -359,7 +359,7 @@ unknown.*
 
 **Evidence.** TBC 28972
 
-*Stage: trajectory processing · Documents: Manual; SOP*
+*Stage: trajectory processing · Documents: Manual; Office*
 
 ### V-10 · Which trajectory do TMX export and Publish to TRCPS send when a run has both an imported and a registered trajectory?
 
@@ -389,7 +389,7 @@ unknown.*
 
 **Evidence.** TBC 11769
 
-*Stage: provenance · Documents: Manual; Office*
+*Stage: provenance · Documents: Manual*
 
 ### V-13 · Does removing and refitting the Sensor Unit disturb the calibration? What symptoms indicate drift?
 
@@ -399,7 +399,7 @@ unknown.*
 
 **Evidence.** MX60 UG Rev B p.7
 
-*Stage: calibration · Documents: Manual; SOP; Field*
+*Stage: calibration · Documents: Manual*
 
 ### V-14 · Is the retro-reflective target check the recommended periodic verification for the MX60, and at what interval?
 
@@ -439,7 +439,7 @@ unknown.*
 
 **Evidence.** TBC 22501
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual*
 
 ---
 

@@ -110,8 +110,8 @@ from.
 Every major technical section ends with a box addressed to **an experienced land surveyor who is
 new to mobile mapping**, answering four questions:
 
-1. **What we just did** · 2. **Why it matters** · 3. **What can go wrong** · 4. **What a good
-result generally looks like**
+**What we just did** · **Why it matters** · **What can go wrong** ·
+**What a good result generally looks like**
 
 They re-explain rather than summarise. **Read end to end, with nothing else, they describe the
 whole workflow in ordinary language** — a reviewer or project manager can get a true picture from

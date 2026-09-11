@@ -26,6 +26,12 @@ One run, against surveyed control.
 
 *(TBC 22905)*
 
+> **The 30 m rule**
+>
+> "The distance in a pair of points cannot exceed the allowed maximum distance of **30 meters**"
+> *(TBC 22905)*. If a pick is further than that from its GCP, it is not a valid pair — pick a
+> feature nearer the control point, or the pairing is refused.
+
 ### Look at — Registration Type
 
 | Type | What it does |
@@ -61,8 +67,8 @@ One run, against surveyed control.
 - An **adjusted trajectory node** beneath the run, beside `Sbet`
 - A new SBET on disk: **`sbet_<date>_reg_####.out`**, incrementing with each registration
 - Picked targets renamed *RunName TrajectoryGCPName*, updated ones carrying a trailing `*`
-- Trajectory properties reading **`Origin: Registration result`**, **`Input trajectory: Imported
-  trajectory`**, and **`Registration type:`**
+- Trajectory properties reading `Origin: Registration result`, `Input trajectory: Imported
+  trajectory`, and `Registration type:`
 
 **Those four properties and the numbered SBET file are your provenance record** (§27).
 

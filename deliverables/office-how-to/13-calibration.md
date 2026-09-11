@@ -74,6 +74,10 @@ with the cloud. There is no residual, and the quality is whatever care you took.
 You cannot get the imagery to sit on the cloud at more than one location. That is not a boresight
 you can nudge out.
 
+> **PARAMETRIX DECISION REQUIRED · D-24**
+>
+> **Where is the calibration site, and who maintains it?** *(SOP §14.3)*
+
 ## 13.3 Afterwards
 
 ### Do
