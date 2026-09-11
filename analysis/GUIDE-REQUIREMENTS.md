@@ -98,7 +98,19 @@ Addressed to **an experienced land surveyor who is new to mobile mapping.** It m
 
 1. **What just happened?**
 2. **Why does it matter?**
-3. **What do I need to remember before moving on?**
+3. **What could go wrong?**
+4. **What does "good" look like, in practical terms?** — and what to remember before moving on
+
+> **Amended 2026-09-11 (batch 5).** Questions 3 and 4 replace the original single closing
+> question. The addition is deliberate: several of the most important facts in the source set
+> are **failure modes**, not procedures — a target picked on a superseded scan, Local
+> registration silently not extrapolating past the outermost control point, `Targets.csv`
+> emptied by the wrong answer to a dialog, Cleanup run without a backup. A box that only
+> summarises the procedure leaves all of those out.
+>
+> "What good looks like" is likewise not decoration. Trimble's own position is that good RMS
+> cannot prove success — so the reader needs a practical picture of a sound result, not a
+> number to clear.
 
 **Rules:**
 
@@ -236,7 +248,7 @@ The guide meets these requirements when:
 - [ ] Visually reads as a Parametrix manual — cover, typography, palette, running heads
 - [ ] Trimble screenshots preserved, cropped, captioned in Parametrix style, attributed
 - [ ] Every specification still traceable to its Trimble source and page
-- [ ] Every substantial technical section ends with **IN PLAIN ENGLISH** answering all three questions
+- [ ] Every substantial technical section ends with **IN PLAIN ENGLISH** answering all four questions — including **what could go wrong** and **what "good" looks like**
 - [ ] Every major chapter ends with **WHAT YOU SHOULD KNOW BEFORE MOVING ON**
 - [ ] Plain-language boxes **re-explain** rather than compress
 - [ ] All three levels present: procedure, technical explanation, comprehension

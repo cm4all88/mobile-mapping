@@ -40,7 +40,7 @@ and QC are told once in Section 13 rather than five times across five sections.
 
 ## Reference data
 
-`../reference/mx60-reference-data.csv` — 356 structured records of every specification,
+`../reference/mx60-reference-data.csv` — 358 structured records of every specification,
 limit, requirement, warning, procedure and setting drawn from the Trimble sources.
 
 Each row carries: `id`, `category`, `topic`, `item`, `value`, `notes`, `source`, `page`,
@@ -86,14 +86,17 @@ still reflects the earlier source set.
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-2.md) — 16 topics classified
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-3.md) — chain model tested; registration source gap identified
 - [`../analysis/SOURCE-INVENTORY-TBC-BATCH-4.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-4.md) — **registration and calibration branches; six of the eight questions answered**
+- [`../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md) — export provenance pass; **trajectory identity at export is *partly confirmed*, and the Export topic is still uncaptured**
 - [`../analysis/GUIDE-REQUIREMENTS.md`](../analysis/GUIDE-REQUIREMENTS.md) — branding and comprehension-layer requirements
 
 ## Still needed
 
-- **TBC Help: Export Mobile Mapping Data.** The one remaining material gap — it is the only
-  topic that can establish whether an export carries the identity of the trajectory its scans
-  were built on. *(Import, scan generation, registration, calibration, trajectory processing
-  and cleanup are all now captured — see the batch 2–4 inventories.)*
+- **TBC Help: the Export branch — eight pages.** The one remaining material gap. Exact topic
+  IDs and URLs are listed in
+  [`../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md`](../analysis/SOURCE-INVENTORY-TBC-BATCH-5.md) §1.
+  Outbound access to the help portal is blocked from the build environment, so these have to
+  arrive as an upload. *(Import, scan generation, registration, calibration, trajectory
+  processing and cleanup are all now captured — see the batch 2–4 inventories.)*
 - **Confirmation of the POSPac MMS licence and the TBC version.** Both gate which office
   workflow is even available; see `../analysis/VENDOR-QUESTIONS.md` items 2a and 2b.
 - **Trimble GAMS Antenna Kit** and **DMI Installation & Operation** manuals, if those
