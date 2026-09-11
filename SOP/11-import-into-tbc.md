@@ -110,7 +110,7 @@ distance**, and the **active trajectory file**.
 >    (§12)
 >
 > **Not adopted.** Six checks, none taking more than a minute, all cheaper now than later.
-> *(Register item 18)*
+> *(D-18)*
 
 ## 11.6 Multiple missions in one project
 

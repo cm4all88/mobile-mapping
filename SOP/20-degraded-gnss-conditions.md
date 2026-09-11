@@ -64,7 +64,7 @@ on every mission.
 
 > **Without a POSPac licence, Parametrix has two remedies, not three: place more control, or buy a
 > much larger workstation.** That is a procurement consequence of a licensing decision, and it is
-> worth knowing before quoting a job through a difficult corridor. *(§4.4, Register item 10)*
+> worth knowing before quoting a job through a difficult corridor. *(§4.4, D-10)*
 
 ## 20.4 Remedy one — more control
 
@@ -90,7 +90,7 @@ Two constraints from §15 govern how control must be placed for this to work:
 > **Does mission planning require control density to vary with predicted GNSS conditions?** A
 > uniform spacing along a corridor puts the same control in the open sections, where it adds
 > little, as in the obstructed ones, where it is the only thing holding the data together.
-> *(Register item 33; §6, §17)*
+> *(D-33; §6, §17)*
 
 ## 20.5 Remedy two — Generate POSPac Position Fixes (PFIX)
 
@@ -117,7 +117,7 @@ Two constraints from §15 govern how control must be placed for this to work:
 >
 > ⚠ *That framing is this document's, inferred from Trimble's descriptions of the two commands.
 > Trimble never states the contrast directly.* **VENDOR CLARIFICATION REQUIRED** — when should
-> PFIX be preferred over registration? *(Appendix F)*
+> PFIX be preferred over registration? *(Appendix I)*
 
 ### Prerequisites
 
@@ -210,7 +210,7 @@ at six times installed RAM, and the MATLAB Runtime (§4.5).
 > tool for a particular 400 m of a project, and recognising that early is cheaper than three
 > remedies and a compromise.
 >
-> *(Register item 34)*
+> *(D-34)*
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
@@ -220,7 +220,7 @@ at six times installed RAM, and the MATLAB Runtime (§4.5).
 > overlap for LiDAR QC, or a different method — because two of the three have to be arranged in
 > the field.
 >
-> **Not adopted.** *(Register item 33)*
+> **Not adopted.** *(D-33)*
 
 ---
 

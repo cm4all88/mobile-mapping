@@ -46,7 +46,7 @@ and in the GNSS/IMU grade.
 > that underlies every point cloud accuracy statement; whether GAMS-assisted initialization is
 > available (§8); and whether DMI settings appear in trajectory processing (§12).
 >
-> The vendor can confirm from the serial number. *(Register item 2; Appendix F)*
+> The vendor can confirm from the serial number. *(D-2; Appendix I)*
 
 ### Specification discrepancies to be aware of
 
@@ -84,7 +84,7 @@ all.
 > **Which TMI version is on the Parametrix system, and how are firmware updates distributed?**
 > One documented behaviour differs between versions: the Quick Start Guide describes two separate
 > MX60 laser controls (*Measurement Prog* and *Line Speed*), where TMI Rev L describes a single
-> combined **Laser Mode** *(MX60 QSG p.10; TMI UG Rev L p.29)*. *(Appendix F; `CONFLICT-005`)*
+> combined **Laser Mode** *(MX60 QSG p.10; TMI UG Rev L p.29)*. *(Appendix I; `CONFLICT-005`)*
 
 ## 4.3 Trimble Business Center — the office software
 
@@ -175,7 +175,7 @@ Parametrix holds a licence determines which office workflow is even available.
 > unavailable** (§20).
 >
 > This is the single decision that most changes the shape of the office workflow.
-> *(Register item 10; Appendix F)*
+> *(D-10; Appendix I)*
 
 ## 4.5 LiDAR QC — a capability decision, not a setting
 
@@ -200,13 +200,13 @@ It needs a workstation well beyond an ordinary one.
 >
 > **Is LiDAR QC a capability Parametrix intends to have?** It is a procurement question, not a
 > software setting, and it only becomes urgent on a job with a genuinely bad GNSS corridor — at
-> which point it is too late to buy a workstation. *(Register item 11)*
+> which point it is too late to buy a workstation. *(D-11)*
 
 > **VENDOR CLARIFICATION REQUIRED**
 >
 > **Does LiDAR QC have its own POSPac dependency?** Trimble does not state one, but it is an
 > Applanix technology and the topic directs configuration questions to the **Applanix Support
-> Team** *(TBC 28972)*. *(Appendix F)*
+> Team** *(TBC 28972)*. *(Appendix I)*
 
 ## 4.6 Trimble Connect and TRCPS
 
@@ -230,7 +230,7 @@ The full list is §1.6. Two gaps:
 >
 > Note that the MX60 User Guide requires millimetre-level GAMS offsets and a **≥ 2.0 m baseline**
 > where navigation data will be post-processed *(p.68)* — which is all survey-grade work.
-> *(Appendix F)*
+> *(Appendix I)*
 
 ---
 

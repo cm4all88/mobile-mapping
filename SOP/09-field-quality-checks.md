@@ -82,7 +82,7 @@ The one substantive quality check available in the field.
 >   missed (§20.3)
 > - Sections not collected, and why, are recorded
 >
-> *(Register item 50)*
+> *(D-50)*
 
 > **IMPORTANT**
 >

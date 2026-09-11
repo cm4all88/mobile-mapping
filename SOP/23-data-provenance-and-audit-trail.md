@@ -171,7 +171,7 @@ That is a finding, not a prohibition.
 > This is precisely why the Cleanup policy (§21.4) remains open. **This document does not prohibit
 > Cleanup and does not require it.** The combined finding above is the reason the decision matters
 > more than it appears to, and it is the input Parametrix needs in order to make it.
-> *(Register item 35)*
+> *(D-35)*
 
 ### T28 — why it is high priority here
 
@@ -192,7 +192,7 @@ That is a finding, not a prohibition.
 >
 > **The result materially changes what must be archived before Cleanup.** If the files survive,
 > they are a partial lineage record that outlives the operation. If they do not, that record must
-> be copied out beforehand or it is gone. *(Appendix E; §21.6, §25)*
+> be copied out beforehand or it is gone. *(Appendix I; §21.6, §25)*
 
 ## 23.6 What Parametrix would need to record
 
@@ -215,7 +215,7 @@ Stated as a gap analysis, not as policy.
 > | Whether Cleanup was run, and what was archived first | No artefact (§21) |
 >
 > **This document does not establish a recordkeeping policy.** It establishes that without one,
-> the six facts above are lost. *(Register item 29)*
+> the six facts above are lost. *(D-29)*
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
@@ -228,7 +228,7 @@ Stated as a gap analysis, not as policy.
 > - **The calibration JSON** in force (§14.5)
 > - **`Targets.csv`** (§21.6)
 >
-> Five artefacts, four of them small files that already exist. *(Register item 29)*
+> Five artefacts, four of them small files that already exist. *(D-29)*
 
 ## 23.7 Reconstruction paths that do exist
 
@@ -247,7 +247,7 @@ caveat: it requires retention, and it distinguishes candidates only where they d
 
 > **FIELD TESTING REQUIRED · T30** — establish whether either reconstruction path works in
 > practice on a real dataset with two candidate trajectories. Neither has been attempted.
-> *(Appendix E)*
+> *(Appendix I)*
 
 ---
 

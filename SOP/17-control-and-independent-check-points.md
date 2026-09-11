@@ -73,7 +73,7 @@ Three consequences worth stating plainly:
 > **Which feature types are fit for horizontal control, vertical control, or both, at MX60 point
 > density and incidence angle?** This is answerable empirically on a test site with a variety of
 > features surveyed conventionally, and the answer will shape control design (§6) far more than
-> any software setting. *(Appendix E)*
+> any software setting. *(Appendix I)*
 
 ## 17.4 The independence requirement
 
@@ -107,7 +107,7 @@ residuals that now measure nothing.
 >   imported trajectory using **Edit** (§15.8) — not layered on top
 > - **The designation is recorded in the project record** and travels with the accuracy statement
 >
-> **Not adopted.** *(Register item 15; §3.3 D-3.3)*
+> **Not adopted.** *(D-15; §3.3 D-3.3)*
 
 ## 17.5 How much control, and where
 
@@ -131,7 +131,7 @@ residuals that now measure nothing.
 >   weakest, which is precisely where it is hardest to survey conventionally
 > - **Redundancy.** Enough that removing any single point would not materially change the result
 >
-> *(Register item 16)*
+> *(D-16)*
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
@@ -146,7 +146,7 @@ residuals that now measure nothing.
 >   where the smoother has data on one side only (§2.2)
 >
 > **Not adopted.** No counts, no spacings and no ratios appear here deliberately — those are the
-> content of the decision above. *(Register item 16)*
+> content of the decision above. *(D-16)*
 
 ## 17.6 What TBC reports, and what it does not
 
@@ -168,12 +168,12 @@ residuals that now measure nothing.
 >
 > This matters because the residuals on check points are the primary numerical evidence in the
 > accuracy statement, and whether they can be produced as a report — rather than transcribed by
-> hand from a dialog — determines how the record is kept (§23, §25). *(Appendix F)*
+> hand from a dialog — determines how the record is kept (§23, §25). *(Appendix I)*
 
 > **FIELD TESTING REQUIRED · T21**
 >
 > Register a mission, run a Mission Report, and look. This is answerable in ten minutes with the
-> software in front of you. *(Appendix E)*
+> software in front of you. *(Appendix I)*
 
 ### What TBC does not report
 
@@ -189,7 +189,7 @@ control and which as checks** in a registration that has already been applied. T
 >
 > This is the single most important record in the whole workflow and the software does not appear
 > to produce it. Six columns in a spreadsheet, written once. **Not adopted.**
-> *(Register item 17; §23)*
+> *(D-17; §23)*
 
 ## 17.7 Control for calibration is a different thing
 

@@ -20,7 +20,7 @@ errors and improves — or does not — in the same way.
 > stated, and must not be assumed.**
 >
 > **FIELD TESTING REQUIRED · T26** — compare a station's position before and after a registration.
-> This is answerable in minutes and nobody has done it. *(Appendix E)*
+> This is answerable in minutes and nobody has done it. *(Appendix I)*
 
 ## 19.2 Resolution depends on the configuration
 
@@ -38,7 +38,7 @@ errors and improves — or does not — in the same way.
 > assets, orthomosaic ground sample distance — depends on which configuration is on the roof, and
 > Parametrix does not currently know which that is (§4.1).
 >
-> *(Register item 2; Appendix F)*
+> *(D-2; Appendix I)*
 
 ### A configuration note about side cameras
 
@@ -58,7 +58,7 @@ errors and improves — or does not — in the same way.
 >
 > **Do not write MX9 or MX90 camera behaviour into MX60 procedure on the strength of a shared
 > dialog.** The option's presence in the export pane is not evidence that the sensor exists.
-> *(Appendix E; Appendix F)*
+> *(Appendix I)*
 
 ## 19.3 What to check
 
@@ -74,7 +74,7 @@ errors and improves — or does not — in the same way.
 > | **Corrupted images** | See §19.4 — these are **silent** |
 > | **Alignment with the point cloud** | Colorized points in the wrong colour at feature edges indicates a camera boresight issue (§14.4) |
 >
-> **Not adopted.** *(Register item 30)*
+> **Not adopted.** *(D-30)*
 
 ## 19.4 Corrupted side camera images are exported as black
 
@@ -109,7 +109,7 @@ errors and improves — or does not — in the same way.
 > **Validation required** before adoption: run it against a known-good export and a known-bad one
 > and establish whether a usable threshold exists for MX60 imagery.
 >
-> *(Register item 31)*
+> *(D-31)*
 
 ## 19.5 Colorized point clouds
 
@@ -134,7 +134,7 @@ neighbours, where the camera's automatic exposure changed between passes.
 > **FIELD TESTING REQUIRED · T6**
 >
 > The colouriser offers a forward versus backward camera preference with no stated selection rule
-> *(§13.4)*. Its effect on fringing is untested. *(Appendix E)*
+> *(§13.4)*. Its effect on fringing is untested. *(Appendix I)*
 
 ## 19.6 Privacy and blurring
 
@@ -169,7 +169,7 @@ neighbours, where the camera's automatic exposure changed between passes.
 > - Whether any client or jurisdiction imposes a requirement Parametrix must meet
 >
 > Blurring is irreversible in the delivered product and the decision has legal and reputational
-> dimensions that sit well outside this SOP. *(Register item 32)*
+> dimensions that sit well outside this SOP. *(D-32)*
 
 ## 19.7 Imagery in the delivered dataset
 

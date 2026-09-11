@@ -171,7 +171,7 @@ almost nobody needs all of it.
 | If you are… | Start here | Then read |
 |---|---|---|
 | **A surveyor new to mobile mapping** | §2, *Mobile Mapping in Plain Terms* | §5, §12, §15, §17, §18 — and every **In Plain English** box, in order |
-| **A field technician** | §4, *Equipment and Software* | §6–§10, then Appendices A–C |
+| **A field technician** | §4, *Equipment and Software* | §6–§10, then checklists A1–A3 |
 | **An office technician** | §11, *Import into TBC* | §11–§22 in order, then Appendix C |
 | **A project surveyor** | §17, *Control and Independent Check Points* | §5, §15, §18, §23, §24 |
 | **A project manager** | §1 and §3 | §23, §24, §25 — and the **In Plain English** boxes on their own |
@@ -193,10 +193,10 @@ examined.
 | **TRIMBLE DOCUMENTED PROCEDURE** | Trimble states this, in the cited topic or manual page |
 | **OBSERVED SOFTWARE BEHAVIOR** | Seen in the software, but Trimble does not state it as procedure |
 | **PARAMETRIX PROCEDURE (PROPOSED)** | This document recommends it. **It is not company policy** |
-| **PARAMETRIX PROCEDURE (ADOPTED)** | Decided by Parametrix, with a date and an owner in Appendix D |
+| **PARAMETRIX PROCEDURE (ADOPTED)** | Decided by Parametrix, with a date and an owner in Appendix H |
 | **PARAMETRIX DECISION REQUIRED** | A choice only Parametrix can make. The question is stated; the answer is not |
-| **FIELD TESTING REQUIRED** | Answerable by testing, not by reading. See Appendix E |
-| **VENDOR CLARIFICATION REQUIRED** | Answerable only by Trimble. See Appendix F |
+| **FIELD TESTING REQUIRED** | Answerable by testing, not by reading. See Appendix I |
+| **VENDOR CLARIFICATION REQUIRED** | Answerable only by Trimble. See Appendix I |
 
 ### The state of this document on first issue
 
@@ -209,7 +209,7 @@ examined.
 > nothing in it should be quoted to a client as an existing Parametrix standard.
 >
 > That is the correct state, not an oversight. The technical content is complete and evidenced;
-> the company decisions on top of it have not been made. **Appendix D lists all of them, in
+> the company decisions on top of it have not been made. **Appendix I lists all of them, in
 > priority order, and eleven of them should be settled before the first production job.**
 
 ## 1.6 What this document is built from
@@ -244,7 +244,7 @@ feature listed as new in the 2026.10 release notes is present in the captured he
 > in this document depend on it, and both are legacy: calibrating outside TBC (versions up to
 > 5.21) and a prompt for a missing RMS file (projects saved before 5.80). Both boundaries
 > predate 5.70, the oldest release Trimble still publishes notes for, so any recent
-> installation is unaffected — but this should be confirmed rather than assumed. *(Appendix F)*
+> installation is unaffected — but this should be confirmed rather than assumed. *(Appendix I)*
 
 ## 1.7 Revision and ownership
 
@@ -261,7 +261,7 @@ feature listed as new in the 2026.10 release notes is present in the captured he
 > MX60 itself is recent — TMI support arrived in December 2024 *(TMI UG Rev L, p.2)* — so the
 > documentation underneath this SOP is still moving.
 >
-> *Register item 1. See Appendix D.*
+> *D-1. See Appendix I.*
 
 ---
 
@@ -413,7 +413,7 @@ in imagery resolution and in the grade of the GNSS/IMU system *(MX60 UG Rev B, p
 > times the pixels. The attitude accuracy of the navigation system also differs by
 > configuration, which changes every accuracy statement in this document.
 >
-> The vendor can confirm from the serial number. *(Register item 2; Appendix F)*
+> The vendor can confirm from the serial number. *(D-2; Appendix I)*
 
 ## 2.5 The data chain, once
 
@@ -610,7 +610,7 @@ The role with no obvious home, and the one most likely to go unassigned.
 
 - Calibration currency — when the system was last calibrated and whether it is still valid (§14)
 - Firmware and software versions, and what changed in them (§4)
-- Vendor relationship, support, open questions (Appendix F)
+- Vendor relationship, support, open questions (Appendix I)
 - **Maintaining this SOP** as TBC and TMI change
 
 ## 3.3 The decisions
@@ -635,7 +635,7 @@ The role with no obvious home, and the one most likely to go unassigned.
 >
 > **D-3.7 · Who owns this SOP?** *(§1.7)*
 >
-> *Register items 3–9. See Appendix D.*
+> *D-3 to D-9. See Appendix I.*
 
 ## 3.4 A proposed structure, offered for decision
 
@@ -758,7 +758,7 @@ and in the GNSS/IMU grade.
 > that underlies every point cloud accuracy statement; whether GAMS-assisted initialization is
 > available (§8); and whether DMI settings appear in trajectory processing (§12).
 >
-> The vendor can confirm from the serial number. *(Register item 2; Appendix F)*
+> The vendor can confirm from the serial number. *(D-2; Appendix I)*
 
 ### Specification discrepancies to be aware of
 
@@ -796,7 +796,7 @@ all.
 > **Which TMI version is on the Parametrix system, and how are firmware updates distributed?**
 > One documented behaviour differs between versions: the Quick Start Guide describes two separate
 > MX60 laser controls (*Measurement Prog* and *Line Speed*), where TMI Rev L describes a single
-> combined **Laser Mode** *(MX60 QSG p.10; TMI UG Rev L p.29)*. *(Appendix F; `CONFLICT-005`)*
+> combined **Laser Mode** *(MX60 QSG p.10; TMI UG Rev L p.29)*. *(Appendix I; `CONFLICT-005`)*
 
 ## 4.3 Trimble Business Center — the office software
 
@@ -887,7 +887,7 @@ Parametrix holds a licence determines which office workflow is even available.
 > unavailable** (§20).
 >
 > This is the single decision that most changes the shape of the office workflow.
-> *(Register item 10; Appendix F)*
+> *(D-10; Appendix I)*
 
 ## 4.5 LiDAR QC — a capability decision, not a setting
 
@@ -912,13 +912,13 @@ It needs a workstation well beyond an ordinary one.
 >
 > **Is LiDAR QC a capability Parametrix intends to have?** It is a procurement question, not a
 > software setting, and it only becomes urgent on a job with a genuinely bad GNSS corridor — at
-> which point it is too late to buy a workstation. *(Register item 11)*
+> which point it is too late to buy a workstation. *(D-11)*
 
 > **VENDOR CLARIFICATION REQUIRED**
 >
 > **Does LiDAR QC have its own POSPac dependency?** Trimble does not state one, but it is an
 > Applanix technology and the topic directs configuration questions to the **Applanix Support
-> Team** *(TBC 28972)*. *(Appendix F)*
+> Team** *(TBC 28972)*. *(Appendix I)*
 
 ## 4.6 Trimble Connect and TRCPS
 
@@ -942,7 +942,7 @@ The full list is §1.6. Two gaps:
 >
 > Note that the MX60 User Guide requires millimetre-level GAMS offsets and a **≥ 2.0 m baseline**
 > where navigation data will be post-processed *(p.68)* — which is all survey-grade work.
-> *(Appendix F)*
+> *(Appendix I)*
 
 ---
 
@@ -1426,7 +1426,7 @@ planning task, not a processing one.
 >
 > Record, in the project file before mobilising: the segments where mobile mapping is expected to
 > be marginal, the mitigation chosen for each, and the segments where another method is proposed.
-> *(Register item 45)*
+> *(D-45)*
 
 ## 6.9 The planning record
 
@@ -1627,7 +1627,7 @@ TMI is served by the Control Unit and runs in **Chrome**:
 
 *(TMI UG Rev L)*
 
-Status reference — the colour meanings, warnings and indicators — is **Appendix E**.
+Status reference — the colour meanings, warnings and indicators — is **Appendix B**.
 
 ## 7.7 Mission configuration in TMI
 
@@ -1912,7 +1912,7 @@ depend on it.
 > location and time; each run with start/end and any incident; **GNSS conditions observed**;
 > weather; traffic and occlusion events; anything not collected and why; the closing sequence
 > performed; disk and free space at end.
-> *(Register item 49)*
+> *(D-49)*
 
 ---
 
@@ -2037,7 +2037,7 @@ The one substantive quality check available in the field.
 >   missed (§20.3)
 > - Sections not collected, and why, are recorded
 >
-> *(Register item 50)*
+> *(D-50)*
 
 > **IMPORTANT**
 >
@@ -2171,7 +2171,7 @@ TMX<serial>-<mission id>/
 > 5. **Confirm base station data** is present if a local base was used
 > 6. **Only then** consider the source disk available for reuse
 >
-> *(Register item 52)*
+> *(D-52)*
 
 > **CAUTION**
 >
@@ -2188,7 +2188,7 @@ TMX<serial>-<mission id>/
 > alongside the `.mxdb`.
 >
 > A backup taken after processing has begun is a backup of a partly-processed state — which is
-> usually fine and is occasionally exactly the wrong thing to have. *(Register item 52)*
+> usually fine and is occasionally exactly the wrong thing to have. *(D-52)*
 
 ## 10.5 Project organisation
 
@@ -2212,7 +2212,7 @@ TMX<serial>-<mission id>/
 > | Where **Parametrix records** live — control/check designation, residuals, delivery record | **None of these have a software home** (§23.6) |
 > | Naming that survives a person leaving | — |
 >
-> *(Register item 53)*
+> *(D-53)*
 
 > **The structure matters more in mobile mapping than in most survey work**, because several of
 > the provenance artefacts identified in §23 are small files sitting loose in a project folder.
@@ -2383,7 +2383,7 @@ distance**, and the **active trajectory file**.
 >    (§12)
 >
 > **Not adopted.** Six checks, none taking more than a minute, all cheaper now than later.
-> *(Register item 18)*
+> *(D-18)*
 
 ## 11.6 Multiple missions in one project
 
@@ -2445,7 +2445,7 @@ the trajectory or improves it — nothing else creates it.
 >
 > **Where does trajectory processing happen, and who does it?** See §4.4. Without a licence the
 > answer is "somewhere else," and the project schedule has a dependency in it that should be
-> visible at quoting time rather than at processing time. *(Register item 10)*
+> visible at quoting time rather than at processing time. *(D-10)*
 
 ## 12.2 What Process Raw Trajectory Data does
 
@@ -2495,7 +2495,7 @@ No default is stated.
 > the reference frame the solution is computed in.
 >
 > It interacts with §12.6: a PP-RTX solution is computed in Trimble's RTX frame and epoch, which
-> is not necessarily the project's. *(Register item 19)*
+> is not necessarily the project's. *(D-19)*
 
 ### The rest
 
@@ -2547,7 +2547,7 @@ No default is stated.
 > the solution is weighting the DMI accordingly.
 >
 > Trimble provides the honest escape hatch — set it to 100 % if unknown. Determine which case
-> applies before trusting the default. *(Appendix E)*
+> applies before trusting the default. *(Appendix I)*
 
 ### Multipath
 
@@ -2558,7 +2558,7 @@ No default is stated.
 > coverage, such as in urban canyon, narrow streets, dense foliage."
 >
 > Running Medium on an open-sky rural corridor may be a harmless conservatism or an unnecessary
-> de-weighting of good observations. Untested. *(Appendix E)*
+> de-weighting of good observations. Untested. *(Appendix I)*
 
 ### Lever arms and the vehicle frame
 
@@ -2613,7 +2613,7 @@ No default is stated.
 > **FIELD TESTING REQUIRED · T10**
 >
 > Establish which of Parametrix's normal coordinate systems POSPac recognises directly, and which
-> trigger the ITRF00 path. This is answerable once and then known. *(Appendix E; §5)*
+> trigger the ITRF00 path. This is answerable once and then known. *(Appendix I; §5)*
 
 ### Where the outputs go
 
@@ -2629,7 +2629,7 @@ No default is stated.
 > workflow that records the frame and epoch a trajectory was computed in, and it lives with the
 > raw data rather than inside a TBC project that may later be cleaned up (§21) or lost.
 >
-> **Not adopted.** *(Register item 20; §23, §25)*
+> **Not adopted.** *(D-20; §23, §25)*
 
 ### The SBET is coloured by its own quality
 
@@ -2701,7 +2701,7 @@ its only symptom.
 >
 > Trimble itself flags the epoch control as capable of producing inaccurate results if set wrongly.
 > Combined with the ITRF00 path above, epoch handling is not an abstract datum concern in this
-> workflow — it is a live setting with a silent failure mode. *(Register item 21; §5)*
+> workflow — it is a live setting with a silent failure mode. *(D-21; §5)*
 
 ## 12.7 LiDAR QC — refining the trajectory with the scan data
 
@@ -2735,7 +2735,7 @@ adds a LiDAR QC tab. Requires **MATLAB Runtime R2024b (24.2)** and a substantial
 > **T14 — Lasers = All.** Trimble's own text beside the setting says using both "can increase
 > computation time without significantly improving the accuracy, as it compares the left versus
 > right laser of isolated runs." **The default contradicts the guidance printed next to it.**
-> *(Appendix E)*
+> *(Appendix I)*
 
 ### Running it
 
@@ -2872,7 +2872,7 @@ and Reflective Panels.
 > **T5 — Fog and Sun.** Both remove real returns under defined conditions. Applying them when
 > those conditions did not occur removes valid data.
 >
-> *(Appendix E)*
+> *(Appendix I)*
 
 > **CAUTION**
 >
@@ -2896,13 +2896,13 @@ Scans can be generated with colour from the imagery, or without.
 > **FIELD TESTING REQUIRED · T6**
 >
 > The colouriser offers a forward versus backward camera preference with no stated selection rule.
-> *(Appendix E)*
+> *(Appendix I)*
 
 > **PARAMETRIX DECISION REQUIRED**
 >
 > **Are scans generated coloured by default?** Colorization costs processing time and disk, and
 > is not needed for every deliverable — but generating without it and discovering later that the
-> client wanted coloured points means regenerating the mission. *(Register item 22)*
+> client wanted coloured points means regenerating the mission. *(D-22)*
 
 ## 13.5 The Results record
 
@@ -2917,7 +2917,7 @@ Scans can be generated with colour from the imagery, or without.
 > states which filters produced a given cloud, and filter choice is a defensible-or-not decision
 > that a reviewer may need to see years later.
 >
-> **Not adopted.** *(Register item 23; §23, §25)*
+> **Not adopted.** *(D-23; §23, §25)*
 
 ## 13.6 Update Scans — switching a cloud onto a different trajectory
 
@@ -2980,7 +2980,7 @@ also the mechanism for reverting.
 > present in an export made with timestamps enabled.
 >
 > **FIELD TESTING REQUIRED · T18 — the highest-priority test in this document.** See §22.3 and
-> Appendix E.
+> Appendix I.
 
 ---
 
@@ -3143,7 +3143,7 @@ Compare with the LiDAR QC pattern *(TBC 28972; §12.7)*:
 > once, well, before it is needed under schedule pressure is worth more than the procedure it
 > supports.
 >
-> **Not adopted.** *(Register item 24; §6)*
+> **Not adopted.** *(D-24; §6)*
 
 ### The result, and how to read it
 
@@ -3197,7 +3197,7 @@ at heading, a large vertical component at pitch or height.
 >
 > Cutting plane thickness: Trimble's screenshots show `0.030` in the calibration topic and `5.000`
 > in the run-to-run topic, with no stated basis. Too thin shows nothing; too thick buries a real
-> offset in a band of points. *(Appendix E)*
+> offset in a band of points. *(Appendix I)*
 
 ## 14.4 Calibrating the cameras
 
@@ -3265,7 +3265,7 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 > any subsequent project, and it is the only portable record of what the system's angles were on
 > a given date. A project cleanup (§21) or a lost workstation should not take it with them.
 >
-> **Not adopted.** *(Register item 25; §25)*
+> **Not adopted.** *(D-25; §25)*
 
 ## 14.6 The calibration record — and the date
 
@@ -3306,12 +3306,12 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 >   determines whether calibration is a periodic activity or a routine one
 > - **Who owns currency** (§3.3 D-3.6)
 >
-> *(Register item 26; Appendix F)*
+> *(D-26; Appendix I)*
 
 > **VENDOR CLARIFICATION REQUIRED**
 >
 > **Does removing and refitting the Sensor Unit disturb the calibration?** And what symptoms
-> indicate a calibration has drifted? *(Appendix F)*
+> indicate a calibration has drifted? *(Appendix I)*
 
 ## 14.8 Calibration is not validated by control
 
@@ -3485,11 +3485,11 @@ clouds or different passes of the same run.
 |---|---|---|
 | Scope | One run | A set of runs |
 | GCP reuse | Once | **Every GCP, as many times as it appears** |
-| Control list | One row per GCP | **One row per GCP *instance*** |
+| Control list | One row per GCP | **One row per GCP `instance`** |
 | Instances | — | TBC creates one per **250 m scan section** whose bounding box contains the GCP |
 | Side | — | An instance binds to the **left, right, or both** sides of the scan section |
 | Default name | *RunName* Trajectory | **Reg** |
-| Target naming | *RunName TrajectoryGCPName* | ***RegistrationName*_*GCPName*_*RunName*** |
+| Target naming | `RunName TrajectoryGCPName` | `RegistrationName_GCPName_RunName` |
 | Output node | `Reg. Trajectory` under the run | **`RegTrajectory` under each involved run** |
 | Unused instances | — | "All unused instances are removed from the Control Points list" |
 
@@ -3508,7 +3508,7 @@ out mutually consistent because they were adjusted against the same observation.
 > **Not adopted.** The reasoning is above and follows from Trimble's description, but it is a
 > production convention and Parametrix should decide it deliberately — including whether a
 > mission registration should be redone from scratch when one run is later re-collected.
-> *(Register item 12)*
+> *(D-12)*
 
 ## 15.5 Registration Type — and the one that does not extrapolate
 
@@ -3540,7 +3540,7 @@ out mutually consistent because they were adjusted against the same observation.
 > at all, and is the method shown in every screenshot Trimble publishes.
 >
 > Do not adopt a default from the screenshots. Test the three methods on a representative
-> corridor with independent check points and compare. *(Appendix E)*
+> corridor with independent check points and compare. *(Appendix I)*
 
 ## 15.6 Target picking, and reading residuals before you commit
 
@@ -3662,7 +3662,7 @@ limit means the wrong feature was picked.
 > Trimble ties the choice to three conditions at once — GCP density, GCP accuracy, and picking
 > precision — which will rarely all point the same way. The default state is not stated.
 >
-> Test both states on a representative dataset with independent check points. *(Appendix E)*
+> Test both states on a representative dataset with independent check points. *(Appendix I)*
 
 ## 15.8 Editing a registration — not the same as registering again
 
@@ -3729,7 +3729,7 @@ to shortcut is greatest.
 >    any threshold meaningful
 >
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
-> pass."** *(Register item 13; §18, §24)*
+> pass."** *(D-13; §18, §24)*
 
 ---
 
@@ -3815,7 +3815,7 @@ trajectory error.
 > **Not adopted.** Step 4 is the part most likely to be skipped and is the reason this sequence
 > matters: adjusting a run to match another run will change its residuals against control, and
 > if the reference run was itself slightly off, run-to-run will faithfully propagate that error
-> into the run you adjusted. *(Register item 14)*
+> into the run you adjusted. *(D-14)*
 
 > **The choice of which run is the Reference is a survey decision, not a processing convenience.**
 > Whatever the Reference Run's absolute error is, the Run to Adjust inherits it.
@@ -3929,7 +3929,7 @@ on 10 % of its length and extrapolated across the rest.**
 > reading it.
 >
 > Test on a representative pair, varying overlap, and observe where the adjustment stops being
-> trustworthy. *(Appendix E)*
+> trustworthy. *(Appendix I)*
 
 ## 16.7 The visual check
 
@@ -3961,7 +3961,7 @@ To read it:
 > **Cutting plane thickness.** Trimble's screenshots show `5.000` in one topic and `0.030` in
 > another, with no stated basis. Thickness determines what the visual check can actually see: too
 > thin and there is nothing in the profile; too thick and a real offset is buried in a band of
-> points from either side of the plane. *(Appendix E)*
+> points from either side of the plane. *(Appendix I)*
 
 ## 16.8 Improving a run-to-run result
 
@@ -4082,7 +4082,7 @@ Three consequences worth stating plainly:
 > **Which feature types are fit for horizontal control, vertical control, or both, at MX60 point
 > density and incidence angle?** This is answerable empirically on a test site with a variety of
 > features surveyed conventionally, and the answer will shape control design (§6) far more than
-> any software setting. *(Appendix E)*
+> any software setting. *(Appendix I)*
 
 ## 17.4 The independence requirement
 
@@ -4116,7 +4116,7 @@ residuals that now measure nothing.
 >   imported trajectory using **Edit** (§15.8) — not layered on top
 > - **The designation is recorded in the project record** and travels with the accuracy statement
 >
-> **Not adopted.** *(Register item 15; §3.3 D-3.3)*
+> **Not adopted.** *(D-15; §3.3 D-3.3)*
 
 ## 17.5 How much control, and where
 
@@ -4140,7 +4140,7 @@ residuals that now measure nothing.
 >   weakest, which is precisely where it is hardest to survey conventionally
 > - **Redundancy.** Enough that removing any single point would not materially change the result
 >
-> *(Register item 16)*
+> *(D-16)*
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
@@ -4155,7 +4155,7 @@ residuals that now measure nothing.
 >   where the smoother has data on one side only (§2.2)
 >
 > **Not adopted.** No counts, no spacings and no ratios appear here deliberately — those are the
-> content of the decision above. *(Register item 16)*
+> content of the decision above. *(D-16)*
 
 ## 17.6 What TBC reports, and what it does not
 
@@ -4177,12 +4177,12 @@ residuals that now measure nothing.
 >
 > This matters because the residuals on check points are the primary numerical evidence in the
 > accuracy statement, and whether they can be produced as a report — rather than transcribed by
-> hand from a dialog — determines how the record is kept (§23, §25). *(Appendix F)*
+> hand from a dialog — determines how the record is kept (§23, §25). *(Appendix I)*
 
 > **FIELD TESTING REQUIRED · T21**
 >
 > Register a mission, run a Mission Report, and look. This is answerable in ten minutes with the
-> software in front of you. *(Appendix E)*
+> software in front of you. *(Appendix I)*
 
 ### What TBC does not report
 
@@ -4198,7 +4198,7 @@ control and which as checks** in a registration that has already been applied. T
 >
 > This is the single most important record in the whole workflow and the software does not appear
 > to produce it. Six columns in a spreadsheet, written once. **Not adopted.**
-> *(Register item 17; §23)*
+> *(D-17; §23)*
 
 ## 17.7 Control for calibration is a different thing
 
@@ -4382,7 +4382,7 @@ and its size in the profile is its size in the data.
 > | **Vertical surfaces against horizontal** | Systematic tilt |
 > | **Features near control** versus **features far from control** | Residual growth with distance from constraint |
 >
-> **Not adopted.** *(Register item 27)*
+> **Not adopted.** *(D-27)*
 
 ## 18.6 Cutting plane thickness
 
@@ -4394,7 +4394,7 @@ and its size in the profile is its size in the data.
 > The value determines what the check can see. Too thin and the profile is empty. Too thick and a
 > real 3 cm offset is buried inside a 5 m band of points collected from either side of the plane.
 >
-> Establish working values for the checks in §18.5 and record them. *(Appendix E)*
+> Establish working values for the checks in §18.5 and record them. *(Appendix I)*
 
 ## 18.7 Periodic system verification
 
@@ -4419,7 +4419,7 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 >
 > Needs: an interval, a site, a target specification, and a pass criterion tied to the
 > manufacturer's specified accuracy for the configuration Parametrix owns (§4.1).
-> *(Register item 28; Appendix F)*
+> *(D-28; Appendix I)*
 
 ## 18.8 What to record
 
@@ -4438,7 +4438,7 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 > | Results of Scan Generation | *(TBC 22499; §13.5)* |
 > | Mission Report | *(TBC 23991_1)* |
 >
-> Two of those eight have no software artefact at all. **Not adopted.** *(Register item 29; §23)*
+> Two of those eight have no software artefact at all. **Not adopted.** *(D-29; §23)*
 
 ## 18.9 Acceptance
 
@@ -4459,7 +4459,7 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 > | **Project accuracy requirement** | The only thing that makes any threshold meaningful | Varies per job; not a property of the system |
 >
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
-> pass."** *(Register item 13; §15.9, §24)*
+> pass."** *(D-13; §15.9, §24)*
 
 ---
 
@@ -4517,7 +4517,7 @@ errors and improves — or does not — in the same way.
 > stated, and must not be assumed.**
 >
 > **FIELD TESTING REQUIRED · T26** — compare a station's position before and after a registration.
-> This is answerable in minutes and nobody has done it. *(Appendix E)*
+> This is answerable in minutes and nobody has done it. *(Appendix I)*
 
 ## 19.2 Resolution depends on the configuration
 
@@ -4535,7 +4535,7 @@ errors and improves — or does not — in the same way.
 > assets, orthomosaic ground sample distance — depends on which configuration is on the roof, and
 > Parametrix does not currently know which that is (§4.1).
 >
-> *(Register item 2; Appendix F)*
+> *(D-2; Appendix I)*
 
 ### A configuration note about side cameras
 
@@ -4555,7 +4555,7 @@ errors and improves — or does not — in the same way.
 >
 > **Do not write MX9 or MX90 camera behaviour into MX60 procedure on the strength of a shared
 > dialog.** The option's presence in the export pane is not evidence that the sensor exists.
-> *(Appendix E; Appendix F)*
+> *(Appendix I)*
 
 ## 19.3 What to check
 
@@ -4571,7 +4571,7 @@ errors and improves — or does not — in the same way.
 > | **Corrupted images** | See §19.4 — these are **silent** |
 > | **Alignment with the point cloud** | Colorized points in the wrong colour at feature edges indicates a camera boresight issue (§14.4) |
 >
-> **Not adopted.** *(Register item 30)*
+> **Not adopted.** *(D-30)*
 
 ## 19.4 Corrupted side camera images are exported as black
 
@@ -4606,7 +4606,7 @@ errors and improves — or does not — in the same way.
 > **Validation required** before adoption: run it against a known-good export and a known-bad one
 > and establish whether a usable threshold exists for MX60 imagery.
 >
-> *(Register item 31)*
+> *(D-31)*
 
 ## 19.5 Colorized point clouds
 
@@ -4631,7 +4631,7 @@ neighbours, where the camera's automatic exposure changed between passes.
 > **FIELD TESTING REQUIRED · T6**
 >
 > The colouriser offers a forward versus backward camera preference with no stated selection rule
-> *(§13.4)*. Its effect on fringing is untested. *(Appendix E)*
+> *(§13.4)*. Its effect on fringing is untested. *(Appendix I)*
 
 ## 19.6 Privacy and blurring
 
@@ -4666,7 +4666,7 @@ neighbours, where the camera's automatic exposure changed between passes.
 > - Whether any client or jurisdiction imposes a requirement Parametrix must meet
 >
 > Blurring is irreversible in the delivered product and the decision has legal and reputational
-> dimensions that sit well outside this SOP. *(Register item 32)*
+> dimensions that sit well outside this SOP. *(D-32)*
 
 ## 19.7 Imagery in the delivered dataset
 
@@ -4785,7 +4785,7 @@ on every mission.
 
 > **Without a POSPac licence, Parametrix has two remedies, not three: place more control, or buy a
 > much larger workstation.** That is a procurement consequence of a licensing decision, and it is
-> worth knowing before quoting a job through a difficult corridor. *(§4.4, Register item 10)*
+> worth knowing before quoting a job through a difficult corridor. *(§4.4, D-10)*
 
 ## 20.4 Remedy one — more control
 
@@ -4811,7 +4811,7 @@ Two constraints from §15 govern how control must be placed for this to work:
 > **Does mission planning require control density to vary with predicted GNSS conditions?** A
 > uniform spacing along a corridor puts the same control in the open sections, where it adds
 > little, as in the obstructed ones, where it is the only thing holding the data together.
-> *(Register item 33; §6, §17)*
+> *(D-33; §6, §17)*
 
 ## 20.5 Remedy two — Generate POSPac Position Fixes (PFIX)
 
@@ -4838,7 +4838,7 @@ Two constraints from §15 govern how control must be placed for this to work:
 >
 > ⚠ *That framing is this document's, inferred from Trimble's descriptions of the two commands.
 > Trimble never states the contrast directly.* **VENDOR CLARIFICATION REQUIRED** — when should
-> PFIX be preferred over registration? *(Appendix F)*
+> PFIX be preferred over registration? *(Appendix I)*
 
 ### Prerequisites
 
@@ -4931,7 +4931,7 @@ at six times installed RAM, and the MATLAB Runtime (§4.5).
 > tool for a particular 400 m of a project, and recognising that early is cheaper than three
 > remedies and a compromise.
 >
-> *(Register item 34)*
+> *(D-34)*
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
@@ -4941,7 +4941,7 @@ at six times installed RAM, and the MATLAB Runtime (§4.5).
 > overlap for LiDAR QC, or a different method — because two of the three have to be arranged in
 > the field.
 >
-> **Not adopted.** *(Register item 33)*
+> **Not adopted.** *(D-33)*
 
 ---
 
@@ -5062,7 +5062,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 > **FIELD TESTING REQUIRED · T28** — list the project folder before and after Cleanup and
 > compare. If the files survive, they are a partial audit trail that outlives the operation; if
 > they do not, the record is gone entirely. **This materially changes what must be archived
-> first.** *(Appendix E)*
+> first.** *(Appendix I)*
 
 ## 21.4 The Parametrix decision
 
@@ -5089,7 +5089,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 > 3. **What must be archived first**, and where the archive lives (§25)
 > 4. **Whether it is required, permitted, or prohibited** on Parametrix projects
 >
-> *(Register item 35 — flagged P1. This is among the decisions that should be settled before the
+> *(D-35 — flagged P1. This is among the decisions that should be settled before the
 > first production job, because the first person to reach the end of a project will otherwise
 > decide it by default.)*
 
@@ -5138,7 +5138,7 @@ three years.
 > gigabytes, and they are the difference between a deliverable that can account for itself and one
 > that cannot.
 >
-> *(Register item 35; §23, §25)*
+> *(D-35; §23, §25)*
 
 ## 21.7 The relationship to provenance
 
@@ -5249,7 +5249,7 @@ several documented ways exist for them to do so silently:
 > selected for export sit beneath the intended registered trajectory, and that their stations
 > carry the `_reg_####` suffix.**
 >
-> **Not adopted.** *(Register item 36)*
+> **Not adopted.** *(D-36)*
 
 > **FIELD TESTING REQUIRED · T29**
 >
@@ -5263,7 +5263,7 @@ several documented ways exist for them to do so silently:
 >   view (§22.4), can be made to respect a trajectory at all
 >
 > Until tested, the only defensible verification is the project-side one above, performed
-> immediately before export and recorded. *(Appendix E)*
+> immediately before export and recorded. *(Appendix I)*
 
 ## 22.3 Export timestamps — an unresolved question about what is exported
 
@@ -5288,7 +5288,7 @@ several documented ways exist for them to do so silently:
 > and does not state what it reprocesses against. Both readings — the mission's currently applied
 > trajectory, or the originally imported one — are consistent with the wording.
 >
-> **No speculation is offered here.** *(Appendix F)*
+> **No speculation is offered here.** *(Appendix I)*
 
 > **FIELD TESTING REQUIRED · T18 — the highest-priority test in this document**
 >
@@ -5298,7 +5298,7 @@ several documented ways exist for them to do so silently:
 > **Why it is the highest priority:** every quality step in the workflow — registration, Update
 > Scans, filtering, colorization — acts on the **generated** scans. If reprocessing does not
 > reflect the registered trajectory, then a documented, innocuous-sounding export option can
-> deliver data that was never the data that was checked. *(Appendix E)*
+> deliver data that was never the data that was checked. *(Appendix I)*
 
 Until T18 and the vendor question are resolved:
 
@@ -5308,7 +5308,7 @@ Until T18 and the vendor question are resolved:
 >
 > GPS Time per point is genuinely useful and some downstream software requires it. The question is
 > not whether timestamps are wanted but whether the cost of obtaining them is understood.
-> *(Register item 37)*
+> *(D-37)*
 
 ## 22.4 Two export tabs that behave differently
 
@@ -5338,7 +5338,7 @@ Until T18 and the vendor question are resolved:
 > stated.**
 >
 > **FIELD TESTING REQUIRED · T23** — draw a selection across scans from two trajectories and
-> observe. *(Appendix E)*
+> observe. *(Appendix I)*
 
 ## 22.5 Coordinate handling — common to the point cloud exporters
 
@@ -5373,7 +5373,7 @@ deliverable format is a project and client matter that Parametrix has not decide
 > **PARAMETRIX DECISION REQUIRED**
 >
 > **What are Parametrix's standard mobile mapping deliverable formats, and which export path
-> produces each?** *(Register item 38)*
+> produces each?** *(D-38)*
 
 ### 22.6.1 Export to LAS (Trajectory Split) — classified point cloud regions
 
@@ -5408,7 +5408,7 @@ deliverable format is a project and client matter that Parametrix has not decide
 >
 > **Sample points performs *random* sampling to a fixed point count.** On a survey deliverable
 > that is a destructive thinning with no documented spatial rule — no minimum spacing, no
-> preservation of edges or breaklines. Its default state is not stated. *(Appendix E)*
+> preservation of edges or breaklines. Its default state is not stated. *(Appendix I)*
 
 > **Provenance implication:** the exporter is named *Trajectory Split*, and splits by distance
 > along the trajectory. Despite the name, **no trajectory information is documented as
@@ -5436,7 +5436,7 @@ Output structure: a **Mission folder** plus one folder per device, with `laser`,
 > candidates, and **the topic does not state which is written.**
 >
 > **VENDOR CLARIFICATION REQUIRED** — which trajectory does the TMX export write when several
-> exist under a run? *(Appendix F)* · **FIELD TESTING REQUIRED · T20** *(Appendix E)*
+> exist under a run? *(Appendix I)* · **FIELD TESTING REQUIRED · T20** *(Appendix I)*
 
 ### 22.6.3 Export to TopoDot
 
@@ -5523,7 +5523,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 > options govern imagery only — and it is a first-class, viewable object in the delivered dataset.
 > **Which trajectory is published when several exist under a run is not documented.**
 >
-> **VENDOR CLARIFICATION REQUIRED** *(Appendix F)* · **FIELD TESTING REQUIRED · T19** *(Appendix E)*
+> **VENDOR CLARIFICATION REQUIRED** *(Appendix I)* · **FIELD TESTING REQUIRED · T19** *(Appendix I)*
 
 > **OBSERVED SOFTWARE BEHAVIOR** · Trimble Connect's **UK region** is currently unavailable for
 > Publish to TRCPS and Trimble Mobile Mapping data *(TBC RN 2026.10)*. Not applicable to
@@ -5564,7 +5564,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 >
 > This is therefore a **software-behaviour testing question**, not an unresolved documentation
 > research question. All known MX60 export and publish paths have been reviewed.
-> **FIELD TESTING REQUIRED · T22** — export and inspect the file directly. *(Appendix E; §23)*
+> **FIELD TESTING REQUIRED · T22** — export and inspect the file directly. *(Appendix I; §23)*
 
 ## 22.8 Known limitations and silent failures
 
@@ -5785,7 +5785,7 @@ That is a finding, not a prohibition.
 > This is precisely why the Cleanup policy (§21.4) remains open. **This document does not prohibit
 > Cleanup and does not require it.** The combined finding above is the reason the decision matters
 > more than it appears to, and it is the input Parametrix needs in order to make it.
-> *(Register item 35)*
+> *(D-35)*
 
 ### T28 — why it is high priority here
 
@@ -5806,7 +5806,7 @@ That is a finding, not a prohibition.
 >
 > **The result materially changes what must be archived before Cleanup.** If the files survive,
 > they are a partial lineage record that outlives the operation. If they do not, that record must
-> be copied out beforehand or it is gone. *(Appendix E; §21.6, §25)*
+> be copied out beforehand or it is gone. *(Appendix I; §21.6, §25)*
 
 ## 23.6 What Parametrix would need to record
 
@@ -5829,7 +5829,7 @@ Stated as a gap analysis, not as policy.
 > | Whether Cleanup was run, and what was archived first | No artefact (§21) |
 >
 > **This document does not establish a recordkeeping policy.** It establishes that without one,
-> the six facts above are lost. *(Register item 29)*
+> the six facts above are lost. *(D-29)*
 
 > **PARAMETRIX PROCEDURE (PROPOSED)**
 >
@@ -5842,7 +5842,7 @@ Stated as a gap analysis, not as policy.
 > - **The calibration JSON** in force (§14.5)
 > - **`Targets.csv`** (§21.6)
 >
-> Five artefacts, four of them small files that already exist. *(Register item 29)*
+> Five artefacts, four of them small files that already exist. *(D-29)*
 
 ## 23.7 Reconstruction paths that do exist
 
@@ -5861,7 +5861,7 @@ caveat: it requires retention, and it distinguishes candidates only where they d
 
 > **FIELD TESTING REQUIRED · T30** — establish whether either reconstruction path works in
 > practice on a real dataset with two candidate trajectories. Neither has been attempted.
-> *(Appendix E)*
+> *(Appendix I)*
 
 ---
 
@@ -6071,7 +6071,7 @@ Confirm that the checks were genuinely independent.
 > deviation analysis against a reference surface — have different costs and different detection
 > limits.
 >
-> *(Register item 39)*
+> *(D-39)*
 
 ### Layer 8 · Imagery QC
 
@@ -6090,7 +6090,7 @@ Confirm that the checks were genuinely independent.
 > cannot establish image validity.**
 >
 > **This is not mandatory and should not be treated as a required step until validated.**
-> *(Register item 31)*
+> *(D-31)*
 
 ### Layer 9 · Export state verification
 
@@ -6114,7 +6114,7 @@ Confirm that the checks were genuinely independent.
 > **FIELD TESTING REQUIRED · T29** — the reliable verification method **for each export path** is
 > not established; how an export dialog resolves its selection is undocumented (§22.2). Until
 > tested, the project-side checks above, performed immediately before export and recorded, are the
-> only defensible verification. *(Appendix E)*
+> only defensible verification. *(Appendix I)*
 
 ### Layer 10 · Deliverable review
 
@@ -6161,7 +6161,7 @@ Performed on the exported files, not in TBC.
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
 > pass."**
 >
-> *(Register item 13; §15.9, §18.9)*
+> *(D-13; §15.9, §18.9)*
 
 ## 24.4 The record
 
@@ -6172,7 +6172,7 @@ Performed on the exported files, not in TBC.
 >
 > Two layers — 6 and 7 — produce **no software artefact whatsoever**. If a reviewer asks whether
 > the visual check was performed and over what extent, the only possible answer is a record
-> somebody wrote. *(Register item 29)*
+> somebody wrote. *(D-29)*
 
 ## 24.5 Blocked pending resolution
 
@@ -6183,8 +6183,8 @@ These should be settled before a final QA/QC procedure is signed off:
 | **T18** — Export timestamps and reprocessing | Layer 9 cannot be completed while it is unknown whether a documented export option substitutes different data |
 | **T29** — per-path export verification | Layer 9's method is not established |
 | **T28** — Cleanup and the SBET files | Determines what must be archived before the project is tidied (§21, §23.5) |
-| **Register item 39** — continuity method | Layer 7 has no defined method |
-| **Register item 13** — acceptance framework | Layers 5 and 10 have no threshold |
+| **D-39** — continuity method | Layer 7 has no defined method |
+| **D-13** — acceptance framework | Layers 5 and 10 have no threshold |
 
 ---
 
@@ -6350,7 +6350,7 @@ The ten-step sequence is in §21.6. It is a proposal, pending D-35.
 > retention tier applied; whether Cleanup was run and what was archived first; and where the raw
 > mission data is, if retained elsewhere.
 >
-> **Without it, the archive is a folder somebody has to reverse-engineer.** *(Register item 55)*
+> **Without it, the archive is a folder somebody has to reverse-engineer.** *(D-55)*
 
 ---
 

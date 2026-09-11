@@ -19,7 +19,7 @@ the trajectory or improves it — nothing else creates it.
 >
 > **Where does trajectory processing happen, and who does it?** See §4.4. Without a licence the
 > answer is "somewhere else," and the project schedule has a dependency in it that should be
-> visible at quoting time rather than at processing time. *(Register item 10)*
+> visible at quoting time rather than at processing time. *(D-10)*
 
 ## 12.2 What Process Raw Trajectory Data does
 
@@ -69,7 +69,7 @@ No default is stated.
 > the reference frame the solution is computed in.
 >
 > It interacts with §12.6: a PP-RTX solution is computed in Trimble's RTX frame and epoch, which
-> is not necessarily the project's. *(Register item 19)*
+> is not necessarily the project's. *(D-19)*
 
 ### The rest
 
@@ -121,7 +121,7 @@ No default is stated.
 > the solution is weighting the DMI accordingly.
 >
 > Trimble provides the honest escape hatch — set it to 100 % if unknown. Determine which case
-> applies before trusting the default. *(Appendix E)*
+> applies before trusting the default. *(Appendix I)*
 
 ### Multipath
 
@@ -132,7 +132,7 @@ No default is stated.
 > coverage, such as in urban canyon, narrow streets, dense foliage."
 >
 > Running Medium on an open-sky rural corridor may be a harmless conservatism or an unnecessary
-> de-weighting of good observations. Untested. *(Appendix E)*
+> de-weighting of good observations. Untested. *(Appendix I)*
 
 ### Lever arms and the vehicle frame
 
@@ -187,7 +187,7 @@ No default is stated.
 > **FIELD TESTING REQUIRED · T10**
 >
 > Establish which of Parametrix's normal coordinate systems POSPac recognises directly, and which
-> trigger the ITRF00 path. This is answerable once and then known. *(Appendix E; §5)*
+> trigger the ITRF00 path. This is answerable once and then known. *(Appendix I; §5)*
 
 ### Where the outputs go
 
@@ -203,7 +203,7 @@ No default is stated.
 > workflow that records the frame and epoch a trajectory was computed in, and it lives with the
 > raw data rather than inside a TBC project that may later be cleaned up (§21) or lost.
 >
-> **Not adopted.** *(Register item 20; §23, §25)*
+> **Not adopted.** *(D-20; §23, §25)*
 
 ### The SBET is coloured by its own quality
 
@@ -275,7 +275,7 @@ its only symptom.
 >
 > Trimble itself flags the epoch control as capable of producing inaccurate results if set wrongly.
 > Combined with the ITRF00 path above, epoch handling is not an abstract datum concern in this
-> workflow — it is a live setting with a silent failure mode. *(Register item 21; §5)*
+> workflow — it is a live setting with a silent failure mode. *(D-21; §5)*
 
 ## 12.7 LiDAR QC — refining the trajectory with the scan data
 
@@ -309,7 +309,7 @@ adds a LiDAR QC tab. Requires **MATLAB Runtime R2024b (24.2)** and a substantial
 > **T14 — Lasers = All.** Trimble's own text beside the setting says using both "can increase
 > computation time without significantly improving the accuracy, as it compares the left versus
 > right laser of isolated runs." **The default contradicts the guidance printed next to it.**
-> *(Appendix E)*
+> *(Appendix I)*
 
 ### Running it
 

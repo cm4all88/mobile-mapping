@@ -125,7 +125,7 @@ sequence would imply it happens after QC, which is wrong.
 
 | App. | Title | Notes |
 |---|---|---|
-| A | **Field Checklist** | Printable, one page |
+| A | **Working Checklists** | Thirteen, standalone |
 | B | **TMI Status and Warning Reference** | Carried forward from v1 |
 | C | **Office Processing Checklist** | New — mirrors §11–22 |
 | D | **Parametrix Decision Register** | Every open decision, prioritised |
@@ -192,8 +192,8 @@ document defensible, and it is not decorative.
 | **PARAMETRIX PROCEDURE (PROPOSED)** | This document recommends it. **Not yet adopted.** | Nobody yet |
 | **PARAMETRIX PROCEDURE (ADOPTED)** | Signed off by Parametrix, with a date and an owner | Parametrix |
 | **PARAMETRIX DECISION REQUIRED** | A choice only Parametrix can make; the SOP states the question and the options | Nobody yet |
-| **FIELD TESTING REQUIRED** | Answerable by testing, not by reading. Cross-referenced to a T-item in Appendix E | Nobody yet |
-| **VENDOR CLARIFICATION REQUIRED** | Answerable only by Trimble. Cross-referenced to Appendix F | Nobody yet |
+| **FIELD TESTING REQUIRED** | Answerable by testing, not by reading. Cross-referenced to a T-item in Appendix I | Nobody yet |
+| **VENDOR CLARIFICATION REQUIRED** | Answerable only by Trimble. Cross-referenced to Appendix I | Nobody yet |
 
 ### The PROPOSED / ADOPTED split, and why it exists
 
@@ -204,7 +204,7 @@ has adopted none.** That document would be accurate and nearly useless.
 
 The split resolves it. Every recommendation this SOP makes is tagged **PROPOSED** and is
 visibly not yet company policy. Parametrix converts a proposal to **ADOPTED** by deciding it,
-and the decision is recorded in Appendix D with a date and an owner.
+and the decision is recorded in Appendix H with a date and an owner.
 
 > **On first issue, every Parametrix procedure in this document is PROPOSED.** There are no
 > ADOPTED entries. That is the honest state, it is stated in §1, and it is the work the
@@ -385,7 +385,7 @@ The SOP is ready for Parametrix review when:
 - [ ] The timestamp reprocessing hazard appears in §13, §22 and §24
 - [ ] The three registration commands are never described as interchangeable
 - [ ] Every Trimble statement is cited to a topic or a page
-- [ ] Every open item appears in Appendix D, E or F — none only in the body
+- [ ] Every open item appears in Appendix I — none only in the body
 - [ ] Parametrix branding applied (`analysis/GUIDE-REQUIREMENTS.md` §1), once, at the end
 
 ---

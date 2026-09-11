@@ -61,7 +61,7 @@ almost nobody needs all of it.
 | If you are… | Start here | Then read |
 |---|---|---|
 | **A surveyor new to mobile mapping** | §2, *Mobile Mapping in Plain Terms* | §5, §12, §15, §17, §18 — and every **In Plain English** box, in order |
-| **A field technician** | §4, *Equipment and Software* | §6–§10, then Appendices A–C |
+| **A field technician** | §4, *Equipment and Software* | §6–§10, then checklists A1–A3 |
 | **An office technician** | §11, *Import into TBC* | §11–§22 in order, then Appendix C |
 | **A project surveyor** | §17, *Control and Independent Check Points* | §5, §15, §18, §23, §24 |
 | **A project manager** | §1 and §3 | §23, §24, §25 — and the **In Plain English** boxes on their own |
@@ -83,10 +83,10 @@ examined.
 | **TRIMBLE DOCUMENTED PROCEDURE** | Trimble states this, in the cited topic or manual page |
 | **OBSERVED SOFTWARE BEHAVIOR** | Seen in the software, but Trimble does not state it as procedure |
 | **PARAMETRIX PROCEDURE (PROPOSED)** | This document recommends it. **It is not company policy** |
-| **PARAMETRIX PROCEDURE (ADOPTED)** | Decided by Parametrix, with a date and an owner in Appendix D |
+| **PARAMETRIX PROCEDURE (ADOPTED)** | Decided by Parametrix, with a date and an owner in Appendix H |
 | **PARAMETRIX DECISION REQUIRED** | A choice only Parametrix can make. The question is stated; the answer is not |
-| **FIELD TESTING REQUIRED** | Answerable by testing, not by reading. See Appendix E |
-| **VENDOR CLARIFICATION REQUIRED** | Answerable only by Trimble. See Appendix F |
+| **FIELD TESTING REQUIRED** | Answerable by testing, not by reading. See Appendix I |
+| **VENDOR CLARIFICATION REQUIRED** | Answerable only by Trimble. See Appendix I |
 
 ### The state of this document on first issue
 
@@ -99,7 +99,7 @@ examined.
 > nothing in it should be quoted to a client as an existing Parametrix standard.
 >
 > That is the correct state, not an oversight. The technical content is complete and evidenced;
-> the company decisions on top of it have not been made. **Appendix D lists all of them, in
+> the company decisions on top of it have not been made. **Appendix I lists all of them, in
 > priority order, and eleven of them should be settled before the first production job.**
 
 ## 1.6 What this document is built from
@@ -134,7 +134,7 @@ feature listed as new in the 2026.10 release notes is present in the captured he
 > in this document depend on it, and both are legacy: calibrating outside TBC (versions up to
 > 5.21) and a prompt for a missing RMS file (projects saved before 5.80). Both boundaries
 > predate 5.70, the oldest release Trimble still publishes notes for, so any recent
-> installation is unaffected — but this should be confirmed rather than assumed. *(Appendix F)*
+> installation is unaffected — but this should be confirmed rather than assumed. *(Appendix I)*
 
 ## 1.7 Revision and ownership
 
@@ -151,7 +151,7 @@ feature listed as new in the 2026.10 release notes is present in the captured he
 > MX60 itself is recent — TMI support arrived in December 2024 *(TMI UG Rev L, p.2)* — so the
 > documentation underneath this SOP is still moving.
 >
-> *Register item 1. See Appendix D.*
+> *D-1. See Appendix I.*
 
 ---
 

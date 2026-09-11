@@ -8,24 +8,39 @@ OUT = REPO / 'SOP/sop-page.html'
 
 ORDER = [
     ('01-purpose-and-scope', '1', 'Purpose and Scope'),
-    ('02-mobile-mapping-in-plain-language', '2', 'Mobile Mapping in Plain Language'),
-    ('03-system-components', '3', 'System Components'),
-    ('04-workflow-at-a-glance', '4', 'Workflow at a Glance'),
-    ('05-pre-field-planning', '5', 'Pre-Field Planning'),
-    ('06-equipment-preparation-and-installation', '6', 'Equipment Preparation and Installation'),
-    ('07-starting-the-system-and-tmi', '7', 'Starting the System and TMI'),
-    ('08-initialization', '8', 'Initialization'),
-    ('09-collecting-and-monitoring', '9', 'Collecting Data and Monitoring'),
-    ('10-ending-a-collection', '10', 'Ending a Collection'),
-    ('11-data-handling', '11', 'Data Handling'),
-    ('12-office-workflow', '12', 'Office Workflow'),
-    ('13-quality-control-and-limits', '13', 'Quality, Control and Limits'),
-    ('14-troubleshooting', '14', 'Troubleshooting'),
-    ('appendix-A-field-checklist', 'A', 'Field Checklist'),
+    ('02-mobile-mapping-in-plain-terms', '2', 'Mobile Mapping in Plain Terms'),
+    ('03-roles-and-responsibilities', '3', 'Roles and Responsibilities'),
+    ('04-equipment-and-software', '4', 'Equipment and Software'),
+    ('05-coordinate-systems-control-and-project-setup', '5', 'Coordinate Systems, Control, and Project Setup'),
+    ('06-mission-planning', '6', 'Mission Planning'),
+    ('07-field-preparation-and-preflight', '7', 'Field Preparation and Preflight'),
+    ('08-mx60-data-collection', '8', 'MX60 Data Collection'),
+    ('09-field-quality-checks', '9', 'Field Quality Checks'),
+    ('10-data-transfer-and-project-organization', '10', 'Data Transfer and Project Organization'),
+    ('11-import-into-tbc', '11', 'Import into TBC'),
+    ('12-trajectory-processing', '12', 'Trajectory Processing'),
+    ('13-generate-scans', '13', 'Generate Scans'),
+    ('14-calibration', '14', 'Calibration'),
+    ('15-registration', '15', 'Registration'),
+    ('16-run-to-run-registration', '16', 'Run to Run Registration'),
+    ('17-control-and-independent-check-points', '17', 'Control and Independent Check Points'),
+    ('18-point-cloud-qc', '18', 'Point Cloud QC'),
+    ('19-imagery-qc', '19', 'Imagery QC'),
+    ('20-degraded-gnss-conditions', '20', 'Degraded GNSS Conditions'),
+    ('21-cleanup-mobile-mapping-mission', '21', 'Cleanup Mobile Mapping Mission'),
+    ('22-export-and-deliverables', '22', 'Export and Deliverables'),
+    ('23-data-provenance-and-audit-trail', '23', 'Data Provenance and Audit Trail'),
+    ('24-final-qa-qc', '24', 'Final QA/QC'),
+    ('25-archiving-and-records', '25', 'Archiving and Records'),
+    ('26-troubleshooting', '26', 'Troubleshooting'),
+    ('27-terminology', '27', 'Terminology'),
+    ('appendix-A-checklists', 'A', 'Working Checklists'),
     ('appendix-B-tmi-status-reference', 'B', 'TMI Status and Warning Reference'),
-    ('appendix-C-glossary', 'C', 'Glossary'),
-    ('appendix-D-decision-register', 'D', 'Parametrix Decision Register'),
-    ('appendix-E-training-exercise', 'E', 'First Day Training Exercise'),
+    ('appendix-C-trimble-source-index', 'C', 'Trimble Source Index'),
+    ('appendix-D-training-exercise', 'D', 'First-Week Training Exercise'),
+    ('appendix-G-figures', 'G', 'Figure List and Placeholders'),
+    ('appendix-H-decision-adoption-record', 'H', 'Decision Adoption Record'),
+    ('appendix-I-open-items', 'I', 'Open Decisions, Field Tests, and Vendor Questions'),
 ]
 
 CALLOUTS = [
@@ -114,7 +129,8 @@ def render(md, sec_id):
                     txt = re.sub(r'^[-*]\s+', '', ln.strip())
                     body.append('<p class="co-li">' + inline(txt) + '</p>')
                 elif re.match(r'^\d+\.\s+', ln.strip()):
-                    flush(); body.append(f'<p class="co-li">{inline(ln.strip())}</p>')
+                    # numbered item: keep the number, suppress the bullet marker
+                    flush(); body.append(f'<p class="co-li co-num">{inline(ln.strip())}</p>')
                 elif ln.strip().startswith('|'):
                     flush(); body.append(f'<p>{inline(ln.strip().strip("|"))}</p>')
                 else: buf.append(ln.strip())

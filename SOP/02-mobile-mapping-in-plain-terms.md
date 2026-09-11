@@ -122,7 +122,7 @@ in imagery resolution and in the grade of the GNSS/IMU system *(MX60 UG Rev B, p
 > times the pixels. The attitude accuracy of the navigation system also differs by
 > configuration, which changes every accuracy statement in this document.
 >
-> The vendor can confirm from the serial number. *(Register item 2; Appendix F)*
+> The vendor can confirm from the serial number. *(D-2; Appendix I)*
 
 ## 2.5 The data chain, once
 

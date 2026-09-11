@@ -124,7 +124,7 @@ The ten-step sequence is in §21.6. It is a proposal, pending D-35.
 > retention tier applied; whether Cleanup was run and what was archived first; and where the raw
 > mission data is, if retained elsewhere.
 >
-> **Without it, the archive is a folder somebody has to reverse-engineer.** *(Register item 55)*
+> **Without it, the archive is a folder somebody has to reverse-engineer.** *(D-55)*
 
 ---
 

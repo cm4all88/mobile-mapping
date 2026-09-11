@@ -48,7 +48,7 @@ TMX<serial>-<mission id>/
 > 5. **Confirm base station data** is present if a local base was used
 > 6. **Only then** consider the source disk available for reuse
 >
-> *(Register item 52)*
+> *(D-52)*
 
 > **CAUTION**
 >
@@ -65,7 +65,7 @@ TMX<serial>-<mission id>/
 > alongside the `.mxdb`.
 >
 > A backup taken after processing has begun is a backup of a partly-processed state — which is
-> usually fine and is occasionally exactly the wrong thing to have. *(Register item 52)*
+> usually fine and is occasionally exactly the wrong thing to have. *(D-52)*
 
 ## 10.5 Project organisation
 
@@ -89,7 +89,7 @@ TMX<serial>-<mission id>/
 > | Where **Parametrix records** live — control/check designation, residuals, delivery record | **None of these have a software home** (§23.6) |
 > | Naming that survives a person leaving | — |
 >
-> *(Register item 53)*
+> *(D-53)*
 
 > **The structure matters more in mobile mapping than in most survey work**, because several of
 > the provenance artefacts identified in §23 are small files sitting loose in a project folder.

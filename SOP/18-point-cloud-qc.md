@@ -136,7 +136,7 @@ and its size in the profile is its size in the data.
 > | **Vertical surfaces against horizontal** | Systematic tilt |
 > | **Features near control** versus **features far from control** | Residual growth with distance from constraint |
 >
-> **Not adopted.** *(Register item 27)*
+> **Not adopted.** *(D-27)*
 
 ## 18.6 Cutting plane thickness
 
@@ -148,7 +148,7 @@ and its size in the profile is its size in the data.
 > The value determines what the check can see. Too thin and the profile is empty. Too thick and a
 > real 3 cm offset is buried inside a 5 m band of points collected from either side of the plane.
 >
-> Establish working values for the checks in §18.5 and record them. *(Appendix E)*
+> Establish working values for the checks in §18.5 and record them. *(Appendix I)*
 
 ## 18.7 Periodic system verification
 
@@ -173,7 +173,7 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 >
 > Needs: an interval, a site, a target specification, and a pass criterion tied to the
 > manufacturer's specified accuracy for the configuration Parametrix owns (§4.1).
-> *(Register item 28; Appendix F)*
+> *(D-28; Appendix I)*
 
 ## 18.8 What to record
 
@@ -192,7 +192,7 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 > | Results of Scan Generation | *(TBC 22499; §13.5)* |
 > | Mission Report | *(TBC 23991_1)* |
 >
-> Two of those eight have no software artefact at all. **Not adopted.** *(Register item 29; §23)*
+> Two of those eight have no software artefact at all. **Not adopted.** *(D-29; §23)*
 
 ## 18.9 Acceptance
 
@@ -213,7 +213,7 @@ Distinct from per-project QC. This is the check that the **instrument** is still
 > | **Project accuracy requirement** | The only thing that makes any threshold meaningful | Varies per job; not a property of the system |
 >
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
-> pass."** *(Register item 13; §15.9, §24)*
+> pass."** *(D-13; §15.9, §24)*
 
 ---
 

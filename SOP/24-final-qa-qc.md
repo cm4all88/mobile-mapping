@@ -173,7 +173,7 @@ Confirm that the checks were genuinely independent.
 > deviation analysis against a reference surface — have different costs and different detection
 > limits.
 >
-> *(Register item 39)*
+> *(D-39)*
 
 ### Layer 8 · Imagery QC
 
@@ -192,7 +192,7 @@ Confirm that the checks were genuinely independent.
 > cannot establish image validity.**
 >
 > **This is not mandatory and should not be treated as a required step until validated.**
-> *(Register item 31)*
+> *(D-31)*
 
 ### Layer 9 · Export state verification
 
@@ -216,7 +216,7 @@ Confirm that the checks were genuinely independent.
 > **FIELD TESTING REQUIRED · T29** — the reliable verification method **for each export path** is
 > not established; how an export dialog resolves its selection is undocumented (§22.2). Until
 > tested, the project-side checks above, performed immediately before export and recorded, are the
-> only defensible verification. *(Appendix E)*
+> only defensible verification. *(Appendix I)*
 
 ### Layer 10 · Deliverable review
 
@@ -263,7 +263,7 @@ Performed on the exported files, not in TBC.
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
 > pass."**
 >
-> *(Register item 13; §15.9, §18.9)*
+> *(D-13; §15.9, §18.9)*
 
 ## 24.4 The record
 
@@ -274,7 +274,7 @@ Performed on the exported files, not in TBC.
 >
 > Two layers — 6 and 7 — produce **no software artefact whatsoever**. If a reviewer asks whether
 > the visual check was performed and over what extent, the only possible answer is a record
-> somebody wrote. *(Register item 29)*
+> somebody wrote. *(D-29)*
 
 ## 24.5 Blocked pending resolution
 
@@ -285,8 +285,8 @@ These should be settled before a final QA/QC procedure is signed off:
 | **T18** — Export timestamps and reprocessing | Layer 9 cannot be completed while it is unknown whether a documented export option substitutes different data |
 | **T29** — per-path export verification | Layer 9's method is not established |
 | **T28** — Cleanup and the SBET files | Determines what must be archived before the project is tidied (§21, §23.5) |
-| **Register item 39** — continuity method | Layer 7 has no defined method |
-| **Register item 13** — acceptance framework | Layers 5 and 10 have no threshold |
+| **D-39** — continuity method | Layer 7 has no defined method |
+| **D-13** — acceptance framework | Layers 5 and 10 have no threshold |
 
 ---
 

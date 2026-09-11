@@ -149,7 +149,7 @@ TMI is served by the Control Unit and runs in **Chrome**:
 
 *(TMI UG Rev L)*
 
-Status reference — the colour meanings, warnings and indicators — is **Appendix E**.
+Status reference — the colour meanings, warnings and indicators — is **Appendix B**.
 
 ## 7.7 Mission configuration in TMI
 

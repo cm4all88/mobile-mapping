@@ -205,7 +205,7 @@ planning task, not a processing one.
 >
 > Record, in the project file before mobilising: the segments where mobile mapping is expected to
 > be marginal, the mitigation chosen for each, and the segments where another method is proposed.
-> *(Register item 45)*
+> *(D-45)*
 
 ## 6.9 The planning record
 

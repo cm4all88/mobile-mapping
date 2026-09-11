@@ -46,7 +46,7 @@ several documented ways exist for them to do so silently:
 > selected for export sit beneath the intended registered trajectory, and that their stations
 > carry the `_reg_####` suffix.**
 >
-> **Not adopted.** *(Register item 36)*
+> **Not adopted.** *(D-36)*
 
 > **FIELD TESTING REQUIRED · T29**
 >
@@ -60,7 +60,7 @@ several documented ways exist for them to do so silently:
 >   view (§22.4), can be made to respect a trajectory at all
 >
 > Until tested, the only defensible verification is the project-side one above, performed
-> immediately before export and recorded. *(Appendix E)*
+> immediately before export and recorded. *(Appendix I)*
 
 ## 22.3 Export timestamps — an unresolved question about what is exported
 
@@ -85,7 +85,7 @@ several documented ways exist for them to do so silently:
 > and does not state what it reprocesses against. Both readings — the mission's currently applied
 > trajectory, or the originally imported one — are consistent with the wording.
 >
-> **No speculation is offered here.** *(Appendix F)*
+> **No speculation is offered here.** *(Appendix I)*
 
 > **FIELD TESTING REQUIRED · T18 — the highest-priority test in this document**
 >
@@ -95,7 +95,7 @@ several documented ways exist for them to do so silently:
 > **Why it is the highest priority:** every quality step in the workflow — registration, Update
 > Scans, filtering, colorization — acts on the **generated** scans. If reprocessing does not
 > reflect the registered trajectory, then a documented, innocuous-sounding export option can
-> deliver data that was never the data that was checked. *(Appendix E)*
+> deliver data that was never the data that was checked. *(Appendix I)*
 
 Until T18 and the vendor question are resolved:
 
@@ -105,7 +105,7 @@ Until T18 and the vendor question are resolved:
 >
 > GPS Time per point is genuinely useful and some downstream software requires it. The question is
 > not whether timestamps are wanted but whether the cost of obtaining them is understood.
-> *(Register item 37)*
+> *(D-37)*
 
 ## 22.4 Two export tabs that behave differently
 
@@ -135,7 +135,7 @@ Until T18 and the vendor question are resolved:
 > stated.**
 >
 > **FIELD TESTING REQUIRED · T23** — draw a selection across scans from two trajectories and
-> observe. *(Appendix E)*
+> observe. *(Appendix I)*
 
 ## 22.5 Coordinate handling — common to the point cloud exporters
 
@@ -170,7 +170,7 @@ deliverable format is a project and client matter that Parametrix has not decide
 > **PARAMETRIX DECISION REQUIRED**
 >
 > **What are Parametrix's standard mobile mapping deliverable formats, and which export path
-> produces each?** *(Register item 38)*
+> produces each?** *(D-38)*
 
 ### 22.6.1 Export to LAS (Trajectory Split) — classified point cloud regions
 
@@ -205,7 +205,7 @@ deliverable format is a project and client matter that Parametrix has not decide
 >
 > **Sample points performs *random* sampling to a fixed point count.** On a survey deliverable
 > that is a destructive thinning with no documented spatial rule — no minimum spacing, no
-> preservation of edges or breaklines. Its default state is not stated. *(Appendix E)*
+> preservation of edges or breaklines. Its default state is not stated. *(Appendix I)*
 
 > **Provenance implication:** the exporter is named *Trajectory Split*, and splits by distance
 > along the trajectory. Despite the name, **no trajectory information is documented as
@@ -233,7 +233,7 @@ Output structure: a **Mission folder** plus one folder per device, with `laser`,
 > candidates, and **the topic does not state which is written.**
 >
 > **VENDOR CLARIFICATION REQUIRED** — which trajectory does the TMX export write when several
-> exist under a run? *(Appendix F)* · **FIELD TESTING REQUIRED · T20** *(Appendix E)*
+> exist under a run? *(Appendix I)* · **FIELD TESTING REQUIRED · T20** *(Appendix I)*
 
 ### 22.6.3 Export to TopoDot
 
@@ -320,7 +320,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 > options govern imagery only — and it is a first-class, viewable object in the delivered dataset.
 > **Which trajectory is published when several exist under a run is not documented.**
 >
-> **VENDOR CLARIFICATION REQUIRED** *(Appendix F)* · **FIELD TESTING REQUIRED · T19** *(Appendix E)*
+> **VENDOR CLARIFICATION REQUIRED** *(Appendix I)* · **FIELD TESTING REQUIRED · T19** *(Appendix I)*
 
 > **OBSERVED SOFTWARE BEHAVIOR** · Trimble Connect's **UK region** is currently unavailable for
 > Publish to TRCPS and Trimble Mobile Mapping data *(TBC RN 2026.10)*. Not applicable to
@@ -361,7 +361,7 @@ TBC. Requires a **Trimble ID**; uploads consume the account's Trimble Connect st
 >
 > This is therefore a **software-behaviour testing question**, not an unresolved documentation
 > research question. All known MX60 export and publish paths have been reviewed.
-> **FIELD TESTING REQUIRED · T22** — export and inspect the file directly. *(Appendix E; §23)*
+> **FIELD TESTING REQUIRED · T22** — export and inspect the file directly. *(Appendix I; §23)*
 
 ## 22.8 Known limitations and silent failures
 

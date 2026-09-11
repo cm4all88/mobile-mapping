@@ -48,7 +48,7 @@ trajectory error.
 > **Not adopted.** Step 4 is the part most likely to be skipped and is the reason this sequence
 > matters: adjusting a run to match another run will change its residuals against control, and
 > if the reference run was itself slightly off, run-to-run will faithfully propagate that error
-> into the run you adjusted. *(Register item 14)*
+> into the run you adjusted. *(D-14)*
 
 > **The choice of which run is the Reference is a survey decision, not a processing convenience.**
 > Whatever the Reference Run's absolute error is, the Run to Adjust inherits it.
@@ -162,7 +162,7 @@ on 10 % of its length and extrapolated across the rest.**
 > reading it.
 >
 > Test on a representative pair, varying overlap, and observe where the adjustment stops being
-> trustworthy. *(Appendix E)*
+> trustworthy. *(Appendix I)*
 
 ## 16.7 The visual check
 
@@ -194,7 +194,7 @@ To read it:
 > **Cutting plane thickness.** Trimble's screenshots show `5.000` in one topic and `0.030` in
 > another, with no stated basis. Thickness determines what the visual check can actually see: too
 > thin and there is nothing in the profile; too thick and a real offset is buried in a band of
-> points from either side of the plane. *(Appendix E)*
+> points from either side of the plane. *(Appendix I)*
 
 ## 16.8 Improving a run-to-run result
 

@@ -90,7 +90,7 @@ The role with no obvious home, and the one most likely to go unassigned.
 
 - Calibration currency — when the system was last calibrated and whether it is still valid (§14)
 - Firmware and software versions, and what changed in them (§4)
-- Vendor relationship, support, open questions (Appendix F)
+- Vendor relationship, support, open questions (Appendix I)
 - **Maintaining this SOP** as TBC and TMI change
 
 ## 3.3 The decisions
@@ -115,7 +115,7 @@ The role with no obvious home, and the one most likely to go unassigned.
 >
 > **D-3.7 · Who owns this SOP?** *(§1.7)*
 >
-> *Register items 3–9. See Appendix D.*
+> *D-3 to D-9. See Appendix I.*
 
 ## 3.4 A proposed structure, offered for decision
 

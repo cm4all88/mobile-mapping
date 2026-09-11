@@ -183,7 +183,7 @@ depend on it.
 > location and time; each run with start/end and any incident; **GNSS conditions observed**;
 > weather; traffic and occlusion events; anything not collected and why; the closing sequence
 > performed; disk and free space at end.
-> *(Register item 49)*
+> *(D-49)*
 
 ---
 

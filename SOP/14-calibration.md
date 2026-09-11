@@ -126,7 +126,7 @@ Compare with the LiDAR QC pattern *(TBC 28972; §12.7)*:
 > once, well, before it is needed under schedule pressure is worth more than the procedure it
 > supports.
 >
-> **Not adopted.** *(Register item 24; §6)*
+> **Not adopted.** *(D-24; §6)*
 
 ### The result, and how to read it
 
@@ -180,7 +180,7 @@ at heading, a large vertical component at pitch or height.
 >
 > Cutting plane thickness: Trimble's screenshots show `0.030` in the calibration topic and `5.000`
 > in the run-to-run topic, with no stated basis. Too thin shows nothing; too thick buries a real
-> offset in a band of points. *(Appendix E)*
+> offset in a band of points. *(Appendix I)*
 
 ## 14.4 Calibrating the cameras
 
@@ -248,7 +248,7 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 > any subsequent project, and it is the only portable record of what the system's angles were on
 > a given date. A project cleanup (§21) or a lost workstation should not take it with them.
 >
-> **Not adopted.** *(Register item 25; §25)*
+> **Not adopted.** *(D-25; §25)*
 
 ## 14.6 The calibration record — and the date
 
@@ -289,12 +289,12 @@ The MX60 also accepts a boresight JSON in the field through TMI's **Calibration 
 >   determines whether calibration is a periodic activity or a routine one
 > - **Who owns currency** (§3.3 D-3.6)
 >
-> *(Register item 26; Appendix F)*
+> *(D-26; Appendix I)*
 
 > **VENDOR CLARIFICATION REQUIRED**
 >
 > **Does removing and refitting the Sensor Unit disturb the calibration?** And what symptoms
-> indicate a calibration has drifted? *(Appendix F)*
+> indicate a calibration has drifted? *(Appendix I)*
 
 ## 14.8 Calibration is not validated by control
 

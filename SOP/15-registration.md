@@ -121,11 +121,11 @@ clouds or different passes of the same run.
 |---|---|---|
 | Scope | One run | A set of runs |
 | GCP reuse | Once | **Every GCP, as many times as it appears** |
-| Control list | One row per GCP | **One row per GCP *instance*** |
+| Control list | One row per GCP | **One row per GCP `instance`** |
 | Instances | — | TBC creates one per **250 m scan section** whose bounding box contains the GCP |
 | Side | — | An instance binds to the **left, right, or both** sides of the scan section |
 | Default name | *RunName* Trajectory | **Reg** |
-| Target naming | *RunName TrajectoryGCPName* | ***RegistrationName*_*GCPName*_*RunName*** |
+| Target naming | `RunName TrajectoryGCPName` | `RegistrationName_GCPName_RunName` |
 | Output node | `Reg. Trajectory` under the run | **`RegTrajectory` under each involved run** |
 | Unused instances | — | "All unused instances are removed from the Control Points list" |
 
@@ -144,7 +144,7 @@ out mutually consistent because they were adjusted against the same observation.
 > **Not adopted.** The reasoning is above and follows from Trimble's description, but it is a
 > production convention and Parametrix should decide it deliberately — including whether a
 > mission registration should be redone from scratch when one run is later re-collected.
-> *(Register item 12)*
+> *(D-12)*
 
 ## 15.5 Registration Type — and the one that does not extrapolate
 
@@ -176,7 +176,7 @@ out mutually consistent because they were adjusted against the same observation.
 > at all, and is the method shown in every screenshot Trimble publishes.
 >
 > Do not adopt a default from the screenshots. Test the three methods on a representative
-> corridor with independent check points and compare. *(Appendix E)*
+> corridor with independent check points and compare. *(Appendix I)*
 
 ## 15.6 Target picking, and reading residuals before you commit
 
@@ -298,7 +298,7 @@ limit means the wrong feature was picked.
 > Trimble ties the choice to three conditions at once — GCP density, GCP accuracy, and picking
 > precision — which will rarely all point the same way. The default state is not stated.
 >
-> Test both states on a representative dataset with independent check points. *(Appendix E)*
+> Test both states on a representative dataset with independent check points. *(Appendix I)*
 
 ## 15.8 Editing a registration — not the same as registering again
 
@@ -365,7 +365,7 @@ to shortcut is greatest.
 >    any threshold meaningful
 >
 > **Under no circumstances should this SOP acquire a statement of the form "RMS below X equals
-> pass."** *(Register item 13; §18, §24)*
+> pass."** *(D-13; §18, §24)*
 
 ---
 

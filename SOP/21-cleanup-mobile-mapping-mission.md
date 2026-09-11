@@ -80,7 +80,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 > **FIELD TESTING REQUIRED · T28** — list the project folder before and after Cleanup and
 > compare. If the files survive, they are a partial audit trail that outlives the operation; if
 > they do not, the record is gone entirely. **This materially changes what must be archived
-> first.** *(Appendix E)*
+> first.** *(Appendix I)*
 
 ## 21.4 The Parametrix decision
 
@@ -107,7 +107,7 @@ The command keeps the most recent registration and removes the rest. What is rem
 > 3. **What must be archived first**, and where the archive lives (§25)
 > 4. **Whether it is required, permitted, or prohibited** on Parametrix projects
 >
-> *(Register item 35 — flagged P1. This is among the decisions that should be settled before the
+> *(D-35 — flagged P1. This is among the decisions that should be settled before the
 > first production job, because the first person to reach the end of a project will otherwise
 > decide it by default.)*
 
@@ -156,7 +156,7 @@ three years.
 > gigabytes, and they are the difference between a deliverable that can account for itself and one
 > that cannot.
 >
-> *(Register item 35; §23, §25)*
+> *(D-35; §23, §25)*
 
 ## 21.7 The relationship to provenance
 

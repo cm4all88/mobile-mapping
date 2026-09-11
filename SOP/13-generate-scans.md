@@ -80,7 +80,7 @@ and Reflective Panels.
 > **T5 — Fog and Sun.** Both remove real returns under defined conditions. Applying them when
 > those conditions did not occur removes valid data.
 >
-> *(Appendix E)*
+> *(Appendix I)*
 
 > **CAUTION**
 >
@@ -104,13 +104,13 @@ Scans can be generated with colour from the imagery, or without.
 > **FIELD TESTING REQUIRED · T6**
 >
 > The colouriser offers a forward versus backward camera preference with no stated selection rule.
-> *(Appendix E)*
+> *(Appendix I)*
 
 > **PARAMETRIX DECISION REQUIRED**
 >
 > **Are scans generated coloured by default?** Colorization costs processing time and disk, and
 > is not needed for every deliverable — but generating without it and discovering later that the
-> client wanted coloured points means regenerating the mission. *(Register item 22)*
+> client wanted coloured points means regenerating the mission. *(D-22)*
 
 ## 13.5 The Results record
 
@@ -125,7 +125,7 @@ Scans can be generated with colour from the imagery, or without.
 > states which filters produced a given cloud, and filter choice is a defensible-or-not decision
 > that a reviewer may need to see years later.
 >
-> **Not adopted.** *(Register item 23; §23, §25)*
+> **Not adopted.** *(D-23; §23, §25)*
 
 ## 13.6 Update Scans — switching a cloud onto a different trajectory
 
@@ -188,7 +188,7 @@ also the mechanism for reverting.
 > present in an export made with timestamps enabled.
 >
 > **FIELD TESTING REQUIRED · T18 — the highest-priority test in this document.** See §22.3 and
-> Appendix E.
+> Appendix I.
 
 ---
 
