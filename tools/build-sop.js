@@ -26,7 +26,13 @@ const CALLOUTS = {
   'IMPORTANT':                    { color: CHARCOAL, bg: 'FFF6E0' },
   'FIELD TIP':                    { color: '1F6B3B', bg: 'EDF6F0' },
   'WHY THIS MATTERS':             { color: '1F4E79', bg: 'EDF2F8' },
+  'PARAMETRIX PROCEDURE (PROPOSED)': { color: '5B3E8E', bg: 'F4F0F8' },
+  'PARAMETRIX PROCEDURE (ADOPTED)':  { color: '1F6B3B', bg: 'EDF6F0' },
   'PARAMETRIX DECISION REQUIRED': { color: RED,      bg: 'F4F0F8' },
+  'TRIMBLE DOCUMENTED PROCEDURE': { color: '1F4E79', bg: 'F2F5F9' },
+  'OBSERVED SOFTWARE BEHAVIOR':   { color: '5A5A55', bg: 'F4F4F1' },
+  'VENDOR CLARIFICATION REQUIRED':{ color: '8A5A1F', bg: 'FBF3E8' },
+  'FIELD TESTING REQUIRED':       { color: '8A5A1F', bg: 'FBF3E8' },
   'ADVANCED':                     { color: GREY,     bg: LIGHT  },
 };
 

@@ -31,7 +31,15 @@ ORDER = [
 CALLOUTS = [
     ('WHAT YOU SHOULD KNOW BEFORE MOVING ON', 'retain'),
     ('IN PLAIN ENGLISH', 'plain'),
+    # evidence tags -- longest first, so PARAMETRIX PROCEDURE (ADOPTED) is not
+    # matched by a shorter PARAMETRIX PROCEDURE prefix
+    ('PARAMETRIX PROCEDURE (PROPOSED)', 'proposed'),
+    ('PARAMETRIX PROCEDURE (ADOPTED)', 'adopted'),
     ('PARAMETRIX DECISION REQUIRED', 'decision'),
+    ('TRIMBLE DOCUMENTED PROCEDURE', 'trimble'),
+    ('OBSERVED SOFTWARE BEHAVIOR', 'observed'),
+    ('VENDOR CLARIFICATION REQUIRED', 'vendor'),
+    ('FIELD TESTING REQUIRED', 'testing'),
     ('WHY THIS MATTERS', 'why'),
     ('FIELD TIP', 'tip'),
     ('IMPORTANT', 'important'),

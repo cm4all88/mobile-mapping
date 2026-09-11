@@ -146,6 +146,30 @@ td code{font-size:.84em}
 .co-decision{border-left-color:var(--violet);background:color-mix(in srgb,var(--violet) 9%,var(--ground))}
 .co-decision .co-h{color:var(--violet)}
 .co-advanced{border-left-color:var(--rule-2);background:var(--panel)}
+
+/* ---------- evidence tags ----------
+   Provenance labels, not warnings. Quieter than the callout family: a thin
+   left rule, a small-caps header, tight padding. The reader should be able to
+   scan a page and see where authority comes from without the page shouting. */
+.co-trimble,.co-observed,.co-proposed,.co-adopted,.co-testing,.co-vendor{
+  border-left-width:3px;padding:11px 16px;margin:18px 0;border-radius:0 5px 5px 0;
+  background:var(--panel)}
+.co-trimble  .co-h,.co-observed .co-h,.co-proposed .co-h,
+.co-adopted  .co-h,.co-testing  .co-h,.co-vendor   .co-h{
+  font-size:10.5px;letter-spacing:.09em}
+.co-trimble  p,.co-observed p,.co-proposed p,
+.co-adopted  p,.co-testing  p,.co-vendor   p{font-size:15px}
+.co-trimble{border-left-color:var(--info)}          .co-trimble .co-h{color:var(--info)}
+.co-observed{border-left-color:var(--rule-2)}       .co-observed .co-h{color:var(--muted)}
+.co-proposed{border-left-color:var(--violet);
+  background:color-mix(in srgb,var(--violet) 5%,var(--ground))}
+.co-proposed .co-h{color:var(--violet)}
+.co-adopted{border-left-color:var(--ok);
+  background:color-mix(in srgb,var(--ok) 5%,var(--ground))}
+.co-adopted .co-h{color:var(--ok)}
+.co-testing,.co-vendor{border-left-color:var(--warn);
+  background:color-mix(in srgb,var(--warn) 5%,var(--ground))}
+.co-testing .co-h,.co-vendor .co-h{color:var(--warn)}
 /* comprehension layer - deliberately unlike the six warning callouts:
    full-width, a top rule rather than a left rule, quieter ground */
 .co-plain,.co-retain{border-left:none;border-top:2px solid var(--plain);
