@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Verify every registered warning appears verbatim in the document that owns it.
+"""Verify the warning register and the documents agree, in both directions.
+
+Forward:  every registered warning appears verbatim in the document that owns it.
+Reverse:  every W- identifier cited anywhere in the four documents exists in the
+          register. Without this a typo -- W-99 for W-09 -- reads as a real
+          warning, cites an authority that does not exist, and passes silently.
+          The D-/T-/V- gate has checked both directions from the start; warnings
+          are the highest-severity content in the set and were checked one way
+          until 2026-09-19.
 
 The warning register (deliverables/_control/warning-register.md) holds the authoritative
 wording. A warning is quoted, never paraphrased. This checks the owner document for each
@@ -65,6 +73,20 @@ for wid, body in pairs:
         if d in quoted and cache.get(d) is None:
             pending.append((wid, title, f'quoted in {d}, which is not built yet'))
 
+# ---- reverse: every W- cited in a document must exist in the register ---------
+known = {wid for wid, _ in pairs}
+unknown = []
+for d, path in DOCS.items():
+    if not os.path.isdir(path):
+        continue
+    for f in sorted(glob.glob(os.path.join(path, '*.md'))):
+        if os.path.basename(f).startswith('MX60-'):
+            continue
+        for i, line in enumerate(open(f, encoding='utf-8'), 1):
+            for m in re.finditer(r'\bW-\d+\b', line):
+                if m.group(0) not in known:
+                    unknown.append((m.group(0), os.path.basename(f), i, line.strip()[:70]))
+
 print(f'{len(pairs)} warnings in the register')
 for wid, title, why in pending:
     print(f'  pending  {wid} · {why}')
@@ -72,4 +94,8 @@ for wid, title, why in missing:
     print(f'  MISSING  {wid} {title}\n           {why}')
 print(f'\n{len(pairs) - len(missing)} verified in their owner document, '
       f'{len(missing)} missing, {len(pending)} pending a document not yet built')
-sys.exit(1 if missing else 0)
+for wid, f, i, line in unknown:
+    print(f'  UNKNOWN  {wid} cited in {f}:{i} but not in the register\n           {line}')
+if unknown:
+    print(f'{len(unknown)} citations of a warning identifier that does not exist')
+sys.exit(1 if (missing or unknown) else 0)

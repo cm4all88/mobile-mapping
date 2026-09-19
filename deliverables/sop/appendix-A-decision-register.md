@@ -346,7 +346,7 @@ is a defensible accuracy claim and a formal acceptance.
 
 *Stage: field QC · Documents: SOP; Field*
 
-### D-52 · Offload, verification and backup procedure · SOP §10.5
+### D-52 · Transfer, verification and backup procedure · SOP §10.5
 
 **P1** · open
 

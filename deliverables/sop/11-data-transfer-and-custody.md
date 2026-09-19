@@ -8,7 +8,7 @@ picked registration targets are the other irreplaceable item, and that comes lat
 
 Everything else in the chain is reproducible. These two are not.
 
-## 11.2 Offload and verification
+## 11.2 Transfer and verification
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-52**
 >
@@ -64,6 +64,6 @@ Everything else in the chain is reproducible. These two are not.
 
 | Record | State |
 |---|---|
-| Offload performed, verified how, by whom, when | **D-52** |
+| Transfer performed, verified how, by whom, when | **D-52** |
 | Location of the raw-data backup | **D-52, D-55** |
 | Custody, where required | **D-54** |

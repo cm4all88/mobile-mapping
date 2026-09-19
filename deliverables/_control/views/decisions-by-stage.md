@@ -360,7 +360,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 ## transfer
 
-### D-52 · Offload, verification and backup procedure
+### D-52 · Transfer, verification and backup procedure
 
 **P1** · open
 

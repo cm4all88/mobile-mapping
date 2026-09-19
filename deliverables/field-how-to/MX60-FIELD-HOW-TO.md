@@ -1312,7 +1312,7 @@ when the office confirms.
 
 What was transferred, to whom, when.
 
-> **PARAMETRIX DECISION REQUIRED · D-52, D-53, D-54** — the offload and verification procedure,
+> **PARAMETRIX DECISION REQUIRED · D-52, D-53, D-54** — the transfer and verification procedure,
 > the folder structure and naming, and whether a chain-of-custody record is required *(SOP §11)*.
 
 ---

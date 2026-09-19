@@ -1199,7 +1199,7 @@ picked registration targets are the other irreplaceable item, and that comes lat
 
 Everything else in the chain is reproducible. These two are not.
 
-## 11.2 Offload and verification
+## 11.2 Transfer and verification
 
 > **PARAMETRIX PROCEDURE (PROPOSED) · D-52**
 >
@@ -1255,7 +1255,7 @@ Everything else in the chain is reproducible. These two are not.
 
 | Record | State |
 |---|---|
-| Offload performed, verified how, by whom, when | **D-52** |
+| Transfer performed, verified how, by whom, when | **D-52** |
 | Location of the raw-data backup | **D-52, D-55** |
 | Custody, where required | **D-54** |
 
@@ -2794,7 +2794,7 @@ is a defensible accuracy claim and a formal acceptance.
 
 *Stage: field QC · Documents: SOP; Field*
 
-### D-52 · Offload, verification and backup procedure · SOP §10.5
+### D-52 · Transfer, verification and backup procedure · SOP §10.5
 
 **P1** · open
 
@@ -2873,7 +2873,7 @@ is a defensible accuracy claim and a formal acceptance.
 *Records this section requires* table at the end of each section. Edit the section; regenerate this.
 
 **72 records**, across 20 sections.
-Last generated 2026-09-11.
+Last generated 2026-09-19.
 
 > **Read the State column.** A record whose state names a **D-** identifier is required by a clause
 > that has not been adopted. It is proposed, not mandatory, and the identifier is where the decision
@@ -2900,7 +2900,7 @@ Last generated 2026-09-11.
 | 6 | Project Setup Requirements | Accuracy requirement, and its source | **D-13** |
 |  |  | CRS, datum, epoch, geoid — and who set them | **D-21** |
 |  |  | Grid or ground, as agreed | **D-38** |
-|  |  | Configuration and fitment assumed | **D-2** |
+|  |  | Configuration assumed — **Premium** — and the fitment assumed with it | **D-2** for the fitment |
 | 7 | Control Requirements | Control network, with coordinates and their source | Existing practice |
 |  |  | **Which points are control and which are independent checks, fixed before registration** | **D-15** |
 |  |  | Who designated them, and when | **D-3** |
@@ -2915,7 +2915,7 @@ Last generated 2026-09-11.
 | 10 | Field Close-out and Handoff | Coverage verification, performed and by whom | **D-49** |
 |  |  | Deviations from the mission plan | **D-49** |
 |  |  | Handoff — what was transferred, to whom, when | **D-52, D-54** |
-| 11 | Data Transfer and Custody | Offload performed, verified how, by whom, when | **D-52** |
+| 11 | Data Transfer and Custody | Transfer performed, verified how, by whom, when | **D-52** |
 |  |  | Location of the raw-data backup | **D-52, D-55** |
 |  |  | Custody, where required | **D-54** |
 | 12 | Office Intake Requirements | Intake checks performed, by whom, with the result of each | **D-18** |

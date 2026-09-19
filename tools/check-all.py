@@ -9,7 +9,8 @@
   3b every `shall` rests on an authority that binds now
   4  every cross-reference resolves, in all four documents
   5  every register identifier cited exists; every register item is cited somewhere
-  6  the page renderer leaves no unrendered emphasis
+  6  the page renderer leaves no unrendered emphasis, on pages that are current
+  7  every equipment quantity in the documents exists in the reference register
 """
 import re, glob, os, sys, csv, subprocess
 
@@ -30,6 +31,7 @@ run('binding requirements',   ['tools/build-binding-table.py', '--check'])
 run('style and build',        ['tools/check-style.py'])
 run('publication layer',      ['tools/check-publication.py'])
 run('authority of shall',     ['tools/check-authority.py'])
+run('numbers match register', ['tools/check-numbers.py'])
 
 DIRS = {'Manual':'technical-manual','SOP':'sop','Office':'office-how-to','Field':'field-how-to'}
 def heads(d):
@@ -84,14 +86,30 @@ if unknown: print('      unknown:', sorted(unknown))
 if miss:    print('      never cited:', sorted(miss))
 if not ok:  fail.append('register identifiers')
 
+# The emphasis check reads the BUILT pages. A page older than the markdown it came
+# from proves nothing, so staleness is a failure rather than a silent pass.
+stale = []
+for f in glob.glob('deliverables/*/[a-z]*.html'):
+    d = os.path.dirname(f)
+    src = [m for m in glob.glob(os.path.join(d, '*.md'))
+           if not os.path.basename(m).startswith('MX60-')]
+    if src and max(os.path.getmtime(m) for m in src) > os.path.getmtime(f):
+        stale.append(os.path.basename(f))
+if stale:
+    print(f'FAIL  rendered emphasis — page older than its source: {", ".join(stale)}')
+    print('      the markdown changed after the page was built, so the check would be')
+    print('      reading stale output. Rebuild: python3 tools/build-doc-page.py manual|sop|field|office')
+    fail.append('rendered emphasis')
+
 lit = 0
 for f in glob.glob('deliverables/*/[a-z]*.html'):
     h = open(f).read()
     lit += len([m for m in re.finditer(r'.{40}\*\*.{20}', h) if m.group(0).lower() != m.group(0)])
     # a single asterisk that survived is an italic broken across a wrapped line
     lit += len([m for m in re.finditer(r'[A-Za-z,.]\*(?!\*)[ ,.)]', h)])
-print(f'{"ok  " if not lit else "FAIL"}  rendered emphasis ({lit} unrendered)')
-if lit: fail.append('rendered emphasis')
+if not stale:
+    print(f'{"ok  " if not lit else "FAIL"}  rendered emphasis ({lit} unrendered)')
+    if lit: fail.append('rendered emphasis')
 
 print()
 print('all checks pass' if not fail else f'{len(fail)} FAILED: {", ".join(fail)}')

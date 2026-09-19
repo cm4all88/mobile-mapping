@@ -265,7 +265,7 @@ file. `Extcal.json` is small and is there.
 
 > **PARAMETRIX DECISION REQUIRED · D-52**
 >
-> **The offload, verification and backup procedure** — the six steps above are this guide's
+> **The transfer, verification and backup procedure** — the six steps above are this guide's
 > recommendation *(SOP §11.2)*.
 
 > **CAUTION · W-04**
@@ -282,7 +282,7 @@ file. `Extcal.json` is small and is there.
 
 ### 2.5 Record
 
-Offload performed, verified how, by whom, when. Where the backup is.
+Transfer performed, verified how, by whom, when. Where the backup is.
 
 ---
 
