@@ -1,14 +1,23 @@
 /**
- * Parametrix Mobile Mapping — capability brochure for the marketing team.
+ * Parametrix Mobile Mapping — client-facing capability brochure.
  *
  *   node marketing/build-capability-brochure.js
  *
- * Editable working file. Marketing restyles it and places the logo; the words
- * and the numbers are the part that has been checked.
+ * Working file for the marketing team: they place imagery, restyle in the
+ * licensed faces, and delete the internal pages. The words and the numbers are
+ * the part that has been checked.
  *
- * EVERY specification figure traces to reference/mx60-reference-data.csv, which
- * is the project's authority for numbers. The SPEC ids are in comments beside
- * each one so a reviewer can follow them back.
+ * SPECIFICATION AUTHORITY
+ *   reference/mx60-reference-data.csv is the project's authority for numbers.
+ *   The "system" page was re-verified line by line on 2026-09-19 against the
+ *   primary source held in this repository:
+ *
+ *     022516737C_TrimbleMX60_SpecSheet_USL_0425_LR_SEC.pdf
+ *     Trimble MX60 Spec Sheet, PN 022516-737C, 04/25
+ *
+ *   Every figure carries its source in a comment. Three findings from that
+ *   check are written up on the internal pages; the heading figure in
+ *   particular is conditional on GAMS and is labelled as such.
  *
  * Colours and faces from deliverables/_control/style/brand-tokens.css
  * (Parametrix Brand Guide v6, p.16, p.18). No tagline: the guide puts
@@ -17,526 +26,795 @@
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
   Table, TableRow, TableCell, WidthType, ShadingType, BorderStyle,
-  PageBreak, PageOrientation, LevelFormat,
+  PageBreak, PageOrientation, LevelFormat, VerticalAlign,
 } = require('docx');
 const fs = require('fs');
 
 const RED = 'EE3D24';
 const CHARCOAL = '333333';
 const GRAY = '676768';
-const GRAY4 = 'F2F2F2';
+const GRAY1 = 'B3B4B5';
 const GRAY3 = 'E5E5E5';
+const GRAY4 = 'F2F2F2';
 const WHITE = 'FFFFFF';
 
-const HEAD = 'Klinic Slab';       // falls back to Rockwell, the guide's own alternate
+const HEAD = 'Klinic Slab';
 const BODY = 'Franklin Gothic Book';
 const QUOTE = 'Freight Text Pro';
 
 const LETTER = { width: 12240, height: 15840 };
 const MARGIN = { top: 1080, right: 1080, bottom: 1080, left: 1080 };
-const CONTENT_W = LETTER.width - MARGIN.left - MARGIN.right; // 10080 dxa
+const CW = LETTER.width - MARGIN.left - MARGIN.right; // 10080 dxa
 
 const NONE = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
 const noBorders = { top: NONE, bottom: NONE, left: NONE, right: NONE,
                     insideHorizontal: NONE, insideVertical: NONE };
 
-// ---------- small builders ----------------------------------------------
+// ---------- builders -----------------------------------------------------
 
-const p = (text, o = {}) => new Paragraph({
-  alignment: o.align,
-  spacing: { before: o.before ?? 0, after: o.after ?? 140, line: o.line ?? 280 },
-  indent: o.indent,
-  border: o.border,
-  children: [new TextRun({
-    text, font: o.font ?? BODY, size: o.size ?? 21,
-    color: o.color ?? CHARCOAL, bold: o.bold, italics: o.italics,
-  })],
+const run = (t, f = {}, o = {}) => new TextRun({
+  text: t, font: f.font ?? o.font ?? BODY, size: f.size ?? o.size ?? 21,
+  color: f.color ?? o.color ?? CHARCOAL, bold: f.bold, italics: f.italics,
 });
 
-/** A paragraph from parts: ['plain', ['bold bit', {bold:true}], ...] */
 const rich = (parts, o = {}) => new Paragraph({
   alignment: o.align,
-  spacing: { before: o.before ?? 0, after: o.after ?? 140, line: o.line ?? 280 },
+  spacing: { before: o.before ?? 0, after: o.after ?? 130, line: o.line ?? 280 },
   indent: o.indent,
-  children: parts.map(x => {
+  children: (Array.isArray(parts) ? parts : [parts]).map(x => {
     const [t, f] = Array.isArray(x) ? x : [x, {}];
-    return new TextRun({
-      text: t, font: f.font ?? o.font ?? BODY, size: f.size ?? o.size ?? 21,
-      color: f.color ?? o.color ?? CHARCOAL, bold: f.bold, italics: f.italics,
-    });
+    return run(t, f, o);
   }),
 });
 
+const p = (text, o = {}) => rich([[text, {}]], o);
+
 const h1 = (text) => new Paragraph({
-  heading: HeadingLevel.HEADING_1,
+  heading: HeadingLevel.HEADING_1, keepNext: true,
+  spacing: { before: 0, after: 60 },
+  children: [run(text, { font: HEAD, size: 50, bold: true, color: RED })],
+});
+
+const titleRule = () => new Paragraph({
   spacing: { before: 0, after: 200 },
-  children: [new TextRun({ text, font: HEAD, size: 52, bold: true, color: RED })],
+  border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: RED, space: 8 } },
+  children: [run('', { size: 2 })],
 });
 
 const h2 = (text) => new Paragraph({
-  heading: HeadingLevel.HEADING_2,
-  keepNext: true, keepLines: true,
-  spacing: { before: 320, after: 140 },
-  children: [new TextRun({ text, font: HEAD, size: 30, bold: true, color: RED })],
+  heading: HeadingLevel.HEADING_2, keepNext: true, keepLines: true,
+  spacing: { before: 300, after: 110 },
+  children: [run(text, { font: HEAD, size: 28, bold: true, color: RED })],
 });
 
 const h3 = (text) => new Paragraph({
-  heading: HeadingLevel.HEADING_3,
-  keepNext: true, keepLines: true,
-  spacing: { before: 240, after: 100 },
-  children: [new TextRun({ text, font: BODY, size: 22, bold: true, color: CHARCOAL })],
+  heading: HeadingLevel.HEADING_3, keepNext: true, keepLines: true,
+  spacing: { before: 220, after: 90 },
+  children: [run(text, { size: 22, bold: true, color: CHARCOAL })],
 });
 
-/** The brand's one precedent for a marked-off block: a red left rule (p.16). */
+/** The guide's one precedent for a marked-off block: a red left rule (p.16). */
 const pullquote = (text) => new Paragraph({
-  spacing: { before: 200, after: 220, line: 300 },
+  spacing: { before: 180, after: 200, line: 300 },
   indent: { left: 240 },
   border: { left: { style: BorderStyle.SINGLE, size: 18, color: RED, space: 12 } },
-  children: [new TextRun({ text, font: QUOTE, size: 23, color: RED })],
+  children: [run(text, { font: QUOTE, size: 24, color: RED })],
 });
 
-/** Real bullets come from the numbering config below, never a literal glyph. */
-const bullet = (parts) => {
-  const q = rich(Array.isArray(parts) ? parts : [parts], { after: 110 });
-  return new Paragraph({
-    numbering: { reference: 'px-bullets', level: 0 },
-    spacing: { after: 110, line: 280 },
-    children: q.root.filter(c => c.constructor.name === 'TextRun'),
-  });
-};
+const aside = (text) => new Paragraph({
+  spacing: { before: 140, after: 150, line: 270 },
+  indent: { left: 200 },
+  border: { left: { style: BorderStyle.SINGLE, size: 10, color: GRAY3, space: 10 } },
+  children: [run(text, { size: 19, color: GRAY })],
+});
 
-const rule = () => new Paragraph({
-  spacing: { before: 60, after: 200 },
-  border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: GRAY3, space: 4 } },
-  children: [new TextRun({ text: '', size: 2 })],
+const bullet = (parts) => new Paragraph({
+  numbering: { reference: 'px-bullets', level: 0 },
+  spacing: { after: 90, line: 275 },
+  children: (Array.isArray(parts) ? parts : [parts]).map(x => {
+    const [t, f] = Array.isArray(x) ? x : [x, {}];
+    return run(t, f);
+  }),
 });
 
 const placeholder = (text) => new Paragraph({
-  spacing: { before: 160, after: 160 },
-  children: [new TextRun({ text, font: BODY, size: 19, color: GRAY, italics: true })],
+  spacing: { before: 140, after: 140 },
+  children: [run(text, { size: 18, color: GRAY, italics: true })],
+});
+
+/** A framed box standing in for a photograph marketing will drop in. */
+const imageBox = (caption, heightDxa) => new Table({
+  width: { size: CW, type: WidthType.DXA },
+  columnWidths: [CW],
+  borders: noBorders,
+  rows: [new TableRow({
+    height: { value: heightDxa, rule: 'atLeast' },
+    children: [new TableCell({
+      width: { size: CW, type: WidthType.DXA },
+      shading: { type: ShadingType.CLEAR, fill: GRAY4, color: 'auto' },
+      verticalAlign: VerticalAlign.CENTER,
+      margins: { top: 200, bottom: 200, left: 200, right: 200 },
+      borders: {
+        top: { style: BorderStyle.SINGLE, size: 4, color: GRAY1 },
+        bottom: { style: BorderStyle.SINGLE, size: 4, color: GRAY1 },
+        left: { style: BorderStyle.SINGLE, size: 4, color: GRAY1 },
+        right: { style: BorderStyle.SINGLE, size: 4, color: GRAY1 },
+      },
+      children: [new Paragraph({
+        alignment: AlignmentType.CENTER,
+        spacing: { before: 0, after: 0 },
+        children: [run(caption, { size: 18, color: GRAY, italics: true })],
+      })],
+    })],
+  })],
 });
 
 const pageBreak = () => new Paragraph({ children: [new PageBreak()] });
+const spacer = (h = 200) => new Paragraph({ spacing: { after: h }, children: [run('', { size: 2 })] });
 
-/** Two-column reference table. cols is [leftDxa, rightDxa]. */
+/** Two-column reference table. */
 function refTable(rows, cols, opts = {}) {
-  const widths = cols ?? [3600, CONTENT_W - 3600];
-  const cell = (text, w, o = {}) => new TableCell({
-    width: { size: w, type: WidthType.DXA },
+  const w = cols ?? [3200, CW - 3200];
+  const cell = (text, width, o = {}) => new TableCell({
+    width: { size: width, type: WidthType.DXA },
     shading: o.shade ? { type: ShadingType.CLEAR, fill: o.shade, color: 'auto' } : undefined,
-    margins: { top: 80, bottom: 80, left: 120, right: 120 },
+    margins: { top: 70, bottom: 70, left: 110, right: 110 },
     borders: {
       top: { style: BorderStyle.SINGLE, size: 4, color: GRAY3 },
       bottom: { style: BorderStyle.SINGLE, size: 4, color: GRAY3 },
       left: NONE, right: NONE,
     },
     children: [new Paragraph({
-      spacing: { before: 0, after: 0, line: 260 },
-      children: [new TextRun({
-        text, font: BODY, size: o.size ?? 20,
-        color: o.color ?? CHARCOAL, bold: o.bold,
-      })],
+      spacing: { before: 0, after: 0, line: 255 },
+      children: [run(text, { size: o.size ?? 19, color: o.color ?? CHARCOAL, bold: o.bold })],
     })],
   });
-
-  const body = rows.map(([a, b], i) => new TableRow({
-    children: [
-      cell(a, widths[0], { bold: true, shade: opts.head && i === 0 ? GRAY4 : undefined }),
-      cell(b, widths[1], { shade: opts.head && i === 0 ? GRAY4 : undefined }),
-    ],
-  }));
-
   return new Table({
-    width: { size: CONTENT_W, type: WidthType.DXA },
-    columnWidths: widths,
-    borders: noBorders,
-    rows: body,
+    width: { size: CW, type: WidthType.DXA }, columnWidths: w, borders: noBorders,
+    rows: rows.map(([a, b], i) => new TableRow({
+      children: [
+        cell(a, w[0], { bold: true, shade: opts.head && i === 0 ? GRAY4 : undefined }),
+        cell(b, w[1], { shade: opts.head && i === 0 ? GRAY4 : undefined }),
+      ],
+    })),
   });
 }
 
-const spacer = (h = 200) => new Paragraph({ spacing: { after: h }, children: [new TextRun({ text: '', size: 2 })] });
+/** Two columns of bullets side by side, for the long deliverable lists. */
+function twoCol(left, right) {
+  const half = Math.floor(CW / 2);
+  const col = (items) => items.map(t => new Paragraph({
+    numbering: { reference: 'px-bullets', level: 0 },
+    spacing: { after: 70, line: 265 },
+    children: [run(t, { size: 19 })],
+  }));
+  return new Table({
+    width: { size: CW, type: WidthType.DXA }, columnWidths: [half, CW - half], borders: noBorders,
+    rows: [new TableRow({ children: [left, right].map((items, i) => new TableCell({
+      width: { size: i === 0 ? half : CW - half, type: WidthType.DXA },
+      margins: { top: 40, bottom: 40, left: 0, right: 180 },
+      borders: noBorders,
+      children: col(items),
+    })) })],
+  });
+}
 
-// ---------- page 1 · cover ----------------------------------------------
+/** DRIVE → PROCESS → VERIFY → DELIVER. */
+function workflowStrip() {
+  const stages = [
+    ['1', 'DRIVE', 'MX60 LiDAR, 360° imagery and GNSS/inertial collection along the corridor'],
+    ['2', 'PROCESS', 'Trajectory, point cloud, imagery and feature extraction'],
+    ['3', 'VERIFY', 'Survey control, independent check points and targeted conventional observations'],
+    ['4', 'DELIVER', 'CAD, surfaces, inventories, clearance reports, pavement analysis, ADA design mapping'],
+  ];
+  const w = Math.floor(CW / 4);
+  const widths = [w, w, w, CW - 3 * w];
+  return new Table({
+    width: { size: CW, type: WidthType.DXA }, columnWidths: widths, borders: noBorders,
+    rows: [new TableRow({
+      children: stages.map(([n, title, body], i) => new TableCell({
+        width: { size: widths[i], type: WidthType.DXA },
+        margins: { top: 120, bottom: 140, left: 130, right: 130 },
+        borders: {
+          top: { style: BorderStyle.SINGLE, size: 18, color: RED },
+          bottom: NONE,
+          left: i === 0 ? NONE : { style: BorderStyle.SINGLE, size: 4, color: GRAY3 },
+          right: NONE,
+        },
+        children: [
+          new Paragraph({
+            spacing: { before: 0, after: 40 },
+            children: [run(`${n}  ${title}`, { font: HEAD, size: 20, bold: true, color: RED })],
+          }),
+          new Paragraph({
+            spacing: { before: 0, after: 0, line: 250 },
+            children: [run(body, { size: 17, color: CHARCOAL })],
+          }),
+        ],
+      })),
+    })],
+  });
+}
+
+// ---------- 1 · cover ----------------------------------------------------
 
 const cover = [
-  spacer(1400),
+  spacer(300),
   placeholder('[ Parametrix logo — charcoal and red, minimum 1 inch wide, clear space on all four sides at least the height of the right side of the x. Master EPS from Templafy. Brand Guide pp.10–14. ]'),
-  spacer(900),
+  spacer(500),
   new Paragraph({
     spacing: { after: 60 },
-    children: [new TextRun({ text: 'MOBILE MAPPING', font: HEAD, size: 76, bold: true, color: RED })],
+    children: [run('MOBILE MAPPING', { font: HEAD, size: 74, bold: true, color: RED })],
   }),
   new Paragraph({
-    spacing: { after: 420 },
-    children: [new TextRun({ text: 'Corridor survey at traffic speed', font: BODY, size: 32, color: CHARCOAL })],
+    spacing: { after: 320 },
+    children: [run('Corridor survey at traffic speed', { size: 32, color: CHARCOAL })],
   }),
+  imageBox('[ Cover image — the MX60 collecting on a live corridor, or a finished CAD deliverable over the point cloud it came from. Full bleed where the layout allows. ]', 3200),
+  spacer(320),
   new Paragraph({
-    spacing: { after: 200, line: 320 },
+    spacing: { after: 200, line: 340 },
     border: { top: { style: BorderStyle.SINGLE, size: 12, color: RED, space: 14 } },
-    children: [new TextRun({ text: '', size: 2 })],
+    children: [run('', { size: 2 })],
   }),
   rich([
-    'Parametrix operates a ',
-    ['Trimble MX60 Premium', { bold: true }],
-    ' mobile mapping system — survey-grade laser scanning and imaging on a vehicle. It measures ' +
-    'continuously while driving, which suits corridors where stopping is unsafe, slow or expensive.',
-  ], { size: 24, line: 340, after: 200 }),
-  spacer(4700),
+    ['Parametrix delivers a finished survey product, not a point cloud.', { bold: true, size: 25 }],
+    ['  Our Trimble MX60 Premium captures an entire corridor or paved site in a single pass, and we ' +
+     'turn it into the base mapping, surfaces, inventories and reports your project actually runs on.',
+     { size: 25 }],
+  ], { line: 350, after: 200 }),
+  spacer(500),
   placeholder('[ Office · address · phone · email — marketing to complete ]'),
 ];
 
-// ---------- page 2 · the case, and what you receive ---------------------
+// ---------- 2 · why mobile mapping ---------------------------------------
 
-const theCase = [
-  h1('Open roads, and a finished survey'),
+const why = [
+  h1('Why mobile mapping'),
+  titleRule(),
 
-  pullquote('The crew never gets out of the vehicle, and the traffic never stops.'),
+  p('A conventional corridor survey puts people on the ground, in or beside live traffic, for as ' +
+    'long as the work takes. Mobile mapping changes where the measurement happens. The instrument ' +
+    'travels with traffic, and the corridor is measured in the time it takes to drive it.'),
 
-  p('A conventional corridor survey puts people in the roadway. It needs a lane, often several ' +
-    'lanes over several days, and every one of those days is an exposure — to traffic, to weather, ' +
-    'to the schedule. The closure itself has a cost that lands on the travelling public and on the ' +
-    'project budget long before the survey is delivered.'),
+  pullquote('One of the greatest safety exposures in corridor surveying is working on foot near ' +
+            'live traffic. Mobile mapping moves most of that work into the vehicle, and then into ' +
+            'the office.'),
 
-  rich([
-    'The MX60 collects while driving with traffic, at up to 50 mph. ',
-    ['The mobile mapping run needs no lane closure at all', { bold: true }],
-    ', and nobody is on foot in a live lane while it happens. Control still has to be set ' +
-    'conventionally, but that is a fraction of the ground exposure a full topographic survey ' +
-    'requires — a few points, placed where they can be reached safely, instead of a crew working ' +
-    'the length of the corridor.',
-  ]),
-
-  h2('What that changes'),
-  bullet([['Fewer closures, shorter closures. ', { bold: true }],
-    'The survey stops being the reason a lane is shut.']),
-  bullet([['Less time exposed to traffic. ', { bold: true }],
-    'The single largest safety risk in corridor survey work is being in the roadway. This removes ' +
-    'most of it.']),
-  bullet([['Less disruption to the public. ', { bold: true }],
-    'No queues, no detours and no night work attributable to the survey.']),
-  bullet([['A revisit costs a drive, not a mobilisation. ', { bold: true }],
-    'Coming back to capture a changed condition is measured in hours.']),
-
-  h2('What you receive'),
-
-  rich([
-    ['Parametrix delivers a finished survey product, not a point cloud. ', { bold: true }],
-    'The cloud and the imagery are how we get there — they are intermediate, and you are welcome ' +
-    'to them, but the deliverable is the drawing, the surface, the inventory or the report you ' +
-    'asked for, in the format your workflow uses.',
-  ]),
+  h2('What it changes'),
 
   refTable([
-    ['Existing-conditions base mapping',
-     'Planimetric features, edge of pavement, striping, curb, drainage structures, signing and ' +
-     'utilities visible from the corridor — drafted to your CAD standard'],
-    ['Surfaces and terrain models',
-     'Digital terrain model, breaklines, contours and cross sections at the interval you specify'],
-    ['Asset inventories',
-     'Signs, markings, drainage, barrier, lighting and poles — located, attributed, and each one ' +
-     'tied to the image that shows it'],
-    ['Clearance and condition reports',
-     'Bridge and overhead clearances, sidewalk and curb ramp geometry, pavement surface condition'],
-    ['Change and monitoring reports',
-     'Where a corridor has moved, settled or eroded between surveys, and by how much'],
-    ['The survey record',
-     'The control used, the independent check results, and the coordinate system, datum and epoch ' +
-     'the deliverable sits on'],
-  ], [3200, CONTENT_W - 3200]),
+    ['Reduced field exposure',
+     'During mobile collection the survey crew remains in the vehicle, significantly reducing time ' +
+     'spent on foot in or adjacent to live traffic. Control, monuments, obscured features and ' +
+     'targeted verification may still require conventional observations'],
+    ['Reduced traffic disruption',
+     'In many corridor applications the MX60 can collect with live traffic and without a dedicated ' +
+     'survey lane closure. Where traffic control is still required, the exposure is usually shorter'],
+    ['Efficient corridor collection',
+     'Long corridors and large paved areas are captured continuously rather than set-up by set-up, ' +
+     'which is where the schedule advantage comes from'],
+    ['A complete digital record',
+     'The full visible environment is measured and photographed, dated, and tied to the project ' +
+     'coordinate system — not only the features on the original pick list'],
+    ['Work the data in the office',
+     'Features are extracted from a measured dataset at a desk, with the imagery alongside, rather ' +
+     'than from notes taken at the roadside'],
+    ['Faster repeat collection',
+     'Revisiting a corridor may require another drive rather than another full conventional survey ' +
+     'effort'],
+  ], [2700, CW - 2700]),
+
+  h2('Collect once, answer later'),
+
+  p('Because the corridor is captured comprehensively, additional visible features can often be ' +
+    'extracted later without returning to the field. A designer who asks in month four for the ' +
+    'driveway aprons, the pole attachments or the drainage grates that were never in the original ' +
+    'scope is usually asking a question the dataset can already answer.'),
+
+  p('One coordinated collection can therefore support several disciplines at once — existing ' +
+    'conditions, ADA design, pavement assessment, drainage and utility surface features, signs and ' +
+    'markings, clearance, and the design questions nobody has asked yet. That is where the economic ' +
+    'argument sits: not in the speed of one survey, but in how many times the same collection gets ' +
+    'used.'),
+
+  aside('Not every future question can be answered from an existing dataset. Features hidden at ' +
+        'the time of collection, anything below the surface, and measurements needing a precision ' +
+        'the method does not carry will still require field work.'),
 ];
 
-// ---------- page 3 · where it is used -----------------------------------
+// ---------- 3 · what you receive -----------------------------------------
 
-const uses = [
+const receive = [
+  h1('What you receive'),
+  titleRule(),
+
+  rich([['A finished survey product, not a point cloud.',
+         { bold: true, size: 25, color: CHARCOAL }]], { after: 140 }),
+
+  p('The MX60, the imagery, the trajectory, the point cloud, the control and the processing are the ' +
+    'means. What you are buying is the drawing, the surface, the inventory or the report — in the ' +
+    'format your workflow already uses. You do not need to hold, process or understand raw LiDAR to ' +
+    'use what we deliver. If you want the cloud and the imagery as well, they are yours.'),
+
+  spacer(140),
+  workflowStrip(),
+  spacer(260),
+
+  h2('Deliverables'),
+
+  refTable([
+    ['Existing conditions base mapping',
+     'Planimetric features, edge of pavement, curb and gutter, striping, drainage and utility ' +
+     'surface features, signing and roadside furniture — drafted to your CAD standard'],
+    ['Surfaces and terrain',
+     'Digital terrain models, breaklines, contours, cross sections and pavement surfaces'],
+    ['Asset inventories',
+     'Signs, pavement markings, drainage structures, barrier, lighting, poles and other corridor ' +
+     'assets — located, attributed, and linked to the imagery showing the feature and its condition'],
+    ['ADA and sidewalk design mapping',
+     'Curb, gutter, sidewalk, ramp and landing geometry with running and cross slope information, ' +
+     'for accessibility evaluation and replacement design'],
+    ['Pavement analysis',
+     'Roughness, surface condition, rutting and deformation, cross slope and distress mapping, from ' +
+     'the same collection as the base mapping'],
+    ['Clearance reports',
+     'Vertical and horizontal clearance at bridges and overhead structures, clearance envelopes and ' +
+     'CAD sections'],
+    ['Monitoring and change reports',
+     'Where a corridor has moved, settled or eroded between surveys, and by how much'],
+    ['Survey record and QC documentation',
+     'The control used, the independent check point results and their residuals, and the coordinate ' +
+     'system, datum and epoch the deliverable sits on'],
+  ], [3000, CW - 3000]),
+
+  aside('Mobile mapping is not simply a faster scanner. It is a survey workflow — collection, ' +
+        'control, processing, verification and production — that turns a corridor into ' +
+        'engineering-ready deliverables.'),
+];
+
+// ---------- 4 · where it is used, part one -------------------------------
+
+const usesA = [
   h1('Where it is used'),
+  titleRule(),
 
-  p('Anywhere the area is large and putting people on the ground is slow, unsafe or disruptive.'),
+  h2('Transportation corridors'),
 
-  h2('Design and existing conditions'),
+  p('Base mapping for design, widening, resurfacing, reconstruction and asset management on state ' +
+    'routes, arterials, city streets and interchanges. Complex geometry is captured in passes ' +
+    'rather than in set-ups, and the whole cross section comes back together — pavement, curb, ' +
+    'sidewalk, drainage, signing, illumination and the roadside.'),
+
+  p('The same method serves rail and transit corridors, where measurement alongside an operating ' +
+    'alignment is captured without putting a crew on foot in the corridor.'),
+
+  h2('ADA curb ramp and sidewalk design surveys'),
+
+  p('Capture the full intersection or corridor in a single mobile mapping survey. The MX60 records ' +
+    'curb, gutter, roadway, sidewalk, ramp, landing, striping, drainage and surrounding features, ' +
+    'creating a dense existing conditions dataset for accessibility evaluation and replacement ' +
+    'design — without a field crew collecting every visible feature individually.'),
+
+  h3('What we deliver on ramp and sidewalk projects'),
+
+  twoCol(
+    ['Existing conditions base mapping',
+     'Detailed curb, gutter and sidewalk geometry',
+     'Ramp and landing surfaces',
+     'Running and cross slope information',
+     'Roadway and gutter transitions'],
+    ['Drainage structures',
+     'Utility structures and surface features',
+     'Street level imagery tied to the survey',
+     'CAD surfaces and design-ready mapping',
+     'Targeted conventional verification where required'],
+  ),
+
+  h3('Sidewalks, beyond the ramps'),
+
+  p('The same dataset supports sidewalk assessment along the corridor: width and constrained clear ' +
+    'width, cross slope and running grade, driveway crossings, vertical offsets and potential trip ' +
+    'hazards, curb geometry, obstructions, poles and street furniture, surface deterioration, and ' +
+    'missing segments. At corridor scale this supports accessibility screening and curb ramp ' +
+    'inventories; at project scale it supports design.'),
+
+  h3('How the accuracy question is handled'),
+
+  p('Agencies may verify constructed or existing slopes by conventional leveling, so we do not ask ' +
+    'mobile mapping to carry every controlling elevation. Mobile mapping captures the complete ' +
+    'existing environment; targeted conventional survey establishes or verifies the critical design ' +
+    'elevations. Point cloud analysis supports ramp geometry, running slope, cross slope, landing ' +
+    'geometry, roadway transitions, identification of vertical discontinuities and ramp assessment ' +
+    'reporting — as measurement and screening a designer then works from.'),
+
+  aside('Point cloud analysis supports an accessibility assessment. It does not determine ' +
+        'compliance, and it does not resolve jurisdiction-specific design requirements. Those ' +
+        'remain matters of engineering judgement against the governing standard.'),
+];
+
+// ---------- 5 · where it is used, part two -------------------------------
+
+const usesB = [
+  h2('Pavement assessment'),
+
+  p('The same mobile mapping collection can support pavement and ride quality analysis in addition ' +
+    'to conventional base mapping — so a pavement question and a design question can be answered ' +
+    'from one mobilisation.'),
+
   refTable([
-    ['Roadway and highway', 'Base mapping for design, widening, resurfacing and reconstruction — ' +
-                            'including interchanges, where the geometry is captured in passes rather ' +
-                            'than in set-ups'],
-    ['Rail and transit corridors', 'Track-adjacent measurement and clearance envelopes without ' +
-                                   'putting a crew in the corridor on foot'],
-    ['Airport landside and airside', 'Runways, taxiways, aprons and service roads — geometry, ' +
-                                     'signage, markings, pavement surface condition and roughness'],
-    ['Ports, yards and campuses', 'Large paved areas in a fraction of the time static methods take'],
-
-  ], [3000, CONTENT_W - 3000]),
-
-  h2('Inventory, clearance and compliance'),
-  refTable([
-    ['Bridge and overhead clearance',
-     'Vertical and horizontal clearance across a network, for load posting and oversize routing, ' +
-     'measured at driving speed rather than from a closure under each structure'],
-    ['ADA sidewalk and curb ramp',
-     'Ramp and sidewalk geometry captured corridor-wide for a compliance programme, rather than ' +
-     'ramp by ramp on foot'],
-    ['Signs and pavement markings',
-     'A complete located inventory with the imagery that shows condition'],
-    ['Utility and right-of-way',
-     'Above-ground utilities, poles and attachments, and the ROW features around them'],
+    ['Roadway pavement roughness',
+     'International Roughness Index derived from the mobile mapping surface, with segmented results ' +
+     'identifying problem areas along the route'],
     ['Airfield pavement roughness',
-     'Boeing Bump Index and International Roughness Index from the runway scans, along the ' +
-     'centreline and the wheel paths — from a drive rather than a closed runway and a level circuit'],
-  ], [3000, CONTENT_W - 3000]),
+     'Boeing Bump Index and International Roughness Index derived from dense runway surface scans ' +
+     'along the centerline and the left and right wheel paths, evaluating bump locations by the ' +
+     'Boeing Bump methodology'],
+    ['Surface condition and distress',
+     'Pavement distress mapping and surface condition assessment across the corridor'],
+    ['Rutting and deformation',
+     'Measured from the pavement surface rather than estimated from spot cross sections'],
+    ['Cross slope',
+     'Continuous along the corridor, from the same surface'],
+    ['Surface models and profiles',
+     'Pavement surfaces and longitudinal or transverse profiles for design and analysis'],
+    ['Repeat deterioration surveys',
+     'The same route collected again, with the change between surveys reported'],
+  ], [3000, CW - 3000]),
 
-  h2('Monitoring by repeat survey'),
+  p('Airfield pavement roughness can therefore be evaluated from a dense mobile mapping surface ' +
+    'rather than relying solely on sparse conventional observations. Roughness indices and distress ' +
+    'mapping differ in how much of the work is computed and how much is reviewed; the method and the ' +
+    'level of review are set per project.'),
+
+  h2('Airports'),
+
+  p('Runways, taxiways, aprons and service roads. Applications include existing conditions mapping, ' +
+    'pavement surface modeling, pavement roughness, markings, signage, drainage, clearance, asset ' +
+    'inventory and construction documentation.'),
+
+  p('Airside collection is planned and coordinated with airport operations. The advantage is not ' +
+    'that coordination becomes unnecessary — it is that a drive takes far less time inside a ' +
+    'restricted operational area than a conventional survey of the same pavement, which shortens ' +
+    'the window that has to be arranged.'),
+];
+
+// ---------- 6 · where it is used, part three -----------------------------
+
+const usesC = [
+  h2('Bridge and overhead clearance'),
+
+  p('Measure vertical and horizontal clearance across an entire corridor or route from one ' +
+    'coordinated dataset, instead of setting up beneath each individual structure. Deliverables ' +
+    'include minimum clearance, the clearance envelope, bridge underside mapping, oversize load ' +
+    'route information, CAD sections, clearance reports, and repeat monitoring where appropriate.'),
+
+  h2('Utilities and right of way'),
+
+  p('Above-ground utilities, poles and attachments, vaults, lids, surface features and the ' +
+    'surrounding right-of-way improvements are captured as part of the corridor dataset, with the ' +
+    'imagery that shows each one. For utility engineering that gives a complete surface picture of ' +
+    'the corridor from a single collection.'),
+
+  aside('Mobile mapping records visible above-ground features and surface evidence. It does not ' +
+        'locate underground utilities. Right-of-way boundary establishment depends on appropriate ' +
+        'survey evidence and conventional boundary surveying.'),
+
+  h2('Ports, yards and campuses'),
+
+  p('Large paved facilities are where continuous collection pays off most. A single collection can ' +
+    'support existing conditions, pavement surfaces, asset inventory, clearance, striping, drainage, ' +
+    'utility surface features, construction planning and repeat condition surveys.'),
+
+  h2('Repeat survey and monitoring'),
 
   p('Drive the same corridor twice and the difference between the two datasets is a measurement in ' +
-    'its own right — practical over lengths that would never justify instrumented monitoring.'),
+    'its own right — practical over lengths and areas that would not justify instrumented ' +
+    'monitoring.'),
 
-  refTable([
-    ['Settlement and subsidence', 'Embankments, approach slabs, transition zones, fill over soft ground'],
-    ['Slope and erosion', 'Cut slopes, rock faces and channel banks, surveyed whole rather than at sections'],
-    ['Pavement deterioration', 'Rutting, surface distress and marking condition, tracked between surveys'],
-    ['Construction progress', 'Earthwork quantities and as-built conformance through the job'],
-    ['Post-event assessment', 'What moved, where, after a storm, a slide or an impact'],
-  ], [3000, CONTENT_W - 3000]),
+  twoCol(
+    ['Settlement and subsidence',
+     'Approach slabs and transition zones',
+     'Embankments and fill areas',
+     'Slope movement',
+     'Erosion'],
+    ['Pavement deterioration',
+     'Construction progress',
+     'As-built conformance',
+     'Post-event assessment',
+     'Repeat condition surveys'],
+  ),
 
-  new Paragraph({
-    spacing: { before: 60, after: 0, line: 280 },
-    indent: { left: 240 },
-    border: { left: { style: BorderStyle.SINGLE, size: 12, color: GRAY3, space: 12 } },
-    children: [new TextRun({
-      text: 'Repeat-survey monitoring finds and measures movement at the centimetre level across a ' +
-            'whole corridor. It answers where something is moving and roughly how much. Where a ' +
-            'millimetre-level answer is needed at a known point, that is instrumented monitoring ' +
-            'or precise levelling, and we will say so.',
-      font: BODY, size: 19, color: GRAY,
-    })],
-  }),
+  aside('Repeat-survey monitoring finds and measures change at corridor scale. It does not replace ' +
+        'millimetre-level instrumentation or precise leveling. Where a millimetre-level answer is ' +
+        'required at a known point, use the appropriate precision monitoring method — and we will ' +
+        'say so.'),
 ];
 
-const theSystem = [
-  h1('The system'),
-
-  rich([
-    ['Trimble MX60 Premium', { bold: true }],
-    ' — the top of the three MX60 configurations. Every figure on this page is Trimble’s published ' +
-    'specification for this system, under the conditions Trimble states.',
-  ], { line: 300, after: 220 }),
-
-  h3('Laser scanning'),
-  refTable([
-    ['Scanners', 'Two, time-of-flight'],                              // SPEC-002, SPEC-003
-    ['Measurement rate', '1,000,000 or 2,000,000 points per second, selectable — system total'], // SPEC-005
-    ['Maximum range', '150 m at the lower rate; 120 m at the higher'], // SPEC-006
-    ['Minimum range', '0.6 m'],                                        // SPEC-008
-    ['Range accuracy', '2 mm'],                                        // SPEC-009
-    ['Precision', '2.5 mm at 30 m'],                                   // SPEC-010
-    ['Profile rate', '240 or 400 profiles per second, selectable — system total'], // SPEC-011
-    ['Laser class', 'Class 1 — eye safe'],                             // SPEC-016
-  ], [3200, CONTENT_W - 3200]),
-  p('Range is specified against flat targets larger than the beam, at perpendicular incidence, in ' +
-    '23 km visibility. Working distance on a real corridor is shorter.',
-    { size: 18, color: GRAY, after: 60 }),
-
-  h3('Imaging'),
-  refTable([
-    ['Spherical camera', '72 megapixel, six cameras, global shutter, about 90% of the full sphere, up to 10 fps'], // SPEC-021,022,024,029,030
-    ['Downward camera', '12 megapixel, up to 9 fps'],                  // SPEC-035, SPEC-040
-    ['Capture trigger', 'By distance or by time'],
-  ], [3200, CONTENT_W - 3200]),
-
-  h3('Positioning'),
-  refTable([
-    ['Integration', 'Applanix IN-Fusion+ GNSS-inertial'],              // SPEC-052
-    ['GNSS tracking', '2 × 336 channels'],                             // SPEC-051
-    ['Roll and pitch', '0.0025°'],                                     // SPEC-047 (Premium)
-    ['Heading', '0.015°'],                                             // SPEC-048
-    ['Position after a 60-second GNSS outage', '0.10 m horizontal · 0.07 m vertical'], // SPEC-050 (Premium)
-  ], [3200, CONTENT_W - 3200]),
-
-  h3('Collection'),
-  refTable([
-    ['Recommended maximum speed, system operating', '80 km/h (50 mph)'],
-    ['Onboard storage', '2 × 4 TB removable SSD'],                     // SPEC-067
-  ], [3200, CONTENT_W - 3200]),
-];
-
-// ---------- page 4 · accuracy -------------------------------------------
+// ---------- 7 · accuracy -------------------------------------------------
 
 const accuracy = [
   h1('How accuracy is established'),
+  titleRule(),
 
-  pullquote('There is no single accuracy figure for a mobile mapping deliverable. ' +
-            'A firm that quotes you one before asking about your corridor is guessing.'),
+  pullquote('There is no single accuracy figure for every mobile mapping deliverable. A firm that ' +
+            'quotes you one before asking about your corridor is quoting a brochure, not a project.'),
 
-  p('Every point in the cloud is the sum of two things: a range and angle measured by the scanner, ' +
-    'and the position and orientation of the scanner at that instant. The scanner part is excellent ' +
-    'and nearly constant. The second part is a computed path, and its quality changes along the ' +
-    'corridor with the sky — open highway, tree canopy, an underpass, an urban canyon.'),
+  p('Every measured point combines two things: the range and angle measured by the scanner, and the ' +
+    'position and orientation of the vehicle at that instant. Scanner performance is highly ' +
+    'consistent. Trajectory quality is not — it changes along the corridor with GNSS conditions and ' +
+    'the surrounding environment, between open highway, tree canopy, an underpass and an urban ' +
+    'canyon. That is why an instrument specification is not a project accuracy, and why we will not ' +
+    'present one as the other.'),
 
-  p('So the accuracy question is answered per project, against control, and the evidence is part of ' +
-    'the deliverable:'),
+  h2('What we do instead'),
 
-  bullet([['The accuracy requirement is agreed in writing before collection. ', { bold: true }],
+  bullet([['Agree the accuracy requirement before collection. ', { bold: true }],
     'It drives the control design, the number of passes and the driving pattern — none of which can ' +
     'be fixed afterwards.']),
-  bullet([['The trajectory is fitted to surveyed control, ', { bold: true }],
-    'established conventionally and bracketing the extent of the work.']),
-  bullet([['Independent check points are measured against the finished product. ', { bold: true }],
-    'Points that helped compute the answer cannot test it. Points held out of the adjustment can, ' +
-    'and those are the residuals that get reported.']),
-  bullet([['Quality is reported along the corridor, not averaged over it. ', { bold: true }],
-    'A single project-wide number hides the stretch that matters to you.']),
+  bullet([['Design control appropriate to that requirement. ', { bold: true }],
+    'Established conventionally, and bracketing the extent of the work.']),
+  bullet([['Fit the trajectory to surveyed control. ', { bold: true }],
+    'The corridor is brought onto your coordinate system, datum and epoch, and the deliverable ' +
+    'states which.']),
+  bullet([['Use independent check points, kept out of the adjustment. ', { bold: true }],
+    'A point that helped compute the answer cannot test it. Points held independent can.']),
+  bullet([['Report the residuals. ', { bold: true }],
+    'The check results are part of the deliverable, not a number that stays in the office.']),
+  bullet([['Evaluate quality along the corridor. ', { bold: true }],
+    'A single project-wide average hides the local stretch that matters to your design.']),
 
-  h2('When mobile mapping is the wrong tool'),
+  h2('Mobile mapping and conventional survey, together'),
 
-  p('We will say so. A corridor under heavy continuous canopy, a site needing measurements the ' +
-    'vehicle cannot see, or a tolerance tighter than the method supports are all cases where ' +
-    'conventional survey or static scanning produces a more defensible result. Sometimes the answer ' +
-    'is a combination. Recommending the right method, including when it is not this one, is part of ' +
-    'the service.'),
+  p('The most efficient survey is often a combination. Mobile mapping captures the complete corridor ' +
+    'or site; conventional observations establish control and monuments, reach obscured features, ' +
+    'set critical elevations and provide targeted verification. That is particularly true for ADA ' +
+    'design, utility engineering, right-of-way work, airport pavement, high accuracy deformation ' +
+    'work, and anywhere the vehicle cannot see the feature the project needs.'),
 
-  h2('Behind the deliverable'),
-
-  p('The system is operational and has been run. The procedures behind it — field collection, office ' +
-    'processing, quality control, and the records that make a deliverable traceable to what produced ' +
-    'it — are written down: a technical manual, a standard operating procedure, and field and office ' +
-    'guides, currently in internal review.'),
-
-  rule(),
-  placeholder('[ Contact block — name, title, phone, email. Marketing to complete. ]'),
+  p('Parametrix runs both. Deciding which parts of a project belong to which method — and saying so ' +
+    'before the work starts — is the part that protects the schedule and the deliverable.'),
 ];
 
-// ---------- page 5 · internal notes, to be deleted -----------------------
+// ---------- 8 · the system -----------------------------------------------
+
+const system = [
+  h1('The system'),
+  titleRule(),
+
+  rich([
+    ['Trimble MX60 Premium', { bold: true }],
+    ' — the top of the three MX60 configurations. The figures below are Trimble’s published ' +
+    'specifications for the equipment, under the conditions Trimble states. They describe the ' +
+    'instrument. Project accuracy is established as set out on the previous page.',
+  ], { line: 290, after: 200 }),
+
+  h3('Laser scanning'),
+  refTable([
+    ['Scanners', 'Two, time-of-flight'],                                                      // UG Rev B
+    ['Effective measurement rate', '1,000,000 or 2,000,000 points per second, selectable'],    // spec sheet p.2
+    ['Scan speed', '240 or 400 profiles per second, selectable'],                              // spec sheet p.2
+    ['Maximum range', '150 m at 1,000 kHz · 120 m at 2,000 kHz, target reflectivity above 80%'], // spec sheet p.2
+    ['Minimum range', '0.6 m'],                                                                // spec sheet p.2
+    ['Accuracy · precision', '2 mm · 2.5 mm at 30 m'],                                         // spec sheet p.2
+    ['Field of view', 'Full 360°'],                                                            // spec sheet p.2
+    ['Laser class', 'Class 1, eye safe'],                                                      // spec sheet p.2
+  ], [3000, CW - 3000]),
+  p('Range figures are stated on a matte surface at normal angle of incidence. Working distance on a ' +
+    'corridor is shorter.', { size: 17, color: GRAY, after: 40 }),
+
+  h3('Imaging'),
+  refTable([
+    ['Spherical camera', '72 MP, 90% of the full sphere, by distance or by time at up to 10 fps'], // spec sheet p.2
+    ['Rear/down camera', '12 MP, H 82.0° × V 65.9°, by distance or by time at up to 9 fps'],       // spec sheet p.2
+  ], [3000, CW - 3000]),
+
+  h3('Positioning'),
+  refTable([
+    ['Integration', 'Trimble GNSS-inertial, Applanix IN-Fusion+'],        // UG Rev B
+    ['Roll and pitch', '0.0025° — Premium'],                              // spec sheet p.2
+    ['Heading', '0.015°, with GAMS on a 2 m baseline'],                   // spec sheet p.2 fn.6
+    ['Position after a 60-second GNSS outage', '0.10 m horizontal · 0.07 m vertical — Premium'], // spec sheet p.2
+  ], [3000, CW - 3000]),
+  p('Positioning figures are measured in a controlled test area under Trimble conditions and ' +
+    'procedures. They are not a statement of delivered project accuracy.',
+    { size: 17, color: GRAY, after: 40 }),
+
+  h3('Collection and storage'),
+  refTable([
+    ['Recommended maximum speed, system operating', '80 km/h (50 mph)'],  // UG Rev B
+    ['Maximum speed', '110 km/h (68 mph)'],                               // spec sheet p.3
+    ['Onboard storage', '2 × 4 TB removable SSD'],                        // spec sheet p.3
+    ['Operating temperature', '−10 °C to +50 °C (14 °F to 122 °F)'], // spec sheet p.3
+  ], [3000, CW - 3000]),
+
+  p('Source: Trimble MX60 Spec Sheet, PN 022516-737C (04/25), and the Trimble MX60 User Guide Rev B. ' +
+    'Specifications are subject to change without notice.', { size: 17, color: GRAY }),
+];
+
+// ---------- 9 · closing --------------------------------------------------
+
+const closing = [
+  h1('Start a conversation'),
+  titleRule(),
+
+  p('A single mobile mapping collection can support multiple engineering, survey, asset and ' +
+    'condition assessment needs across the same corridor. The most useful first conversation is ' +
+    'usually about the deliverable rather than the technology: what you need to design, inventory or ' +
+    'assess, to what accuracy, and by when. We will tell you which parts of that are mobile mapping ' +
+    'work, which parts are conventional survey, and how the two fit together.'),
+
+  spacer(180),
+  imageBox('[ Closing image — a delivered product: CAD base mapping, an ADA intersection, a pavement ' +
+           'surface or a clearance section. ]', 2600),
+  spacer(300),
+
+  refTable([
+    ['We are a good fit when',
+     'The work runs along a corridor or across a large paved area · putting people on the ground is ' +
+     'slow, unsafe or disruptive · several disciplines need the same site · the corridor will be ' +
+     'revisited · the deliverable is a drawing, surface, inventory or report rather than raw data'],
+    ['Talk to us early when',
+     'The accuracy requirement is demanding · the schedule is tight · traffic control is expensive or ' +
+     'hard to obtain · the site is operationally restricted, such as airside'],
+  ], [2700, CW - 2700]),
+
+  spacer(360),
+  placeholder('[ Contact block — name, title, phone, email, office. Marketing to complete. ]'),
+  spacer(180),
+  placeholder('[ Parametrix logo — knockout version if this page is set on a dark or image ground. ]'),
+];
+
+// ---------- internal pages ----------------------------------------------
 
 const stopBanner = () => new Paragraph({
   spacing: { after: 160 },
   shading: { type: ShadingType.CLEAR, fill: RED, color: 'auto' },
-  children: [new TextRun({
-    text: '  INTERNAL — DELETE THESE NOTES BEFORE THE BROCHURE GOES OUT  ',
-    font: HEAD, size: 30, bold: true, color: WHITE,
-  })],
+  children: [run('  INTERNAL — REMOVE BEFORE CLIENT ISSUE  ',
+                 { font: HEAD, size: 28, bold: true, color: WHITE })],
 });
 
-const notes = [
-  new Paragraph({
-    spacing: { after: 160 },
-    shading: { type: ShadingType.CLEAR, fill: RED, color: 'auto' },
-    children: [new TextRun({
-      text: '  INTERNAL — DELETE THESE NOTES BEFORE THE BROCHURE GOES OUT  ',
-      font: HEAD, size: 30, bold: true, color: WHITE,
-    })],
-  }),
-
+const internal1 = [
+  stopBanner(),
   h2('Notes for the marketing team'),
 
-  p('The numbers on page 4 were taken from the project’s reference dataset, ' +
-    'reference/mx60-reference-data.csv, which is the authority for every figure in the MX60 ' +
-    'documentation. They are Trimble’s published specifications for the equipment. They are not ' +
-    'claims about what a Parametrix deliverable achieves, and the wording keeps that distinction.'),
+  h3('One specification is in dispute — resolve before issue'),
 
-  h3('Airfield pavement roughness — what has to be true before it is sold'),
+  p('The revision request asked for the scanner precision to be changed from 2.5 mm at 30 m to a ' +
+    'laser precision of 1.5 mm. That change has not been made, and here is why.'),
 
-  p('Boeing Bump Index is a real capability, not an aspiration. Trimble Business Center ships the ' +
-    'analysis under Mobile Mapping ▸ Analysis ▸ Boeing Bump Index, and TBC also carries ' +
-    'International Roughness Index tools. The command takes the runway scans plus an alignment or ' +
-    'linestring defining the centreline, and offsets for the centreline and the left and right ' +
-    'wheel paths; it extracts the profiles along those paths and reports where bumps fall outside ' +
-    'the criteria. That lines up with the FAA method, which evaluates longitudinal profiles at a ' +
-    'maximum survey interval of 0.82 ft, on the centreline and at offsets from it.'),
+  p('The primary source held in this repository — 022516737C_TrimbleMX60_SpecSheet_USL_0425_LR_SEC.pdf, ' +
+    'the Trimble MX60 Spec Sheet, PN 022516-737C, dated 04/25 — states in its SCANNING table: ' +
+    '"Accuracy/Precision  2 mm, 2.5 mm @ 30 m". That is revision C. The revision circulating on ' +
+    'distributor sites is 737B, dated 10/24, so the sheet we hold is the newer of the two. The ' +
+    'Trimble Geospatial comparison page cited as the source for 1.5 mm could not be reached from the ' +
+    'build environment to check it.'),
 
-  pullquote('Having the instrument precision does not make every run an FAA deliverable. ' +
-            'The vertical trajectory does.'),
+  p('The page therefore carries the spec sheet figure. In a client-facing document, where two sources ' +
+    'disagree and one cannot be checked, print the figure that cannot overstate the instrument. If ' +
+    '1.5 mm is confirmed against a current Trimble source, the change takes one line — but confirm ' +
+    'it, because this number will be read by agency surveyors.'),
 
-  p('So the question on an airfield job is never whether the tool exists. It is whether the ' +
-    'vertical quality of that particular run supports the profile the analysis is computed from — ' +
-    'which is a matter of control, calibration, GNSS and inertial processing, and the conditions on ' +
-    'the day. On this work that means pavement control set for the purpose and the mobile mapping ' +
-    'elevations validated against it, rather than the instrument\u2019s nominal accuracy taken on ' +
-    'trust. Flagged locations can be verified conventionally where the deliverable requires it.'),
+  h3('Two further findings from the same verification pass'),
 
   refTable([
-    ['Before quoting airfield roughness work', 'Why'],
-    ['Run the TBC workflow on an MX60 dataset end to end',
-     'Nobody here has done it yet. The command\u2019s inputs, tolerances and report format should be ' +
-     'known from having used them, not from the help topic.'],
-    ['Agree the control and validation scheme with the client',
-     'The profile is only as good as the vertical. Establish how the mobile mapping elevations will ' +
-     'be proven, and against what, before collection.'],
-    ['Confirm what the receiving authority will accept',
-     'The FAA method is published; whether a given airport or reviewer accepts a mobile-mapping-' +
-     'derived profile for a specific purpose is a question to ask them, not to assume.'],
-  ], [3200, CONTENT_W - 3200], { head: true }),
+    ['Heading 0.015° is conditional',
+     'Spec sheet footnote 6 states the heading figure applies "With GAMS, 2 m baseline." Whether this ' +
+     'system carries GAMS is still open (register D-2). The page prints the condition alongside the ' +
+     'figure rather than the figure alone.'],
+    ['Two small transcription differences',
+     'reference/mx60-reference-data.csv gives the down camera field of view as H 82.9° and the Core ' +
+     'focal length as 4.40 mm; the spec sheet gives H 82.0° and 4.44 mm. The brochure follows the ' +
+     'spec sheet. The register should be corrected.'],
+  ], [2900, CW - 2900]),
 
-  pageBreak(),
-  stopBanner(),
-
-  h3('Five things that must not be added'),
+  h3('The claims that must not be added'),
 
   refTable([
     ['Do not add', 'Why'],
-    ['A delivered accuracy figure — "1 cm mobile mapping", "survey-grade to 0.02 ft"',
-     'What constitutes an acceptable result has not been decided (register D-13), and the control ' +
-     'design that would support it has not been specified (D-16). Accuracy is a per-project ' +
-     'statement made against that project’s control.'],
-    ['Trimble’s no-outage figure of "better than 1 cm horizontal"',
-     'Trimble states it with the DMI option fitted. Whether this system carries a DMI is not yet ' +
-     'established (D-2). Until it is, that figure is not ours to quote.'],
-    ['Any claim of delivered project experience, corridor miles or client names',
-     'The system has been run internally. Nothing has been delivered to a client under it. Add ' +
-     'project references only once there are projects, and only with the numbers from the projects.'],
-    ['"Certified", "compliant with", or a named accuracy standard',
-     'No procedure in the MX60 document set has been adopted as Parametrix policy yet, and no ' +
-     'external certification has been sought.'],
-    ['A delivered Boeing Bump Index or IRI job, or an accepted airfield roughness report',
-     'The capability is real and it is in TBC. It has not been run here yet, and no reviewing ' +
-     'authority has accepted a result from us. Sell the capability, not a record.'],
-  ], [3200, CONTENT_W - 3200], { head: true }),
+    ['A universal delivered accuracy — "1 cm mobile mapping", "survey-grade to 0.02 ft"',
+     'What constitutes an acceptable result has not been decided (D-13) and the control design that ' +
+     'would support it has not been specified (D-16). Accuracy is a per-project statement.'],
+    ['A Trimble instrument specification presented as project accuracy',
+     'The two are different quantities. The accuracy page exists to make that distinction, and it is ' +
+     'a differentiator — do not undo it on another page.'],
+    ['A delivered Boeing Bump Index or IRI project',
+     'Parametrix has not yet completed a client-delivered BBI project. The capability is real and is ' +
+     'in the equipment and the software. Sell the capability, not a record.'],
+    ['Any other claim of project experience that does not exist',
+     'No corridor miles, no client names, no case studies until there are projects and the client has ' +
+     'agreed to be named.'],
+    ['"MX60 determines ADA compliance", or "replaces leveling"',
+     'Point cloud analysis supports assessment. Compliance is determined against the governing ' +
+     'standard by engineering judgement, and agencies may verify slopes by conventional leveling.'],
+    ['"Without closing the runway", or any unqualified airside claim',
+     'Airside collection is coordinated with airport operations. The defensible point is a shorter ' +
+     'window inside the restricted area, not the absence of coordination.'],
+  ], [2900, CW - 2900], { head: true }),
+];
 
-  h3('Two things worth keeping'),
+const internal2 = [
+  stopBanner(),
+  h2('Before quoting specialty work'),
 
-  bullet([['The accuracy page is the strongest page. ', { bold: true }],
-    'Competitors quote a number. Explaining why a single number is meaningless, and what you do ' +
-    'instead, reads as competence to anyone technical enough to be choosing a surveyor.']),
-  bullet([['"When mobile mapping is the wrong tool" is not a weakness. ', { bold: true }],
-    'It is the paragraph a public agency remembers.']),
+  refTable([
+    ['Confirm the control and validation scheme',
+     'Before quoting high accuracy work, establish how the mobile mapping elevations will be proven ' +
+     'and against what. Agreed with the client before collection, not after.'],
+    ['Confirm owner and reviewing authority requirements',
+     'For specialty deliverables — airfield roughness, ADA design, clearance for load posting — ask ' +
+     'the receiving authority what it will accept from a mobile-mapping-derived product. Do not ' +
+     'assume.'],
+    ['Validate new TBC workflows internally first',
+     'A command existing in Trimble Business Center is not the same as an established Parametrix ' +
+     'production workflow. Run it, document it, then sell it.'],
+  ], [2900, CW - 2900]),
 
-  h3('Where the application list came from'),
+  h2('Recommended capability validation'),
 
-  p('The uses on page 3 are ones mobile LiDAR is documented as being used for in transportation ' +
-    'practice — bridge and overhead clearance inventory, ADA sidewalk and curb ramp assessment, ' +
-    'sign and pavement-marking inventory, pavement distress, and change detection by repeat survey. ' +
-    'They describe what the method does. They are not a list of services Parametrix has delivered, ' +
-    'and the sales conversation should not imply otherwise until there are projects behind them.'),
+  h3('ADA and sidewalk — the highest priority'),
 
-  h3('Before it is issued'),
+  p('Clients such as SDOT and Seattle City Light may independently verify ramp slopes, so the ' +
+    'agreement between our derived slopes and level observations needs to be known before it is ' +
+    'discovered on a live project.'),
+
+  bullet('Select several real intersections and collect them with the MX60.'),
+  bullet('Run the TBC ramp analysis.'),
+  bullet('Establish precise conventional vertical control, and level critical ramp and landing points.'),
+  bullet('Compare MX60-derived slopes and elevations against the independent level observations.'),
+  bullet('Determine where mobile mapping is sufficient on its own and where conventional observations ' +
+         'should remain a standard part of the workflow.'),
+
+  h3('Boeing Bump and pavement'),
+
+  bullet('Use an appropriate paved test area and run the complete TBC Boeing Bump workflow.'),
+  bullet('Run IRI on the same surface.'),
+  bullet('Compare the mobile mapping surface and profile against independent survey observations.'),
+  bullet('Document the procedure, the control requirements and the repeatability before Parametrix ' +
+         'markets BBI as an established delivered service.'),
+
+  h3('Repeatability'),
+
+  bullet('Drive the same test corridor several times.'),
+  bullet('Compare horizontal features, pavement elevations, hard surfaces, known check points and ' +
+         'repeated extracted features between runs.'),
+  bullet('Use the spread to set realistic internal expectations by project type — which is what turns ' +
+         'the accuracy page from a position into a number we can stand behind.'),
+
+];
+
+const internal3 = [
+  stopBanner(),
+  h3('Production notes'),
 
   bullet('Master logo assets — EPS for print — from Templafy. The files in brand/ are 600 dpi ' +
-         'extractions from the guide, fine for drafting, not masters.'),
-  bullet('Licensed faces: Klinic Slab, Franklin Gothic URW, Freight Text Pro. Not held here, so ' +
-         'this file falls back to the alternates the guide itself names (Rockwell, Franklin Gothic, ' +
-         'Georgia). Restyle in the licensed faces.'),
-  bullet('No tagline: the Brand Guide puts "client-facing document" in the Do Not Use Tagline ' +
-         'column (p.12).'),
-  bullet('Have someone technical read page 4 against reference/mx60-reference-data.csv before print.'),
+         'extractions from the guide: fine for drafting, not masters.'),
+  bullet('Licensed faces are Klinic Slab, Franklin Gothic URW and Freight Text Pro. They are not held ' +
+         'here, so this file falls back to the alternates the guide itself names — Rockwell, Franklin ' +
+         'Gothic, Georgia. Restyle in the licensed faces.'),
+  bullet('No tagline: the Brand Guide puts "client-facing document" in the Do Not Use Tagline column, ' +
+         'p.12.'),
+  bullet('Image boxes are placeholders. Photography selection guidance is Brand Guide p.20.'),
+  bullet('Have a surveyor read The system against the spec sheet before anything is printed.'),
 ];
 
 // ---------- assemble -----------------------------------------------------
 
 const doc = new Document({
   creator: 'Parametrix',
+  title: 'Mobile Mapping — capability brochure',
+  description: 'Client-facing capability brochure, working draft for the marketing team.',
   numbering: {
     config: [{
       reference: 'px-bullets',
       levels: [{
-        level: 0, format: LevelFormat.BULLET, text: '\u2022', alignment: AlignmentType.LEFT,
-        style: { paragraph: { indent: { left: 360, hanging: 200 } },
+        level: 0, format: LevelFormat.BULLET, text: '•', alignment: AlignmentType.LEFT,
+        style: { paragraph: { indent: { left: 340, hanging: 190 } },
                  run: { color: RED, font: BODY, size: 21 } },
       }],
     }],
   },
-  title: 'Mobile Mapping — capability brochure',
-  description: 'Capability brochure, working draft for the marketing team.',
-  styles: {
-    default: {
-      document: { run: { font: BODY, size: 21, color: CHARCOAL } },
-    },
-  },
+  styles: { default: { document: { run: { font: BODY, size: 21, color: CHARCOAL } } } },
   sections: [{
     properties: {
       page: { size: { width: LETTER.width, height: LETTER.height, orientation: PageOrientation.PORTRAIT },
@@ -544,11 +822,17 @@ const doc = new Document({
     },
     children: [
       ...cover, pageBreak(),
-      ...theCase, pageBreak(),
-      ...uses, pageBreak(),
-      ...theSystem, pageBreak(),
+      ...why, pageBreak(),
+      ...receive, pageBreak(),
+      ...usesA, pageBreak(),
+      ...usesB, pageBreak(),
+      ...usesC, pageBreak(),
       ...accuracy, pageBreak(),
-      ...notes,
+      ...system, pageBreak(),
+      ...closing, pageBreak(),
+      ...internal1, pageBreak(),
+      ...internal2, pageBreak(),
+      ...internal3,
     ],
   }],
 });
