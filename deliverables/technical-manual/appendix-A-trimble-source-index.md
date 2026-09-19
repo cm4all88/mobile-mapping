@@ -89,6 +89,26 @@ TBC 22905)*. URLs follow `https://help.fieldsystems.trimble.com/tbc/<id>.htm`.
 | **29527** | **Publish Mobile Mapping Point Cloud Data, Trajectories, and Images to Trimble Connect** | 4.6, 22.6.6 |
 | 28963 | Workflow: Publish Point Cloud Data and Panoramic Images to Trimble Connect | **Publish Scan Data — a static-scanner path** |
 
+### Analysis — **not yet ingested**
+
+The TBC Mobile Mapping navigation tree carries a group of analysis and product-making commands that
+this document set does not cover. They are listed here so the gap is visible rather than silent,
+and they are tracked as **T32** and **T33**.
+
+| ID | Topic | Status |
+|---|---|---|
+| **29599** | **Run a Boeing Bump Index (BBI) Report** | Cited for the capability. **The workflow has not been run here** — T32 |
+| — | Inspect Pavement Condition | Not ingested — T33 |
+| — | Create CAD Entities on Mobile Mapping Data | Not ingested — T33 |
+| — | Create Orthomosaics from a Trimble Back-Camera Mobile Mapping System | Not ingested — T33 |
+| — | Import Ortho Lane Images | Not ingested — T33 |
+| — | Import and Export Road Segments in AgileAssets | Not ingested — T33 |
+| — | Run a Batch Command | Not ingested — T33 |
+
+> **This is the downstream half of the module** — the part that turns a registered point cloud into
+> a deliverable. The set explains how to produce the cloud and stops there. Source for the list:
+> `sources/tbc-help-captures/_nav-tree-mobile-mapping.png`.
+
 ### MX7-only exporters — **do not apply to the MX60**
 
 | ID | Topic | Why excluded |
