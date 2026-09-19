@@ -283,7 +283,7 @@ unknown.*
 
 **Evidence.** TBC 29599; FAA AC 150/5380-9; nav tree capture sources/tbc-help-captures/_nav-tree-mobile-mapping.png
 
-*Stage: QC · Documents: Manual; SOP; Office*
+*Stage: QC · Documents: Manual*
 
 ### T33 · Work through the six TBC mobile mapping commands this document set does not cover: Run a Batch Command, Create CAD Entities on Mobile Mapping Data, Create Orthomosaics from a Back-Camera system, Import Ortho Lane Images, Inspect Pavement Condition, and Import and Export Road Segments in AgileAssets
 
@@ -293,7 +293,7 @@ unknown.*
 
 **Evidence.** sources/tbc-help-captures/_nav-tree-mobile-mapping.png
 
-*Stage: export · Documents: Manual; Office*
+*Stage: export · Documents: Manual*
 
 ---
 

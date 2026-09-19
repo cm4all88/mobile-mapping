@@ -1,3 +1,11 @@
+> # SUPERSEDED
+>
+> This is the **second generation** of the MX60 documentation and is **not the live set**.
+> The live documents are in [`../deliverables/`](../deliverables/README.md). See
+> [SUPERSEDED.md](SUPERSEDED.md).
+
+---
+
 # Mobile Mapping Standard Operating Procedure
 ## Trimble MX60 · Trimble Business Center 2026.10
 

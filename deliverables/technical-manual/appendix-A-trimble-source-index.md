@@ -126,9 +126,20 @@ TBC 22905)*. URLs follow `https://help.fieldsystems.trimble.com/tbc/<id>.htm`.
 | **Queensland TMR, Mobile Laser Scanning Technical Guideline**, March 2023, CC BY 4.0 | An example of a published agency specification for control layout, accuracy tiers, and wet-weather practice — §22.6, the **Field How To** |
 | **NCHRP Synthesis: Practices for Collecting, Managing, and Using Lidar Data**, 2024 | Background |
 
+### Held but not cited
+
+Present in the repository and **used for nothing in this document set**. Listed so that the holdings
+and the citations agree, and so nobody assumes a statement rests on them:
+
+| Source | Status |
+|---|---|
+| *3D Reconstruction and Mobile Mapping in Urban Environments Using Remote Sensing*, 4 parts, ~120 MB | Background reading. No statement in any of the four documents derives from it |
+| Trimble article, *Informed Infrastructure* Smart Engineering special issue, 2025, 2 pp | Vendor marketing. **Not evidence**, and not to be cited as any |
+
 ## A5 · Analysis record
 
-The source ingestion and classification that produced this SOP:
+The source ingestion and classification behind this document set. These are **build records in the
+repository, not part of the issued documents**:
 
 | Document | Content |
 |---|---|

@@ -53,6 +53,14 @@ quoted to a client without checking.
 | Mounting rack | MX SCAN Roof Rack, 18 kg | MX Shock Absorbing Mounting Rack, 28 kg | **PARAMETRIX DECISION REQUIRED** — which is fitted. The published GAMS corner offsets apply to the standard rack **only** *(MX60 UG Rev B, p.68)* |
 
 *(Recorded as `CONFLICT-002` and `CONFLICT-003` in `reference/mx60-reference-data.csv`.)*
+
+> **On the rack, one piece of circumstantial evidence.** The manual held for this system is the
+> **MX Shock Absorbing Mounting Rack User Guide**, Rev B May 2025, P/N 37000001 — the 28 kg rack.
+> The spec sheet lists a single rack at **18 kg**, which is the standard one. Holding a manual is
+> not proof of what is bolted to the vehicle, and Trimble may supply both, but it is the strongest
+> indication in the source set and it points away from the standard rack. **If the Shock Absorbing
+> rack is fitted, the published GAMS corner offsets do not apply**, which is the whole reason the
+> question matters. Settle it by looking at the vehicle *(D-2)*.
 ## 7.5 The vehicle frame
 
 Every offset and every angle in this system is expressed in one convention, and it is worth

@@ -1,1 +1,10 @@
-tools/__pycache__/
+# Regenerable. `npm install` restores it from package.json / package-lock.json.
+node_modules/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# OS noise
+.DS_Store
+Thumbs.db

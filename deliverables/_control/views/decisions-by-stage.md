@@ -28,7 +28,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 *Stage: system · Documents: Manual; SOP; Field; Office*
 
-> **Resolved 2026-09-19 (part).** Configuration answered 2026-09-19: MX60 Premium, the top configuration - panoramas 12288x6144 px, roll/pitch 0.0025 deg, the better 60 s outage figures. Stated by the system owner; serial-number confirmation outstanding under V-4. GAMS, DMI and rack remain open
+> **Resolved 2026-09-19 (part).** Configuration answered 2026-09-19: MX60 Premium, the top configuration - panoramas 12288x6144 px, roll/pitch 0.0025 deg, the better 60 s outage figures. Stated by the system owner; serial-number confirmation outstanding under V-4. GAMS, DMI and rack remain open  |  2026-09-19 audit: the rack manual held in the repository is the MX Shock Absorbing Mounting Rack User Guide Rev B, P/N 37000001 (the 28 kg rack), while the spec sheet lists only the 18 kg standard rack. Circumstantial, not proof, but it points away from the standard rack - and the published GAMS corner offsets apply to the standard rack only. Settle by looking at the vehicle
 
 
 ## all
@@ -169,7 +169,7 @@ The decisions only Parametrix can make. This view is the source for the SOP's de
 
 **Evidence.** TBC 29599; FAA AC 150/5380-9
 
-*Stage: project setup · Documents: SOP; Office*
+*Stage: project setup · Documents: SOP*
 
 
 ## intake
