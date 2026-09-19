@@ -133,15 +133,16 @@ design — it states requirements and points to the manual for explanation.
 | **10** | **Field close-out and handoff** | Verification before leaving site; what must accompany the data |
 | **11** | **Data transfer and custody** | Verified copies, retention of source, chain of custody |
 | **12** | **Office intake requirements** | What is verified, what is recorded, calibration-state capture |
-| **13** | **Processing requirements** | Trajectory, scan generation, registration — what must be done, not how |
-| **14** | **Calibration control** | Interval, triggers, currency, records |
-| **15** | **QC requirements** | The layered verification; what must be inspected and recorded |
-| **16** | **Acceptance and approval** | Acceptance framework, who signs, against what |
-| **17** | **Destructive operation controls** | **Cleanup** — authorisation, prerequisites, records |
-| **18** | **Export and delivery controls** | The release gate; what must be confirmed before export |
-| **19** | **Documentation and records** | What is produced, by whom, where it lives |
-| **20** | **Retention and archive** | Tiers, periods, responsibility |
-| **21** | **Non-conformance and re-collection** | When work is rejected; who decides |
+| **13** | **Processing requirements** | Trajectory and scan generation — what must be done, not how |
+| **14** | **Registration requirements** | Authority, the control/check designation, command selection, records. **Its own section** because it is the step that decides whether the deliverable sits where it is supposed to |
+| **15** | **Calibration control** | Interval, triggers, currency, records |
+| **16** | **QC requirements** | The layered verification; what must be inspected and recorded |
+| **17** | **Acceptance and approval** | Acceptance framework, who signs, against what |
+| **18** | **Destructive operation controls** | **Cleanup** — authorisation, prerequisites, records |
+| **19** | **Export and delivery controls** | The release gate; what must be confirmed before export |
+| **20** | **Documentation and records** | What is produced, by whom, where it lives |
+| **21** | **Retention and archive** | Tiers, periods, responsibility |
+| **22** | **Non-conformance and re-collection** | When work is rejected; who decides |
 
 ### SOP appendices
 

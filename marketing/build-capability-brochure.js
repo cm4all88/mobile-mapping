@@ -592,8 +592,8 @@ const system = [
   h3('Laser scanning'),
   refTable([
     ['Scanners', 'Two, time-of-flight'],                                                      // UG Rev B
-    ['Effective measurement rate', '1,000,000 or 2,000,000 points per second, selectable'],    // spec sheet p.2
-    ['Scan speed', '240 or 400 profiles per second, selectable'],                              // spec sheet p.2
+    ['Effective measurement rate', '1,000,000 or 2,000,000 points per second, selectable — system total'], // spec sheet p.2
+    ['Scan speed', '240 or 400 profiles per second, selectable — system total'],               // spec sheet p.2; UG p.54 gives 120/200 per scanner
     ['Maximum range', '150 m at 1,000 kHz · 120 m at 2,000 kHz, target reflectivity above 80%'], // spec sheet p.2
     ['Minimum range', '0.6 m'],                                                                // spec sheet p.2
     ['Accuracy · precision', '2 mm · 2.5 mm at 30 m'],                                         // spec sheet p.2
@@ -606,7 +606,7 @@ const system = [
   h3('Imaging'),
   refTable([
     ['Spherical camera', '72 MP, 90% of the full sphere, by distance or by time at up to 10 fps'], // spec sheet p.2
-    ['Rear/down camera', '12 MP, H 82.0° × V 65.9°, by distance or by time at up to 9 fps'],       // spec sheet p.2
+    ['Rear/down camera', '12 MP, H 82.9° × V 65.9°, by distance or by time at up to 9 fps'],       // UG Rev B p.54 (CONFLICT-004: prefer the UG)
   ], [3000, CW - 3000]),
 
   h3('Positioning'),
@@ -683,17 +683,23 @@ const internal1 = [
   p('The revision request asked for the scanner precision to be changed from 2.5 mm at 30 m to a ' +
     'laser precision of 1.5 mm. That change has not been made, and here is why.'),
 
-  p('The primary source held in this repository — 022516737C_TrimbleMX60_SpecSheet_USL_0425_LR_SEC.pdf, ' +
-    'the Trimble MX60 Spec Sheet, PN 022516-737C, dated 04/25 — states in its SCANNING table: ' +
-    '"Accuracy/Precision  2 mm, 2.5 mm @ 30 m". That is revision C. The revision circulating on ' +
-    'distributor sites is 737B, dated 10/24, so the sheet we hold is the newer of the two. The ' +
-    'Trimble Geospatial comparison page cited as the source for 1.5 mm could not be reached from the ' +
-    'build environment to check it.'),
+  p('Both controlled Trimble documents held here give the same figure, and neither gives 1.5 mm:'),
 
-  p('The page therefore carries the spec sheet figure. In a client-facing document, where two sources ' +
-    'disagree and one cannot be checked, print the figure that cannot overstate the instrument. If ' +
-    '1.5 mm is confirmed against a current Trimble source, the change takes one line — but confirm ' +
-    'it, because this number will be read by agency surveyors.'),
+  refTable([
+    ['Trimble MX60 Spec Sheet, PN 022516-737C (04/25), SCANNING table',
+     '"Accuracy/Precision  2 mm, 2.5 mm @ 30 m"'],
+    ['Trimble MX60 User Guide Rev B (May 2025), p.54',
+     '"Accuracy 2 mm · Precision 2.5 mm @ 30 m"'],
+  ], [4200, CW - 4200]),
+
+  p('The spec sheet we hold is revision C; the one circulating on distributor sites is 737B, dated ' +
+    '10/24, so ours is the newer. The Trimble Geospatial comparison page cited as the source for ' +
+    '1.5 mm could not be reached from the build environment, but it is a web comparison table rather ' +
+    'than a controlled document, and it is contradicted by both of the ones that are.'),
+
+  p('The page therefore carries 2.5 mm at 30 m. If 1.5 mm is correct it will appear in a revision of ' +
+    'the spec sheet or the user guide, and that revision is what should change this line — not the ' +
+    'comparison page. This number will be read by agency surveyors.'),
 
   h3('Two further findings from the same verification pass'),
 
@@ -702,12 +708,17 @@ const internal1 = [
      'Spec sheet footnote 6 states the heading figure applies "With GAMS, 2 m baseline." Whether this ' +
      'system carries GAMS is still open (register D-2). The page prints the condition alongside the ' +
      'figure rather than the figure alone.'],
-    ['Two small transcription differences',
-     'reference/mx60-reference-data.csv gives the down camera field of view as H 82.9° and the Core ' +
-     'focal length as 4.40 mm; the spec sheet gives H 82.0° and 4.44 mm. The brochure follows the ' +
-     'spec sheet. The register should be corrected.'],
+    ['Trimble\u2019s own two documents disagree on small numbers',
+     'The user guide gives the down camera field of view as H 82.9° and the Core focal length as ' +
+     '4.40 mm; the spec sheet gives H 82.0° and 4.44 mm. The register already records this as ' +
+     'CONFLICT-004 and sets the rule: prefer the user guide, as the revision-tracked controlled ' +
+     'document. The page follows that rule. Nothing needs correcting.'],
   ], [2900, CW - 2900]),
 
+];
+
+const internal1b = [
+  stopBanner(),
   h3('The claims that must not be added'),
 
   refTable([
@@ -831,6 +842,7 @@ const doc = new Document({
       ...system, pageBreak(),
       ...closing, pageBreak(),
       ...internal1, pageBreak(),
+      ...internal1b, pageBreak(),
       ...internal2, pageBreak(),
       ...internal3,
     ],
