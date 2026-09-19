@@ -1064,14 +1064,16 @@ this document and in TMI:
 Three: **Core**, **Pro**, **Premium** *(MX60 UG Rev B, p.12)*. They differ in the 360° camera
 and in the GNSS/IMU grade.
 
-| | Core | Pro | Premium |
+| | Core | Pro | **Premium — ours** |
 |---|---|---|---|
 | Panoramic image size | **8192 × 4096 px** | **12288 × 6144 px** | **12288 × 6144 px** |
 | Side / planar image size | 4096 × 3008 px | 4096 × 3008 px | 4096 × 3008 px |
 
 *(TBC 22501, 23888 — the panorama figures; these are the sizes TBC writes at export)*
 
-> **Open Parametrix decision — D-2.** *Which configuration is the Parametrix system, and is it fitted with GAMS and DMI?* Stated and tracked in the **SOP §12**; see also the master register.
+> **The Parametrix system is the MX60 Premium.** Read the Premium column throughout this manual,
+> and the larger of any two figures a Trimble topic gives. Recorded in the master register under
+> **D-2**; confirmation against the serial number is still outstanding under **V-4**.
 
 ## 7.4 Specification discrepancies to be aware of
 
@@ -1157,10 +1159,11 @@ register as a blocking item rather than a detail.
 | **GAMS** | Direct heading from a two-antenna baseline. Initialization is faster and heading is better determined throughout (§9.1) | Heading must be solved from motion. **Straight driving during initialization matters more, not less** *(TBC 25943; §13)* |
 | **DMI** | Independent along-track distance, constraining the solution through GNSS gaps (§9.2) | The inertial sensor carries the gaps alone |
 
-> **Open Parametrix decision — D-2 / V-4.** *Which configuration is the Parametrix system, and is
-> it fitted with GAMS and DMI?* The vendor can confirm from the serial number. Tracked in the
-> **SOP §12** and in the master register; it is the single decision that unblocks the most other
-> items.
+> **Open Parametrix decision — D-2 / V-4.** *Are GAMS and DMI fitted, and which rack is on the
+> vehicle?* The configuration itself is answered — **Premium** — but these three are not, and each
+> changes procedure: GAMS changes how the first two minutes of every mission are driven, DMI
+> changes what the published no-outage accuracy assumes, and the rack decides whether the
+> published GAMS corner offsets apply at all. One call to the dealer answers all three.
 
 ## 7.8 Power
 
@@ -1225,11 +1228,11 @@ mission. That priority is correct and worth knowing about in advance.
 > that describe where each of them sits.
 >
 > **Why it matters.** Almost every number in the rest of this manual depends on two things about
-> this particular vehicle: which configuration it is, and what is fitted to it. The Core
-> configuration writes a panoramic image a quarter the size of the Pro and Premium ones. Without
-> GAMS, the heading has to be solved out of the vehicle's motion, which changes how you drive the
-> first two minutes of every mission. These are not details to look up later — they change the
-> procedure.
+> this particular vehicle: which configuration it is, and what is fitted to it. The first is
+> settled — **Premium**, so the panoramas are the full 12288 × 6144 px and the navigation grade is
+> the best of the three. The second is not. Without GAMS, the heading has to be solved out of the
+> vehicle's motion, which changes how you drive the first two minutes of every mission. That is
+> not a detail to look up later — it changes the procedure.
 >
 > **What can go wrong.** The offset signs. Z is **down** in this convention, so a sensor on the
 > roof has a negative Z. And a lever arm is measured while a boresight is estimated, so a wrong
@@ -1723,7 +1726,7 @@ The full list is §1.6. Two gaps:
 > one contains a fork in the road. If there is no POSPac licence, the trajectory has to be
 > computed somewhere else and one of the three fixes for bad GNSS is simply unavailable — and
 > you want to know that before you quote a job through a tree-lined corridor, not during it. The
-> configuration question is similar: Core and Premium differ by a factor of four in image
+> configuration question was similar — and is now answered, **Premium**. Core and Premium differ by a factor of four in image
 > resolution, so a promise about imagery deliverables made without knowing which one is on the
 > roof is a promise made blind.
 >
@@ -2294,15 +2297,19 @@ shows it. The time of day is part of the GNSS assessment.
 > Trimble publishes positioning performance at **no outage** and after a **60-second GNSS
 > outage**, and nothing in between or beyond:
 >
-> | Condition | Core / Pro | Premium |
+> | Condition | Core / Pro | **Premium — ours** |
 > |---|---|---|
 > | **No outage** *(all configurations, post-processed with POSPac, with the DMI option)* | X,Y < 0.01 m · Z 0.01 m | X,Y < 0.01 m · Z 0.01 m |
 > | **After 60 s GNSS outage** | X,Y **0.12 m** · Z **0.1 m** | X,Y **0.1 m** · Z **0.07 m** |
+>
+> **Ours is the Premium column: X,Y 0.1 m and Z 0.07 m after a minute of outage.**
 
 Two things in that table are worth dwelling on.
 
-**The no-outage figure is stated with the DMI option.** The published best-case accuracy assumes
-a sensor that is optional and whose fitment on this system is not established (§9.2, **D-2**).
+**The no-outage figure is stated with the DMI option.** The configuration is established —
+Premium — but **the DMI is not**. The published best-case accuracy assumes a sensor this system
+may or may not carry (§9.2, **D-2**). Until that is answered, the sub-centimetre figure is not
+one to quote.
 
 **One minute of outage costs an order of magnitude.** Under 1 cm becomes 10–12 cm. That is not a
 gentle degradation; it is the difference between a survey-grade deliverable and something else.
@@ -2511,7 +2518,8 @@ with distance either — but its *effect* does, in direct proportion.
 
 > **This is arithmetic, not a specification.** **No Trimble source in the set publishes an
 > attitude error budget for the MX60 point cloud.** The published attitude figures — roll and
-> pitch 0.005° Core/Pro, 0.0025° Premium, heading 0.015° with GAMS *(MX60 UG Rev B, p.56)* — are
+> pitch 0.005° Core/Pro and **0.0025° Premium, which is ours**, heading 0.015° with GAMS — the
+> last of those conditional on a GAMS fitment not yet established *(MX60 UG Rev B, p.56)*. These are
 > trajectory accuracies under stated conditions, not point cloud accuracies at range. Converting
 > one into the other requires assumptions this manual does not make.
 
@@ -4552,19 +4560,20 @@ errors and improves — or does not — in the same way.
 
 > **TRIMBLE DOCUMENTED METHOD** — *(TBC 22501, 23888)*
 
-| Image | MX60 **Core** | MX60 **Pro** / **Premium** |
+| Image | MX60 **Core** | MX60 **Pro** / **Premium — ours** |
 |---|---|---|
 | Panoramic | **8192 × 4096 px** | **12288 × 6144 px** |
 | Side / planar | 4096 × 3008 px | 4096 × 3008 px |
 
 > **IMPORTANT**
 >
-> **Core delivers a quarter of the panoramic pixels of Pro and Premium.** Any commitment to a
-> client about imagery deliverable quality — legibility of sign text, identification of small
-> assets, orthomosaic ground sample distance — depends on which configuration is on the roof, and
-> Parametrix does not currently know which that is (§7.1).
+> **This system is the Premium, so panoramas are 12288 × 6144 px** — four times the pixels of a
+> Core (§7.3). Commitments to a client about imagery deliverable quality — legibility of sign
+> text, identification of small assets, orthomosaic ground sample distance — are made against that
+> figure.
 >
-> *(D-2; Appendix E)*
+> A panorama that exports at 8192 × 4096 px did not come from this system. Find out which mission
+> it belongs to before it goes anywhere.
 
 ### A configuration note about side cameras
 
@@ -4703,8 +4712,10 @@ Where imagery travels, and what travels with it:
 >
 > **What can go wrong.** Two things stand out. First, resolution is not a property of the MX60; it
 > is a property of *which MX60*. Core panoramas are a quarter of the pixels of Pro and Premium,
-> which is the difference between reading a sign at 20 m and guessing at it. Promising imagery
-> quality without knowing which unit is on the roof is promising blind.
+> which is the difference between reading a sign at 20 m and guessing at it. Ours is the Premium,
+> so the larger figure is the one to quote — but quote it from this section, because a Trimble
+> topic showing 8192 × 4096 px may have been describing a Core, and one showing 8000 × 4000 px is
+> describing an MX7.
 >
 > Second, Trimble states that corrupted side camera images are exported as black. Not flagged,
 > not reported, not missing — present, and black. The export succeeds, the file count is right,
@@ -6183,7 +6194,7 @@ Parametrix, but it confirms Publish to TRCPS is a Connected Workspace function.
 
 # Appendix E — Open Technical Questions
 
-**42 items.** Generated from `deliverables/_control/master-register.csv` on 2026-09-11. **Do not edit this file** — edit the register and re-run `tools/build-register-views.py`.
+**42 items.** Generated from `deliverables/_control/master-register.csv` on 2026-09-19. **Do not edit this file** — edit the register and re-run `tools/build-register-views.py`.
 
 This appendix is the Technical Manual's **view** of the project's single master register. It shows
 the questions that are answerable by **evidence** — by running a test, or by asking Trimble. The
@@ -6195,7 +6206,7 @@ repeated here.
 | **FIELD TESTING REQUIRED** — answerable by testing | **25** |
 | **VENDOR CLARIFICATION REQUIRED** — answerable only by Trimble | **17** |
 | Of those, priority P1 | 11 |
-| Of those, blocking something | 1 |
+| Of those, blocking something | 0 |
 
 > **An open item here is not a defect in this manual.** It is a statement that the evidence does
 > not yet reach, recorded rather than papered over. Where a question is open, the body of the
@@ -6494,15 +6505,17 @@ unknown.*
 
 *Stage: system · Documents: Manual*
 
-### V-4 · Which MX60 configuration do we have from the serial number? Are GAMS and DMI fitted? Which rack?
+### V-4 · Confirm the configuration from the serial number, and state whether GAMS and DMI are fitted and which rack is on the vehicle
 
-**P1** · open · **blocks delivery for a stated accuracy purpose**
+**P1** · open - part answered
 
-**Why it matters.** Answers D-2. Imagery and accuracy commitments cannot be made without it
+**Why it matters.** Confirms the owner's statement that this is a Premium, and answers the remainder of D-2. Imagery and accuracy commitments now rest on that statement until it is checked
 
 **Evidence.** MX60 UG Rev B p.12,68
 
 *Stage: system · Documents: Manual; SOP*
+
+> **Resolved 2026-09-19 (part).** Configuration stated by the system owner 2026-09-19 as MX60 Premium - not yet checked against the serial number. GAMS, DMI and rack still unanswered
 
 ### V-5 · Accessory manuals not held - Trimble GAMS Antenna Kit and DMI Installation and Operation Manuals
 

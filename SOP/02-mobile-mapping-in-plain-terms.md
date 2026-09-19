@@ -115,14 +115,14 @@ independent control will reveal it.
 The system is sold in three configurations — **Core**, **Pro** and **Premium** — which differ
 in imagery resolution and in the grade of the GNSS/IMU system *(MX60 UG Rev B, p.12)*.
 
-> **PARAMETRIX DECISION REQUIRED**
+> **The Parametrix system is the MX60 Premium** — the top configuration. *(Appendix H, D-2)*
 >
-> **Which configuration is the Parametrix system?** This is not a detail. Panoramic imagery is
-> **8192 × 4096 px on Core and 12288 × 6144 px on Premium and Pro** *(TBC 22501, 23888)* — four
-> times the pixels. The attitude accuracy of the navigation system also differs by
-> configuration, which changes every accuracy statement in this document.
+> Panoramic imagery is therefore **12288 × 6144 px**, not the 8192 × 4096 px of the Core
+> *(TBC 22501, 23888)*, and the navigation system is the highest grade of the three. Where a
+> Trimble topic gives two figures, ours is the larger.
 >
-> The vendor can confirm from the serial number. *(D-2; Appendix I)*
+> Whether the optional **GAMS antenna** and **DMI** are fitted, and which mounting rack is on
+> the vehicle, are separate questions and still open *(D-2; Appendix I)*.
 
 ## 2.5 The data chain, once
 

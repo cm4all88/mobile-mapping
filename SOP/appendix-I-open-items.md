@@ -23,7 +23,7 @@ Company policy choices. Only Parametrix can make these. **34 items.**
 | ID | Decision | Covers | Why it matters | § | Priority | Operate without? |
 |---|---|---|---|---|---|---|
 | **D-1** | **Who owns this SOP, who approves revisions, on what review cycle?** | — | TBC is on an annual release cycle and **each release has changed mobile mapping behaviour**. A procedure with no owner decays silently | 1.7 | P2 | Yes |
-| **D-2** | **Which MX60 configuration is ours — Core, Pro or Premium? Are GAMS and DMI fitted? Which rack?** | — | Panoramic imagery is **8192×4096 on Core, 12288×6144 on Pro/Premium**. Changes every imagery and accuracy statement. The rack determines whether published GAMS offsets apply. **Answered by V-4** | 4.1, 19.2 | **P1** | **No** |
+| **D-2** | ~~Which MX60 configuration is ours?~~ **Answered: MX60 Premium** *(Appendix H)*. Still open: **are GAMS and DMI fitted, and which rack?** | — | The configuration settled the imagery figures (**12288×6144**) and the navigation grade. What remains: GAMS decides whether GAMS-assisted initialization exists; DMI decides whether DMI settings appear in trajectory processing; the rack determines whether published GAMS corner offsets apply. **Remainder answered by V-4** | 4.1, 19.2 | **P1** | Yes, with risk |
 | **D-3** | **Roles and authorities.** Who may operate the MX60; who may perform a registration; who accepts one; who may run Cleanup; who signs the accuracy statement; who owns calibration currency | *was D-3 to D-8* | One meeting, one output. **The accepting person should not be the person who performed the adjustment** — that separation is the whole basis of the independent check | 3.2–3.4 | **P1** | Yes, with risk |
 | **D-10** | **Do we hold a POSPac MMS 8.6+ licence, and where is it installed?** | — | Determines whether trajectory processing and PFIX are available **at all**, and removes one of three degraded-GNSS remedies | 4.4, 12.1, 20.3 | **P1** | **No** |
 | **D-11** | Is LiDAR QC a capability we intend to have? | — | 128–256 GB RAM, dedicated SSDs, MATLAB Runtime. A procurement question that becomes urgent only when it is too late | 4.5, 12.7 | P2 | Yes |
@@ -104,7 +104,7 @@ Only Trimble can answer these. **16 items.**
 | ID | Question | Covers | Why it matters | § | Priority | Operate without? |
 |---|---|---|---|---|---|---|
 | **V-1** | **When Export timestamps causes reprocessing from raw data, which trajectory is used?** | — | A direct yes/no question with the largest consequence in the workflow. Pairs with **T18** | 22.3 | **P1** | Yes — by keeping timestamps off |
-| **V-4** | **Which MX60 configuration do we have — from the serial number? Are GAMS and DMI fitted? Which rack?** | — | **Answers D-2.** Imagery and accuracy commitments cannot be made without it | 4.1 | **P1** | **No** |
+| **V-4** | ~~Which MX60 configuration do we have?~~ **Answered: Premium**, stated by the system owner — confirm against the serial number. Still open: **are GAMS and DMI fitted, and which rack?** | — | Imagery and accuracy commitments can now be made. The remainder decides initialization options, trajectory-processing settings and whether published GAMS offsets apply | 4.1 | **P1** | Yes, with risk |
 | **V-10** | Which trajectory do **TMX export** and **Publish to TRCPS** send when a run has both an imported and a registered trajectory? | — | Both carry trajectory geometry; neither says which. Pairs with **T19** | 22.6.2, 22.6.6 | **P1** | Yes, with risk |
 | **V-12** | Does any TBC export write the source trajectory into a **LAS header, VLR or sidecar**? | — | **The one provenance question documentation cannot answer.** Pairs with **T22** | 23.4 | **P1** | Yes, with risk |
 | **V-13** | Does removing and refitting the Sensor Unit disturb the calibration? What symptoms indicate drift? | — | Determines whether calibration is **periodic or routine**. Answers part of D-26 | 14.7 | **P1** | Yes, with risk |
@@ -133,11 +133,14 @@ Only Trimble can answer these. **16 items.**
 | **Vendor Clarifications** | 16 | 5 | 1 |
 | **Total** | **74** | **30** | **9** |
 
-### The nine that genuinely block operation
+### The eight that genuinely block operation
+
+*Was nine. **D-2 / V-4** came off the list on 2026-09-19 when the configuration was established
+as the **MX60 Premium** — see Appendix H. Its remainder (GAMS, DMI, rack) is P1 but does not
+block operation.*
 
 | ID | What it blocks |
 |---|---|
-| **D-2 / V-4** | Imagery and accuracy commitments cannot be made |
 | **D-10** | Whether trajectory processing and PFIX exist at all |
 | **D-13** | Acceptance cannot be signed |
 | **D-16** | Control design cannot be specified |
@@ -147,7 +150,7 @@ Only Trimble can answer these. **16 items.**
 | **D-41** | Pass pattern — overlap must be collected on the day |
 | **D-42** | Base station strategy |
 
-**The remaining sixty-five do not prevent defensible work.** They make it less consistent, less
+**The remaining sixty-six do not prevent defensible work.** They make it less consistent, less
 efficient, or dependent on individual judgement — which is what an SOP exists to reduce, and is
 exactly the work this backlog represents.
 
@@ -155,7 +158,7 @@ exactly the work this backlog represents.
 
 | Round | Items | Why first |
 |---|---|---|
-| **1** | **V-4**, then **D-2** · **D-10** · **V-3** | Facts about what we own and what we are licensed for. Three phone calls; everything else is easier afterwards |
+| **1** | **D-10** · **V-3**, and the **V-4** remainder (GAMS, DMI, rack) | Facts about what we own and what we are licensed for. The configuration half of V-4/D-2 is answered — **Premium**; the rest is the same phone call to the dealer |
 | **2** | **D-3** · **D-19** · **D-21** · **D-41** · **D-42** | The decisions that shape field work and must exist before a first job |
 | **3** | **D-13** · **D-16** · **D-15** · **D-29** · **D-39** | The accuracy and evidence framework — the defensibility core |
 | **4** | **T18** · **V-1** · **T28** · **T29** | The four tests that close the export and Cleanup questions. **An afternoon with the software** |

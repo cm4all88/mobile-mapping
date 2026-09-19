@@ -29,8 +29,10 @@
 >
 > The technical content is complete and evidenced against Trimble documentation. The company
 > decisions that would make it binding have not been made. **Appendix I lists all 74 of them**,
-> grouped and prioritised; **nine genuinely block operation** and should be settled before the
+> grouped and prioritised; **eight genuinely block operation** and should be settled before the
 > first production job.
+>
+> **Equipment established so far:** the system is the **MX60 Premium** *(Appendix H)*.
 
 ---
 

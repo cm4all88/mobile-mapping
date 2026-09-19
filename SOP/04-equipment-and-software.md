@@ -31,22 +31,24 @@ this document and in TMI:
 Three: **Core**, **Pro**, **Premium** *(MX60 UG Rev B, p.12)*. They differ in the 360° camera
 and in the GNSS/IMU grade.
 
-| | Core | Pro | Premium |
+| | Core | Pro | **Premium — ours** |
 |---|---|---|---|
 | Panoramic image size | **8192 × 4096 px** | **12288 × 6144 px** | **12288 × 6144 px** |
 | Side / planar image size | 4096 × 3008 px | 4096 × 3008 px | 4096 × 3008 px |
 
 *(TBC 22501, 23888 — the panorama figures; these are the sizes TBC writes at export)*
 
-> **PARAMETRIX DECISION REQUIRED**
+> **The Parametrix system is the MX60 Premium.** *(Appendix H, D-2)*
 >
-> **Which configuration is the Parametrix system, and is it fitted with GAMS and DMI?**
+> Read the **Premium** column wherever a source distinguishes the configurations, and the larger
+> of any two figures a Trimble topic gives. This settles the imagery resolution used throughout
+> §19 and the navigation grade that underlies the accuracy statements in §18 and §24.
 >
-> This changes: every imagery accuracy and resolution statement in §19; the attitude accuracy
-> that underlies every point cloud accuracy statement; whether GAMS-assisted initialization is
-> available (§8); and whether DMI settings appear in trajectory processing (§12).
->
-> The vendor can confirm from the serial number. *(D-2; Appendix I)*
+> **Still open.** Whether the optional **GAMS antenna** and **DMI** are fitted, and which
+> mounting rack is on the vehicle. GAMS decides whether GAMS-assisted initialization is
+> available (§8); DMI decides whether DMI settings appear in trajectory processing (§12); the
+> rack decides whether the published GAMS corner offsets apply at all. The vendor can confirm
+> all three from the serial number. *(D-2, V-4; Appendix I)*
 
 ### Specification discrepancies to be aware of
 
@@ -238,15 +240,17 @@ The full list is §1.6. Two gaps:
 >
 > **What we just did.** We inventoried the hardware and the three pieces of software, and
 > identified the two questions that decide what the office workflow can even look like: which
-> configuration of MX60 this is, and whether Parametrix has a POSPac licence.
+> configuration of MX60 this is — now answered, **Premium** — and whether Parametrix has a
+> POSPac licence, which is not.
 >
 > **Why it matters.** Most equipment sections are reference material you never read twice. This
 > one contains a fork in the road. If there is no POSPac licence, the trajectory has to be
 > computed somewhere else and one of the three fixes for bad GNSS is simply unavailable — and
 > you want to know that before you quote a job through a tree-lined corridor, not during it. The
-> configuration question is similar: Core and Premium differ by a factor of four in image
-> resolution, so a promise about imagery deliverables made without knowing which one is on the
-> roof is a promise made blind.
+> configuration question was similar — Core and Premium differ by a factor of four in image
+> resolution, and a promise about imagery deliverables made without knowing which one is on the
+> roof is a promise made blind. That one is now settled: the system is the Premium, so the
+> imagery figures in §19 are the 12288 × 6144 px ones.
 >
 > **What can go wrong.** The quiet failure here is the Export dialog having two tabs that both
 > produce point clouds. The Mobile Mapping tab knows about runs; the Point Cloud tab does not,
@@ -257,4 +261,5 @@ The full list is §1.6. Two gaps:
 > **What good looks like.** Before the first production job, someone should be able to state, on
 > one page: the configuration and serial number, whether GAMS and DMI are fitted, which rack is
 > on the vehicle, the TMI version, the TBC version, and whether a POSPac licence exists and where
-> it lives. None of that is known today. All of it is a phone call to the dealer.
+> it lives. **The configuration is known — Premium.** The rest is not, and all of it is a phone
+> call to the dealer.

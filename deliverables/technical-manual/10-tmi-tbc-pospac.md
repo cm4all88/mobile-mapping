@@ -151,7 +151,7 @@ The full list is §1.6. Two gaps:
 > one contains a fork in the road. If there is no POSPac licence, the trajectory has to be
 > computed somewhere else and one of the three fixes for bad GNSS is simply unavailable — and
 > you want to know that before you quote a job through a tree-lined corridor, not during it. The
-> configuration question is similar: Core and Premium differ by a factor of four in image
+> configuration question was similar — and is now answered, **Premium**. Core and Premium differ by a factor of four in image
 > resolution, so a promise about imagery deliverables made without knowing which one is on the
 > roof is a promise made blind.
 >

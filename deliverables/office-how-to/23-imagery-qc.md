@@ -24,13 +24,13 @@
 
 Resolution by configuration *(TBC 22501, 23888)*:
 
-| | Core | Pro | Premium |
+| | Core | Pro | **Premium — ours** |
 |---|---|---|---|
 | Panoramic | **8192 × 4096** | **12288 × 6144** | **12288 × 6144** |
 | Side / planar | 4096 × 3008 | 4096 × 3008 | 4096 × 3008 |
 
-> **PARAMETRIX DECISION REQUIRED · D-2** — which configuration this system is. Every number above
-> depends on it *(SOP §6.4)*.
+> **This system is the Premium.** Panoramas are **12288 × 6144**. A panorama that comes out at
+> 8192 × 4096 did not come from this system *(SOP §6.4)*.
 
 ### 23.4 Stop if
 

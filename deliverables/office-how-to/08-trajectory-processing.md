@@ -49,7 +49,9 @@ A trajectory that computes without error, and an SBET file in the project folder
 
 - **The antenna model is not `Trimble 112735`**
 - **A GAMS or DMI pane is dimmed and you expected the sensor to be fitted.** Dimmed means the
-  sensor was disabled during acquisition and logged nothing (§35). That is a field problem
+  sensor was disabled during acquisition and logged nothing (§35). That is a field problem —
+  unless the sensor is not fitted at all, which is still an open question on this system
+  *(**D-2**; SOP §6.4)*
 - The DMI scale factor came from a manual rather than a measured wheel, and the standard deviation
   is still at the 5 % default. Trimble's escape hatch is to **set it to 100 % if the value is not
   known at all** *(TBC 25943)*

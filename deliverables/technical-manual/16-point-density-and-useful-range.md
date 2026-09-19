@@ -108,7 +108,8 @@ with distance either — but its *effect* does, in direct proportion.
 
 > **This is arithmetic, not a specification.** **No Trimble source in the set publishes an
 > attitude error budget for the MX60 point cloud.** The published attitude figures — roll and
-> pitch 0.005° Core/Pro, 0.0025° Premium, heading 0.015° with GAMS *(MX60 UG Rev B, p.56)* — are
+> pitch 0.005° Core/Pro and **0.0025° Premium, which is ours**, heading 0.015° with GAMS — the
+> last of those conditional on a GAMS fitment not yet established *(MX60 UG Rev B, p.56)*. These are
 > trajectory accuracies under stated conditions, not point cloud accuracies at range. Converting
 > one into the other requires assumptions this manual does not make.
 

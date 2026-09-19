@@ -28,10 +28,12 @@ interchangeable.**
 Trimble publishes positioning performance at **no outage** and after a **60-second outage**, and
 nothing beyond *(MX60 UG Rev B, p.56)*:
 
-| | Core / Pro | Premium |
+| | Core / Pro | **Premium — ours** |
 |---|---|---|
 | No outage | X,Y < 0.01 m · Z 0.01 m | X,Y < 0.01 m · Z 0.01 m |
 | **After 60 s outage** | X,Y **0.12 m** · Z **0.1 m** | X,Y **0.1 m** · Z **0.07 m** |
+
+**Use the Premium column.** The no-outage row assumes a DMI, which this system may not carry.
 
 ### 25.4 Stop if
 

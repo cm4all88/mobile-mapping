@@ -29,15 +29,27 @@ proposal becomes policy.
 
 | ID | Decision | What was decided | Decided by | Date | SOP §§ updated |
 |---|---|---|---|---|---|
-| — | *No decisions adopted* | — | — | — | — |
+| **D-2** *(part)* | Which MX60 configuration is ours | **MX60 Premium** — the top configuration. Panoramic imagery **12288 × 6144 px**; highest of the three navigation grades | **Stated by the system owner — name to be recorded** | 2026-09-19 | 2.4, 4.1, 19.2, App I |
+
+> **This is an equipment fact, not a policy decision**, and it is recorded here because the same
+> traceability applies: the body of the SOP now asserts a configuration, and a reader must be able
+> to see where that assertion came from.
+>
+> **It has not been confirmed against the serial number.** Trimble can do that, and the same call
+> answers the rest of V-4 — whether GAMS and DMI are fitted, and which rack is on the vehicle.
+> Until then this row rests on the owner's statement, which is good enough to write imagery
+> figures against and not good enough to put in front of a client without checking.
+
+**No Parametrix policy decision has been adopted.** Every procedure in this document remains
+**PROPOSED**.
 
 ## H4 · Priority order for the first round
 
-From **Appendix I**, the nine items that genuinely block operation:
+From **Appendix I**, the eight items that genuinely block operation — **D-2 / V-4 came off this
+list on 2026-09-19**, see H3:
 
 | ID | Decision | Why it blocks |
 |---|---|---|
-| **D-2 / V-4** | MX60 configuration, GAMS, DMI, rack | Imagery and accuracy commitments cannot be made |
 | **D-10** | POSPac MMS licence | Determines whether trajectory processing and PFIX exist at all |
 | **D-13** | Acceptance criteria | Acceptance cannot be signed |
 | **D-16** | Control design | Control design cannot be specified |

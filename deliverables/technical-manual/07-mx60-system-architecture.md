@@ -31,14 +31,16 @@ this document and in TMI:
 Three: **Core**, **Pro**, **Premium** *(MX60 UG Rev B, p.12)*. They differ in the 360° camera
 and in the GNSS/IMU grade.
 
-| | Core | Pro | Premium |
+| | Core | Pro | **Premium — ours** |
 |---|---|---|---|
 | Panoramic image size | **8192 × 4096 px** | **12288 × 6144 px** | **12288 × 6144 px** |
 | Side / planar image size | 4096 × 3008 px | 4096 × 3008 px | 4096 × 3008 px |
 
 *(TBC 22501, 23888 — the panorama figures; these are the sizes TBC writes at export)*
 
-> **Open Parametrix decision — D-2.** *Which configuration is the Parametrix system, and is it fitted with GAMS and DMI?* Stated and tracked in the **SOP §12**; see also the master register.
+> **The Parametrix system is the MX60 Premium.** Read the Premium column throughout this manual,
+> and the larger of any two figures a Trimble topic gives. Recorded in the master register under
+> **D-2**; confirmation against the serial number is still outstanding under **V-4**.
 
 ## 7.4 Specification discrepancies to be aware of
 
@@ -124,10 +126,11 @@ register as a blocking item rather than a detail.
 | **GAMS** | Direct heading from a two-antenna baseline. Initialization is faster and heading is better determined throughout (§9.1) | Heading must be solved from motion. **Straight driving during initialization matters more, not less** *(TBC 25943; §13)* |
 | **DMI** | Independent along-track distance, constraining the solution through GNSS gaps (§9.2) | The inertial sensor carries the gaps alone |
 
-> **Open Parametrix decision — D-2 / V-4.** *Which configuration is the Parametrix system, and is
-> it fitted with GAMS and DMI?* The vendor can confirm from the serial number. Tracked in the
-> **SOP §12** and in the master register; it is the single decision that unblocks the most other
-> items.
+> **Open Parametrix decision — D-2 / V-4.** *Are GAMS and DMI fitted, and which rack is on the
+> vehicle?* The configuration itself is answered — **Premium** — but these three are not, and each
+> changes procedure: GAMS changes how the first two minutes of every mission are driven, DMI
+> changes what the published no-outage accuracy assumes, and the rack decides whether the
+> published GAMS corner offsets apply at all. One call to the dealer answers all three.
 
 ## 7.8 Power
 
@@ -192,11 +195,11 @@ mission. That priority is correct and worth knowing about in advance.
 > that describe where each of them sits.
 >
 > **Why it matters.** Almost every number in the rest of this manual depends on two things about
-> this particular vehicle: which configuration it is, and what is fitted to it. The Core
-> configuration writes a panoramic image a quarter the size of the Pro and Premium ones. Without
-> GAMS, the heading has to be solved out of the vehicle's motion, which changes how you drive the
-> first two minutes of every mission. These are not details to look up later — they change the
-> procedure.
+> this particular vehicle: which configuration it is, and what is fitted to it. The first is
+> settled — **Premium**, so the panoramas are the full 12288 × 6144 px and the navigation grade is
+> the best of the three. The second is not. Without GAMS, the heading has to be solved out of the
+> vehicle's motion, which changes how you drive the first two minutes of every mission. That is
+> not a detail to look up later — it changes the procedure.
 >
 > **What can go wrong.** The offset signs. Z is **down** in this convention, so a sensor on the
 > roof has a negative Z. And a lever arm is measured while a boresight is estimated, so a wrong

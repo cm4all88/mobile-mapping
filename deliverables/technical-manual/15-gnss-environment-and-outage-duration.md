@@ -19,15 +19,19 @@ shows it. The time of day is part of the GNSS assessment.
 > Trimble publishes positioning performance at **no outage** and after a **60-second GNSS
 > outage**, and nothing in between or beyond:
 >
-> | Condition | Core / Pro | Premium |
+> | Condition | Core / Pro | **Premium — ours** |
 > |---|---|---|
 > | **No outage** *(all configurations, post-processed with POSPac, with the DMI option)* | X,Y < 0.01 m · Z 0.01 m | X,Y < 0.01 m · Z 0.01 m |
 > | **After 60 s GNSS outage** | X,Y **0.12 m** · Z **0.1 m** | X,Y **0.1 m** · Z **0.07 m** |
+>
+> **Ours is the Premium column: X,Y 0.1 m and Z 0.07 m after a minute of outage.**
 
 Two things in that table are worth dwelling on.
 
-**The no-outage figure is stated with the DMI option.** The published best-case accuracy assumes
-a sensor that is optional and whose fitment on this system is not established (§9.2, **D-2**).
+**The no-outage figure is stated with the DMI option.** The configuration is established —
+Premium — but **the DMI is not**. The published best-case accuracy assumes a sensor this system
+may or may not carry (§9.2, **D-2**). Until that is answered, the sub-centimetre figure is not
+one to quote.
 
 **One minute of outage costs an order of magnitude.** Under 1 cm becomes 10–12 cm. That is not a
 gentle degradation; it is the difference between a survey-grade deliverable and something else.

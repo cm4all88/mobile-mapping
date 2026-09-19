@@ -13,7 +13,7 @@ they prevent are expensive.
 | 1 | **The accuracy requirement**, stated in writing, with the client agreement or scope it derives from | **PARAMETRIX DECISION REQUIRED — D-13.** The requirement to state one is not in doubt; what constitutes meeting it is §17 |
 | 2 | **The coordinate reference system, datum, epoch and geoid model**, stated in writing and matching the control network | **PARAMETRIX DECISION REQUIRED — D-21** |
 | 3 | **Grid or ground**, agreed with the client in writing | **PARAMETRIX DECISION REQUIRED — D-38** |
-| 4 | **The system configuration and fitment** the work assumes | **PARAMETRIX DECISION REQUIRED — D-2 · blocks operation** |
+| 4 | **The system configuration and fitment** the work assumes | Configuration established: **MX60 Premium**. Fitment — GAMS, DMI, rack — **PARAMETRIX DECISION REQUIRED — D-2** |
 
 ## 6.2 The coordinate reference system
 
@@ -68,15 +68,20 @@ may compute in ITRF00 and then transform. The only outward sign is the SBET file
 
 ## 6.4 The system this work assumes
 
-> **PARAMETRIX DECISION REQUIRED · D-2 / V-4 · P1 · blocks operation**
+**The Parametrix system is the MX60 Premium** — the top configuration. Panoramic imagery is
+**12288 × 6144 px**, roll and pitch accuracy **0.0025°**, and the better of the two published
+60-second outage figures applies *(Technical Manual §7.3, §15, §16)*.
+
+> **PARAMETRIX DECISION REQUIRED · D-2 / V-4 · P1**
 >
-> **Which MX60 configuration is the Parametrix system — Core, Pro or Premium? Are GAMS and DMI
-> fitted? Which mounting rack?**
+> **Are GAMS and DMI fitted, and which mounting rack is on the vehicle?**
 >
-> This is the single decision that unblocks the most others. It changes every imagery resolution
-> statement, the attitude accuracy underlying every accuracy statement, whether the initialization
-> manoeuvres are required or merely advisable, and whether DMI settings appear in trajectory
-> processing *(Technical Manual §7.7, §9)*. **The vendor can confirm it from the serial number.**
+> Three facts, one phone call. GAMS decides whether the initialization manoeuvres are required or
+> merely advisable; DMI decides whether the published no-outage accuracy applies to this system at
+> all and whether DMI settings appear in trajectory processing; the rack decides whether the
+> published GAMS corner offsets apply *(Technical Manual §7.7, §9)*. **The vendor can confirm all
+> three from the serial number**, along with the configuration itself, which has not yet been
+> checked against it.
 
 ## 6.5 Records this section requires
 
@@ -85,4 +90,4 @@ may compute in ITRF00 and then transform. The only outward sign is the SBET file
 | Accuracy requirement, and its source | Project record | **D-13** |
 | CRS, datum, epoch, geoid — and who set them | Project record | **D-21** |
 | Grid or ground, as agreed | Project record and client agreement | **D-38** |
-| Configuration and fitment assumed | Project record | **D-2** |
+| Configuration assumed — **Premium** — and the fitment assumed with it | Project record | **D-2** for the fitment |

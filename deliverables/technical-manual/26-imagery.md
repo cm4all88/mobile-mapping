@@ -26,19 +26,20 @@ errors and improves — or does not — in the same way.
 
 > **TRIMBLE DOCUMENTED METHOD** — *(TBC 22501, 23888)*
 
-| Image | MX60 **Core** | MX60 **Pro** / **Premium** |
+| Image | MX60 **Core** | MX60 **Pro** / **Premium — ours** |
 |---|---|---|
 | Panoramic | **8192 × 4096 px** | **12288 × 6144 px** |
 | Side / planar | 4096 × 3008 px | 4096 × 3008 px |
 
 > **IMPORTANT**
 >
-> **Core delivers a quarter of the panoramic pixels of Pro and Premium.** Any commitment to a
-> client about imagery deliverable quality — legibility of sign text, identification of small
-> assets, orthomosaic ground sample distance — depends on which configuration is on the roof, and
-> Parametrix does not currently know which that is (§7.1).
+> **This system is the Premium, so panoramas are 12288 × 6144 px** — four times the pixels of a
+> Core (§7.3). Commitments to a client about imagery deliverable quality — legibility of sign
+> text, identification of small assets, orthomosaic ground sample distance — are made against that
+> figure.
 >
-> *(D-2; Appendix E)*
+> A panorama that exports at 8192 × 4096 px did not come from this system. Find out which mission
+> it belongs to before it goes anywhere.
 
 ### A configuration note about side cameras
 
@@ -177,8 +178,10 @@ Where imagery travels, and what travels with it:
 >
 > **What can go wrong.** Two things stand out. First, resolution is not a property of the MX60; it
 > is a property of *which MX60*. Core panoramas are a quarter of the pixels of Pro and Premium,
-> which is the difference between reading a sign at 20 m and guessing at it. Promising imagery
-> quality without knowing which unit is on the roof is promising blind.
+> which is the difference between reading a sign at 20 m and guessing at it. Ours is the Premium,
+> so the larger figure is the one to quote — but quote it from this section, because a Trimble
+> topic showing 8192 × 4096 px may have been describing a Core, and one showing 8000 × 4000 px is
+> describing an MX7.
 >
 > Second, Trimble states that corrupted side camera images are exported as black. Not flagged,
 > not reported, not missing — present, and black. The export succeeds, the file count is right,
