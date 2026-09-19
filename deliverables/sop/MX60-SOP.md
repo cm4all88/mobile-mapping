@@ -418,8 +418,7 @@ that decide whether a clause has been complied with.
 ## 3.1 Workflow stage names
 
 The nineteen workflow stages are named identically in all four documents and in every checklist and
-form. They are listed, with the synonyms that are not used, in **Technical Manual §4** and in
-**Technical Manual §4**.
+form. They are listed in **Technical Manual §4**.
 
 **A stage is not a command.** *Registration* is the stage; *Register a Run* is one of three
 commands that perform it.
@@ -873,26 +872,6 @@ weakest data and the place registration helps least.
 | **Which points are control and which are independent checks, fixed before registration** | **D-15** |
 | Who designated them, and when | **D-3** |
 
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** Mobile mapping still needs surveyed ground control, and it needs two
-> different kinds of it: points the adjustment is allowed to use, and points deliberately held back so
-> they can be used to check the result.
->
-> **Why it matters.** The adjustment will fit whatever you give it. Residuals on points it used tell
-> you how well it fitted them, not whether the cloud is in the right place. Only a point it never saw
-> can tell you that.
->
-> **Remember this.** Decide which points are control and which are checks **before** registration
-> starts, write it down, and do not change it afterwards to make a number look better. Control has to
-> bracket the extent you intend to deliver — beyond the outermost point the trajectory is not adjusted
-> at all, and nothing on screen shows where that happened.
->
-> **If this is skipped.** You end up with a dataset that cannot be checked without going back out and
-> surveying more, and with a set of residuals that measure nothing. That usually surfaces when a
-> client asks how the accuracy figure was arrived at.
-
 ---
 
 # 8. Mission Planning Requirements
@@ -1143,27 +1122,6 @@ conditional on the decision later proving correct (§4.4).
 | The field record, per §9.6 | **D-49** |
 | Any exercise of stand-down authority, and its reason | **D-43** |
 | Operating-limit exceedance, if any, and what was done | **D-43** |
-
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** The rules for the hours the vehicle is actually moving: start the
-> system the way Trimble documents, do not log until the navigation solution is ready, stay inside the
-> machine's limits, and finish the mission properly before shutting it down.
->
-> **Why it matters.** Almost nothing here can be fixed later. The trajectory is computed from what the
-> sensors saw on the day. If the start was rushed, the closing sequence was skipped, or an aiding
-> sensor was installed but never switched on, the office inherits the consequence and has no way to
-> undo it.
->
-> **Remember this.** Green is not finished — the navigation status turning green means the solution
-> met its thresholds, not that it has settled, and Trimble asks for up to ten more minutes before
-> recording anything that matters. The closing sequence takes about five minutes and cannot be added
-> the next day, because a new mission is a new trajectory.
->
-> **If this is skipped.** The weakest data of the day lands on the most important part of the
-> corridor, and the end of the mission has good data on one side only. Neither shows up as an error;
-> they show up as a dataset that quietly does not meet its accuracy requirement.
 
 ---
 
@@ -1452,25 +1410,6 @@ authority, designation, command-selection and record requirements.
 
 *Registration records are §14.10.*
 
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** Turning what the vehicle recorded into something you can measure: post-
-> process the trajectory, generate scans from it, and keep track of which trajectory produced which
-> point cloud.
->
-> **Why it matters.** Every point in the cloud is placed relative to the trajectory. If you generate
-> scans from the wrong trajectory — or from the real-time one when a post-processed one exists — the
-> cloud is consistently, invisibly wrong. It will still look perfectly normal.
->
-> **Remember this.** The post-processed trajectory (the SBET) is the normal input for survey work; the
-> real-time one (NAV) is a fallback and should be recorded as such when it is used. Scan generation is
-> not a formality — it is the step that commits the cloud to a particular trajectory.
->
-> **If this is skipped.** Work proceeds on a cloud built from the wrong trajectory, and the error is
-> uniform enough that no visual check catches it. It is found, if at all, when independent check
-> points disagree by an amount nobody can explain.
-
 ---
 
 # 14. Registration Requirements
@@ -1673,27 +1612,6 @@ person with the authority under §4. **Acceptance is not the registrant's** (§1
 > acceptance rests on documented professional judgement supported by the evidence above — and the
 > decision at §17.2 is whether that is permitted at all.
 
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** Registration adjusts the trajectory so the point cloud agrees with
-> surveyed control. There are three separate commands for it, they are not interchangeable, and the
-> choice matters.
->
-> **Why it matters.** *Register a Run* and *Register a Mission* use surveyed control and can move the
-> data towards truth. *Register Run to Run* only makes two passes agree with each other — it uses no
-> control at all, so it can make a displaced dataset look beautifully consistent while still being
-> displaced.
->
-> **Remember this.** Three things are easy to get wrong and expensive to discover late. A **Local**
-> registration does not adjust anything outside the outermost control point, and gives no indication
-> of where it stopped. A good RMS does not prove the registration succeeded — Trimble says so in as
-> many words, and requires a visual check. And **the registration does not reach the point cloud until
-> Update Scans runs**: until then you are looking at the old cloud with a new trajectory beside it.
->
-> **If this is skipped.** The most common outcome is a cloud everyone believes is registered, and is
-> not — because Update Scans was never run, or because run-to-run was used as if it were control.
-
 ---
 
 # 15. Calibration Control
@@ -1780,10 +1698,9 @@ Distinct from per-project QC: the check that the **instrument** is still perform
 
 > **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.7)*
 >
-> Scan approximately **eight flat retro-reflecting targets** at varied distances over more than
-> **180° horizontally**, previously surveyed by total station. The system passes if residuals fall
-> within the specified accuracy. Trimble recommends doing this "regularly" and "especially before
-> starting an extensive data acquisition campaign" — and **gives no interval**.
+> Trimble publishes a target-scanning check of the instrument against total-station truth, and
+> recommends it "regularly" and "especially before starting an extensive data acquisition
+> campaign" — but **gives no interval**. The method is set out in **Technical Manual §31**.
 
 > **PARAMETRIX DECISION REQUIRED · D-28**
 >
@@ -1952,25 +1869,6 @@ degraded, for how long, and whether the degradation is at the ends of the missio
 > | **Imagery check performed, by whom** | **No software artefact exists** |
 > | Results of Scan Generation | §13.3 |
 > | Mission Report | §18.3 |
-
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** How the work is checked before anyone accepts it: residuals on points
-> held out of the adjustment, a trajectory quality review, a visual inspection of the cloud, and a
-> look at the imagery.
->
-> **Why it matters.** These layers catch different things, and none of them substitutes for another.
-> Numbers can prove failure but cannot prove success — Trimble states that directly. Looking at the
-> data catches things no statistic reports, and the statistics catch things the eye cannot.
->
-> **Remember this.** Mobile mapping data does not look wrong when it is wrong. A cloud that is
-> uniformly 8 cm out of position looks exactly like a cloud that is correct. That is why the check has
-> to be against something independent, not against the data's own internal agreement.
->
-> **If this is skipped.** A dataset passes on good-looking numbers, gets delivered, and the problem is
-> found by whoever builds on it — at which point the corridor has usually changed and re-surveying is
-> no longer a small job.
 
 ---
 
@@ -2182,24 +2080,6 @@ are gone along with the record of which one was chosen.
 | What was archived before, and where it is | **D-35, D-55** |
 | That Cleanup was run, by whom, on what date | **D-35** |
 
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** Some operations delete data permanently — clearing a field disk,
-> running Cleanup on a TBC project, overwriting a registration. This section says what must exist
-> before any of them is allowed.
->
-> **Why it matters.** These are the only steps in the whole workflow with no recovery path. Everything
-> else can be recomputed from something. A cleared disk cannot, and the mission is not re-drivable at
-> reasonable cost.
->
-> **Remember this.** Do not clear a disk until the office has confirmed a verified copy exists in at
-> least two places. Cleanup cannot be undone, so anything you will want afterwards — the trajectory,
-> the calibration, the registration record — has to be copied out of the project first.
->
-> **If this is skipped.** The data is gone. Not degraded, not harder to use: gone, along with any
-> possibility of proving what was delivered or why.
-
 ---
 
 # 19. Export and Delivery Controls
@@ -2307,23 +2187,6 @@ procedure: the method is in the Office How To.
 | Export-state confirmation, before export | **D-36** |
 | The delivery record — §20 | **D-29** |
 | What was delivered, to whom, when, in what format and scaling | **D-38** |
-
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** What has to be true before data leaves Parametrix, and what has to
-> travel with it.
->
-> **Why it matters.** An export is the point at which the data stops being ours and becomes something
-> somebody else relies on. Once it is out, the receiving party has no way to tell which trajectory
-> produced it, whether it was registered, or what accuracy it was checked to — unless we say so.
->
-> **Remember this.** Confirm the cloud being exported is the registered one before exporting, not
-> after. State the coordinate system, the epoch and the scaling explicitly rather than assuming the
-> file carries them, and say what extent any accuracy statement applies to.
->
-> **If this is skipped.** A file goes out that looks authoritative and cannot be traced back to how it
-> was made. If it is later questioned, there is no record to answer with.
 
 ---
 

@@ -126,20 +126,18 @@ Two constraints from §21 govern how control must be placed for this to work:
 > - **Scan data generated from at least one run**
 > - A GCP file imported in the project coordinate system
 
-### The procedure
+### What the command does
 
-1. Right-click the **Mission** node ▸ **Generate Pospac Position Fixes**. *The command does not
-   open if the mission has no generated scan*
-2. Select a GCP under **Points** ▸ **Add Selection to Control Points**
-3. Pick the target in the cloud — **the same Point Cloud Smart Picking tool as registration**
-   (§21.6), with the same live residuals and the same **30 m** maximum pair separation
-4. **Validate**. Easting, Northing and Elevation residuals display
-5. Add further pairs — one pair is sufficient for TBC, and §21.6's caution applies equally
-6. **Compute.** "The computation consists in reducing the global error between the ground control
-   point(s) (GCPs) and their corresponding targets"
-   - Updated targets are named `Mission_Name-PFIX-GCP_Name`
-   - **A `custom_events.txt` file is generated in a `PFIX` folder under the TBC project folder**
-7. Close the dialog
+Generate POSPac Position Fixes pairs GCPs with targets picked in the cloud — the same Point Cloud
+Smart Picking tool as registration (§21.6), with the same live residuals and the same **30 m**
+maximum pair separation — and reduces the error between them. TBC accepts a single pair, and the
+caution at §21.6 applies equally here.
+
+Two outputs matter. Updated targets are renamed `Mission_Name-PFIX-GCP_Name`, and a
+**`custom_events.txt` file is written to a `PFIX` folder under the TBC project folder**. That file
+is the input to the second pass.
+
+**The click sequence is Office How To §26.**
 
 ### The second pass, in POSPac
 

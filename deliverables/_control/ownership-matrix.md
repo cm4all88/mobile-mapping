@@ -89,7 +89,7 @@ changes, which documents need review?*
 | Imagery — resolution, colorization, failure modes | Manual §26 | ● | ref | — | ref |
 | Degraded GNSS — three remedies and what each costs | Manual §27 | ● | ref | — | ref |
 | **How to apply a degraded-GNSS remedy** | **Office §24–26** | ref | ref | — | ● |
-| Periodic system verification | Manual §31 | ● | — | — | — |
+| Periodic system verification | Manual §31 | ● | ref | — | — |
 
 ## Delivery and control
 

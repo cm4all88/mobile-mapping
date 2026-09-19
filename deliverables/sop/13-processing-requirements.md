@@ -84,22 +84,3 @@ authority, designation, command-selection and record requirements.
 | Results of Scan Generation | **D-55** |
 
 *Registration records are §14.10.*
-
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** Turning what the vehicle recorded into something you can measure: post-
-> process the trajectory, generate scans from it, and keep track of which trajectory produced which
-> point cloud.
->
-> **Why it matters.** Every point in the cloud is placed relative to the trajectory. If you generate
-> scans from the wrong trajectory — or from the real-time one when a post-processed one exists — the
-> cloud is consistently, invisibly wrong. It will still look perfectly normal.
->
-> **Remember this.** The post-processed trajectory (the SBET) is the normal input for survey work; the
-> real-time one (NAV) is a fallback and should be recorded as such when it is used. Scan generation is
-> not a formality — it is the step that commits the cloud to a particular trajectory.
->
-> **If this is skipped.** Work proceeds on a cloud built from the wrong trajectory, and the error is
-> uniform enough that no visual check catches it. It is found, if at all, when independent check
-> points disagree by an amount nobody can explain.

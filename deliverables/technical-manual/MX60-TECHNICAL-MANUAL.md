@@ -653,8 +653,8 @@ SOP, both How To guides, every checklist and form, and future training material.
 > Mission** and **Register Run to Run** are three commands that perform it (§21). **Update Scans**
 > is unusual in being both a stage name and a command name, and that is Trimble's doing.
 
-The authoritative list, with the synonyms that are not to be used, is
-the glossary at **§6**.
+These names are frozen for the whole document set. A stage that needs renaming is renamed
+everywhere, or not at all.
 
 ---
 
@@ -3503,27 +3503,19 @@ as a checkerboard panel — and in corridor work, far more common.
 - **A GCP file imported into the project** — Shape, ASCII or CSV. Imported points appear in Plan
   View and under the **Points** node
 
-### The sequence
+### What the command asks you for
 
-1. In **Project Explorer**, select a run
-2. Generate its scans if not already done (§18)
-3. Import the GCP file
-4. **Mobile Mapping ▸ Processing ▸ Register a Run**
-5. Accept the default **Registration Name** (*RunName* Trajectory) or enter one. **This name is
-   given to the computed trajectory** — it is what you will be identifying months later (§30)
-6. Choose a **Registration Type** (§21.5)
-7. Select a GCP under the **Points** node and click **Add Selection to Control Points**
-8. Set **Use XY**, **Use Z**, **As Check** for that point (§22)
-9. Optionally enable **Activate Limit Box** — a flat box in Plan View or a 3D box in 3D View that
-   hides everything outside it, "to remove potential parasitic points over the target"
-10. Optionally set **Activate Target-Bundle Adjustment** (§21.7)
-11. Select the point in the **Control Points** list. It centres in Plan View and **Point Cloud
-    Smart Picking** opens
-12. Pick the target, read the residuals, and **Validate** (§21.6)
-13. Repeat for further points, or adjust an existing pick
-14. **Compute**. The adjusted trajectory draws in **blue**; the original stays **green**
-15. Add or modify pairs and recompute as needed
-16. **Apply**
+Working through the dialog, the operator names the registration, chooses a **Registration Type**
+(§21.5), pairs each imported GCP with a target picked in the cloud using **Point Cloud Smart
+Picking** (§21.6), sets **Use XY**, **Use Z** and **As Check** per point (§22), optionally enables
+a limit box or **Target-Bundle Adjustment** (§21.7), then computes and applies.
+
+Three of those carry consequences this manual returns to: the **registration name** becomes the
+name of the computed trajectory and is what identifies it months later (§30); the **As Check**
+designation decides whether a point can test the result or only be fitted by it (§22); and
+**Apply** does not reach the point cloud until Update Scans runs (§19).
+
+**The click sequence is Office How To §16.** It is maintained there, once.
 
 ### What Apply produces
 
@@ -4858,20 +4850,18 @@ Two constraints from §21 govern how control must be placed for this to work:
 > - **Scan data generated from at least one run**
 > - A GCP file imported in the project coordinate system
 
-### The procedure
+### What the command does
 
-1. Right-click the **Mission** node ▸ **Generate Pospac Position Fixes**. *The command does not
-   open if the mission has no generated scan*
-2. Select a GCP under **Points** ▸ **Add Selection to Control Points**
-3. Pick the target in the cloud — **the same Point Cloud Smart Picking tool as registration**
-   (§21.6), with the same live residuals and the same **30 m** maximum pair separation
-4. **Validate**. Easting, Northing and Elevation residuals display
-5. Add further pairs — one pair is sufficient for TBC, and §21.6's caution applies equally
-6. **Compute.** "The computation consists in reducing the global error between the ground control
-   point(s) (GCPs) and their corresponding targets"
-   - Updated targets are named `Mission_Name-PFIX-GCP_Name`
-   - **A `custom_events.txt` file is generated in a `PFIX` folder under the TBC project folder**
-7. Close the dialog
+Generate POSPac Position Fixes pairs GCPs with targets picked in the cloud — the same Point Cloud
+Smart Picking tool as registration (§21.6), with the same live residuals and the same **30 m**
+maximum pair separation — and reduces the error between them. TBC accepts a single pair, and the
+caution at §21.6 applies equally here.
+
+Two outputs matter. Updated targets are renamed `Mission_Name-PFIX-GCP_Name`, and a
+**`custom_events.txt` file is written to a `PFIX` folder under the TBC project folder**. That file
+is the input to the second pass.
+
+**The click sequence is Office How To §26.**
 
 ### The second pass, in POSPac
 

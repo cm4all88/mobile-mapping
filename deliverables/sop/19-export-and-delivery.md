@@ -103,20 +103,3 @@ procedure: the method is in the Office How To.
 | Export-state confirmation, before export | **D-36** |
 | The delivery record — §20 | **D-29** |
 | What was delivered, to whom, when, in what format and scaling | **D-38** |
-
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** What has to be true before data leaves Parametrix, and what has to
-> travel with it.
->
-> **Why it matters.** An export is the point at which the data stops being ours and becomes something
-> somebody else relies on. Once it is out, the receiving party has no way to tell which trajectory
-> produced it, whether it was registered, or what accuracy it was checked to — unless we say so.
->
-> **Remember this.** Confirm the cloud being exported is the registered one before exporting, not
-> after. State the coordinate system, the epoch and the scaling explicitly rather than assuming the
-> file carries them, and say what extent any accuracy statement applies to.
->
-> **If this is skipped.** A file goes out that looks authoritative and cannot be traced back to how it
-> was made. If it is later questioned, there is no record to answer with.

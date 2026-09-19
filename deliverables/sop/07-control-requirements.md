@@ -104,23 +104,3 @@ weakest data and the place registration helps least.
 | Control network, with coordinates and their source | Existing practice |
 | **Which points are control and which are independent checks, fixed before registration** | **D-15** |
 | Who designated them, and when | **D-3** |
-
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** Mobile mapping still needs surveyed ground control, and it needs two
-> different kinds of it: points the adjustment is allowed to use, and points deliberately held back so
-> they can be used to check the result.
->
-> **Why it matters.** The adjustment will fit whatever you give it. Residuals on points it used tell
-> you how well it fitted them, not whether the cloud is in the right place. Only a point it never saw
-> can tell you that.
->
-> **Remember this.** Decide which points are control and which are checks **before** registration
-> starts, write it down, and do not change it afterwards to make a number look better. Control has to
-> bracket the extent you intend to deliver — beyond the outermost point the trajectory is not adjusted
-> at all, and nothing on screen shows where that happened.
->
-> **If this is skipped.** You end up with a dataset that cannot be checked without going back out and
-> surveying more, and with a set of residuals that measure nothing. That usually surfaces when a
-> client asks how the accuracy figure was arrived at.

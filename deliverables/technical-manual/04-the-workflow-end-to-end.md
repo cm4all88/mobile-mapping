@@ -50,8 +50,8 @@ SOP, both How To guides, every checklist and form, and future training material.
 > Mission** and **Register Run to Run** are three commands that perform it (§21). **Update Scans**
 > is unusual in being both a stage name and a command name, and that is Trimble's doing.
 
-The authoritative list, with the synonyms that are not to be used, is
-the glossary at **§6**.
+These names are frozen for the whole document set. A stage that needs renaming is renamed
+everywhere, or not at all.
 
 ---
 

@@ -82,10 +82,9 @@ Distinct from per-project QC: the check that the **instrument** is still perform
 
 > **TRIMBLE DOCUMENTED METHOD** — *(MX60 UG Rev B, p.7)*
 >
-> Scan approximately **eight flat retro-reflecting targets** at varied distances over more than
-> **180° horizontally**, previously surveyed by total station. The system passes if residuals fall
-> within the specified accuracy. Trimble recommends doing this "regularly" and "especially before
-> starting an extensive data acquisition campaign" — and **gives no interval**.
+> Trimble publishes a target-scanning check of the instrument against total-station truth, and
+> recommends it "regularly" and "especially before starting an extensive data acquisition
+> campaign" — but **gives no interval**. The method is set out in **Technical Manual §31**.
 
 > **PARAMETRIX DECISION REQUIRED · D-28**
 >

@@ -63,27 +63,19 @@ as a checkerboard panel — and in corridor work, far more common.
 - **A GCP file imported into the project** — Shape, ASCII or CSV. Imported points appear in Plan
   View and under the **Points** node
 
-### The sequence
+### What the command asks you for
 
-1. In **Project Explorer**, select a run
-2. Generate its scans if not already done (§18)
-3. Import the GCP file
-4. **Mobile Mapping ▸ Processing ▸ Register a Run**
-5. Accept the default **Registration Name** (*RunName* Trajectory) or enter one. **This name is
-   given to the computed trajectory** — it is what you will be identifying months later (§30)
-6. Choose a **Registration Type** (§21.5)
-7. Select a GCP under the **Points** node and click **Add Selection to Control Points**
-8. Set **Use XY**, **Use Z**, **As Check** for that point (§22)
-9. Optionally enable **Activate Limit Box** — a flat box in Plan View or a 3D box in 3D View that
-   hides everything outside it, "to remove potential parasitic points over the target"
-10. Optionally set **Activate Target-Bundle Adjustment** (§21.7)
-11. Select the point in the **Control Points** list. It centres in Plan View and **Point Cloud
-    Smart Picking** opens
-12. Pick the target, read the residuals, and **Validate** (§21.6)
-13. Repeat for further points, or adjust an existing pick
-14. **Compute**. The adjusted trajectory draws in **blue**; the original stays **green**
-15. Add or modify pairs and recompute as needed
-16. **Apply**
+Working through the dialog, the operator names the registration, chooses a **Registration Type**
+(§21.5), pairs each imported GCP with a target picked in the cloud using **Point Cloud Smart
+Picking** (§21.6), sets **Use XY**, **Use Z** and **As Check** per point (§22), optionally enables
+a limit box or **Target-Bundle Adjustment** (§21.7), then computes and applies.
+
+Three of those carry consequences this manual returns to: the **registration name** becomes the
+name of the computed trajectory and is what identifies it months later (§30); the **As Check**
+designation decides whether a point can test the result or only be fitted by it (§22); and
+**Apply** does not reach the point cloud until Update Scans runs (§19).
+
+**The click sequence is Office How To §16.** It is maintained there, once.
 
 ### What Apply produces
 

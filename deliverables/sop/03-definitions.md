@@ -10,8 +10,7 @@ that decide whether a clause has been complied with.
 ## 3.1 Workflow stage names
 
 The nineteen workflow stages are named identically in all four documents and in every checklist and
-form. They are listed, with the synonyms that are not used, in **Technical Manual §4** and in
-**Technical Manual §4**.
+form. They are listed in **Technical Manual §4**.
 
 **A stage is not a command.** *Registration* is the stage; *Register a Run* is one of three
 commands that perform it.

@@ -197,24 +197,3 @@ person with the authority under §4. **Acceptance is not the registrant's** (§1
 > **What constitutes an acceptable registration is not established** (§17.2). Until it is,
 > acceptance rests on documented professional judgement supported by the evidence above — and the
 > decision at §17.2 is whether that is permitted at all.
-
-
-> **IN PLAIN LANGUAGE**
->
-> **What this section means.** Registration adjusts the trajectory so the point cloud agrees with
-> surveyed control. There are three separate commands for it, they are not interchangeable, and the
-> choice matters.
->
-> **Why it matters.** *Register a Run* and *Register a Mission* use surveyed control and can move the
-> data towards truth. *Register Run to Run* only makes two passes agree with each other — it uses no
-> control at all, so it can make a displaced dataset look beautifully consistent while still being
-> displaced.
->
-> **Remember this.** Three things are easy to get wrong and expensive to discover late. A **Local**
-> registration does not adjust anything outside the outermost control point, and gives no indication
-> of where it stopped. A good RMS does not prove the registration succeeded — Trimble says so in as
-> many words, and requires a visual check. And **the registration does not reach the point cloud until
-> Update Scans runs**: until then you are looking at the old cloud with a new trajectory beside it.
->
-> **If this is skipped.** The most common outcome is a cloud everyone believes is registered, and is
-> not — because Update Scans was never run, or because run-to-run was used as if it were control.
