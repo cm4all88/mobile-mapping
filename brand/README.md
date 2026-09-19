@@ -4,6 +4,11 @@
 `parametrix_full_brandguide_v6_11-29-23.pdf`, 32 pp. Every value in this directory and in
 `deliverables/_control/style/` is cited to a page of that guide.
 
+> **The guide is not held in this repository.** Every page citation below is therefore uncheckable
+> from the repository alone. Obtain the PDF and keep it with the other sources before anything is
+> issued — it is listed under *What to fetch* in
+> [`../deliverables/_control/style/brand-source-status.md`](../deliverables/_control/style/brand-source-status.md).
+
 > **The company name is written in full.** The guide, p.5: *"Please use our full name, Parametrix,
 > spelled out in its entirety. Please refrain from abbreviating our name to 'PMX' or other
 > short-hand spelling."* This applies to document text, file names and identifiers alike.

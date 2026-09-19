@@ -49,6 +49,7 @@ boundary between the two.
 
 | | Source |
 |---|---|
+| **The brand guide itself** — `parametrix_full_brandguide_v6_11-29-23.pdf`, 32 pp | **Not held in this repository.** Every value in this file and in `brand-tokens.css` is cited to a page of it, and a reviewer cannot check a single citation without it. Obtain it and keep it alongside the other sources |
 | The master logo assets — **EPS** for print, PNG for screen, in all four colour settings | **Templafy** *(p.21)*. The files in `brand/logo/` are 600 dpi extractions from the guide, adequate for drafting and for screen, not the masters |
 | Licences for **Klinic Slab**, **Franklin Gothic URW** and **Freight Text Pro** | Not held. The builds fall back to the guide's own named alternates — Rockwell, Franklin Gothic, Georgia |
 | Confirmation on the tagline | p.12 puts "client-facing document" in the **Do Not Use Tagline** column, and these documents follow that. The p.23 letterhead template does carry the tagline, so the two are in tension for an internal document |

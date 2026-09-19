@@ -1,190 +1,87 @@
 # tools
 
-## build-sop.js
+Everything that builds or checks the document set. **`deliverables/` is the live set**; two builders
+here serve the superseded `SOP/` directory and are marked as such, and three scripts are spent
+migrations kept only as a record.
 
-Builds `SOP/Parametrix-MX60-Mobile-Mapping-SOP.docx` from
-`SOP/MX60-SOP-COMPLETE.md`.
+Rewritten 2026-09-19. The previous version documented six tools of the twenty-five present, led with
+the superseded single-document builder, and described a `build-sop-page.py` that does not exist.
 
-Converts markdown headings, tables, blockquote callouts, code blocks and lists into
-Word equivalents, and adds a Parametrix cover page and a table of contents.
-
-Callouts are styled by their leading label — CAUTION, IMPORTANT, FIELD TIP,
-WHY THIS MATTERS, PARAMETRIX DECISION REQUIRED, ADVANCED — each getting a coloured
-left rule and tinted background.
-
-### Running it
+## The gate
 
 ```bash
-npm install docx          # not preinstalled in every environment
-node tools/build-sop.js
+python3 tools/check-all.py
 ```
 
-Re-run after any change to the markdown sections. Regenerate the assembled markdown
-first if individual section files were edited.
+Fourteen checks. Everything else in this file exists to keep them passing.
 
-### Note on verification
+| Check | What it proves | Script |
+|---|---|---|
+| warnings verbatim | Every registered warning appears word for word in the document that owns it, **and** every `W-` cited anywhere exists in the register | `check-warnings.py` |
+| stage names | No forbidden stage-name synonym. Terms are **derived** from `workflow-stage-names.md`, never restated | `check-stage-names.py` |
+| control artefacts fresh | The derived control files still match the documents | `sync-control.py --check` |
+| circulation blocks | The living-draft blocks are identical in all four documents | `sync-circulation.py --check` |
+| subsection numbering | Every subsection is numbered and in sequence | `number-subsections.py --check` |
+| binding requirements | SOP §2.4 and every count match `binding-requirements.csv` | `build-binding-table.py --check` |
+| style and build | The style system is honoured and the pages build | `check-style.py` |
+| publication layer | No build machinery leaked into a published document | `check-publication.py` |
+| authority of shall | Every `shall` rests on an authority that binds now | `check-authority.py` |
+| numbers match register | Every equipment quantity in the documents exists in `reference/mx60-reference-data.csv` | `check-numbers.py` |
+| cross-references resolve | Every `§n` points at a section that exists | in `check-all.py` |
+| register identifiers | Every `D-`/`T`/`V-` cited exists, and every register item is cited | in `check-all.py` |
+| rendered emphasis | No unrendered `**` in the built pages — **and the pages are newer than their markdown**, so the check is not reading stale output | in `check-all.py` |
 
-This environment has no working LibreOffice, pandoc or pdftoppm, so the output could
-not be rendered and visually checked. It passes OOXML XSD validation and structural
-checks (parts, relationships, content types, image references), but **open it in Word
-and look at it before issuing**.
+> **Every gate was mutation-tested on 2026-09-19**: a violation was introduced for each and the suite
+> confirmed to fail. Three did not catch theirs and were fixed. A gate that has never been seen to
+> fail has not been tested.
 
+## The live pipeline
 
-## build-checklist.py
-
-Renders `tools/field-checklist.html` to `SOP/Parametrix-MX60-Field-Checklist.pdf` —
-the four-page vehicle quick reference, a condensed form of Appendix A.
+Run after editing, in this order. Most are idempotent; all are safe to re-run.
 
 ```bash
-pip install playwright pypdfium2
-python tools/build-checklist.py
+python3 tools/build-register-views.py      # master-register.csv  -> Manual App. E, SOP App. A, views
+python3 tools/build-records-index.py       # section record tables -> SOP Appendix B
+python3 tools/build-binding-table.py       # binding-requirements.csv -> SOP §2.4
+python3 tools/sync-control.py              # re-derive the control artefacts from the documents
+python3 tools/sync-circulation.py          # push the circulation blocks into all four front matters
+python3 tools/number-subsections.py        # renumber subsections
+python3 tools/build-doc.py manual|sop|field|office     # assemble MX60-*.md
+python3 tools/build-doc-page.py manual|sop|field|office # render the browsable .html
+python3 tools/build-index.py               # deliverables/README.md and the review index
 ```
 
-Uses headless Chromium (preinstalled at `/opt/pw-browsers`) rather than LibreOffice,
-which does not work in this environment. Edit the HTML to change the checklist; the
-layout is plain CSS with `@page` print rules.
-
-Output was rendered to images and visually checked — all four pages verified.
-
-
-## build-sop-page.py
-
-Builds `SOP/sop-page.html` — the browsable single-page version of the SOP, published as
-an Artifact.
-
-```bash
-python tools/build-sop-page.py
-```
-
-Reads the section markdown files in the order set by `ORDER` in the script, converts
-each to HTML (headings, tables, callouts, code, lists, inline emphasis, and Trimble page
-citations), and injects them into `tools/sop-page-template.html` along with the sidebar
-navigation and a per-section search index.
-
-Edit the template for design changes and the markdown sections for content. Re-run after
-either, then republish the artifact from the same file path to keep its URL.
-
-**Watch the cascade.** The nav list items use `nv-sec` / `nv-app` classes specifically to
-avoid colliding with the `.sec` section rule, which carries large padding and a border.
-An earlier version used `sec` for both and the navigation rendered with ~195px gaps.
-
-## Consistency checks
-
-`tools/check-all.py` runs every cross-document check and exits non-zero on any failure.
-**Run it before any issue.**
-
-| Check | Tool |
+| Also | |
 |---|---|
-| **Nothing from the build reaches the reader** | `check-publication.py` |
-| The externally binding requirements table and every count of them match the register | `build-binding-table.py --check` |
-| Every built page carries the current Working Version, the Living Draft status, the print layer and its documented accent | `check-style.py` |
-| Registered warnings appear **verbatim** in their owner document, and wherever the register says | `check-warnings.py` |
-| No forbidden workflow stage-name synonyms | `check-stage-names.py` |
-| The derived control artefacts still match the documents | `sync-control.py --check` |
-| The shared circulation blocks are identical in all four front matters | `sync-circulation.py --check` |
-| Every Office How To task step carries its section number | `number-subsections.py --check` |
-| **No `shall` rests on anything but a binding authority** | `check-authority.py` |
-| Every cross-reference resolves, in all four documents | `check-all.py` |
-| Every register identifier cited exists, and every register item is raised somewhere | `check-all.py` |
-| The page renderer leaves no unrendered emphasis | `check-all.py` |
+| `build-field-sheets.py` | The Field How To's standalone sheets |
+| `build-pdfs.py` | PDFs of the pages and sheets |
+| `build-observed-behaviour.py` | Technical Manual Appendix D, from the observed-behaviour entries |
+| `publication.py` | **A library, not a script.** The single place deciding what the publication layer strips. Imported by the page and sheet builders |
 
-`sync-control.py` without `--check` re-derives the control artefacts that *describe* the
-documents — the register's `affected_documents` column, the ownership matrix's ref / — columns and
-the register README's current-state table. Everything else in those files is judgement and is set
-by hand.
+## Superseded — they build into `SOP/`, not `deliverables/`
 
-## The living-draft circulation blocks
+`SOP/` is the earlier single-document generation. See `SOP/SUPERSEDED.md`.
 
-`sync-circulation.py` writes three blocks into all four front matters from one source in
-`deliverables/_control/circulation/`:
-
-| Block | What it is |
+| | |
 |---|---|
-| `banner.md` | The **LIVING DRAFT — INTERNAL REVIEW** status notice |
-| `how-to-review.md` | The four reviewer questions, the reviewer roles, and how to cite a section |
-| `working-revision.md` | The temporary working revision block — **not** a Parametrix convention |
+| `build-sop.js` | The `.docx` of the single-document SOP. `npm install docx` first |
+| `build-checklist.py` | The four-page field checklist PDF. **Its Appendix A source has been rewritten since**, so the PDF in `SOP-v1-superseded/` does not match the live Field How To. Regenerating it against the live set is outstanding work, not a re-run |
 
-**No copy is hand-edited.** Edit the source and re-run, or `check-all.py` fails. The working draft
-label and the circulation date are set at the top of the script.
+Both still reference `brand/parametrix-wordmark.png`, which is why that superseded asset is kept.
 
-## check-authority.py
+## Spent migrations — kept as a record, not to be re-run
 
-Classifies every labelled block in all four documents and fails any `shall` that does not rest on
-**TRIMBLE REQUIREMENT**, **EQUIPMENT LIMIT** or **PARAMETRIX REQUIREMENT (ADOPTED)**.
+They performed the split from the single document into four and are recorded here so nobody mistakes
+them for part of the pipeline.
 
-`-v` prints the classification table — the authority audit. A **TRIMBLE DOCUMENTED METHOD** is
-deliberately *not* a binding authority: Trimble documenting a method is not Trimble requiring it,
-and `deliverables/_control/authority-model.md` explains why that distinction is enforced.
-
-## number-subsections.py
-
-Numbers the Office How To's task steps — `### 16.5 Stop if` — so a reviewer can cite one. The
-step names repeat in every section, so the name alone is not an address. Idempotent.
-
-
-## Building the circulation package
-
-Order matters only in that the derived artefacts come first.
-
-```bash
-python3 tools/sync-control.py            # register + ownership matrix + register README
-python3 tools/sync-circulation.py        # the shared front-matter blocks
-python3 tools/build-binding-table.py     # SOP §2.4 and its counts
-python3 tools/build-register-views.py    # SOP Appendix A, Manual Appendix E/F, _control views
-python3 tools/build-records-index.py     # SOP Appendix B
-for d in manual sop office field; do
-  python3 tools/build-doc.py "$d"        # assembled markdown
-  python3 tools/build-doc-page.py "$d"   # the browsable page
-done
-python3 tools/build-field-sheets.py      # the four standalone printable sheets
-python3 tools/build-index.py             # deliverables/index.html, the landing page
-python3 tools/check-all.py               # the gate. Nine checks
-python3 tools/build-pdfs.py              # PDFs, through the print layer
-```
-
-**The Working Version is set in one place** — `DRAFT` at the top of `sync-circulation.py`. Every
-page, sheet, PDF header and footer reads it from there, and `check-style.py` fails any built page
-that still carries an older one.
-
-## build-pdfs.py
-
-Renders the nine circulation pages to PDF through the print layer in
-`tools/doc-page-template.html`, with a running header carrying the Working Version and the Living
-Draft status, and `Page n of m` in the footer.
-
-**These are not controlled PDFs**, and every page says so. They exist because some reviewers would
-rather read on paper; the HTML remains the living implementation.
-
-Uses the preinstalled Chromium at `/opt/pw-browsers`. There is no LibreOffice or pdftoppm in this
-environment, so do not add a pipeline that assumes one.
-
-
-## The publication layer
-
-`publication.py` is the single place that decides the difference between what the project keeps and
-what a reader sees. It is imported by the page and sheet builders; **it never edits a source file.**
-
-The source markdown keeps everything — authority labels, register identifiers, decision and testing
-callouts, document-control sections, circulation blocks — because the gates check it and the
-registers track it. None of that reaches a published document.
-
-| Removed | Relabelled |
+| | |
 |---|---|
-| Circulation and status blocks, front matter | `PARAMETRIX PROCEDURE (PROPOSED)` → **Recommended practice** |
-| Document control, approval and revision sections | `PARAMETRIX DECISION REQUIRED` → **Set by the project** |
-| The decision register and open-question appendices | `TESTING REQUIRED` → **No published figure** |
-| Every `D-`, `T`, `V-` and `W-` identifier | `VENDOR CLARIFICATION REQUIRED` → **Not documented by Trimble** |
-| The editorial *State* column of requirement tables | `TRIMBLE DOCUMENTED METHOD` → **Trimble method** |
+| `rehome.py` | Moved a section from the single-document draft into the Technical Manual |
+| `slice_rehome.py` | Sliced named subsections out of an SOP file and re-homed them |
+| `renumber-sop.py` | Shifted SOP sections to make room for a new one. **Its range is hard-coded to the 21-section SOP; the SOP now has 22.** Fix the range before ever using it again |
 
-**The distinction between authorities survives the rename**, because it is a fact a surveyor needs:
-"Trimble requires this" and "Parametrix recommends this" are not the same instruction. What does not
-survive is the vocabulary of the project's own document control.
+## Note on verification
 
-A few sections are *about* the editorial state — document control, the acceptance criterion — and
-cannot be fixed by stripping identifiers out of them. Each has a hand-written reader-facing version
-in `deliverables/_control/publication/<doc>/<section>.md`, which the layer publishes instead.
-
-`check-publication.py` runs the layer over every source file and fails on two things: vocabulary a
-reader should never have to interpret, and the debris that removing an identifier can leave behind
-(doubled separators, empty bold, orphaned punctuation, a reference to an appendix that is no longer
-published).
+This environment has no working LibreOffice, pandoc or `pdftoppm`. `build-sop.js` output passes OOXML
+structural validation but **has never been rendered and looked at** — open it in Word before issuing
+anything. The same applies to `marketing/`.

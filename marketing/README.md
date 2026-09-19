@@ -30,20 +30,24 @@ constraint travels with the file rather than living only here.
 
 ## Parametrix-Mobile-Mapping-Capability-Brochure.docx
 
-Seven pages — five outward-facing, two internal:
+Thirteen pages — nine outward-facing, four internal:
 
 | | |
 |---|---|
 | 1 | Cover |
-| 2 | **Open roads, and a finished survey** — the lane-closure and safety case, and what the client receives |
-| 3 | **Where it is used** — design and existing conditions, inventory and clearance and compliance, monitoring by repeat survey |
-| 4 | **The system** — the MX60 Premium specifications |
-| 5 | **How accuracy is established**, and when mobile mapping is the wrong tool |
-| 6–7 | Internal notes, which marketing deletes |
+| 2 | **Why mobile mapping** — reduced field exposure and traffic disruption, and "collect once, answer later" |
+| 3 | **What you receive** — the deliverables, and the DRIVE · PROCESS · VERIFY · DELIVER strip |
+| 4 | **Where it is used** — transportation corridors, and ADA curb ramp and sidewalk design surveys |
+| 5 | Pavement assessment, and airports |
+| 6 | Bridge and overhead clearance, utilities and ROW, ports and yards, repeat survey and monitoring |
+| 7 | **How accuracy is established**, and mobile mapping with conventional survey together |
+| 8 | **The system** — the MX60 Premium specifications |
+| 9 | **Start a conversation** — when we are a good fit, and when to talk early |
+| 10–13 | Internal notes, which marketing deletes |
 
-**Parametrix delivers a finished survey product, not a point cloud.** Page 2 says so explicitly, and
-the deliverables table leads with the drawing, the surface, the inventory and the report. The cloud
-and imagery are named as intermediate.
+**Parametrix delivers a finished survey product, not a point cloud.** Page 3 opens on that sentence,
+and the deliverables table leads with the drawing, the surface, the inventory and the report. The
+cloud and imagery are named as intermediate.
 
 ### Airfield pavement roughness is in, with conditions
 
@@ -57,8 +61,8 @@ longitudinal profiles at a maximum survey interval of 0.82 ft on the centreline 
 The condition that matters is not instrument precision. It is the **vertical trajectory**: control,
 calibration, GNSS and inertial processing, and the conditions on the day. Airfield work therefore
 needs pavement control set for the purpose and the mobile mapping elevations validated against it,
-with flagged locations verified conventionally where the deliverable requires it. Page 6 of the
-brochure states that condition and the three things to settle before quoting the work.
+with flagged locations verified conventionally where the deliverable requires it. The internal notes
+state that condition and the three things to settle before quoting the work.
 
 Tracked in the register as **T32** (run the TBC workflow end to end), **D-57** (is this a service we
 offer, and on what validation scheme).
@@ -67,7 +71,7 @@ offer, and on what validation scheme).
 node marketing/build-capability-brochure.js
 ```
 
-Every specification figure on page 4 traces to `reference/mx60-reference-data.csv` — the project's
+Every specification figure on **The system**, page 8, traces to `reference/mx60-reference-data.csv` — the project's
 authority for numbers — and the `SPEC-` ids are in comments beside each one in the build script.
 Change a number there, not here.
 
