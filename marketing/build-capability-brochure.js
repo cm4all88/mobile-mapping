@@ -250,39 +250,42 @@ const theCase = [
 const uses = [
   h1('Where it is used'),
 
-  p('Anywhere the measurement is along a corridor, the area is large, and putting people on the ' +
-    'ground is slow, unsafe or disruptive.'),
+  p('Anywhere the area is large and putting people on the ground is slow, unsafe or disruptive.'),
 
   h2('Design and existing conditions'),
   refTable([
-    ['Roadway and highway', 'Base mapping for design, widening, resurfacing and reconstruction'],
-    ['Interchanges and arterials', 'Complex geometry captured in passes rather than in set-ups'],
+    ['Roadway and highway', 'Base mapping for design, widening, resurfacing and reconstruction — ' +
+                            'including interchanges, where the geometry is captured in passes rather ' +
+                            'than in set-ups'],
     ['Rail and transit corridors', 'Track-adjacent measurement and clearance envelopes without ' +
                                    'putting a crew in the corridor on foot'],
-    ['Airport landside and airside', 'Aprons, taxiways, service roads, signage, markings and ' +
-                                     'pavement surface condition'],
+    ['Airport landside and airside', 'Runways, taxiways, aprons and service roads — geometry, ' +
+                                     'signage, markings, pavement surface condition and roughness'],
     ['Ports, yards and campuses', 'Large paved areas in a fraction of the time static methods take'],
+
   ], [3000, CONTENT_W - 3000]),
 
   h2('Inventory, clearance and compliance'),
   refTable([
     ['Bridge and overhead clearance',
-     'Vertical and horizontal clearance across a network, for load posting and oversize routing — ' +
-     'measured at driving speed instead of from a lane closure under each structure'],
+     'Vertical and horizontal clearance across a network, for load posting and oversize routing, ' +
+     'measured at driving speed rather than from a closure under each structure'],
     ['ADA sidewalk and curb ramp',
-     'Ramp and sidewalk geometry captured corridor-wide to support a compliance assessment ' +
-     'programme, rather than ramp by ramp on foot'],
+     'Ramp and sidewalk geometry captured corridor-wide for a compliance programme, rather than ' +
+     'ramp by ramp on foot'],
     ['Signs and pavement markings',
      'A complete located inventory with the imagery that shows condition'],
     ['Utility and right-of-way',
      'Above-ground utilities, poles and attachments, and the ROW features around them'],
+    ['Airfield pavement roughness',
+     'Boeing Bump Index and International Roughness Index from the runway scans, along the ' +
+     'centreline and the wheel paths — from a drive rather than a closed runway and a level circuit'],
   ], [3000, CONTENT_W - 3000]),
 
   h2('Monitoring by repeat survey'),
 
   p('Drive the same corridor twice and the difference between the two datasets is a measurement in ' +
-    'its own right. Because a pass is cheap, monitoring by repeat survey is practical over lengths ' +
-    'and areas that would never justify instrumented monitoring.'),
+    'its own right — practical over lengths that would never justify instrumented monitoring.'),
 
   refTable([
     ['Settlement and subsidence', 'Embankments, approach slabs, transition zones, fill over soft ground'],
@@ -427,29 +430,38 @@ const notes = [
     'documentation. They are Trimble’s published specifications for the equipment. They are not ' +
     'claims about what a Parametrix deliverable achieves, and the wording keeps that distinction.'),
 
-  h3('Boeing Bump Index — asked for, and deliberately not in here'),
+  h3('Airfield pavement roughness — what has to be true before it is sold'),
 
-  p('A BBI runway roughness assessment under FAA AC 150/5380-9 cannot be produced from MX60 data, ' +
-    'and the reason is not a close call.'),
+  p('Boeing Bump Index is a real capability, not an aspiration. Trimble Business Center ships the ' +
+    'analysis under Mobile Mapping ▸ Analysis ▸ Boeing Bump Index, and TBC also carries ' +
+    'International Roughness Index tools. The command takes the runway scans plus an alignment or ' +
+    'linestring defining the centreline, and offsets for the centreline and the left and right ' +
+    'wheel paths; it extracts the profiles along those paths and reports where bumps fall outside ' +
+    'the criteria. That lines up with the FAA method, which evaluates longitudinal profiles at a ' +
+    'maximum survey interval of 0.82 ft, on the centreline and at offsets from it.'),
 
-  bullet([['The precision is three orders of magnitude out. ', { bold: true }],
-    'BBI is evaluated from a longitudinal elevation profile at a 0.25 m sampling interval, and the ' +
-    'published guidance on collecting that profile calls for vertical accuracy at the tenth-of-a-' +
-    'millimetre level. The MX60’s range accuracy is 2 mm and its precision 2.5 mm at 30 m.']),
-  bullet([['The error is in the wrong wavelength band. ', { bold: true }],
-    'The Boeing Bump method lays a virtual straightedge of up to 120 m along the profile and ' +
-    'measures deviation from it. Mobile mapping error is dominated by the trajectory, which drifts ' +
-    'over exactly those distances. This is a structural mismatch, not a precision shortfall that a ' +
-    'better instrument or more passes would fix.']),
-  bullet([['Even purpose-built profilers are excluded. ', { bold: true }],
-    'Inertial profilers with high-pass filtering are specifically not recommended for Boeing Bump ' +
-    'analysis, because they generate profile errors under braking and acceleration. A method that ' +
-    'rules those out will not accept a vehicle LiDAR profile.']),
+  pullquote('Having the instrument precision does not make every run an FAA deliverable. ' +
+            'The vertical trajectory does.'),
 
-  p('BBI profile work is a rod-and-level or dedicated-profiler job. If Parametrix offers it, it ' +
-    'belongs in its own material as a separate service — not attributed to mobile mapping, and not ' +
-    'on this brochure. The airfield line on page 3 is deliberately limited to mapping, asset and ' +
-    'surface-condition work, which mobile mapping does do.'),
+  p('So the question on an airfield job is never whether the tool exists. It is whether the ' +
+    'vertical quality of that particular run supports the profile the analysis is computed from — ' +
+    'which is a matter of control, calibration, GNSS and inertial processing, and the conditions on ' +
+    'the day. On this work that means pavement control set for the purpose and the mobile mapping ' +
+    'elevations validated against it, rather than the instrument\u2019s nominal accuracy taken on ' +
+    'trust. Flagged locations can be verified conventionally where the deliverable requires it.'),
+
+  refTable([
+    ['Before quoting airfield roughness work', 'Why'],
+    ['Run the TBC workflow on an MX60 dataset end to end',
+     'Nobody here has done it yet. The command\u2019s inputs, tolerances and report format should be ' +
+     'known from having used them, not from the help topic.'],
+    ['Agree the control and validation scheme with the client',
+     'The profile is only as good as the vertical. Establish how the mobile mapping elevations will ' +
+     'be proven, and against what, before collection.'],
+    ['Confirm what the receiving authority will accept',
+     'The FAA method is published; whether a given airport or reviewer accepts a mobile-mapping-' +
+     'derived profile for a specific purpose is a question to ask them, not to assume.'],
+  ], [3200, CONTENT_W - 3200], { head: true }),
 
   pageBreak(),
   stopBanner(),
@@ -471,9 +483,9 @@ const notes = [
     ['"Certified", "compliant with", or a named accuracy standard',
      'No procedure in the MX60 document set has been adopted as Parametrix policy yet, and no ' +
      'external certification has been sought.'],
-    ['Boeing Bump Index, runway roughness indices, or any profile-index deliverable',
-     'The method cannot produce them at all. See the section above — this one is not a matter of ' +
-     'caution, it would simply be wrong.'],
+    ['A delivered Boeing Bump Index or IRI job, or an accepted airfield roughness report',
+     'The capability is real and it is in TBC. It has not been run here yet, and no reviewing ' +
+     'authority has accepted a result from us. Sell the capability, not a record.'],
   ], [3200, CONTENT_W - 3200], { head: true }),
 
   h3('Two things worth keeping'),

@@ -36,10 +36,10 @@ They exist so the four documents cannot drift apart.
 
 | | Items | P1 | Blocking |
 |---|---|---|---|
-| Decisions | 35 | 20 | 8 |
-| Tests | 25 | 6 | 0 |
+| Decisions | 36 | 20 | 8 |
+| Tests | 27 | 7 | 0 |
 | Vendor questions | 17 | 5 | 0 |
-| **Total** | **77** | **31** | **8 rows, 8 distinct** |
+| **Total** | **80** | **32** | **8 rows, 8 distinct** |
 
 > `D-2` and `V-4` are the same question — *which system do we own* — asked of Parametrix and of
 > the vendor. They are kept as two rows because they have different owners and close

@@ -45,18 +45,23 @@ Seven pages — five outward-facing, two internal:
 the deliverables table leads with the drawing, the surface, the inventory and the report. The cloud
 and imagery are named as intermediate.
 
-### Boeing Bump Index is deliberately absent
+### Airfield pavement roughness is in, with conditions
 
-A BBI runway roughness assessment under FAA AC 150/5380-9 cannot be produced from MX60 data. BBI is
-evaluated from a longitudinal profile at a 0.25 m sampling interval, and the published guidance on
-collecting that profile calls for vertical accuracy at the tenth-of-a-millimetre level — against the
-MX60's 2 mm range accuracy. Worse, the Boeing Bump method lays a virtual straightedge of up to 120 m
-along the profile, which is exactly the wavelength band where mobile mapping error lives, because
-that error is dominated by the trajectory. Inertial profilers with high-pass filtering are themselves
-excluded from BBI analysis for a related reason.
+Boeing Bump Index is a real Trimble Business Center capability, not something that would have to be
+built from the point cloud. TBC ships it under **Mobile Mapping ▸ Analysis ▸ Boeing Bump Index**, and
+carries International Roughness Index tools alongside it. The command takes the runway scans plus an
+alignment or linestring for the centreline and offsets for the centreline and the wheel paths, and
+reports where bumps fall outside the criteria — which lines up with the FAA method, evaluated from
+longitudinal profiles at a maximum survey interval of 0.82 ft on the centreline and at offsets.
 
-It is a structural mismatch, not a precision shortfall. Page 6 sets it out so nobody adds it back.
-BBI profile work is a rod-and-level or dedicated-profiler job and belongs in its own material.
+The condition that matters is not instrument precision. It is the **vertical trajectory**: control,
+calibration, GNSS and inertial processing, and the conditions on the day. Airfield work therefore
+needs pavement control set for the purpose and the mobile mapping elevations validated against it,
+with flagged locations verified conventionally where the deliverable requires it. Page 6 of the
+brochure states that condition and the three things to settle before quoting the work.
+
+Tracked in the register as **T32** (run the TBC workflow end to end), **D-57** (is this a service we
+offer, and on what validation scheme).
 
 ```bash
 node marketing/build-capability-brochure.js
