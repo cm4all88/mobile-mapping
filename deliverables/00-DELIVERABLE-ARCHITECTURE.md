@@ -407,7 +407,7 @@ The 74 open items, mapped to what blocks them and which document is affected.
 | Document | Can be completed now? |
 |---|---|
 | **Technical Manual** | **Yes, essentially in full.** It documents what Trimble states and what we have observed. Open questions are content, not blockers — they belong in App. E and are part of what the manual is for |
-| **SOP** | **Written in full; issued as DRAFT.** Every clause present with its state. Becomes CONTROLLED when the nine operation-blocking items are decided |
+| **SOP** | **Written in full; issued as DRAFT.** Every clause present with its state. Becomes CONTROLLED when the operation-blocking items are decided — SOP Appendix A carries the current list |
 | **Field How To** | **Yes, with three gaps** — speed policy (D-43), re-drive authority (D-43/D-49), and stand-down authority (D-43). Each appears as "per SOP §9, pending decision" |
 | **Office How To** | **Yes, with two gaps** — the export timestamp setting (T18/V-1) and acceptance thresholds (D-13). Both appear as "record and refer" rather than as an instruction |
 

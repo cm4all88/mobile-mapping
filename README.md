@@ -63,6 +63,7 @@ python3 tools/sync-control.py
 
 ## Open items
 
-**80 in the register**, of which **eight genuinely block operation**. They are listed with what each
-one blocks in `deliverables/_control/views/blocking.md`, and the suggested order for working through
-them is in the Technical Manual Appendix E and SOP Appendix A.
+The current count and the list of what each one blocks are generated into
+`deliverables/_control/views/blocking.md` — read it there rather than from a number typed into
+prose. The suggested order for working through them is in the Technical Manual Appendix E and SOP
+Appendix A.

@@ -18,7 +18,7 @@
 | 1 | A document-control convention — identifier, revision scheme, effective date, controlled copies | **D-1** |
 | 2 | An owner and an approver | **D-1**, **D-3** |
 | 3 | Roles assigned, so that the clauses naming a role name somebody | **D-3** |
-| 4 | The nine decisions that **block operation** answered, or the clauses depending on them removed from scope | Appendix A, §A2 |
+| 4 | The decisions that **block operation** answered, or the clauses depending on them removed from scope. **Appendix A carries the current list and count** — it is generated, so it does not go stale here | Appendix A, §A2 |
 | 5 | The acceptance criterion, or an explicit statement that acceptance rests on documented professional judgement | **D-13**, §17.2 |
 
 > Item 5 is the one that cannot be deferred silently. A procedure that governs acceptance without
