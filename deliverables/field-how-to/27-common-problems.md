@@ -20,10 +20,10 @@ When something is wrong, do not start changing settings at random.
 
 | What you see | Check first | If that is not it | Stop, re-drive or raise when |
 |---|---|---|---|
-| **TMI will not load** | Confirm the device is on the Control Unit network and use **Chrome** | Work through the connection steps in §9 from the beginning | You cannot establish a stable TMI connection |
+| **TMI will not load** | Confirm the Control Unit is fully started and the field device is on its network | Enter **`http://tmi.mx-scan.net`** exactly, use Chrome, then repeat §9 from the beginning | You cannot establish a stable TMI connection; do not invent an IP/SSID or change system networking from memory |
 | **System will not start** | Power button held **15 s**? Supply live? Battery healthy? | §6, then §8 | Power or Control Unit status is uncertain |
 | **LEDs blink and do not settle** | Allow for a firmware update, which can take **up to 6 minutes** | Compare the LED condition with §8.2 | The condition persists beyond the documented startup behavior |
-| **A sensor is missing from the device list** | Cable and power to that sensor | Restart only by the documented sequence in §8 and re-check §9.3 | **Stop. Do not collect with a required sensor missing** |
+| **A sensor is missing from the device list** | Compare the list with the confirmed system configuration, then check cable and power to that sensor | Restart only by the documented sequence in §8 and re-check §9.3 | **Stop. Do not collect with a required sensor missing** |
 | **A fitted DMI or GAMS logs nothing** | Is it activated in Vehicle Settings? | Verify the installed configuration against §10.1 | The sensor is expected for the mission and still does not log |
 | **Navigation will not reach green** | Ask TMI which parameter is holding it | Heading: drive more dynamic manoeuvres. Position: move to better sky view | Initialization does not converge before meaningful collection |
 | **Status is stuck on heading** | Dynamic manoeuvres and whether GAMS is available | More turns and speed changes per §14.3 | Heading quality does not recover |
@@ -36,7 +36,9 @@ When something is wrong, do not start changing settings at random.
 | **Cannot find 2000 kHz on screen** | Remember 2000 kHz is the system total | TMI uses per-scanner 500/1000 kHz values; see §10.2 | The actual configured rate still cannot be verified |
 | **Imagery looks wrong on screen** | Rain, dust, insects or smear on optics | Clean the optics and inspect again | The affected stretch was collected with unusable imagery and imagery is required |
 | **A planned pass was skipped** | Record exactly which pass and why | Use §24 before leaving | Missing overlap or coverage removes an office remedy |
-| **Mission was closed before the closing sequence** | There is no software fix after the fact | Record it and use §24 | **Re-drive when the closing sequence is required for the work** |
+| **A run was stopped accidentally but the mission is still open** | Confirm the mission itself remains open | Record the interruption, leave the mission open, and start a new run when ready (§20) | Coverage or overlap was lost; use §24 before leaving |
+| **Mission was closed before the closing sequence** | A closed mission cannot be appended to | Record it; any new mission needs its own initialization and closing sequence (§20.4) | Use §24 — a missing mission closing sequence is not repaired by starting another mission |
+| **Transfer copy looks incomplete** | Compare file count and total size with the source | Confirm the `.mxdb` opens and `POS_1/raw/` is present and non-empty; use SOP §11.2 | **Do not clear the field disk** until verification is complete |
 | **Unsure whether to re-drive** | Use the actual missing or abnormal condition, not the schedule | §24 | If you cannot explain why the existing data is adequate, raise it before leaving site |
 
 ## 27.3 When the answer is "ask"

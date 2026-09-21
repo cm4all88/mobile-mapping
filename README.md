@@ -20,6 +20,12 @@ A new MX60 user should normally start in the **Field How To** or **Office How To
 Manual is a reference for why the system behaves as it does and for abnormal or unfamiliar cases.
 The SOP defines what is required and who has authority.
 
+Because this is a **living document set**, some items are intentionally deferred until the actual
+Parametrix MX60 and software build can be inspected. Those are not filled with generic screenshots
+or guessed configuration values. They are tracked in
+[`deliverables/_control/equipment-arrival-validation-checklist.md`](deliverables/_control/equipment-arrival-validation-checklist.md)
+and are replaced with unit-specific evidence when the equipment is available.
+
 > **Nothing here is an issued Parametrix standard.** Every Parametrix procedure is marked
 > **PROPOSED**, every acceptance threshold is marked **PARAMETRIX DECISION REQUIRED**, and the
 > adoption record is empty. **Parametrix-originated requirements adopted: 0.** Some requirements

@@ -19,6 +19,23 @@ guessing.
 **The How To guides are the training path.** The Technical Manual is the reference behind them, not
 a prerequisite that a new operator must read cover to cover.
 
+### How this living set handles unknowns
+
+Not every open item means the documentation is incomplete in the same way.
+
+| Kind | What happens |
+|---|---|
+| **Known now** | Write it into the operating guide and cite the source |
+| **Requires the actual MX60 or installed software** | Leave it explicitly open, capture it from the real Parametrix unit, then replace the temporary fork or placeholder |
+| **Requires a Parametrix policy decision** | Keep the **D-** item open until the company decides it |
+| **Varies by project** | Put it in project setup or the mission plan rather than inventing one company-wide default |
+| **Requires a test** | Keep the **T-** item open until the test is run and recorded |
+
+The equipment-specific work is tracked in
+**[`_control/equipment-arrival-validation-checklist.md`](_control/equipment-arrival-validation-checklist.md)**.
+The point is to document the **actual Parametrix MX60**, not decorate the How To guides with generic
+screens that may not match the unit employees will use.
+
 **Some of what is in them binds anyway.** Ten requirements come from Trimble or from the equipment
 itself — they would bind an MX60 operator at any company, working from no SOP at all. They are
 listed with their sources at **SOP §2.4**. Everything Parametrix-originated is a proposal:
@@ -129,6 +146,7 @@ Not reader material, but this is where the machinery lives.
 | `_control/circulation/` | The Living Draft banner, review panel and Working Version block — one source, four documents |
 | `_control/living-draft-change-log.md` | What changed at each Working Version, and why |
 | `_control/mx60-internal-review-log.md` | The comment log template |
-| `_control/figure-production-register.md` | Figures still to be produced. Project material |
+| `_control/figure-production-register.md` | Figures still to be produced. Operator screenshots are captured from the actual Parametrix unit where practical |
+| `_control/equipment-arrival-validation-checklist.md` | What to inspect, photograph, screenshot and test when the MX60 and live software are available |
 
 Run `python3 tools/check-all.py` before circulating anything. It is the gate.

@@ -23,7 +23,14 @@
 
 ## 10.2 Capture settings
 
-> **Expect either presentation, and record which you saw.**
+> **LIVING-DOCUMENT HOLD POINT — this fork is temporary.**
+>
+> The installed TMI build has not yet been observed on the Parametrix unit. Until it is, the two
+> documented presentations below are retained as evidence rather than pretending one is the live
+> screen. **When the equipment is available, record the installed TMI version, capture the actual
+> screen, and replace this fork with the one operators really use.**
+>
+> During review or supervised training, record which presentation is present.
 >
 > | Source | What the operator sees |
 > |---|---|
@@ -53,6 +60,11 @@
 > you know whether this wheel was measured, record it** *(SOP §13.1)*.
 
 ## 10.3 Record
+
+> **Equipment-arrival capture:** actual TMI version; Vehicle Settings screenshot; capture-settings
+> screenshot; delivered GAMS/DMI fitment; rack; Install Height preset. Tracked in
+> `_control/equipment-arrival-validation-checklist.md`.
+
 
 Capture settings used, **and which presentation you saw**. Field record, Appendix C.
 

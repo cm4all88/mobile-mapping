@@ -37,12 +37,24 @@ Check the device list. Every camera and both lasers.
 > sensor down is incomplete, and you will not know which part of the deliverable is missing until
 > the office opens it.
 
-## 9.4 Stop if
+## 9.4 If TMI will not load
 
-- A sensor is not listed
-- TMI will not load. Check that you are on the Control Unit's network and using Chrome
+Check these in order:
 
-> **From TBC 2026.10 the office side requires two-step verification for Trimble ID.** That is an
-> office concern, not a field one, but it is worth knowing if you are asked.
+1. Confirm the **Control Unit is powered and has completed startup** (§8)
+2. Confirm the field device is connected to the **Control Unit's network** — TMI does not require
+   internet access
+3. Enter the capture address exactly: **`http://tmi.mx-scan.net`**
+4. Use **Chrome**
+5. If the connection is still not stable, return to the documented startup/connection sequence
+   rather than changing network or system settings at random
+
+**Stop if** TMI cannot be reached reliably or the expected device list cannot be confirmed.
+
+> **EQUIPMENT ARRIVAL VALIDATION**
+>
+> The exact connection method, network identifier and a screenshot of the complete device list will
+> be added from the actual Parametrix unit during commissioning. This draft does not invent an SSID,
+> IP address or sensor list that has not been observed.
 
 Full status reference: **Appendix D**.

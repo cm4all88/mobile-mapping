@@ -41,6 +41,14 @@ job look successful when it is not. Each is covered in the Technical Manual at t
 > wrong, and identify the point where the work must stop or be raised. The Technical Manual is the
 > reference for why the condition matters; reading it alone is not qualification.
 
+> **LIVING-DRAFT TRAINING POSTURE — not an adopted qualification rule**
+>
+> Until **D-3** establishes the actual qualification and sign-off process, this document set does
+> not treat a person's first field mission or first MX60 processing job as evidence that they are
+> qualified to work independently. The Field How To §1.8 and Office How To §1.7 are written as
+> **first supervised workflows** for exactly that reason. D-3 will decide what demonstration,
+> review or sign-off converts supervised training into independent qualification.
+
 ## 5.4 Currency
 
 > **PARAMETRIX DECISION REQUIRED · D-3**

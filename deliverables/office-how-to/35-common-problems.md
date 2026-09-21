@@ -24,12 +24,15 @@ Do not troubleshoot an MX60 project by trying commands until the picture looks b
 | **Picked targets vanished** | Was a reload prompt answered **No**? | Check §19 and the state of `Targets.csv` | The target record was emptied and cannot be reconstructed reliably |
 | **Residuals got worse after a second registration** | Did you register twice? | Use **Edit** per §19 instead of stacking another adjustment | You no longer know which adjustment state produced the current result |
 | **Exported cloud is not the registered one** | Was **Update Scans** run? | Confirm the stations carry `_reg_####` and use §31 | The export state cannot be positively tied to the reviewed registration |
+| **Update Scans was run but export still points at `Sbet` scans** | Check the exact scan nodes selected for export | Re-run the §31 pre-export check and select the `_reg_####` scans beneath the intended registered trajectory | The export selection cannot be positively tied to the checked registration |
 | **Two passes are offset in the cutting plane** | Is rendering set to **Scan Color**? | Follow §22 and check whether the offset changes with range | The passes remain visibly inconsistent after the correct view is established |
 | **Surface looks thick even though numbers look fine** | Attitude error or calibration | Inspect whether thickening grows with range; §§13 and 22 | Visual QC contradicts the numerical result |
 | **Side camera images export black** | Corrupted imagery | Check the rest of the image set using §23 | Imagery is required and corruption is not isolated |
 | **Imagery color sits beside feature edges** | Camera boresight | §13.2 and visual QC | The offset persists and affects the intended use |
 | **Nothing exports to TopoDot** | Were scans generated and run views closed? | Follow §30 from its beginning | The expected objects exist but the exporter still produces nothing |
 | **Extract Classified Point Cloud produced nothing** | Was it run before **Export to LAS (Trajectory Split)**? | Repeat the documented sequence in §30 | The documented order still does not produce the expected object |
+| **A wrong antenna model is found before processing** | It must read **Trimble 112735** | Correct the input before computing; §8 | The correct MX60 antenna model cannot be established |
+| **A wrong antenna model is discovered after downstream work exists** | Stop using the derived scans/registration/export as the current state | Return to §8, correct and recompute the trajectory, then rebuild the downstream products that depended on it | You cannot establish which derived products were built from the corrected trajectory |
 | **Whole trajectory is degraded** | Antenna model must read **Trimble 112735** | Base data, coordinate information and §8 | The model or trajectory inputs cannot be verified |
 | **Height bias across the whole job** | Antenna model, geoid and base coordinate | §§5 and 8 | The bias is systematic or its cause cannot be isolated |
 | **RMS coloring has gaps** | Registered segments can show **Undefined RMS** | §§10 and 27 | The gap is accompanied by another trajectory or registration problem |
@@ -39,6 +42,12 @@ Do not troubleshoot an MX60 project by trying commands until the picture looks b
 | **TBC sign-in asks for an emailed code** | TBC 2026.10 uses Trimble ID two-step verification | Follow the current sign-in path | Access cannot be established without bypassing company or Trimble controls |
 
 ## 35.3 When the answer is "re-collect"
+
+> **Equipment/software validation note:** screenshots of the actual TBC 2026.10 dialogs, tree
+> states and result panes are intentionally deferred until a real Parametrix mission is processed.
+> The capture list is in `_control/equipment-arrival-validation-checklist.md`. Do not substitute
+> screenshots from a different MX platform merely to make this draft look complete.
+
 
 Missing coverage, missing overlap, a mission with no closing sequence and a sensor that logged
 nothing are field problems. The office guide may help identify them, but it cannot manufacture the
