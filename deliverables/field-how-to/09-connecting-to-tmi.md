@@ -51,10 +51,10 @@ Check these in order:
 
 **Stop if** TMI cannot be reached reliably or the expected device list cannot be confirmed.
 
-> **EQUIPMENT ARRIVAL VALIDATION**
+> **CONFIGURATION NOTE**
 >
-> The exact connection method, network identifier and a screenshot of the complete device list will
-> be added from the actual Parametrix unit during commissioning. This draft does not invent an SSID,
+> The exact connection method, network identifier and complete expected device list must be
+> confirmed against the actual Parametrix unit before independent use. Do not invent an SSID,
 > IP address or sensor list that has not been observed.
 
 Full status reference: **Appendix D**.

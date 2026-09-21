@@ -43,12 +43,6 @@ Do not troubleshoot an MX60 project by trying commands until the picture looks b
 
 ## 35.3 When the answer is "re-collect"
 
-> **Equipment/software validation note:** screenshots of the actual TBC 2026.10 dialogs, tree
-> states and result panes are intentionally deferred until a real Parametrix mission is processed.
-> The capture list is in `_control/equipment-arrival-validation-checklist.md`. Do not substitute
-> screenshots from a different MX platform merely to make this draft look complete.
-
-
 Missing coverage, missing overlap, a mission with no closing sequence and a sensor that logged
 nothing are field problems. The office guide may help identify them, but it cannot manufacture the
 missing observations.

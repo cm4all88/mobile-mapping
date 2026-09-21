@@ -15,15 +15,16 @@
 
 ## 13.2 What to do
 
-> **PROPOSED INTERIM PRACTICE — deliberately more conservative than Trimble's GAMS statement**
+> **RECOMMENDED PRACTICE — deliberately conservative until fitment is confirmed**
 >
-> **Perform the full sequence either way** (§12) while this is a living draft. Trimble documents
-> that GAMS eliminates the special driving manoeuvres; this draft is **not** claiming otherwise.
-> The extra manoeuvres are being retained as an interim Parametrix practice because they cost little,
-> the static period still matters, and the delivered GAMS fitment has not yet been confirmed.
+> **Perform the full sequence either way** (§12). Trimble documents that GAMS eliminates the
+> special driving manoeuvres; this guide is not claiming otherwise. The extra manoeuvres are
+> retained because they cost little, the static period still matters, and the delivered GAMS
+> fitment has not yet been confirmed.
 >
-> Once the actual system configuration and first controlled missions are validated, this paragraph
-> is either adopted as Parametrix practice or simplified to match the confirmed configuration.
+> After the actual system configuration and first controlled missions are validated, Parametrix can
+> either retain this conservative practice or simplify the sequence to match the confirmed
+> configuration.
 
 ## 13.3 If GAMS is fitted — the installation requirements
 
