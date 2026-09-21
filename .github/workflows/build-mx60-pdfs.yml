@@ -1,0 +1,62 @@
+name: Build MX60 PDFs
+
+on:
+  push:
+    branches:
+      - claude/jolly-archimedes-qmgnqk
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PDF renderer
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Rebuild derived control files
+        run: |
+          python3 tools/build-register-views.py
+          python3 tools/build-records-index.py
+          python3 tools/build-binding-table.py
+          python3 tools/sync-control.py
+          python3 tools/sync-circulation.py
+          python3 tools/number-subsections.py
+
+      - name: Rebuild documents
+        run: |
+          python3 tools/build-doc.py manual
+          python3 tools/build-doc.py sop
+          python3 tools/build-doc.py field
+          python3 tools/build-doc.py office
+          python3 tools/build-doc-page.py manual
+          python3 tools/build-doc-page.py sop
+          python3 tools/build-doc-page.py field
+          python3 tools/build-doc-page.py office
+          python3 tools/build-field-sheets.py
+
+      - name: Run repository QA
+        run: python3 tools/check-all.py
+
+      - name: Build PDFs
+        run: python3 tools/build-pdfs.py
+
+      - name: Upload MX60 PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: mx60-pdfs
+          path: deliverables/pdf/*.pdf
+          if-no-files-found: error
