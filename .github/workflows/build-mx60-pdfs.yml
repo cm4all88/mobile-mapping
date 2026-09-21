@@ -1,5 +1,7 @@
 name: Build MX60 PDFs
 
+# Rebuild and validate the living document set.
+
 on:
   push:
     branches:
