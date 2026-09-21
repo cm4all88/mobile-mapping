@@ -2,8 +2,13 @@
 
 ## 1.1 What this manual does
 
-It explains **what the Trimble MX60 and Trimble Business Center are actually doing, and how we
-know.** It is the technical reference from which the SOP and the two How To guides are derived.
+It explains **what the Trimble MX60 and Trimble Business Center are actually doing, why they behave
+that way, and how we know.** It is the technical reference behind the SOP and the two How To guides.
+
+It is intentionally **not** the first document handed to a new MX60 operator or processor. The How
+To guides carry the operating sequence and troubleshooting path; this manual supplies the deeper
+answer when the user needs to understand a behavior, diagnose an abnormal result, or verify the
+technical basis of a step.
 
 Three specific jobs:
 
@@ -20,9 +25,10 @@ Three specific jobs:
 The reader is a **competent survey professional**. Control networks, datums, geoids, residuals,
 least squares adjustment and check points are taken as known and are not taught here.
 
-**No prior mobile mapping experience is assumed.** Trajectories, SBETs, GNSS/INS integration,
-boresight calibration, scan generation, registration and mobile LiDAR QC are explained from the
-beginning.
+**No prior MX60 specific experience is assumed when this manual is used as a reference.** The
+reader is still assumed to know surveying. Trajectories, SBETs, GNSS/INS integration, boresight
+calibration, scan generation, registration and mobile LiDAR QC are explained only because they are
+specific to operating, processing or troubleshooting this system.
 
 Where conventional survey practice and mobile mapping differ, the difference is explained **at the
 point where it matters**. Nearly all of those differences reduce to one thing, and §2 is about it:
@@ -75,15 +81,15 @@ Where a Parametrix decision would resolve an open question, this manual **names 
 
 | If you are… | Start at |
 |---|---|
-| **New to mobile mapping** | §2, then §3, then the **In Plain Language** boxes end to end |
+| **Learning to operate or process the MX60** | Start in the **Field How To** or **Office How To**. Come here only where the operating guide points you or where something is abnormal |
 | **Looking up one behaviour** | The contents, or **Appendix A** — the Trimble source index |
 | **Checking a number** | **Appendix B** — the reference dataset is the authority for numbers |
 | **Deriving a requirement** | The relevant Part IV section, then the SOP clause it supports |
 | **Reviewing after a TBC update** | **Appendix A** — the source index, topic by topic |
 
-> **The In Plain Language boxes are a complete document in themselves.** Read end to end, with
-> nothing else, they describe the whole workflow in ordinary language. That is deliberate — a
-> reviewer or project manager can get a true picture without working through the technical detail.
+> **The In Plain Language boxes are a comprehension layer, not an operator course.** They let a
+> reviewer or project manager understand the workflow without working through the technical detail.
+> The Field and Office How To guides remain the operating and training path.
 
 ## 1.7 Evidence base and its limits
 

@@ -2,8 +2,13 @@
 
 **Working Version `2026-09-11-a` · LIVING DRAFT — INTERNAL REVIEW**
 
-One of four coordinated deliverables. This one shows **how to process MX60 data in Trimble Business
-Center**, in the order you do it.
+One of four coordinated deliverables. This is the **primary office training and processing guide**
+for a survey employee who may have minimal MX60 processing experience. It shows how to move an
+MX60 job through Trimble Business Center in the correct order, what normal results look like, what
+to check when something is wrong, and when to stop and raise the issue.
+
+It assumes the reader already has the survey and CAD knowledge appropriate to the assignment. It
+does not teach basic survey adjustment, datums or coordinate system theory.
 
 | Question | Document |
 |---|---|

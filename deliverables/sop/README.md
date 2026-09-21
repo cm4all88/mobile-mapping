@@ -2,8 +2,13 @@
 
 **Working Version `2026-09-11-a` · LIVING DRAFT — INTERNAL REVIEW · no Parametrix clause adopted**
 
-One of four coordinated deliverables. This one states **what Parametrix requires**. It is short by
-design: requirements here, explanation in the Technical Manual, method in the How To guides.
+One of four coordinated deliverables. This one states **what Parametrix requires for MX60 work and
+who has authority at each controlled step**. It is short by design: requirements here, deeper
+technical explanation in the Technical Manual, and the actual training and operating method in the
+How To guides.
+
+It is **not a survey textbook and not a click-by-click training guide**. It assumes the people using
+it already have the underlying survey competence appropriate to their role.
 
 | Question | Document |
 |---|---|

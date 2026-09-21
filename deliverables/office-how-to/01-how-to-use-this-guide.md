@@ -1,5 +1,10 @@
 # 1. How to Use This Guide
 
+This is the operating path for a survey employee who understands survey office work but may have
+little MX60 specific processing experience. The goal is not to teach survey theory. The goal is to
+let the processor follow the MX60 workflow, recognize when the result is not normal, troubleshoot
+the common causes, and stop before a bad state is carried into the next step.
+
 ## 1.1 The four questions
 
 Every section answers the same four questions, in the same order. If you read nothing else in a
@@ -75,3 +80,18 @@ B), and five of them have **no software artefact behind them** — if you do not
 the time, nothing else will.
 
 Templates are in **Appendix F**.
+
+## 1.7 First supervised processing job
+
+For a processor with minimal MX60 experience, use the guide in workflow order:
+
+1. Intake and identify the mission with §§2–4.
+2. Set the project and coordinate system with §§5–7.
+3. Process the trajectory and generate scans with §§8–12.
+4. Follow the registration path in §§13–21. Do not skip **Update Scans**.
+5. Perform QC and any justified remedies with §§22–26.
+6. Identify the final state, export, document and archive with §§27–34.
+7. If anything does not match the expected state in a section, go to §35 before experimenting.
+
+**Do not troubleshoot by stacking adjustments or changing several settings together.** Establish
+the symptom, check the last known good stage, make one controlled change, and record what happened.

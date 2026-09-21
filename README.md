@@ -5,6 +5,21 @@ Trimble MX60 Premium · Trimble Business Center 2026.10
 **Start here: [`deliverables/`](deliverables/README.md).** That is the live set. Everything else in
 this repository either feeds it, checks it, or has been superseded by it.
 
+## Purpose of the set
+
+This package is for **survey staff who already understand basic surveying but may have little or no
+MX60 Premium experience**. It is intended to let them operate the system, process the data,
+recognize when something is wrong, troubleshoot common problems, and know when to stop and raise
+an issue.
+
+It is **not a land surveying course**. Control networks, datums, adjustments, check observations
+and professional survey judgement are assumed. The documents teach the MX60 Premium and its
+workflow, not surveying itself.
+
+A new MX60 user should normally start in the **Field How To** or **Office How To**. The Technical
+Manual is a reference for why the system behaves as it does and for abnormal or unfamiliar cases.
+The SOP defines what is required and who has authority.
+
 > **Nothing here is an issued Parametrix standard.** Every Parametrix procedure is marked
 > **PROPOSED**, every acceptance threshold is marked **PARAMETRIX DECISION REQUIRED**, and the
 > adoption record is empty. **Parametrix-originated requirements adopted: 0.** Some requirements
@@ -19,7 +34,7 @@ this repository either feeds it, checks it, or has been superseded by it.
 | [`reference/`](reference/) | `mx60-reference-data.csv`, **the authority for every number** in the set |
 | [`sources/`](sources/) | TBC help captures and extracted source text |
 | [`analysis/`](analysis/) | Build records: how the sources were ingested and classified |
-| [`tools/`](tools/README.md) | The builders and the twelve gates. `python3 tools/check-all.py` |
+| [`tools/`](tools/README.md) | The builders and the QA gates. `python3 tools/check-all.py` |
 | [`brand/`](brand/README.md) | Logo assets and brand extractions |
 | [`marketing/`](marketing/README.md) | **The only outward-facing material.** Governed separately — see its README |
 | `SOP/` | **Superseded.** The single-document generation |
@@ -33,14 +48,15 @@ question becomes unanswerable?
 
 | Document | Answers | Content |
 |---|---|---|
-| **Technical Manual** | *Why does it work, and how do we know?* | Explanation and evidence. Every statement traceable to a Trimble topic or manual page |
-| **SOP** | *What must I do?* | Requirements only. It states what is required and points to the manual for explanation |
-| **Field How To** | *How, in the field?* | Task steps, checklists, stop-if conditions |
-| **Office How To** | *How, in TBC?* | Task steps, command sequences, checklists |
+| **Technical Manual** | *Why is the MX60 or TBC behaving this way?* | Technical reference and evidence. Used for explanation, troubleshooting depth and unusual conditions |
+| **SOP** | *What is required, and who has authority?* | The controlled operating rules. It does not teach surveying or replace the How To guides |
+| **Field How To** | *How do I operate and troubleshoot the MX60 in the field?* | **Primary field training and operating guide**. Task steps, normal indications, stop conditions and troubleshooting |
+| **Office How To** | *How do I process and troubleshoot MX60 data in TBC?* | **Primary office training and processing guide**. Click paths, expected results, stop conditions and troubleshooting |
 
-A click sequence belongs in a How To and nowhere else. An explanation belongs in the Manual and
-nowhere else. A requirement belongs in the SOP. Where the same thing is maintained in two places it
-drifts, and the audit of 2026-09-19 removed the instances that had.
+The two How To guides are the normal learning path for someone new to the MX60. A click sequence,
+screen check, normal indication, first troubleshooting action or stop condition belongs there. The
+Technical Manual carries the deeper explanation and evidence. A requirement belongs in the SOP.
+Basic survey instruction belongs in none of them.
 
 ## Before editing anything
 
@@ -49,7 +65,7 @@ drifts, and the audit of 2026-09-19 removed the instances that had.
 3. Open items change in `deliverables/_control/master-register.csv` first, then
    `python3 tools/build-register-views.py`. **There is one register.** An item cannot be open in one
    document and closed in another.
-4. Run `python3 tools/check-all.py` before committing. Twelve gates, all of which must pass.
+4. Run `python3 tools/check-all.py` before committing. Every gate must pass.
 
 ## Building
 

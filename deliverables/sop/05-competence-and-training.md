@@ -6,8 +6,9 @@ Mobile mapping fails quietly. A weak trajectory produces a clean, dense, interna
 point cloud in the wrong place *(Technical Manual §3.2)*. There is no visual tell, so the
 protection is a person who knows what to check and is required to check it.
 
-**Competence here is not "has operated the system." It is "knows what the system cannot tell
-you."**
+**Competence here is not "has operated the system once" and it is not "has read the Technical
+Manual." It is the ability to perform the assigned MX60 workflow, recognize when the system or data
+is not behaving normally, and know when to stop rather than guess.**
 
 ## 5.2 What qualification covers
 
@@ -22,10 +23,10 @@ you."**
 | **Qualified to process and register** | The data chain and what regenerates from what; trajectory processing; scan generation; registration and the three commands; **what RMS can and cannot prove**; the layered QC in §16 |
 | **Qualified to accept** | All of the above, plus the accuracy framework in §17 and the authority under §4 |
 
-## 5.3 The five things a qualified person is expected to know
+## 5.3 The five failure modes a qualified person is expected to recognize
 
-Not a training syllabus — a list of the misconceptions that have actual consequences. Each is
-covered in the Technical Manual at the reference given.
+This is not a survey theory syllabus. It is a list of MX60 specific misconceptions that can let a
+job look successful when it is not. Each is covered in the Technical Manual at the reference given.
 
 | | | Where |
 |---|---|---|
@@ -35,8 +36,10 @@ covered in the Technical Manual at the reference given.
 | 4 | **A Local adjustment does not extrapolate** beyond the outermost control point, and nothing shows where it stopped | Technical Manual §21 |
 | 5 | **Cleanup cannot be undone** | Technical Manual §28 |
 
-> **The In Plain Language boxes in the Technical Manual are the intended route to this.** Read end
-> to end with nothing else, they describe the whole workflow in ordinary language.
+> **The Field How To and Office How To are the intended training route.** A qualified person should
+> be able to carry out the relevant workflow, use the common-problems section when something goes
+> wrong, and identify the point where the work must stop or be raised. The Technical Manual is the
+> reference for why the condition matters; reading it alone is not qualification.
 
 ## 5.4 Currency
 

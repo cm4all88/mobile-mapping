@@ -2,8 +2,13 @@
 
 **Working Version `2026-09-11-a` · LIVING DRAFT — INTERNAL REVIEW**
 
-One of four coordinated deliverables. This one shows **how to run the MX60 in the field**. Meant to
-be used in or near the vehicle.
+One of four coordinated deliverables. This is the **primary field training and operating guide**
+for a survey employee who may have minimal MX60 experience. It shows how to run the MX60 Premium,
+what normal indications look like, what to check when something is wrong, and when to stop or
+re-drive. It is meant to be used in or near the vehicle.
+
+It assumes the reader already has the survey knowledge appropriate to the assignment. It does not
+teach control, datums or general field survey practice.
 
 | Question | Document |
 |---|---|
@@ -15,7 +20,7 @@ be used in or near the vehicle.
 **This guide cannot create a requirement.** If it says something must be done and the SOP does not
 require it, the SOP governs.
 
-**Start with Appendix E** — the ten things that cost the most if missed. One sheet, both sides, for the vehicle.
+**For a first supervised mission, start at §1, then use Appendix E and Appendix A.** Appendix E is the quick card; Appendix A is the preflight checklist.
 
 ## Files
 

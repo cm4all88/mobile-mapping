@@ -5,9 +5,11 @@
 This procedure governs the acquisition, processing, quality control, acceptance, delivery and
 retention of **mobile mapping data collected with the Trimble MX60**.
 
-Its purpose is that a Parametrix mobile mapping deliverable can be relied on, and can account for
-itself afterwards: what was collected, how it was processed, what it was checked against, who
-accepted it, and on what basis.
+Its purpose is to make MX60 work **repeatable, reviewable and defensible** while allowing survey
+staff with limited MX60 experience to follow a defined company workflow through the companion How
+To guides. A Parametrix mobile mapping deliverable should be able to account for itself afterwards:
+what was collected, how it was processed, what it was checked against, who accepted it, and on what
+basis.
 
 ## 1.2 Scope
 
@@ -22,8 +24,9 @@ project record.
 
 | | Where it belongs |
 |---|---|
-| Conventional survey practice — control networks, datums, adjustment, check observations | Existing Parametrix survey practice. This procedure assumes it |
+| Conventional survey practice — control networks, datums, adjustment, check observations | Existing Parametrix survey practice. This procedure assumes it and does not teach it |
 | Establishing the control network itself | Existing Parametrix survey practice. §7 states only what mobile mapping additionally requires of it |
+| Click-by-click MX60 and TBC training | **Field How To** and **Office How To**. This SOP states the rule; those guides show the user how to perform it |
 | Terrestrial or airborne scanning | Not this procedure |
 | The client's own specification | Where a client specification is stricter, **it governs.** Where it is less strict, this procedure governs |
 

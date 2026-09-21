@@ -112,7 +112,11 @@ to, and inventing one would be worse than saying so.
 
 ## What this guide is
 
-**It shows you what to do in Trimble Business Center, in the order you do it.**
+**It shows a survey employee with minimal MX60 processing experience what to do in Trimble
+Business Center, in the order to do it, what normal results look like, how to troubleshoot common
+failures, and where the workflow must stop rather than continue on an assumption.**
+
+It assumes basic survey office competence. It does not teach surveying.
 
 | Question | Document |
 |---|---|

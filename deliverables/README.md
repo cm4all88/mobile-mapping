@@ -6,6 +6,19 @@ These four documents are a living draft for internal Parametrix review, training
 workflow development. **They are not an issued Parametrix standard**, and they do not replace
 professional judgement, project requirements, safety procedures or approved company policy.
 
+## Intended user
+
+The set assumes a **survey employee who understands basic field or office survey practice but may
+have minimal MX60 specific experience**. It does not teach control networks, datums, least squares,
+check observations or general survey judgement.
+
+It does teach the MX60 Premium workflow: how to set it up, operate it, process its data, recognize
+normal and abnormal conditions, troubleshoot common failures, and know when to stop instead of
+guessing.
+
+**The How To guides are the training path.** The Technical Manual is the reference behind them, not
+a prerequisite that a new operator must read cover to cover.
+
 **Some of what is in them binds anyway.** Ten requirements come from Trimble or from the equipment
 itself — they would bind an MX60 operator at any company, working from no SOP at all. They are
 listed with their sources at **SOP §2.4**. Everything Parametrix-originated is a proposal:
@@ -17,9 +30,9 @@ listed with their sources at **SOP §2.4**. Everything Parametrix-originated is 
 
 | You are | Open | Start at |
 |---|---|---|
-| **A field operator** | **Field How To** | The **Quick Card** (Appendix E), then the **Preflight Checklist** (Appendix A) |
-| **An office processor** | **Office How To** | §1, then the section for the step you are on |
-| **A surveyor new to mobile mapping** | **Technical Manual** | §4 *The workflow end to end*, then the **In Plain Language** box at the end of each section |
+| **A survey field employee with minimal MX60 experience** | **Field How To** | §1, then the **Quick Card** (Appendix E) and **Preflight Checklist** (Appendix A) |
+| **A survey office employee with minimal MX60 processing experience** | **Office How To** | §1, then follow the workflow in order |
+| **Troubleshooting something unfamiliar or trying to understand why** | **Technical Manual** | Go to the section referenced by the How To. It is a lookup reference, not the entry course |
 | **A PLS or QA reviewer** | **SOP** and the **Technical Manual** | SOP §2.4, §16, §17 — what binds, what QC is, what acceptance is not |
 | **A manager or policy reviewer** | **SOP** and the **decision register** | SOP §17.2 (**D-13**), then SOP Appendix A |
 
@@ -78,10 +91,10 @@ status on the page.
 
 ## What is deliberately unresolved
 
-**Open questions are shown as open questions.** There are 77 of them — 36 Parametrix decisions,
-25 tests and 16 vendor questions — tracked in one register at
-`_control/master-register.csv` and surfaced as filtered views in the documents. No document carries
-an item's status independently.
+**Open questions are shown as open questions.** They are tracked in one register at
+`_control/master-register.csv` and surfaced as generated views in the documents. Current counts
+come from the register and its generated views rather than from a number typed into this page. No
+document carries an item's status independently.
 
 **Almost none of them blocks anything.** The exceptions are listed at `_control/views/blocking.md`.
 
