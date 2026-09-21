@@ -27,6 +27,11 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
 
+      - name: Provide legacy build path
+        run: |
+          sudo mkdir -p /home/user
+          sudo ln -sfn "$GITHUB_WORKSPACE" /home/user/mobile-mapping
+
       - name: Rebuild derived control files
         run: |
           python3 tools/build-register-views.py
