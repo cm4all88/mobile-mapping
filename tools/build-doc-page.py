@@ -8,7 +8,7 @@ section list, the document-type label, the hero, and --pmx-id-pos: the position 
 red quarter in the document identity rule (0 = Manual, 1 = SOP, 2 = Field, 3 = Office).
 See deliverables/_control/style/style-system.md.
 """
-import re, sys, pathlib, html, json, base64
+import re, sys, pathlib, html, json, base64, datetime as _dt
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import publication as pub
@@ -507,6 +507,8 @@ page = (TPL.replace('{{LOGO}}', logo)
            .replace('{{IX}}', ixmark)
            .replace('{{ACCENT}}', CFG['accent'])
            .replace('{{ACCENT_ON}}', CFG['accent_on'])
+           .replace('{{DRAFT}}', WORKING_VERSION)
+           .replace('{{PRINTED}}', _dt.date.today().isoformat())
            )
 OUT.write_text(page)
 print(f'{KEY:7} -> {OUT.name}  {len(page)/1024:.0f} KB  ·  {len(ORDER)} sections  ·  accent {CFG["accent"]}')
