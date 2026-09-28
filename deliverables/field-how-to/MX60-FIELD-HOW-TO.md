@@ -106,7 +106,11 @@ to, and inventing one would be worse than saying so.
 
 ## What this guide is
 
-**It shows you how to run the MX60 in the field.** It is meant to be used in or near the vehicle.
+**It shows a survey employee with minimal MX60 experience how to run the MX60 Premium in the
+field, recognize normal and abnormal conditions, troubleshoot common problems, and know when to
+stop or re-drive.** It is meant to be used in or near the vehicle.
+
+It assumes basic survey field competence. It does not teach surveying.
 
 | Question | Document |
 |---|---|
@@ -146,8 +150,10 @@ Parametrix Brand Guide v6, November 2023. Document accent: **Future Green**.
 
 ## 1.1 Shape
 
-Short numbered steps. A **Why this matters** line only where the reason changes what you do. No
-theory — that is the Technical Manual, and every reference points there.
+Short numbered steps for a survey employee who may be using the MX60 for the first time under the
+appropriate supervision. A **Why this matters** line appears only where the reason changes what you
+do. The guide teaches the machine and the workflow, not surveying. Deeper theory stays in the
+Technical Manual.
 
 **Every subsection is numbered.** When reporting a problem with this guide, cite the number —
 **Field How To §12.3** — together with any **W-**, **D-**, **T** or **V-** identifier on the
@@ -174,7 +180,9 @@ Full card: **Appendix E**.
 
 ## 1.4 If something is not covered here
 
-**Stop and ask.** Do not improvise on the vehicle.
+**Stop and ask.** Do not improvise on the vehicle and do not turn an MX60 problem into a guess.
+Use §27 first: identify the symptom, restore the last known good state, check one thing at a time,
+and record what was abnormal.
 
 Three things you may always do without asking first:
 
@@ -220,6 +228,21 @@ standard.
 
 **No software produces it.** Conditions, incidents, what was not collected and why — if you do not
 write it down, nothing else will. §26 and Appendix C.
+
+## 1.8 First supervised mission
+
+For a person with minimal MX60 experience, use the guide in this order:
+
+1. Read the **Quick Card** in Appendix E and complete the **Preflight Checklist** in Appendix A.
+2. Work through §§2–11 in order. Do not skip ahead because the system happens to power on.
+3. Initialize with §§12–14 and confirm that the status you see matches the guide before recording.
+4. Collect with §§15–20 open and use §27 immediately if an indication is not normal.
+5. Perform the closing sequence and shutdown with §§21–23.
+6. Make the re-drive decision while still on site using §24.
+7. Transfer and hand off with §§25–26. The job is not finished when the vehicle is parked.
+
+**The goal is not memorization.** The goal is that the operator can tell normal from abnormal,
+follow the recovery path, and identify the point where continuing would risk the data.
 
 ---
 
@@ -491,13 +514,25 @@ Check the device list. Every camera and both lasers.
 > sensor down is incomplete, and you will not know which part of the deliverable is missing until
 > the office opens it.
 
-## 9.4 Stop if
+## 9.4 If TMI will not load
 
-- A sensor is not listed
-- TMI will not load. Check that you are on the Control Unit's network and using Chrome
+Check these in order:
 
-> **From TBC 2026.10 the office side requires two-step verification for Trimble ID.** That is an
-> office concern, not a field one, but it is worth knowing if you are asked.
+1. Confirm the **Control Unit is powered and has completed startup** (§8)
+2. Confirm the field device is connected to the **Control Unit's network** — TMI does not require
+   internet access
+3. Enter the capture address exactly: **`http://tmi.mx-scan.net`**
+4. Use **Chrome**
+5. If the connection is still not stable, return to the documented startup/connection sequence
+   rather than changing network or system settings at random
+
+**Stop if** TMI cannot be reached reliably or the expected device list cannot be confirmed.
+
+> **CONFIGURATION NOTE**
+>
+> The exact connection method, network identifier and complete expected device list must be
+> confirmed against the actual Parametrix unit before independent use. Do not invent an SSID,
+> IP address or sensor list that has not been observed.
 
 Full status reference: **Appendix D**.
 
@@ -528,7 +563,12 @@ Full status reference: **Appendix D**.
 
 ## 10.2 Capture settings
 
-> **Expect either presentation, and record which you saw.**
+> **CURRENT CONFIGURATION NOTE**
+>
+> The installed TMI build on the Parametrix unit has not yet been confirmed. The two
+> manufacturer-documented presentations below are retained until the actual unit is commissioned.
+> Before independent use, this section should be reduced to the presentation employees actually
+> see. During supervised setup, record which presentation is present.
 >
 > | Source | What the operator sees |
 > |---|---|
@@ -691,8 +731,16 @@ One line each. Full explanation: **Technical Manual §13**.
 
 ## 13.2 What to do
 
-**Perform the full sequence either way** (§12). It costs a few minutes, the static period does work
-GAMS does not replace, and whether this system has GAMS is not yet established.
+> **RECOMMENDED PRACTICE — deliberately conservative until fitment is confirmed**
+>
+> **Perform the full sequence either way** (§12). Trimble documents that GAMS eliminates the
+> special driving manoeuvres; this guide is not claiming otherwise. The extra manoeuvres are
+> retained because they cost little, the static period still matters, and the delivered GAMS
+> fitment has not yet been confirmed.
+>
+> After the actual system configuration and first controlled missions are validated, Parametrix can
+> either retain this conservative practice or simplify the sequence to match the confirmed
+> configuration.
 
 ## 13.3 If GAMS is fitted — the installation requirements
 
@@ -1374,31 +1422,55 @@ If not, the missing piece is in the field record.
 
 # 27. Common Problems — What to Check First
 
-| Symptom | Check first | Then |
-|---|---|---|
-| **TMI will not load** | On the Control Unit's network? Using **Chrome**? | §9 |
-| **System will not start** | Power button held **15 s**? Supply live? Battery healthy? | §8, §6 |
-| **LEDs blink and do not settle** | Give it time — a firmware update can take **up to 6 minutes** | §8.2 |
-| **A sensor is missing from the device list** | Cable, power or sensor fault. **Stop** — a run with a sensor down is incomplete | §9.3 |
-| **A fitted DMI or GAMS logs nothing** | **Is it activated in Vehicle Settings?** Installed and wired is not enough | §10.1 |
-| **Navigation status will not reach green** | **Ask TMI which parameter is holding it** — heading means drive more, position means move | §14.3 |
-| **Status stuck on heading** | Not enough dynamic manoeuvres, or no GAMS. More turns and speed changes | §14.3 |
-| **Status stuck on position** | Poor sky view. **Move the vehicle** — waiting will not help | §14.3 |
-| **Status goes orange mid-corridor** | Where are you? Canopy, canyon, structure? Record it | §17 |
-| **Audible alarm** | **Battery Protect.** Restore charge immediately — roughly 78 seconds | §7 |
-| **Power cut mid-run** | The run is ended and has no closing sequence. Re-drive decision, now | §7.3, §24 |
-| **Storage filling faster than expected** | Reassess before it fills — an interrupted run loses the closing sequence | §11 |
-| **Capture settings look different from the guide** | Two presentations exist depending on TMI version. **Record which you saw** | §10.2 |
-| **Cannot find 2000 kHz on the screen** | That is a **system total**. TMI uses per-scanner numbering: 500/1000 kHz | §10.2 |
-| **Imagery looks wrong on the screen** | Optics — rain, dust, insects, smear. Clean and re-drive the stretch | §3 |
-| **You had to skip a planned pass** | Record it and say so at handoff. **Not recoverable in the office** | §17.3, §23 |
-| **You closed the mission then remembered the closing sequence** | **It cannot be added.** Re-drive the mission, or record that it is missing | §21 |
-| **Unsure whether to re-drive** | On site it costs twenty minutes. From the office, a mobilisation | §24 |
+## 27.1 Troubleshooting pattern
 
-## When the answer is "ask"
+When something is wrong, do not start changing settings at random.
 
-**Stop and ask** rather than improvising on the vehicle. You may always stand down, record a
+1. **Name what you actually see.** A color, missing device, alarm, status or screen message is more
+   useful than "the MX60 is not working."
+2. **Return to the last known good state.** Check power, connections, TMI connection, Vehicle
+   Settings and the current mission before changing anything else.
+3. **Change one thing at a time.** If three things are changed together, you do not know what fixed
+   the problem or what new problem was introduced.
+4. **Record the abnormal condition.** Use a TMI comment where appropriate and put the event in the
+   field record.
+5. **Stop when data integrity is uncertain.** A run that looks complete but was collected with a
+   missing sensor, failed initialization or interrupted closing sequence is not made safer by
+   continuing to drive.
+
+## 27.2 Symptom table
+
+| What you see | Check first | If that is not it | Stop, re-drive or raise when |
+|---|---|---|---|
+| **TMI will not load** | Confirm the Control Unit is fully started and the field device is on its network | Enter **`http://tmi.mx-scan.net`** exactly, use Chrome, then repeat §9 from the beginning | You cannot establish a stable TMI connection; do not invent an IP/SSID or change system networking from memory |
+| **System will not start** | Power button held **15 s**? Supply live? Battery healthy? | §6, then §8 | Power or Control Unit status is uncertain |
+| **LEDs blink and do not settle** | Allow for a firmware update, which can take **up to 6 minutes** | Compare the LED condition with §8.2 | The condition persists beyond the documented startup behavior |
+| **A sensor is missing from the device list** | Compare the list with the confirmed system configuration, then check cable and power to that sensor | Restart only by the documented sequence in §8 and re-check §9.3 | **Stop. Do not collect with a required sensor missing** |
+| **A fitted DMI or GAMS logs nothing** | Is it activated in Vehicle Settings? | Verify the installed configuration against §10.1 | The sensor is expected for the mission and still does not log |
+| **Navigation will not reach green** | Ask TMI which parameter is holding it | Heading: drive more dynamic manoeuvres. Position: move to better sky view | Initialization does not converge before meaningful collection |
+| **Status is stuck on heading** | Dynamic manoeuvres and whether GAMS is available | More turns and speed changes per §14.3 | Heading quality does not recover |
+| **Status is stuck on position** | Sky view | Move the vehicle. Waiting in the same blocked location will not help | Position quality does not recover |
+| **Status goes orange mid-corridor** | Identify the location and likely obstruction | Record it, maintain planned overlap and use §17 | The degraded section cannot be covered defensibly or the guide calls for re-drive |
+| **Audible alarm** | **Battery Protect** | Restore charge immediately, then follow §7 | Power stability is not restored |
+| **Power cut mid-run** | Treat the run as ended | Record the event and use §24 | The run has no valid closing sequence. Make the re-drive decision now |
+| **Storage is filling faster than expected** | Remaining free space and expected run duration | End the run cleanly before the disk fills if needed | Continuing risks an interrupted run or missing closing sequence |
+| **Capture settings look different from the guide** | Confirm TMI version and which presentation is shown | Record what you see and compare §10.2 | A required setting cannot be positively identified |
+| **Cannot find 2000 kHz on screen** | Remember 2000 kHz is the system total | TMI uses per-scanner 500/1000 kHz values; see §10.2 | The actual configured rate still cannot be verified |
+| **Imagery looks wrong on screen** | Rain, dust, insects or smear on optics | Clean the optics and inspect again | The affected stretch was collected with unusable imagery and imagery is required |
+| **A planned pass was skipped** | Record exactly which pass and why | Use §24 before leaving | Missing overlap or coverage removes an office remedy |
+| **A run was stopped accidentally but the mission is still open** | Confirm the mission itself remains open | Record the interruption, leave the mission open, and start a new run when ready (§20) | Coverage or overlap was lost; use §24 before leaving |
+| **Mission was closed before the closing sequence** | A closed mission cannot be appended to | Record it; any new mission needs its own initialization and closing sequence (§20.4) | Use §24 — a missing mission closing sequence is not repaired by starting another mission |
+| **Transfer copy looks incomplete** | Compare file count and total size with the source | Confirm the `.mxdb` opens and `POS_1/raw/` is present and non-empty; use SOP §11.2 | **Do not clear the field disk** until verification is complete |
+| **Unsure whether to re-drive** | Use the actual missing or abnormal condition, not the schedule | §24 | If you cannot explain why the existing data is adequate, raise it before leaving site |
+
+## 27.3 When the answer is "ask"
+
+**Stop and ask rather than improvising on the vehicle.** You may always stand down, record a
 comment, or re-drive while you are still on site (§1.4).
+
+Escalation is the correct result when the guide reaches the end of its troubleshooting path. The
+guide is supposed to help a minimally experienced MX60 operator recognize that point; it is not
+supposed to make them invent a new field procedure.
 
 ---
 

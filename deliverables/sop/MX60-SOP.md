@@ -200,9 +200,11 @@ in `deliverables/_control/style/`. Its document accent is **Progress Orange**.
 This procedure governs the acquisition, processing, quality control, acceptance, delivery and
 retention of **mobile mapping data collected with the Trimble MX60**.
 
-Its purpose is that a Parametrix mobile mapping deliverable can be relied on, and can account for
-itself afterwards: what was collected, how it was processed, what it was checked against, who
-accepted it, and on what basis.
+Its purpose is to make MX60 work **repeatable, reviewable and defensible** while allowing survey
+staff with limited MX60 experience to follow a defined company workflow through the companion How
+To guides. A Parametrix mobile mapping deliverable should be able to account for itself afterwards:
+what was collected, how it was processed, what it was checked against, who accepted it, and on what
+basis.
 
 ## 1.2 Scope
 
@@ -217,8 +219,9 @@ project record.
 
 | | Where it belongs |
 |---|---|
-| Conventional survey practice — control networks, datums, adjustment, check observations | Existing Parametrix survey practice. This procedure assumes it |
+| Conventional survey practice — control networks, datums, adjustment, check observations | Existing Parametrix survey practice. This procedure assumes it and does not teach it |
 | Establishing the control network itself | Existing Parametrix survey practice. §7 states only what mobile mapping additionally requires of it |
+| Click-by-click MX60 and TBC training | **Field How To** and **Office How To**. This SOP states the rule; those guides show the user how to perform it |
 | Terrestrial or airborne scanning | Not this procedure |
 | The client's own specification | Where a client specification is stricter, **it governs.** Where it is less strict, this procedure governs |
 
@@ -610,8 +613,9 @@ Mobile mapping fails quietly. A weak trajectory produces a clean, dense, interna
 point cloud in the wrong place *(Technical Manual §3.2)*. There is no visual tell, so the
 protection is a person who knows what to check and is required to check it.
 
-**Competence here is not "has operated the system." It is "knows what the system cannot tell
-you."**
+**Competence here is not "has operated the system once" and it is not "has read the Technical
+Manual." It is the ability to perform the assigned MX60 workflow, recognize when the system or data
+is not behaving normally, and know when to stop rather than guess.**
 
 ## 5.2 What qualification covers
 
@@ -626,10 +630,10 @@ you."**
 | **Qualified to process and register** | The data chain and what regenerates from what; trajectory processing; scan generation; registration and the three commands; **what RMS can and cannot prove**; the layered QC in §16 |
 | **Qualified to accept** | All of the above, plus the accuracy framework in §17 and the authority under §4 |
 
-## 5.3 The five things a qualified person is expected to know
+## 5.3 The five failure modes a qualified person is expected to recognize
 
-Not a training syllabus — a list of the misconceptions that have actual consequences. Each is
-covered in the Technical Manual at the reference given.
+This is not a survey theory syllabus. It is a list of MX60 specific misconceptions that can let a
+job look successful when it is not. Each is covered in the Technical Manual at the reference given.
 
 | | | Where |
 |---|---|---|
@@ -639,8 +643,18 @@ covered in the Technical Manual at the reference given.
 | 4 | **A Local adjustment does not extrapolate** beyond the outermost control point, and nothing shows where it stopped | Technical Manual §21 |
 | 5 | **Cleanup cannot be undone** | Technical Manual §28 |
 
-> **The In Plain Language boxes in the Technical Manual are the intended route to this.** Read end
-> to end with nothing else, they describe the whole workflow in ordinary language.
+> **The Field How To and Office How To are the intended training route.** A qualified person should
+> be able to carry out the relevant workflow, use the common-problems section when something goes
+> wrong, and identify the point where the work must stop or be raised. The Technical Manual is the
+> reference for why the condition matters; reading it alone is not qualification.
+
+> **RECOMMENDED TRAINING POSTURE**
+>
+> Until **D-3** establishes the actual qualification and sign-off process, this document set does
+> not treat a person's first field mission or first MX60 processing job as evidence that they are
+> qualified to work independently. The Field How To and Office How To both include a first
+> supervised workflow for exactly that reason. D-3 will decide what demonstration, review or
+> sign-off converts supervised training into independent qualification.
 
 ## 5.4 Currency
 
@@ -2448,7 +2462,7 @@ data) and **T19** (which trajectory travels with an export or publish).
 
 # Appendix A — Parametrix Decision Register
 
-**36 items.** Generated from `deliverables/_control/master-register.csv` on 2026-09-19. **Do not edit this file** — edit the register and re-run `tools/build-register-views.py`.
+**36 items.** Generated from `deliverables/_control/master-register.csv` on 2026-09-28. **Do not edit this file** — edit the register and re-run `tools/build-register-views.py`.
 
 This appendix is the SOP's **view** of the project's single master register. It shows the questions
 that are **Parametrix's to answer** — the ones no test and no vendor can settle. The questions
@@ -2873,7 +2887,7 @@ is a defensible accuracy claim and a formal acceptance.
 *Records this section requires* table at the end of each section. Edit the section; regenerate this.
 
 **72 records**, across 20 sections.
-Last generated 2026-09-19.
+Last generated 2026-09-28.
 
 > **Read the State column.** A record whose state names a **D-** identifier is required by a clause
 > that has not been adopted. It is proposed, not mandatory, and the identifier is where the decision

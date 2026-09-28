@@ -4,7 +4,7 @@
 *Records this section requires* table at the end of each section. Edit the section; regenerate this.
 
 **72 records**, across 20 sections.
-Last generated 2026-09-19.
+Last generated 2026-09-28.
 
 > **Read the State column.** A record whose state names a **D-** identifier is required by a clause
 > that has not been adopted. It is proposed, not mandatory, and the identifier is where the decision

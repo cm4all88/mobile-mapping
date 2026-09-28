@@ -399,6 +399,8 @@ td code{font-size:.84em}
    silent on print furniture; the values below are the screen values
    re-expressed in points.
    ============================================================================ */
+.titlepage{display:none}
+
 @media print{
   /* the shell is screen furniture */
   .rail,.find,.menu,#theme,.rail-end,nav{display:none !important}
@@ -459,6 +461,35 @@ td code{font-size:.84em}
 
   /* the footer becomes the print identity block, on the first page */
   .docfoot{border-top:0.6pt solid #939598 !important;margin-top:8mm;padding-top:3mm}
+  /* --- the cover ------------------------------------------------------ */
+  .titlepage{display:flex !important;flex-direction:column;justify-content:space-between;
+    position:relative;overflow:hidden;
+    /* fill the page inside the @page margin, and take the next page for the body */
+    height:calc(297mm - 38mm);break-after:page;page-break-after:always}
+  .tp-top{flex:0 0 auto}
+  .tp-logo{width:52mm;height:auto;display:block}
+  .tp-top{padding-right:34mm}
+  /* the ix formation, set large and pale in the lower outside corner (p.15) */
+  /* the ix formation as the corner element the guide describes (p.15), not a
+     washed-out watermark: at low opacity the red square desaturates away from the
+     charcoal X and the two stop reading as one mark */
+  .tp-ix{position:absolute;right:0;top:0;width:26mm;height:auto;z-index:0}
+  .tp-mid{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;
+    position:relative;z-index:1;padding-bottom:6mm}
+  .tp-kicker{font:600 10pt/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;
+    color:#939598}
+  .tp-name{font-family:var(--head) !important;font-size:40pt !important;line-height:1.04;
+    font-weight:600;margin:5mm 0 0;letter-spacing:-.01em;color:#231F20;max-width:none}
+  .tp-rule{width:46mm;height:1.6mm;background:var(--doc-accent);margin:7mm 0 0}
+  .tp-sub{font:400 13pt/1.4 var(--sans);color:#58595B;margin:6mm 0 0}
+  .tp-foot{flex:0 0 auto;position:relative;z-index:1;border-top:0.6pt solid #D1D3D4;
+    padding-top:5mm}
+  .tp-meta{width:100%;font-size:8.4pt;border-collapse:collapse;break-inside:avoid}
+  .tp-meta td{border:0 !important;padding:1.1mm 0;vertical-align:top}
+  .tp-meta td:first-child{width:38mm;color:#939598;font-weight:600;
+    letter-spacing:.04em;text-transform:uppercase;font-size:7.4pt;padding-top:1.5mm}
+  .tp-meta td:last-child{color:#231F20}
+
   .hero{padding:0 0 8mm}
   .hero h2{max-width:none;font-size:26pt}
   .hero p{max-width:none;font-size:11pt}

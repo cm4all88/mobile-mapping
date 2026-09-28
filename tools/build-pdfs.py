@@ -11,7 +11,7 @@ none -- and the two passes are then joined. Body numbering therefore starts at 1
 on the first page of content, with the cover unnumbered, which is the
 convention.
 
-    pip install playwright
+    pip install playwright pypdfium2
     python3 tools/build-pdfs.py
 """
 import pathlib, sys
