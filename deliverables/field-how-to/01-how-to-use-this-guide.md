@@ -2,8 +2,10 @@
 
 ## 1.1 Shape
 
-Short numbered steps. A **Why this matters** line only where the reason changes what you do. No
-theory — that is the Technical Manual, and every reference points there.
+Short numbered steps for a survey employee who may be using the MX60 for the first time under the
+appropriate supervision. A **Why this matters** line appears only where the reason changes what you
+do. The guide teaches the machine and the workflow, not surveying. Deeper theory stays in the
+Technical Manual.
 
 **Every subsection is numbered.** When reporting a problem with this guide, cite the number —
 **Field How To §12.3** — together with any **W-**, **D-**, **T** or **V-** identifier on the
@@ -30,7 +32,9 @@ Full card: **Appendix E**.
 
 ## 1.4 If something is not covered here
 
-**Stop and ask.** Do not improvise on the vehicle.
+**Stop and ask.** Do not improvise on the vehicle and do not turn an MX60 problem into a guess.
+Use §27 first: identify the symptom, restore the last known good state, check one thing at a time,
+and record what was abnormal.
 
 Three things you may always do without asking first:
 
@@ -76,3 +80,18 @@ standard.
 
 **No software produces it.** Conditions, incidents, what was not collected and why — if you do not
 write it down, nothing else will. §26 and Appendix C.
+
+## 1.8 First supervised mission
+
+For a person with minimal MX60 experience, use the guide in this order:
+
+1. Read the **Quick Card** in Appendix E and complete the **Preflight Checklist** in Appendix A.
+2. Work through §§2–11 in order. Do not skip ahead because the system happens to power on.
+3. Initialize with §§12–14 and confirm that the status you see matches the guide before recording.
+4. Collect with §§15–20 open and use §27 immediately if an indication is not normal.
+5. Perform the closing sequence and shutdown with §§21–23.
+6. Make the re-drive decision while still on site using §24.
+7. Transfer and hand off with §§25–26. The job is not finished when the vehicle is parked.
+
+**The goal is not memorization.** The goal is that the operator can tell normal from abnormal,
+follow the recovery path, and identify the point where continuing would risk the data.

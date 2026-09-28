@@ -112,7 +112,11 @@ to, and inventing one would be worse than saying so.
 
 ## What this guide is
 
-**It shows you how to run the MX60 in the field.** It is meant to be used in or near the vehicle.
+**It shows a survey employee with minimal MX60 experience how to run the MX60 Premium in the
+field, recognize normal and abnormal conditions, troubleshoot common problems, and know when to
+stop or re-drive.** It is meant to be used in or near the vehicle.
+
+It assumes basic survey field competence. It does not teach surveying.
 
 | Question | Document |
 |---|---|

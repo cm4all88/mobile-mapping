@@ -3,6 +3,20 @@
 **Proposal. Nothing has been split yet.**
 **Prepared:** 2026-09-11 · Against the 71,800-word single-document draft in `../SOP/`
 
+## Purpose of this architecture
+
+The deliverable set is an **MX60 Premium operating and troubleshooting system for survey staff**.
+The intended user already understands basic surveying but may have minimal experience with the
+MX60, TMI or the mobile mapping commands in TBC.
+
+The set therefore does **not** teach surveying. It teaches what is specific to the MX60 workflow:
+what to do, what normal looks like, what abnormal looks like, what to check first, what can be
+recovered, what requires a re-drive or re-process, and when the user must stop and raise the issue.
+
+The normal learning path is **Field How To or Office How To first**. The SOP states the required
+controls. The Technical Manual is the deeper reference behind the workflow and troubleshooting; it
+is not a cover-to-cover prerequisite for operating the system.
+
 ---
 
 ## 0. The organising idea
@@ -41,8 +55,10 @@ The four deliverables are those four kinds, separated:
 ## A. Technical Manual — table of contents
 
 **Parametrix MX60 Mobile Mapping Technical Manual**
-Explains what the system does and why. Carries the evidence base and every **In Plain Language**
-box. May remain long.
+The technical reference behind the operating guides. It explains what the MX60 and TBC do, why
+they behave that way, and what evidence supports the explanation. It may remain long because it is
+a lookup reference for troubleshooting, review and unusual conditions. **It is not the primary
+training path for a new operator or processor.**
 
 ### Part I — Principles
 
@@ -168,8 +184,10 @@ design — it states requirements and points to the manual for explanation.
 ## C. Field How To — table of contents
 
 **MX60 Field How To Guide**
-Shows field personnel how to perform the work. Usable in or near the vehicle. Highly visual,
-task-oriented, minimal theory.
+The primary field training and operating guide for a survey employee with minimal MX60 experience.
+It must be usable in or near the vehicle, highly visual and task oriented, with minimal theory.
+Every important abnormal condition should lead the user to a first check, a next check, and a clear
+stop, re-drive or escalation point instead of leaving them to diagnose by guesswork.
 
 | § | Title |
 |---|---|

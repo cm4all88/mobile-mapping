@@ -15,8 +15,16 @@
 
 ## 13.2 What to do
 
-**Perform the full sequence either way** (§12). It costs a few minutes, the static period does work
-GAMS does not replace, and whether this system has GAMS is not yet established.
+> **RECOMMENDED PRACTICE — deliberately conservative until fitment is confirmed**
+>
+> **Perform the full sequence either way** (§12). Trimble documents that GAMS eliminates the
+> special driving manoeuvres; this guide is not claiming otherwise. The extra manoeuvres are
+> retained because they cost little, the static period still matters, and the delivered GAMS
+> fitment has not yet been confirmed.
+>
+> After the actual system configuration and first controlled missions are validated, Parametrix can
+> either retain this conservative practice or simplify the sequence to match the confirmed
+> configuration.
 
 ## 13.3 If GAMS is fitted — the installation requirements
 

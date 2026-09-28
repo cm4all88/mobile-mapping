@@ -3,9 +3,14 @@
 **Cross-document. Project material, not reader material** — it was Technical Manual Appendix C and
 was moved here, because a reader-facing appendix should not carry a production backlog.
 
-Figures identified during source ingestion, to be cropped from the Trimble help captures held in
-`sources/`. **No figure has been cropped or placed yet** — this is the production list, and it
-serves **all four deliverables**.
+Figures identified during source ingestion and review. **No figure has been cropped or placed
+yet.** This is the production list and it serves all four deliverables.
+
+For the **Field How To and Office How To**, prefer screenshots and photographs from the **actual
+Parametrix MX60, installed TMI build and Parametrix TBC workstation** wherever the image is meant to
+help an employee recognize a screen, connector, status or object they will actually see. Generic
+Trimble captures remain appropriate as evidence in the Technical Manual and as interim references,
+but they should not be used to hide a unit-specific unknown.
 
 The **Manual §** column gives the section each figure supports where that section exists in this
 manual. Figures that belong in the **Field How To** or the **Office How To** are marked as such;
@@ -29,6 +34,11 @@ where figure production is tracked.
 ## C2 · The list
 
 ### Field and system
+
+> **Live-unit capture priority.** F04 and the operator-facing portions of F06/F07/F12/F17/F18/F20,
+> F26 and F27 should be replaced or supplemented with captures from the real Parametrix
+> configuration when the equipment is available. See
+> `equipment-arrival-validation-checklist.md`.
 
 | # | Figure | Source | Manual § |
 |---|---|---|---|
@@ -89,6 +99,31 @@ where figure production is tracked.
 | F35 | Trimble Connect 3D+ view — colorized cloud with **trajectory and camera markers** | TBC 29527 | 29.6 |
 
 ### Parametrix originals to be drawn
+
+### Live Parametrix equipment/software captures
+
+These are deliberately deferred until the unit is available. They are **not blockers to drafting**.
+
+| # | Figure | Put in | Capture when |
+|---|---|---|---|
+| P01 | MX60 mounted on the actual rack, showing orientation and cable exits | Field §§4–5 | First installation |
+| P02 | Control Unit power/feed, isolator and operator-accessible connection points | Field §§6–8 | First installation |
+| P03 | Ready / update / fault LED states that can be reproduced safely | Field §8 | Commissioning |
+| P04 | How the field device joins the Control Unit network | Field §9 | Commissioning |
+| P05 | Complete TMI device list for the delivered Premium configuration | Field §9 | First powered system check |
+| P06 | Vehicle Settings — GAMS/DMI activation, side, lever arms and Install Height | Field §10 | After configuration is confirmed |
+| P07 | Actual TMI capture-settings presentation and installed TMI version | Field §10 | First powered system check |
+| P08 | Navigation Status showing heading, position and attitude states | Field §14 / App. D | First controlled initialization |
+| P09 | Live imagery tile / imagery health view | Field §§3, 18, 27 | First controlled collection |
+| P10 | TMI storage/free-space view | Field §11 | First controlled collection |
+| P11 | Complete real mission folder tree with non-empty `POS_1/raw` | Field §25 / Office §2 | First successful mission |
+| P12 | Process Raw Trajectory Data with antenna model `Trimble 112735` and installed sensor panes | Office §8 | First processing job |
+| P13 | Project Explorer before/after Update Scans: `Sbet` vs `_reg_####` | Office §§21, 31 | First registration |
+| P14 | Control/check configuration in the actual TBC UI | Office §15 | First registration |
+| P15 | Registration residual/result view used in the real workflow | Office §20 | First registration |
+| P16 | Cutting Plane + Scan Color example from Parametrix data | Office §22 | First QA pass |
+| P17 | Run-to-run result with valid overlap and, if encountered, `No overlap` | Office §18 | First applicable job |
+| P18 | Actual export selection showing the registered scan set being delivered | Office §§30–31 | First delivery rehearsal |
 
 | # | Figure | Manual § |
 |---|---|---|

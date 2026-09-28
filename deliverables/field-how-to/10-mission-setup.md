@@ -23,7 +23,12 @@
 
 ## 10.2 Capture settings
 
-> **Expect either presentation, and record which you saw.**
+> **CURRENT CONFIGURATION NOTE**
+>
+> The installed TMI build on the Parametrix unit has not yet been confirmed. The two
+> manufacturer-documented presentations below are retained until the actual unit is commissioned.
+> Before independent use, this section should be reduced to the presentation employees actually
+> see. During supervised setup, record which presentation is present.
 >
 > | Source | What the operator sees |
 > |---|---|

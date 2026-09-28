@@ -2,12 +2,16 @@
 
 **Working Version `2026-09-11-a` · Evidence revision E1 · LIVING DRAFT — INTERNAL REVIEW**
 
-One of four coordinated deliverables. This one explains **what the system does and why, and how
-we know**. It carries the evidence base and every **In Plain Language** box.
+One of four coordinated deliverables. This is the **technical reference behind the operating
+guides**. It explains what the MX60 and TBC do, why they behave that way, and how we know.
+
+It is **not the primary training path** for a new operator or processor. A survey employee with
+minimal MX60 experience should start in the Field How To or Office How To and come here when a step
+points here, when something behaves abnormally, or when the reason behind a check matters.
 
 | Question | Document |
 |---|---|
-| **Why does it work this way?** | **This manual** |
+| **Why is the MX60 or TBC behaving this way?** | **This manual** |
 | Must I? | SOP |
 | How do I do it in the field? | Field How To |
 | How do I do it in the office? | Office How To |
@@ -67,7 +71,7 @@ we know**. It carries the evidence base and every **In Plain Language** box.
 |---|---|---|
 | `appendix-D-observed-software-behaviour.md` | `tools/build-observed-behaviour.py` | The **OBSERVED SOFTWARE BEHAVIOR** blocks in the body |
 | `appendix-E-open-technical-questions.md` | `tools/build-register-views.py` | `deliverables/_control/master-register.csv` |
-| `MX60-TECHNICAL-MANUAL.md` | `tools/build-manual.py` | Every file above, in order |
+| `MX60-TECHNICAL-MANUAL.md` | `tools/build-doc.py manual` | Every file above, in order |
 
 Editing a generated file creates a second place where the same statement can drift, which is the
 thing the single master register exists to prevent. Edit the source and re-run.
@@ -77,5 +81,5 @@ thing the single master register exists to prevent. Edit the source and re-run.
 ```
 python3 tools/build-observed-behaviour.py     # Appendix D
 python3 tools/build-register-views.py         # Appendix E, and the control views
-python3 tools/build-manual.py                 # the assembled document
+python3 tools/build-doc.py manual             # the assembled document
 ```
