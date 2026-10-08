@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TBC Traverse Adjustment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --px-red:#EB2A2B; --px-charcoal:#343433;
+  --bg:#ffffff; --surface:#f5f5f4; --surface-2:#ececea; --ink:#343433; --ink-2:#5f5f5d;
+  --rule:#dcdcda; --accent:#EB2A2B; --accent-soft:#fde8e8; --note:#eef3f7; --note-ink:#2c4a63;
+  --logo-filter:none;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1c1b; --surface:#262625; --surface-2:#30302f; --ink:#ececea; --ink-2:#b4b4b1;
+    --rule:#3d3d3b; --accent:#ff4a4b; --accent-soft:#3a2020; --note:#1f2a33; --note-ink:#bcd3e6;
+    --logo-filter:brightness(0) invert(.92);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c1c1b; --surface:#262625; --surface-2:#30302f; --ink:#ececea; --ink-2:#b4b4b1;
+  --rule:#3d3d3b; --accent:#ff4a4b; --accent-soft:#3a2020; --note:#1f2a33; --note-ink:#bcd3e6;
+  --logo-filter:brightness(0) invert(.92);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Open Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+code,kbd,.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.88em}
+kbd{background:var(--surface-2);border:1px solid var(--rule);border-bottom-width:2px;border-radius:4px;padding:1px 6px;white-space:nowrap}
+.path{font-weight:600;background:var(--surface);border-left:3px solid var(--accent);padding:1px 8px;white-space:normal}
+
+/* header */
+header.top{border-bottom:1px solid var(--rule);background:var(--bg);position:sticky;top:0;z-index:5}
+header.top .in{max-width:1120px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+header.top img{height:22px;filter:var(--logo-filter)}
+header.top .tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+.hero{background:var(--px-charcoal);color:#fff;position:relative;overflow:hidden}
+.hero .in{max-width:1120px;margin:0 auto;padding:64px 16px 56px;position:relative}
+.hero .sq{width:22px;height:22px;background:var(--px-red);margin-bottom:22px}
+.hero h1{font-size:clamp(32px,5.4vw,56px);line-height:1.05;margin:0 0 16px;font-weight:800;letter-spacing:-.02em;max-width:16ch}
+.hero p{font-size:18px;color:#d6d6d3;max-width:60ch;margin:0}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;font-size:13px;color:#b9b9b6}
+.hero .meta b{color:#fff;font-weight:700}
+.hero .ix{position:absolute;right:-30px;bottom:-40px;width:300px;opacity:.07;filter:brightness(0) invert(1)}
+
+/* layout */
+.wrap{max-width:1120px;margin:0 auto;padding:40px 16px 80px;display:grid;grid-template-columns:230px minmax(0,1fr);gap:48px}
+nav.toc{position:sticky;top:76px;align-self:start;font-size:14px}
+nav.toc h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:0 0 10px}
+nav.toc ol{list-style:none;margin:0;padding:0;counter-reset:t}
+nav.toc li{counter-increment:t}
+nav.toc a{display:flex;gap:10px;padding:6px 0;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+nav.toc a::before{content:counter(t,decimal-leading-zero);color:var(--accent);font-weight:700;font-family:"JetBrains Mono",monospace;font-size:12px;padding-top:2px}
+nav.toc a:hover{color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:56px;scroll-margin-top:80px}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.eyebrow::before{content:"";width:10px;height:10px;background:var(--px-red)}
+h2{font-size:28px;line-height:1.2;margin:0 0 14px;font-weight:800;letter-spacing:-.01em}
+h3{font-size:18px;margin:26px 0 8px}
+p{margin:0 0 14px}
+ul,ol{padding-left:22px;margin:0 0 14px}
+li{margin:4px 0}
+
+/* steps */
+.steps{list-style:none;padding:0;counter-reset:s;margin:18px 0}
+.steps>li{counter-increment:s;position:relative;padding:0 0 18px 52px;margin:0}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;background:var(--px-charcoal);color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px}
+:root[data-theme="dark"] .steps>li::before{background:var(--surface-2)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .steps>li::before{background:var(--surface-2)}}
+.steps>li::after{content:"";position:absolute;left:16px;top:38px;bottom:4px;width:2px;background:var(--rule)}
+.steps>li:last-child::after{display:none}
+.steps>li>strong:first-child{display:block;font-size:16.5px;margin:4px 0 4px}
+
+/* callouts */
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:14px 18px;margin:18px 0;border-radius:0 6px 6px 0}
+.call.note{border-color:#4a7aa0;background:var(--note);color:var(--note-ink)}
+.call b.lbl{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.call p:last-child,.call ul:last-child{margin-bottom:0}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:18px 0}
+.card{background:var(--surface);padding:18px;border-top:3px solid var(--px-charcoal)}
+.card.red{border-top-color:var(--px-red)}
+.card h4{margin:0 0 6px;font-size:15px}
+.card p{font-size:14px;color:var(--ink-2);margin:0}
+
+/* tables */
+.tbl{overflow-x:auto;margin:16px 0;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:var(--px-charcoal);color:#fff;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td.n{font-family:"JetBrains Mono",monospace;text-align:right;white-space:nowrap}
+tr.tot td{font-weight:700;background:var(--surface)}
+.formula{background:var(--surface);padding:14px 18px;font-family:"JetBrains Mono",monospace;font-size:14px;overflow-x:auto;margin:14px 0;line-height:1.9}
+
+/* checklist */
+.check{list-style:none;padding:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--rule)}
+.check input{margin-top:5px;accent-color:var(--px-red);width:16px;height:16px;flex:none}
+.check label{cursor:pointer}
+
+figure{margin:20px 0}
+figure svg{width:100%;height:auto;display:block;background:var(--surface)}
+figcaption{font-size:13px;color:var(--ink-2);margin-top:6px}
+
+footer{background:var(--px-charcoal);color:#cfcfcc;font-size:13px}
+footer .in{max-width:1120px;margin:0 auto;padding:28px 16px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer img{height:18px;filter:brightness(0) invert(1)}
+
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr;gap:24px;padding-top:28px}
+  nav.toc{position:static}
+  .hero .in{padding:44px 16px 40px}
+  .hero .ix{width:180px}
+  header.top .tag{display:none}
+}
+@media print{
+  header.top{position:static} nav.toc{display:none} .wrap{grid-template-columns:1fr}
+  section{break-inside:avoid-page} .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="in">
+  <img src="data:image/png;base64,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" alt="Parametrix">
+  <span class="tag">Survey &amp; Geospatial · Training</span>
+</div></header>
+
+<div class="hero"><div class="in">
+  <div class="sq"></div>
+  <h1>Traverse Adjustment in Trimble Business Center</h1>
+  <p>A step-by-step guide to importing conventional total-station data, defining a traverse, reviewing misclosures, and adjusting it in TBC with the compass, transit, or least-squares method.</p>
+  <div class="meta">
+    <span><b>Level</b> Field and office survey staff</span>
+    <span><b>Software</b> Trimble Business Center (Survey Advanced or higher)</span>
+    <span><b>Time</b> about 30 minutes</span>
+  </div>
+  <img class="ix" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiIAAAHTCAYAAAAaknMLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAIIVJREFUeNrs3T1zHFeWJuDkrgyZciaCkVa1x9h1wCAMjlfw1B7htawFvWmPNNsi+QvAMdsC19KsBcgaySJkDTsCDEHGTGitRTsFTayj9jTe3CsmNSAFEl9VdTPPeZ4IBNCtVpM4CVS9mfe9mbf+///4nztd1806xuzw7/7tXw8jfUObm/fm5dN8on/946Oj1wd+LAFu7pPy8b8m/IaQKowE+37qz9yTCQepuyWMHPuxBLiZ/2YEcC37JYx8ZgwAggi0MCsfu8YAIIhAKzubm/ceGAOAIAKt7JUwMjMGAEEEWqg9kT1jABBEoJX55ua9p8YAIIhAK09KGNkwBgBBBFqxpRdAEIFmZt2Eb9IGIIjA9D2ypRdAEIGW9izRAAgi0EoNIfvGACCIQCt1S+8jYwAQRKCVXVt6AQQRaElfBEAQgWbqFRFbegEEEWimbumdGwOAIAKtuOsqgCACzXhKL4AgAk09sKUXQBCBljylF0AQgWYs0QAIItDUxubmvV1jABBEoBVbegEEEWjKXVcBQcQIoJlZpy8CCCJAQ3VL744xAIII0Ep9Su/MGABBBGih9kT2jQEQRIBW6pbep8YACCJAK09s6QUEEaAlW3oBQQRoZlY+3HUVEESAZnY2N+89MAZAEAFa2bOlFxBEgFY8pRcQRICm5rb0AoII0FLd0rthDIAgArSyb0svIIgArczKxxNjAAQRoJVHtvQCggjQkruuAoII0Iyn9AKCCNBU3dL7yBgAQQRoZdeWXkAQAVrSFwEEEaCZekXEll5AEAGasaUXEESApizRAIII0Iyn9AKCCNDUA1t6AUEEaMlTegFBBGjGEg0giABNbWxu3ts1BkAQAVqpW3rnxgAIIkAr+7b0AoII0Iq+CCCIAE3VLb07xgAIIkAr9Sm9M2MABBGghbpEs28MgCACtFK39D41BkAQAVp5YksvIIgALXlKLyCIAM3MOlt6AUEEaKhu6X1gDIAgArSyZ0svIIgArbjrKiCIAE3NbekFBBGgpbqld8MYAEEEaMVTegFBBGhmVj52jQEQRIBWdmzpBQQRoCV3XQUEEaAZT+kFBBGgqbql95ExAIII0MquLb2AIAK0pC8CCCJAM/WKyBNjAAQRoJVHtvQCggjQkiUaQBABmvGUXkAQAZp6YEsvIIgALXlKLyCIAM1YogEEEaCpjc3Ne57SCwgiQDN1S+/cGABBBGhl35ZeQBABWtEXAQQRoClbegFBBGiqbumdGQMgiAAt1CWafWMABBGglbql96kxAIII0MoTW3oBQQRoyVN6AUEEaGbW2dILCCJAQ3VL744xAIII0MquLb2AIAK04q6rgCACNDW3pRcQRICW6pbeDWMALuuT8vG/y8e3RjFqh0bAhNSn9N49Onr9k1EAFwaRv/u3f31hDMASzcrHbvl4aBTARSzNAKuws7l574ExAIII0MqeLb2AIMJY6Q/EZ0svcKH/bgS0sFicvur7ft696RMQ16wc57/V420UwHlcEaGl7c6VkQx2bekFBBFGZ9jeuW0SKXhKL3AuSzM0tVicnvR9f6t8OTeN0G6Xj0/L8f7GKICzbhkBY1DOll8KIylsHx29PjAG4C1LM4zmDarTF8nAEg0giDA++iJp1BCybwzAWzoijIa+SBq29AK/0hFhdPRFUqhXwLaOjl4fGwXkZmmGMdIXic9dVwFBhHHSF0ljY3Pz3q4xQG46IoySvkga98tx/rYeb6OAnHREGDV9kRTqFbDfDVfCgGQszTB2+iLx6YtAYpZmGLXF4vTnvu//Ur7cMY3Q7tjSC4IIjDWM6IvkUPsi/6ccb1fAIBEdESZjc/NevSPnA5MI7fjo6PVdY0jx++zEIu/v+DsnG5+YCRPysHxslI+ZUYRVt/Q+LS9UT40idAipx/eJSeQLIeVj6/3/0hURpvYCVoPIdyYRXr3r6qEx+B0mjA/eTdmuGSZl+CF+bBLheUpv4GNrBCk9/tAjHQQRphhGnpdPByYR2swbVjzDksyGSaTzorxuv/jQPxREmKraFzkxhtAelDeuHWMIE0JqANELyefCq9iCCJPkeTRp7JY3sJkxhOAKVz71dfrhRXdNFkSYchjRF4mv9kT2jWHaLMmk9cFeyFluaMak1Ttx9n1fX+DumEZYt+sN7cqxPjSKSYaQ+vv5pUmkU3shzy7zP3RFhAj0ReJ7MryhMT2WZPK50tVqQYTJ0xdJY9+W3mkpx+tRZ0kmm0v1Qs6yNEMIi8Xpj/WhaeXLz00jrBpCbpdj/ZVRTCKEzLo3SzKfmkYqfywh5Our/AuuiBCG+4uksFPe4DxvaBr2hvBIHh+9X4ggQhb6Igne4GzpHbdhSWZuEqlcexejIEIo+iIpfNYpQI45hNSQ6MZluVy5F3KWjgjh6IukMLOld5zKcan3fbGdPpcvbvKQSk/fJfKZWX1B1CeI7e5lbpjE2n7n6pLMrkmk8rz8Dt7oxpKWZohMXyQ+T+kdTwiZdZZksjm+aQgRRAhNXyQFD1IbUSjs7JLJZGmvrzoihKYvksL9coy/L8f6B6NoY1iS+QeTSKX2Ql4t4/9IR4QsL5T6IvHPzn533dY+N/rdmpVP33WuhmTyfBlLMm9ZmiELfZHYPKW3HUsyuRwvM4QIIqShL5LCfFgiYE3cuCydlbyO6oiQhr5ICp+XY/xVPdZGsfIQMus8SyabpfVCznJFhFQ8jyYFd11d35wtyeRReyEree0URMhIXyS2jXK27qZaK2RJJp2l90IEEVLTF0nhUXmz9Ea5mhAy69y7JZOVv14KImQNI9d+UiSTse+uqythSSaX+jC7E0EEVhNG9EVi85TeJbMkk86zVfVCzrJrhtT6vv+mfPqDM7yw7tSdUovF6SujuHEImXV2yWRyWELIw3X8Qa6IkJq+SApPypvohjHcmCWZPNb6uiiIIIzoi0RnieaGLMmks73OxyVYmoHul5udver7vp413zGNkG6X43urHOdDo7hyCJl1lmQyqb2QF+v8A10Rgf/i/iKxPbGl91osyeRReyFP1/2HCiIw0BfJ8aZqS+/lWZJJpdnrnyAC74YRfZHYZp2+yGVDSJ2VG5flsdZeiCACHw8j7i8S24PyJrtjDBeyJJNH7YUctvrDBRE4n75IbLvDGT/nsCSTSpNeiCACF9AXCa+e6e8bw7khpAY0SzI5jOJ1zvZd+IDF4vTHelfO8uXnphGSLb3nKDOpAc029hx+X066fhBEYNxhxP1FYpuX4/ttOc4nRvHrksw/mEQKj0sI+acx/EUszcDF9EVis6W3sySTzMFQyh8FQQQuoC8SXn0D3jUGu2SSOBlOrkbD0gxcgr5IeBvl+H5fjvMPGb95SzKpbJWTq5Mx/YVuOSZwpRfsWuR7YBIh1Stfd8f2Ir2Gn+lZ+fRd52pIBo/HtCTzlqUZuBp9kbiyPqXXkkwOB2MMIYIIXJG+SHjzzc17T7N8s25clsZJN7JeyFk6InBF+iLxw0g5vl/V4xw8hMzKpy/Lx6cOeXhbY15ydEUErsHzaMLbT7Cl15JMDo+Hh3mOliAC16cvEle9WhD2nholZNXC9dxhDm+0vRBBBJZAXyS8R8MbdrQQkrWUm81JN+JeiCACywsj9ZLnY5MIK+JdVy3J5LA9nCwJIpAgjOiLxBXqKb3DFR73wYlv9L0QQQSWT18krvmwzXXqIcSSTA4vptALEURgyfRFwtstb+QbE/8eLMnEN8mlYkEElhdG9EVim2xfxJJMCvVk6OFUeiFnuaEZLNFicfqq7/t65nzHNMK5XT4+Lcf4m4mFkBqeXnZuXBbdH0sI+XqKf3FXRGD59EXiqlt65xP7O1uSia/2Ql5M9S8viMCS6YuEN5m7rlqSSWHyS8KCCKwmjOiLxDWJ3Sd2yaQw2V7IWToisCL6IqHdqQ8+rMd4rH/B8verD7TbcKhCm2wv5CxXRGC19EXiejLWLb2WZFKYdC9EEIE1OdMX+ck0whnl0oclmRRCLf0KIrD6MKIvEtdGeePfHdnfyS6Z2EL0Qs7SEYE1WCxOj/u+n3XW7CO6X47tt+UYn7T+iwxLMk8dktBC9ELOckUE1qdeFTk2hpCa33XVkkwKYXohggg0MFxKreVVfZF4ZiMIAZZkYgu7xGtpBtZosTj9se/7f+/saIiobun9a12GW/cfbEkmvHryslVOZn6M+M3dcnxh/cobRz173TGJkG8Yd8sbxskaf5bqVZD/17kaEtl2+Zk6iPrNWZqBNvRFYqphYH/Nf6YlmdieRw4hlaUZaGCxOP257/u/lC//0HkqajS3y7G9VY7x4ar/IEsy4R2XEBL+uVWCCLQLI/oicc1XvaV3WJJ5KciG9UsvpPwMhS+3W5qBhoateC9MIqRVb+m1JBPbw3V2jQQRyE1fJKZZ+VjJXVc9Sya88L2Qs+yagREYHp720hluSEvd8WCXTHi1F3I30zfsigiMgOfRhFaXaGbL/P8TQsJ6+5DMVAQRGE8YedHpi0S0tFuvW5IJL00v5Cy7ZmBE6k6L8unz8nHbNEKZ3XRLr10y4dVeyD9m/MZdEYER8Tya0J4MXaDrsiQTV+2FpF2aFURgfGFEXySu/ets6bUkE9ov9wvJPABLMzBC9cFpfd/PypcbphFKDSG3y/H96gohxJJMbL8vJx8/ZB6AKyIwXu4vEtPOcIXjsizJxPWshJDD7ENwHxEYMfcXCatejv/d0An62PGvgWXfuEI6LMd/yxhcEYFR0xcJ68Kn9A5LMntGFTaIbhvDGzoiMHL6ImHVLb1/K8f31Xn/sPyzLx3zsNL3Qs5yRQSmQV8kpt3ztvTaJROaXsh7dERgIvRFwqoBc+ttX8SzZELTCzmHKyIwEfoiYdWA+eTMf7ZLJia9kA9wRQQmppwx1zeqHZMIZ3t4s3ppFCFtWZI53ydGAJPzeDiLVmSMZa9za/+o9EI+whURmCB9EZgMvZAL6IjABOmLwCTohVyC+4jARLm/CIze35eThhNj+DhXRGDa3F8ERvq7OVy55AI6IjBx+iIwOgclhFiSuSRXRGDi9EVgVE7Kx0NjuDwdEQhAXwRGY0sv5GpcEYE49EWg8e+gXsjV6YhAIPoi0IxeyDW5IgKB6ItAEyedXsi16YhAMPoisHZ6ITfgigjEpC8Ca/pd0wu5GR0RCEpfBFZOL2QJXBGBoPRFYKVOOr2QpdARgcD0RWBl9EKWxBURiE9fBJbroV6IIAJcUnnBrI8ir5eQfzINuLEX5XfqhTEIIsDVwoi+CNyc36MV0BGBJPRF4EbqFcVtvZDlc0UEctEXgWv+7uiFCCLADemLwLXohQgiwBLDiHVuuDy/LyumIwIJ6YvApeiFrIErIpCXvghc8DuiFyKIACuiLwIfpRciiABrCCPWv+G3/F6skY4IJKcvAu/QC1kzV0SArtMXgV9/F/RCBBFgzfRF4Bd6IQ1YmgF+sVic/tj3/b+XLx+YBgkdlxDye2NYP1dEgF8NZ4POCMnml16IMQgiwDjoi5DNQ+VUQQQYCX0RknlefuYPjKEdHRHgN/RFSKL2QizJNOaKCHAufRGC0wsZiVtGAHzM5ua97zo3OyOebUsy4+CKCHDhC3anL0IseiEj4ooIcKHNzXu1K7JvEgRQeyF3jWE8lFWBCy0Wpz/0ff9Z+fK+aTBh9creVvl5doVvRFwRAS5NX4SJ0wsZIR0R4Eov5J2+CNOkFzJSrogAV6IvwgQdlhCyZQzjpCMCXIm+CBNTr+D9ffm5/dkoxskVEeBa9EWYiK2jo9eHxjBeOiLAdemLMHbPhJDxc0UEuDZ9EUZML2QidESAa9MXYaT0QibEFRHgxvRFGBm9kAnREQGWQV+EsdALmRhXRICl0BdhBPRCJkhHBFgKfREa0wuZKFdEgKXSF6ERvZCJ0hEBlk1fhHXTC5kwV0SApdMXYY30QiZORwRYOn0R1uSkfGzphUybKyLAyuiLsGJ3j45eHxvDtOmIAKukL8KqPBZCBBGAjypvFCfl00OTYMkOys/Wc2OIQUcEWCl9EZashtvf64XEoSMCrIW+CEuiFxKMpRlgXfRFuCm9EEEE4Hr0RbghvZCgdESAtdEX4ZpqiNULCUpHBFg7fRGuSC8kMEszQAv6IlyWXoggArBc+iJckl5IAjoiQBP6IlyghlW9kAR0RICm9EU4R12227Ikk4OlGaA1fRHepxciiACsh74I73lRfiZeGEMeOiJAc/oiDOpVkC/0QnLREQFGQ18kNb2QpCzNAGOiL5KXXoggAtCWvkhaeiGJ6YgAo6Ivko5eSHI6IsAo6YukoBeCpRlgtPRF4tMLQRABxklfJDy9EH6hIwKM1tAXmXWWaKKpIXNbL4TKFRFgtDY379XS6twkwhEuEUSASdgb3rSIZ38ImggiAONT3qQelU8PTCKsGkL2jQEdEWCMIWTDm1QKs77vby0Wp4dGkZf7iABjCyH1TLneQ2RmGmnUe4kII0lZmgHGRi8kH30RQQSgPb2QtPRFEtMRAcYSQvRCctMXSUpHBBhDCNEL4S19kWQszQBjoBfCW/oiggjA+uiF8B59kWR0RICWIUQvhPPoiySiIwK0CiF6IVxEXyQBSzNAK3ohXERfRBABWD69EC6phpCXxhCbjgiw7hAyL5++NAku6Xbf958tFqffGIUgAnDTEFLPcP+lfHxqGlzB/RJGvi9h5AejiMfSDLBOdYeMNX+uY68E2ZkxCCIA11LeRJ6WT3OT4JrcXyQoSzPAOkJIDSB7JsEN6YsIIgBXDiF6ISyTvkgwlmaAVdMLYdn0RQQRgIvphbAi+iKBWJoBVhVCagDRC2FV9EUEEYAPhhC9ENZBXyQASzPAKuiFsC76IoIIwH/RC2HN9EUmztIMsMwQUgOIXgjrpi8iiABCiF4ITemLTJSlGWBZ9EJoTV9EEAEy0gthJPRFJsjSDHDTEFIDiF4IY6EvIogAiUKIXghjpC8yIZZmgJvQC2Gs9EUEESAyvRBGTl9kIizNANcJITWA6IUwdrUvMlssTr8yCkEEiBNC9EKYko0SRv5awsixUYyTpRngql52eiFMy24J0BvGIIgAE1dezHfrGaZJMDE1OO8NV/MQRICJhpAH5dMjk2CiaoDeNYbx0REBLhNCZuXTP3d6IUw8jOiLjI8rIsBluF8IUeiLCCLAlOiFEIy+iCACTCiE6IUQkb7IiOiIAB8KIbNOL4TAYURfZBxcEQE+RC+E6PRFBBFgjPRCSEJfRBABRhhC9ELIRF+kMR0R4GwImXV6ISQMI/oi7bgiApylF0JW+iKCCNCSXgjJ6YsIIkDDEKIXAvoiTeiIgBAy6/RC4Ncwoi+yXq6IAHoh8C59EUEEWAe9EDiXvoggAqwhhOiFwIfpi6yJjgjkDCGzTi8ELgwj+iKr54oI5KQXApezpy8iiABLpBcCVw/u+iKCCLCcELLT6YXAVc3Kx54xrIaOCOQJIfUqyJedXghcx52+7/+2WJy+MorlumUEkCKE1MvKLztLMnBTd4+OXiuvLpGlGchBLwSWQ19EEAGuYuiF7JgELMWs0xdZKh0RiB1C9EJg+fRFlkhHBOKGEL0QWC19kSWwNANx6YXAaumLCCLAefRCYC1mnb7IjemIQLwQohcC66MvckM6IhArhOiFQBv6ItdkaQZi0QuBNvRFBBHITS8Empp1+iLXoiMCMUKIXgi0py9yDToiMP0QohcC46IvcgWWZmD69EJgXPRFBBHIQS8ERmnW6Ytcmo4ITDeE6IXAeOmLXJKOCEwzhOiFwDToi1zA0gxMk14ITMNLfRFBBELRC4FJqSFk3xg+TEcEphVC9EJgemZ9399aLE4PjUIQgSmHkLdnVjPTCOnZ2zctowhpXsLItyWMnBjFuyzNwHTohcR1fHT0+mn5/LB8/GQcYbm/iCAC01RevB51eiFR1eCxXb8oYaSeLT8zkrD0Rc5haQbGH0I2vHiF9qcSQL5++x/qfSf6vp93lmii0hd5jysiMO4Q4gwqtsMSQp6f89/XKySWaOJ6Un6358YgiMAU7DkzDqsGjYfn/YMSTj74zwhDX0QQgXEbeiEPTCKsZ0MnpPtAGDkonw6MKSxXOwURGHUIqb2QXZMI60NLMu+ziya2efldfyqIAGMLIc6UYrv0soslmhTS90UEERgfvZDYHn9sSeacMFKXZ54bW2ip+yKCCIyIXkh4ByVYvLjGv1fvLXJifGGlvgrqPiIwnhDifiGx1WWWrcXi9Oer/ov13+n7/vvOTe0iS3t/EUEExhFC6hnRy+HMiJi+ODp6fXzdf7k+o6S8UdWfj/tGGVbK59FYmoFx0AuJ7WDoetxUXaI5Ns7Q0vVFBBFoTC8kvKXtfLGLJoV0fRFLM9A2hOiFxHejJZn3LRanP9YuQflybrRhpeqL3HK8oVkIqWc+33WWZCKrSzLbK/r5qT87G0Yc2lb5+QkfRizNQDt6IbGddKtdRrFEE1/ti4R/jRBEoAG9kBQeDp2OlRiWex4bc2gp+iI6IrD+EKIXEt/zEhT+vOo/ZLE4fdX3/bxzZS2y23XbdjnW30T9Bl0RgfWGEM+Rie+ke7PNdl08GC++R+W1I+wVVEEE1ksvJL6VLsm8b3huzTNjj//aEbUvIojAmuiFpPC8xS6H8mfWh+IdGn9oYa+mCiKwnhBSeyG7JhHaSdf2ykTdJmyJJraN8loS7nVEWRVWH0Le3i/kU9MIbfvo6PUPrf7w4cF4/7d8+QeHIrT79QGI5Xj/EOUbckUEVq9eTvUwu9iejeHGU8PzbA4cjvBC9UUEEVih8mLxtHMr7uiOSwB4OqK/j1008YXqiwgisLoQUgPIE5MIb1R3OPVgvDTC9EV0RGA1IaSesfxLpxcSXV2S+aex/aVqf6DeBKt8ed8hCi1EX8QVEVgNvZD4xrYk85uQ1L3ZyUNsk++LCCKwZHohaYx6+cMSTRqT74tYmoHlhpAaQPZMIrxRLsm8b7E4PbFEk8Kkn0cjiMDyQoheSA51SeaLqfxlyxvUX8qnz+ublUMX2mT7IpZmYHn0QuKb3HKHJZpUJtkXEURgCfRC0qhLMsdT+0sPf2cPxotvkn2RW44b3DiE1ADy0iTCOyxv6FsT/1mtjxrYcCjDqw9ffDyVv6wrInCzF/awT8TkHVGWNyzR5PCovDZN5knfggjcjF5IDnVJ5mTq38SwRPPY4UxhMn0RSzNwTUMvxC3c45v8ksw5P7t1KXHu0IZXg+fWUFgeLVdE4Hov5HMhJIWoO048GC+H2gca/fNo3EcErh5C3C8kjz+Vs8mvo31Ti8XpT33f/0f35v4iBA8j5Vj/tRzz0e72ckUErk4vJIeDEkKeR/3mhu/twGFOYbecQI12t5QgAlfgfiFpZLkJmCWaHOqJ095wNVcQgQmHkBpA9EJyeDj2gt8yuOtqKqPti+iIwOVCiF5IHnVJJs1dSOuzSfq+r29Sdxz6+GFkjH0RV0TgcvRCcsh6hcASTR6j64sIInCB8ktbL2fOTSLHG3KGJZn3Dd/ztsOfwuj6IoIIfDyE1NskPzKJFOqSTNpdJOV7PyyfnvsxSGFUfRFBBD4cQmb1zMEkUlDafKN2Y06MIYWd8hq3I4jAuOmF5LGdcUnmfXbRpDOKvoggAucYeiEel57D82FZgs4STTKj6IsIIvDbEKIXksdJ92Y5gnfDSH1C77FJpNC8LyKIwLshZNbphWTy0JLMh2djBGk07YsIIvAuvZA8LMl8RJlNvSLialEezfoigggM9EJSOfEme6kw8rSzRJNFs76IIAKdXkhClmSuMKvOXVezaNIX8awZhJA3vZB/7jxHJou6JPNnY7icxeL0x77v/6N8+blp5Agj634ejSsioBeSyfGwI4QrKDOr23kPTSKNtfZFBBFS0wtJx06Qm83OEk0Oa+2LCCJkDiF6Ibk8G3aCcA1ldiedgm8ma+uL6IiQNYTMOr2QTOqSzBfGcDOLxemrvu/rG9Qd08gRRsrx/ls97qv8Q1wRISu9kFwsySx3lpZo8lh5X0QQIR29kHQsySyRB+PlPHFbZV9EECFbCNELyeV4uCkXyw0jB+XTgUmkMetW+OgLQYRMIWSlv0yMjjP31bJEk8uD8hq6kpM4QYRM9EJysSSzQsMSzbZJpLKSvoggQgp6IekcDjfhYrVh5LB8MudkJ3TL7osIImQIIXohuViSWa96b5ETY0hj1i15idt9RIgeQupVkLok434hefypnKl/bQzrsVic/tz3/fflyx3TSOPOMu8vIogQOYR8NoSQmWmkUZdk/mgMaw8jJ+WNqf6+3TeNND4vx/yr+lDEm/4fWZohMr2QXCzJNDQ8TFA5OJel9EUEEUIqvxw7nUvF2TwbnodCO4JgLrNuCX0RSzNEDCH1KsiXnV5IJgfDGTkN1cv0fd/fKl/OTSONG/dFbpkhwUJIvUz4srMkk0ldkvndcF8LxvF7+J3fwXTuXve+PZZmiEYvJJ+HQsj4jknnrqvZXLsvIogQ6Sxsp9MLyeZgeO4JIzKcGT8ziVRm3TX7IjoiRAkheiH51DPurXofC6MYn9oZ6Pt+3tk+n8m1+iKuiBAhhHw2JHHPkcnFkswEjlFniSabKz+PRhAhxA9+pxeSjSWZCRi2U9vNlM+V+iKCCJOmF5KSG5dNK4y8qMHRJFKZdVfoiwgiTDmE1KsguyaRzrYlmcmxRJPPg/IafamHjQoiTDWE6IXk9Hx49DwTMgRHV7HyqX2RuSBC2B/wTi8km5POltAph5G6PGOJJp8L+yKCCJOjF5KWXTIBjuEQKMnj7VPQP8h9RJhaCHG/kJzqksyfjWHa6j1f+r7/3olEOrP6DKJy/A8FEaYeQt4m65lppFLPoL9w47IwYeSkvCnV3+X7ppHKvBz3b+vxf/8fWJphSvRCcrIkE8+zzhJNRuf2RQQRJkEvJC27ZAKyiyatc/silmaYQgjRC8npuLxhbRtDTMMSza3y5dw0UvlNX8QVEcYeQtwvJC9nzMGVoPm0Bk6TSOfJ2fuLCCKMnV5ITs+GR8kjcBLTr30RQYTR0gtJ63g4UyaBIXC6UV0+v/ZFbpkFIw0h9SrIdyaR0l1XQ1L+ztffd1c/83n2iRkwUhvOklI6FkLSqsXkHWPI5z8FGACKq7ssGGXGuAAAAABJRU5ErkJggg==" alt="">
+</div></div>
+
+<div class="wrap">
+<nav class="toc" aria-label="Contents">
+  <h4>Contents</h4>
+  <ol>
+    <li><a href="#before">Before you start</a></li>
+    <li><a href="#setup">Project setup</a></li>
+    <li><a href="#import">Import field data</a></li>
+    <li><a href="#control">Set control points</a></li>
+    <li><a href="#review">Review raw observations</a></li>
+    <li><a href="#define">Define the traverse</a></li>
+    <li><a href="#adjust">Adjust the traverse</a></li>
+    <li><a href="#example">Worked example</a></li>
+    <li><a href="#lsa">Least-squares alternative</a></li>
+    <li><a href="#report">Reports &amp; QA</a></li>
+    <li><a href="#trouble">Troubleshooting</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="before">
+  <div class="eyebrow">01 · Overview</div>
+  <h2>Before you start</h2>
+  <p>A traverse adjustment spreads the measurement error found at closure across the traverse legs, so the final coordinates are consistent with fixed control. TBC handles this with two commands, <b>Define Traverse</b> and <b>Adjust Traverse</b>, and can also run a full <b>least-squares network adjustment</b>.</p>
+  <div class="grid">
+    <div class="card red"><h4>Closed loop</h4><p>Starts and ends on the same known point, with a known backsight azimuth. Gives a check on angles and distances, but cannot detect a scale or azimuth error in the starting control.</p></div>
+    <div class="card"><h4>Closed connecting</h4><p>Starts on one known pair of points and ends on a different known pair. Preferred, because it checks against independent control.</p></div>
+    <div class="card"><h4>Open traverse</h4><p>Does not close on known control. You can't compute a misclosure, so there is nothing to adjust. Avoid open traverses for control work.</p></div>
+  </div>
+  <h3>You will need</h3>
+  <ul>
+    <li>Trimble Access job files (<code>.job</code> or JobXML <code>.jxl</code>) or other supported raw data from the total station.</li>
+    <li>Published coordinates for at least the start point and backsight, and for the closing point and foresight on a connecting traverse.</li>
+    <li>The project's datum, coordinate system, and units, plus the accuracy standard the job must meet (contract, agency such as WSDOT, or ALTA/NSPS).</li>
+    <li>A TBC license that includes survey adjustment features.</li>
+  </ul>
+  <div class="call note"><b class="lbl">Version note</b><p>Menu locations below follow the ribbon layout in current TBC releases. If your version looks different, use the <b>Command search</b> box (top right of the ribbon) and type the command name, for example “Define Traverse.”</p></div>
+</section>
+
+<section id="setup">
+  <div class="eyebrow">02 · Project</div>
+  <h2>Project setup</h2>
+  <ol class="steps">
+    <li><strong>Create a new project</strong>Choose <span class="path">File › New Project</span> and pick the Parametrix survey template if one exists for your office. Otherwise use the default metric or US survey foot template.</li>
+    <li><strong>Set the coordinate system</strong>Go to <span class="path">Project Settings › Coordinate System › Change</span>. Select the zone, for example <i>NAD83(2011) / Washington North (US ft)</i>, and the geoid model the project calls for.</li>
+    <li><strong>Check units and the grid/ground setting</strong>In <span class="path">Project Settings › Units</span>, confirm distance (US survey ft or m), angle (DMS), and display precision. If the project is on ground coordinates, confirm the combined scale factor or project-to-ground settings before importing anything.</li>
+    <li><strong>Set computation options</strong>Under <span class="path">Project Settings › Computations</span>, confirm whether distances are reduced to grid or ellipsoid, and whether curvature and refraction corrections are applied.</li>
+    <li><strong>Save the project</strong>Save it to the project folder using the standard naming convention before you import data.</li>
+  </ol>
+  <div class="call"><b class="lbl">Watch out</b><p>The wrong vertical units or grid/ground setting is the most common cause of a traverse that “closes badly” when the field work was actually fine. Check these settings before you import.</p></div>
+</section>
+
+<section id="import">
+  <div class="eyebrow">03 · Data</div>
+  <h2>Import field data</h2>
+  <ol class="steps">
+    <li><strong>Open the Import pane</strong><span class="path">Home › Import</span>, or press <kbd>Ctrl</kbd>+<kbd>I</kbd>.</li>
+    <li><strong>Browse to the data folder</strong>Select the <code>.job</code> or <code>.jxl</code> files and click <b>Import</b>. If TBC asks about a coordinate system mismatch, keep the <i>project</i> coordinate system unless you know the field job is correct.</li>
+    <li><strong>Check the import</strong>In the <b>Project Explorer</b>, expand <i>Station Setups</i> and <i>Points</i>. Each traverse station should have one setup (or more if you observed it in multiple sessions), with the correct backsight.</li>
+    <li><strong>Open the Plan View</strong>Make sure the shape looks right: no long spikes, no stations sitting at 0,0, and the traverse closes back on itself visually.</li>
+  </ol>
+</section>
+
+<section id="control">
+  <div class="eyebrow">04 · Control</div>
+  <h2>Set control points</h2>
+  <p>The adjustment holds your control fixed and moves everything else. TBC needs to know which coordinates are “truth.”</p>
+  <ol class="steps">
+    <li><strong>Enter or import control coordinates</strong>Use <span class="path">Survey › Point</span> (Create Point), or import a control CSV with <span class="path">Home › Import</span>.</li>
+    <li><strong>Set the coordinate quality to Control</strong>Select the point, open <b>Properties</b>, expand the entered coordinate record, and set <b>Coordinate quality</b> to <b>Control</b> (horizontal, and vertical if you are holding elevation).</li>
+    <li><strong>Match the point IDs</strong>Control IDs must match exactly the IDs used in the field (for example <code>CP1</code>, not <code>CP-1</code>). If they don't, use <span class="path">Rename Point</span> or merge the duplicates.</li>
+    <li><strong>Verify the backsight azimuth</strong>Compute an inverse between the start point and the backsight (<span class="path">COGO › Inverse</span>) and compare it to the published azimuth or bearing.</li>
+  </ol>
+  <div class="call note"><b class="lbl">Tip</b><p>TBC builds point coordinates from a quality hierarchy. A <b>Control</b> quality coordinate outranks a measured one, so it stays fixed during adjustment. Look at the <i>Point Derivation Report</i> to see which record TBC is using.</p></div>
+</section>
+
+<section id="review">
+  <div class="eyebrow">05 · QA</div>
+  <h2>Review raw observations</h2>
+  <p>Fix blunders <i>before</i> you adjust. An adjustment spreads error around; it can't fix a bad observation.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Check</th><th>Where in TBC</th><th>What to look for</th></tr></thead>
+    <tbody>
+      <tr><td>Instrument &amp; target heights</td><td>Station Setup properties; observation properties</td><td>Missing or 0.000 HI/HT, or a rod height that doesn't match the field notes</td></tr>
+      <tr><td>Prism constant</td><td>Observation properties › Target</td><td>Mixed constants (for example 0 mm vs −30 mm) between setups</td></tr>
+      <tr><td>Rounds / direct &amp; reverse</td><td><span class="path">Survey › Rounds Editor</span></td><td>Large residuals in the mean turned angle; rounds outside spec</td></tr>
+      <tr><td>Backsight check</td><td>Station Setup › Backsight observation</td><td>Backsight distance or elevation residual well beyond the instrument's accuracy</td></tr>
+      <tr><td>Duplicate observations</td><td>Project Explorer › Points</td><td>The same point shot from both directions; reciprocal distances should agree within a few hundredths</td></tr>
+      <tr><td>Atmospheric / PPM</td><td>Station Setup properties</td><td>Temperature and pressure entered (or 0 ppm) applied the same way at every setup</td></tr>
+    </tbody>
+  </table></div>
+  <p>To disable a bad observation, select it and set its <b>Enabled</b> property to <b>No</b>. Don't delete it, because you want an audit trail.</p>
+</section>
+
+<section id="define">
+  <div class="eyebrow">06 · Traverse</div>
+  <h2>Define the traverse</h2>
+  <ol class="steps">
+    <li><strong>Open Define Traverse</strong><span class="path">Survey › Traverse › Define Traverse</span>.</li>
+    <li><strong>Name the traverse</strong>Use a name that includes the job and date, for example <code>PX-2601_Loop1_2026-10-08</code>.</li>
+    <li><strong>Select stations in order</strong>Click the station points in the Plan View, or type their IDs, in the order they were occupied, from the start station to the end station. TBC uses the existing setups to pick the backsight and foresight observations.</li>
+    <li><strong>Compute and inspect the closure</strong>Click <b>Compute</b>. TBC reports the <b>angular misclosure</b>, <b>linear misclosure</b> (ΔN, ΔE, ΔElev), total length, and the <b>precision ratio</b> (1:N).</li>
+    <li><strong>Save</strong>Click <b>Add</b> (or <b>OK</b>) to save the traverse to the project. It appears under <i>Traverses</i> in the Project Explorer.</li>
+  </ol>
+  <figure>
+    <svg viewBox="0 0 640 300" role="img" aria-label="Closed loop traverse diagram with misclosure">
+      <style>
+        .ln{stroke:var(--ink);stroke-width:2;fill:none}
+        .ad{stroke:var(--px-red);stroke-width:2;fill:none;stroke-dasharray:6 4}
+        .pt{fill:var(--bg);stroke:var(--ink);stroke-width:2}
+        .cp{fill:var(--px-red)}
+        .lb{font:600 13px "Open Sans",sans-serif;fill:var(--ink)}
+        .sm{font:12px "Open Sans",sans-serif;fill:var(--ink-2)}
+      </style>
+      <polyline class="ln" points="110,240 270,70 470,90 520,230 128,258"/>
+      <polygon class="ad" points="110,240 266,66 466,86 516,226"/>
+      <rect class="cp" x="102" y="232" width="16" height="16"/>
+      <line x1="40" y1="276" x2="110" y2="240" class="ln" stroke-dasharray="2 4"/>
+      <polygon points="40,276 32,266 48,266" fill="var(--ink)" transform="rotate(-27 40 276)"/>
+      <circle class="pt" cx="270" cy="70" r="7"/>
+      <circle class="pt" cx="470" cy="90" r="7"/>
+      <circle class="pt" cx="520" cy="230" r="7"/>
+      <circle class="pt" cx="128" cy="258" r="5"/>
+      <text class="lb" x="70" y="226">CP1</text>
+      <text class="lb" x="250" y="54">T2</text>
+      <text class="lb" x="480" y="80">T3</text>
+      <text class="lb" x="534" y="236">T4</text>
+      <text class="sm" x="22" y="296">Backsight</text>
+      <text class="sm" x="138" y="282">computed CP1 · red gap = linear misclosure</text>
+      <line x1="118" y1="247" x2="128" y2="258" stroke="var(--px-red)" stroke-width="2"/>
+            <line x1="24" y1="26" x2="50" y2="26" class="ln"/><text class="sm" x="56" y="30">field (unadjusted)</text>
+      <line x1="24" y1="48" x2="50" y2="48" class="ad"/><text class="sm" x="56" y="52">adjusted</text>
+    </svg>
+    <figcaption>Figure 1: In a closed loop, the computed coordinates of the closing point miss the true control position. That vector is the linear misclosure. (Not to scale; error exaggerated.)</figcaption>
+  </figure>
+  <div class="call"><b class="lbl">Stop and check</b><p>Compare the angular misclosure to the allowable value, usually <code>K·√n</code> seconds, where <i>n</i> is the number of angles and <i>K</i> comes from your specification. If it's over the allowable value, or the precision ratio is below spec, go back to <a href="#review">Review raw observations</a>. Don't adjust a traverse that fails closure.</p></div>
+</section>
+
+<section id="adjust">
+  <div class="eyebrow">07 · Adjustment</div>
+  <h2>Adjust the traverse</h2>
+  <ol class="steps">
+    <li><strong>Open Adjust Traverse</strong><span class="path">Survey › Traverse › Adjust Traverse</span>.</li>
+    <li><strong>Select the traverse</strong>Pick the traverse you defined from the drop-down list.</li>
+    <li><strong>Choose the angular adjustment</strong>Typically <b>Proportional to distance</b>, or <b>Equal</b> distribution when the legs are similar in length.</li>
+    <li><strong>Choose the linear (distance) adjustment</strong>
+      <ul>
+        <li><b>Compass (Bowditch)</b>: corrections in proportion to leg length. This is the default choice when angles and distances are measured with similar precision, which is true of modern total stations.</li>
+        <li><b>Transit</b>: corrections in proportion to the latitude and departure of each leg. Use it only when angles are much more precise than distances.</li>
+      </ul>
+    </li>
+    <li><strong>Choose the elevation adjustment</strong>Distribute the vertical misclosure in proportion to distance, or leave elevations unadjusted if you are carrying elevations from a separate level loop.</li>
+    <li><strong>Click Adjust</strong>TBC writes adjusted coordinates to every intermediate traverse station and to any sideshots taken from them. The traverse icon in the Project Explorer shows that it's adjusted.</li>
+  </ol>
+  <div class="call note"><b class="lbl">Sideshots move too</b><p>Topo shots taken from a traverse station are recomputed from the adjusted station coordinates. That's why you adjust the traverse <i>before</i> you build surfaces or linework.</p></div>
+</section>
+
+<section id="example">
+  <div class="eyebrow">08 · The math</div>
+  <h2>Worked example: compass rule</h2>
+  <p>This is a four-sided closed loop starting and ending at <b>CP1</b> (N 5000.000, E 5000.000), in US survey feet. The azimuths shown have already been angularly balanced.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Leg</th><th>Azimuth</th><th>Dist (ft)</th><th>Latitude</th><th>Departure</th></tr></thead>
+    <tbody>
+      <tr><td>CP1 → T2</td><td class="n">45°00′00″</td><td class="n">412.38</td><td class="n">+291.597</td><td class="n">+291.597</td></tr>
+      <tr><td>T2 → T3</td><td class="n">135°00′04″</td><td class="n">385.09</td><td class="n">−272.305</td><td class="n">+272.294</td></tr>
+      <tr><td>T3 → T4</td><td class="n">224°59′57″</td><td class="n">412.33</td><td class="n">−291.566</td><td class="n">−291.557</td></tr>
+      <tr><td>T4 → CP1</td><td class="n">315°00′05″</td><td class="n">385.16</td><td class="n">+272.356</td><td class="n">−272.343</td></tr>
+      <tr class="tot"><td>Σ</td><td></td><td class="n">1594.96</td><td class="n">+0.082</td><td class="n">−0.009</td></tr>
+    </tbody>
+  </table></div>
+  <div class="formula">
+    Linear misclosure = √(0.082² + 0.009²) = <b>0.082 ft</b><br>
+    Precision ratio = 1594.96 / 0.082 ≈ <b>1 : 19,400</b><br>
+    Compass correction (leg i): C<sub>lat</sub> = −ΣLat × (D<sub>i</sub> / ΣD) &nbsp;·&nbsp; C<sub>dep</sub> = −ΣDep × (D<sub>i</sub> / ΣD)
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Station</th><th>C<sub>lat</sub></th><th>C<sub>dep</sub></th><th>Adjusted N</th><th>Adjusted E</th></tr></thead>
+    <tbody>
+      <tr><td>T2</td><td class="n">−0.021</td><td class="n">+0.002</td><td class="n">5291.576</td><td class="n">5291.599</td></tr>
+      <tr><td>T3</td><td class="n">−0.020</td><td class="n">+0.002</td><td class="n">5019.251</td><td class="n">5563.895</td></tr>
+      <tr><td>T4</td><td class="n">−0.021</td><td class="n">+0.002</td><td class="n">4727.664</td><td class="n">5272.341</td></tr>
+      <tr class="tot"><td>CP1 (close)</td><td class="n">−0.020</td><td class="n">+0.002</td><td class="n">5000.000</td><td class="n">5000.000</td></tr>
+    </tbody>
+  </table></div>
+  <p>The adjusted traverse closes exactly on CP1. Your TBC <i>Traverse Adjustment Report</i> should show the same values. Working one traverse by hand like this is a good way to confirm you understand what the software is doing.</p>
+</section>
+
+<section id="lsa">
+  <div class="eyebrow">09 · Alternative</div>
+  <h2>Least-squares alternative</h2>
+  <p>Use <span class="path">Survey › Adjust Network</span> instead of (not in addition to) a compass adjustment when the traverse has redundant measurements, such as cross-ties, reciprocal shots, multiple loops, or GNSS-tied control.</p>
+  <ol class="steps">
+    <li><strong>Set the standard errors</strong>In the Adjust Network pane, open <b>Standard Errors</b> and enter values that match your instrument (for example 1″ or 2″ for angles, and 1 mm + 1.5 ppm for EDM), plus centering errors for the instrument and target.</li>
+    <li><strong>Select the fixed control</strong>On the <b>Points</b> tab, check which points are fixed horizontally and vertically.</li>
+    <li><strong>Run a minimally constrained adjustment first</strong>Hold one point and one azimuth. Look at the <b>Reference Factor</b> (aim for ~1.0) and the <b>Chi-square test</b> (should pass). Flag any residuals over about 3σ.</li>
+    <li><strong>Run the fully constrained adjustment</strong>Fix all trusted control, re-run, and accept the result.</li>
+  </ol>
+  <div class="call"><b class="lbl">Don't mix methods</b><p>Pick one method per traverse. Running a network adjustment over a traverse that already has a compass adjustment can produce coordinates that don't match either report. If you switch methods, remove the traverse adjustment first.</p></div>
+</section>
+
+<section id="report">
+  <div class="eyebrow">10 · Deliverables</div>
+  <h2>Reports &amp; QA</h2>
+  <ul>
+    <li><span class="path">Reports › Traverse Adjustment Report</span>: misclosures, corrections, and adjusted coordinates. Attach it to the survey QA file.</li>
+    <li><span class="path">Reports › Network Adjustment Report</span>: residuals, error ellipses, and statistical tests (least squares only).</li>
+    <li><span class="path">Reports › Point Derivation Report</span>: confirms which coordinate record each point is using.</li>
+    <li>Export the adjusted coordinates with <span class="path">Home › Export</span> using the office's standard PNEZD CSV format, and note the adjustment method and precision ratio in the survey narrative.</li>
+  </ul>
+</section>
+
+<section id="trouble">
+  <div class="eyebrow">11 · Fixes</div>
+  <h2>Troubleshooting</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>Angular misclosure is huge (degrees)</td><td>Wrong backsight point, or an orientation error at setup</td><td>Check the backsight ID and azimuth on each Station Setup</td></tr>
+      <tr><td>Misclosure is roughly one leg length</td><td>A station was skipped or selected out of order in Define Traverse</td><td>Redefine with stations in occupation order</td></tr>
+      <tr><td>Error grows with distance (scale-like)</td><td>Grid/ground mix-up, wrong combined scale factor, or ppm not applied</td><td>Recheck Project Settings › Computations and the setup atmospherics</td></tr>
+      <tr><td>Elevation misclosure only</td><td>Wrong HI/HT, or a prism height changed without being recorded</td><td>Compare to field notes and edit the heights in properties</td></tr>
+      <tr><td>Adjust Traverse is grayed out</td><td>End points are not Control quality, or the traverse isn't saved</td><td>Set the coordinate quality to Control; save the traverse</td></tr>
+      <tr><td>Sideshots didn't move</td><td>The shots came from a different setup of the same point</td><td>Merge the setups, or include that setup in the traverse</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="checklist">
+  <div class="eyebrow">12 · Sign-off</div>
+  <h2>Checklist</h2>
+  <ul class="check">
+    <li><input type="checkbox" id="c1"><label for="c1">Coordinate system, geoid, units, and grid/ground confirmed</label></li>
+    <li><input type="checkbox" id="c2"><label for="c2">Field data imported; plan view looks right</label></li>
+    <li><input type="checkbox" id="c3"><label for="c3">Control points set to Control quality, with IDs matching</label></li>
+    <li><input type="checkbox" id="c4"><label for="c4">HI/HT, prism constants, and atmospherics checked</label></li>
+    <li><input type="checkbox" id="c5"><label for="c5">Traverse defined; angular and linear closure within spec</label></li>
+    <li><input type="checkbox" id="c6"><label for="c6">Adjustment run (one method only) and report saved</label></li>
+    <li><input type="checkbox" id="c7"><label for="c7">Adjusted coordinates exported and adjustment noted in the narrative</label></li>
+    <li><input type="checkbox" id="c8"><label for="c8">Reviewed by PLS / survey lead</label></li>
+  </ul>
+</section>
+
+</main>
+</div>
+
+<footer><div class="in">
+  <img src="data:image/png;base64,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" alt="Parametrix">
+  <span>Internal training material · Traverse Adjustment in TBC · Verify menu paths against your installed TBC version</span>
+</div></footer>
+
+</body>
+</html>
