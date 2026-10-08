@@ -133,8 +133,26 @@ footer img{height:18px;filter:brightness(0) invert(1)}
   header.top .tag{display:none}
 }
 @media print{
-  header.top{position:static} nav.toc{display:none} .wrap{grid-template-columns:1fr}
-  section{break-inside:avoid-page} .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:letter;margin:.5in .5in .6in}
+  html{font-size:10.5pt}
+  body{font-size:10.5pt;line-height:1.5}
+  header.top{position:static;border-bottom:none}
+  header.top .in{padding:0 0 10px}
+  nav.toc{display:none}
+  .hero .in{padding:32px 24px 28px}
+  .hero h1{font-size:30pt;max-width:none}
+  .hero p{font-size:12pt}
+  .wrap{display:block;padding:20px 0 0;max-width:none}
+  section{margin-bottom:26px;scroll-margin-top:0}
+  h2{font-size:17pt;break-after:avoid}
+  h3,.eyebrow{break-after:avoid}
+  .steps>li,.call,figure,.card,tr,.formula,.refs li,.check li{break-inside:avoid}
+  .tbl{overflow:visible;break-inside:avoid}
+  section>p:has(+ .tbl){break-inside:avoid;break-after:avoid}
+  p{orphans:3;widows:3}
+  table{min-width:0}
+  footer{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 </style>
 </head>
