@@ -104,6 +104,10 @@ tr.tot td{font-weight:700;background:var(--surface)}
 .check input{margin-top:5px;accent-color:var(--px-red);width:16px;height:16px;flex:none}
 .check label{cursor:pointer}
 
+.unv{color:var(--accent);font-weight:700;font-size:.8em;vertical-align:super;line-height:0;margin-left:1px;cursor:help}
+th .unv{color:#fff}
+.legend{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin-top:8px}
+.legend b{color:var(--accent)}
 sup.ref{font-size:.68em;line-height:0;margin-left:2px}
 sup.ref a{text-decoration:none;font-family:"JetBrains Mono",monospace}
 .refs{list-style:none;padding:0;counter-reset:r;font-size:14px}
@@ -189,19 +193,20 @@ footer img{height:18px;filter:brightness(0) invert(1)}
     <li>Trimble Access job files (<code>.job</code> or JobXML <code>.jxl</code>) or other supported raw data from the total station.</li>
     <li>Published coordinates for at least the start point and backsight, and for the closing point and foresight on a connecting traverse.</li>
     <li>The project's datum, coordinate system, and units, plus the accuracy standard the job must meet (contract, agency such as WSDOT, or ALTA/NSPS).</li>
-    <li>A TBC license that includes survey adjustment features.</li>
+    <li>A TBC installation appropriately licensed for the survey and adjustment commands used here. Trimble's help doesn't tie these commands to a specific license tier, so check with your CAD/software administrator.</li>
   </ul>
-  <div class="call note"><b class="lbl">Version note</b><p>Menu locations below follow the ribbon layout in current TBC releases. If your version looks different, use the <b>Command search</b> box (top right of the ribbon) and type the command name, for example “Adjust Traverse.”</p><p>Superscript numbers such as <sup class="ref"><a href="#refs">[1]</a></sup> link to the <a href="#refs">References</a>. Steps with a Trimble citation were checked against Trimble's online TBC help. Steps without one are standard office practice, so check them in your copy of TBC.</p></div>
+  <div class="call note"><b class="lbl">Version note</b><p>Menu locations below follow the ribbon layout in current TBC releases. If your version looks different, search TBC for the command name, for example “Adjust Traverse.”</p><p>Superscript numbers such as <sup class="ref"><a href="#refs">[1]</a></sup> link to the <a href="#refs">References</a>. Steps with a Trimble citation were checked against Trimble's online TBC help. Steps without one are standard office practice, so check them in your copy of TBC.</p>
+  <div class="legend"><b>†</b><span>A menu path, button, field, or option that is <i>not</i> confirmed by the cited TBC help. It's shown as a typical location; verify it in your TBC version.</span><b>‡</b><span>Taken from Trimble Access or FieldLink help. These are <i>reference only</i> and may not be the exact TBC field name or option.</span></div></div>
 </section>
 
 <section id="setup">
   <div class="eyebrow">02 · Project</div>
   <h2>Project setup</h2>
   <ol class="steps">
-    <li><strong>Create a new project</strong>Choose <span class="path">File › New Project</span> and pick the Parametrix survey template if one exists for your office. Otherwise use the default metric or US survey foot template.</li>
-    <li><strong>Set the coordinate system</strong>Go to <span class="path">Project Settings › Coordinate System › Change</span>. Select the zone, for example <i>NAD83(2011) / Washington North (US ft)</i>, and the geoid model the project calls for.</li>
-    <li><strong>Check units and the grid/ground setting</strong>In <span class="path">Project Settings › Units</span>, confirm distance (US survey ft or m), angle (DMS), and display precision. If the project is on ground coordinates, confirm the combined scale factor or project-to-ground settings before importing anything.</li>
-    <li><strong>Set computation options</strong>Under <span class="path">Project Settings › Computations</span>, confirm whether distances are reduced to grid or ellipsoid, and whether curvature and refraction corrections are applied.<sup class="ref"><a href="#r5">[5]</a></sup></li>
+    <li><strong>Create a new project</strong>Choose <span class="path">File › New Project</span><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> and pick the Parametrix survey template if one exists for your office. Otherwise use the default metric or US survey foot template.</li>
+    <li><strong>Set the coordinate system</strong>Go to <span class="path">Project Settings › Coordinate System</span><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>. Select the zone, for example <i>NAD83(2011) / Washington North (US ft)</i>, and the geoid model the project calls for.</li>
+    <li><strong>Check units and the grid/ground setting</strong>In <span class="path">Project Settings › Units</span><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>, confirm distance (US survey ft or m), angle (DMS), and display precision. If the project is on ground coordinates, confirm the combined scale factor or project-to-ground settings before importing anything.</li>
+    <li><strong>Set computation options</strong>Under <span class="path">Project Settings › Computations</span>, confirm whether distances are reduced to grid or ellipsoid, and whether curvature and refraction corrections are applied.<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> The Computations settings page itself is documented in Trimble's help.<sup class="ref"><a href="#r5">[5]</a></sup></li>
     <li><strong>Save the project</strong>Save it to the project folder using the standard naming convention before you import data.</li>
   </ol>
   <div class="call"><b class="lbl">Watch out</b><p>The wrong vertical units or grid/ground setting is the most common cause of a traverse that “closes badly” when the field work was actually fine. Check these settings before you import.</p></div>
@@ -211,9 +216,9 @@ footer img{height:18px;filter:brightness(0) invert(1)}
   <div class="eyebrow">03 · Data</div>
   <h2>Import field data</h2>
   <ol class="steps">
-    <li><strong>Open the Import pane</strong><span class="path">Home › Import</span>.</li>
-    <li><strong>Browse to the data folder</strong>Select the <code>.job</code> or <code>.jxl</code> files and click <b>Import</b>. If TBC asks about a coordinate system mismatch, keep the <i>project</i> coordinate system unless you know the field job is correct.</li>
-    <li><strong>Check the import</strong>In the <b>Project Explorer</b>, expand <i>Station Setups</i> and <i>Points</i>. Each traverse station should have one setup (or more if you observed it in multiple sessions), with the correct backsight.</li>
+    <li><strong>Open the Import pane</strong><span class="path">Home › Import</span><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>.</li>
+    <li><strong>Browse to the data folder</strong>Select the <code>.job</code> or <code>.jxl</code> files and click <b>Import</b><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>. If TBC warns about a coordinate system mismatch, keep the <i>project</i> coordinate system unless you know the field job is correct.</li>
+    <li><strong>Check the import</strong>In the <b>Project Explorer</b>, expand <i>Station Setups</i><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> and <i>Points</i>. Each traverse station should have one setup (or more if you observed it in multiple sessions), with the correct backsight.</li>
     <li><strong>Open the Plan View</strong>Make sure the shape looks right: no long spikes, no stations sitting at 0,0, and the traverse closes back on itself visually.</li>
   </ol>
 </section>
@@ -223,10 +228,10 @@ footer img{height:18px;filter:brightness(0) invert(1)}
   <h2>Set control points</h2>
   <p>The adjustment holds your control fixed and moves everything else. TBC needs to know which coordinates are “truth.”</p>
   <ol class="steps">
-    <li><strong>Enter or import control coordinates</strong>Use the <b>Create Point</b> command, or import a control CSV with <span class="path">Home › Import</span>.</li>
-    <li><strong>Set the coordinate quality to Control</strong>Select the point, open <b>Properties</b>, expand the entered coordinate record, and set <b>Coordinate quality</b> to <b>Control</b> (horizontal, and vertical if you are holding elevation). The quality levels, from highest to lowest, are <i>Control</i>, <i>Survey</i>, <i>Mapping</i>, and <i>Unknown</i>.<sup class="ref"><a href="#r6">[6]</a> <a href="#r7">[7]</a></sup> To change several points at once, Ctrl-select them in the Project Explorer and change the quality in Properties.<sup class="ref"><a href="#r8">[8]</a></sup></li>
-    <li><strong>Match the point IDs</strong>Control IDs must match exactly the IDs used in the field (for example <code>CP1</code>, not <code>CP-1</code>). If they don't, use <span class="path">Rename Point</span> or merge the duplicates.</li>
-    <li><strong>Verify the backsight azimuth</strong>Compute an inverse between the start point and the backsight (the <b>Inverse</b> command) and compare it to the published azimuth or bearing.</li>
+    <li><strong>Enter or import control coordinates</strong>Use the <b>Create Point</b><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> command, or import a control CSV.</li>
+    <li><strong>Set the coordinate quality to Control</strong>Select the point in the Project Explorer, open its <b>Properties</b> pane, and set the coordinate quality to <b>Control</b> (horizontal, and vertical if you are holding elevation). The quality levels, from highest to lowest, are <i>Control</i>, <i>Survey</i>, <i>Mapping</i>, and <i>Unknown</i>.<sup class="ref"><a href="#r6">[6]</a> <a href="#r7">[7]</a></sup> To change several points at once, Ctrl-select them in the Project Explorer and change the quality in Properties.<sup class="ref"><a href="#r8">[8]</a></sup></li>
+    <li><strong>Match the point IDs</strong>Control IDs must match exactly the IDs used in the field (for example <code>CP1</code>, not <code>CP-1</code>). If they don't, rename the points or merge the duplicates.</li>
+    <li><strong>Verify the backsight azimuth</strong>Compute an inverse between the start point and the backsight (the <b>Inverse</b><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> command) and compare it to the published azimuth or bearing.</li>
   </ol>
   <div class="call note"><b class="lbl">Fixed vs. adjusted end stations</b><p>TBC holds a start or end station <b>fixed</b> when its position and orientation are known without the rest of the traverse, such as a setup over a known point or a resection. A start or end station positioned only from the traverse itself is <b>adjusted</b>. If both ends are that type, only the backsight and foresight are known, and Trimble calls this the weakest kind of traverse.<sup class="ref"><a href="#r2">[2]</a></sup></p></div>
 </section>
@@ -236,7 +241,7 @@ footer img{height:18px;filter:brightness(0) invert(1)}
   <h2>Review raw observations</h2>
   <p>Fix blunders <i>before</i> you adjust. An adjustment spreads error around; it can't fix a bad observation.</p>
   <div class="tbl"><table>
-    <thead><tr><th>Check</th><th>Where in TBC</th><th>What to look for</th></tr></thead>
+    <thead><tr><th>Check</th><th>Where in TBC<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span></th><th>What to look for</th></tr></thead>
     <tbody>
       <tr><td>Instrument &amp; target heights</td><td>Station Setup properties; observation properties</td><td>Missing or 0.000 HI/HT, or a rod height that doesn't match the field notes</td></tr>
       <tr><td>Prism constant</td><td>Observation properties › Target</td><td>Mixed constants (for example 0 mm vs −30 mm) between setups</td></tr>
@@ -246,7 +251,7 @@ footer img{height:18px;filter:brightness(0) invert(1)}
       <tr><td>Atmospheric / PPM</td><td>Station Setup properties</td><td>Temperature and pressure entered (or 0 ppm) applied the same way at every setup</td></tr>
     </tbody>
   </table></div>
-  <p>To disable a bad observation, select it and set its <b>Enabled</b> property to <b>No</b>. Don't delete it, because you want an audit trail.</p>
+  <p>To disable a bad observation, select it and disable it in its properties<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>. Don't delete it, because you want an audit trail.</p>
 </section>
 
 <section id="define">
@@ -258,7 +263,8 @@ footer img{height:18px;filter:brightness(0) invert(1)}
     <li><strong>Open Adjust Traverse</strong><span class="path">Survey › Optical › Adjust Traverse</span>.<sup class="ref"><a href="#r1">[1]</a></sup></li>
     <li><strong>Name and create the traverse</strong>In <b>Traverse name</b>, enter a name that includes the job and date, for example <code>PX-2601_Loop1_2026-10-08</code>, then click <b>Create</b>.<sup class="ref"><a href="#r1">[1]</a></sup></li>
     <li><strong>Select stations in order</strong>Add the station setups in the order they were occupied: the start station, the intermediate stations, then the end station. Each intermediate station must have a foresight to the next station.<sup class="ref"><a href="#r2">[2]</a></sup></li>
-    <li><strong>Check closure before adjusting</strong>Open the Traverse Adjustment Report (see the next section). Its <b>Before Adjustment</b> section shows the misclosures, precision values, and traverse length before any correction.<sup class="ref"><a href="#r3">[3]</a></sup></li>
+    <li><strong>Set the adjustment options</strong>Choose the angular, distance, and elevation methods described in the <a href="#adjust">next section</a>.</li>
+    <li><strong>Preview Results</strong>Click <b>Preview Results</b> to see the closure before anything is written to the project.<sup class="ref"><a href="#r1">[1]</a></sup> The Traverse Adjustment Report's <b>Before Adjustment</b> section shows the same misclosures, precision values, and traverse length.<sup class="ref"><a href="#r3">[3]</a></sup></li>
   </ol>
   <figure>
     <svg viewBox="0 0 640 300" role="img" aria-label="Closed loop traverse diagram with misclosure">
@@ -299,16 +305,16 @@ footer img{height:18px;filter:brightness(0) invert(1)}
   <h2>Adjust &amp; review</h2>
   <p>TBC applies the angular correction first and then distributes the linear misclosure.<sup class="ref"><a href="#r4">[4]</a> <a href="#r10">[10]</a></sup></p>
   <ol class="steps">
-    <li><strong>Choose the angular distribution</strong>Typically <b>proportional to distance</b>, or <b>equal proportions</b> when the legs are similar in length. Trimble's field software offers these same choices plus <b>None</b>; the exact label in the TBC pane may vary by version.<sup class="ref"><a href="#r10">[10]</a></sup></li>
-    <li><strong>Choose the linear (distance) adjustment</strong>
+    <li><strong>Choose the angular distribution</strong>Typically <b>proportional to distance</b>, or <b>equal proportions</b> when the legs are similar in length. These option names come from Trimble Access and FieldLink, which also offer <b>None</b>.<span class="unv acc" title="From Trimble Access / FieldLink help — reference only, not necessarily the TBC field name">‡</span><sup class="ref"><a href="#r10">[10]</a></sup> They are reference only. Use the matching choice in the TBC pane, whose wording may differ.</li>
+    <li><strong>Choose the linear (distance) adjustment</strong>TBC's help documents two methods:<sup class="ref"><a href="#r4">[4]</a></sup>
       <ul>
         <li><b>Compass (Bowditch)</b>: adjusts latitudes and departures in proportion to the length of each leg.<sup class="ref"><a href="#r4">[4]</a></sup> This is the default choice when angles and distances are measured with similar precision, which is true of modern total stations.</li>
         <li><b>Transit</b>: Trimble's definition is that it adjusts latitudes and departures in equal proportions or in proportion to the lengths of the lines.<sup class="ref"><a href="#r4">[4]</a></sup> Textbooks reserve it for cases where angles are much more precise than distances.<sup class="ref"><a href="#r11">[11]</a> <a href="#r15">[15]</a></sup></li>
       </ul>
     </li>
-    <li><strong>Choose the elevation adjustment</strong>Distribute the vertical misclosure in proportion to distance or in equal proportions<sup class="ref"><a href="#r10">[10]</a></sup>, or leave elevations unadjusted if you are carrying elevations from a separate level loop.</li>
-    <li><strong>Click Adjust</strong>TBC writes adjusted coordinates to the traverse stations. Fixed start and end stations are not changed.<sup class="ref"><a href="#r2">[2]</a></sup></li>
-    <li><strong>Open the Traverse Adjustment Report</strong>Click the <b>Traverse Adjustment Report</b> icon on the Adjust Traverse pane toolbar, or double-click it in the report list.<sup class="ref"><a href="#r3">[3]</a></sup> Review these sections:
+    <li><strong>Choose the elevation adjustment</strong>Distribute the vertical misclosure in proportion to distance or in equal proportions<span class="unv acc" title="From Trimble Access / FieldLink help — reference only, not necessarily the TBC field name">‡</span><sup class="ref"><a href="#r10">[10]</a></sup>, or leave elevations unadjusted if you are carrying elevations from a separate level loop.</li>
+    <li><strong>Apply</strong>When the preview is within spec, click <b>Apply</b>.<sup class="ref"><a href="#r1">[1]</a></sup> TBC writes adjusted coordinates to the traverse stations. Fixed start and end stations are not changed.<sup class="ref"><a href="#r2">[2]</a></sup></li>
+    <li><strong>Open the Traverse Adjustment Report</strong>Click the <b>Traverse Adjustment Report</b> icon on the Adjust Traverse pane toolbar, or open it from the Reports list in the Quick Access Toolbar.<sup class="ref"><a href="#r3">[3]</a></sup> Review these sections:
       <ul>
         <li><b>Before Adjustment</b>: raw misclosures, precision, and length</li>
         <li><b>After Angular Adjustment</b> and <b>After Distance Adjustment</b>: what's left after each correction</li>
@@ -354,14 +360,15 @@ footer img{height:18px;filter:brightness(0) invert(1)}
 <section id="lsa">
   <div class="eyebrow">09 · Alternative</div>
   <h2>Least-squares alternative</h2>
-  <p>Use <span class="path">Survey › Adjust Network</span><sup class="ref"><a href="#r9">[9]</a></sup> instead of (not in addition to) a compass adjustment when the traverse has redundant measurements, such as cross-ties, reciprocal shots, multiple loops, or GNSS-tied control.</p>
+  <p>Use the <b>Adjust Network</b> command<sup class="ref"><a href="#r9">[9]</a></sup> instead of (not in addition to) a compass adjustment when the traverse has redundant measurements, such as cross-ties, reciprocal shots, multiple loops, or GNSS-tied control.</p>
   <ol class="steps">
-    <li><strong>Set the standard errors</strong>Set the a priori errors in <span class="path">Project Settings › Default Standard Errors</span>. For total station data, TBC starts with the values from the imported <code>.job</code>/<code>.jxl</code> file.<sup class="ref"><a href="#r16">[16]</a></sup> Enter values that match your instrument (for example 1″ or 2″ for angles, and 1 mm + 1.5 ppm for EDM), plus centering errors for the instrument and target.</li>
-    <li><strong>Select the fixed control</strong>On the fixed points (constraints) tab of the Adjust Network pane, check <b>2D</b>, <b>h</b> (ellipsoid height), or <b>e</b> (elevation) for each control coordinate you want to hold.<sup class="ref"><a href="#r9">[9]</a></sup></li>
-    <li><strong>Run a minimally constrained adjustment first</strong>Hold one point and one azimuth. Look at the <b>Reference Factor</b>, which should be about 1.0, and the <b>Chi Square test</b>, which should pass.<sup class="ref"><a href="#r9">[9]</a></sup> If it fails, look for blunders first, then use the <b>Weighting</b> tab to scale the error estimates and re-adjust.<sup class="ref"><a href="#r9">[9]</a></sup> Flag any residuals over about 3σ.<sup class="ref"><a href="#r12">[12]</a></sup></li>
-    <li><strong>Run the fully constrained adjustment</strong>Fix all trusted control, re-run, and accept the result.</li>
+    <li><strong>Set the standard errors</strong>Set the a priori errors in the <b>Default Standard Errors</b> section of Project Settings. For total station data, TBC starts with the values from the imported <code>.job</code>/<code>.jxl</code> file.<sup class="ref"><a href="#r16">[16]</a></sup> Enter values that match your instrument (for example 1″ or 2″ for angles, and 1 mm + 1.5 ppm for EDM), plus centering errors for the instrument and target.</li>
+    <li><strong>Select the fixed control</strong>On the Adjust Network pane tab that lists the control-quality coordinates<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>, check <b>2D</b>, <b>h</b> (ellipsoid height), or <b>e</b> (elevation) for each control coordinate you want to hold.<sup class="ref"><a href="#r9">[9]</a></sup></li>
+    <li><strong>Run a minimally constrained adjustment first</strong>Trimble's adjustment workflow starts with a <b>minimally constrained</b> adjustment, before any additional control is held.<sup class="ref"><a href="#r9">[9]</a></sup> Fix only the minimum needed to position and orient the network. For a total-station-only network, that is usually one point and one azimuth.<sup class="ref"><a href="#r12">[12]</a></sup> This tests the observations on their own, so a bad control value can't hide in, or distort, the results.</li>
+    <li><strong>Evaluate the Reference Factor and Chi Square test</strong>The Chi Square test checks whether your a priori error estimates agree with the adjustment. If it fails, look for blunders and systematic errors first.<sup class="ref"><a href="#r9">[9]</a> <a href="#r12">[12]</a></sup> Then you can use the <b>Weighting</b> tab to improve the a priori error estimates.<sup class="ref"><a href="#r9">[9]</a></sup> Trimble's goal when adjusting the weighting scalars is to bring the <b>Reference Factor</b> toward 1.00.<sup class="ref"><a href="#r9">[9]</a></sup> Re-adjust and re-evaluate both values together. Don't just rescale errors until the test passes; a scalar far from 1 is telling you something about the data or the error model. Flag any residuals over about 3σ.<sup class="ref"><a href="#r12">[12]</a></sup></li>
+    <li><strong>Add the additional control constraints</strong>Once the minimally constrained adjustment is clean, hold the rest of the trusted control and re-adjust. Large shifts at this stage point to a problem with the control, not the observations.</li>
   </ol>
-  <div class="call"><b class="lbl">Don't mix methods</b><p>Pick one method per traverse. A network adjustment saves new coordinate records with quality <i>Adjusted</i> or <i>Fixed in network adjustment</i> and makes them each point's final value. <span class="path">Survey › Clear Adjustment Results</span> removes them.<sup class="ref"><a href="#r9">[9]</a></sup> Running both methods on the same stations leaves two sets of results, so decide which one is the record.</p></div>
+  <div class="call"><b class="lbl">Don't mix methods</b><p>Pick one method per traverse. A network adjustment saves new coordinate records with quality <i>Adjusted</i> or <i>Fixed in network adjustment</i> and makes them each point's final value.<sup class="ref"><a href="#r9">[9]</a></sup></p><p><span class="path">Survey › Network › Clear Adjustment Results</span><sup class="ref"><a href="#r9">[9]</a></sup> does more than remove the adjusted coordinates. It also clears the adjustment transformation parameters, the coordinate fixes and adjustment flags, resets the weighting scalars to 1.00, removes the error ellipses, and recomputes the project. Running both methods on the same stations leaves two sets of results, so decide which one is the record.</p></div>
 </section>
 
 <section id="report">
@@ -370,8 +377,8 @@ footer img{height:18px;filter:brightness(0) invert(1)}
   <ul>
     <li><b>Traverse Adjustment Report</b>: misclosures, corrections, and adjusted coordinates.<sup class="ref"><a href="#r3">[3]</a></sup> Attach it to the survey QA file.</li>
     <li><b>Network Adjustment Report</b>: open it from the Adjust Network pane toolbar. It includes residuals, error ellipses, and statistical tests (least squares only).<sup class="ref"><a href="#r9">[9]</a></sup></li>
-    <li><b>Point Derivation Report</b>: confirms which coordinate record each point is using.</li>
-    <li>Export the adjusted coordinates with <span class="path">Home › Export</span> using the office's standard PNEZD CSV format, and note the adjustment method and precision ratio in the survey narrative.</li>
+    <li><b>Point Derivation Report</b><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>: confirms which coordinate record each point is using.</li>
+    <li>Export the adjusted coordinates with <span class="path">Home › Export</span><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> using the office's standard PNEZD CSV format, and note the adjustment method and precision ratio in the survey narrative.</li>
   </ul>
 </section>
 
@@ -382,8 +389,8 @@ footer img{height:18px;filter:brightness(0) invert(1)}
     <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
     <tbody>
       <tr><td>Angular misclosure is huge (degrees)</td><td>Wrong backsight point, or an orientation error at setup</td><td>Check the backsight ID and azimuth on each Station Setup</td></tr>
-      <tr><td>Misclosure is roughly one leg length</td><td>A station was skipped or selected out of order in Adjust Traverse</td><td>Redefine with stations in occupation order</td></tr>
-      <tr><td>Error grows with distance (scale-like)</td><td>Grid/ground mix-up, wrong combined scale factor, or ppm not applied</td><td>Recheck Project Settings › Computations and the setup atmospherics</td></tr>
+      <tr><td>Misclosure is roughly one leg length</td><td>A station was skipped or selected out of order in Adjust Traverse</td><td>Edit the station list in Adjust Traverse so the stations are in occupation order<sup class="ref"><a href="#r1">[1]</a></sup></td></tr>
+      <tr><td>Error grows with distance (scale-like)</td><td>Grid/ground mix-up, wrong combined scale factor, or ppm not applied</td><td>Recheck the Project Settings computation and scale settings, and the setup atmospherics</td></tr>
       <tr><td>Elevation misclosure only</td><td>Wrong HI/HT, or a prism height changed without being recorded</td><td>Compare to field notes and edit the heights in properties</td></tr>
       <tr><td>Every station gets adjusted, or closure looks meaningless</td><td>Neither end station is fixed. They aren't over Control-quality points with a known backsight or foresight<sup class="ref"><a href="#r2">[2]</a></sup></td><td>Set the control to Control quality and confirm the end-point orientations in the report<sup class="ref"><a href="#r3">[3]</a></sup></td></tr>
       <tr><td>Traverse adjustment disappeared</td><td>A point in a manually adjusted traverse was merged<sup class="ref"><a href="#r5">[5]</a></sup></td><td>Re-run Adjust Traverse and regenerate the report</td></tr>
@@ -422,7 +429,7 @@ footer img{height:18px;filter:brightness(0) invert(1)}
     <li id="r7" data-n="7">Trimble. “Understanding Point Types.” <i>Trimble Business Center Help.</i> <a href="https://help.fieldsystems.trimble.com/tbc/6159.htm">https://help.fieldsystems.trimble.com/tbc/6159.htm</a></li>
     <li id="r8" data-n="8">Johnson, E. “TIP #148: How to Change the Quality of Multiple Points at Once.” <i>Trimble Community</i>, 2021. <a href="https://community.trimble.com/blogs/erin-johnson1/2021/04/16/how-to-change-mulitple-points-quality">community.trimble.com</a></li>
     <li id="r9" data-n="9">Trimble. “Adjust a Network,” “Workflow: Adjust the Network,” and “Run a Network Adjustment Report.” <i>Trimble Business Center Help.</i> <a href="https://help.fieldsystems.trimble.com/tbc/396.htm">https://help.fieldsystems.trimble.com/tbc/396.htm</a> · <a href="https://help.fieldsystems.trimble.com/tbc/12079.htm">https://help.fieldsystems.trimble.com/tbc/12079.htm</a> · <a href="https://help.fieldsystems.trimble.com/tbc/398_1.htm">https://help.fieldsystems.trimble.com/tbc/398_1.htm</a></li>
-    <li class="grp">Trimble field software (same adjustment options)</li>
+    <li class="grp">Trimble field software (‡ reference only, not TBC field names)</li>
     <li id="r10" data-n="10">Trimble. “Traverse calculations.” <i>Trimble Access Help.</i> <a href="https://help.fieldsystems.trimble.com/trimble-access/latest/en/cogo-traverse.htm">help.fieldsystems.trimble.com/trimble-access/latest/en/cogo-traverse.htm</a>. See also “Traverse (Optional Module),” <i>Trimble FieldLink Help</i>: <a href="https://help.fieldsystems.trimble.com/fieldlink/traverse.htm">help.fieldsystems.trimble.com/fieldlink/traverse.htm</a></li>
     <li class="grp">Textbooks &amp; standards</li>
     <li id="r11" data-n="11">Ghilani, C. D., &amp; Wolf, P. R. <i>Elementary Surveying: An Introduction to Geomatics</i>, 16th ed. Pearson, 2021. Chapter 10, “Traverse Computations” (angular misclosure, latitudes and departures, compass rule, relative precision).</li>
