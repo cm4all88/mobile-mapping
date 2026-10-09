@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TBC Traverse Adjustment</title>
+<title>TBC Traverse &amp; Network Adjustment</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -119,6 +119,21 @@ sup.ref a{text-decoration:none;font-family:"JetBrains Mono",monospace}
 .refs .grp::before{content:none}
 u.key{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px;font-weight:600}
 .call.px{border-color:var(--px-charcoal);background:var(--surface)}
+.flow{display:flex;flex-direction:column;align-items:center;gap:0;margin:18px 0;padding:18px 16px;background:var(--surface)}
+.flow .box{background:var(--bg);border:2px solid var(--ink);padding:8px 14px;font-weight:600;font-size:14.5px;text-align:center;max-width:460px;width:100%}
+.flow .box.start{border-color:var(--px-red);color:var(--accent)}
+.flow .box.end{background:var(--px-charcoal);border-color:var(--px-charcoal);color:#fff}
+.flow .arr{font-size:20px;line-height:1;color:var(--accent);padding:3px 0}
+.flow .loop{font-size:13px;color:var(--ink-2);margin-top:10px;text-align:center;max-width:460px}
+.cmp td:first-child{font-weight:700;width:22%}
+.cmp td{width:39%}
+.cmp tr.warn td{background:var(--accent-soft);font-weight:600}
+.plain{font-size:15px;font-weight:700;background:var(--px-charcoal);color:#fff;padding:10px 16px;margin:6px 0 12px;display:inline-block}
+.plain span{color:#ff8a8a}
+dl.terms{margin:12px 0;display:grid;grid-template-columns:minmax(150px,auto) 1fr;gap:0;border-top:1px solid var(--rule)}
+dl.terms dt{font-weight:700;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule)}
+dl.terms dd{margin:0;padding:9px 0;border-bottom:1px solid var(--rule)}
+@media (max-width:640px){dl.terms{grid-template-columns:1fr}dl.terms dt{border-bottom:none;padding-bottom:0}}
 figure{margin:20px 0}
 figure svg{width:100%;height:auto;display:block;background:var(--surface)}
 figcaption{font-size:13px;color:var(--ink-2);margin-top:6px}
@@ -148,7 +163,7 @@ footer img{height:18px;filter:brightness(0) invert(1)}
   section{margin-bottom:26px;scroll-margin-top:0}
   h2{font-size:17pt;break-after:avoid}
   h3,.eyebrow{break-after:avoid}
-  .steps>li,.call,figure,.card,tr,.formula,.refs li,.check li{break-inside:avoid}
+  .steps>li,.call,figure,.card,tr,.formula,.refs li,.check li,.flow,dl.terms>*{break-inside:avoid}
   .tbl{overflow:visible;break-inside:avoid}
   section>p:has(+ .tbl){break-inside:avoid;break-after:avoid}
   p{orphans:3;widows:3}
@@ -167,12 +182,12 @@ footer img{height:18px;filter:brightness(0) invert(1)}
 
 <div class="hero"><div class="in">
   <div class="sq"></div>
-  <h1>Traverse Adjustment in Trimble Business Center</h1>
-  <p>A step-by-step guide to importing conventional total-station data, defining a traverse, reviewing misclosures, and adjusting it in TBC with the compass, transit, or least-squares method.</p>
+  <h1>Traverse &amp; Network Adjustment in Trimble Business Center</h1>
+  <p>A step-by-step Parametrix guide to preparing survey data in TBC, choosing the right adjustment, and running either a traverse adjustment (compass or transit rule) or a least-squares network adjustment, then reviewing, documenting, and signing off the results.</p>
   <div class="meta">
     <span><b>Level</b> Field and office survey staff</span>
     <span><b>Software</b> Trimble Business Center</span>
-    <span><b>Time</b> about 30 minutes</span>
+    <span><b>Time</b> about 60 minutes</span>
   </div>
   <img class="ix" src="data:image/png;base64,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" alt="">
 </div></div>
@@ -186,11 +201,16 @@ footer img{height:18px;filter:brightness(0) invert(1)}
     <li><a href="#import">Import field data</a></li>
     <li><a href="#control">Set control points</a></li>
     <li><a href="#review">Review raw observations</a></li>
-    <li><a href="#define">Create the traverse</a></li>
-    <li><a href="#adjust">Adjust &amp; review</a></li>
-    <li><a href="#example">Worked example</a></li>
-    <li><a href="#lsa">Least-squares alternative</a></li>
-    <li><a href="#nar">Network adjustment report</a></li>
+    <li><a href="#compare">Choose the adjustment method</a></li>
+    <li><a href="#define">Traverse: create</a></li>
+    <li><a href="#adjust">Traverse: adjust &amp; review</a></li>
+    <li><a href="#example">Traverse: worked example</a></li>
+    <li><a href="#nsetup">Network: setup</a></li>
+    <li><a href="#nmin">Network: minimally constrained</a></li>
+    <li><a href="#ntrouble">Network: troubleshooting</a></li>
+    <li><a href="#nfull">Network: fully constrained</a></li>
+    <li><a href="#nar">Network: read the report</a></li>
+    <li><a href="#nsave">Network: save &amp; report</a></li>
     <li><a href="#report">Reports &amp; QA</a></li>
     <li><a href="#trouble">Troubleshooting</a></li>
     <li><a href="#checklist">Checklist</a></li>
@@ -203,7 +223,12 @@ footer img{height:18px;filter:brightness(0) invert(1)}
 <section id="before">
   <div class="eyebrow">01 · Overview</div>
   <h2>Before you start</h2>
-  <p>A traverse adjustment spreads the measurement error found at closure across the traverse legs, so the final coordinates are consistent with fixed control. In TBC a single command, <b>Adjust Traverse</b>, both creates the traverse and adjusts it with the Compass (Bowditch) or Transit rule.<sup class="ref"><a href="#r1">[1]</a> <a href="#r4">[4]</a></sup> TBC can also run a full <b>least-squares network adjustment</b>.<sup class="ref"><a href="#r9">[9]</a></sup></p>
+  <p>An adjustment reconciles the small measurement errors in a survey with the control you hold, so the final coordinates are consistent with that control and with each other. This guide covers the two ways to do that in TBC:</p>
+  <ul>
+    <li><b>Adjust Traverse</b> creates a conventional traverse, reports its angular and linear closure, and distributes the closure through the traverse with the Compass (Bowditch) or Transit rule.<sup class="ref"><a href="#r1">[1]</a> <a href="#r4">[4]</a></sup></li>
+    <li><b>Adjust Network</b> runs a <b>least-squares</b> adjustment of all the enabled observations in the network, weighted by their expected precision, and reports statistics that show how well they agree.<sup class="ref"><a href="#r9">[9]</a></sup></li>
+  </ul>
+  <p>Sections 01–05 apply to both. Section 06 explains how to choose between them. Then follow either the traverse workflow (07–09) or the network workflow (10–15). The two methods are alternatives, not two steps of one process.</p>
   <div class="grid">
     <div class="card red"><h4>Closed loop</h4><p>Starts and ends on the same known point, with a known backsight azimuth. Gives a check on angles and distances, but cannot detect a scale or azimuth error in the starting control.</p></div>
     <div class="card"><h4>Closed connecting</h4><p>Starts on one known pair of points and ends on a different known pair. Preferred, because it checks against independent control.</p></div>
@@ -214,6 +239,7 @@ footer img{height:18px;filter:brightness(0) invert(1)}
     <li>Trimble Access job files (<code>.job</code> or JobXML <code>.jxl</code>) or other supported raw data from the data collector.</li>
     <li>Published coordinates for at least the start point and backsight, and for the closing point and foresight on a connecting traverse.</li>
     <li>The project's datum, coordinate system, and units, plus the accuracy standard the job must meet (contract, agency such as WSDOT, or ALTA/NSPS).</li>
+    <li>For a network adjustment: any GNSS vectors, level runs, or other observations that tie into the same points.</li>
     <li>A TBC installation appropriately licensed for the survey and adjustment commands used here. Trimble's help doesn't tie these commands to a specific license tier, so check with your CAD/software administrator.</li>
   </ul>
   <div class="call note"><b class="lbl">Version note</b><p>Menu locations below follow the ribbon layout in current TBC releases. If your version looks different, search TBC for the command name, for example “Adjust Traverse.”</p><p>Superscript numbers such as <sup class="ref"><a href="#refs">[1]</a></sup> link to the <a href="#refs">References</a>. Steps with a Trimble citation were checked against Trimble's online TBC help. Steps without one are standard office practice, so check them in your copy of TBC.</p>
@@ -228,7 +254,7 @@ footer img{height:18px;filter:brightness(0) invert(1)}
     <li><strong>Set the coordinate system</strong>Go to <span class="path">Project Settings › Coordinate System</span><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>. Select the zone, for example <i>NAD83(2011) / Washington North (US ft)</i>, and the geoid model the project calls for.</li>
     <li><strong>Check units and the grid/ground setting</strong>In <span class="path">Project Settings › Units</span><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>, confirm distance (US survey ft or m), angle (DMS), and display precision. If the project is on ground coordinates, confirm the combined scale factor or project-to-ground settings before importing anything.</li>
     <li><strong>Set computation options</strong>Under <span class="path">Project Settings › Computations</span>, confirm whether distances are reduced to grid or ellipsoid, and whether curvature and refraction corrections are applied.<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> The Computations settings page itself is documented in Trimble's help.<sup class="ref"><a href="#r5">[5]</a></sup></li>
-    <li><strong>Set the default standard errors</strong>Open the <b>Default Standard Errors</b> section of Project Settings and check the values for both total station and GNSS observations before importing.<sup class="ref"><a href="#r16">[16]</a></sup> These are the a priori errors that weight every observation in a network adjustment, so they directly affect your results. For total station data, TBC takes its starting values from the imported job file.<sup class="ref"><a href="#r16">[16]</a></sup> Never leave GNSS (or any) standard errors at 0.00; that causes major problems in the adjustment. See <a href="#lsa">Least-squares alternative</a> for recommended values.</li>
+    <li><strong>Set the default standard errors</strong>Trimble says to check <span class="path">Project Settings › Default Standard Errors › Total Station</span> before importing total station data. That's also where you can set default standard, centering, and height errors.<sup class="ref"><a href="#r20">[20]</a></sup> There is a separate GNSS section.<sup class="ref"><a href="#r16">[16]</a></sup> For total station data, TBC takes its starting values from the imported job file unless you choose otherwise.<sup class="ref"><a href="#r16">[16]</a></sup> They set how each observation is weighted in a network adjustment, so they must be right before you run one. Never leave applicable standard errors at 0.00. See <a href="#nsetup">Network: setup</a> for what they mean and the Parametrix values.</li>
     <li><strong>Save the project</strong>Save it to the project folder using Parametrix's standard naming convention before you import data.</li>
   </ol>
   <div class="call"><b class="lbl">Watch out</b><p>The wrong vertical units or grid/ground setting is the most common cause of a traverse that “closes badly” when the field work was actually fine. Check these settings before you import.</p></div>
@@ -248,10 +274,10 @@ footer img{height:18px;filter:brightness(0) invert(1)}
 <section id="control">
   <div class="eyebrow">04 · Control</div>
   <h2>Set control points</h2>
-  <p>The adjustment holds your control fixed and moves everything else. TBC needs to know which coordinates you want to hold.</p>
+  <p>The adjustment holds the control you choose and adjusts everything else to fit. TBC needs to know which coordinates you want to hold.</p>
   <ol class="steps">
     <li><strong>Enter or import control coordinates</strong>Use the <b>Create Point</b><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> command, or import a control CSV.</li>
-    <li><strong>Set the coordinate quality to Control</strong>Select the point in the Project Explorer, open its <b>Properties</b> pane, and set the coordinate quality to <b>Control</b> (horizontal, and vertical if you are holding elevation). The quality levels, from highest to lowest, are <i>Control</i>, <i>Survey</i>, <i>Mapping</i>, and <i>Unknown</i>.<sup class="ref"><a href="#r6">[6]</a> <a href="#r7">[7]</a></sup> To change several points at once, Ctrl-select them in the Project Explorer and change the quality in Properties.<sup class="ref"><a href="#r8">[8]</a></sup></li>
+    <li><strong>Set the coordinate quality to Control</strong>Select the point in the Project Explorer, open its <b>Properties</b> pane, and set the coordinate quality to <b>Control</b> (horizontal, and vertical if you are holding elevation). The quality levels, from highest to lowest, are <i>Control</i>, <i>Survey</i>, <i>Mapping</i>, and <i>Unknown</i>.<sup class="ref"><a href="#r6">[6]</a> <a href="#r7">[7]</a></sup> To change several points at once, Ctrl-select them in the Project Explorer and change the quality in Properties.<sup class="ref"><a href="#r8">[8]</a></sup> In a network adjustment, Control quality alone doesn't hold a point; you choose which to fix (see <a href="#nmin">Network: minimally constrained</a>).</li>
     <li><strong>Match the point IDs</strong>Control IDs must match exactly the IDs used in the field (for example <code>CP1</code>, not <code>CP-1</code>). If they don't, rename the points or merge the duplicates.</li>
     <li><strong>Verify the backsight azimuth</strong>Compute an inverse between the start point and the backsight (the <b>Inverse</b><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> command) and compare it to the published azimuth or bearing.</li>
   </ol>
@@ -276,9 +302,40 @@ footer img{height:18px;filter:brightness(0) invert(1)}
   <p>To disable a bad observation, select it and disable it in its properties<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>. Don't delete it, because you want an audit trail.</p>
 </section>
 
+<section id="compare">
+  <div class="eyebrow">06 · Choose a method</div>
+  <h2>Choose the adjustment method</h2>
+  <p>Both commands produce adjusted coordinates, but they answer different questions and are used on different kinds of surveys.</p>
+  <div class="grid">
+    <div class="card"><h4>Adjust Traverse</h4><p>For a conventional traverse where you want to review the <b>angular and linear closure</b> and then distribute that closure through the traverse stations with the Compass (Bowditch) or Transit rule.<sup class="ref"><a href="#r1">[1]</a> <a href="#r4">[4]</a></sup></p></div>
+    <div class="card red"><h4>Adjust Network</h4><p>A <b>least-squares</b> adjustment. Use it when there is meaningful <b>redundancy</b>, such as cross-ties, repeated observations, multiple loops, GNSS vectors, conventional data tied to GNSS control, leveling, or other interconnected observations.<sup class="ref"><a href="#r9">[9]</a> <a href="#r12">[12]</a></sup></p></div>
+  </div>
+  <div class="tbl"><table class="cmp">
+    <thead><tr><th></th><th>Adjust Traverse</th><th>Adjust Network</th></tr></thead>
+    <tbody>
+      <tr><td>TBC command location</td><td><span class="path">Survey › Optical › Adjust Traverse</span><sup class="ref"><a href="#r1">[1]</a></sup></td><td><span class="path">Survey › Network › Adjust Network</span><sup class="ref"><a href="#r9">[9]</a></sup></td></tr>
+      <tr><td>Adjustment method</td><td>Angular misclosure distributed first; then linear misclosure distributed by the Compass (Bowditch) or Transit rule<sup class="ref"><a href="#r3">[3]</a> <a href="#r4">[4]</a></sup></td><td>Least squares: all enabled observations adjusted together, each weighted by its standard error<sup class="ref"><a href="#r9">[9]</a> <a href="#r12">[12]</a></sup></td></tr>
+      <tr><td>Type of survey or network</td><td>A single conventional traverse (closed loop or closed connecting) between known start and end stations<sup class="ref"><a href="#r2">[2]</a></sup></td><td>Redundant networks: cross-ties, repeated observations, multiple loops, GNSS, conventional plus GNSS control, leveling</td></tr>
+      <tr><td>How closure or residuals are evaluated</td><td>Angular misclosure, linear misclosure, and precision ratio, before and after adjustment<sup class="ref"><a href="#r3">[3]</a></sup></td><td>Residuals, standardized residuals and Tau outliers, Reference Factor, Chi Square test, degrees of freedom, error ellipses, control coordinate comparisons<sup class="ref"><a href="#r17">[17]</a> <a href="#r18">[18]</a></sup></td></tr>
+      <tr><td>Report reviewed</td><td>Traverse Adjustment Report<sup class="ref"><a href="#r3">[3]</a></sup></td><td>Network Adjustment Report<sup class="ref"><a href="#r17">[17]</a></sup></td></tr>
+      <tr><td>How results are stored</td><td>Traverse-adjusted coordinates on the traverse stations<sup class="ref"><a href="#r5">[5]</a></sup></td><td>New coordinate records with quality <i>Adjusted</i> or <i>Fixed in network adjustment</i>, promoted to final<sup class="ref"><a href="#r9">[9]</a></sup></td></tr>
+      <tr><td>When to use</td><td>A simple traverse with no meaningful redundancy, or when a specification or client requires closure and precision ratio</td><td>Any survey with meaningful redundancy or mixed observation types, or when statistical QA of the observations is needed</td></tr>
+      <tr class="warn"><td>Warning</td><td colspan="2">Do not use Adjust Traverse and Adjust Network as competing final adjustments on the same traverse. Choose one method for the final solution, and report only that one.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call"><b class="lbl">One final method per traverse</b><p>Applying a compass adjustment and then a least-squares adjustment to the same stations doesn't make the result “more adjusted”; it leaves two competing sets of coordinates, and only one of them is the final value. If a traverse was already adjusted in TBC or in Trimble Access and you decide to use a network adjustment instead, check the point's Properties pane to confirm which coordinate record TBC is using as the final value.<sup class="ref"><a href="#r7">[7]</a></sup> You can still look at a traverse's raw closure with <b>Preview Results</b> as a QA check, but don't <b>Apply</b> it as a second final adjustment.</p></div>
+  <h3>Words that mean different things</h3>
+  <dl class="terms">
+    <dt>Control (quality)</dt><dd>A <b>coordinate quality</b> level in TBC, the highest in the hierarchy (Control, Survey, Mapping, Unknown).<sup class="ref"><a href="#r6">[6]</a> <a href="#r7">[7]</a></sup> It identifies trusted coordinates. In a network adjustment, Control quality alone doesn't hold a point; you choose which control coordinates to fix.<sup class="ref"><a href="#r9">[9]</a></sup></dd>
+    <dt>Fixed (traverse)</dt><dd>A start or end station whose position and orientation are known independently of the traverse. The traverse adjustment doesn't change it.<sup class="ref"><a href="#r2">[2]</a></sup></dd>
+    <dt>Fixed (network)</dt><dd>A control coordinate you check as fixed (<b>2D</b>, <b>h</b>, or <b>e</b>) in Adjust Network. TBC holds it by giving it a very small standard error (default 0.000001 m).<sup class="ref"><a href="#r9">[9]</a> <a href="#r19">[19]</a></sup> You can instead enter standard errors from the control's data sheet so the point is held only as tightly as it's known.<sup class="ref"><a href="#r9">[9]</a></sup></dd>
+    <dt>Adjusted</dt><dd>In a traverse adjustment, the coordinates written to the traverse stations.<sup class="ref"><a href="#r5">[5]</a></sup> In a network adjustment, a coordinate quality label (<i>Adjusted</i> or <i>Fixed in network adjustment</i>) on the new records the adjustment creates.<sup class="ref"><a href="#r9">[9]</a></sup></dd>
+  </dl>
+</section>
+
 <section id="define">
-  <div class="eyebrow">06 · Traverse</div>
-  <h2>Create the traverse</h2>
+  <div class="eyebrow">07 · Traverse adjustment</div>
+  <h2>Traverse: create the traverse</h2>
   <p>TBC has no separate “define” step. You create, edit, and adjust a traverse in the same <b>Adjust Traverse</b> command pane.<sup class="ref"><a href="#r1">[1]</a></sup> If the traverse was already adjusted in Trimble Access, it comes in with the job, and you can use the same command to edit the station list or settings and re-adjust it.<sup class="ref"><a href="#r1">[1]</a></sup></p>
   <ol class="steps">
     <li><strong>Check the traverse project settings</strong>Open <span class="path">Project Settings › Computations › Traverse</span>.<sup class="ref"><a href="#r1">[1]</a></sup> Here you choose whether traverses are adjusted automatically or manually. In manual mode, TBC re-checks the traverse on every project compute but doesn't change the adjusted coordinates. It flags the traverse for re-adjustment when the change exceeds the horizontal and vertical tolerances you set.<sup class="ref"><a href="#r5">[5]</a></sup></li>
@@ -323,14 +380,14 @@ footer img{height:18px;filter:brightness(0) invert(1)}
 </section>
 
 <section id="adjust">
-  <div class="eyebrow">07 · Adjustment</div>
-  <h2>Adjust &amp; review</h2>
-  <p>TBC applies the angular correction first and then distributes the linear misclosure.<sup class="ref"><a href="#r4">[4]</a> <a href="#r10">[10]</a></sup></p>
+  <div class="eyebrow">08 · Traverse adjustment</div>
+  <h2>Traverse: adjust &amp; review</h2>
+  <p>TBC applies the angular correction first and then distributes the linear misclosure; the Traverse Adjustment Report shows the results in that order.<sup class="ref"><a href="#r3">[3]</a> <a href="#r4">[4]</a></sup></p>
   <ol class="steps">
     <li><strong>Choose the angular distribution</strong>Choose how TBC spreads the angular misclosure across the stations: in proportion to the leg distances, or in equal amounts at each station, which works best when the legs are similar in length.<span class="unv acc" title="From Trimble Access / FieldLink help — reference only, not necessarily the TBC field name">‡</span><sup class="ref"><a href="#r10">[10]</a></sup> (‡ These option names come from Trimble Access and FieldLink. The labels in the TBC pane may differ.)</li>
     <li><strong>Choose the linear (distance) adjustment</strong>TBC's help documents two methods:<sup class="ref"><a href="#r4">[4]</a></sup>
       <ul>
-        <li><b>Compass (Bowditch)</b>: adjusts latitudes and departures in proportion to the length of each leg.<sup class="ref"><a href="#r4">[4]</a></sup> This is the default choice when angles and distances are measured with similar precision, which is true of modern total stations.</li>
+        <li><b>Compass (Bowditch)</b>: adjusts latitudes and departures in proportion to the length of each leg.<sup class="ref"><a href="#r4">[4]</a></sup> This is the usual choice when angles and distances are measured with similar precision, which is true of modern total stations.</li>
         <li><b>Transit</b>: Trimble's definition is that it adjusts latitudes and departures in equal proportions or in proportion to the lengths of the lines.<sup class="ref"><a href="#r4">[4]</a></sup> Textbooks reserve it for cases where angles are much more precise than distances.<sup class="ref"><a href="#r11">[11]</a> <a href="#r15">[15]</a></sup></li>
       </ul>
     </li>
@@ -349,8 +406,8 @@ footer img{height:18px;filter:brightness(0) invert(1)}
 </section>
 
 <section id="example">
-  <div class="eyebrow">08 · The math</div>
-  <h2>Worked example: compass rule</h2>
+  <div class="eyebrow">09 · Traverse adjustment</div>
+  <h2>Traverse: worked example (compass rule)</h2>
   <p>This is a four-sided closed loop starting and ending at <b>CP1</b> (N 5000.000, E 5000.000), in US survey feet. The azimuths shown have already been angularly balanced.</p>
   <div class="tbl"><table>
     <thead><tr><th>Leg</th><th>Azimuth</th><th>Dist (ft)</th><th>Latitude</th><th>Departure</th></tr></thead>
@@ -379,58 +436,148 @@ footer img{height:18px;filter:brightness(0) invert(1)}
   <p>The adjusted traverse closes exactly on CP1. A compass adjustment of the same data in TBC should produce the same values; compare them against the report's <b>Station Adjustments</b> table.<sup class="ref"><a href="#r3">[3]</a></sup> The method follows standard textbook practice.<sup class="ref"><a href="#r11">[11]</a> <a href="#r15">[15]</a></sup> Working one traverse by hand like this is a good way to confirm you understand what the software is doing.</p>
 </section>
 
-<section id="lsa">
-  <div class="eyebrow">09 · Alternative</div>
-  <h2>Least-squares alternative</h2>
-  <p>Use the <b>Adjust Network</b> command<sup class="ref"><a href="#r9">[9]</a></sup> instead of (not in addition to) a compass adjustment when the traverse has redundant measurements, such as cross-ties, reciprocal shots, multiple loops, or GNSS-tied control.</p>
+<section id="nsetup">
+  <div class="eyebrow">10 · Network adjustment</div>
+  <h2>Network: setup</h2>
+  <p>A least-squares adjustment uses every enabled observation and weights each one by how precise you say it is.<sup class="ref"><a href="#r9">[9]</a> <a href="#r12">[12]</a></sup> The settings below control that weighting, so check them before every network adjustment.</p>
   <ol class="steps">
-    <li><strong>Set the standard errors</strong>Confirm the a priori errors in the <b>Default Standard Errors</b> section of Project Settings (see <a href="#setup">Project setup</a>). For total station data, TBC starts with the values from the imported <code>.job</code>/<code>.jxl</code> file.<sup class="ref"><a href="#r16">[16]</a></sup> Enter values that match your equipment, for example 1″ or 2″ for angles and 1 mm + 1.5 ppm for EDM. Set the GNSS standard errors too; values left at 0.00 cause major problems.
-      <div class="call px"><b class="lbl">Parametrix practice</b><p>Use <b>0.01 ft</b> for centering and <b>0.01 ft</b> for the height measurement (measure-up), for both total station and GNSS. The exact field names in TBC aren't confirmed here.<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span></p></div></li>
-    <li><strong>Select the fixed control</strong>On the Adjust Network pane tab that lists the control-quality coordinates<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>, check <b>2D</b>, <b>h</b> (ellipsoid height), or <b>e</b> (elevation) for each control coordinate you want to hold.<sup class="ref"><a href="#r9">[9]</a></sup></li>
-    <li><strong>Run a minimally constrained adjustment first</strong>Trimble's adjustment workflow starts with a <b>minimally constrained</b> adjustment, before any additional control is held.<sup class="ref"><a href="#r9">[9]</a></sup> Fix only the minimum needed to position and orient the network. For a total-station-only network, that is usually one point and one azimuth.<sup class="ref"><a href="#r12">[12]</a></sup> This tests the observations on their own, so a bad control value can't hide in, or distort, the results.</li>
-    <li><strong>Evaluate the Reference Factor and Chi Square test</strong>The Chi Square test checks whether your a priori error estimates agree with the adjustment.<sup class="ref"><a href="#r9">[9]</a></sup> If it fails, look for blunders and systematic errors first.<sup class="ref"><a href="#r9">[9]</a> <a href="#r12">[12]</a></sup> A failed test is not, on its own, proof of a bad adjustment, or a reason to change the weighting. Adjustments sometimes “fail” while the residuals, control comparisons, and independent checks all show the results are sound. Change the weighting only when there's a significant reason to, and document why. When you do, the <b>Weighting</b> tab is used to improve the a priori error estimates, and Trimble's goal when adjusting the weighting scalars is to bring the <b>Reference Factor</b> toward 1.00.<sup class="ref"><a href="#r9">[9]</a></sup> Re-adjust and re-evaluate both values together. <u class="key">Don't just rescale errors until the test passes</u>; a scalar far from 1 is telling you something about the data or the error model. Flag any residuals over about 3σ.<sup class="ref"><a href="#r12">[12]</a></sup> See <a href="#nar">Read the Network Adjustment Report</a>.</li>
-    <li><strong>Add the additional control constraints</strong>Once the minimally constrained adjustment is clean, hold the rest of the trusted control and re-adjust. Large shifts at this stage point to a problem with the control, not the observations.</li>
+    <li><strong>Review the network adjustment settings</strong>Open <b>Project Settings</b> from the Quick Access Toolbar and select <b>Network Adjustment</b> in the left pane.<sup class="ref"><a href="#r19">[19]</a></sup> Note the confidence level used to display error ellipses and precisions (1-sigma, 95%, or 99%), so you know what the report's numbers represent, and the default standard error used for fixed control coordinates.<sup class="ref"><a href="#r19">[19]</a></sup> Leave the other settings at their defaults unless your survey lead says otherwise.</li>
+    <li><strong>Verify the default standard errors</strong>Open <span class="path">Project Settings › Default Standard Errors</span> and check the <b>Total Station</b> and <b>GNSS</b> sections.<sup class="ref"><a href="#r16">[16]</a> <a href="#r20">[20]</a></sup> Confirm:
+      <ul>
+        <li>The angle and distance standard errors match your instrument, for example 1″ or 2″ for angles and 1 mm + 1.5 ppm for EDM. For total station data these may come from the imported job file.<sup class="ref"><a href="#r16">[16]</a></sup></li>
+        <li>The <b>centering</b> and <b>height</b> (measure-up) errors for the instrument and target.<sup class="ref"><a href="#r20">[20]</a></sup></li>
+        <li>The GNSS standard errors, including centering and antenna height.<sup class="ref"><a href="#r16">[16]</a></sup></li>
+        <li>Standard errors for any other observation types in the network, such as leveling.</li>
+      </ul>
+      <div class="call px"><b class="lbl">Parametrix practice</b><p>Use <b>0.01 ft</b> for centering and <b>0.01 ft</b> for measure-up, for both total station and GNSS. Trimble's help confirms that centering and height errors are set in Default Standard Errors;<sup class="ref"><a href="#r20">[20]</a></sup> the exact field labels in your version aren't confirmed here.<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span></p></div>
+    </li>
+    <li><strong>Understand what the standard errors do</strong>A standard error is the <b>expected precision</b> of an observation: how far off you'd expect it to be, typically. Least squares gives more weight to observations with small standard errors and less to those with large ones.<sup class="ref"><a href="#r12">[12]</a></sup> If they're too small (optimistic), good observations look like failures; if too large (pessimistic), real problems can hide.</li>
+    <li><strong>Never leave applicable standard errors at 0.00</strong>A zero standard error tells the adjustment an observation is perfect. That causes major problems in the adjustment and in its statistics. Pay special attention to GNSS and to centering and height errors.</li>
+    <li><strong>Open Adjust Network</strong><span class="path">Survey › Network › Adjust Network</span>.<sup class="ref"><a href="#r9">[9]</a></sup></li>
   </ol>
-  <div class="call"><b class="lbl">Don't mix methods</b><p>Pick one method per traverse. A network adjustment saves new coordinate records with quality <i>Adjusted</i> or <i>Fixed in network adjustment</i> and makes them each point's final value.<sup class="ref"><a href="#r9">[9]</a></sup></p><p><span class="path">Survey › Network › Clear Adjustment Results</span><sup class="ref"><a href="#r9">[9]</a></sup> does more than remove the adjusted coordinates. It also clears the adjustment transformation parameters, the coordinate fixes and adjustment flags, resets the weighting scalars to 1.00, removes the error ellipses, and recomputes the project. Running both methods on the same stations leaves two sets of results, so decide which one is the record.</p></div>
 </section>
 
+<section id="nmin">
+  <div class="eyebrow">11 · Network adjustment</div>
+  <h2>Network: minimally constrained adjustment</h2>
+  <div class="plain">Minimally constrained = <span>Does my survey agree with itself?</span></div>
+  <p>Trimble's workflow starts with a minimally constrained adjustment, which applies only the constraints needed to define the coordinate system, so you can evaluate the <b>internal consistency</b> of the survey.<sup class="ref"><a href="#r9">[9]</a></sup> With only the minimum held, the control can't hide or distort problems in the observations, and a bad observation can't be blamed on the control. Fix the observations first; test them against the project control later.</p>
+  <ol class="steps">
+    <li><strong>Hold only the minimum control</strong>On the constraints tab of the Adjust Network pane, check <b>2D</b>, <b>h</b> (ellipsoid height), or <b>e</b> (elevation) for the coordinates you want to hold.<sup class="ref"><a href="#r9">[9]</a></sup> Trimble's workflow help calls it the <b>Constrained Coordinates</b> tab; some versions label it <b>Constraints</b> or <b>Fixed Coordinates</b>.<sup class="ref"><a href="#r9">[9]</a></sup> Hold only what's needed to position and orient the network. For a GNSS network that's usually one point held in 2D and height.<sup class="ref"><a href="#r12">[12]</a></sup> A conventional-only network also needs its orientation defined, for example by a known azimuth.<sup class="ref"><a href="#r12">[12]</a></sup></li>
+    <li><strong>Run the adjustment</strong>Click <b>Adjust</b>.<sup class="ref"><a href="#r9">[9]</a></sup> The <b>Results</b> tab shows a summary of the adjustment.<sup class="ref"><a href="#r9">[9]</a></sup></li>
+    <li><strong>Review the results</strong>Open the <b>Network Adjustment Report</b> from the pane toolbar<sup class="ref"><a href="#r9">[9]</a></sup> and review the items below. See <a href="#nar">Network: read the report</a> for where each one appears.</li>
+  </ol>
+  <h3>What the numbers mean</h3>
+  <dl class="terms">
+    <dt>Residual</dt><dd>How much the adjustment had to change an observation to make everything fit.<sup class="ref"><a href="#r17">[17]</a></sup></dd>
+    <dt>Standardized residual</dt><dd>The residual divided by its expected standard error. It puts angles, distances, and vectors on the same scale: a standardized residual of 3 means the change was about three times larger than that observation's expected precision.<sup class="ref"><a href="#r12">[12]</a></sup></dd>
+    <dt>Tau outliers</dt><dd>Observations whose standardized residual fails the Tau test. TBC shows them in <b>red</b> and treats them as outliers that you must examine and justify keeping.<sup class="ref"><a href="#r17">[17]</a> <a href="#r18">[18]</a></sup></dd>
+    <dt>Reference Factor</dt><dd>One overall number comparing how well the observations actually fit with how well their standard errors said they would. About <b>1.00</b> means they agree.<sup class="ref"><a href="#r17">[17]</a></sup> Above 1 means the observations fit worse than expected (blunders, or standard errors that are too optimistic). Below 1 means they fit better than expected (standard errors that are too pessimistic).<sup class="ref"><a href="#r12">[12]</a></sup></dd>
+    <dt>Chi Square test</dt><dd>A statistical test at 95% of whether the Reference Factor is consistent with 1.00 for the amount of redundancy in the network.<sup class="ref"><a href="#r17">[17]</a> <a href="#r18">[18]</a></sup> It can fail high or low. It's a test of the observations <i>and</i> the assumed standard errors together, not of the observations alone.</dd>
+    <dt>Degrees of freedom</dt><dd>The number of observations beyond the minimum needed to compute the points: the network's <b>redundancy</b>.<sup class="ref"><a href="#r18">[18]</a></sup> <b>Degrees of freedom = 0 means there is no redundancy.</b> Every observation is needed just to compute the points, so the observations aren't independently checking one another. The adjustment can fit them exactly, and the residuals, Reference Factor, and Chi Square test can't reveal a blunder. Low degrees of freedom also make the statistics weak.<sup class="ref"><a href="#r12">[12]</a></sup></dd>
+    <dt>Error ellipses</dt><dd>The size and orientation of each point's estimated uncertainty, at the confidence level set in Network Adjustment settings.<sup class="ref"><a href="#r17">[17]</a> <a href="#r19">[19]</a></sup> Large or very elongated ellipses mean weak geometry, such as a point tied in by only one observation.</dd>
+  </dl>
+</section>
+
+<section id="ntrouble">
+  <div class="eyebrow">12 · Network adjustment</div>
+  <h2>Network: troubleshooting</h2>
+  <p>Least squares spreads a blunder into the observations around it, so the observation with the biggest residual isn't always the bad one. Work systematically, change one thing at a time, and keep notes.</p>
+  <div class="flow" role="img" aria-label="Network troubleshooting loop">
+    <div class="box start">Network looks poor</div><div class="arr">↓</div>
+    <div class="box">Review the worst residuals</div><div class="arr">↓</div>
+    <div class="box">Check observation · HI · HT · backsight · point ID · prism constant · control</div><div class="arr">↓</div>
+    <div class="box">Correct the actual problem</div><div class="arr">↓</div>
+    <div class="box">Re-adjust</div><div class="arr">↓</div>
+    <div class="box end">Review Reference Factor + Chi Square + residuals again</div>
+    <div class="loop">Still poor? Go back to the top with the new worst residual.</div>
+  </div>
+  <ol class="steps">
+    <li><strong>Work from the largest standardized residuals down</strong>The report lists observations with the worst standardized residuals at the top, and Tau outliers in red.<sup class="ref"><a href="#r17">[17]</a></sup> Start there.</li>
+    <li><strong>Look for the cause</strong>Check the instrument height, target height, backsight, point ID, prism constant, the observation's quality (rounds, residuals, field notes), and that control points are the right points. Also look for other likely field or office blunders, such as a mis-keyed value, a duplicate point name, or a wrong coordinate system or geoid.</li>
+    <li><strong>Fix the actual cause where possible</strong>Correct the height, ID, or setting in the data and re-adjust. A corrected observation is always better than a removed one.</li>
+    <li><strong>Disable only with a documented reason</strong>If an observation is clearly bad and can't be corrected, disable it; Adjust Network uses only enabled observations.<sup class="ref"><a href="#r9">[9]</a></sup> Record which observation, why, and who decided. Don't disable observations just because they're red or to make the test pass.</li>
+    <li><strong>Re-run after each meaningful change</strong>Re-adjust and check that the statistics and residuals changed for the reason you expected before moving to the next problem.</li>
+    <li><strong>Leave the weighting alone unless there's a reason</strong><u class="key">Don't change weights simply to force the Chi Square test to pass.</u> If the observations look sound, with no outliers and agreement with independent checks, but the assumed standard errors clearly don't reflect how the survey actually performed, the weighting may be revised. Trimble's process uses the <b>Weighting</b> tab to improve the a priori error estimates, with the goal of bringing the Reference Factor toward 1.00.<sup class="ref"><a href="#r9">[9]</a></sup> Document the reason. <b>Reset to 1</b> returns all scalars to 1.00.<sup class="ref"><a href="#r9">[9]</a></sup></li>
+  </ol>
+  <div class="call px"><b class="lbl">When the Chi Square test fails</b><p>A failed Chi Square test, by itself, doesn't automatically make an adjustment unusable. Experienced reviewers sometimes accept adjustments that fail when everything else checks out. But a failure is never something to ignore. The expectation is:</p>
+    <ul>
+      <li><b>Investigate first.</b> Work the outliers and residuals as above.</li>
+      <li><b>Understand why it failed.</b> Is it a blunder, a systematic error, or standard errors that don't match the equipment and procedures?</li>
+      <li><b>Verify the residuals and independent checks.</b> No unexplained outliers, reasonable residuals, and agreement with check shots or known values.</li>
+      <li><b>Document it.</b> Record any weighting change or professional judgment in the survey narrative, and have it reviewed by the PLS / survey lead.</li>
+    </ul></div>
+</section>
+
+<section id="nfull">
+  <div class="eyebrow">13 · Network adjustment</div>
+  <h2>Network: fully constrained adjustment</h2>
+  <div class="plain">Fully constrained = <span>Does my survey agree with the project control?</span></div>
+  <p>Once the minimally constrained network is clean, hold the rest of the trusted project control. Because the observations have already been checked, any new problem at this stage points to the control.</p>
+  <ol class="steps">
+    <li><strong>Add the remaining trusted control</strong>On the constraints tab, check the fix boxes and, where appropriate, enter the standard errors for each additional control point.<sup class="ref"><a href="#r9">[9]</a></sup> Trimble's workflow fixes the horizontal (2D) control first to get an acceptable horizontal solution, then adds the elevation or height control.<sup class="ref"><a href="#r9">[9]</a></sup> On a difficult network, adding one control point at a time makes a bad one easy to spot.</li>
+    <li><strong>Re-run the adjustment</strong>Click <b>Adjust</b> and review the Results tab and the report again.<sup class="ref"><a href="#r9">[9]</a></sup></li>
+    <li><strong>Review the Control Coordinate Comparisons carefully</strong>This report section shows the difference between each control point's known coordinates and the adjusted position the survey supports.<sup class="ref"><a href="#r17">[17]</a></sup> Compare these with the minimally constrained run.</li>
+    <li><strong>Investigate a control point that stands out</strong>If one control point disagrees significantly more than the rest, the problem is more likely the <b>control</b> than the survey observations: a bad published value, the wrong point identified in the field, or a datum or coordinate problem (for example a different datum realization or epoch, the wrong geoid, or grid vs. ground). Don't hold it until it's resolved. Leave it unfixed, report its comparison, and raise it with the PLS / survey lead.</li>
+  </ol>
+</section>
+
+
 <section id="nar">
-  <div class="eyebrow">10 · Analysis</div>
-  <h2>Read the Network Adjustment Report</h2>
+  <div class="eyebrow">14 · Network adjustment</div>
+  <h2>Network: read the report</h2>
   <p>The report isn't just a pass/fail check. Trimble describes it as the tool for deciding which observations to disable, which control to fix, and which settings to change before you re-adjust.<sup class="ref"><a href="#r17">[17]</a></sup> Open it with the <b>Network Adjustment Report</b> button on the Adjust Network pane toolbar. It opens in your web browser.<sup class="ref"><a href="#r9">[9]</a></sup></p>
   <div class="tbl"><table>
     <thead><tr><th>Report section</th><th>What it tells you</th><th>What to look for</th></tr></thead>
     <tbody>
       <tr><td><b>Adjustment Statistics</b></td><td>Number of iterations, whether the adjustment passed or failed and why, the Reference Factor, the Chi Square test (95%), and degrees of freedom<sup class="ref"><a href="#r17">[17]</a> <a href="#r18">[18]</a></sup></td><td>A Reference Factor near 1.00. Degrees of freedom above zero; with zero there's no redundancy, so nothing is being checked.<sup class="ref"><a href="#r18">[18]</a></sup></td></tr>
       <tr><td><b>Adjusted Observations</b> (GNSS, total station, leveling)</td><td>Each observation's standard error, residual (how much it had to be adjusted), and standardized residual, sorted worst first<sup class="ref"><a href="#r17">[17]</a></sup></td><td>Observations in <b>red</b> failed the Tau test and are outliers. Trimble says to examine each one and justify keeping it.<sup class="ref"><a href="#r17">[17]</a> <a href="#r18">[18]</a></sup></td></tr>
-      <tr><td><b>Control Coordinate Comparisons</b></td><td>The difference between each control point's known coordinates and its adjusted coordinates<sup class="ref"><a href="#r17">[17]</a></sup></td><td>One control point with a much larger difference than the rest points to a bad control value or the wrong point. Compare the minimally and fully constrained runs.</td></tr>
+      <tr><td><b>Control Coordinate Comparisons</b></td><td>The difference between each control point's known coordinates and its adjusted coordinates<sup class="ref"><a href="#r17">[17]</a></sup></td><td>One control point with a much larger difference than the rest points to bad control, the wrong point, or a datum or coordinate problem. Compare the minimally and fully constrained runs.</td></tr>
       <tr><td><b>Adjusted Geodetic Coordinates</b></td><td>Final adjusted positions. The <b>Fixed</b> column shows which coordinates were held.<sup class="ref"><a href="#r17">[17]</a></sup></td><td>Only the control you intended to hold should be fixed.</td></tr>
       <tr><td>Error ellipses<span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span></td><td>The size and orientation of each point's positional uncertainty<sup class="ref"><a href="#r17">[17]</a></sup></td><td>Large or very elongated ellipses mean weak geometry, such as a point tied in by only one observation.</td></tr>
     </tbody>
   </table></div>
-  <h3>Working through the report</h3>
+  <p>For what each number means, see <a href="#nmin">What the numbers mean</a>. For how to work through problems, see <a href="#ntrouble">Network: troubleshooting</a>.</p>
+</section>
+
+<section id="nsave">
+  <div class="eyebrow">15 · Network adjustment</div>
+  <h2>Network: save &amp; report</h2>
   <ol class="steps">
-    <li><strong>Start with Adjustment Statistics</strong>Note the Reference Factor, the Chi Square result, and the degrees of freedom before you look at anything else.</li>
-    <li><strong>Work the outliers from the top down</strong>Start at the top of the Adjusted Observations lists, where the worst standardized residuals are.<sup class="ref"><a href="#r17">[17]</a></sup> For each red observation, look for a cause: a wrong instrument or target height, a wrong point ID, a bad backsight, or a misidentified control point. Fix the cause where you can. Disable an observation only when you can justify it, not just because it's red.</li>
-    <li><strong>Re-adjust and compare</strong>After each change, re-run the adjustment and check that the statistics and control comparisons improved for the reason you expected. Change one thing at a time.</li>
-    <li><strong>Decide and document</strong>When the residuals are reasonable and the control comparisons agree, accept the adjustment and save the report with the survey QA file. Record any disabled observations and any weighting changes, and why.</li>
+    <li><strong>Save the results by clicking OK</strong>When you're satisfied with the adjustment, click <b>OK</b> to close Adjust Network. If you exit the command without clicking OK, the adjustment results are <b>not saved</b>.<sup class="ref"><a href="#r9">[9]</a></sup></li>
+    <li><strong>Know how TBC stores them</strong>TBC saves the adjusted values as new coordinate records with quality <i>Adjusted</i> or <i>Fixed in network adjustment</i>, and promotes them to each point's final value.<sup class="ref"><a href="#r9">[9]</a></sup></li>
+    <li><strong>Re-adjust after later changes</strong>If you change the project after adjusting, TBC asks whether to keep or clear the network adjustment. If you keep it, the results may no longer match the data, so re-run the adjustment once your changes are done.<sup class="ref"><a href="#r9">[9]</a></sup></li>
+    <li><strong>Save the Network Adjustment Report with the survey QA records</strong>The report opens in your web browser.<sup class="ref"><a href="#r9">[9]</a></sup> Save it from the browser, for example as PDF, with the final run's date and job number, and file it with the survey QA records.</li>
+    <li><strong>Review and record</strong>Before sign-off, confirm the QA record covers:
+      <ul>
+        <li>Reference Factor, Chi Square result, and degrees of freedom</li>
+        <li>Residuals and standardized residuals, including any Tau outliers and how each was resolved</li>
+        <li>Fixed coordinates (what was held, and how tightly)</li>
+        <li>Adjusted coordinates</li>
+        <li>Control Coordinate Comparisons</li>
+        <li>Error ellipses and the confidence level they're shown at</li>
+        <li>Disabled observations, with the reason for each</li>
+        <li>Any weighting changes, with the reason</li>
+      </ul>
+    </li>
   </ol>
-  <div class="call px"><b class="lbl">Parametrix practice</b><p>A “failed” Chi Square test doesn't automatically mean the adjustment is wrong. Experienced reviewers sometimes accept adjustments that fail the test when the residuals are small, there are no unexplained outliers, and the results agree with independent checks. Don't change the weighting unless there's a significant reason to, and note the decision in the survey narrative.</p></div>
+  <div class="call"><b class="lbl">Clear Adjustment Results clears more than coordinates</b><p><span class="path">Survey › Network › Clear Adjustment Results</span><sup class="ref"><a href="#r9">[9]</a></sup> doesn't just remove the adjusted coordinates. It also clears the adjustment transformation parameters, the coordinate fixes and adjustment flags, resets the weighting scalars to 1.00, removes the error ellipses, and recomputes the project. After clearing, you have to re-select the fixed control, re-enter any weighting, and re-run the adjustment. Save the report before you clear anything.</p></div>
 </section>
 
 <section id="report">
-  <div class="eyebrow">11 · Deliverables</div>
+  <div class="eyebrow">16 · Deliverables</div>
   <h2>Reports &amp; QA</h2>
+  <p>Save the report for the method you used as the final adjustment. Don't file reports from both methods as if both were final.</p>
   <ul>
-    <li><b>Traverse Adjustment Report</b>: misclosures, corrections, and adjusted coordinates.<sup class="ref"><a href="#r3">[3]</a></sup> Attach it to the survey QA file.</li>
-    <li><b>Network Adjustment Report</b>: open it from the Adjust Network pane toolbar. It includes residuals, error ellipses, and statistical tests (least squares only).<sup class="ref"><a href="#r9">[9]</a></sup></li>
+    <li><b>Traverse Adjustment Report</b> (traverse method): misclosures and precision before and after adjustment, end-point orientations, fixed points, and station adjustments.<sup class="ref"><a href="#r3">[3]</a></sup></li>
+    <li><b>Network Adjustment Report</b> (network method): adjustment statistics, adjusted observations and residuals, control coordinate comparisons, adjusted coordinates, and error ellipses.<sup class="ref"><a href="#r17">[17]</a></sup> See <a href="#nsave">Network: save &amp; report</a> for what the QA record must include.</li>
     <li><b>Point Derivation Report</b><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span>: confirms which coordinate record each point is using.</li>
-    <li>Export the adjusted coordinates with <span class="path">Home › Export</span><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> using the office's standard PNEZD CSV format, and note the adjustment method and precision ratio in the survey narrative.</li>
+    <li>Export the final coordinates with <span class="path">Home › Export</span><span class="unv" title="Not confirmed in the cited TBC help — verify in your TBC version">†</span> using the office's standard PNEZD CSV format. In the survey narrative, record the adjustment method, the key results (precision ratio for a traverse; Reference Factor, Chi Square, and degrees of freedom for a network), and any disabled observations, weighting changes, or professional judgments.</li>
   </ul>
 </section>
 
 <section id="trouble">
-  <div class="eyebrow">12 · Fixes</div>
+  <div class="eyebrow">17 · Fixes</div>
   <h2>Troubleshooting</h2>
   <div class="tbl"><table>
     <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
@@ -441,29 +588,51 @@ footer img{height:18px;filter:brightness(0) invert(1)}
       <tr><td>Elevation misclosure only</td><td>Wrong HI/HT, or a prism height changed without being recorded</td><td>Compare to field notes and edit the heights in properties</td></tr>
       <tr><td>Every station gets adjusted, or closure looks meaningless</td><td>Neither end station is fixed. They aren't over Control-quality points with a known backsight or foresight<sup class="ref"><a href="#r2">[2]</a></sup></td><td>Set the control to Control quality and confirm the end-point orientations in the report<sup class="ref"><a href="#r3">[3]</a></sup></td></tr>
       <tr><td>Traverse adjustment disappeared</td><td>A point in a manually adjusted traverse was merged<sup class="ref"><a href="#r5">[5]</a></sup></td><td>Re-run Adjust Traverse and regenerate the report</td></tr>
+      <tr><td>Reference Factor well above 1 and Chi Square fails high</td><td>A blunder, or standard errors that are too optimistic (for example centering or height errors at 0.00)</td><td>Work the worst standardized residuals first; then check the default standard errors<sup class="ref"><a href="#r16">[16]</a> <a href="#r20">[20]</a></sup></td></tr>
+      <tr><td>Reference Factor below 1 and Chi Square fails low</td><td>Standard errors more pessimistic than the actual survey performance</td><td>Confirm the observations are sound, then consider revising the weighting with a documented reason<sup class="ref"><a href="#r9">[9]</a></sup></td></tr>
+      <tr><td>Degrees of freedom = 0</td><td>No redundancy in the network</td><td>The statistics can't check the observations. Add redundancy, or use Adjust Traverse if it's a simple traverse.</td></tr>
+      <tr><td>One control point disagrees much more than the rest</td><td>Bad control value, wrong point identified, or a datum or coordinate problem</td><td>Unfix it, report its comparison, and resolve it before holding it<sup class="ref"><a href="#r17">[17]</a></sup></td></tr>
+      <tr><td>Network adjustment results disappeared</td><td>The command was closed without clicking OK, or results were cleared</td><td>Re-run Adjust Network and click OK to save<sup class="ref"><a href="#r9">[9]</a></sup></td></tr>
       <tr><td>Sideshots didn't move</td><td>The shots came from a different setup of the same point</td><td>Merge the setups, or include that setup in the traverse</td></tr>
     </tbody>
   </table></div>
 </section>
 
 <section id="checklist">
-  <div class="eyebrow">13 · Sign-off</div>
+  <div class="eyebrow">18 · Sign-off</div>
   <h2>Checklist</h2>
+  <h3>Shared</h3>
   <ul class="check">
     <li><input type="checkbox" id="c1"><label for="c1">Coordinate system, geoid, units, and grid/ground confirmed</label></li>
     <li><input type="checkbox" id="c1b"><label for="c1b">Default standard errors set for total station and GNSS (none left at 0.00)</label></li>
     <li><input type="checkbox" id="c2"><label for="c2">Field data imported; plan view looks right</label></li>
     <li><input type="checkbox" id="c3"><label for="c3">Control points set to Control quality, with IDs matching</label></li>
     <li><input type="checkbox" id="c4"><label for="c4">HI/HT, prism constants, and atmospherics checked</label></li>
+    <li><input type="checkbox" id="c4b"><label for="c4b">Adjustment method chosen (traverse or network), only one used as the final adjustment</label></li>
+  </ul>
+  <h3>Traverse adjustment</h3>
+  <ul class="check">
     <li><input type="checkbox" id="c5"><label for="c5">Traverse created; angular and linear closure within spec</label></li>
-    <li><input type="checkbox" id="c6"><label for="c6">Adjustment run (one method only); report reviewed, saved, and any disabled observations or weighting changes documented</label></li>
-    <li><input type="checkbox" id="c7"><label for="c7">Adjusted coordinates exported and adjustment noted in the narrative</label></li>
+    <li><input type="checkbox" id="c6"><label for="c6">Traverse adjusted; Traverse Adjustment Report reviewed and saved</label></li>
+  </ul>
+  <h3>Network adjustment</h3>
+  <ul class="check">
+    <li><input type="checkbox" id="n1"><label for="n1">Network Adjustment settings and default standard errors reviewed</label></li>
+    <li><input type="checkbox" id="n2"><label for="n2">Minimally constrained adjustment run; outliers investigated and resolved</label></li>
+    <li><input type="checkbox" id="n3"><label for="n3">Degrees of freedom above 0; Reference Factor and Chi Square reviewed</label></li>
+    <li><input type="checkbox" id="n4"><label for="n4">Fully constrained adjustment run; Control Coordinate Comparisons reviewed</label></li>
+    <li><input type="checkbox" id="n5"><label for="n5">Results saved with OK; Network Adjustment Report saved with QA records</label></li>
+    <li><input type="checkbox" id="n6"><label for="n6">Disabled observations and any weighting changes documented with reasons</label></li>
+  </ul>
+  <h3>Sign-off</h3>
+  <ul class="check">
+    <li><input type="checkbox" id="c7"><label for="c7">Final coordinates exported and adjustment method and results noted in the narrative</label></li>
     <li><input type="checkbox" id="c8"><label for="c8">Reviewed by PLS / survey lead</label></li>
   </ul>
 </section>
 
 <section id="refs">
-  <div class="eyebrow">14 · Sources</div>
+  <div class="eyebrow">19 · Sources</div>
   <h2>References</h2>
   <p>Trimble help pages were checked in October 2026. Trimble updates its help with each TBC release, so confirm them against the version you have installed.</p>
   <ol class="refs">
@@ -486,9 +655,11 @@ footer img{height:18px;filter:brightness(0) invert(1)}
     <li id="r14" data-n="14">NSPS / ALTA. <i>Minimum Standard Detail Requirements for ALTA/NSPS Land Title Surveys</i> (current edition). Relative positional precision requirements.</li>
     <li id="r15" data-n="15">Mahun, J. “Adjustment Methods Comparison” (Compass, Transit, Crandall). <i>Open Access Surveying Library.</i> <a href="https://www.jerrymahun.com/index.php/home/open-access/17-trav-comps/277-5-adjustments-comparison-3?showall=1">jerrymahun.com</a></li>
     <li id="r16" data-n="16">Blecha, J. “Tip of the Week #29: Sources of Default Standard Errors.” <i>Trimble Community</i>, 2020. <a href="https://community.trimble.com/blogs/joe-blecha1/2020/11/18/tip-of-the-week-29-sources-of-default-standard-errors">community.trimble.com</a></li>
-    <li class="grp">Trimble Business Center help (network adjustment report)</li>
+    <li class="grp">Trimble Business Center help (network adjustment)</li>
     <li id="r17" data-n="17">Trimble. “Run a Network Adjustment Report.” <i>Trimble Business Center Help.</i> <a href="https://help.fieldsystems.trimble.com/tbc/398_1.htm">https://help.fieldsystems.trimble.com/tbc/398_1.htm</a></li>
     <li id="r18" data-n="18">Trimble. “Network Adjustment Options.” <i>Trimble Business Center Help.</i> <a href="https://help.fieldsystems.trimble.com/tbc/3338.htm">https://help.fieldsystems.trimble.com/tbc/3338.htm</a></li>
+    <li id="r19" data-n="19">Trimble. “Network Adjustment Settings.” <i>Trimble Business Center Help.</i> <a href="https://help.fieldsystems.trimble.com/tbc/3339.htm">https://help.fieldsystems.trimble.com/tbc/3339.htm</a></li>
+    <li id="r20" data-n="20">Trimble. “Workflow: Import Total Station Data.” <i>Trimble Business Center Help.</i> <a href="https://help.fieldsystems.trimble.com/tbc/12084.htm">https://help.fieldsystems.trimble.com/tbc/12084.htm</a></li>
   </ol>
 </section>
 
@@ -497,7 +668,7 @@ footer img{height:18px;filter:brightness(0) invert(1)}
 
 <footer><div class="in">
   <img src="data:image/png;base64,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" alt="Parametrix">
-  <span>Internal training material · Traverse Adjustment in TBC · Verify menu paths against your installed TBC version</span>
+  <span>Internal training material · Traverse &amp; Network Adjustment in TBC · Verify menu paths against your installed TBC version</span>
 </div></footer>
 
 </body>
