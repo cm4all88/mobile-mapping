@@ -27,7 +27,7 @@ Fifteen checks. Everything else in this file exists to keep them passing.
 | publication layer | No build machinery leaked into a published document | `check-publication.py` |
 | authority of shall | Every `shall` rests on an authority that binds now | `check-authority.py` |
 | numbers match register | Every equipment quantity in the documents exists in `reference/mx60-reference-data.csv` | `check-numbers.py` |
-| tablet checklist fresh | The tablet preflight checklist still matches the Appendix A it is built from | `build-field-app.py --check` |
+| Field Tools app fresh | The tablet app still matches the eight appendices it is built from | `build-field-app.py --check` |
 | cross-references resolve | Every `§n` points at a section that exists | in `check-all.py` |
 | register identifiers | Every `D-`/`T`/`V-` cited exists, and every register item is cited | in `check-all.py` |
 | rendered emphasis | No unrendered `**` in the built pages — **and the pages are newer than their markdown**, so the check is not reading stale output | in `check-all.py` |
@@ -87,16 +87,17 @@ This environment has no working LibreOffice, pandoc or `pdftoppm`. `build-sop.js
 structural validation but **has never been rendered and looked at** — open it in Word before issuing
 anything. The same applies to `marketing/`.
 
-## The tablet checklist
+## The tablet app
 
-`field-app/MX60-preflight.html` is the Preflight Checklist as a self-contained page for a tablet in
-a vehicle: offline, searchable, gated, and printable through Safari. It is **built from
-`appendix-A-preflight-checklist.md`**, never written, and `build-field-app.py --check` is one of the
-gates above.
+`field-app/MX60-Field-Tools.html` is the eight MX60 appendices as one application for an iPad in a
+vehicle: offline, searchable, gated, writing a Parametrix PDF for every completed record. It is
+**built from the eight source appendices**, never written, and `build-field-app.py --check` is one
+of the gates above.
 
 | | |
 |---|---|
-| `build-field-app.py` | builds both targets — the tablet file and the review copy — from Appendix A |
-| `field-app-template.html` | the page itself. `SUBMIT_URL` at the top of its script is where a completed record is posted; it is empty until the office has an endpoint |
+| `build-field-app.py` | builds both targets — the iPad file and the review copy — from the eight appendices. `--dump KEY` prints one parsed form |
+| `field-app-template.html` | the app itself. `SUBMIT_URL` at the top of its script is where a completed record is posted; it is empty until the office has an endpoint |
+| `vendor/jspdf.umd.min.js` | inlined into the app so a tablet with no signal can still write a PDF. See `vendor/README.md` |
 
-See `field-app/README.md`.
+See `field-app/README.md`, and `field-app/IPAD-TEST.md` for what has to be tested on a real device.

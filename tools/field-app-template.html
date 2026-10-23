@@ -1,26 +1,29 @@
-<title>MX60 Preflight</title>
+<title>MX60 Field Tools</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 {{TOKENS}}
 
 /* ===========================================================================
-   The preflight checklist as a field instrument.
+   MX60 Field Tools — eight forms, one job header, one record store.
 
-   LAYOUT  one column, operated with a thumb through a windscreen glare: a
-           sticky status band carrying the count, then the mission header, then
-           the search, then the seven groups as stacks, then the clearance gate
-           at the end. Nothing is behind a menu.
-   COLOUR  the document family's own tokens. Future Green is the Field How To's
-           accent and marks a cleared item; Parametrix Red marks what is still
-           outstanding and the locked gate. Nothing else is coloured.
+   LAYOUT  one column throughout, operated with a thumb through windscreen
+           glare. A home screen that is a list of forms and their state; a form
+           that is a stack of groups ending in the clearance gate; a history
+           that is a list of records and where each one has got to. Nothing is
+           behind a menu and nothing needs a second tap to see.
+   COLOUR  the document family's own tokens. Future Green marks a cleared item
+           and a delivered record; Parametrix Red marks what is outstanding and
+           a locked gate; Optimistic Yellow marks a record waiting to be sent.
+           Nothing else is coloured.
    TYPE    the brand stacks. Item text is set large enough to read at arm's
-           length; counts are tabular.
+           length; counts, times and record ids are tabular.
    =========================================================================== */
 :root{
   --app-row:#FFFFFF;
   --done:var(--brand-green);
   --na:var(--brand-gray);
   --open:var(--brand-red);
+  --wait:var(--brand-yellow);
   --app-ink:var(--brand-charcoal);
   --app-ground:#F2F2F2;
   --tap:56px;
@@ -39,22 +42,29 @@ body{
 }
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);
   z-index:30;background:var(--brand-charcoal)}
-.wrap{max-width:46rem;margin:0 auto;
+.wrap{max-width:48rem;margin:0 auto;
   padding-left:max(16px,env(safe-area-inset-left,0px));
   padding-right:max(16px,env(safe-area-inset-right,0px))}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-input,textarea{font:inherit;color:inherit}
+input,textarea,select{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--brand-blue);outline-offset:2px}
+h1,h2,h3{text-wrap:balance}
 
-/* --- the status band ---------------------------------------------------- */
+/* --- the band ----------------------------------------------------------- */
 .band{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
   background:var(--brand-charcoal);color:#fff}
 .band .wrap{padding-block:9px;display:flex;align-items:center;gap:12px}
 .band img{height:20px;width:auto;flex:0 0 auto}
 .band .who{flex:1 1 auto;min-width:0}
-.band .who b{display:block;font:700 13px/1.25 var(--brand-body);letter-spacing:.01em}
+.band .who b{display:block;font:700 13px/1.25 var(--brand-body);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .band .who span{display:block;font:500 10px/1.4 var(--brand-body);
-  letter-spacing:.12em;text-transform:uppercase;color:var(--brand-gray-1)}
+  letter-spacing:.12em;text-transform:uppercase;color:var(--brand-gray-1);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.band .act{flex:0 0 auto;display:flex;align-items:center;gap:4px}
+.band .act button{min-height:40px;padding:6px 10px;border-radius:2px;
+  font:700 11px/1.2 var(--brand-body);letter-spacing:.07em;text-transform:uppercase;
+  color:#fff;border:1px solid #5A5A5A}
 .tally{flex:0 0 auto;text-align:right;font-variant-numeric:tabular-nums}
 .tally b{font:700 19px/1 var(--brand-body)}
 .tally span{display:block;font:500 9.5px/1.4 var(--brand-body);
@@ -62,41 +72,84 @@ input,textarea{font:inherit;color:inherit}
 .meter{display:flex;gap:2px;height:4px}
 .meter i{flex:1 1 0;background:#4A4A4A}
 .meter i.on{background:var(--done)}
-.meter i.part{background:var(--brand-yellow)}
+.meter i.part{background:var(--wait)}
 
-/* --- mission header ----------------------------------------------------- */
-.mission{background:var(--app-row);border-bottom:1px solid var(--rule)}
-.mission .wrap{padding-block:14px;display:grid;gap:10px;
-  grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr))}
-.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
-.fld label{font:700 10px/1.4 var(--brand-body);letter-spacing:.12em;
-  text-transform:uppercase;color:var(--muted)}
-.fld input{min-height:44px;padding:8px 10px;background:var(--ground);
-  border:1px solid var(--rule-2);border-radius:2px;width:100%}
-.fld input:invalid,.fld input.want{border-color:var(--open)}
+main .wrap{padding-block:14px 30px}
 
-/* --- search ------------------------------------------------------------- */
-.find{background:var(--app-ground);position:sticky;
-  top:calc(env(safe-area-inset-top,0px) + 60px);z-index:15}
-.find .wrap{padding-block:10px;display:flex;align-items:center;gap:10px}
-.find input{flex:1 1 auto;min-width:0;min-height:44px;padding:8px 12px;
-  background:var(--app-row);border:1px solid var(--rule-2);border-radius:2px}
-.find .n{flex:0 0 auto;font:500 12px/1.4 var(--brand-body);color:var(--muted);
-  font-variant-numeric:tabular-nums}
-
-/* --- groups ------------------------------------------------------------- */
-main .wrap{padding-bottom:28px}
-.grp{background:var(--app-row);border:1px solid var(--rule);margin-bottom:10px}
-.grp>h2{margin:0;display:flex;align-items:center;gap:10px;
+/* --- shared pieces ------------------------------------------------------ */
+.card{background:var(--app-row);border:1px solid var(--rule);margin-bottom:10px}
+.card>h2,.grp>h2{margin:0;display:flex;align-items:center;gap:10px;
   padding:12px 14px;border-bottom:1px solid var(--rule);
-  font:700 15px/1.3 var(--brand-head);letter-spacing:.01em}
-.grp>h2 .gid{flex:0 0 auto;font:700 11px/1 var(--brand-body);letter-spacing:.08em;
+  font:700 15px/1.3 var(--brand-head)}
+.gid{flex:0 0 auto;font:700 11px/1 var(--brand-body);letter-spacing:.08em;
   background:var(--brand-gray-3);color:var(--brand-charcoal);padding:5px 7px;border-radius:2px}
-.grp>h2 .gn{margin-left:auto;flex:0 0 auto;font:600 12px/1 var(--brand-body);
+.gn{margin-left:auto;flex:0 0 auto;font:600 12px/1 var(--brand-body);
   color:var(--muted);font-variant-numeric:tabular-nums}
 .grp[data-done="1"]>h2 .gid{background:var(--done);color:#fff}
-.grp[hidden]{display:none}
+.note{padding:11px 14px;border-bottom:1px solid var(--rule);
+  background:var(--panel);font:400 14px/1.55 var(--brand-body);color:var(--ink-2)}
+.note strong{color:var(--ink)}
+.note.caution{background:color-mix(in srgb,var(--brand-red) 9%,transparent);
+  border-left:4px solid var(--open)}
+.lead{font:400 15px/1.6 var(--brand-body);color:var(--ink-2);margin:0 0 14px;max-width:62ch}
+.eyebrow{font:700 10px/1.5 var(--brand-body);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+.chip{display:inline-block;padding:3px 8px;border-radius:2px;
+  font:700 10px/1.5 var(--brand-body);letter-spacing:.09em;text-transform:uppercase;
+  background:var(--brand-gray-3);color:var(--brand-charcoal)}
+.chip.done{background:var(--done);color:#fff}
+.chip.part{background:var(--wait);color:var(--brand-charcoal)}
+.chip.wait{background:var(--wait);color:var(--brand-charcoal)}
+.chip.sent{background:var(--done);color:#fff}
+.chip.moving{background:var(--brand-blue);color:#fff}
+.chip.open{background:var(--open);color:#fff}
 
+/* --- home --------------------------------------------------------------- */
+.jobcard{display:block;width:100%;text-align:left;padding:14px;
+  background:var(--app-row);border:1px solid var(--rule);margin-bottom:14px}
+.jobcard[data-want="1"]{border-color:var(--open);border-width:2px}
+.jobgrid{display:grid;gap:10px 18px;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));
+  margin-top:10px}
+.jobgrid div{min-width:0}
+.jobgrid b{display:block;font:700 9.5px/1.5 var(--brand-body);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.jobgrid span{display:block;font:600 15px/1.4 var(--brand-body);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jobgrid span.none{color:var(--open);font-weight:500}
+.formlist{display:grid;gap:8px}
+.formbtn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  padding:13px 14px;min-height:var(--tap);background:var(--app-row);
+  border:1px solid var(--rule)}
+.formbtn .fi{flex:0 0 auto;width:34px;height:34px;display:grid;place-items:center;
+  border-radius:2px;background:var(--brand-gray-3);color:var(--brand-charcoal);
+  font:700 11px/1 var(--brand-body);letter-spacing:.04em}
+.formbtn[data-state="completed"] .fi{background:var(--done);color:#fff}
+.formbtn[data-state="progress"] .fi{background:var(--wait);color:var(--brand-charcoal)}
+.formbtn .ft{flex:1 1 auto;min-width:0}
+.formbtn .ft b{display:block;font:700 15px/1.3 var(--brand-body)}
+.formbtn .ft span{display:block;font:400 13px/1.45 var(--brand-body);color:var(--muted)}
+.formbtn .fs{flex:0 0 auto}
+.hits{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.hits button{display:block;width:100%;text-align:left;padding:11px 13px;
+  background:var(--app-row);min-height:48px;font:400 14px/1.45 var(--brand-body)}
+.hits .hk{display:block;font:700 10px/1.5 var(--brand-body);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+
+/* --- fields ------------------------------------------------------------- */
+.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fld label,.flab{font:700 10px/1.4 var(--brand-body);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.fld input,.fld textarea,.extra input,.extra textarea,.cell input{
+  min-height:44px;padding:8px 10px;background:var(--ground);
+  border:1px solid var(--rule-2);border-radius:2px;width:100%}
+.fld textarea{min-height:66px;resize:vertical}
+.fld input.want,.extra input.need,.pick.want{border-color:var(--open)}
+.fld input:disabled,.fld textarea:disabled{background:var(--panel);color:var(--ink-2)}
+.jobform{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));
+  padding:14px}
+.req{color:var(--open);font-weight:700}
+
+/* --- a checklist item --------------------------------------------------- */
 .itemwrap{border-bottom:1px solid var(--rule)}
 .grp .itemwrap:last-child{border-bottom:0}
 .itemwrap[hidden]{display:none}
@@ -111,8 +164,13 @@ main .wrap{padding-bottom:28px}
   font-size:9.5px;letter-spacing:.03em}
 .txt{flex:1 1 auto;min-width:0}
 .txt .t{display:block}
+.txt .num{display:inline-block;min-width:1.5em;font-weight:700;color:var(--muted);
+  font-variant-numeric:tabular-nums}
 .item[data-s="done"] .txt .t,.item[data-s="na"] .txt .t{color:var(--muted)}
 .item[data-s="na"] .txt .t{text-decoration:line-through}
+.sub{display:block;margin-top:2px;font:400 13px/1.45 var(--brand-body);color:var(--ink-2)}
+.sub b{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:11px;
+  color:var(--muted)}
 .refs{display:block;margin-top:3px;font:500 12px/1.45 var(--brand-body);color:var(--muted)}
 .refs b{font-weight:700;color:var(--brand-blue)}
 .side{flex:0 0 auto;display:flex;align-items:center;align-self:stretch;
@@ -126,23 +184,67 @@ main .wrap{padding-bottom:28px}
 .extra[hidden]{display:none}
 .extra label{font:700 10px/1.4 var(--brand-body);letter-spacing:.12em;
   text-transform:uppercase;color:var(--muted)}
-.extra input,.extra textarea{width:100%;padding:8px 10px;background:var(--ground);
-  border:1px solid var(--rule-2);border-radius:2px;min-height:44px}
 .extra textarea{min-height:66px;resize:vertical}
-.extra .need{border-color:var(--open)}
 .needval{display:block;margin-top:3px;font:700 11px/1.4 var(--brand-body);
   letter-spacing:.06em;text-transform:uppercase;color:var(--open)}
 
-/* --- the clearance gate ------------------------------------------------- */
-.gate{border:2px solid var(--open);background:var(--app-row);padding:16px}
+/* --- a record-form field ------------------------------------------------ */
+.rowfld{padding:12px 14px;border-bottom:1px solid var(--rule);display:grid;gap:7px}
+.rowfld:last-child{border-bottom:0}
+.rowfld[hidden]{display:none}
+.rowfld .flab .req{margin-left:5px}
+.rowfld[data-done="1"] .flab .req{display:none}
+.rowfld .fromjob{font:500 12px/1.4 var(--brand-body);color:var(--muted)}
+.rowfld .carried{font:400 15px/1.45 var(--brand-body);padding:9px 10px;
+  background:var(--panel);border:1px solid var(--rule);border-radius:2px;color:var(--ink-2)}
+.picks{display:flex;flex-wrap:wrap;gap:6px}
+.pick{padding:10px 13px;min-height:44px;border:1px solid var(--rule-2);border-radius:2px;
+  background:var(--ground);font:500 14px/1.3 var(--brand-body);text-align:left}
+.pick[aria-pressed="true"]{background:var(--brand-charcoal);color:#fff;
+  border-color:var(--brand-charcoal)}
+.pick[aria-pressed="true"] strong{color:#fff}
+.checkbtn{display:flex;align-items:center;gap:10px;min-height:44px;text-align:left;
+  font:500 15px/1.4 var(--brand-body)}
+.checkbtn .box{width:24px;height:24px}
+.checkbtn[aria-pressed="true"] .box{background:var(--done);border-color:var(--done);color:#fff}
+.hint{font:500 13px/1.4 var(--brand-body);color:var(--muted)}
+.part{display:grid;gap:6px}
+.part>.flab{text-transform:none;letter-spacing:.02em;font-size:12px;font-weight:600}
+
+/* --- a repeating table -------------------------------------------------- */
+.tbl{padding:10px 14px 14px;display:grid;gap:10px}
+.trow{border:1px solid var(--rule);background:var(--ground)}
+.trow>.rn{display:flex;align-items:center;justify-content:space-between;
+  padding:7px 10px;border-bottom:1px solid var(--rule);background:var(--panel);
+  font:700 10px/1.5 var(--brand-body);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted)}
+.trow>.rn button{font:700 11px/1.2 var(--brand-body);color:var(--open);
+  min-height:36px;padding:4px 8px;letter-spacing:.06em}
+.cell{padding:9px 10px;display:grid;gap:5px}
+.cell+.cell{border-top:1px solid var(--rule)}
+.addrow{min-height:46px;border:1px dashed var(--rule-2);border-radius:2px;
+  font:700 12px/1.2 var(--brand-body);letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-2)}
+
+/* --- search ------------------------------------------------------------- */
+.find{background:var(--app-ground);position:sticky;
+  top:calc(env(safe-area-inset-top,0px) + 60px);z-index:15}
+.find.flat{position:static}
+.find .wrap{padding-block:10px;display:flex;align-items:center;gap:10px}
+.find input{flex:1 1 auto;min-width:0;min-height:44px;padding:8px 12px;
+  background:var(--app-row);border:1px solid var(--rule-2);border-radius:2px}
+.find .n{flex:0 0 auto;font:500 12px/1.4 var(--brand-body);color:var(--muted);
+  font-variant-numeric:tabular-nums}
+
+/* --- the gate ----------------------------------------------------------- */
+.gate{border:2px solid var(--open);background:var(--app-row);padding:16px;margin-top:4px}
 .gate[data-ready="1"]{border-color:var(--done)}
 .gate h2{margin:0 0 6px;font:700 17px/1.25 var(--brand-head)}
+.gate p{margin:0 0 12px;font:400 14px/1.55 var(--brand-body);color:var(--ink-2);max-width:60ch}
 .sigrow{margin:0 0 14px;max-width:22rem}
 .sigrow[hidden]{display:none}
-.gate p{margin:0 0 12px;font:400 14px/1.55 var(--brand-body);color:var(--ink-2);
-  max-width:60ch}
 .out{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:1px;
-  background:var(--rule);border:1px solid var(--rule);max-height:13rem;overflow-y:auto}
+  background:var(--rule);border:1px solid var(--rule);max-height:14rem;overflow-y:auto}
 .out li{background:var(--app-row)}
 .out button{display:block;width:100%;text-align:left;padding:10px 12px;min-height:44px;
   font:500 14px/1.4 var(--brand-body)}
@@ -157,15 +259,29 @@ main .wrap{padding-bottom:28px}
   border-radius:2px;font:700 13px/1.2 var(--brand-body);letter-spacing:.04em;
   background:var(--ground)}
 .acts button.quiet{border-color:var(--rule-2);color:var(--muted)}
+.acts button.danger{border-color:var(--open);color:var(--open)}
+.acts button[disabled]{opacity:.5;cursor:not-allowed}
 .said{margin-top:10px;font:500 13px/1.5 var(--brand-body);color:var(--ink-2)}
 .said.bad{color:var(--open)}
-.cleared{display:flex;align-items:center;gap:10px;margin-bottom:12px;
-  font:700 13px/1.3 var(--brand-body);letter-spacing:.06em;text-transform:uppercase;
+.cleared{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;
+  font:700 13px/1.4 var(--brand-body);letter-spacing:.05em;text-transform:uppercase;
   color:var(--done)}
-.cleared .dot{width:12px;height:12px;border-radius:50%;background:var(--done);flex:0 0 auto}
+.cleared .dot{width:12px;height:12px;border-radius:50%;background:var(--done);
+  flex:0 0 auto;margin-top:3px}
 .offline{display:inline-block;margin-left:8px;padding:2px 7px;border-radius:2px;
-  background:var(--brand-yellow);color:var(--brand-charcoal);
+  background:var(--wait);color:var(--brand-charcoal);
   font:700 9.5px/1.6 var(--brand-body);letter-spacing:.1em;text-transform:uppercase}
+
+/* --- history ------------------------------------------------------------ */
+.recs{display:grid;gap:8px}
+.recbtn{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;
+  padding:13px 14px;min-height:var(--tap);background:var(--app-row);border:1px solid var(--rule)}
+.recbtn .rt{flex:1 1 auto;min-width:0}
+.recbtn .rt b{display:block;font:700 15px/1.3 var(--brand-body)}
+.recbtn .rt span{display:block;font:400 13px/1.5 var(--brand-body);color:var(--muted);
+  font-variant-numeric:tabular-nums}
+.empty{padding:20px 14px;background:var(--app-row);border:1px dashed var(--rule-2);
+  font:400 14px/1.6 var(--brand-body);color:var(--muted)}
 
 /* --- provenance --------------------------------------------------------- */
 .prov{border-top:1px solid var(--rule);margin-top:22px}
@@ -192,7 +308,7 @@ main .wrap{padding-bottom:28px}
 .rec .st.d{color:#2f8c38}
 .rec .st.n{color:#676768}
 .rec .st.o{color:#C62C16}
-.rec .note{display:block;color:#676768;font-style:italic}
+.rec .sn{display:block;color:#676768;font-style:italic}
 .rec .sig{margin-top:18px;display:flex;gap:28px;flex-wrap:wrap;
   font:400 12.5px/1.6 var(--brand-body)}
 .rec .pf{margin-top:18px;padding-top:8px;border-top:1px solid #e5e5e5;
@@ -200,7 +316,7 @@ main .wrap{padding-bottom:28px}
 
 @media print{
   body{background:#fff;color:#000}
-  body::before,.band,.mission,.find,main,.prov{display:none!important}
+  body::before,.band,.find,main,.prov{display:none!important}
   .rec{display:block!important}
   .rec .wrap{max-width:none;padding:0}
   .rec tr,.rec h3{break-inside:avoid;page-break-inside:avoid}
@@ -212,34 +328,22 @@ main .wrap{padding-bottom:28px}
 <div class="band">
   <div class="wrap">
     <img src="data:image/png;base64,{{LOGO_KO}}" alt="Parametrix">
-    <span class="who"><b>Preflight Checklist</b><span>Trimble MX60 Premium</span></span>
-    <span class="tally"><b id="tally">0/0</b><span>cleared</span></span>
+    <span class="who"><b id="bt">MX60 Field Tools</b><span id="bs">Trimble MX60 Premium</span></span>
+    <span class="act" id="bact"></span>
   </div>
   <div class="meter" id="meter" aria-hidden="true"></div>
 </div>
 
-<div class="mission">
-  <div class="wrap" id="mission"></div>
-</div>
-
-<div class="find">
+<div class="find" id="find">
   <div class="wrap">
     <input id="q" type="search" inputmode="search" autocomplete="off"
-           placeholder="Search the checklist" aria-label="Search the checklist">
+           placeholder="Search" aria-label="Search">
     <span class="n" id="qn"></span>
   </div>
 </div>
 
 <main>
-  <div class="wrap">
-    <div id="groups"></div>
-
-    <section class="gate" id="gate" aria-live="polite">
-      <div id="gatebody"></div>
-      <div class="fld sigrow" id="sigrow"></div>
-      <div id="gatefoot"></div>
-    </section>
-  </div>
+  <div class="wrap" id="view"></div>
 </main>
 
 <div class="prov">
@@ -248,130 +352,672 @@ main .wrap{padding-bottom:28px}
 
 <div class="rec" id="rec" hidden></div>
 
+<script>{{JSPDF}}</script>
 <script>
 const DATA = {{DATA}};
 const TARGET = "{{TARGET}}";
+const LOGO = "{{LOGO}}";
 
-/* Where a completed checklist is sent. Left empty, the record never leaves the
-   tablet on its own: the operator sends it with Share or Save, and nothing is
-   lost. Set it to the office endpoint once that endpoint exists, and a record
-   filled in with no signal is posted the moment the tablet has one. */
+/* Where a completed record is posted. Left empty, nothing leaves the tablet on
+   its own: the operator sends records through the iPad share sheet and the app
+   keeps them until the office is confirmed to have them. Set it to the office
+   endpoint once that endpoint exists, and a record completed with no signal
+   posts itself the moment the tablet has one. A record is marked SENT only on
+   a 2xx from that endpoint, or when the operator confirms the office has it —
+   never because a share sheet opened. */
 const SUBMIT_URL = "";
 
-const KEY  = "mx60.preflight.v1";
-const QKEY = "mx60.preflight.queue.v1";
-const ALL  = DATA.groups.flatMap(g => g.items);
+const FORMS = DATA.order.map(k => DATA.forms[k]);
+const F = k => DATA.forms[k];
 const CLEARED = s => s === "done" || s === "na";
-
-/* ---- state. localStorage can throw, or come back empty in a private window
-   or with site data cleared. The page works either way; it just stops
-   surviving a reload. ----------------------------------------------------- */
-function load(k, dflt){
-  try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : dflt }
-  catch (e) { return dflt }
-}
-function save(k, v){ try { localStorage.setItem(k, JSON.stringify(v)) } catch (e) {} }
-
-function blank(){
-  return { rid: "PF-" + new Date().toISOString().slice(0, 10).replace(/-/g, "") + "-"
-                + Math.random().toString(36).slice(2, 6).toUpperCase(),
-           started: new Date().toISOString(),
-           meta: {}, items: {}, sign: "", completedAt: null, sent: null };
-}
-let S = load(KEY, null) || blank();
-let Q = load(QKEY, []);
-let MSG = null;
-const opened = new Set();
-const it = id => (S.items[id] = S.items[id] || { s: "", note: "", val: "" });
-const locked = () => Boolean(S.completedAt);
-
-const E = (t, c, h) => { const e = document.createElement(t);
-  if (c) e.className = c; if (h !== undefined) e.innerHTML = h; return e };
 const esc = s => String(s == null ? "" : s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const E = (t, c, h) => { const e = document.createElement(t);
+  if (c) e.className = c; if (h !== undefined) e.innerHTML = h; return e };
+const pad = n => String(n).padStart(2, "0");
+const when = t => t ? new Date(t).toLocaleString() : "";
 
-/* ---- what the gate is waiting for. This one function is the whole rule:
-   the mission is not cleared to start until it returns nothing. ----------- */
-function outstanding(){
-  const o = [];
-  for (const m of DATA.meta)
-    if (!(S.meta[m.id] || "").trim())
-      o.push({ k: m.label, why: "not filled in", el: "m-" + m.id });
-  for (const i of ALL){
-    const st = it(i.id);
-    if (!CLEARED(st.s)) o.push({ k: i.id, why: i.text, el: i.id });
-    else if (i.field && st.s === "done" && !st.val.trim())
-      o.push({ k: i.id, why: i.field.label + " not recorded", el: i.id });
+/* ---- local state. localStorage can throw, or come back empty in a private
+   window or with site data cleared. The app works either way; it just stops
+   surviving a reload, and it says so rather than pretending. -------------- */
+let STORAGE_OK = true;
+function load(k, dflt){
+  try { const v = localStorage.getItem("mx60.ft." + k); return v ? JSON.parse(v) : dflt }
+  catch (e) { STORAGE_OK = false; return dflt }
+}
+function save(k, v){
+  try { localStorage.setItem("mx60.ft." + k, JSON.stringify(v)) }
+  catch (e) { STORAGE_OK = false }
+}
+
+let JOBV = load("job", {});
+let DRAFTS = load("drafts", {});
+let INDEX = load("index", []);          // record headers, for history without IDB
+let MSG = null;
+let VIEW = { name: "home" };
+const opened = new Set();
+
+/* ---- the record store ---------------------------------------------------
+   IndexedDB holds the whole record and its PDF. localStorage holds a header
+   for each one so history still works if IndexedDB is unavailable, and holds
+   the records themselves as a fallback (without the PDF, which is rebuilt
+   from the record on demand — the record carries every value the PDF prints,
+   so nothing is lost by not storing the bytes).
+   Nothing in here ever deletes a record that has not been confirmed sent. */
+const Store = (() => {
+  let dbp = null;
+  function open(){
+    if (dbp) return dbp;
+    dbp = new Promise(res => {
+      let rq;
+      try { rq = indexedDB.open("mx60-field-tools", 1) } catch (e) { return res(null) }
+      rq.onupgradeneeded = () => {
+        const db = rq.result;
+        if (!db.objectStoreNames.contains("records"))
+          db.createObjectStore("records", { keyPath: "rid" });
+      };
+      rq.onsuccess = () => res(rq.result);
+      rq.onerror = () => res(null);
+      rq.onblocked = () => res(null);
+    });
+    return dbp;
   }
-  if (!(S.sign || "").trim())
-    o.push({ k: DATA.sign, why: "not signed", el: "m-sign" });
+  const tx = async (mode, fn) => {
+    const db = await open();
+    if (!db) return null;
+    return new Promise(res => {
+      let out = null;
+      const t = db.transaction("records", mode);
+      const s = t.objectStore("records");
+      fn(s, v => { out = v });
+      t.oncomplete = () => res(out);
+      t.onerror = () => res(null);
+      t.onabort = () => res(null);
+    });
+  };
+  const header = e => ({ rid: e.rid, formKey: e.formKey, status: e.status,
+    completedAt: e.completedAt, handedAt: e.handedAt || null,
+    sentAt: e.sentAt || null, how: e.how || "", job: e.job });
+  return {
+    async put(e){
+      const ok = await tx("readwrite", s => s.put(e));
+      INDEX = INDEX.filter(h => h.rid !== e.rid).concat([header(e)]);
+      save("index", INDEX);
+      if (ok === null){                        // no IndexedDB: keep it in LS
+        const fb = load("records", []).filter(r => r.rid !== e.rid);
+        const { pdf, ...rest } = e;
+        save("records", fb.concat([rest]));
+      }
+      return true;
+    },
+    async get(rid){
+      const e = await tx("readonly", (s, set) => {
+        const r = s.get(rid); r.onsuccess = () => set(r.result);
+      });
+      return e || load("records", []).find(r => r.rid === rid) || null;
+    },
+    async all(){
+      const e = await tx("readonly", (s, set) => {
+        const r = s.getAll(); r.onsuccess = () => set(r.result);
+      });
+      if (e && e.length) return e;
+      const fb = load("records", []);
+      return fb.length ? fb : INDEX.map(h => ({ ...h, record: null }));
+    },
+    /* A record is removable only once the office is confirmed to have it.
+       Nothing here removes anything on its own. */
+    async remove(rid){
+      const e = await this.get(rid);
+      if (!e || e.status !== "sent") return false;
+      await tx("readwrite", s => s.delete(rid));
+      INDEX = INDEX.filter(h => h.rid !== rid); save("index", INDEX);
+      save("records", load("records", []).filter(r => r.rid !== rid));
+      return true;
+    },
+  };
+})();
+
+/* ---- drafts -------------------------------------------------------------
+   One draft per form, held until that form is completed. A draft is never
+   thrown away by the app. */
+function draft(key){
+  if (!DRAFTS[key])
+    DRAFTS[key] = { items: {}, fields: {}, tables: {}, meta: {}, sign: "",
+                    started: new Date().toISOString() };
+  const d = DRAFTS[key];
+  d.items = d.items || {}; d.fields = d.fields || {};
+  d.tables = d.tables || {}; d.meta = d.meta || {};
+  return d;
+}
+const saveDrafts = () => save("drafts", DRAFTS);
+
+/* Reading and writing are separate on purpose. `draft`, `itemState` and the
+   rest create what they are asked for, which is right when the operator has
+   just tapped something — and wrong everywhere else. Home asks every form how
+   far along it is; if that question created a draft for each one, all eight
+   would report themselves started before anybody had touched them. It did.
+   So anything that only looks uses the read accessors, which create nothing. */
+const EMPTY_ITEM = Object.freeze({ s: "", note: "", val: "" });
+const EMPTY_FIELD = Object.freeze({ v: [], f: [] });
+const peek = k => DRAFTS[k] || null;
+const readItem = (k, id) => (peek(k) && peek(k).items && peek(k).items[id]) || EMPTY_ITEM;
+const readField = (k, id) => (peek(k) && peek(k).fields && peek(k).fields[id]) || EMPTY_FIELD;
+const readTable = (k, id) => (peek(k) && peek(k).tables && peek(k).tables[id]) || null;
+const readMeta = (k, id) => (peek(k) && peek(k).meta && peek(k).meta[id]) || "";
+const readSign = k => (peek(k) && peek(k).sign) || "";
+const isClosed = k => Boolean(peek(k) && peek(k).completedAt);
+
+const itemState = (k, id) => {
+  const d = draft(k);
+  return (d.items[id] = d.items[id] || { s: "", note: "", val: "" });
+};
+const fieldState = (k, id) => {
+  const d = draft(k);
+  return (d.fields[id] = d.fields[id] || { v: [], f: [] });
+};
+const tableState = (k, t) => {
+  const d = draft(k);
+  if (!d.tables[t.id])
+    d.tables[t.id] = Array.from({ length: t.rows }, () => t.cols.map(() => ({ v: "", f: "" })));
+  return d.tables[t.id];
+};
+
+/* ---- is a thing finished? ---------------------------------------------- */
+function partDone(part, val){
+  if (part.kind === "text") return Boolean((val.v || "").trim());
+  if (part.kind === "check") return val.v === true;
+  if (val.v === "" || val.v == null) return false;
+  const opt = part.options[val.v];
+  return !opt.follow || Boolean((val.f || "").trim());
+}
+function fieldDone(key, f){
+  if (f.job) return Boolean((JOBV[f.job] || "").trim());
+  const st = readField(key, f.id);
+  return f.parts.every((p, k) => partDone(p, st.v[k] === undefined
+    ? { v: p.kind === "check" ? false : "", f: "" } : { v: st.v[k], f: st.f[k] || "" }));
+}
+
+/* Everything the gate is waiting for, in the order the operator meets it. */
+function outstanding(key){
+  const form = F(key), o = [];
+  for (const j of DATA.job){
+    if (!j.always && form.stage !== "Field") continue;
+    if (!(JOBV[j.id] || "").trim())
+      o.push({ k: j.label, why: "not filled in", go: "job" });
+  }
+  for (const m of form.meta)
+    if (!readMeta(key, m.id).trim())
+      o.push({ k: m.label, why: "not filled in", el: "m-" + m.id });
+  if (form.kind === "checklist"){
+    for (const g of form.groups) for (const i of g.items){
+      const st = readItem(key, i.id);
+      if (!CLEARED(st.s)) o.push({ k: i.id, why: i.text, el: i.id });
+      else if (i.field && st.s === "done" && !(st.val || "").trim())
+        o.push({ k: i.id, why: i.field.label + " not recorded", el: i.id });
+    }
+  } else {
+    for (const g of form.groups) for (const f of g.fields){
+      if (!f.required || fieldDone(key, f)) continue;
+      o.push({ k: f.id, why: f.label + (f.job ? " — from the job header" : ""),
+               el: f.job ? null : f.id, go: f.job ? "job" : null });
+    }
+  }
+  if (form.sign && !readSign(key).trim())
+    o.push({ k: form.sign, why: "not signed", el: "m-sign" });
   return o;
 }
+function progress(key){
+  const form = F(key);
+  if (form.kind === "checklist"){
+    const all = form.groups.flatMap(g => g.items);
+    return { done: all.filter(i => CLEARED(readItem(key, i.id).s)).length, of: all.length };
+  }
+  const req = form.groups.flatMap(g => g.fields).filter(f => f.required);
+  return { done: req.filter(f => fieldDone(key, f)).length, of: req.length };
+}
+function started(key){
+  const d = peek(key);
+  if (!d) return false;
+  return Object.keys(d.items).length > 0 || Object.keys(d.fields).length > 0
+      || Object.keys(d.tables).length > 0 || Boolean(d.sign)
+      || Object.keys(d.meta).length > 0;
+}
 
-/* ---- the mission header, built once ------------------------------------ */
-function buildMission(){
-  const w = document.getElementById("mission");
-  w.textContent = "";
-  for (const m of DATA.meta){
-    const id = "m-" + m.id, f = E("div", "fld");
-    f.append(Object.assign(E("label"), { htmlFor: id, textContent: m.label }));
-    const inp = Object.assign(document.createElement("input"), { id, type: m.type,
-      autocomplete: "off", disabled: locked(),
-      value: S.meta[m.id] || "" });
+/* ---- the record --------------------------------------------------------- */
+function partText(part, val){
+  if (part.kind === "text")
+    return (val.v || "").trim() + (part.hint && val.v ? " " + part.hint : "");
+  if (part.kind === "check")
+    return (part.label ? part.label + " " : "") + (val.v === true ? "yes" : "—");
+  if (val.v === "" || val.v == null) return "";
+  const opt = part.options[val.v];
+  return opt.t + (opt.follow && val.f ? " — " + opt.follow + ": " + val.f : "");
+}
+function fieldText(key, f){
+  if (f.job) return (JOBV[f.job] || "");
+  const st = readField(key, f.id);
+  return f.parts.map((p, k) => partText(p, { v: st.v[k], f: st.f[k] || "" }))
+    .filter(Boolean).join(" · ");
+}
+function makeRid(key){
+  const form = F(key), j = JOBV;
+  const d = (j.date || new Date().toISOString().slice(0, 10)).replace(/-/g, "");
+  const tag = [j.project, j.task].filter(Boolean).join("-").replace(/[^\w-]/g, "") || "NOJOB";
+  return `${tag}-${form.code}-${d}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+}
+function buildRecord(key){
+  const form = F(key), d = draft(key), rec = {
+    schema: "mx60.fieldtools/1",
+    rid: d.rid || makeRid(key),
+    app: { name: DATA.app, workingVersion: DATA.version, target: TARGET },
+    form: { key: form.key, appendix: form.appendix, name: form.name, kind: form.kind,
+            document: form.docName, source: form.source,
+            sourceHash: form.sourceHash, workingVersion: DATA.version },
+    job: Object.fromEntries(DATA.job.map(j => [j.id, JOBV[j.id] || ""])),
+    meta: Object.fromEntries(form.meta.map(m => [m.id, d.meta[m.id] || ""])),
+    signedBy: d.sign || "", started: d.started, completedAt: d.completedAt || null,
+    device: navigator.userAgent,
+    items: [], fields: [], tables: [],
+    transfer: { status: "completed", handedAt: null, sentAt: null, how: "" },
+  };
+  for (const g of form.groups){
+    for (const i of (g.items || [])){
+      const st = readItem(key, i.id);
+      rec.items.push({ id: i.id, group: g.id, groupTitle: g.title, n: i.n,
+        text: i.text, sections: i.refs.map(r => (r.doc ? r.doc + " " : "") + "§" + r.n),
+        state: st.s || "open", value: st.val || "", note: st.note || "",
+        valueLabel: i.field ? i.field.label : "" });
+    }
+    for (const f of (g.fields || [])){
+      rec.fields.push({ id: f.id, group: g.id, groupTitle: g.title, label: f.label,
+        required: f.required, fromJob: f.job || "", text: fieldText(key, f) });
+    }
+    if (g.table){
+      const rows = (readTable(key, g.table.id) || [])
+        .map(r => g.table.cols.map((c, k) => partText(c.parts[0], r[k] || { v: "", f: "" })))
+        .filter(r => r.some(c => c && c !== "—"));
+      if (rows.length)
+        rec.tables.push({ id: g.table.id, group: g.id, groupTitle: g.title,
+                          cols: g.table.cols.map(c => c.name), rows });
+    }
+  }
+  return rec;
+}
+
+/* ---- the PDF ------------------------------------------------------------
+   A Parametrix record, laid out here rather than photographed off the screen,
+   so the text stays selectable and the file stays small. The body face of the
+   brand stack resolves to Helvetica, which is what this uses; the slab
+   headline face is not embeddable at this size and is not faked. */
+const CH = [51, 51, 51], GY = [103, 103, 104], GN = [63, 181, 73],
+      RD = [238, 61, 36], RULE = [229, 229, 229];
+
+function makePdf(rec){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: "mm", format: "a4", compress: true });
+  const M = 14, R = 210 - M, BOT = 297 - 20, WID = R - M;
+  let y = M;
+
+  const set = (style, size, col) => {
+    doc.setFont("helvetica", style); doc.setFontSize(size);
+    doc.setTextColor(col[0], col[1], col[2]);
+  };
+  const rule = (col, w) => {
+    doc.setDrawColor(col[0], col[1], col[2]); doc.setLineWidth(w || 0.2);
+    doc.line(M, y, R, y);
+  };
+  const need = h => { if (y + h > BOT){ doc.addPage(); y = M } };
+  const wrap = (t, w) => doc.splitTextToSize(String(t == null ? "" : t), w);
+
+  // masthead
+  const img = "data:image/png;base64," + LOGO;
+  try {
+    const p = doc.getImageProperties(img), w = 32;
+    doc.addImage(img, "PNG", M, y, w, w * p.height / p.width);
+  } catch (e) { set("bold", 14, CH); doc.text("Parametrix", M, y + 6) }
+  const tx = M + 38;
+  set("bold", 7.5, GY);
+  doc.text((rec.form.document + " · " + rec.form.appendix).toUpperCase(), tx, y + 3.5,
+           { charSpace: 0.3 });
+  set("bold", 15, CH); doc.text(rec.form.name, tx, y + 10.5);
+  set("bold", 7.5, GY);
+  doc.text("TRIMBLE MX60 PREMIUM", tx, y + 15, { charSpace: 0.3 });
+  y += 19; rule(GN, 0.7); y += 7;
+
+  const kv = (k, v) => {
+    const lines = wrap(v || "—", WID - 42);
+    need(lines.length * 4.4 + 2.5);
+    set("bold", 9, CH); doc.text(k, M, y);
+    set("normal", 9, CH); doc.text(lines, M + 42, y);
+    y += Math.max(1, lines.length) * 4.4 + 1.3;
+    rule(RULE, 0.15); y += 2.3;
+  };
+  const head = t => {
+    need(14);
+    y += 3.5; set("bold", 8, GY);
+    doc.text(String(t).toUpperCase(), M, y, { charSpace: 0.4 });
+    y += 1.8; rule(RULE, 0.15); y += 4.2;
+  };
+  const sub = t => {
+    for (const line of wrap(t, WID - 30)){
+      need(4.6); set("italic", 8, GY); doc.text(line, M + 30, y); y += 3.8;
+    }
+    y += 0.6;
+  };
+  const row = (mark, col, text, extras) => {
+    const lines = wrap(text, WID - 30);
+    need(lines.length * 4.4 + 2.5);
+    set("bold", 8.5, col); doc.text(mark, M, y);
+    set("normal", 9, CH); doc.text(lines, M + 30, y);
+    y += lines.length * 4.4 + 0.6;
+    for (const e of (extras || []).filter(Boolean)) sub(e);
+    y += 0.8; rule(RULE, 0.15); y += 2.2;
+  };
+
+  kv("Project", rec.job.project);
+  kv("Task", rec.job.task);
+  kv("Date", rec.job.date);
+  kv("Operator", rec.job.operator);
+  if (rec.job.vehicle) kv("Vehicle", rec.job.vehicle);
+  for (const [k, v] of Object.entries(rec.meta)) if (v) kv(k.replace(/^\w/, c => c.toUpperCase()), v);
+  kv("Record", rec.rid);
+  kv("Completed", when(rec.completedAt) || "not complete");
+  kv("Completed by", rec.signedBy || "—");
+
+  const MARK = { done: ["Cleared", GN], na: ["N/A", GY], open: ["Outstanding", RD] };
+  let group = null;
+  for (const it of rec.items){
+    if (it.group !== group){ head(it.group + " · " + it.groupTitle); group = it.group }
+    const [mark, col] = MARK[it.state] || MARK.open;
+    row(mark, col, (it.n ? it.n + ". " : "") + it.text, [
+      it.value ? (it.valueLabel ? it.valueLabel + ": " : "") + it.value : "",
+      it.note ? "Note: " + it.note : "",
+      it.sections.length ? it.sections.join(" · ") : "",
+    ]);
+  }
+  group = null;
+  for (const f of rec.fields){
+    if (f.group !== group){ head(f.group + " · " + f.groupTitle); group = f.group }
+    kv(f.label, f.text || (f.required ? "NOT RECORDED" : "—"));
+  }
+  for (const t of rec.tables){
+    head(t.group + " · " + t.groupTitle);
+    for (const r of t.rows)
+      row("•", CH, t.cols.map((c, k) => c + ": " + (r[k] || "—")).join("   "), []);
+  }
+
+  y += 4; need(16);
+  set("bold", 9, CH); doc.text("Signed " + (rec.signedBy || "________________"), M, y);
+  set("normal", 9, GY);
+  doc.text("Transfer: " + transferWords(rec.transfer), M + 70, y);
+  y += 6;
+
+  const pages = doc.getNumberOfPages();
+  for (let p = 1; p <= pages; p++){
+    doc.setPage(p);
+    doc.setDrawColor(RULE[0], RULE[1], RULE[2]); doc.setLineWidth(0.15);
+    doc.line(M, 297 - 15, R, 297 - 15);
+    set("normal", 7, GY);
+    doc.text(`Parametrix · ${DATA.app} · ${rec.form.name} · ${rec.rid}`, M, 297 - 11);
+    doc.text(`Page ${p} of ${pages}`, R, 297 - 11, { align: "right" });
+    doc.text(`${rec.form.document} ${rec.form.appendix}, Working Version `
+      + `${rec.form.workingVersion}, built from ${rec.form.source} `
+      + `(${rec.form.sourceHash}). A living draft: nothing here is an adopted `
+      + `Parametrix standard.`, M, 297 - 7.5, { maxWidth: WID });
+  }
+  return doc.output("blob");
+}
+function transferWords(t){
+  if (!t) return "not sent";
+  if (t.status === "sent") return "delivery confirmed " + when(t.sentAt);
+  if (t.status === "handed") return "handed over " + when(t.handedAt) + ", not confirmed";
+  return "not sent";
+}
+</script>
+<script>
+/* ===========================================================================
+   The views. One router, five screens: home, the job header, a form, a
+   completed record, and the history of records and where each one has got to.
+   =========================================================================== */
+function go(v){ VIEW = v; MSG = null; opened.clear(); render(); window.scrollTo({ top: 0 }) }
+
+/* ---- the job header, carried into every form --------------------------- */
+function jobDone(stage){
+  return DATA.job.every(j => (!j.always && stage !== "Field")
+    || (JOBV[j.id] || "").trim());
+}
+function viewJob(){
+  const v = document.getElementById("view");
+  v.append(E("p", "lead", "Entered once and carried into every form. The project "
+    + "and task numbers go on every record, so the office can file it in that "
+    + "project's Survey field records folder."));
+  const card = E("div", "card");
+  card.append(E("h2", null, "<span class=\"gid\">JOB</span><span>This job</span>"));
+  const grid = E("div", "jobform");
+  for (const j of DATA.job){
+    const id = "j-" + j.id, f = E("div", "fld");
+    f.append(Object.assign(E("label"), { htmlFor: id,
+      innerHTML: esc(j.label) + (j.always ? ' <span class="req">required</span>'
+        : ' <span class="hint">field forms</span>') }));
+    const inp = Object.assign(document.createElement("input"),
+      { id, type: j.type, autocomplete: "off", value: JOBV[j.id] || "" });
     inp.addEventListener("input", () => {
-      S.meta[m.id] = inp.value;
-      inp.classList.toggle("want", !inp.value.trim());
-      save(KEY, S); refresh();
+      JOBV[j.id] = inp.value;
+      inp.classList.toggle("want", j.always && !inp.value.trim());
+      save("job", JOBV);
     });
+    if (j.always && !(JOBV[j.id] || "").trim()) inp.classList.add("want");
     f.append(inp);
-    w.append(f);
+    grid.append(f);
+  }
+  card.append(grid);
+  v.append(card);
+  const a = E("div", "acts");
+  const b = E("button", null, "Done");
+  b.type = "button"; b.addEventListener("click", () => go({ name: "home" }));
+  a.append(b);
+  v.append(a);
+}
+
+/* ---- home -------------------------------------------------------------- */
+function viewHome(){
+  const v = document.getElementById("view");
+  const pending = INDEX.filter(h => h.status !== "sent").length;
+
+  const jb = E("button", "jobcard");
+  jb.type = "button";
+  jb.dataset.want = jobDone("Field") ? "0" : "1";
+  jb.append(E("div", null,
+    '<span class="chip">This job</span>'
+    + (jobDone("Field") ? "" : ' <span class="chip open">Needed</span>')));
+  const grid = E("div", "jobgrid");
+  for (const j of DATA.job){
+    const val = (JOBV[j.id] || "").trim();
+    grid.append(E("div", null, `<b>${esc(j.label)}</b>`
+      + `<span class="${val ? "" : "none"}">${esc(val) || "not set"}</span>`));
+  }
+  jb.append(grid);
+  jb.addEventListener("click", () => go({ name: "job" }));
+  v.append(jb);
+
+  for (const stage of ["Field", "Office"]){
+    v.append(E("div", "eyebrow", stage === "Field"
+      ? "In the vehicle" : "Back at the office"));
+    const list = E("div", "formlist");
+    for (const form of FORMS.filter(f => f.stage === stage)){
+      const p = progress(form.key), on = started(form.key);
+      const closed = isClosed(form.key);
+      const state = closed || (p.done === p.of && on) ? "completed"
+                  : on ? "progress" : "new";
+      const b = E("button", "formbtn");
+      b.type = "button"; b.dataset.state = state;
+      b.append(E("span", "fi", form.code));
+      b.append(E("span", "ft", `<b>${esc(form.name)}</b>`
+        + `<span>${esc(form.appendix)} · ${esc(form.blurb)}</span>`));
+      b.append(E("span", "fs", state === "completed"
+        ? `<span class="chip done">${closed ? "Completed" : "Ready"}</span>`
+        : state === "progress"
+          ? `<span class="chip part">${p.done}/${p.of}</span>`
+          : `<span class="chip">${p.of} ${form.kind === "form" ? "required" : "items"}</span>`));
+      b.addEventListener("click", () => go({ name: "form", key: form.key }));
+      list.append(b);
+    }
+    v.append(list);
+  }
+
+  v.append(E("div", "eyebrow", "Records"));
+  const h = E("button", "formbtn");
+  h.type = "button";
+  h.append(E("span", "fi", "REC"));
+  h.append(E("span", "ft", "<b>Record history</b><span>Completed, waiting to be "
+    + "sent, and confirmed delivered</span>"));
+  h.append(E("span", "fs", pending
+    ? `<span class="chip wait">${pending} waiting</span>`
+    : `<span class="chip">${INDEX.length} kept</span>`));
+  h.addEventListener("click", () => go({ name: "history" }));
+  v.append(h);
+
+  if (!STORAGE_OK)
+    v.append(E("div", "note caution", "<strong>This browser is not letting the app "
+      + "store anything.</strong> Nothing typed here will survive closing the page. "
+      + "Check that private browsing is off and that site data is allowed."));
+  /* iOS clears the storage of a site it decides is idle, and a record that has
+     not reached the office is the one thing here that cannot be recreated. A
+     page added to the home screen is treated as installed and is not cleared,
+     so this is said plainly rather than left to the manual. */
+  else if (navigator.standalone === false)
+    v.append(E("div", "note caution", "<strong>Add this to the home screen before "
+      + "you rely on it.</strong> Share ▸ Add to Home Screen. Safari clears the "
+      + "stored data of a site it decides is idle; a home-screen app is kept, and "
+      + "so are the records waiting in it."));
+}
+
+function homeHits(q){
+  const out = [];
+  for (const form of FORMS) for (const g of form.groups){
+    for (const i of (g.items || [])){
+      const hay = (i.text + " " + g.title + " " + form.name + " "
+        + i.refs.map(r => "§" + r.n + " " + r.title).join(" ")).toLowerCase();
+      if (hay.includes(q)) out.push({ form, g, label: i.text, el: i.id });
+    }
+    for (const f of (g.fields || []))
+      if ((f.label + " " + g.title + " " + form.name).toLowerCase().includes(q))
+        out.push({ form, g, label: f.label, el: f.id });
+  }
+  return out;
+}
+function viewHomeSearch(q){
+  const v = document.getElementById("view");
+  const hits = homeHits(q);
+  document.getElementById("qn").textContent = hits.length + " found";
+  if (!hits.length){
+    v.append(E("div", "empty", "Nothing in the eight forms matches that."));
+    return;
+  }
+  const w = E("div", "hits");
+  for (const hit of hits.slice(0, 60)){
+    const b = E("button");
+    b.type = "button";
+    b.append(E("span", "hk", `${hit.form.short} · ${hit.g.id} ${hit.g.title}`));
+    b.append(document.createTextNode(hit.label));
+    b.addEventListener("click", () =>
+      go({ name: "form", key: hit.form.key, focus: hit.el }));
+    w.append(b);
+  }
+  v.append(w);
+}
+
+/* ---- a form ------------------------------------------------------------ */
+function viewForm(key){
+  const form = F(key), v = document.getElementById("view");
+  if (form.intro) v.append(E("p", "lead", form.intro));
+
+  if (form.meta.length){
+    const card = E("div", "card");
+    card.append(E("h2", null,
+      '<span class="gid">ID</span><span>This mission</span>'));
+    const grid = E("div", "jobform");
+    for (const m of form.meta){
+      const id = "m-" + m.id, f = E("div", "fld");
+      f.append(Object.assign(E("label"), { htmlFor: id,
+        innerHTML: esc(m.label) + ' <span class="req">required</span>' }));
+      const inp = Object.assign(document.createElement("input"),
+        { id, type: m.type, autocomplete: "off", value: readMeta(key, m.id),
+          disabled: isClosed(key) });
+      inp.addEventListener("input", () => {
+        draft(key).meta[m.id] = inp.value;
+        inp.classList.toggle("want", !inp.value.trim());
+        saveDrafts(); refreshForm(key);
+      });
+      f.append(inp);
+      grid.append(f);
+    }
+    card.append(grid);
+    v.append(card);
+  }
+
+  const groups = E("div"); groups.id = "groups";
+  v.append(groups);
+
+  const gate = E("section", "gate"); gate.id = "gate";
+  gate.setAttribute("aria-live", "polite");
+  gate.append(Object.assign(E("div"), { id: "gatebody" }),
+              Object.assign(E("div", "fld sigrow"), { id: "sigrow" }),
+              Object.assign(E("div"), { id: "gatefoot" }));
+  v.append(gate);
+
+  buildGroups(key);
+  buildSign(key);
+  buildGate(key);
+  filterForm();
+}
+
+function buildGroups(key){
+  const form = F(key), w = document.getElementById("groups");
+  w.textContent = "";
+  for (const g of form.groups){
+    const sec = E("section", "grp");
+    sec.id = g.id + "-sec";
+    const h = E("h2");
+    h.append(E("span", "gid", g.id), E("span", "gt", esc(g.title)), E("span", "gn", ""));
+    sec.append(h);
+    if (g.pointer) sec.append(E("div", "note", g.pointer));
+    if (g.note)
+      sec.append(E("div", "note" + (/CAUTION|WARNING/.test(g.note) ? " caution" : ""),
+                   g.note));
+    for (const i of (g.items || [])) sec.append(buildRow(key, i));
+    for (const f of (g.fields || [])) sec.append(buildField(key, f));
+    if (g.table) sec.append(buildTable(key, g.table));
+    w.append(sec);
   }
 }
 
-/* ---- the signature. It sits at the end, because signing is what the operator
-   does once the checklist is done, not something to get out of the way first.
-   It is built once and never rebuilt, so a name can be typed into it. ------ */
-function buildSign(){
-  const w = document.getElementById("sigrow");
-  w.textContent = "";
-  w.append(Object.assign(E("label"), { htmlFor: "m-sign", textContent: DATA.sign }));
-  const inp = Object.assign(document.createElement("input"),
-    { id: "m-sign", type: "text", autocomplete: "off", value: S.sign || "",
-      placeholder: "Your name" });
-  inp.addEventListener("input", () => {
-    S.sign = inp.value;
-    inp.classList.toggle("want", !inp.value.trim());
-    save(KEY, S); refresh();
-  });
-  w.append(inp);
-}
-
-/* ---- one checklist row ------------------------------------------------- */
-function buildRow(i){
-  const st = it(i.id);
+function buildRow(key, i){
+  const st = readItem(key, i.id), locked = isClosed(key);
   const wrap = E("div", "itemwrap");
   const row = E("div", "item"); row.id = i.id; row.dataset.s = st.s || "open";
 
   const tick = E("button", "tick");
-  tick.type = "button";
-  tick.disabled = locked();
+  tick.type = "button"; tick.disabled = locked;
   tick.setAttribute("role", "checkbox");
-  tick.setAttribute("aria-checked", st.s === "done" ? "true" : st.s === "na" ? "mixed" : "false");
+  tick.setAttribute("aria-checked",
+    st.s === "done" ? "true" : st.s === "na" ? "mixed" : "false");
   tick.append(E("span", "box", st.s === "na" ? "N/A" : "&#10003;"));
   const txt = E("div", "txt");
-  txt.append(E("span", "t", i.html));
+  txt.append(E("span", "t", (i.n ? `<span class="num">${esc(i.n)}</span> ` : "") + i.html));
+  for (const s of i.sub)
+    txt.append(E("span", "sub", `<b>${esc(s.label)}</b> ${s.html}`));
   if (i.refs.length)
-    txt.append(E("span", "refs",
-      i.refs.map(r => `<b>&sect;${r.n}</b> ${esc(r.title)}`).join(" &middot; ")));
+    txt.append(E("span", "refs", i.refs.map(r =>
+      `<b>${r.doc ? esc(r.doc) + " " : ""}&sect;${r.n}</b> ${esc(r.title)}`)
+      .join(" &middot; ")));
   if (i.field) txt.append(E("span", "needval", i.field.label + " still to record"));
   tick.append(txt);
   tick.addEventListener("click", () => {
-    if (locked()) return;
-    const s = it(i.id);
+    const s = itemState(key, i.id);
     s.s = s.s === "done" ? "" : "done";
-    save(KEY, S);
-    rebuild();
-    if (s.s === "done" && i.field && !s.val.trim())
+    saveDrafts(); rebuildForm(key);
+    if (s.s === "done" && i.field && !(s.val || "").trim())
       document.getElementById(i.id + "-val")?.focus();
   });
   row.append(tick);
@@ -379,153 +1025,284 @@ function buildRow(i){
   const side = E("div", "side");
   if (i.na){
     const na = E("button", null, "N/A");
-    na.type = "button";
-    na.disabled = locked();
-    na.title = "Not fitted on this vehicle";
+    na.type = "button"; na.disabled = locked;
+    na.title = "The document makes this item conditional";
     na.setAttribute("aria-pressed", st.s === "na" ? "true" : "false");
     na.addEventListener("click", () => {
-      if (locked()) return;
-      const s = it(i.id); s.s = s.s === "na" ? "" : "na"; save(KEY, S); rebuild();
+      const s = itemState(key, i.id);
+      s.s = s.s === "na" ? "" : "na"; saveDrafts(); rebuildForm(key);
     });
     side.append(na);
   }
   const nb = E("button", null, st.note ? "&#9679;" : "&#43;");
-  nb.type = "button";
-  nb.disabled = locked();
+  nb.type = "button"; nb.disabled = locked;
   nb.setAttribute("aria-label", "Note on " + i.id);
   nb.setAttribute("aria-pressed", opened.has(i.id) ? "true" : "false");
   nb.addEventListener("click", () => {
     opened.has(i.id) ? opened.delete(i.id) : opened.add(i.id);
-    rebuild();
+    rebuildForm(key);
     document.getElementById(i.id + "-note")?.focus();
   });
   side.append(nb);
   row.append(side);
   wrap.append(row);
 
-  /* A value-bearing item always shows its field: its own text in Appendix A
-     asks for a value, so hiding it behind a tap would hide the requirement. */
+  /* A value-bearing item always shows its field: its own text asks for a
+     value, so hiding it behind a tap would hide the requirement. */
   const ex = E("div", "extra");
-  ex.hidden = !i.field && !opened.has(i.id);
+  ex.hidden = !i.field && !opened.has(i.id) && !st.note;
   if (i.field){
     const id = i.id + "-val";
     ex.append(Object.assign(E("label"), { htmlFor: id, textContent: i.field.label }));
-    const v = Object.assign(document.createElement("input"),
-      { id, type: i.field.type, value: st.val, autocomplete: "off", disabled: locked() });
-    v.addEventListener("input", () => {
-      /* the row is not rebuilt here: that would take the focus out of this
-         input at the first keystroke */
-      it(i.id).val = v.value;
-      save(KEY, S);
-      markRow(i, row, v);
-      refresh();
+    const inp = Object.assign(document.createElement("input"),
+      { id, type: i.field.type, value: st.val || "", autocomplete: "off",
+        disabled: locked });
+    inp.addEventListener("input", () => {
+      itemState(key, i.id).val = inp.value;   // the row is not rebuilt here:
+      saveDrafts();                            // that would take the focus out
+      markRow(key, i, row, inp);
+      refreshForm(key);
     });
-    ex.append(v);
+    ex.append(inp);
   }
   if (opened.has(i.id) || st.note){
     const nid = i.id + "-note";
-    ex.hidden = false;
     ex.append(Object.assign(E("label"), { htmlFor: nid, textContent: "Note" }));
     const ta = Object.assign(document.createElement("textarea"),
-      { id: nid, value: st.note, rows: 2, disabled: locked() });
-    ta.addEventListener("input", () => { it(i.id).note = ta.value; save(KEY, S) });
+      { id: nid, value: st.note || "", rows: 2, disabled: locked });
+    ta.addEventListener("input", () => { itemState(key, i.id).note = ta.value; saveDrafts() });
     ex.append(ta);
   }
   wrap.append(ex);
-  markRow(i, row, ex.querySelector("input"));
+  markRow(key, i, row, ex.querySelector("input"));
   return wrap;
 }
-
-/* the one thing a row shows that changes while typing */
-function markRow(i, row, input){
+function markRow(key, i, row, input){
   if (!i.field) return;
-  const want = it(i.id).s === "done" && !it(i.id).val.trim();
+  const st = readItem(key, i.id);
+  const want = st.s === "done" && !(st.val || "").trim();
   row.querySelector(".needval").hidden = !want;
   if (input) input.classList.toggle("need", want);
 }
 
-/* ---- the groups -------------------------------------------------------- */
-function buildGroups(){
-  const w = document.getElementById("groups");
-  w.textContent = "";
-  for (const g of DATA.groups){
-    const sec = E("section", "grp");
-    sec.id = g.id + "-sec";
-    const h = E("h2");
-    h.append(E("span", "gid", g.id), E("span", "gt", esc(g.title)),
-             E("span", "gn", ""));
-    sec.append(h);
-    for (const i of g.items) sec.append(buildRow(i));
-    w.append(sec);
+/* ---- a record-form field ----------------------------------------------- */
+function buildPart(key, fid, k, part, locked, onchange){
+  const st = fieldState(key, fid), box = E("div", "part");  // written to by its handlers
+  if (part.label && part.kind !== "check") box.append(E("div", "flab", esc(part.label)));
+  if (part.kind === "text"){
+    const inp = Object.assign(document.createElement("input"),
+      { id: `${fid}-${k}`, type: "text", autocomplete: "off",
+        value: st.v[k] || "", disabled: locked,
+        placeholder: part.hint ? part.hint : "" });
+    inp.addEventListener("input", () => { st.v[k] = inp.value; onchange(inp) });
+    box.append(inp);
+    if (part.hint) box.append(E("div", "hint", esc(part.hint)));
+  } else if (part.kind === "check"){
+    const b = E("button", "checkbtn");
+    b.type = "button"; b.disabled = locked;
+    b.setAttribute("aria-pressed", st.v[k] === true ? "true" : "false");
+    b.append(E("span", "box", "&#10003;"),
+             E("span", null, esc(part.label || "Confirmed")));
+    b.addEventListener("click", () => { st.v[k] = !st.v[k]; onchange(null) });
+    box.append(b);
+  } else {
+    const picks = E("div", "picks");
+    part.options.forEach((o, oi) => {
+      const b = E("button", "pick", o.html);
+      b.type = "button"; b.disabled = locked;
+      b.setAttribute("aria-pressed", st.v[k] === oi ? "true" : "false");
+      b.addEventListener("click", () => {
+        st.v[k] = st.v[k] === oi ? "" : oi; onchange(null);
+      });
+      picks.append(b);
+    });
+    box.append(picks);
+    const chosen = part.options[st.v[k]];
+    if (chosen && chosen.follow){
+      const id = `${fid}-${k}-f`;
+      box.append(Object.assign(E("label", "flab"),
+        { htmlFor: id, textContent: chosen.follow }));
+      const inp = Object.assign(document.createElement("input"),
+        { id, type: "text", autocomplete: "off", value: st.f[k] || "", disabled: locked });
+      inp.addEventListener("input", () => { st.f[k] = inp.value; onchange(inp) });
+      box.append(inp);
+    }
   }
+  return box;
+}
+function buildField(key, f){
+  const locked = isClosed(key);
+  const w = E("div", "rowfld"); w.id = f.id;
+  w.append(E("div", "flab", f.labelHtml
+    + (f.required ? ' <span class="req">required</span>' : "")));
+  if (f.job){
+    const val = (JOBV[f.job] || "").trim();
+    w.dataset.done = val ? "1" : "0";
+    w.append(E("div", "carried", val ? esc(val) : "not set yet"));
+    if (val){
+      w.append(E("div", "fromjob", "Carried from the job header"));
+    } else {
+      const b = E("button", "fromjob");
+      b.type = "button"; b.textContent = "Set it in the job header";
+      b.style.cssText = "text-align:left;text-decoration:underline;min-height:40px";
+      b.addEventListener("click", () => go({ name: "job" }));
+      w.append(b);
+    }
+    return w;
+  }
+  const onchange = inp => {
+    saveDrafts();
+    if (inp) { markField(key, f, w); refreshForm(key) }
+    else rebuildForm(key);
+  };
+  f.parts.forEach((p, k) => w.append(buildPart(key, f.id, k, p, locked, onchange)));
+  markField(key, f, w);
+  return w;
+}
+function markField(key, f, w){
+  if (!f.required) return;
+  const done = fieldDone(key, f);
+  w.dataset.done = done ? "1" : "0";
+  w.querySelectorAll("input").forEach(i => i.classList.remove("want"));
+  if (!done) w.querySelector("input")?.classList.add("want");
 }
 
-function paintGroupTotals(){
-  for (const g of DATA.groups){
-    const d = g.items.filter(i => CLEARED(it(i.id).s)).length;
-    const sec = document.getElementById(g.id + "-sec");
-    sec.dataset.done = d === g.items.length ? "1" : "0";
-    sec.querySelector(".gn").textContent = d + "/" + g.items.length;
+/* ---- a repeating table -------------------------------------------------- */
+function buildTable(key, t){
+  const rows = tableState(key, t), locked = isClosed(key);
+  const w = E("div", "tbl"); w.id = t.id;
+  rows.forEach((r, ri) => {
+    const box = E("div", "trow");
+    const rn = E("div", "rn");
+    rn.append(E("span", null, `${esc(t.cols[0].name)} ${ri + 1}`));
+    if (!locked && rows.length > 1){
+      const rm = E("button", null, "Remove");
+      rm.type = "button";
+      rm.addEventListener("click", () => { rows.splice(ri, 1); saveDrafts(); rebuildForm(key) });
+      rn.append(rm);
+    }
+    box.append(rn);
+    t.cols.forEach((c, ci) => {
+      const cell = E("div", "cell");
+      cell.append(E("div", "flab", esc(c.name)));
+      const part = c.parts[0];
+      const val = (r[ci] = r[ci] || { v: "", f: "" });
+      if (part.kind === "choice"){
+        const picks = E("div", "picks");
+        part.options.forEach((o, oi) => {
+          const b = E("button", "pick", o.html);
+          b.type = "button"; b.disabled = locked;
+          b.setAttribute("aria-pressed", val.v === oi ? "true" : "false");
+          b.addEventListener("click", () => {
+            val.v = val.v === oi ? "" : oi; saveDrafts(); rebuildForm(key);
+          });
+          picks.append(b);
+        });
+        cell.append(picks);
+      } else {
+        const inp = Object.assign(document.createElement("input"),
+          { type: "text", autocomplete: "off", value: val.v || "", disabled: locked });
+        inp.addEventListener("input", () => { val.v = inp.value; saveDrafts() });
+        cell.append(inp);
+      }
+      box.append(cell);
+    });
+    w.append(box);
+  });
+  if (!locked){
+    const add = E("button", "addrow", "Add a row");
+    add.type = "button";
+    add.addEventListener("click", () => {
+      rows.push(t.cols.map(() => ({ v: "", f: "" })));
+      saveDrafts(); rebuildForm(key);
+    });
+    w.append(add);
   }
-  const done = ALL.filter(i => CLEARED(it(i.id).s)).length;
-  document.getElementById("tally").textContent = done + "/" + DATA.count;
+  return w;
+}
+</script>
+<script>
+/* ---- the signature. It sits at the end, because signing is what follows the
+   work, not something to get out of the way first. Built once so a name can be
+   typed into it without the gate rebuilding underneath. ------------------- */
+function buildSign(key){
+  const form = F(key), w = document.getElementById("sigrow");
+  w.textContent = "";
+  if (!form.sign){ w.hidden = true; return }
+  w.append(Object.assign(E("label"), { htmlFor: "m-sign", textContent: form.sign }));
+  const inp = Object.assign(document.createElement("input"),
+    { id: "m-sign", type: "text", autocomplete: "off", value: readSign(key),
+      placeholder: "Your name" });
+  inp.addEventListener("input", () => {
+    draft(key).sign = inp.value;
+    inp.classList.toggle("want", !inp.value.trim());
+    saveDrafts(); refreshForm(key);
+  });
+  w.append(inp);
+}
+
+function paintGroupTotals(key){
+  const form = F(key);
+  for (const g of form.groups){
+    const sec = document.getElementById(g.id + "-sec");
+    if (!sec) continue;
+    const items = g.items || [], fields = (g.fields || []).filter(f => f.required);
+    const of = items.length || fields.length;
+    const d = items.length ? items.filter(i => CLEARED(readItem(key, i.id).s)).length
+                           : fields.filter(f => fieldDone(key, f)).length;
+    sec.dataset.done = of && d === of ? "1" : "0";
+    sec.querySelector(".gn").textContent = of ? d + "/" + of : "";
+  }
+  const p = progress(key);
+  document.getElementById("tally").textContent = p.done + "/" + p.of;
   const meter = document.getElementById("meter");
   meter.textContent = "";
-  for (const g of DATA.groups){
-    const d = g.items.filter(i => CLEARED(it(i.id).s)).length;
+  for (const g of form.groups){
+    const items = g.items || [], fields = (g.fields || []).filter(f => f.required);
+    const of = items.length || fields.length;
+    if (!of) continue;
+    const d = items.length ? items.filter(i => CLEARED(readItem(key, i.id).s)).length
+                           : fields.filter(f => fieldDone(key, f)).length;
     const bar = E("i");
-    bar.className = d === g.items.length ? "on" : d ? "part" : "";
+    bar.className = d === of ? "on" : d ? "part" : "";
     meter.append(bar);
   }
 }
 
-/* ---- the gate ---------------------------------------------------------- */
-function buildGate(){
-  const o = outstanding(), g = document.getElementById("gate"),
-        b = document.getElementById("gatebody"),
-        f = document.getElementById("gatefoot"), ready = o.length === 0;
-  g.dataset.ready = ready || locked() ? "1" : "0";
+/* ---- the gate ----------------------------------------------------------- */
+function buildGate(key){
+  const form = F(key), d = peek(key) || {}, o = outstanding(key);
+  const g = document.getElementById("gate"), b = document.getElementById("gatebody"),
+        f = document.getElementById("gatefoot"), ready = o.length === 0,
+        locked = Boolean(d.completedAt);
+  g.dataset.ready = ready || locked ? "1" : "0";
   b.textContent = ""; f.textContent = "";
-  document.getElementById("sigrow").hidden = locked();
+  document.getElementById("sigrow").hidden = locked || !form.sign;
 
-  if (locked()){
+  if (locked){
     const c = E("div", "cleared");
     c.append(E("span", "dot"), document.createTextNode(
-      "Preflight complete · " + new Date(S.completedAt).toLocaleString()
-      + (S.sign ? " · signed " + S.sign : "")));
+      form.kind === "checklist" ? "Checklist complete · " + when(d.completedAt)
+                                : "Record complete · " + when(d.completedAt)
+      + (d.sign ? " · " + d.sign : "")));
     b.append(c);
-    b.append(E("h2", null, "Cleared to start the mission"));
-    b.append(E("p", null, "The record is closed and read-only. Print it for the vehicle "
-      + "folder and send it to the office. Starting a new mission keeps this record in "
-      + "the queue until the office has it."));
+    b.append(E("h2", null, form.stage === "Field" && form.key === "preflight"
+      ? "Cleared to start the mission" : "Record closed"));
+    b.append(E("p", null, "It is read-only and kept on this tablet. Open it from "
+      + "Record history to print it, send it, or check where it has got to. "
+      + "Starting a new one leaves this record untouched."));
     const a = E("div", "acts");
-    const show = E("button", null,
-      TARGET === "file" ? "Print the record" : "Show the record");
-    show.type = "button";
-    show.addEventListener("click", () => {
-      if (TARGET === "file") { window.print(); return }
-      const r = document.getElementById("rec");
-      r.hidden = !r.hidden;
-      if (!r.hidden) r.scrollIntoView({ behavior: "smooth" });
-    });
-    a.append(show);
-    const snd = E("button", null, "Send to the office");
-    snd.type = "button";
-    snd.addEventListener("click", () => sendNow(snd));
-    a.append(snd);
-    const nw = E("button", "quiet", "Start a new mission");
+    const open = E("button", null, "Open the record");
+    open.type = "button";
+    open.addEventListener("click", () => go({ name: "record", rid: d.rid }));
+    a.append(open);
+    const nw = E("button", "quiet", "Start a new one");
     nw.type = "button";
     nw.addEventListener("click", () => {
       if (nw.dataset.sure !== "1"){
-        nw.dataset.sure = "1";
-        nw.textContent = "Tap again to start a new mission";
-        return;
+        nw.dataset.sure = "1"; nw.textContent = "Tap again to start a new one"; return;
       }
-      queue(record());
-      S = blank(); opened.clear(); MSG = null;
-      save(KEY, S);
-      rebuild(); buildMission(); buildSign();
-      window.scrollTo({ top: 0 });
+      delete DRAFTS[key]; saveDrafts(); go({ name: "form", key });
     });
     a.append(nw);
     b.append(a);
@@ -533,14 +1310,16 @@ function buildGate(){
     return;
   }
 
-  b.append(E("h2", null, ready
-    ? "Preflight complete — confirm it"
-    : o.length + " item" + (o.length === 1 ? "" : "s") + " outstanding"));
+  b.append(E("h2", null, ready ? "Everything is done — confirm it"
+    : o.length + " outstanding"));
   b.append(E("p", null, ready
-    ? "Every item is cleared and the header is signed. Confirm to close the record. "
-      + "After that it is read-only, ready to print and ready to send."
-    : "The mission is not cleared to start until every item is ticked or marked N/A, "
-      + "the header is filled in and the checklist is signed. Tap one to go to it."));
+    ? "Confirm to close the record. After that it is read-only, a Parametrix PDF "
+      + "is written for it, and it is kept here until the office has it."
+    : (form.kind === "checklist"
+        ? "This checklist is not complete until every item is ticked or marked N/A"
+        : "This record is not complete until every required field is filled in")
+      + (form.sign ? ", the job header is filled in and it is signed." : ".")
+      + " Tap one to go to it."));
   if (o.length){
     const ul = E("ul", "out");
     for (const x of o){
@@ -548,31 +1327,26 @@ function buildGate(){
       bt.type = "button";
       bt.append(E("span", "oid", x.k), document.createTextNode(x.why));
       bt.addEventListener("click", () => {
+        if (x.go === "job") return go({ name: "job" });
         const el = document.getElementById(x.el);
         if (!el) return;
         el.scrollIntoView({ behavior: "smooth", block: "center" });
-        (el.querySelector ? el.querySelector(".tick") || el : el).focus();
+        (el.querySelector(".tick") || el.querySelector("input,button") || el).focus();
       });
       li.append(bt); ul.append(li);
     }
     b.append(ul);
   }
-  const go = E("button", "go", "Confirm preflight complete");
-  go.type = "button";
-  go.disabled = !ready;
-  go.addEventListener("click", () => {
-    if (outstanding().length) return;
-    S.completedAt = new Date().toISOString();
-    save(KEY, S);
-    rebuild(); buildMission(); buildSign();
-    document.getElementById("gate").scrollIntoView({ behavior: "smooth", block: "center" });
-  });
-  f.append(go, said());
+  const btn = E("button", "go", form.kind === "checklist"
+    ? "Confirm checklist complete" : "Confirm record complete");
+  btn.type = "button"; btn.disabled = !ready;
+  btn.addEventListener("click", () => complete(key, btn));
+  f.append(btn, said());
 }
 
 function said(){
   const d = E("div", "said" + (MSG && MSG.bad ? " bad" : ""));
-  const pending = Q.length + (locked() && !S.sent ? 1 : 0);
+  const pending = INDEX.filter(h => h.status !== "sent").length;
   d.textContent = MSG ? MSG.t
     : pending ? pending + " record" + (pending === 1 ? "" : "s") + " waiting for the office."
               : "No records waiting.";
@@ -580,99 +1354,252 @@ function said(){
   return d;
 }
 
-function buildProv(){
-  document.getElementById("prov").innerHTML =
-    `<b>${DATA.doc} &middot; ${DATA.appendix} &middot; ${DATA.name}</b> &mdash; `
-    + `${DATA.count} items, Working Version ${DATA.version}, built from `
-    + `<code>${DATA.source}</code> (<code>${DATA.sourceHash}</code>).<br>`
-    + (TARGET === "file"
-        ? "This file carries everything it needs and works with no signal. Open it from "
-          + "Files, or add it to the home screen from Safari, and it is there in the "
-          + "truck. What you tick is kept on this tablet until it is sent."
-        : "This is the review copy, fetched over the network. It cannot print and it will "
-          + "not open without a signal — the file in <code>field-app/</code> does both.")
-    + "<br>This checklist is a living draft. Nothing here is an adopted Parametrix "
-    + "standard.";
+/* ---- completing a form -------------------------------------------------- */
+async function complete(key, btn){
+  if (outstanding(key).length) return;
+  const d = draft(key);
+  if (btn){ btn.disabled = true; btn.textContent = "Writing the record…" }
+  d.rid = d.rid || makeRid(key);
+  d.completedAt = new Date().toISOString();
+  saveDrafts();
+  const rec = buildRecord(key);
+  let pdf = null;
+  try { pdf = makePdf(rec) } catch (e) { MSG = { t: "The record is saved, but the PDF "
+    + "could not be written: " + e.message, bad: true } }
+  await Store.put({ rid: rec.rid, formKey: key, status: "completed",
+    completedAt: d.completedAt, job: rec.job, record: rec, pdf });
+  go({ name: "record", rid: rec.rid });
 }
 
-/* ---- search ------------------------------------------------------------ */
-function filter(){
-  const q = (document.getElementById("q").value || "").trim().toLowerCase();
-  let n = 0;
-  for (const g of DATA.groups){
-    let any = 0;
-    for (const i of g.items){
-      const hay = (i.text + " " + g.id + " " + g.title + " "
-                   + i.refs.map(r => "§" + r.n + " " + r.title).join(" ")).toLowerCase();
-      const hit = !q || hay.includes(q);
-      document.getElementById(i.id).closest(".itemwrap").hidden = !hit;
-      if (hit){ any++; n++ }
-    }
-    document.getElementById(g.id + "-sec").hidden = !any;
-  }
-  document.getElementById("qn").textContent =
-    q ? n + " of " + DATA.count : DATA.count + " items";
-}
-
-/* ---- the record -------------------------------------------------------- */
-function record(){
-  return {
-    schema: "mx60.preflight/1",
-    rid: S.rid,
-    checklist: { doc: DATA.doc, appendix: DATA.appendix, name: DATA.name,
-                 system: DATA.system, source: DATA.source,
-                 sourceHash: DATA.sourceHash, workingVersion: DATA.version },
-    mission: Object.fromEntries(DATA.meta.map(m => [m.id, S.meta[m.id] || ""])),
-    signed: S.sign || "",
-    started: S.started, completedAt: S.completedAt,
-    device: navigator.userAgent,
-    items: ALL.map(i => ({ id: i.id, group: i.id.split("-")[0], text: i.text,
-      sections: i.refs.map(r => r.n), state: it(i.id).s || "open",
-      value: it(i.id).val || "", note: it(i.id).note || "" })),
-  };
-}
-
-const MARK = { done: ["d", "Cleared"], na: ["n", "N/A"], open: ["o", "Outstanding"] };
-
-function buildRecordSheet(){
-  const r = record();
+/* ---- the record sheet, which is what prints ----------------------------- */
+function recSheet(rec){
+  const MARK = { done: ["d", "Cleared"], na: ["n", "N/A"], open: ["o", "Outstanding"] };
   let h = `<div class="wrap"><div class="rh">`
-    + `<img src="data:image/png;base64,{{LOGO}}" alt="Parametrix">`
-    + `<div><div class="rk">${DATA.doc} &middot; ${DATA.appendix}</div>`
-    + `<h1>${DATA.name}</h1><div class="rk">${DATA.system}</div></div></div><table>`;
-  for (const m of DATA.meta)
-    h += `<tr><th>${m.label}</th><td>${esc(r.mission[m.id]) || "&mdash;"}</td></tr>`;
-  h += `<tr><th>Record</th><td>${esc(r.rid)}</td></tr>`
-     + `<tr><th>Completed</th><td>${r.completedAt
-         ? esc(new Date(r.completedAt).toLocaleString()) : "not complete"}</td></tr>`
-     + `</table>`;
-  for (const g of DATA.groups){
-    h += `<h3>${g.id} &middot; ${esc(g.title)}</h3><table>`;
-    for (const i of g.items){
-      const st = r.items.find(x => x.id === i.id);
-      const [c, lbl] = MARK[st.state] || MARK.open;
-      h += `<tr><td class="st ${c}">${lbl}</td><td>${esc(i.text)}`
-         + (st.value ? `<span class="note">`
-             + `${i.field ? esc(i.field.label) + ": " : ""}${esc(st.value)}</span>` : "")
-         + (st.note ? `<span class="note">${esc(st.note)}</span>` : "")
-         + `</td></tr>`;
+    + `<img src="data:image/png;base64,${LOGO}" alt="Parametrix">`
+    + `<div><div class="rk">${esc(rec.form.document)} &middot; ${esc(rec.form.appendix)}</div>`
+    + `<h1>${esc(rec.form.name)}</h1><div class="rk">Trimble MX60 Premium</div></div>`
+    + `</div><table>`;
+  const kv = (k, v) => { h += `<tr><th>${esc(k)}</th><td>${esc(v) || "&mdash;"}</td></tr>` };
+  kv("Project", rec.job.project); kv("Task", rec.job.task);
+  kv("Date", rec.job.date); kv("Operator", rec.job.operator);
+  if (rec.job.vehicle) kv("Vehicle", rec.job.vehicle);
+  for (const [k, v] of Object.entries(rec.meta)) if (v) kv(k.replace(/^\w/, c => c.toUpperCase()), v);
+  kv("Record", rec.rid);
+  kv("Completed", when(rec.completedAt) || "not complete");
+  kv("Completed by", rec.signedBy);
+  kv("Transfer", transferWords(rec.transfer));
+  h += `</table>`;
+  let group = null;
+  for (const it of rec.items){
+    if (it.group !== group){
+      if (group !== null) h += `</table>`;
+      h += `<h3>${esc(it.group)} &middot; ${esc(it.groupTitle)}</h3><table>`;
+      group = it.group;
     }
+    const [c, lbl] = MARK[it.state] || MARK.open;
+    h += `<tr><td class="st ${c}">${lbl}</td><td>`
+       + (it.n ? `<b>${esc(it.n)}.</b> ` : "") + esc(it.text)
+       + (it.value ? `<span class="sn">${esc(it.valueLabel || "Value")}: ${esc(it.value)}</span>` : "")
+       + (it.note ? `<span class="sn">${esc(it.note)}</span>` : "")
+       + (it.sections.length ? `<span class="sn">${esc(it.sections.join(" · "))}</span>` : "")
+       + `</td></tr>`;
+  }
+  if (group !== null) h += `</table>`;
+  group = null;
+  for (const f of rec.fields){
+    if (f.group !== group){
+      if (group !== null) h += `</table>`;
+      h += `<h3>${esc(f.group)} &middot; ${esc(f.groupTitle)}</h3><table>`;
+      group = f.group;
+    }
+    h += `<tr><th>${esc(f.label)}</th><td>${esc(f.text)
+      || (f.required ? "<b>NOT RECORDED</b>" : "&mdash;")}</td></tr>`;
+  }
+  if (group !== null) h += `</table>`;
+  for (const t of rec.tables){
+    h += `<h3>${esc(t.group)} &middot; ${esc(t.groupTitle)}</h3><table>`
+       + `<tr>${t.cols.map(c => `<th style="width:auto">${esc(c)}</th>`).join("")}</tr>`;
+    for (const r of t.rows)
+      h += `<tr>${r.map(c => `<td>${esc(c) || "&mdash;"}</td>`).join("")}</tr>`;
     h += `</table>`;
   }
-  h += `<div class="sig"><div><b>Signed</b> ${esc(r.signed) || "________________"}</div>`
-     + `<div><b>Sent to the office</b> ${S.sent
-         ? esc(new Date(S.sent).toLocaleString()) : "not yet"}</div></div>`
-     + `<div class="pf">${DATA.count} items, Working Version ${DATA.version}, built `
-     + `from ${DATA.source} (${DATA.sourceHash}). A living draft: nothing here is an `
-     + `adopted Parametrix standard.</div></div>`;
-  document.getElementById("rec").innerHTML = h;
+  h += `<div class="sig"><div><b>Signed</b> ${esc(rec.signedBy) || "________________"}</div>`
+     + `<div><b>Transfer</b> ${esc(transferWords(rec.transfer))}</div></div>`
+     + `<div class="pf">${esc(rec.form.document)} ${esc(rec.form.appendix)}, Working `
+     + `Version ${esc(rec.form.workingVersion)}, built from ${esc(rec.form.source)} `
+     + `(${esc(rec.form.sourceHash)}). A living draft: nothing here is an adopted `
+     + `Parametrix standard.</div></div>`;
+  return h;
 }
 
-/* ---- getting it to the office ----------------------------------------- */
-function queue(rec){
-  if (!rec.completedAt) return;
-  Q = Q.filter(x => x.rid !== rec.rid).concat([rec]);
-  save(QKEY, Q);
+/* ---- one completed record ---------------------------------------------- */
+let CURRENT = null;
+async function viewRecord(rid){
+  const v = document.getElementById("view");
+  const entry = await Store.get(rid);
+  if (!entry || !entry.record){
+    v.append(E("div", "empty", "That record is not on this tablet."));
+    return;
+  }
+  CURRENT = entry;
+  const rec = entry.record;
+  rec.transfer = { status: entry.status, handedAt: entry.handedAt || null,
+                   sentAt: entry.sentAt || null, how: entry.how || "" };
+  document.getElementById("rec").innerHTML = recSheet(rec);
+
+  const card = E("div", "card");
+  card.append(E("h2", null,
+    `<span class="gid">${esc(F(entry.formKey).code)}</span>`
+    + `<span>${esc(rec.form.name)}</span>`
+    + `<span class="gn">${chipFor(entry.status)}</span>`));
+  const tbl = E("div", "jobform");
+  const row = (k, val) => tbl.append(E("div", "fld",
+    `<span class="flab">${esc(k)}</span><div class="carried">${esc(val) || "&mdash;"}</div>`));
+  row("Project", rec.job.project); row("Task", rec.job.task);
+  row("Date", rec.job.date); row("Operator", rec.job.operator);
+  if (rec.job.vehicle) row("Vehicle", rec.job.vehicle);
+  for (const [k, val] of Object.entries(rec.meta)) if (val) row(k, val);
+  row("Record", rec.rid);
+  row("Completed", when(rec.completedAt));
+  row("Completed by", rec.signedBy);
+  row("Transfer", transferWords(rec.transfer));
+  card.append(tbl);
+  v.append(card);
+
+  const a = E("div", "acts");
+  if (TARGET === "file"){
+    const p = E("button", null, "Print");
+    p.type = "button"; p.addEventListener("click", () => window.print());
+    a.append(p);
+  }
+  const sh = E("button", null, "Send to the office");
+  sh.type = "button"; sh.addEventListener("click", () => sendRecord(entry, sh));
+  a.append(sh);
+  const sv = E("button", "quiet", "Save the PDF");
+  sv.type = "button"; sv.addEventListener("click", () => savePdf(entry));
+  a.append(sv);
+  const show = E("button", "quiet", "Show the record");
+  show.type = "button";
+  show.addEventListener("click", () => {
+    const r = document.getElementById("rec");
+    r.hidden = !r.hidden;
+    if (!r.hidden) r.scrollIntoView({ behavior: "smooth" });
+  });
+  a.append(show);
+  if (entry.status !== "sent"){
+    const ok = E("button", "quiet", "The office has it");
+    ok.type = "button";
+    ok.addEventListener("click", async () => {
+      if (ok.dataset.sure !== "1"){
+        ok.dataset.sure = "1"; ok.textContent = "Tap again to confirm delivery"; return;
+      }
+      await mark(entry, "sent", "confirmed by the operator");
+      MSG = { t: "Marked as delivered." };
+      go({ name: "record", rid });
+    });
+    a.append(ok);
+  } else {
+    const del = E("button", "danger", "Delete this record");
+    del.type = "button";
+    del.addEventListener("click", async () => {
+      if (del.dataset.sure !== "1"){
+        del.dataset.sure = "1"; del.textContent = "Tap again to delete"; return;
+      }
+      await Store.remove(rid);
+      MSG = { t: "Deleted. Only a record the office has can be deleted." };
+      go({ name: "history" });
+    });
+    a.append(del);
+  }
+  v.append(a);
+  v.append(said());
+  v.append(E("div", "note", TARGET === "file"
+    ? "<strong>Print</strong> opens the iPad print sheet on the record above; "
+      + "pinch out on the preview to save it to Files as a PDF. "
+      + "<strong>Send to the office</strong> hands the PDF and the JSON to the share "
+      + "sheet. Nothing is marked delivered until you say the office has it."
+    : "<strong>This is the review copy.</strong> It cannot print and it will not open "
+      + "without a signal. The file in <code>field-app/</code> does both."));
+}
+const chipFor = s => s === "sent" ? '<span class="chip sent">Delivered</span>'
+  : s === "handed" ? '<span class="chip moving">Handed over</span>'
+  : '<span class="chip wait">Waiting to send</span>';
+
+/* ---- history ------------------------------------------------------------ */
+async function viewHistory(){
+  const v = document.getElementById("view");
+  const all = (await Store.all()).slice()
+    .sort((a, b) => String(b.completedAt).localeCompare(String(a.completedAt)));
+  v.append(E("p", "lead", "Every record completed on this tablet. A record is kept "
+    + "until the office is confirmed to have it, and nothing here is ever removed "
+    + "on its own."));
+  const buckets = [
+    ["Waiting to send", all.filter(r => r.status === "completed")],
+    ["Handed over, not confirmed", all.filter(r => r.status === "handed")],
+    ["Delivered", all.filter(r => r.status === "sent")],
+  ];
+  for (const [name, rows] of buckets){
+    v.append(E("div", "eyebrow", `${name} (${rows.length})`));
+    if (!rows.length){ v.append(E("div", "empty", "None.")); continue }
+    const list = E("div", "recs");
+    for (const r of rows){
+      const form = F(r.formKey) || { name: r.formKey, code: "??" };
+      const b = E("button", "recbtn");
+      b.type = "button";
+      b.append(E("span", "fi", esc(form.code)));
+      b.append(E("span", "rt", `<b>${esc(form.name)}</b>`
+        + `<span>${esc([r.job.project, r.job.task].filter(Boolean).join(" · ") || "no job")}`
+        + ` &middot; ${esc(r.job.operator || "")} &middot; ${esc(when(r.completedAt))}</span>`
+        + `<span>${esc(r.rid)}</span>`));
+      b.append(E("span", "fs", chipFor(r.status)));
+      b.addEventListener("click", () => go({ name: "record", rid: r.rid }));
+      list.append(b);
+    }
+    v.append(list);
+  }
+  if (SUBMIT_URL){
+    const a = E("div", "acts");
+    const s = E("button", null, "Send everything waiting");
+    s.type = "button"; s.addEventListener("click", () => flush(true));
+    a.append(s);
+    v.append(a);
+  }
+  v.append(said());
+}
+
+/* ---- getting a record to the office ------------------------------------- */
+async function mark(entry, status, how){
+  const now = new Date().toISOString();
+  entry.status = status;
+  if (status === "handed") entry.handedAt = now;
+  if (status === "sent") entry.sentAt = now;
+  entry.how = how;
+  if (entry.record)
+    entry.record.transfer = { status, handedAt: entry.handedAt || null,
+                              sentAt: entry.sentAt || null, how };
+  await Store.put(entry);
+}
+async function pdfOf(entry){
+  if (entry.pdf) return entry.pdf;
+  const pdf = makePdf(entry.record);
+  entry.pdf = pdf;
+  await Store.put(entry);
+  return pdf;
+}
+function fileNames(entry){
+  const base = entry.rid + "-" + F(entry.formKey).code;
+  return { pdf: base + ".pdf", json: base + ".json" };
+}
+async function savePdf(entry){
+  try {
+    const blob = await pdfOf(entry), n = fileNames(entry).pdf;
+    const a = Object.assign(document.createElement("a"),
+      { href: URL.createObjectURL(blob), download: n });
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    MSG = { t: "Saved " + n + "." };
+  } catch (e) { MSG = { t: "Could not write the PDF: " + e.message, bad: true } }
+  render();
 }
 async function post(rec){
   if (!SUBMIT_URL) throw new Error("no office endpoint is set");
@@ -680,89 +1607,190 @@ async function post(rec){
     headers: { "content-type": "application/json" }, body: JSON.stringify(rec) });
   if (!r.ok) throw new Error("the office returned " + r.status);
 }
-async function flush(){
-  if (!SUBMIT_URL || !navigator.onLine || !Q.length) return;
-  const keep = [];
-  for (const rec of Q){ try { await post(rec) } catch (e) { keep.push(rec) } }
-  const sent = Q.length - keep.length;
-  Q = keep; save(QKEY, Q);
-  if (sent){
-    MSG = { t: sent + " record" + (sent === 1 ? "" : "s") + " reached the office." };
-    buildGate();
-  }
-}
-async function sendNow(btn){
-  const rec = record();
-  queue(rec);
+async function sendRecord(entry, btn){
   MSG = null;
   if (btn) btn.disabled = true;
   try {
     if (SUBMIT_URL && navigator.onLine){
       try {
-        await post(rec);
-        Q = Q.filter(x => x.rid !== rec.rid); save(QKEY, Q);
-        S.sent = new Date().toISOString(); save(KEY, S);
-        MSG = { t: "Sent to the office." };
-        return;
+        await post(entry.record);
+        await mark(entry, "sent", "posted to the office");
+        MSG = { t: "Delivered to the office." };
+        return go({ name: "record", rid: entry.rid });
       } catch (e) {
-        MSG = { t: "Could not reach the office — " + e.message + ". The record is "
-                   + "queued and goes on its own when there is a signal.", bad: true };
+        MSG = { t: "Could not reach the office — " + e.message
+                   + ". The record is kept here and goes when there is a signal.",
+                bad: true };
       }
-    } else if (SUBMIT_URL){
-      MSG = { t: "No signal. The record is queued and goes on its own." };
     }
-    const name = rec.rid + ".json";
-    const blob = new Blob([JSON.stringify(rec, null, 2)], { type: "application/json" });
-    const file = new File([blob], name, { type: "application/json" });
-    if (navigator.canShare && navigator.canShare({ files: [file] })){
+    const n = fileNames(entry);
+    const files = [];
+    try { files.push(new File([await pdfOf(entry)], n.pdf, { type: "application/pdf" })) }
+    catch (e) { /* the JSON still goes */ }
+    files.push(new File([JSON.stringify(entry.record, null, 2)], n.json,
+                        { type: "application/json" }));
+    if (navigator.canShare && navigator.canShare({ files })){
       try {
-        await navigator.share({ files: [file], title: name });
-        S.sent = S.sent || new Date().toISOString(); save(KEY, S);
-        MSG = { t: "Handed to the share sheet. The queue keeps a copy." };
-        return;
-      } catch (e) { /* the operator dismissed the sheet */ }
-    }
-    if (TARGET === "file"){
-      const a = Object.assign(document.createElement("a"),
-        { href: URL.createObjectURL(blob), download: name });
-      document.body.append(a); a.click(); a.remove();
-      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-      MSG = MSG || { t: "Saved " + name + ". Send it on from Files." };
+        await navigator.share({ files, title: entry.rid });
+        /* A share sheet opening is not a delivery. The record is marked handed
+           over, and stays on the tablet until someone confirms it arrived. */
+        await mark(entry, "handed", "iPad share sheet");
+        MSG = { t: "Handed to the share sheet. It is not counted as delivered until "
+                   + "you confirm the office has it." };
+        return go({ name: "record", rid: entry.rid });
+      } catch (e) { MSG = { t: "Nothing was sent." } }
+    } else if (TARGET === "file"){
+      await savePdf(entry);
+      MSG = { t: "This browser has no share sheet. The PDF is saved; send it on "
+                 + "from Files." };
     } else {
-      try {
-        await navigator.clipboard.writeText(JSON.stringify(rec, null, 2));
-        MSG = MSG || { t: "The record is on the clipboard as JSON." };
-      } catch (e) {
-        MSG = { t: "This review copy cannot hand over a file. Use the file in "
-                   + "field-app/ on the tablet.", bad: true };
-      }
+      MSG = { t: "The review copy cannot hand over a file. Use the file in "
+                 + "field-app/ on the tablet.", bad: true };
     }
   } finally {
-    buildGate();
+    if (btn) btn.disabled = false;
+    render();
+  }
+}
+async function flush(loud){
+  if (!SUBMIT_URL || !navigator.onLine) return;
+  const all = await Store.all();
+  let sent = 0;
+  for (const entry of all.filter(r => r.status !== "sent" && r.record)){
+    try { await post(entry.record); await mark(entry, "sent", "posted to the office"); sent++ }
+    catch (e) { /* it stays here; nothing is lost */ }
+  }
+  if (sent || loud){
+    MSG = { t: sent ? sent + " record" + (sent === 1 ? "" : "s") + " delivered."
+                    : "Nothing could be delivered right now." };
+    render();
   }
 }
 
-/* ---- the two repaints -------------------------------------------------- */
-/* refresh: everything that is only a number or a message. It never touches a
-   row, so it cannot take the focus out of an input being typed into. */
-function refresh(){
-  paintGroupTotals();
-  buildGate();
-  buildRecordSheet();
-}
-/* rebuild: the rows themselves, after a tick, an N/A or a note toggle. */
-function rebuild(){
-  buildGroups();
-  refresh();
-  filter();
+/* ---- search ------------------------------------------------------------- */
+function filterForm(){
+  if (VIEW.name !== "form") return;
+  const form = F(VIEW.key);
+  const q = (document.getElementById("q").value || "").trim().toLowerCase();
+  let n = 0, total = 0;
+  for (const g of form.groups){
+    let any = 0;
+    for (const i of (g.items || [])){
+      total++;
+      const hay = (i.text + " " + g.id + " " + g.title + " "
+        + i.sub.map(s => s.label + " " + s.html).join(" ") + " "
+        + i.refs.map(r => "§" + r.n + " " + r.title).join(" ")).toLowerCase();
+      const hit = !q || hay.includes(q);
+      document.getElementById(i.id)?.closest(".itemwrap")?.toggleAttribute("hidden", !hit);
+      if (hit){ any++; n++ }
+    }
+    for (const f of (g.fields || [])){
+      total++;
+      const hit = !q || (f.label + " " + g.id + " " + g.title).toLowerCase().includes(q);
+      const el = document.getElementById(f.id);
+      if (el) el.hidden = !hit;
+      if (hit){ any++; n++ }
+    }
+    if (g.table && !q) any++;
+    else if (g.table) document.getElementById(g.table.id)?.toggleAttribute("hidden", Boolean(q));
+    const sec = document.getElementById(g.id + "-sec");
+    if (sec) sec.hidden = Boolean(q) && !any;
+  }
+  document.getElementById("qn").textContent =
+    q ? n + " of " + total : total + (form.kind === "form" ? " fields" : " items");
 }
 
-buildMission();
-buildSign();
-buildProv();
-rebuild();
-document.getElementById("q").addEventListener("input", filter);
-window.addEventListener("online",  () => { MSG = null; buildGate(); flush() });
-window.addEventListener("offline", () => { MSG = null; buildGate() });
+/* ---- the two repaints within a form ------------------------------------- */
+function refreshForm(key){
+  paintGroupTotals(key); buildGate(key);
+}
+function rebuildForm(key){
+  buildGroups(key); refreshForm(key); filterForm();
+}
+
+/* ---- the router --------------------------------------------------------- */
+function render(){
+  const v = document.getElementById("view");
+  v.textContent = "";
+  const bt = document.getElementById("bt"), bs = document.getElementById("bs"),
+        act = document.getElementById("bact"), find = document.getElementById("find"),
+        meter = document.getElementById("meter"), q = document.getElementById("q");
+  act.textContent = ""; meter.textContent = "";
+  document.getElementById("rec").hidden = true;
+
+  const home = () => { const b = E("button", null, "Home"); b.type = "button";
+    b.addEventListener("click", () => go({ name: "home" })); return b };
+
+  if (VIEW.name === "home"){
+    bt.textContent = DATA.app; bs.textContent = "Trimble MX60 Premium";
+    find.hidden = false; find.className = "find";
+    q.placeholder = "Search all eight forms";
+    act.append(Object.assign(E("span", "tally"),
+      { innerHTML: `<b>${FORMS.length}</b><span>forms</span>` }));
+    const term = (q.value || "").trim().toLowerCase();
+    if (term) viewHomeSearch(term); else { viewHome(); document.getElementById("qn").textContent = "" }
+  } else if (VIEW.name === "job"){
+    bt.textContent = "This job"; bs.textContent = "Carried into every form";
+    find.hidden = true; act.append(home());
+    viewJob();
+  } else if (VIEW.name === "form"){
+    const form = F(VIEW.key);
+    bt.textContent = form.name;
+    bs.textContent = form.docName + " · " + form.appendix;
+    find.hidden = false; find.className = "find";
+    q.placeholder = "Search this form";
+    act.append(Object.assign(E("span", "tally"),
+      { innerHTML: '<b id="tally">0/0</b><span>done</span>' }), home());
+    viewForm(VIEW.key);
+    paintGroupTotals(VIEW.key);
+    if (VIEW.focus) setTimeout(() => {
+      const el = document.getElementById(VIEW.focus);
+      el?.scrollIntoView({ block: "center" });
+      el?.classList.add("hit");
+    }, 40);
+  } else if (VIEW.name === "record"){
+    bt.textContent = "Record"; bs.textContent = VIEW.rid;
+    find.hidden = true;
+    const b = E("button", null, "History"); b.type = "button";
+    b.addEventListener("click", () => go({ name: "history" }));
+    act.append(b, home());
+    viewRecord(VIEW.rid);
+  } else {
+    bt.textContent = "Record history";
+    bs.textContent = INDEX.length + " on this tablet";
+    find.hidden = true; act.append(home());
+    viewHistory();
+  }
+  prov();
+}
+
+function prov(){
+  const srcs = FORMS.map(f => `${f.appendix} ${f.name}`).join(", ");
+  document.getElementById("prov").innerHTML =
+    `<b>${esc(DATA.app)}</b> &mdash; ${FORMS.length} forms built from the Field How To `
+    + `and the Office How To, Working Version ${esc(DATA.version)}. Each record carries `
+    + `the hash of the appendix it was built from.<br>`
+    + (TARGET === "file"
+        ? "This file carries everything it needs and works with no signal. Add it to the "
+          + "home screen from Safari so the iPad keeps what you enter. Records stay on "
+          + "this tablet until the office is confirmed to have them."
+        : "This is the review copy, fetched over the network. It cannot print and it will "
+          + "not open without a signal — the file in <code>field-app/</code> does both.")
+    + "<br>A living draft. Nothing here is an adopted Parametrix standard, and nothing in "
+    + "it may be quoted to a client as one.";
+}
+
+document.getElementById("q").addEventListener("input",
+  () => { VIEW.name === "form" ? filterForm() : render() });
+window.addEventListener("online", () => { MSG = null; render(); flush() });
+window.addEventListener("offline", () => { MSG = null; render() });
+
+/* Ask the browser to keep this data. iOS clears storage for a site it decides
+   is idle; a page added to the home screen is treated as installed and kept.
+   The answer is advisory either way, so nothing depends on it. */
+if (navigator.storage && navigator.storage.persist) navigator.storage.persist();
+
+Store.all().then(() => render());
+render();
 flush();
 </script>

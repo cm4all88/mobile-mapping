@@ -1,4 +1,8 @@
-match,type,label,why
-which presentation you saw recorded,text,Presentation seen,"Appendix A asks the operator to record which presentation was seen, not merely to confirm the setting"
-Status reached green,time,Time green reached,"Field How To 14.5 requires the time, and 14.2 makes the settling interval run from it"
-Time significant recording began,time,Time recording began,"Field How To 14.5 requires the time significant recording began"
+form,match,type,label,why
+preflight,which presentation you saw recorded,text,Presentation seen,"Appendix A asks the operator to record which presentation was seen, not merely to confirm the setting"
+preflight,Status reached green,time,Time green reached,"Field How To 14.5 requires the time, and 14.2 makes the settling interval run from it"
+preflight,Time significant recording began,time,Time recording began,"Field How To 14.5 requires the time significant recording began"
+end-of-mission,Mission closed in TMI,time,Time mission closed,"Appendix B asks for the time the mission was closed in TMI"
+end-of-mission,Run count matches what was driven,text,Run count on disk,"Field How To 23.2 asks for the count, and Appendix B B3 checks it against what was driven"
+office-processing,SBET filename recorded,text,SBET filename,"Office How To 6 distinguishes the plain and _frame filenames, so the name itself is the record"
+registration,number recorded,text,Registration number,"Office How To 16 and 27: sbet_<date>_reg_#### is how the registration is identified later"
