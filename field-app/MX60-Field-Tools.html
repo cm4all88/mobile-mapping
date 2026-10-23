@@ -2010,9 +2010,11 @@ async function viewRecord(rid){
   const sh = E("button", null, "Send to the office");
   sh.type = "button"; sh.addEventListener("click", () => sendRecord(entry, sh));
   a.append(sh);
-  const sv = E("button", "quiet", "Save the PDF");
-  sv.type = "button"; sv.addEventListener("click", () => savePdf(entry));
-  a.append(sv);
+  if (TARGET === "file"){
+    const sv = E("button", "quiet", "Save the PDF");
+    sv.type = "button"; sv.addEventListener("click", () => savePdf(entry));
+    a.append(sv);
+  }
   const show = E("button", "quiet", "Show the record");
   show.type = "button";
   show.addEventListener("click", () => {
@@ -2179,6 +2181,7 @@ async function sendRecord(entry, btn){
       MSG = { t: "This browser has no share sheet. The PDF is saved; send it on "
                  + "from Files." };
     } else {
+      /* the artifact frame grants a page no download at all */
       MSG = { t: "The review copy cannot hand over a file. Use the file in "
                  + "field-app/ on the tablet.", bad: true };
     }
