@@ -11,6 +11,7 @@
   5  every register identifier cited exists; every register item is cited somewhere
   6  the page renderer leaves no unrendered emphasis, on pages that are current
   7  every equipment quantity in the documents exists in the reference register
+  8  the tablet preflight checklist still matches the Appendix A it is built from
 """
 import re, glob, os, sys, csv, subprocess
 
@@ -32,6 +33,7 @@ run('style and build',        ['tools/check-style.py'])
 run('publication layer',      ['tools/check-publication.py'])
 run('authority of shall',     ['tools/check-authority.py'])
 run('numbers match register', ['tools/check-numbers.py'])
+run('tablet checklist fresh',['tools/build-field-app.py', '--check'])
 
 DIRS = {'Manual':'technical-manual','SOP':'sop','Office':'office-how-to','Field':'field-how-to'}
 def heads(d):

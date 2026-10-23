@@ -1,0 +1,4 @@
+match,type,label,why
+which presentation you saw recorded,text,Presentation seen,"Appendix A asks the operator to record which presentation was seen, not merely to confirm the setting"
+Status reached green,time,Time green reached,"Field How To 14.5 requires the time, and 14.2 makes the settling interval run from it"
+Time significant recording began,time,Time recording began,"Field How To 14.5 requires the time significant recording began"

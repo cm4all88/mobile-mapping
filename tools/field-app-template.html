@@ -1,0 +1,768 @@
+<title>MX60 Preflight</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+{{TOKENS}}
+
+/* ===========================================================================
+   The preflight checklist as a field instrument.
+
+   LAYOUT  one column, operated with a thumb through a windscreen glare: a
+           sticky status band carrying the count, then the mission header, then
+           the search, then the seven groups as stacks, then the clearance gate
+           at the end. Nothing is behind a menu.
+   COLOUR  the document family's own tokens. Future Green is the Field How To's
+           accent and marks a cleared item; Parametrix Red marks what is still
+           outstanding and the locked gate. Nothing else is coloured.
+   TYPE    the brand stacks. Item text is set large enough to read at arm's
+           length; counts are tabular.
+   =========================================================================== */
+:root{
+  --app-row:#FFFFFF;
+  --done:var(--brand-green);
+  --na:var(--brand-gray);
+  --open:var(--brand-red);
+  --app-ink:var(--brand-charcoal);
+  --app-ground:#F2F2F2;
+  --tap:56px;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --app-row:#262626; --app-ground:#1A1A1A; --app-ink:#F2F2F2;
+}}
+:root[data-theme="dark"]{ --app-row:#262626; --app-ground:#1A1A1A; --app-ink:#F2F2F2 }
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--app-ground); color:var(--app-ink);
+  font:400 16px/1.5 var(--brand-body);
+  -webkit-text-size-adjust:100%; -webkit-tap-highlight-color:transparent;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);
+  z-index:30;background:var(--brand-charcoal)}
+.wrap{max-width:46rem;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px))}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brand-blue);outline-offset:2px}
+
+/* --- the status band ---------------------------------------------------- */
+.band{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:var(--brand-charcoal);color:#fff}
+.band .wrap{padding-block:9px;display:flex;align-items:center;gap:12px}
+.band img{height:20px;width:auto;flex:0 0 auto}
+.band .who{flex:1 1 auto;min-width:0}
+.band .who b{display:block;font:700 13px/1.25 var(--brand-body);letter-spacing:.01em}
+.band .who span{display:block;font:500 10px/1.4 var(--brand-body);
+  letter-spacing:.12em;text-transform:uppercase;color:var(--brand-gray-1)}
+.tally{flex:0 0 auto;text-align:right;font-variant-numeric:tabular-nums}
+.tally b{font:700 19px/1 var(--brand-body)}
+.tally span{display:block;font:500 9.5px/1.4 var(--brand-body);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--brand-gray-1)}
+.meter{display:flex;gap:2px;height:4px}
+.meter i{flex:1 1 0;background:#4A4A4A}
+.meter i.on{background:var(--done)}
+.meter i.part{background:var(--brand-yellow)}
+
+/* --- mission header ----------------------------------------------------- */
+.mission{background:var(--app-row);border-bottom:1px solid var(--rule)}
+.mission .wrap{padding-block:14px;display:grid;gap:10px;
+  grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr))}
+.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fld label{font:700 10px/1.4 var(--brand-body);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.fld input{min-height:44px;padding:8px 10px;background:var(--ground);
+  border:1px solid var(--rule-2);border-radius:2px;width:100%}
+.fld input:invalid,.fld input.want{border-color:var(--open)}
+
+/* --- search ------------------------------------------------------------- */
+.find{background:var(--app-ground);position:sticky;
+  top:calc(env(safe-area-inset-top,0px) + 60px);z-index:15}
+.find .wrap{padding-block:10px;display:flex;align-items:center;gap:10px}
+.find input{flex:1 1 auto;min-width:0;min-height:44px;padding:8px 12px;
+  background:var(--app-row);border:1px solid var(--rule-2);border-radius:2px}
+.find .n{flex:0 0 auto;font:500 12px/1.4 var(--brand-body);color:var(--muted);
+  font-variant-numeric:tabular-nums}
+
+/* --- groups ------------------------------------------------------------- */
+main .wrap{padding-bottom:28px}
+.grp{background:var(--app-row);border:1px solid var(--rule);margin-bottom:10px}
+.grp>h2{margin:0;display:flex;align-items:center;gap:10px;
+  padding:12px 14px;border-bottom:1px solid var(--rule);
+  font:700 15px/1.3 var(--brand-head);letter-spacing:.01em}
+.grp>h2 .gid{flex:0 0 auto;font:700 11px/1 var(--brand-body);letter-spacing:.08em;
+  background:var(--brand-gray-3);color:var(--brand-charcoal);padding:5px 7px;border-radius:2px}
+.grp>h2 .gn{margin-left:auto;flex:0 0 auto;font:600 12px/1 var(--brand-body);
+  color:var(--muted);font-variant-numeric:tabular-nums}
+.grp[data-done="1"]>h2 .gid{background:var(--done);color:#fff}
+.grp[hidden]{display:none}
+
+.itemwrap{border-bottom:1px solid var(--rule)}
+.grp .itemwrap:last-child{border-bottom:0}
+.itemwrap[hidden]{display:none}
+.item{display:flex;align-items:flex-start;gap:0}
+.tick{flex:1 1 auto;min-width:0;display:flex;align-items:flex-start;gap:12px;
+  padding:12px 14px;min-height:var(--tap);text-align:left}
+.box{flex:0 0 auto;width:26px;height:26px;margin-top:1px;border:2px solid var(--rule-2);
+  border-radius:2px;display:grid;place-items:center;font:700 16px/1 var(--brand-body);
+  color:transparent;background:var(--ground)}
+.item[data-s="done"] .box{background:var(--done);border-color:var(--done);color:#fff}
+.item[data-s="na"] .box{background:var(--na);border-color:var(--na);color:#fff;
+  font-size:9.5px;letter-spacing:.03em}
+.txt{flex:1 1 auto;min-width:0}
+.txt .t{display:block}
+.item[data-s="done"] .txt .t,.item[data-s="na"] .txt .t{color:var(--muted)}
+.item[data-s="na"] .txt .t{text-decoration:line-through}
+.refs{display:block;margin-top:3px;font:500 12px/1.45 var(--brand-body);color:var(--muted)}
+.refs b{font-weight:700;color:var(--brand-blue)}
+.side{flex:0 0 auto;display:flex;align-items:center;align-self:stretch;
+  border-left:1px solid var(--rule)}
+.side button{min-width:48px;min-height:var(--tap);align-self:stretch;
+  font:700 11px/1.2 var(--brand-body);letter-spacing:.06em;color:var(--muted)}
+.side button+button{border-left:1px solid var(--rule)}
+.side button[aria-pressed="true"]{background:var(--brand-gray-3);color:var(--brand-charcoal)}
+.tick:disabled,.side button:disabled{cursor:default;opacity:1}
+.extra{padding:0 14px 12px;display:grid;gap:8px}
+.extra[hidden]{display:none}
+.extra label{font:700 10px/1.4 var(--brand-body);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.extra input,.extra textarea{width:100%;padding:8px 10px;background:var(--ground);
+  border:1px solid var(--rule-2);border-radius:2px;min-height:44px}
+.extra textarea{min-height:66px;resize:vertical}
+.extra .need{border-color:var(--open)}
+.needval{display:block;margin-top:3px;font:700 11px/1.4 var(--brand-body);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--open)}
+
+/* --- the clearance gate ------------------------------------------------- */
+.gate{border:2px solid var(--open);background:var(--app-row);padding:16px}
+.gate[data-ready="1"]{border-color:var(--done)}
+.gate h2{margin:0 0 6px;font:700 17px/1.25 var(--brand-head)}
+.sigrow{margin:0 0 14px;max-width:22rem}
+.sigrow[hidden]{display:none}
+.gate p{margin:0 0 12px;font:400 14px/1.55 var(--brand-body);color:var(--ink-2);
+  max-width:60ch}
+.out{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:1px;
+  background:var(--rule);border:1px solid var(--rule);max-height:13rem;overflow-y:auto}
+.out li{background:var(--app-row)}
+.out button{display:block;width:100%;text-align:left;padding:10px 12px;min-height:44px;
+  font:500 14px/1.4 var(--brand-body)}
+.out .oid{font:700 11px/1 var(--brand-body);letter-spacing:.07em;color:var(--open);
+  margin-right:8px}
+.go{display:block;width:100%;min-height:54px;padding:14px;
+  background:var(--done);color:#fff;border-radius:2px;
+  font:700 15px/1.2 var(--brand-body);letter-spacing:.04em;text-transform:uppercase}
+.go[disabled]{background:var(--brand-gray-2);color:var(--brand-gray);cursor:not-allowed}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.acts button{flex:1 1 9rem;min-height:48px;padding:12px;border:1px solid var(--brand-charcoal);
+  border-radius:2px;font:700 13px/1.2 var(--brand-body);letter-spacing:.04em;
+  background:var(--ground)}
+.acts button.quiet{border-color:var(--rule-2);color:var(--muted)}
+.said{margin-top:10px;font:500 13px/1.5 var(--brand-body);color:var(--ink-2)}
+.said.bad{color:var(--open)}
+.cleared{display:flex;align-items:center;gap:10px;margin-bottom:12px;
+  font:700 13px/1.3 var(--brand-body);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--done)}
+.cleared .dot{width:12px;height:12px;border-radius:50%;background:var(--done);flex:0 0 auto}
+.offline{display:inline-block;margin-left:8px;padding:2px 7px;border-radius:2px;
+  background:var(--brand-yellow);color:var(--brand-charcoal);
+  font:700 9.5px/1.6 var(--brand-body);letter-spacing:.1em;text-transform:uppercase}
+
+/* --- provenance --------------------------------------------------------- */
+.prov{border-top:1px solid var(--rule);margin-top:22px}
+.prov .wrap{padding-block:16px 26px;font:400 12px/1.6 var(--brand-body);color:var(--muted)}
+.prov b{color:var(--ink-2)}
+.prov code{font-family:var(--brand-mono);font-size:11px}
+
+/* --- the record sheet --------------------------------------------------- */
+.rec{background:#fff;color:#1a1a1a}
+.rec .wrap{padding-block:18px 26px}
+.rec h1{margin:0;font:700 20px/1.2 var(--brand-head)}
+.rec .rk{font:700 10px/1.5 var(--brand-body);letter-spacing:.14em;
+  text-transform:uppercase;color:#676768}
+.rec .rh{display:flex;align-items:flex-start;gap:14px;
+  border-bottom:2px solid var(--brand-green);padding-bottom:9px;margin-bottom:14px}
+.rec .rh img{height:26px;width:auto}
+.rec table{width:100%;border-collapse:collapse;font:400 12.5px/1.5 var(--brand-body)}
+.rec th,.rec td{text-align:left;vertical-align:top;padding:4px 8px 4px 0;
+  border-bottom:1px solid #e5e5e5}
+.rec th{font-weight:700;width:12rem}
+.rec h3{margin:16px 0 4px;font:700 12px/1.4 var(--brand-body);letter-spacing:.1em;
+  text-transform:uppercase;color:#676768}
+.rec .st{font-weight:700;white-space:nowrap;width:5.5rem}
+.rec .st.d{color:#2f8c38}
+.rec .st.n{color:#676768}
+.rec .st.o{color:#C62C16}
+.rec .note{display:block;color:#676768;font-style:italic}
+.rec .sig{margin-top:18px;display:flex;gap:28px;flex-wrap:wrap;
+  font:400 12.5px/1.6 var(--brand-body)}
+.rec .pf{margin-top:18px;padding-top:8px;border-top:1px solid #e5e5e5;
+  font:400 10.5px/1.6 var(--brand-body);color:#676768}
+
+@media print{
+  body{background:#fff;color:#000}
+  body::before,.band,.mission,.find,main,.prov{display:none!important}
+  .rec{display:block!important}
+  .rec .wrap{max-width:none;padding:0}
+  .rec tr,.rec h3{break-inside:avoid;page-break-inside:avoid}
+  @page{size:A4;margin:14mm 12mm}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="band">
+  <div class="wrap">
+    <img src="data:image/png;base64,{{LOGO_KO}}" alt="Parametrix">
+    <span class="who"><b>Preflight Checklist</b><span>Trimble MX60 Premium</span></span>
+    <span class="tally"><b id="tally">0/0</b><span>cleared</span></span>
+  </div>
+  <div class="meter" id="meter" aria-hidden="true"></div>
+</div>
+
+<div class="mission">
+  <div class="wrap" id="mission"></div>
+</div>
+
+<div class="find">
+  <div class="wrap">
+    <input id="q" type="search" inputmode="search" autocomplete="off"
+           placeholder="Search the checklist" aria-label="Search the checklist">
+    <span class="n" id="qn"></span>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div id="groups"></div>
+
+    <section class="gate" id="gate" aria-live="polite">
+      <div id="gatebody"></div>
+      <div class="fld sigrow" id="sigrow"></div>
+      <div id="gatefoot"></div>
+    </section>
+  </div>
+</main>
+
+<div class="prov">
+  <div class="wrap" id="prov"></div>
+</div>
+
+<div class="rec" id="rec" hidden></div>
+
+<script>
+const DATA = {{DATA}};
+const TARGET = "{{TARGET}}";
+
+/* Where a completed checklist is sent. Left empty, the record never leaves the
+   tablet on its own: the operator sends it with Share or Save, and nothing is
+   lost. Set it to the office endpoint once that endpoint exists, and a record
+   filled in with no signal is posted the moment the tablet has one. */
+const SUBMIT_URL = "";
+
+const KEY  = "mx60.preflight.v1";
+const QKEY = "mx60.preflight.queue.v1";
+const ALL  = DATA.groups.flatMap(g => g.items);
+const CLEARED = s => s === "done" || s === "na";
+
+/* ---- state. localStorage can throw, or come back empty in a private window
+   or with site data cleared. The page works either way; it just stops
+   surviving a reload. ----------------------------------------------------- */
+function load(k, dflt){
+  try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : dflt }
+  catch (e) { return dflt }
+}
+function save(k, v){ try { localStorage.setItem(k, JSON.stringify(v)) } catch (e) {} }
+
+function blank(){
+  return { rid: "PF-" + new Date().toISOString().slice(0, 10).replace(/-/g, "") + "-"
+                + Math.random().toString(36).slice(2, 6).toUpperCase(),
+           started: new Date().toISOString(),
+           meta: {}, items: {}, sign: "", completedAt: null, sent: null };
+}
+let S = load(KEY, null) || blank();
+let Q = load(QKEY, []);
+let MSG = null;
+const opened = new Set();
+const it = id => (S.items[id] = S.items[id] || { s: "", note: "", val: "" });
+const locked = () => Boolean(S.completedAt);
+
+const E = (t, c, h) => { const e = document.createElement(t);
+  if (c) e.className = c; if (h !== undefined) e.innerHTML = h; return e };
+const esc = s => String(s == null ? "" : s)
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+/* ---- what the gate is waiting for. This one function is the whole rule:
+   the mission is not cleared to start until it returns nothing. ----------- */
+function outstanding(){
+  const o = [];
+  for (const m of DATA.meta)
+    if (!(S.meta[m.id] || "").trim())
+      o.push({ k: m.label, why: "not filled in", el: "m-" + m.id });
+  for (const i of ALL){
+    const st = it(i.id);
+    if (!CLEARED(st.s)) o.push({ k: i.id, why: i.text, el: i.id });
+    else if (i.field && st.s === "done" && !st.val.trim())
+      o.push({ k: i.id, why: i.field.label + " not recorded", el: i.id });
+  }
+  if (!(S.sign || "").trim())
+    o.push({ k: DATA.sign, why: "not signed", el: "m-sign" });
+  return o;
+}
+
+/* ---- the mission header, built once ------------------------------------ */
+function buildMission(){
+  const w = document.getElementById("mission");
+  w.textContent = "";
+  for (const m of DATA.meta){
+    const id = "m-" + m.id, f = E("div", "fld");
+    f.append(Object.assign(E("label"), { htmlFor: id, textContent: m.label }));
+    const inp = Object.assign(document.createElement("input"), { id, type: m.type,
+      autocomplete: "off", disabled: locked(),
+      value: S.meta[m.id] || "" });
+    inp.addEventListener("input", () => {
+      S.meta[m.id] = inp.value;
+      inp.classList.toggle("want", !inp.value.trim());
+      save(KEY, S); refresh();
+    });
+    f.append(inp);
+    w.append(f);
+  }
+}
+
+/* ---- the signature. It sits at the end, because signing is what the operator
+   does once the checklist is done, not something to get out of the way first.
+   It is built once and never rebuilt, so a name can be typed into it. ------ */
+function buildSign(){
+  const w = document.getElementById("sigrow");
+  w.textContent = "";
+  w.append(Object.assign(E("label"), { htmlFor: "m-sign", textContent: DATA.sign }));
+  const inp = Object.assign(document.createElement("input"),
+    { id: "m-sign", type: "text", autocomplete: "off", value: S.sign || "",
+      placeholder: "Your name" });
+  inp.addEventListener("input", () => {
+    S.sign = inp.value;
+    inp.classList.toggle("want", !inp.value.trim());
+    save(KEY, S); refresh();
+  });
+  w.append(inp);
+}
+
+/* ---- one checklist row ------------------------------------------------- */
+function buildRow(i){
+  const st = it(i.id);
+  const wrap = E("div", "itemwrap");
+  const row = E("div", "item"); row.id = i.id; row.dataset.s = st.s || "open";
+
+  const tick = E("button", "tick");
+  tick.type = "button";
+  tick.disabled = locked();
+  tick.setAttribute("role", "checkbox");
+  tick.setAttribute("aria-checked", st.s === "done" ? "true" : st.s === "na" ? "mixed" : "false");
+  tick.append(E("span", "box", st.s === "na" ? "N/A" : "&#10003;"));
+  const txt = E("div", "txt");
+  txt.append(E("span", "t", i.html));
+  if (i.refs.length)
+    txt.append(E("span", "refs",
+      i.refs.map(r => `<b>&sect;${r.n}</b> ${esc(r.title)}`).join(" &middot; ")));
+  if (i.field) txt.append(E("span", "needval", i.field.label + " still to record"));
+  tick.append(txt);
+  tick.addEventListener("click", () => {
+    if (locked()) return;
+    const s = it(i.id);
+    s.s = s.s === "done" ? "" : "done";
+    save(KEY, S);
+    rebuild();
+    if (s.s === "done" && i.field && !s.val.trim())
+      document.getElementById(i.id + "-val")?.focus();
+  });
+  row.append(tick);
+
+  const side = E("div", "side");
+  if (i.na){
+    const na = E("button", null, "N/A");
+    na.type = "button";
+    na.disabled = locked();
+    na.title = "Not fitted on this vehicle";
+    na.setAttribute("aria-pressed", st.s === "na" ? "true" : "false");
+    na.addEventListener("click", () => {
+      if (locked()) return;
+      const s = it(i.id); s.s = s.s === "na" ? "" : "na"; save(KEY, S); rebuild();
+    });
+    side.append(na);
+  }
+  const nb = E("button", null, st.note ? "&#9679;" : "&#43;");
+  nb.type = "button";
+  nb.disabled = locked();
+  nb.setAttribute("aria-label", "Note on " + i.id);
+  nb.setAttribute("aria-pressed", opened.has(i.id) ? "true" : "false");
+  nb.addEventListener("click", () => {
+    opened.has(i.id) ? opened.delete(i.id) : opened.add(i.id);
+    rebuild();
+    document.getElementById(i.id + "-note")?.focus();
+  });
+  side.append(nb);
+  row.append(side);
+  wrap.append(row);
+
+  /* A value-bearing item always shows its field: its own text in Appendix A
+     asks for a value, so hiding it behind a tap would hide the requirement. */
+  const ex = E("div", "extra");
+  ex.hidden = !i.field && !opened.has(i.id);
+  if (i.field){
+    const id = i.id + "-val";
+    ex.append(Object.assign(E("label"), { htmlFor: id, textContent: i.field.label }));
+    const v = Object.assign(document.createElement("input"),
+      { id, type: i.field.type, value: st.val, autocomplete: "off", disabled: locked() });
+    v.addEventListener("input", () => {
+      /* the row is not rebuilt here: that would take the focus out of this
+         input at the first keystroke */
+      it(i.id).val = v.value;
+      save(KEY, S);
+      markRow(i, row, v);
+      refresh();
+    });
+    ex.append(v);
+  }
+  if (opened.has(i.id) || st.note){
+    const nid = i.id + "-note";
+    ex.hidden = false;
+    ex.append(Object.assign(E("label"), { htmlFor: nid, textContent: "Note" }));
+    const ta = Object.assign(document.createElement("textarea"),
+      { id: nid, value: st.note, rows: 2, disabled: locked() });
+    ta.addEventListener("input", () => { it(i.id).note = ta.value; save(KEY, S) });
+    ex.append(ta);
+  }
+  wrap.append(ex);
+  markRow(i, row, ex.querySelector("input"));
+  return wrap;
+}
+
+/* the one thing a row shows that changes while typing */
+function markRow(i, row, input){
+  if (!i.field) return;
+  const want = it(i.id).s === "done" && !it(i.id).val.trim();
+  row.querySelector(".needval").hidden = !want;
+  if (input) input.classList.toggle("need", want);
+}
+
+/* ---- the groups -------------------------------------------------------- */
+function buildGroups(){
+  const w = document.getElementById("groups");
+  w.textContent = "";
+  for (const g of DATA.groups){
+    const sec = E("section", "grp");
+    sec.id = g.id + "-sec";
+    const h = E("h2");
+    h.append(E("span", "gid", g.id), E("span", "gt", esc(g.title)),
+             E("span", "gn", ""));
+    sec.append(h);
+    for (const i of g.items) sec.append(buildRow(i));
+    w.append(sec);
+  }
+}
+
+function paintGroupTotals(){
+  for (const g of DATA.groups){
+    const d = g.items.filter(i => CLEARED(it(i.id).s)).length;
+    const sec = document.getElementById(g.id + "-sec");
+    sec.dataset.done = d === g.items.length ? "1" : "0";
+    sec.querySelector(".gn").textContent = d + "/" + g.items.length;
+  }
+  const done = ALL.filter(i => CLEARED(it(i.id).s)).length;
+  document.getElementById("tally").textContent = done + "/" + DATA.count;
+  const meter = document.getElementById("meter");
+  meter.textContent = "";
+  for (const g of DATA.groups){
+    const d = g.items.filter(i => CLEARED(it(i.id).s)).length;
+    const bar = E("i");
+    bar.className = d === g.items.length ? "on" : d ? "part" : "";
+    meter.append(bar);
+  }
+}
+
+/* ---- the gate ---------------------------------------------------------- */
+function buildGate(){
+  const o = outstanding(), g = document.getElementById("gate"),
+        b = document.getElementById("gatebody"),
+        f = document.getElementById("gatefoot"), ready = o.length === 0;
+  g.dataset.ready = ready || locked() ? "1" : "0";
+  b.textContent = ""; f.textContent = "";
+  document.getElementById("sigrow").hidden = locked();
+
+  if (locked()){
+    const c = E("div", "cleared");
+    c.append(E("span", "dot"), document.createTextNode(
+      "Preflight complete · " + new Date(S.completedAt).toLocaleString()
+      + (S.sign ? " · signed " + S.sign : "")));
+    b.append(c);
+    b.append(E("h2", null, "Cleared to start the mission"));
+    b.append(E("p", null, "The record is closed and read-only. Print it for the vehicle "
+      + "folder and send it to the office. Starting a new mission keeps this record in "
+      + "the queue until the office has it."));
+    const a = E("div", "acts");
+    const show = E("button", null,
+      TARGET === "file" ? "Print the record" : "Show the record");
+    show.type = "button";
+    show.addEventListener("click", () => {
+      if (TARGET === "file") { window.print(); return }
+      const r = document.getElementById("rec");
+      r.hidden = !r.hidden;
+      if (!r.hidden) r.scrollIntoView({ behavior: "smooth" });
+    });
+    a.append(show);
+    const snd = E("button", null, "Send to the office");
+    snd.type = "button";
+    snd.addEventListener("click", () => sendNow(snd));
+    a.append(snd);
+    const nw = E("button", "quiet", "Start a new mission");
+    nw.type = "button";
+    nw.addEventListener("click", () => {
+      if (nw.dataset.sure !== "1"){
+        nw.dataset.sure = "1";
+        nw.textContent = "Tap again to start a new mission";
+        return;
+      }
+      queue(record());
+      S = blank(); opened.clear(); MSG = null;
+      save(KEY, S);
+      rebuild(); buildMission(); buildSign();
+      window.scrollTo({ top: 0 });
+    });
+    a.append(nw);
+    b.append(a);
+    f.append(said());
+    return;
+  }
+
+  b.append(E("h2", null, ready
+    ? "Preflight complete — confirm it"
+    : o.length + " item" + (o.length === 1 ? "" : "s") + " outstanding"));
+  b.append(E("p", null, ready
+    ? "Every item is cleared and the header is signed. Confirm to close the record. "
+      + "After that it is read-only, ready to print and ready to send."
+    : "The mission is not cleared to start until every item is ticked or marked N/A, "
+      + "the header is filled in and the checklist is signed. Tap one to go to it."));
+  if (o.length){
+    const ul = E("ul", "out");
+    for (const x of o){
+      const li = E("li"), bt = E("button");
+      bt.type = "button";
+      bt.append(E("span", "oid", x.k), document.createTextNode(x.why));
+      bt.addEventListener("click", () => {
+        const el = document.getElementById(x.el);
+        if (!el) return;
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        (el.querySelector ? el.querySelector(".tick") || el : el).focus();
+      });
+      li.append(bt); ul.append(li);
+    }
+    b.append(ul);
+  }
+  const go = E("button", "go", "Confirm preflight complete");
+  go.type = "button";
+  go.disabled = !ready;
+  go.addEventListener("click", () => {
+    if (outstanding().length) return;
+    S.completedAt = new Date().toISOString();
+    save(KEY, S);
+    rebuild(); buildMission(); buildSign();
+    document.getElementById("gate").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+  f.append(go, said());
+}
+
+function said(){
+  const d = E("div", "said" + (MSG && MSG.bad ? " bad" : ""));
+  const pending = Q.length + (locked() && !S.sent ? 1 : 0);
+  d.textContent = MSG ? MSG.t
+    : pending ? pending + " record" + (pending === 1 ? "" : "s") + " waiting for the office."
+              : "No records waiting.";
+  if (!navigator.onLine) d.append(E("span", "offline", "offline"));
+  return d;
+}
+
+function buildProv(){
+  document.getElementById("prov").innerHTML =
+    `<b>${DATA.doc} &middot; ${DATA.appendix} &middot; ${DATA.name}</b> &mdash; `
+    + `${DATA.count} items, Working Version ${DATA.version}, built from `
+    + `<code>${DATA.source}</code> (<code>${DATA.sourceHash}</code>).<br>`
+    + (TARGET === "file"
+        ? "This file carries everything it needs and works with no signal. Open it from "
+          + "Files, or add it to the home screen from Safari, and it is there in the "
+          + "truck. What you tick is kept on this tablet until it is sent."
+        : "This is the review copy, fetched over the network. It cannot print and it will "
+          + "not open without a signal — the file in <code>field-app/</code> does both.")
+    + "<br>This checklist is a living draft. Nothing here is an adopted Parametrix "
+    + "standard.";
+}
+
+/* ---- search ------------------------------------------------------------ */
+function filter(){
+  const q = (document.getElementById("q").value || "").trim().toLowerCase();
+  let n = 0;
+  for (const g of DATA.groups){
+    let any = 0;
+    for (const i of g.items){
+      const hay = (i.text + " " + g.id + " " + g.title + " "
+                   + i.refs.map(r => "§" + r.n + " " + r.title).join(" ")).toLowerCase();
+      const hit = !q || hay.includes(q);
+      document.getElementById(i.id).closest(".itemwrap").hidden = !hit;
+      if (hit){ any++; n++ }
+    }
+    document.getElementById(g.id + "-sec").hidden = !any;
+  }
+  document.getElementById("qn").textContent =
+    q ? n + " of " + DATA.count : DATA.count + " items";
+}
+
+/* ---- the record -------------------------------------------------------- */
+function record(){
+  return {
+    schema: "mx60.preflight/1",
+    rid: S.rid,
+    checklist: { doc: DATA.doc, appendix: DATA.appendix, name: DATA.name,
+                 system: DATA.system, source: DATA.source,
+                 sourceHash: DATA.sourceHash, workingVersion: DATA.version },
+    mission: Object.fromEntries(DATA.meta.map(m => [m.id, S.meta[m.id] || ""])),
+    signed: S.sign || "",
+    started: S.started, completedAt: S.completedAt,
+    device: navigator.userAgent,
+    items: ALL.map(i => ({ id: i.id, group: i.id.split("-")[0], text: i.text,
+      sections: i.refs.map(r => r.n), state: it(i.id).s || "open",
+      value: it(i.id).val || "", note: it(i.id).note || "" })),
+  };
+}
+
+const MARK = { done: ["d", "Cleared"], na: ["n", "N/A"], open: ["o", "Outstanding"] };
+
+function buildRecordSheet(){
+  const r = record();
+  let h = `<div class="wrap"><div class="rh">`
+    + `<img src="data:image/png;base64,{{LOGO}}" alt="Parametrix">`
+    + `<div><div class="rk">${DATA.doc} &middot; ${DATA.appendix}</div>`
+    + `<h1>${DATA.name}</h1><div class="rk">${DATA.system}</div></div></div><table>`;
+  for (const m of DATA.meta)
+    h += `<tr><th>${m.label}</th><td>${esc(r.mission[m.id]) || "&mdash;"}</td></tr>`;
+  h += `<tr><th>Record</th><td>${esc(r.rid)}</td></tr>`
+     + `<tr><th>Completed</th><td>${r.completedAt
+         ? esc(new Date(r.completedAt).toLocaleString()) : "not complete"}</td></tr>`
+     + `</table>`;
+  for (const g of DATA.groups){
+    h += `<h3>${g.id} &middot; ${esc(g.title)}</h3><table>`;
+    for (const i of g.items){
+      const st = r.items.find(x => x.id === i.id);
+      const [c, lbl] = MARK[st.state] || MARK.open;
+      h += `<tr><td class="st ${c}">${lbl}</td><td>${esc(i.text)}`
+         + (st.value ? `<span class="note">`
+             + `${i.field ? esc(i.field.label) + ": " : ""}${esc(st.value)}</span>` : "")
+         + (st.note ? `<span class="note">${esc(st.note)}</span>` : "")
+         + `</td></tr>`;
+    }
+    h += `</table>`;
+  }
+  h += `<div class="sig"><div><b>Signed</b> ${esc(r.signed) || "________________"}</div>`
+     + `<div><b>Sent to the office</b> ${S.sent
+         ? esc(new Date(S.sent).toLocaleString()) : "not yet"}</div></div>`
+     + `<div class="pf">${DATA.count} items, Working Version ${DATA.version}, built `
+     + `from ${DATA.source} (${DATA.sourceHash}). A living draft: nothing here is an `
+     + `adopted Parametrix standard.</div></div>`;
+  document.getElementById("rec").innerHTML = h;
+}
+
+/* ---- getting it to the office ----------------------------------------- */
+function queue(rec){
+  if (!rec.completedAt) return;
+  Q = Q.filter(x => x.rid !== rec.rid).concat([rec]);
+  save(QKEY, Q);
+}
+async function post(rec){
+  if (!SUBMIT_URL) throw new Error("no office endpoint is set");
+  const r = await fetch(SUBMIT_URL, { method: "POST",
+    headers: { "content-type": "application/json" }, body: JSON.stringify(rec) });
+  if (!r.ok) throw new Error("the office returned " + r.status);
+}
+async function flush(){
+  if (!SUBMIT_URL || !navigator.onLine || !Q.length) return;
+  const keep = [];
+  for (const rec of Q){ try { await post(rec) } catch (e) { keep.push(rec) } }
+  const sent = Q.length - keep.length;
+  Q = keep; save(QKEY, Q);
+  if (sent){
+    MSG = { t: sent + " record" + (sent === 1 ? "" : "s") + " reached the office." };
+    buildGate();
+  }
+}
+async function sendNow(btn){
+  const rec = record();
+  queue(rec);
+  MSG = null;
+  if (btn) btn.disabled = true;
+  try {
+    if (SUBMIT_URL && navigator.onLine){
+      try {
+        await post(rec);
+        Q = Q.filter(x => x.rid !== rec.rid); save(QKEY, Q);
+        S.sent = new Date().toISOString(); save(KEY, S);
+        MSG = { t: "Sent to the office." };
+        return;
+      } catch (e) {
+        MSG = { t: "Could not reach the office — " + e.message + ". The record is "
+                   + "queued and goes on its own when there is a signal.", bad: true };
+      }
+    } else if (SUBMIT_URL){
+      MSG = { t: "No signal. The record is queued and goes on its own." };
+    }
+    const name = rec.rid + ".json";
+    const blob = new Blob([JSON.stringify(rec, null, 2)], { type: "application/json" });
+    const file = new File([blob], name, { type: "application/json" });
+    if (navigator.canShare && navigator.canShare({ files: [file] })){
+      try {
+        await navigator.share({ files: [file], title: name });
+        S.sent = S.sent || new Date().toISOString(); save(KEY, S);
+        MSG = { t: "Handed to the share sheet. The queue keeps a copy." };
+        return;
+      } catch (e) { /* the operator dismissed the sheet */ }
+    }
+    if (TARGET === "file"){
+      const a = Object.assign(document.createElement("a"),
+        { href: URL.createObjectURL(blob), download: name });
+      document.body.append(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      MSG = MSG || { t: "Saved " + name + ". Send it on from Files." };
+    } else {
+      try {
+        await navigator.clipboard.writeText(JSON.stringify(rec, null, 2));
+        MSG = MSG || { t: "The record is on the clipboard as JSON." };
+      } catch (e) {
+        MSG = { t: "This review copy cannot hand over a file. Use the file in "
+                   + "field-app/ on the tablet.", bad: true };
+      }
+    }
+  } finally {
+    buildGate();
+  }
+}
+
+/* ---- the two repaints -------------------------------------------------- */
+/* refresh: everything that is only a number or a message. It never touches a
+   row, so it cannot take the focus out of an input being typed into. */
+function refresh(){
+  paintGroupTotals();
+  buildGate();
+  buildRecordSheet();
+}
+/* rebuild: the rows themselves, after a tick, an N/A or a note toggle. */
+function rebuild(){
+  buildGroups();
+  refresh();
+  filter();
+}
+
+buildMission();
+buildSign();
+buildProv();
+rebuild();
+document.getElementById("q").addEventListener("input", filter);
+window.addEventListener("online",  () => { MSG = null; buildGate(); flush() });
+window.addEventListener("offline", () => { MSG = null; buildGate() });
+flush();
+</script>
