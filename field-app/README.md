@@ -11,8 +11,9 @@ python3 tools/build-field-app.py --dump preflight   # one parsed form, as JSON
 
 | | |
 |---|---|
-| `MX60-Field-Tools.html` | **the file that goes on the iPad.** One file, no network, ~620 KB |
-| `review-copy/MX60-Field-Tools.html` | the same app for a claude.ai link. It cannot print and it will not open without a signal |
+| `MX60-Field-Tools.html` | **the file that goes on the iPad.** One file, no network, ~630 KB |
+| `MX60-Office-Intake.html` | **the office side.** Drop the records in and see what arrived, what has not, and who did it |
+| `review-copy/` | the same two pages for claude.ai links. They cannot print and will not open without a signal |
 
 ## The eight forms
 
@@ -74,6 +75,24 @@ value is present, the job header is complete, and it is signed. The panel at the
 outstanding; tapping an entry goes to it. Confirming closes the record: it becomes read-only, a
 Parametrix PDF is written for it, and it is kept until the office has it.
 
+## Correcting a record
+
+**A record is never edited and never deleted.** A mistake is corrected one of two ways, and both
+keep the original.
+
+**Replace** starts a new record of the same form with everything carried over from the one it
+replaces, so correcting one field does not mean re-ticking thirty-six items. It will not close
+without a reason. The new record carries `supersedes`, the old one gains `supersededBy`, and both
+say so on screen, on the printed sheet and on the PDF.
+
+**Void** marks a record as not counting, and asks why. A voided record **still has to reach the
+office**: *"the preflight for this task was voided because the wrong vehicle was on it"* and
+*"there is no preflight for this task"* are different answers, and only one of them is useful.
+Voiding frees the form to be started again.
+
+The office page shows the record that counts for each job and form: the newest that has been
+neither voided nor replaced.
+
 ## Records, and what "sent" means
 
 A completed record is kept on the tablet as JSON (`schema: mx60.fieldtools/1`) carrying the job,
@@ -109,6 +128,30 @@ wants the JSON into a database or the PDF into the project folder. The record al
 an office review needs — project, task, form, operator, completion time, and a record id that is
 unique per project and task — so missing records can be identified by what is absent for a given
 project and task.
+
+## The office side — `MX60-Office-Intake.html`
+
+A desk page, no install and no backend. Drop in the `.json` files the tablet sends — one mission
+or a season of them — and it answers the three questions the office asks:
+
+- **Coverage.** A grid of project · task against the forms, showing which were received, by whom
+  and on what date, which exist only as voided records, and **which are not received at all.**
+  Expected can be set to the three field forms or to all eight.
+- **Records.** Every record, filterable by project, task, form or operator, each showing its
+  transfer state and whether it has been voided or replaced. Downloadable as a CSV for a
+  spreadsheet.
+- **One record.** The full record, rendered by the **same code the tablet uses**
+  (`tools/field-app-record-sheet.js` is injected into both), and printable.
+
+A record is replaced, not duplicated, when it is read in twice, so the same files can be dropped
+again without harm. A file that is not a record is rejected by name with the reason.
+
+**It is a viewer, not the record.** What is loaded lives in that browser on that computer. The
+project's Survey field records folder is the record, and the page says so on itself.
+
+The one gap it cannot close: a job appears only once one of its records has arrived, so a task
+nobody sent anything for cannot be seen from the records alone. Closing that needs a list of
+expected tasks from somewhere else — the project schedule — which is a decision, not a build.
 
 ## On the iPad
 

@@ -74,9 +74,13 @@ REPO = pathlib.Path(__file__).resolve().parent.parent
 DELIV = REPO / 'deliverables'
 FIELDS = DELIV / '_control/field-app-fields.csv'
 TPL = pathlib.Path(__file__).with_name('field-app-template.html')
+OFFICE_TPL = pathlib.Path(__file__).with_name('office-intake-template.html')
 OUT_FILE = REPO / 'field-app/MX60-Field-Tools.html'
 OUT_REVIEW = REPO / 'field-app/review-copy/MX60-Field-Tools.html'
+OUT_OFFICE = REPO / 'field-app/MX60-Office-Intake.html'
+OUT_OFFICE_REVIEW = REPO / 'field-app/review-copy/MX60-Office-Intake.html'
 JSPDF = REPO / 'vendor/jspdf.umd.min.js'
+SHEET = pathlib.Path(__file__).with_name('field-app-record-sheet.js')
 
 WORKING_VERSION = re.search(r"^DRAFT = '([^']+)'",
                             (REPO / 'tools/sync-circulation.py').read_text(),
@@ -511,10 +515,38 @@ img{max-width:100%}
 """
 
 
+# The office page needs to know which forms exist and what they are called. It
+# does not need the checklists themselves: it renders a record from the record,
+# which carries its own item text. Sending it the whole set would be a second
+# copy of all eight forms with nothing to keep it honest.
+OFFICE_DATA = {
+    'version': WORKING_VERSION,
+    'order': DATA['order'],
+    'forms': {k: {f: v[f] for f in ('key', 'code', 'short', 'name', 'appendix',
+                                    'docName', 'stage', 'kind')}
+              for k, v in FORMSET.items()},
+}
+
+
+def build_office(target):
+    page = (OFFICE_TPL.read_text()
+            .replace('{{TOKENS}}', TOKENS)
+            .replace('{{RECORDSHEET}}', SHEET.read_text())
+            .replace('{{OFFICEDATA}}', json.dumps(OFFICE_DATA, ensure_ascii=False))
+            .replace('{{TARGET}}', target)
+            .replace('{{LOGO}}', b64('brand/logo/parametrix-logo-primary.png'))
+            .replace('{{LOGO_KO}}', b64('brand/logo/parametrix-logo-knockout.png')))
+    left = re.findall(r'\{\{\w+\}\}', page)
+    if left:
+        sys.exit('unreplaced placeholder: ' + str(sorted(set(left))))
+    return SKELETON.replace('{{PAGE}}', page) if target == 'file' else page
+
+
 def build(target):
     page = (TPL.read_text()
             .replace('{{TOKENS}}', TOKENS)
             .replace('{{JSPDF}}', JSPDF.read_text())
+            .replace('{{RECORDSHEET}}', SHEET.read_text())
             .replace('{{DATA}}', json.dumps(DATA, ensure_ascii=False))
             .replace('{{TARGET}}', target)
             .replace('{{LOGO}}', b64('brand/logo/parametrix-logo-primary.png'))
@@ -525,21 +557,23 @@ def build(target):
     return SKELETON.replace('{{PAGE}}', page) if target == 'file' else page
 
 
-OUTS = [(OUT_FILE, 'file'), (OUT_REVIEW, 'review')]
+OUTS = [(OUT_FILE, 'file', build), (OUT_REVIEW, 'review', build),
+        (OUT_OFFICE, 'file', build_office),
+        (OUT_OFFICE_REVIEW, 'review', build_office)]
 
 if '--check' in sys.argv:
-    stale = [str(p.relative_to(REPO)) for p, t in OUTS
-             if not p.exists() or p.read_text() != build(t)]
+    stale = [str(p.relative_to(REPO)) for p, t, fn in OUTS
+             if not p.exists() or p.read_text() != fn(t)]
     if stale:
         print('the Field Tools app is stale against its sources: ' + ', '.join(stale))
         print('  rebuild: python3 tools/build-field-app.py')
         sys.exit(1)
-    print(f'Field Tools app current ({len(FORMS)} forms)')
+    print(f'Field Tools app and Office Intake current ({len(FORMS)} forms)')
     sys.exit(0)
 
-for p, t in OUTS:
+for p, t, fn in OUTS:
     p.parent.mkdir(parents=True, exist_ok=True)
-    page = build(t)
+    page = fn(t)
     p.write_text(page)
     print(f'{t:7} -> {p.relative_to(REPO)}  {len(page) / 1024:.0f} KB')
 print()

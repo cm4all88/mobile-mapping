@@ -1,0 +1,723 @@
+<title>MX60 Office Intake</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+{{TOKENS}}
+
+/* ===========================================================================
+   MX60 Office Intake — what arrived, what has not, and who did it.
+
+   This is a desk tool, not a field one: a wide table beats a thumb-sized row,
+   and the first question is always "what is missing", so the coverage grid is
+   the opening screen rather than a list of what happened to turn up.
+
+   It is a VIEWER. The project's Survey field records folder is the record.
+   Nothing here is an archive and the page says so on itself.
+   =========================================================================== */
+:root{
+  --app-row:#FFFFFF; --app-ground:#F2F2F2; --app-ink:var(--brand-charcoal);
+  --have:var(--brand-green); --none:var(--brand-red); --part:var(--brand-yellow);
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --app-row:#262626; --app-ground:#1A1A1A; --app-ink:#F2F2F2;
+}}
+:root[data-theme="dark"]{ --app-row:#262626; --app-ground:#1A1A1A; --app-ink:#F2F2F2 }
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--app-ground);color:var(--app-ink);
+  font:400 15px/1.55 var(--brand-body);-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);
+  z-index:30;background:var(--brand-charcoal)}
+.wrap{max-width:72rem;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px))}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brand-blue);outline-offset:2px}
+h1,h2,h3{text-wrap:balance}
+
+.band{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:var(--brand-charcoal);color:#fff}
+.band .wrap{padding-block:9px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.band img{height:20px;width:auto;flex:0 0 auto}
+.band .who{flex:1 1 12rem;min-width:0}
+.band .who b{display:block;font:700 13px/1.25 var(--brand-body)}
+.band .who span{display:block;font:500 10px/1.4 var(--brand-body);
+  letter-spacing:.12em;text-transform:uppercase;color:var(--brand-gray-1)}
+.tabs{display:flex;gap:4px;flex:0 0 auto}
+.tabs button{min-height:38px;padding:7px 12px;border-radius:2px;border:1px solid #5A5A5A;
+  color:#fff;font:700 11px/1.2 var(--brand-body);letter-spacing:.07em;text-transform:uppercase}
+.tabs button[aria-pressed="true"]{background:#fff;color:var(--brand-charcoal);
+  border-color:#fff}
+
+main .wrap{padding-block:18px 32px}
+.lead{font:400 15px/1.6 var(--brand-body);color:var(--ink-2);margin:0 0 16px;max-width:70ch}
+.eyebrow{font:700 10px/1.5 var(--brand-body);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:22px 0 8px}
+.card{background:var(--app-row);border:1px solid var(--rule);margin-bottom:14px}
+.card>h2{margin:0;padding:12px 14px;border-bottom:1px solid var(--rule);
+  font:700 15px/1.3 var(--brand-head);display:flex;align-items:center;gap:10px}
+.card>h2 .gn{margin-left:auto;font:600 12px/1 var(--brand-body);color:var(--muted);
+  font-variant-numeric:tabular-nums}
+.pad{padding:14px}
+
+/* --- intake ------------------------------------------------------------- */
+.drop{border:2px dashed var(--rule-2);background:var(--app-row);padding:26px 18px;
+  text-align:center;margin-bottom:14px}
+.drop.over{border-color:var(--brand-blue);background:var(--panel)}
+.drop b{display:block;font:700 16px/1.4 var(--brand-body);margin-bottom:4px}
+.drop span{display:block;font:400 14px/1.55 var(--brand-body);color:var(--muted);
+  max-width:52ch;margin:0 auto 12px}
+.btn{display:inline-block;min-height:46px;padding:12px 18px;border-radius:2px;
+  border:1px solid var(--brand-charcoal);background:var(--ground);
+  font:700 13px/1.2 var(--brand-body);letter-spacing:.04em}
+.btn.quiet{border-color:var(--rule-2);color:var(--muted)}
+.btn.danger{border-color:var(--none);color:var(--none)}
+.row-acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.said{margin-top:10px;font:500 13px/1.5 var(--brand-body);color:var(--ink-2)}
+.said.bad{color:var(--none)}
+
+/* --- coverage grid ------------------------------------------------------ */
+.gridwrap{overflow-x:auto;background:var(--app-row);border:1px solid var(--rule)}
+table.cov{border-collapse:collapse;width:100%;font:400 13px/1.4 var(--brand-body)}
+table.cov th,table.cov td{border-bottom:1px solid var(--rule);padding:0;text-align:left}
+table.cov thead th{position:sticky;top:0;background:var(--panel);z-index:2;
+  padding:9px 8px;font:700 10px/1.4 var(--brand-body);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);white-space:nowrap}
+table.cov th.job{position:sticky;left:0;background:var(--app-row);z-index:1;
+  padding:9px 12px;font:700 14px/1.35 var(--brand-body);min-width:12rem}
+table.cov thead th.job{z-index:3;background:var(--panel)}
+table.cov th.job span{display:block;font:400 12px/1.4 var(--brand-body);color:var(--muted);
+  font-variant-numeric:tabular-nums}
+.cell{display:block;width:100%;min-height:46px;padding:7px 8px;text-align:left;
+  font:700 10px/1.3 var(--brand-body);letter-spacing:.07em;text-transform:uppercase}
+.cell small{display:block;font:400 11px/1.35 var(--brand-body);letter-spacing:0;
+  text-transform:none;color:var(--muted);margin-top:2px}
+.cell[data-s="have"]{background:color-mix(in srgb,var(--have) 16%,transparent);color:#2f7a37}
+.cell[data-s="void"]{background:var(--brand-gray-3);color:var(--brand-charcoal)}
+.cell[data-s="none"]{color:var(--none)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;
+  font:500 12px/1.5 var(--brand-body);color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;margin-right:5px;vertical-align:-1px}
+
+/* --- records list ------------------------------------------------------- */
+.filters{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));
+  padding:14px}
+.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fld label{font:700 10px/1.4 var(--brand-body);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.fld input,.fld select{min-height:42px;padding:7px 9px;background:var(--ground);
+  border:1px solid var(--rule-2);border-radius:2px;width:100%}
+table.recs{border-collapse:collapse;width:100%;font:400 13.5px/1.45 var(--brand-body)}
+table.recs th{text-align:left;padding:9px 10px;background:var(--panel);
+  font:700 10px/1.4 var(--brand-body);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);white-space:nowrap}
+table.recs td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.recs tr:hover td{background:var(--panel)}
+table.recs .rid{font-family:var(--brand-mono);font-size:11.5px;color:var(--muted)}
+table.recs button{text-align:left;font:600 14px/1.4 var(--brand-body)}
+.chip{display:inline-block;padding:3px 7px;border-radius:2px;margin-right:4px;
+  font:700 9.5px/1.5 var(--brand-body);letter-spacing:.09em;text-transform:uppercase;
+  background:var(--brand-gray-3);color:var(--brand-charcoal)}
+.chip.sent{background:var(--have);color:#fff}
+.chip.moving{background:var(--brand-blue);color:#fff}
+.chip.wait{background:var(--part);color:var(--brand-charcoal)}
+.chip.void{background:var(--brand-charcoal);color:#fff}
+.chip.super{background:var(--brand-gray-1);color:var(--brand-charcoal)}
+.empty{padding:22px 14px;background:var(--app-row);border:1px dashed var(--rule-2);
+  font:400 14px/1.6 var(--brand-body);color:var(--muted)}
+
+.prov{border-top:1px solid var(--rule);margin-top:26px}
+.prov .wrap{padding-block:16px 28px;font:400 12px/1.6 var(--brand-body);color:var(--muted)}
+.prov b{color:var(--ink-2)}
+.prov code{font-family:var(--brand-mono);font-size:11px}
+
+/* --- the record sheet, same as the tablet writes it --------------------- */
+.rec{background:#fff;color:#1a1a1a;border:1px solid var(--rule)}
+.rec .wrap{padding-block:18px 26px;max-width:58rem}
+.rec h1{margin:0;font:700 20px/1.2 var(--brand-head)}
+.rec .rk{font:700 10px/1.5 var(--brand-body);letter-spacing:.14em;
+  text-transform:uppercase;color:#676768}
+.rec .rh{display:flex;align-items:flex-start;gap:14px;
+  border-bottom:2px solid var(--brand-green);padding-bottom:9px;margin-bottom:14px}
+.rec .rh img{height:26px;width:auto}
+.rec table{width:100%;border-collapse:collapse;font:400 12.5px/1.5 var(--brand-body)}
+.rec th,.rec td{text-align:left;vertical-align:top;padding:4px 8px 4px 0;
+  border-bottom:1px solid #e5e5e5}
+.rec th{font-weight:700;width:12rem}
+.rec h3{margin:16px 0 4px;font:700 12px/1.4 var(--brand-body);letter-spacing:.1em;
+  text-transform:uppercase;color:#676768}
+.rec .st{font-weight:700;white-space:nowrap;width:5.5rem}
+.rec .st.d{color:#2f8c38}
+.rec .st.n{color:#676768}
+.rec .st.o{color:#C62C16}
+.rec .sn{display:block;color:#676768;font-style:italic}
+.rec .sig{margin-top:18px;display:flex;gap:28px;flex-wrap:wrap;
+  font:400 12.5px/1.6 var(--brand-body)}
+.rec .pf{margin-top:18px;padding-top:8px;border-top:1px solid #e5e5e5;
+  font:400 10.5px/1.6 var(--brand-body);color:#676768}
+.rec .amend{margin:0 0 14px;padding:9px 11px;border:1px solid #C62C16;
+  border-left:5px solid #C62C16;font:400 12px/1.5 var(--brand-body)}
+.rec .amend b{display:block;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  font-size:10px;color:#C62C16}
+
+@media print{
+  body{background:#fff;color:#000}
+  body::before,.band,.noprint,.prov{display:none!important}
+  .rec{border:0}
+  .rec .wrap{max-width:none;padding:0}
+  .rec tr,.rec h3{break-inside:avoid;page-break-inside:avoid}
+  @page{size:A4;margin:14mm 12mm}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="band noprint">
+  <div class="wrap">
+    <img src="data:image/png;base64,{{LOGO_KO}}" alt="Parametrix">
+    <span class="who"><b>MX60 Office Intake</b><span id="bs">No records loaded</span></span>
+    <span class="tabs" id="tabs"></span>
+  </div>
+</div>
+
+<main>
+  <div class="wrap" id="view"></div>
+</main>
+
+<div class="prov noprint">
+  <div class="wrap" id="prov"></div>
+</div>
+
+<script>{{RECORDSHEET}}</script>
+<script>
+const DATA = {{OFFICEDATA}};
+const TARGET = "{{TARGET}}";
+const FORMS = DATA.order.map(k => DATA.forms[k]);
+const F = k => DATA.forms[k];
+const FIELD_FORMS = FORMS.filter(f => f.stage === "Field").map(f => f.key);
+
+let RECS = [];                 // every record loaded, newest first
+let VIEW = { name: "coverage" };
+let MSG = null;
+let EXPECT = "field";          // which forms a job is expected to have
+let FILTERS = { project: "", task: "", form: "", operator: "", text: "" };
+
+const E = (t, c, h) => { const e = document.createElement(t);
+  if (c) e.className = c; if (h !== undefined) e.innerHTML = h; return e };
+
+function lsLoad(k, d){
+  try { const v = localStorage.getItem("mx60.oi." + k); return v ? JSON.parse(v) : d }
+  catch (e) { return d }
+}
+function lsSave(k, v){ try { localStorage.setItem("mx60.oi." + k, JSON.stringify(v)) }
+  catch (e) {} }
+
+/* ---- the store. IndexedDB, because a season of records does not fit in
+   localStorage; localStorage carries the settings and is the fallback. ---- */
+const Store = (() => {
+  let dbp = null;
+  function open(){
+    if (dbp) return dbp;
+    dbp = new Promise(res => {
+      let rq;
+      try { rq = indexedDB.open("mx60-office-intake", 1) } catch (e) { return res(null) }
+      rq.onupgradeneeded = () => {
+        const db = rq.result;
+        if (!db.objectStoreNames.contains("records"))
+          db.createObjectStore("records", { keyPath: "rid" });
+      };
+      rq.onsuccess = () => res(rq.result);
+      rq.onerror = () => res(null);
+      rq.onblocked = () => res(null);
+    });
+    return dbp;
+  }
+  const tx = async (mode, fn) => {
+    const db = await open();
+    if (!db) return null;
+    return new Promise(res => {
+      let out = null;
+      const t = db.transaction("records", mode);
+      fn(t.objectStore("records"), v => { out = v });
+      t.oncomplete = () => res(out);
+      t.onerror = () => res(null);
+      t.onabort = () => res(null);
+    });
+  };
+  return {
+    async putMany(recs){
+      const ok = await tx("readwrite", s => { for (const r of recs) s.put(r) });
+      if (ok === null){
+        const have = lsLoad("records", []);
+        const by = Object.fromEntries(have.concat(recs).map(r => [r.rid, r]));
+        lsSave("records", Object.values(by));
+      }
+      return true;
+    },
+    async all(){
+      const e = await tx("readonly", (s, set) => {
+        const r = s.getAll(); r.onsuccess = () => set(r.result);
+      });
+      return (e && e.length) ? e : lsLoad("records", []);
+    },
+    async clear(){
+      await tx("readwrite", s => s.clear());
+      lsSave("records", []);
+    },
+  };
+})();
+
+/* ---- loading ------------------------------------------------------------ */
+const KNOWN_SCHEMAS = ["mx60.fieldtools/1", "mx60.fieldtools/2"];
+
+function validate(rec, where){
+  if (!rec || typeof rec !== "object") return where + ": not a record";
+  if (!rec.rid) return where + ": no record id";
+  if (!rec.form || !rec.form.key) return where + ": no form";
+  if (!F(rec.form.key)) return where + ": unknown form " + rec.form.key;
+  if (!KNOWN_SCHEMAS.includes(rec.schema))
+    return where + ": schema " + (rec.schema || "missing")
+           + " — this page reads " + KNOWN_SCHEMAS.join(" and ");
+  return null;
+}
+
+async function ingest(texts){
+  const added = [], problems = [];
+  for (const [where, text] of texts){
+    let parsed;
+    try { parsed = JSON.parse(text) }
+    catch (e) { problems.push(where + ": not JSON"); continue }
+    for (const rec of (Array.isArray(parsed) ? parsed : [parsed])){
+      const bad = validate(rec, where);
+      if (bad){ problems.push(bad); continue }
+      added.push(rec);
+    }
+  }
+  if (added.length) await Store.putMany(added);
+  await refresh();
+  const dupes = added.filter(r => RECS.filter(x => x.rid === r.rid).length);
+  MSG = {
+    t: (added.length ? added.length + " record" + (added.length === 1 ? "" : "s")
+          + " read in. " : "Nothing was read in. ")
+       + (problems.length ? problems.length + " could not be: " + problems.join("; ")
+                          : ""),
+    bad: Boolean(problems.length) && !added.length,
+  };
+  render();
+}
+
+async function refresh(){
+  RECS = (await Store.all()).sort((a, b) =>
+    String(b.completedAt).localeCompare(String(a.completedAt)));
+}
+
+/* ---- what a job is, and what it is expected to have --------------------- */
+const jobKey = r => (r.job.project || "no project") + " · " + (r.job.task || "no task");
+const isVoid = r => Boolean(r.amendment && r.amendment.voided);
+const isSuperseded = r => Boolean(r.amendment && r.amendment.supersededBy);
+/* The record that counts for a job and a form: the newest that has not been
+   voided and has not been replaced. */
+function counting(recs){
+  return recs.filter(r => !isVoid(r) && !isSuperseded(r))[0] || null;
+}
+function expected(){
+  return EXPECT === "field" ? FIELD_FORMS : DATA.order;
+}
+function jobs(){
+  const by = {};
+  for (const r of RECS){
+    const k = jobKey(r);
+    (by[k] = by[k] || { key: k, job: r.job, forms: {} });
+    (by[k].forms[r.form.key] = by[k].forms[r.form.key] || []).push(r);
+  }
+  return Object.values(by).sort((a, b) => a.key.localeCompare(b.key));
+}
+
+/* ---- views -------------------------------------------------------------- */
+function go(v){ VIEW = v; MSG = null; render(); window.scrollTo({ top: 0 }) }
+
+function intakeCard(){
+  const d = E("div", "drop noprint");
+  d.append(E("b", null, "Drop the record files here"));
+  d.append(E("span", null, "The <code>.json</code> files the tablet sends. Drop as many "
+    + "as you like, from one mission or a season of them; a record already read in is "
+    + "replaced, not duplicated. The PDFs are for people and are not read here."));
+  const acts = E("div", "row-acts");
+  acts.style.justifyContent = "center";
+  const pick = E("label", "btn", "Choose files");
+  const inp = Object.assign(document.createElement("input"),
+    { type: "file", accept: "application/json,.json", multiple: true });
+  inp.style.display = "none";
+  inp.addEventListener("change", async () => {
+    const texts = [];
+    for (const f of inp.files) texts.push([f.name, await f.text()]);
+    inp.value = "";
+    ingest(texts);
+  });
+  pick.append(inp);
+  acts.append(pick);
+  const paste = E("button", "btn quiet", "Paste a record");
+  paste.type = "button";
+  paste.addEventListener("click", () => {
+    const box = document.getElementById("pastebox");
+    box.hidden = !box.hidden;
+    if (!box.hidden) box.querySelector("textarea").focus();
+  });
+  acts.append(paste);
+  d.append(acts);
+  d.addEventListener("dragover", e => { e.preventDefault(); d.classList.add("over") });
+  d.addEventListener("dragleave", () => d.classList.remove("over"));
+  d.addEventListener("drop", async e => {
+    e.preventDefault(); d.classList.remove("over");
+    const texts = [];
+    for (const f of e.dataTransfer.files) texts.push([f.name, await f.text()]);
+    ingest(texts);
+  });
+  return d;
+}
+function pasteCard(){
+  const box = E("div", "card noprint"); box.id = "pastebox"; box.hidden = true;
+  box.append(E("h2", null, "<span>Paste a record</span>"));
+  const pad = E("div", "pad");
+  const ta = Object.assign(document.createElement("textarea"),
+    { rows: 7, placeholder: "Paste the contents of a record .json file" });
+  ta.style.cssText = "width:100%;padding:10px;border:1px solid var(--rule-2);"
+    + "border-radius:2px;background:var(--ground);font-family:var(--brand-mono);font-size:12px";
+  pad.append(ta);
+  const b = E("button", "btn", "Read it in");
+  b.type = "button";
+  b.style.marginTop = "10px";
+  b.addEventListener("click", () => { if (ta.value.trim()) ingest([["pasted", ta.value]]) });
+  pad.append(b);
+  box.append(pad);
+  return box;
+}
+
+function viewCoverage(){
+  const v = document.getElementById("view");
+  v.append(intakeCard(), pasteCard());
+  if (MSG) v.append(E("div", "said" + (MSG.bad ? " bad" : ""), MSG.t));
+
+  const js = jobs(), exp = expected();
+  const sel = E("div", "row-acts noprint");
+  sel.style.margin = "18px 0 10px";
+  sel.append(E("span", "eyebrow", "Expected per job"));
+  sel.querySelector(".eyebrow").style.margin = "0";
+  for (const [k, label] of [["field", "The three field forms"], ["all", "All eight forms"]]){
+    const b = E("button", "btn quiet", label);
+    b.type = "button";
+    if (EXPECT === k) b.className = "btn";
+    b.addEventListener("click", () => { EXPECT = k; lsSave("expect", k); render() });
+    sel.append(b);
+  }
+  v.append(sel);
+
+  if (!js.length){
+    v.append(E("div", "empty", "No records yet. Drop the files the tablet sends and the "
+      + "coverage of every project and task appears here."));
+    return;
+  }
+
+  let missing = 0;
+  const wrap = E("div", "gridwrap");
+  const t = E("table", "cov");
+  const head = E("tr");
+  head.append(E("th", "job", "Project &middot; task"));
+  for (const key of exp) head.append(E("th", null, esc(F(key).code)));
+  const thead = E("thead"); thead.append(head); t.append(thead);
+  const body = E("tbody");
+  for (const j of js){
+    const tr = E("tr");
+    tr.append(E("th", "job", `${esc(j.job.project || "no project")}`
+      + `<span>Task ${esc(j.job.task || "—")} &middot; `
+      + `${esc(j.job.date || "")}</span>`));
+    for (const key of exp){
+      const recs = j.forms[key] || [];
+      const keep = counting(recs);
+      const td = E("td");
+      const b = E("button", "cell");
+      b.type = "button";
+      if (keep){
+        b.dataset.s = "have";
+        b.innerHTML = "Received<small>" + esc(keep.signedBy || keep.job.operator || "")
+          + "<br>" + esc(keep.job.date || (keep.completedAt || "").slice(0, 10))
+          + "</small>";
+      } else if (recs.length){
+        b.dataset.s = "void";
+        b.innerHTML = "Voided<small>" + recs.length + " record"
+          + (recs.length === 1 ? "" : "s") + ", none counts</small>";
+      } else {
+        b.dataset.s = "none";
+        b.innerHTML = "Not received<small>nothing for this task</small>";
+        missing++;
+      }
+      b.addEventListener("click", () => {
+        FILTERS = { project: j.job.project || "", task: j.job.task || "",
+                    form: key, operator: "", text: "" };
+        go({ name: "records" });
+      });
+      td.append(b);
+      tr.append(td);
+    }
+    body.append(tr);
+  }
+  t.append(body);
+  wrap.append(t);
+  v.append(wrap);
+  v.append(E("div", "legend",
+    '<span><i style="background:color-mix(in srgb,var(--have) 16%,transparent)"></i>'
+    + 'Received &mdash; the record that counts</span>'
+    + '<span><i style="background:var(--brand-gray-3)"></i>Only voided records</span>'
+    + '<span><i style="border:1px solid var(--rule-2)"></i>Not received</span>'));
+  v.append(E("p", "lead", `${js.length} job${js.length === 1 ? "" : "s"} seen, `
+    + `${RECS.length} record${RECS.length === 1 ? "" : "s"} read in, `
+    + `<strong>${missing} not received</strong> against the `
+    + (EXPECT === "field" ? "three field forms" : "eight forms") + ". "
+    + "A job appears here only once one of its records has arrived; a task nobody has "
+    + "sent anything for cannot be seen from the records alone."));
+}
+
+function viewRecords(){
+  const v = document.getElementById("view");
+  const card = E("div", "card noprint");
+  card.append(E("h2", null, "<span>Filter</span>"));
+  const f = E("div", "filters");
+  const mk = (id, label, kind, options) => {
+    const w = E("div", "fld");
+    w.append(Object.assign(E("label"), { htmlFor: "f-" + id, textContent: label }));
+    let el;
+    if (kind === "select"){
+      el = document.createElement("select");
+      el.id = "f-" + id;
+      el.append(new Option("Any", ""));
+      for (const o of options) el.append(new Option(o[1], o[0]));
+      el.value = FILTERS[id];
+    } else {
+      el = Object.assign(document.createElement("input"),
+        { id: "f-" + id, type: "text", value: FILTERS[id], autocomplete: "off" });
+    }
+    el.addEventListener(kind === "select" ? "change" : "input", () => {
+      FILTERS[id] = el.value; paintRows();
+    });
+    w.append(el);
+    f.append(w);
+  };
+  mk("project", "Project", "text");
+  mk("task", "Task", "text");
+  mk("form", "Form", "select", FORMS.map(x => [x.key, x.name]));
+  mk("operator", "Operator", "text");
+  mk("text", "Anything", "text");
+  card.append(f);
+  v.append(card);
+
+  const out = E("div"); out.id = "rows";
+  v.append(out);
+  paintRows();
+
+  const acts = E("div", "row-acts noprint");
+  acts.style.marginTop = "14px";
+  const csv = E("button", "btn quiet", "Download a CSV of this list");
+  csv.type = "button"; csv.addEventListener("click", downloadCsv);
+  acts.append(csv);
+  v.append(acts);
+}
+
+function matching(){
+  const q = FILTERS.text.trim().toLowerCase();
+  return RECS.filter(r =>
+    (!FILTERS.project || (r.job.project || "").toLowerCase()
+      .includes(FILTERS.project.toLowerCase()))
+    && (!FILTERS.task || (r.job.task || "").toLowerCase().includes(FILTERS.task.toLowerCase()))
+    && (!FILTERS.form || r.form.key === FILTERS.form)
+    && (!FILTERS.operator || ((r.signedBy || "") + " " + (r.job.operator || ""))
+      .toLowerCase().includes(FILTERS.operator.toLowerCase()))
+    && (!q || JSON.stringify(r.job).toLowerCase().includes(q)
+        || r.rid.toLowerCase().includes(q)
+        || r.form.name.toLowerCase().includes(q)));
+}
+const transferChip = s => s === "sent" ? '<span class="chip sent">Delivered</span>'
+  : s === "handed" ? '<span class="chip moving">Handed over</span>'
+  : '<span class="chip wait">Waiting</span>';
+function flags(r){
+  return transferChip(r.transfer && r.transfer.status)
+    + (isVoid(r) ? ' <span class="chip void">Voided</span>' : "")
+    + (isSuperseded(r) ? ' <span class="chip super">Replaced</span>' : "")
+    + (r.amendment && r.amendment.supersedes
+        ? ' <span class="chip super">Replacement</span>' : "");
+}
+function paintRows(){
+  const out = document.getElementById("rows");
+  const rows = matching();
+  out.textContent = "";
+  document.getElementById("bs").textContent =
+    `${RECS.length} record${RECS.length === 1 ? "" : "s"} loaded`;
+  if (!rows.length){
+    out.append(E("div", "empty", RECS.length
+      ? "No record matches that." : "No records loaded yet."));
+    return;
+  }
+  const wrap = E("div", "gridwrap");
+  const t = E("table", "recs");
+  const head = E("tr");
+  for (const h of ["Form", "Project", "Task", "Completed by", "When", "State", "Record"])
+    head.append(E("th", null, h));
+  const thead = E("thead"); thead.append(head); t.append(thead);
+  const body = E("tbody");
+  for (const r of rows){
+    const tr = E("tr");
+    const cell = E("td");
+    const b = E("button", null, esc(r.form.name));
+    b.type = "button";
+    b.addEventListener("click", () => go({ name: "record", rid: r.rid }));
+    cell.append(b);
+    tr.append(cell);
+    tr.append(E("td", null, esc(r.job.project || "—")));
+    tr.append(E("td", null, esc(r.job.task || "—")));
+    tr.append(E("td", null, esc(r.signedBy || r.job.operator || "—")));
+    tr.append(E("td", null, esc(when(r.completedAt))));
+    tr.append(E("td", null, flags(r)));
+    tr.append(E("td", "rid", esc(r.rid)));
+    body.append(tr);
+  }
+  t.append(body);
+  wrap.append(t);
+  out.append(wrap);
+  out.append(E("p", "lead", `${rows.length} of ${RECS.length} shown.`));
+}
+
+function downloadCsv(){
+  const rows = matching();
+  const head = ["record", "form", "appendix", "project", "task", "date", "operator",
+                "completed_by", "completed_at", "transfer", "voided", "void_reason",
+                "supersedes", "superseded_by", "source", "source_hash"];
+  const q = v => '"' + String(v == null ? "" : v).replace(/"/g, '""') + '"';
+  const lines = [head.join(",")].concat(rows.map(r => [
+    r.rid, r.form.name, r.form.appendix, r.job.project, r.job.task, r.job.date,
+    r.job.operator, r.signedBy, r.completedAt,
+    (r.transfer && r.transfer.status) || "",
+    isVoid(r) ? "yes" : "no",
+    (r.amendment && r.amendment.voided && r.amendment.voided.reason) || "",
+    (r.amendment && r.amendment.supersedes) || "",
+    (r.amendment && r.amendment.supersededBy) || "",
+    r.form.source, r.form.sourceHash,
+  ].map(q).join(",")));
+  const blob = new Blob([lines.join("\n")], { type: "text/csv" });
+  const a = Object.assign(document.createElement("a"),
+    { href: URL.createObjectURL(blob), download: "mx60-records.csv" });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+}
+
+function viewRecord(rid){
+  const v = document.getElementById("view");
+  const rec = RECS.find(r => r.rid === rid);
+  if (!rec){ v.append(E("div", "empty", "That record is not loaded.")); return }
+  const acts = E("div", "row-acts noprint");
+  acts.style.marginBottom = "14px";
+  const back = E("button", "btn quiet", "Back to the list");
+  back.type = "button";
+  back.addEventListener("click", () => go({ name: "records" }));
+  acts.append(back);
+  if (TARGET === "file"){
+    const p = E("button", "btn", "Print");
+    p.type = "button"; p.addEventListener("click", () => window.print());
+    acts.append(p);
+  }
+  acts.append(E("span", null, flags(rec)));
+  v.append(acts);
+  const sheet = E("div", "rec");
+  sheet.innerHTML = recSheet(rec);
+  v.append(sheet);
+}
+
+function viewAbout(){
+  const v = document.getElementById("view");
+  v.append(E("p", "lead", "This page reads the record files the MX60 Field Tools app "
+    + "sends and answers three questions: what arrived, what has not, and who completed "
+    + "each one. It does nothing else, and it changes nothing."));
+  const card = E("div", "card");
+  card.append(E("h2", null, "<span>It is a viewer, not the record</span>"));
+  card.append(E("div", "pad", "<p style=\"margin:0 0 10px\">A completed record belongs in "
+    + "that project's <strong>Survey field records folder</strong>. What is loaded here "
+    + "lives in this browser on this computer, and it is cleared the moment somebody "
+    + "clears their site data. Load, read, file the originals — do not treat this "
+    + "as the archive.</p>"
+    + "<p style=\"margin:0\">A job appears only once one of its records arrives. A task "
+    + "nobody sent anything for cannot be seen from the records alone, which is the one "
+    + "gap this page cannot close on its own.</p>"));
+  v.append(card);
+  const card2 = E("div", "card");
+  card2.append(E("h2", null, "<span>What it reads</span>"
+    + `<span class="gn">${KNOWN_SCHEMAS.join(" · ")}</span>`));
+  const tb = E("table", "recs");
+  const hd = E("tr");
+  for (const h of ["Form", "Document", "Appendix", "Stage"]) hd.append(E("th", null, h));
+  const th2 = E("thead"); th2.append(hd); tb.append(th2);
+  const bd = E("tbody");
+  for (const f of FORMS){
+    const tr = E("tr");
+    tr.append(E("td", null, `<strong>${esc(f.code)}</strong> ${esc(f.name)}`));
+    tr.append(E("td", null, esc(f.docName)));
+    tr.append(E("td", null, esc(f.appendix)));
+    tr.append(E("td", null, esc(f.stage)));
+    bd.append(tr);
+  }
+  tb.append(bd);
+  const gw = E("div", "gridwrap"); gw.append(tb); card2.append(gw);
+  v.append(card2);
+  const acts = E("div", "row-acts");
+  const clear = E("button", "btn danger", "Clear everything loaded here");
+  clear.type = "button";
+  clear.addEventListener("click", async () => {
+    if (clear.dataset.sure !== "1"){
+      clear.dataset.sure = "1";
+      clear.textContent = "Tap again — this clears this browser only";
+      return;
+    }
+    await Store.clear(); await refresh();
+    MSG = { t: "Cleared. The files themselves are untouched." };
+    go({ name: "coverage" });
+  });
+  acts.append(clear);
+  v.append(acts);
+}
+
+/* ---- the router --------------------------------------------------------- */
+function render(){
+  const v = document.getElementById("view");
+  v.textContent = "";
+  const tabs = document.getElementById("tabs");
+  tabs.textContent = "";
+  for (const [name, label] of [["coverage", "Coverage"], ["records", "Records"],
+                               ["about", "About"]]){
+    const b = E("button", null, label);
+    b.type = "button";
+    b.setAttribute("aria-pressed", VIEW.name === name
+      || (name === "records" && VIEW.name === "record") ? "true" : "false");
+    b.addEventListener("click", () => go({ name }));
+    tabs.append(b);
+  }
+  document.getElementById("bs").textContent = RECS.length
+    ? `${RECS.length} record${RECS.length === 1 ? "" : "s"} loaded`
+    : "No records loaded";
+  if (VIEW.name === "coverage") viewCoverage();
+  else if (VIEW.name === "records") viewRecords();
+  else if (VIEW.name === "record") viewRecord(VIEW.rid);
+  else viewAbout();
+  document.getElementById("prov").innerHTML =
+    `<b>MX60 Office Intake</b> &mdash; reads the records written by MX60 Field Tools, `
+    + `Working Version ${esc(DATA.version)}. Every record carries the appendix it was `
+    + `built from and that appendix's hash, so what the crew ticked can always be traced `
+    + `to the version of the checklist they ticked it on.<br>`
+    + (TARGET === "file"
+        ? "What is loaded here lives in this browser only. The project's Survey field "
+          + "records folder is the record."
+        : "This is the review copy and it cannot print. The file in "
+          + "<code>field-app/</code> can.")
+    + "<br>A living draft. Nothing here is an adopted Parametrix standard.";
+}
+
+EXPECT = lsLoad("expect", "field");
+refresh().then(render);
+render();
+</script>

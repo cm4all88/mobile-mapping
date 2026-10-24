@@ -102,6 +102,13 @@ main .wrap{padding-block:14px 30px}
 .chip.wait{background:var(--wait);color:var(--brand-charcoal)}
 .chip.sent{background:var(--done);color:#fff}
 .chip.moving{background:var(--brand-blue);color:#fff}
+.chip.void{background:var(--brand-charcoal);color:#fff}
+.chip.super{background:var(--brand-gray-1);color:var(--brand-charcoal)}
+.band-amend{padding:11px 14px;border:1px solid var(--rule);border-left:4px solid var(--open);
+  background:var(--panel);margin-bottom:10px;font:400 14px/1.55 var(--brand-body)}
+.band-amend b{display:block;font:700 10px/1.6 var(--brand-body);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--open)}
+.band-amend code{font-family:var(--brand-mono);font-size:12px}
 .chip.open{background:var(--open);color:#fff}
 
 /* --- home --------------------------------------------------------------- */
@@ -313,6 +320,10 @@ main .wrap{padding-block:14px 30px}
   font:400 12.5px/1.6 var(--brand-body)}
 .rec .pf{margin-top:18px;padding-top:8px;border-top:1px solid #e5e5e5;
   font:400 10.5px/1.6 var(--brand-body);color:#676768}
+.rec .amend{margin:0 0 14px;padding:9px 11px;border:1px solid #C62C16;
+  border-left:5px solid #C62C16;font:400 12px/1.5 var(--brand-body)}
+.rec .amend b{display:block;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  font-size:10px;color:#C62C16}
 
 @media print{
   body{background:#fff;color:#000}
@@ -353,10 +364,10 @@ main .wrap{padding-block:14px 30px}
 <div class="rec" id="rec" hidden></div>
 
 <script>{{JSPDF}}</script>
+<script>{{RECORDSHEET}}</script>
 <script>
 const DATA = {{DATA}};
 const TARGET = "{{TARGET}}";
-const LOGO = "{{LOGO}}";
 
 /* Where a completed record is posted. Left empty, nothing leaves the tablet on
    its own: the operator sends records through the iPad share sheet and the app
@@ -370,12 +381,8 @@ const SUBMIT_URL = "";
 const FORMS = DATA.order.map(k => DATA.forms[k]);
 const F = k => DATA.forms[k];
 const CLEARED = s => s === "done" || s === "na";
-const esc = s => String(s == null ? "" : s)
-  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const E = (t, c, h) => { const e = document.createElement(t);
   if (c) e.className = c; if (h !== undefined) e.innerHTML = h; return e };
-const pad = n => String(n).padStart(2, "0");
-const when = t => t ? new Date(t).toLocaleString() : "";
 
 /* ---- local state. localStorage can throw, or come back empty in a private
    window or with site data cleared. The app works either way; it just stops
@@ -437,7 +444,9 @@ const Store = (() => {
   };
   const header = e => ({ rid: e.rid, formKey: e.formKey, status: e.status,
     completedAt: e.completedAt, handedAt: e.handedAt || null,
-    sentAt: e.sentAt || null, how: e.how || "", job: e.job });
+    sentAt: e.sentAt || null, how: e.how || "", job: e.job,
+    voided: e.voided || null, supersededBy: e.supersededBy || null,
+    supersedes: (e.record && e.record.amendment && e.record.amendment.supersedes) || null });
   return {
     async put(e){
       const ok = await tx("readwrite", s => s.put(e));
@@ -562,6 +571,10 @@ function outstanding(key){
                el: f.job ? null : f.id, go: f.job ? "job" : null });
     }
   }
+  const d = peek(key);
+  if (d && d.supersedes && !(d.reason || "").trim())
+    o.push({ k: "Reason", why: "say why this record replaces the earlier one",
+             el: "m-reason" });
   if (form.sign && !readSign(key).trim())
     o.push({ k: form.sign, why: "not signed", el: "m-sign" });
   return o;
@@ -607,7 +620,7 @@ function makeRid(key){
 }
 function buildRecord(key){
   const form = F(key), d = draft(key), rec = {
-    schema: "mx60.fieldtools/1",
+    schema: "mx60.fieldtools/2",
     rid: d.rid || makeRid(key),
     app: { name: DATA.app, workingVersion: DATA.version, target: TARGET },
     form: { key: form.key, appendix: form.appendix, name: form.name, kind: form.kind,
@@ -618,6 +631,13 @@ function buildRecord(key){
     signedBy: d.sign || "", started: d.started, completedAt: d.completedAt || null,
     device: navigator.userAgent,
     items: [], fields: [], tables: [],
+    /* A record is never edited and never deleted. A mistake is corrected by a
+       new record that says which one it replaces and why, and a record that
+       should not have been made at all is voided with a reason and kept. Both
+       still go to the office: "there is no preflight for this task" and "the
+       preflight for this task was voided because ..." are different answers. */
+    amendment: { supersedes: d.supersedes || null, supersededBy: null,
+                 reason: (d.reason || "").trim(), voided: null },
     transfer: { status: "completed", handedAt: null, sentAt: null, how: "" },
   };
   for (const g of form.groups){
@@ -683,6 +703,21 @@ function makePdf(rec){
   set("bold", 7.5, GY);
   doc.text("TRIMBLE MX60 PREMIUM", tx, y + 15, { charSpace: 0.3 });
   y += 19; rule(GN, 0.7); y += 7;
+
+  for (const [label, text] of amendLines(rec)){
+    const lines = doc.splitTextToSize(text, WID - 8);
+    const h = lines.length * 4.2 + 9;
+    if (y + h > BOT){ doc.addPage(); y = M }
+    doc.setFillColor(250, 240, 238);
+    doc.setDrawColor(198, 44, 22); doc.setLineWidth(0.3);
+    doc.rect(M, y, WID, h, "FD");
+    doc.setFillColor(198, 44, 22);
+    doc.rect(M, y, 1.4, h, "F");
+    set("bold", 7.5, [198, 44, 22]);
+    doc.text(label.toUpperCase(), M + 4, y + 4.5, { charSpace: 0.3 });
+    set("normal", 9, CH); doc.text(lines, M + 4, y + 9);
+    y += h + 5;
+  }
 
   const kv = (k, v) => {
     const lines = wrap(v || "—", WID - 42);
@@ -767,12 +802,7 @@ function makePdf(rec){
   }
   return doc.output("blob");
 }
-function transferWords(t){
-  if (!t) return "not sent";
-  if (t.status === "sent") return "delivery confirmed " + when(t.sentAt);
-  if (t.status === "handed") return "handed over " + when(t.handedAt) + ", not confirmed";
-  return "not sent";
-}
+
 </script>
 <script>
 /* ===========================================================================
@@ -929,7 +959,12 @@ function viewHomeSearch(q){
 
 /* ---- a form ------------------------------------------------------------ */
 function viewForm(key){
-  const form = F(key), v = document.getElementById("view");
+  const form = F(key), v = document.getElementById("view"), d = peek(key);
+  if (d && d.supersedes && !d.completedAt)
+    v.append(E("div", "band-amend", "<b>Replacement</b>This record will replace "
+      + `<code>${esc(d.supersedes)}</code>. Everything from that record has been `
+      + "carried over; change what was wrong and say why at the end. The earlier "
+      + "record is kept."));
   if (form.intro) v.append(E("p", "lead", form.intro));
 
   if (form.meta.length){
@@ -962,11 +997,13 @@ function viewForm(key){
   const gate = E("section", "gate"); gate.id = "gate";
   gate.setAttribute("aria-live", "polite");
   gate.append(Object.assign(E("div"), { id: "gatebody" }),
+              Object.assign(E("div", "fld sigrow"), { id: "reasonrow" }),
               Object.assign(E("div", "fld sigrow"), { id: "sigrow" }),
               Object.assign(E("div"), { id: "gatefoot" }));
   v.append(gate);
 
   buildGroups(key);
+  buildReason(key);
   buildSign(key);
   buildGate(key);
   filterForm();
@@ -1241,6 +1278,26 @@ function buildSign(key){
   w.append(inp);
 }
 
+/* Built once, beside the signature, for the same reason: a field the gate is
+   waiting for cannot be rebuilt on every keystroke. */
+function buildReason(key){
+  const w = document.getElementById("reasonrow"), d = peek(key);
+  w.textContent = "";
+  if (!d || !d.supersedes){ w.hidden = true; return }
+  w.hidden = false;
+  w.append(Object.assign(E("label"),
+    { htmlFor: "m-reason", textContent: "Why this replaces " + d.supersedes }));
+  const inp = Object.assign(document.createElement("input"),
+    { id: "m-reason", type: "text", autocomplete: "off", value: d.reason || "",
+      placeholder: "What was wrong with the earlier record" });
+  inp.addEventListener("input", () => {
+    draft(key).reason = inp.value;
+    inp.classList.toggle("want", !inp.value.trim());
+    saveDrafts(); refreshForm(key);
+  });
+  w.append(inp);
+}
+
 function paintGroupTotals(key){
   const form = F(key);
   for (const g of form.groups){
@@ -1278,6 +1335,7 @@ function buildGate(key){
   g.dataset.ready = ready || locked ? "1" : "0";
   b.textContent = ""; f.textContent = "";
   document.getElementById("sigrow").hidden = locked || !form.sign;
+  document.getElementById("reasonrow").hidden = locked || !d.supersedes;
 
   if (locked){
     const c = E("div", "cleared");
@@ -1366,71 +1424,26 @@ async function complete(key, btn){
   let pdf = null;
   try { pdf = makePdf(rec) } catch (e) { MSG = { t: "The record is saved, but the PDF "
     + "could not be written: " + e.message, bad: true } }
+  /* The draft is kept beside the record, locally only. It is what a
+     replacement is built from, so a record can be corrected months later
+     without re-ticking everything, and it is never sent anywhere. */
   await Store.put({ rid: rec.rid, formKey: key, status: "completed",
-    completedAt: d.completedAt, job: rec.job, record: rec, pdf });
+    completedAt: d.completedAt, job: rec.job, record: rec, pdf,
+    draft: JSON.parse(JSON.stringify(d)) });
+  if (d.supersedes){
+    const old = await Store.get(d.supersedes);
+    if (old && old.record){
+      old.record.amendment = old.record.amendment || {};
+      old.record.amendment.supersededBy = rec.rid;
+      old.supersededBy = rec.rid;
+      await Store.put(old);
+    }
+  }
   go({ name: "record", rid: rec.rid });
 }
 
 /* ---- the record sheet, which is what prints ----------------------------- */
-function recSheet(rec){
-  const MARK = { done: ["d", "Cleared"], na: ["n", "N/A"], open: ["o", "Outstanding"] };
-  let h = `<div class="wrap"><div class="rh">`
-    + `<img src="data:image/png;base64,${LOGO}" alt="Parametrix">`
-    + `<div><div class="rk">${esc(rec.form.document)} &middot; ${esc(rec.form.appendix)}</div>`
-    + `<h1>${esc(rec.form.name)}</h1><div class="rk">Trimble MX60 Premium</div></div>`
-    + `</div><table>`;
-  const kv = (k, v) => { h += `<tr><th>${esc(k)}</th><td>${esc(v) || "&mdash;"}</td></tr>` };
-  kv("Project", rec.job.project); kv("Task", rec.job.task);
-  kv("Date", rec.job.date); kv("Operator", rec.job.operator);
-  if (rec.job.vehicle) kv("Vehicle", rec.job.vehicle);
-  for (const [k, v] of Object.entries(rec.meta)) if (v) kv(k.replace(/^\w/, c => c.toUpperCase()), v);
-  kv("Record", rec.rid);
-  kv("Completed", when(rec.completedAt) || "not complete");
-  kv("Completed by", rec.signedBy);
-  kv("Transfer", transferWords(rec.transfer));
-  h += `</table>`;
-  let group = null;
-  for (const it of rec.items){
-    if (it.group !== group){
-      if (group !== null) h += `</table>`;
-      h += `<h3>${esc(it.group)} &middot; ${esc(it.groupTitle)}</h3><table>`;
-      group = it.group;
-    }
-    const [c, lbl] = MARK[it.state] || MARK.open;
-    h += `<tr><td class="st ${c}">${lbl}</td><td>`
-       + (it.n ? `<b>${esc(it.n)}.</b> ` : "") + esc(it.text)
-       + (it.value ? `<span class="sn">${esc(it.valueLabel || "Value")}: ${esc(it.value)}</span>` : "")
-       + (it.note ? `<span class="sn">${esc(it.note)}</span>` : "")
-       + (it.sections.length ? `<span class="sn">${esc(it.sections.join(" · "))}</span>` : "")
-       + `</td></tr>`;
-  }
-  if (group !== null) h += `</table>`;
-  group = null;
-  for (const f of rec.fields){
-    if (f.group !== group){
-      if (group !== null) h += `</table>`;
-      h += `<h3>${esc(f.group)} &middot; ${esc(f.groupTitle)}</h3><table>`;
-      group = f.group;
-    }
-    h += `<tr><th>${esc(f.label)}</th><td>${esc(f.text)
-      || (f.required ? "<b>NOT RECORDED</b>" : "&mdash;")}</td></tr>`;
-  }
-  if (group !== null) h += `</table>`;
-  for (const t of rec.tables){
-    h += `<h3>${esc(t.group)} &middot; ${esc(t.groupTitle)}</h3><table>`
-       + `<tr>${t.cols.map(c => `<th style="width:auto">${esc(c)}</th>`).join("")}</tr>`;
-    for (const r of t.rows)
-      h += `<tr>${r.map(c => `<td>${esc(c) || "&mdash;"}</td>`).join("")}</tr>`;
-    h += `</table>`;
-  }
-  h += `<div class="sig"><div><b>Signed</b> ${esc(rec.signedBy) || "________________"}</div>`
-     + `<div><b>Transfer</b> ${esc(transferWords(rec.transfer))}</div></div>`
-     + `<div class="pf">${esc(rec.form.document)} ${esc(rec.form.appendix)}, Working `
-     + `Version ${esc(rec.form.workingVersion)}, built from ${esc(rec.form.source)} `
-     + `(${esc(rec.form.sourceHash)}). A living draft: nothing here is an adopted `
-     + `Parametrix standard.</div></div>`;
-  return h;
-}
+
 
 /* ---- one completed record ---------------------------------------------- */
 let CURRENT = null;
@@ -1445,13 +1458,19 @@ async function viewRecord(rid){
   const rec = entry.record;
   rec.transfer = { status: entry.status, handedAt: entry.handedAt || null,
                    sentAt: entry.sentAt || null, how: entry.how || "" };
+  rec.amendment = rec.amendment || { supersedes: null, supersededBy: null,
+                                     reason: "", voided: null };
+  rec.amendment.supersededBy = entry.supersededBy || rec.amendment.supersededBy;
+  rec.amendment.voided = entry.voided || rec.amendment.voided;
   document.getElementById("rec").innerHTML = recSheet(rec);
+  for (const line of amendLines(rec))
+    v.append(E("div", "band-amend", `<b>${esc(line[0])}</b>${esc(line[1])}`));
 
   const card = E("div", "card");
   card.append(E("h2", null,
     `<span class="gid">${esc(F(entry.formKey).code)}</span>`
     + `<span>${esc(rec.form.name)}</span>`
-    + `<span class="gn">${chipFor(entry.status)}</span>`));
+    + `<span class="gn">${chipFor(entry.status, entry)}</span>`));
   const tbl = E("div", "jobform");
   const row = (k, val) => tbl.append(E("div", "fld",
     `<span class="flab">${esc(k)}</span><div class="carried">${esc(val) || "&mdash;"}</div>`));
@@ -1488,6 +1507,20 @@ async function viewRecord(rid){
     if (!r.hidden) r.scrollIntoView({ behavior: "smooth" });
   });
   a.append(show);
+  if (!entry.voided){
+    const rp = E("button", "quiet", "Replace this record");
+    rp.type = "button";
+    rp.addEventListener("click", () => replaceRecord(entry));
+    a.append(rp);
+    const vd = E("button", "danger", "Void this record");
+    vd.type = "button";
+    vd.addEventListener("click", () => {
+      const box = document.getElementById("voidbox");
+      box.hidden = !box.hidden;
+      if (!box.hidden) box.querySelector("input").focus();
+    });
+    a.append(vd);
+  }
   if (entry.status !== "sent"){
     const ok = E("button", "quiet", "The office has it");
     ok.type = "button";
@@ -1514,6 +1547,36 @@ async function viewRecord(rid){
     a.append(del);
   }
   v.append(a);
+
+  /* Voiding asks for a reason and will not proceed without one. The record is
+     kept, re-rendered with the void on it, and still has to reach the office. */
+  const box = E("div", "card"); box.id = "voidbox"; box.hidden = true;
+  box.append(E("h2", null,
+    '<span class="gid">VOID</span><span>Void this record</span>'));
+  const vf = E("div", "jobform");
+  const vfld = E("div", "fld");
+  vfld.append(Object.assign(E("label"),
+    { htmlFor: "voidwhy", textContent: "Why it should not count" }));
+  const vin = Object.assign(document.createElement("input"),
+    { id: "voidwhy", type: "text", autocomplete: "off",
+      placeholder: "What was wrong with it" });
+  vfld.append(vin);
+  vf.append(vfld);
+  box.append(vf);
+  const vgo = E("button", "go", "Void it");
+  vgo.type = "button"; vgo.disabled = true;
+  vgo.style.cssText = "margin:0 14px 14px;width:calc(100% - 28px);background:var(--open)";
+  vin.addEventListener("input", () => { vgo.disabled = !vin.value.trim() });
+  vgo.addEventListener("click", async () => {
+    if (!vin.value.trim()) return;
+    vgo.disabled = true;
+    await voidRecord(entry, vin.value);
+    MSG = { t: "Voided. It is kept, and it still has to reach the office." };
+    go({ name: "record", rid });
+  });
+  box.append(vgo);
+  v.append(box);
+
   v.append(said());
   v.append(E("div", "note", TARGET === "file"
     ? "<strong>Print</strong> opens the iPad print sheet on the record above; "
@@ -1523,9 +1586,20 @@ async function viewRecord(rid){
     : "<strong>This is the review copy.</strong> It cannot print and it will not open "
       + "without a signal. The file in <code>field-app/</code> does both."));
 }
-const chipFor = s => s === "sent" ? '<span class="chip sent">Delivered</span>'
+const transferChip = s => s === "sent" ? '<span class="chip sent">Delivered</span>'
   : s === "handed" ? '<span class="chip moving">Handed over</span>'
   : '<span class="chip wait">Waiting to send</span>';
+/* A void or a replacement is not a transfer state: a voided record still has to
+   reach the office. Both are shown beside the transfer chip, never instead. */
+const chipFor = (s, e) => transferChip(s)
+  + (e && e.voided ? ' <span class="chip void">Voided</span>' : "")
+  + (e && e.supersededBy ? ' <span class="chip super">Replaced</span>' : "")
+  + (e && e.record && e.record.amendment && e.record.amendment.supersedes
+      ? ' <span class="chip super">Replacement</span>' : "");
+
+/* The one place that words an amendment, so the screen, the printed sheet and
+   the PDF all say the same thing. */
+
 
 /* ---- history ------------------------------------------------------------ */
 async function viewHistory(){
@@ -1553,7 +1627,7 @@ async function viewHistory(){
         + `<span>${esc([r.job.project, r.job.task].filter(Boolean).join(" · ") || "no job")}`
         + ` &middot; ${esc(r.job.operator || "")} &middot; ${esc(when(r.completedAt))}</span>`
         + `<span>${esc(r.rid)}</span>`));
-      b.append(E("span", "fs", chipFor(r.status)));
+      b.append(E("span", "fs", chipFor(r.status, r)));
       b.addEventListener("click", () => go({ name: "record", rid: r.rid }));
       list.append(b);
     }
@@ -1567,6 +1641,38 @@ async function viewHistory(){
     v.append(a);
   }
   v.append(said());
+}
+
+/* ---- correcting a record ------------------------------------------------
+   Neither of these touches the record being corrected: it keeps its own
+   history, its PDF and its place in the transfer queue. A voided record still
+   goes to the office, because "voided because the wrong vehicle was on it" is
+   an answer the office needs and an absence is not. */
+async function voidRecord(entry, reason){
+  entry.voided = { at: new Date().toISOString(), reason: reason.trim(),
+                   by: (entry.record && entry.record.signedBy) || "" };
+  if (entry.record){
+    entry.record.amendment = entry.record.amendment || {};
+    entry.record.amendment.voided = entry.voided;
+  }
+  entry.pdf = null;                       // rewritten with the void on it
+  await Store.put(entry);
+  try { await pdfOf(entry) } catch (e) { /* the record stands without it */ }
+  if (peek(entry.formKey) && peek(entry.formKey).rid === entry.rid){
+    delete DRAFTS[entry.formKey]; saveDrafts();
+  }
+}
+async function replaceRecord(entry){
+  const key = entry.formKey;
+  const base = entry.draft ? JSON.parse(JSON.stringify(entry.draft)) : null;
+  DRAFTS[key] = base
+    ? { items: base.items || {}, fields: base.fields || {}, tables: base.tables || {},
+        meta: base.meta || {}, sign: base.sign || "",
+        started: new Date().toISOString(), supersedes: entry.rid, reason: "" }
+    : { items: {}, fields: {}, tables: {}, meta: {}, sign: "",
+        started: new Date().toISOString(), supersedes: entry.rid, reason: "" };
+  saveDrafts();
+  go({ name: "form", key });
 }
 
 /* ---- getting a record to the office ------------------------------------- */

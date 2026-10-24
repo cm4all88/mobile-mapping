@@ -96,8 +96,10 @@ of the gates above.
 
 | | |
 |---|---|
-| `build-field-app.py` | builds both targets — the iPad file and the review copy — from the eight appendices. `--dump KEY` prints one parsed form |
-| `field-app-template.html` | the app itself. `SUBMIT_URL` at the top of its script is where a completed record is posted; it is empty until the office has an endpoint |
-| `vendor/jspdf.umd.min.js` | inlined into the app so a tablet with no signal can still write a PDF. See `vendor/README.md` |
+| `build-field-app.py` | builds all four outputs — the iPad app, the office page, and a review copy of each — from the eight appendices. `--dump KEY` prints one parsed form |
+| `field-app-template.html` | the tablet app. `SUBMIT_URL` at the top of its script is where a completed record is posted; it is empty until the office has an endpoint |
+| `office-intake-template.html` | the office page: coverage, records, and one record. It reads records and changes nothing |
+| `field-app-record-sheet.js` | **injected into both.** The record sheet and the words for a void or a replacement, in one place, so a record looks the same wherever it is opened |
+| `vendor/jspdf.umd.min.js` | inlined into the tablet app so a vehicle with no signal can still write a PDF. See `vendor/README.md` |
 
 See `field-app/README.md`, and `field-app/IPAD-TEST.md` for what has to be tested on a real device.
