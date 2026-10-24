@@ -13,7 +13,7 @@ the superseded single-document builder, and described a `build-sop-page.py` that
 python3 tools/check-all.py
 ```
 
-Fifteen checks. Everything else in this file exists to keep them passing.
+Sixteen checks. Everything else in this file exists to keep them passing.
 
 | Check | What it proves | Script |
 |---|---|---|
@@ -28,6 +28,7 @@ Fifteen checks. Everything else in this file exists to keep them passing.
 | authority of shall | Every `shall` rests on an authority that binds now | `check-authority.py` |
 | numbers match register | Every equipment quantity in the documents exists in `reference/mx60-reference-data.csv` | `check-numbers.py` |
 | Field Tools app fresh | The tablet app still matches the eight appendices it is built from | `build-field-app.py --check` |
+| open-items agenda fresh | Every open register item is triaged, and the agenda matches both the register and the triage | `build-open-items-agenda.py --check` |
 | cross-references resolve | Every `§n` points at a section that exists | in `check-all.py` |
 | register identifiers | Every `D-`/`T`/`V-` cited exists, and every register item is cited | in `check-all.py` |
 | rendered emphasis | No unrendered `**` in the built pages — **and the pages are newer than their markdown**, so the check is not reading stale output | in `check-all.py` |
@@ -50,6 +51,7 @@ python3 tools/number-subsections.py        # renumber subsections
 python3 tools/build-doc.py manual|sop|field|office     # assemble MX60-*.md
 python3 tools/build-doc-page.py manual|sop|field|office # render the browsable .html
 python3 tools/build-index.py               # deliverables/README.md and the review index
+python3 tools/build-open-items-agenda.py   # master-register.csv + the triage -> the agenda
 ```
 
 | Also | |
@@ -86,6 +88,20 @@ them for part of the pipeline.
 This environment has no working LibreOffice, pandoc or `pdftoppm`. `build-sop.js` output passes OOXML
 structural validation but **has never been rendered and looked at** — open it in Word before issuing
 anything. The same applies to `marketing/`.
+
+## The open-item agenda
+
+`master-register.csv` says what each of the eighty open questions is and why it matters. It does not
+say **how you would settle it**, and eighty undifferentiated questions is not a plan. The agenda adds
+that, and only that:
+
+| | |
+|---|---|
+| `build-open-items-agenda.py` | joins the register with the triage and writes `open-items-agenda.md` and `.html` |
+| `deliverables/_control/open-items-triage.csv` | **the judgement.** For each item: how it would be settled (`look` · `decide` · `ask` · `desk` · `drive`), how long it takes, what it waits on, and one line on how to do it |
+
+Both files must cover exactly the same ids and a `waits_on` must name a real item, so an item added to
+the register cannot sit untriaged and invisible. Mutation-tested six ways.
 
 ## The tablet app
 

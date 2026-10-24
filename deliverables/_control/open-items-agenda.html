@@ -1,0 +1,721 @@
+<title>MX60 Open Items</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* ============================================================================
+   Parametrix MX60 document family — brand tokens
+   The single source of every visual value in all four deliverables.
+
+   AUTHORITY  Parametrix Brand Guide v6, November 2023 (32 pp).
+              Page citations below are to that guide.
+
+   SOURCE KEY
+     [brand p.N]  a Parametrix brand rule, cited to its page.
+     [extension]  the guide is silent here. A decision made for this document
+                  family, built from brand values. NOT a Parametrix brand rule
+                  and not to be quoted as one. See brand-source-status.md.
+
+   The company name is never abbreviated (p.5), in text or in identifiers.
+   ============================================================================ */
+
+:root{
+  /* --- primary palette ------------------------------------- [brand p.18] */
+  --brand-red:#EE3D24;              /* Parametrix Red · Pantone Bright Red   */
+  --brand-charcoal:#333333;         /* Charcoal · Pantone Black              */
+  --brand-gray:#676768;             /* Medium Gray · Pantone 424             */
+  --brand-white:#FFFFFF;
+
+  /* --- secondary palette · accent, categorization ---------- [brand p.18] */
+  --brand-orange:#F36E21;           /* Progress Orange   · Pantone 1505      */
+  --brand-yellow:#FCC214;           /* Optimistic Yellow · Pantone 123       */
+  --brand-green:#3FB549;            /* Future Green      · Pantone 361       */
+  --brand-blue:#0073BB;             /* Clean Blue        · Pantone Med Blue  */
+
+  /* --- tertiary palette · sparingly, for highlighting ------ [brand p.18] */
+  --brand-calm-red:#ED715D;
+  --brand-calm-orange:#F89957;
+  --brand-calm-blue:#B2D3DB;
+  --brand-calm-yellow:#F4E39C;
+  --brand-gray-1:#B3B4B5;
+  --brand-gray-2:#DBDDDC;
+  --brand-gray-3:#E5E5E5;
+  --brand-gray-4:#F2F2F2;
+
+  /* --- typography ------------------------------------------ [brand p.16]
+     Klinic Slab (headlines), Franklin Gothic URW (body/subheads), Freight
+     Text Pro (quotes/accents). The licensed faces are not held, so each
+     stack falls back to the system alternate the guide itself names:
+     Rockwell, Franklin Gothic, Georgia. No other face is substituted.     */
+  --brand-head:"Klinic Slab",Rockwell,"Rockwell Nova","Rockwell Std",serif;
+  --brand-body:"Franklin Gothic URW","Franklin Gothic Book","Franklin Gothic Medium",
+               "ITC Franklin Gothic","Franklin Gothic",Arial,Helvetica,sans-serif;
+  --brand-quote:"Freight Text Pro",Georgia,"Times New Roman",serif;
+  --brand-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+                                    /* [extension] the guide names no monospace
+                                       face; a technical document needs one for
+                                       filenames, paths and identifiers.      */
+
+  /* --- surfaces and ink ------------------------------------------------- */
+  --ground:var(--brand-white);                       /* [brand p.18]        */
+  --panel:var(--brand-gray-4);                       /* [brand p.18]        */
+  --raise:var(--brand-white);
+  --ink:var(--brand-charcoal);                       /* [brand p.18]        */
+  --ink-2:var(--brand-gray);                         /* [brand p.18]        */
+  --muted:var(--brand-gray);
+  --rule:var(--brand-gray-3);                        /* [brand p.18]        */
+  --rule-2:var(--brand-gray-1);
+  --charcoal:var(--brand-charcoal);
+  --red:var(--brand-red);
+
+  /* --- callout colours ------------------------------------- [extension]
+     The guide does not style callouts. These use only palette colours, and
+     follow the guide's own logic: red is the attention colour and is used
+     sparingly (p.11, p.23); tertiary colours are for highlighting (p.18).
+     The alert pair is red and calm red, so urgency reads at a glance.      */
+  --co-caution:var(--brand-red);
+  --co-important:var(--brand-calm-red);
+  --co-why:var(--brand-charcoal);
+  --co-plain:var(--brand-gray);
+  --co-trimble:var(--brand-charcoal);
+  --co-observed:var(--brand-gray-1);
+  --co-proposed:var(--brand-calm-blue);
+  --co-adopted:var(--brand-green);
+  --co-decision:var(--brand-calm-yellow);
+  --co-testing:var(--brand-calm-orange);
+  --co-note:var(--brand-gray-2);
+
+  /* --- document identity ----------------------------------- [extension]
+     One secondary colour per document. The guide states that secondary
+     colours are accents "useful for ... enhancing categorization" (p.18),
+     which is what this is. Each build sets --doc-accent.
+       Technical Manual  Clean Blue        SOP           Progress Orange
+       Field How To      Future Green      Office How To Optimistic Yellow  */
+  --doc-accent:var(--brand-blue);
+  --doc-accent-on:var(--brand-white);   /* ink on the accent chip; see style-system.md §3 */
+
+  /* --- scale ------------------------------------------------ [extension] */
+  --base:17px;
+  --lh:1.68;            /* the letterhead note: increased line spacing (p.23) */
+  --measure:78ch;
+  --radius:0px;         /* the guide's compositions are square-cornered       */
+  --u:4px;
+}
+
+/* --- dark ground ------------------------------------------- [extension]
+   The guide is a print and marketing document and does not address screen
+   dark mode. What it does give is the knockout logo for dark or busy
+   grounds (p.11), which is what the builds use. Palette hues are held;
+   only their roles swap.                                                   */
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --ground:#1C1C1C; --panel:#262626; --raise:#2A2A2A;
+  --ink:#F2F2F2; --ink-2:#DBDDDC; --muted:#B3B4B5;
+  --rule:#3A3A3A; --rule-2:#4A4A4A;
+  --charcoal:#F2F2F2;
+  --co-why:#F2F2F2; --co-trimble:#F2F2F2; --co-plain:#B3B4B5;
+}}
+:root[data-theme="dark"]{
+  --ground:#1C1C1C; --panel:#262626; --raise:#2A2A2A;
+  --ink:#F2F2F2; --ink-2:#DBDDDC; --muted:#B3B4B5;
+  --rule:#3A3A3A; --rule-2:#4A4A4A;
+  --charcoal:#F2F2F2;
+  --co-why:#F2F2F2; --co-trimble:#F2F2F2; --co-plain:#B3B4B5;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ground);color:var(--ink);font:400 17px/1.65 var(--brand-body)}
+.wrap{max-width:52rem;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{background:var(--brand-charcoal);color:#fff}
+header .wrap{padding-block:26px 24px}
+header .k{font:700 10px/1.6 var(--brand-body);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brand-gray-1)}
+header h1{margin:4px 0 8px;font:700 34px/1.12 var(--brand-head);letter-spacing:-.01em}
+header p{margin:0;font:400 17px/1.6 var(--brand-body);color:var(--brand-gray-2);max-width:60ch}
+main .wrap{padding-block:26px 48px}
+h2{margin:40px 0 6px;font:700 24px/1.2 var(--brand-head);
+  padding-top:16px;border-top:2px solid var(--brand-red)}
+h2 .n{color:var(--muted);font-weight:400}
+h2+p.blurb{margin:0 0 20px;color:var(--ink-2);max-width:62ch}
+table{width:100%;border-collapse:collapse;margin:14px 0 8px;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:8px 10px 8px 0;
+  border-bottom:1px solid var(--rule)}
+th{font:700 10px/1.5 var(--brand-body);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);white-space:nowrap}
+.sum td:first-child{font-weight:700}
+.item{border-left:3px solid var(--rule-2);padding:2px 0 2px 16px;margin:22px 0}
+.item.p1{border-left-color:var(--brand-red)}
+.item h3{margin:0 0 6px;font:700 18px/1.35 var(--brand-body)}
+.item h3 .id{font-family:var(--brand-mono);font-size:15px;color:var(--brand-red);
+  margin-right:8px}
+.tags{margin:0 0 10px;font:600 11px/1.6 var(--brand-body);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.item p{margin:0 0 9px;max-width:62ch}
+.item p.why{color:var(--ink-2)}
+.item p.how{border-left:0}
+.item .lbl{font:700 10px/1.6 var(--brand-body);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);display:block}
+.link{margin:0;padding:8px 12px;background:var(--panel);font-size:14px;
+  font-family:var(--brand-mono)}
+.foot{margin-top:46px;padding-top:14px;border-top:1px solid var(--rule);
+  font-size:14px;color:var(--muted)}
+a{color:var(--brand-blue)}
+@media (max-width:540px){header h1{font-size:27px}}
+
+</style>
+<header><div class="wrap">
+<div class="k">Trimble MX60 &middot; open-item register</div>
+<h1>Open items &mdash; an agenda</h1>
+<p>80 open items, grouped by how you would settle them. The register says what each question is and why it matters; this says who answers it, how long it takes and what is waiting on it.</p>
+</div></header><main><div class="wrap">
+<table class="sum"><tr><th>Group</th><th>Items</th><th>Of them P1</th></tr>
+<tr><td>Go and look</td><td>8</td><td>2</td></tr>
+<tr><td>Parametrix decides</td><td>34</td><td>18</td></tr>
+<tr><td>Ask Trimble</td><td>14</td><td>5</td></tr>
+<tr><td>At the workstation</td><td>21</td><td>6</td></tr>
+<tr><td>Needs a collection</td><td>3</td><td>1</td></tr>
+</table>
+<h2>Start here</h2>
+<p class="blurb">Everything that can be settled without leaving the building and without waiting on anything else: the 8 things you can simply go and look at, then the P1 decisions nothing is holding up.</p>
+<table><tr><th>Item</th><th>Takes</th><th>What it is</th><th>Unblocks</th></tr>
+<tr><td><b>D-10</b></td><td>minutes</td><td>Do we hold a POSPac MMS 8.6+ licence, and where is it installed?</td><td>D-19, T10</td></tr>
+<tr><td><b>D-2</b></td><td>minutes</td><td>Are GAMS and DMI fitted, and which mounting rack? (The configuration is answered: MX60 Premium.)</td><td>D-46</td></tr>
+<tr><td><b>T12</b></td><td>minutes</td><td>DMI scale factor SD default 5 percent - was the wheel actually measured?</td><td>—</td></tr>
+<tr><td><b>T27</b></td><td>minutes</td><td>What imagery streams actually exist on the MX60, and which are exposed through TBC export?</td><td>—</td></tr>
+<tr><td><b>T7</b></td><td>minutes</td><td>Registration Auto-Saving default state</td><td>—</td></tr>
+<tr><td><b>V-2</b></td><td>minutes</td><td>Is the MX60 laser control presented as Measurement Prog plus Line Speed, or a combined Laser Mode? Which TMI version applies?</td><td>—</td></tr>
+<tr><td><b>V-3</b></td><td>minutes</td><td>Which TBC version is installed on our workstation?</td><td>—</td></tr>
+<tr><td><b>V-8</b></td><td>minutes</td><td>What is the MX60 actual camera complement, and which streams are exposed through TBC export?</td><td>—</td></tr>
+<tr><td><b>D-21</b></td><td>hour</td><td>Which datum and epoch do we work in, who sets it, who checks it?</td><td>—</td></tr>
+<tr><td><b>D-3</b></td><td>hour</td><td>Roles and authorities - who may operate, register, accept a registration, run Cleanup, sign the accuracy statement, own calibration currency</td><td>D-15, D-35, D-29</td></tr>
+<tr><td><b>D-39</b></td><td>hour</td><td>What is the corridor continuity inspection method and coverage?</td><td>—</td></tr>
+<tr><td><b>D-49</b></td><td>hour</td><td>Field close-out - what the mission field record contains, what coverage verification happens before leaving site, what triggers a re-drive and who decides</td><td>—</td></tr>
+<tr><td><b>D-52</b></td><td>hour</td><td>Transfer, verification and backup procedure</td><td>—</td></tr>
+<tr><td><b>D-32</b></td><td>half-day</td><td>What is our position on imagery privacy? Are unblurred originals retained, and for how long?</td><td>D-55</td></tr>
+</table>
+<h2>Go and look <span class="n">&mdash; 8</span></h2>
+<p class="blurb">Answered by looking at the system, the vehicle or a dialog. No decision, no test, nobody else involved. These are the ones to clear first, because several of the others are conditional on them.</p>
+<div class="item p1">
+<h3><span class="id">D-10</span>Do we hold a POSPac MMS 8.6+ licence, and where is it installed?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; trajectory processing &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Determines whether trajectory processing and PFIX are available at all, and removes one of three degraded-GNSS remedies</p>
+<p class="how"><span class="lbl">How to settle it</span>Ask IT whether a POSPac MMS 8.6+ licence exists and where it is installed. D-19, T10 and V-9 all assume an answer.</p>
+<p class="link">Holds up D-19, T10</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-2</span>Are GAMS and DMI fitted, and which mounting rack? (The configuration is answered: MX60 Premium.)</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; system &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>GAMS decides whether GAMS-assisted initialization is available; DMI decides whether DMI settings appear in trajectory processing and whether the published no-outage accuracy applies; the rack decides whether the published GAMS corner offsets apply</p>
+<p class="how"><span class="lbl">How to settle it</span>Walk out to the vehicle. Is a GAMS antenna pair fitted, is a DMI on a non-steering wheel, which rack. Settles five Preflight items and the whole GAMS/DMI branch of trajectory processing.</p>
+<p class="link">Holds up D-46 &nbsp;·&nbsp; Part answered: Configuration answered 2026-09-19: MX60 Premium, the top configuration - panoramas 12288x6144 px, roll/pitch 0.0025 deg, the better 60 s outage figures. Stated by the system owner; serial-number confirmation outstanding under V-4. GAMS, DMI and rack remain open  |  2026-09-19 audit: the rack manual held in the repository is the MX Shock Absorbing Mounting Rack User Guide Rev B, P/N 37000001 (the 28 kg rack), while the spec sheet lists only the 18 kg standard rack. Circumstantial, not proof, but it points away from the standard rack - and the published GAMS corner offsets apply to the standard rack only. Settle by looking at the vehicle</p>
+</div>
+<div class="item ">
+<h3><span class="id">T27</span>What imagery streams actually exist on the MX60, and which are exposed through TBC export?</h3>
+<p class="tags">P2 &middot; test &middot; QC &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>The MX60 export tree shows no Planar cameras while the side-images option persists</p>
+<p class="how"><span class="lbl">How to settle it</span>The TMI device list, then the TBC export dialog. Answers V-8 at the same time.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T7</span>Registration Auto-Saving default state</h3>
+<p class="tags">P2 &middot; test &middot; registration &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Targets.csv is the registration field book and a wrong dialog answer empties it permanently</p>
+<p class="how"><span class="lbl">How to settle it</span>Open Register a Mission and read the Auto-Saving checkbox state. One look.</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-2</span>Is the MX60 laser control presented as Measurement Prog plus Line Speed, or a combined Laser Mode? Which TMI version applies?</h3>
+<p class="tags">P2 &middot; vendor question &middot; acquisition &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>The Quick Start Guide and TMI Rev L disagree - CONFLICT-005</p>
+<p class="how"><span class="lbl">How to settle it</span>Open TMI and read the screen. The Preflight asks the operator which presentation they saw; this says which one they will see.</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-3</span>Which TBC version is installed on our workstation?</h3>
+<p class="tags">P2 &middot; vendor question &middot; system &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Two version-dependent behaviours, both legacy - 5.21 and 5.80 predate the oldest published release note</p>
+<p class="how"><span class="lbl">How to settle it</span>Help &gt; About in TBC. Two minutes, and every question about TBC behaviour below is conditional on the answer.</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-8</span>What is the MX60 actual camera complement, and which streams are exposed through TBC export?</h3>
+<p class="tags">P2 &middot; vendor question &middot; system &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Pairs with T27</p>
+<p class="how"><span class="lbl">How to settle it</span>The TMI device list names the cameras actually present. Same look as T27.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T12</span>DMI scale factor SD default 5 percent - was the wheel actually measured?</h3>
+<p class="tags">P3 &middot; test &middot; trajectory processing &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Trimble says set it to 100 percent if unknown</p>
+<p class="how"><span class="lbl">How to settle it</span>Ask whoever fitted the DMI whether the wheel was measured. If it was not, the 5 percent default stands and should be recorded as such.</p>
+</div>
+<h2>Parametrix decides <span class="n">&mdash; 34</span></h2>
+<p class="blurb">No equipment, no vendor, no test. Somebody with the authority writes the answer down. This is the largest group and the cheapest, and it is what keeps every document in the set a living draft.</p>
+<div class="item p1">
+<h3><span class="id">D-15</span>Is the control/check designation fixed before registration and unchangeable during it?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; registration &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Guards the failure that looks like diligence - a processor who dislikes a check residual and ticks the point into the adjustment</p>
+<p class="how"><span class="lbl">How to settle it</span>Fix the control/check designation before registration and forbid changing it during. The Office How To already says so; this makes it binding.</p>
+<p class="link">Waits on D-3</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-19</span>IN-Fusion+ Single Base or PP-RTX?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; trajectory processing &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Determines whether a base station is occupied every mission, and the reference frame the solution is computed in</p>
+<p class="how"><span class="lbl">How to settle it</span>IN-Fusion+ Single Base or PP-RTX. Needs the licence question answered first.</p>
+<p class="link">Waits on D-10 &nbsp;·&nbsp; Holds up D-42</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-21</span>Which datum and epoch do we work in, who sets it, who checks it?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; project setup &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>A silent failure mode (the ITRF00 path) plus a user-settable epoch control Trimble flags as risky</p>
+<p class="how"><span class="lbl">How to settle it</span>Datum and epoch, who sets them, who checks them. Written once, applies to every project.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-3</span>Roles and authorities - who may operate, register, accept a registration, run Cleanup, sign the accuracy statement, own calibration currency</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; all &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>The accepting person should not be the person who performed the adjustment</p>
+<p class="how"><span class="lbl">How to settle it</span>Who may operate, register, accept a registration, run Cleanup, sign an accuracy statement, own calibration currency. One table. D-15, D-29, D-35 and D-36 all wait on it.</p>
+<p class="link">Holds up D-15, D-35, D-29</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-35</span>When may Cleanup be performed, by whom, and what must be archived first?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; cleanup &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Destructive, not undoable, reduces registration history at the moment the project is handed on</p>
+<p class="how"><span class="lbl">How to settle it</span>When Cleanup may be run and what must be archived first. The Archive and Cleanup checklist is already the sequence; this makes it binding.</p>
+<p class="link">Waits on D-3</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-36</span>The export release gate - is the pre-export trajectory-node confirmation mandatory, and may exports be made with Export timestamps enabled before T18 resolves?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; export &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Registration does not reach the cloud until Update Scans runs; a documented export option may substitute reprocessed data</p>
+<p class="how"><span class="lbl">How to settle it</span>The export release gate, and whether exports may be made with Export timestamps enabled.</p>
+<p class="link">Waits on T18</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-39</span>What is the corridor continuity inspection method and coverage?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; QC &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Must detect a degraded stretch shorter than the sampling interval, which rules out sparse spot checks</p>
+<p class="how"><span class="lbl">How to settle it</span>The corridor continuity inspection method and coverage. QC layer 6 is written; this fixes what it covers.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-42</span>Base station strategy and maximum baseline?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; mission planning &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Field logistics on every mission. Interacts with D-19</p>
+<p class="how"><span class="lbl">How to settle it</span>Base station strategy and maximum baseline. Means nothing until the trajectory method is chosen.</p>
+<p class="link">Waits on D-19</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-46</span>Where are lever arms, the Vehicle Preset and the installation configuration recorded and verified?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; field preparation &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Entered once, used every mission. An error is systematic, invisible, and persists until someone re-measures</p>
+<p class="how"><span class="lbl">How to settle it</span>Where lever arms, the Vehicle Preset and the installation configuration are recorded and verified.</p>
+<p class="link">Waits on D-2</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-49</span>Field close-out - what the mission field record contains, what coverage verification happens before leaving site, what triggers a re-drive and who decides</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; field QC &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>No software produces the field record. Missed overlap removes office options irrecoverably</p>
+<p class="how"><span class="lbl">How to settle it</span>Largely written already: Appendix B and the Field Record Form are the content. This adopts them.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-52</span>Transfer, verification and backup procedure</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; transfer &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>The only irreversible step in the workflow</p>
+<p class="how"><span class="lbl">How to settle it</span>Transfer, verification and backup. The Field How To already describes it; this makes it the procedure.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-26</span>Recalibration interval and triggers - does daily removal of the Sensor Unit count as disturbing it? What happens to data collected on a stale calibration?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; calibration &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>If the head comes off nightly, calibration is routine rather than periodic</p>
+<p class="how"><span class="lbl">How to settle it</span>Recalibration interval and triggers, and what happens to data collected on a stale calibration. Waits on Trimble saying whether refitting the Sensor Unit disturbs it.</p>
+<p class="link">Waits on V-13</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-29</span>The record package - what provenance record accompanies a deliverable, where does it live, and where is the control/check designation and its residuals recorded?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; provenance &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Six facts cannot be reconstructed from the deliverable; TBC is not documented as reporting the designation</p>
+<p class="how"><span class="lbl">How to settle it</span>The record package: what accompanies a deliverable and where it lives.</p>
+<p class="link">Waits on D-3</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-32</span>What is our position on imagery privacy? Are unblurred originals retained, and for how long?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; export &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Legal and reputational dimensions outside the SOP. Blurring is irreversible in the delivered product</p>
+<p class="how"><span class="lbl">How to settle it</span>Imagery privacy, and whether unblurred originals are retained. A policy and legal question, not a technical one; it needs whoever owns records retention.</p>
+<p class="link">Holds up D-55</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-41</span>How many passes, in what pattern, by roadway type?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; mission planning &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Two of three degraded-GNSS remedies require overlap collected on the day</p>
+<p class="how"><span class="lbl">How to settle it</span>Passes and pattern by roadway type. Informed by the overlap test.</p>
+<p class="link">Waits on T24</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-55</span>Capture and retention - what is retained, where, for how long, by whom, including Backup SBET Next to MXDB, Results of Scan Generation, and the calibration JSON</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; archive &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Tier 1 is a few hundred kilobytes. Tier 3 is hundreds of GB and determines whether reprocessing is ever possible</p>
+<p class="how"><span class="lbl">How to settle it</span>Retention: what is kept, where, for how long, by whom. Overlaps the imagery privacy question.</p>
+<p class="link">Waits on D-32</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-13</span>What constitutes an acceptable registration and an acceptable point cloud?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; QC &middot; day</p>
+<p class="why"><span class="lbl">Why it matters</span>No Trimble source provides a threshold. Must combine residuals, independent checks, visual inspection and the project accuracy requirement</p>
+<p class="how"><span class="lbl">How to settle it</span>The acceptance criteria. Nothing may be quoted to a client until this exists, and it should not be written before the registration and control tests give it numbers.</p>
+<p class="link">Waits on T15</p>
+</div>
+<div class="item p1">
+<h3><span class="id">D-16</span>Control design - how many control points, at what spacing, how many independent checks, and does density vary with predicted GNSS conditions?</h3>
+<p class="tags">P1 &middot; Parametrix decision &middot; project setup &middot; day</p>
+<p class="why"><span class="lbl">Why it matters</span>No Trimble source states any. TBC minimum of one pair is a mathematical floor. Local does not extrapolate</p>
+<p class="how"><span class="lbl">How to settle it</span>Control design: how many points, at what spacing, how many independent checks. With D-13, the pair that blocks delivering for a stated accuracy purpose.</p>
+<p class="link">Waits on T25</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-28</span>Is the retro-reflective target check our periodic verification, and at what interval?</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; calibration &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>The only independent check on the instrument in any source</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether the retro-reflective target check is our periodic verification, and at what interval.</p>
+<p class="link">Waits on V-14</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-1</span>Who owns this SOP, who approves revisions, on what review cycle?</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; document control &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>TBC is on an annual release cycle and each release has changed mobile mapping behaviour</p>
+<p class="how"><span class="lbl">How to settle it</span>Name the owner and the review cycle, one line, into SOP Appendix C. Costs nothing, and nothing in this set can be adopted until somebody owns it.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-11</span>Is LiDAR QC a capability we intend to have?</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; trajectory processing &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>128-256 GB RAM, dedicated SSDs, MATLAB Runtime. Urgent only when it is too late</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether LiDAR QC is a capability we intend to have. T13 and V-9 only matter if it is.</p>
+<p class="link">Holds up T13</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-12</span>Registration command selection - is Register a Mission the corridor default, and where does run-to-run sit?</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; registration &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>The three commands are not interchangeable. Run-to-run uses no control and propagates the reference run absolute error</p>
+<p class="how"><span class="lbl">How to settle it</span>The corridor default registration command. Decide once the registration-type test has been run.</p>
+<p class="link">Waits on T15</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-53</span>Folder structure, naming and storage location</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; transfer &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Several provenance artefacts are small files loose in a project folder</p>
+<p class="how"><span class="lbl">How to settle it</span>Folder structure and naming. The Field Tools record ids already assume a project and a task; this is where those records land.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-56</span>Does Parametrix adopt Trimble's documented initialization sequence, closing sequence and control-bracketing design rule as mandatory Parametrix requirements?</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; Field &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Trimble documents these methods but does not state them as requirements - it writes 'should', 'it is advised', and 'Proposal of a checklist for system operation'. They carry TRIMBLE DOCUMENTED METHOD and 'should' until Parametrix decides. Nothing else makes them mandatory.</p>
+<p class="how"><span class="lbl">How to settle it</span>Adopt Trimble's documented initialization, closing and control-bracketing sequences as Parametrix requirements, or keep them as recommended practice. One meeting, and it turns 'should' into 'shall' across the Field How To.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-24</span>Where is the calibration site, and who maintains it?</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; calibration &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Establishing one is a morning of work; finding one under schedule pressure is not</p>
+<p class="how"><span class="lbl">How to settle it</span>Where the calibration site is and who maintains it. D-26 is hollow without it.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-27</span>QC inspection content - what does a visual point-cloud QC pass cover, and an imagery QC pass?</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; QC &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Two QC layers produce no software artefact at all</p>
+<p class="how"><span class="lbl">How to settle it</span>What a visual point-cloud QC pass and an imagery QC pass cover.</p>
+<p class="link">Waits on T16</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-34</span>Handling segments mobile mapping cannot serve - the decision rule when a corridor produces an unacceptable trajectory, and whether marginal segments are recorded before mobilising</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; mission planning &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Includes the legitimate professional answer that another method would be more defensible</p>
+<p class="how"><span class="lbl">How to settle it</span>The decision rule when a corridor produces an unacceptable trajectory, and whether marginal segments are delivered.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-38</span>Deliverable specification - standard formats, which export path produces each, and default scaling</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; export &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Ground scaling does not record its own scale factor; grid writes a sidecar that does</p>
+<p class="how"><span class="lbl">How to settle it</span>Standard deliverable formats, which export path produces each, and default scaling.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-43</span>Field operating rules - wet-weather go/no-go with operator stand-down authority, night collection, collection speed by deliverable type, free-space margin</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; acquisition &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>An operator who must phone for permission will drive. Trimble publishes speed maxima and no relation to deliverable quality</p>
+<p class="how"><span class="lbl">How to settle it</span>Field operating rules: wet-weather go/no-go with operator stand-down authority, night collection, speed by deliverable type, free-space margin.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-57</span>Is airfield pavement roughness - Boeing Bump Index and IRI - a service Parametrix intends to offer, and if so what control and validation scheme proves the vertical?</h3>
+<p class="tags">P2 &middot; Parametrix decision &middot; project setup &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>It is a real TBC capability and a strong differentiator, but an FAA-facing deliverable rests on the vertical trajectory rather than on instrument precision. The control scheme has to be agreed before collection, not after, and whether a given reviewing authority accepts a mobile-mapping-derived profile is a question to ask them</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether airfield pavement roughness is a service Parametrix offers, and on what validation scheme.</p>
+<p class="link">Waits on T32</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-22</span>Are scans generated coloured by default?</h3>
+<p class="tags">P3 &middot; Parametrix decision &middot; scan generation &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Discovering later that colour was wanted means regenerating the mission</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether scans are generated coloured by default.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-31</span>Is the imagery file-size scan adopted?</h3>
+<p class="tags">P3 &middot; Parametrix decision &middot; QC &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Validation required first - file size alone cannot establish image validity</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether the imagery file-size scan is adopted as a QC step.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-54</span>Is a chain-of-custody record required?</h3>
+<p class="tags">P3 &middot; Parametrix decision &middot; transfer &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>The deliverable may not be able to speak for itself</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether a chain-of-custody record is required. The Field Tools record already carries most of one.</p>
+</div>
+<div class="item ">
+<h3><span class="id">D-18</span>What is verified at import, and by whom?</h3>
+<p class="tags">P3 &middot; Parametrix decision &middot; intake &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Seven checks, each cheaper now than later</p>
+<p class="how"><span class="lbl">How to settle it</span>What is verified at import and by whom. The Office Processing checklist already lists the checks.</p>
+</div>
+<h2>Ask Trimble <span class="n">&mdash; 14</span></h2>
+<p class="blurb">One message to the dealer or to support. Group them and send them together; the answers are not urgent individually but several decisions wait on them.</p>
+<div class="item p1">
+<h3><span class="id">V-4</span>Confirm the configuration from the serial number, and state whether GAMS and DMI are fitted and which rack is on the vehicle</h3>
+<p class="tags">P1 &middot; vendor question &middot; system &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Confirms the owner's statement that this is a Premium, and answers the remainder of D-2. Imagery and accuracy commitments now rest on that statement until it is checked</p>
+<p class="how"><span class="lbl">How to settle it</span>Confirm the configuration from the serial number in writing. D-2 can be settled by looking, but this is the record of it.</p>
+<p class="link">Part answered: Configuration stated by the system owner 2026-09-19 as MX60 Premium - not yet checked against the serial number. GAMS, DMI and rack still unanswered</p>
+</div>
+<div class="item p1">
+<h3><span class="id">V-1</span>When Export timestamps causes reprocessing from raw data, which trajectory is used?</h3>
+<p class="tags">P1 &middot; vendor question &middot; export</p>
+<p class="why"><span class="lbl">Why it matters</span>A direct yes/no question with the largest consequence in the workflow</p>
+<p class="how"><span class="lbl">How to settle it</span>When Export timestamps causes reprocessing from raw, which trajectory is used.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">V-10</span>Which trajectory do TMX export and Publish to TRCPS send when a run has both an imported and a registered trajectory?</h3>
+<p class="tags">P1 &middot; vendor question &middot; export</p>
+<p class="why"><span class="lbl">Why it matters</span>Both carry trajectory geometry; neither says which</p>
+<p class="how"><span class="lbl">How to settle it</span>Which trajectory TMX export and Publish to TRCPS send when a run has both.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">V-12</span>Does any TBC export write the source trajectory into a LAS header, VLR or sidecar?</h3>
+<p class="tags">P1 &middot; vendor question &middot; provenance</p>
+<p class="why"><span class="lbl">Why it matters</span>The one provenance question documentation cannot answer</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether any TBC export writes the source trajectory into a LAS header, VLR or sidecar. T22 may answer it first.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">V-13</span>Does removing and refitting the Sensor Unit disturb the calibration? What symptoms indicate drift?</h3>
+<p class="tags">P1 &middot; vendor question &middot; calibration</p>
+<p class="why"><span class="lbl">Why it matters</span>Determines whether calibration is periodic or routine</p>
+<p class="how"><span class="lbl">How to settle it</span>Does removing and refitting the Sensor Unit disturb the calibration, and what shows drift. Blocks the recalibration interval.</p>
+<p class="link">Holds up D-26</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-5</span>Accessory manuals not held - Trimble GAMS Antenna Kit and DMI Installation and Operation Manuals</h3>
+<p class="tags">P2 &middot; vendor question &middot; field preparation &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Needed for the lever-arm procedure if fitted. The DMI manual has the scale factor for the measured wheel diameter</p>
+<p class="how"><span class="lbl">How to settle it</span>Request the GAMS Antenna Kit and DMI Installation manuals from the dealer. Neither is held.</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-11</span>Which report contains the signed GCP residuals added in TBC 2025.21?</h3>
+<p class="tags">P2 &middot; vendor question &middot; QC</p>
+<p class="why"><span class="lbl">Why it matters</span>The only mobile mapping report topic does not mention residuals</p>
+<p class="how"><span class="lbl">How to settle it</span>Which report contains the signed GCP residuals. Ask only if the Mission Report test does not find them.</p>
+<p class="link">Waits on T21</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-14</span>Is the retro-reflective target check the recommended periodic verification for the MX60, and at what interval?</h3>
+<p class="tags">P2 &middot; vendor question &middot; calibration</p>
+<p class="why"><span class="lbl">Why it matters</span>Trimble says regularly and defines nothing</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether the retro-reflective target check is the recommended periodic verification, and at what interval. Blocks D-28.</p>
+<p class="link">Holds up D-28</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-16</span>When should PFIX be preferred over registration?</h3>
+<p class="tags">P2 &middot; vendor question &middot; degraded GNSS</p>
+<p class="why"><span class="lbl">Why it matters</span>This document framing of the distinction is inferred, not stated by Trimble</p>
+<p class="how"><span class="lbl">How to settle it</span>When PFIX should be preferred over registration.</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-17</span>Does the coordinate system without Geoid restriction on TMX export apply to the MX60, or only the MX9?</h3>
+<p class="tags">P2 &middot; vendor question &middot; export</p>
+<p class="why"><span class="lbl">Why it matters</span>Stated for the MX9 only</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether the coordinate-system-without-Geoid restriction on TMX export applies to the MX60 or only the MX9.</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-9</span>Does LiDAR QC have its own POSPac dependency?</h3>
+<p class="tags">P2 &middot; vendor question &middot; trajectory processing</p>
+<p class="why"><span class="lbl">Why it matters</span>Trimble does not state one but directs configuration questions to Applanix Support</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether LiDAR QC has its own POSPac dependency.</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-15</span>Scanner field of view - 346 degrees (UG p.54) or 360 degrees (spec sheet p.2)?</h3>
+<p class="tags">P3 &middot; vendor question &middot; system &middot; minutes</p>
+<p class="why"><span class="lbl">Why it matters</span>Matters for occlusion geometry - CONFLICT-002</p>
+<p class="how"><span class="lbl">How to settle it</span>A straight conflict between two Trimble documents on the scanner field of view. The conflict ledger already records it; Trimble has to say which is right.</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-18</span>Is the 30-minute minimum mission time enforced by TMI, and what is the reason for it?</h3>
+<p class="tags">P3 &middot; vendor question &middot; Field</p>
+<p class="why"><span class="lbl">Why it matters</span>Trimble states it as a requirement in two places and gives no reason and no indication whether the software prevents a shorter mission. A crew that has to abandon a mission at 20 minutes needs to know whether the data is unusable or merely suboptimal.</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether the 30-minute minimum mission time is enforced by TMI, and why it exists.</p>
+</div>
+<div class="item ">
+<h3><span class="id">V-7</span>Does the Lateral Range Limit affect accuracy, or is it purely a data-volume tool?</h3>
+<p class="tags">P3 &middot; vendor question &middot; acquisition</p>
+<p class="why"><span class="lbl">Why it matters</span>Undocumented</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether the Lateral Range Limit affects accuracy or is purely a data-volume tool.</p>
+</div>
+<h2>At the workstation <span class="n">&mdash; 21</span></h2>
+<p class="blurb">TBC and a dataset we already have. No collection needed. Most are an hour; the three marked a day are the ones that produce numbers other decisions need.</p>
+<div class="item p1">
+<h3><span class="id">T28</span>Does Cleanup delete sbet_*_reg_####.out from storage, or only remove the project objects?</h3>
+<p class="tags">P1 &middot; test &middot; cleanup &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Determines what must be archived before Cleanup. Distinguish project object retention from underlying file retention</p>
+<p class="how"><span class="lbl">How to settle it</span>On a scratch copy of a project, never a live one, because the command cannot be undone.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">T3</span>Does Reflective Panels remove legitimate retro-reflective returns from signs and line marking?</h3>
+<p class="tags">P1 &middot; test &middot; scan generation &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>On sign and retroreflectivity work those returns are the deliverable</p>
+<p class="how"><span class="lbl">How to settle it</span>Needs one generated run with signs and line marking in it.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">T18</span>Export the same registered run twice, timestamps off and on, and compare point geometry. Does reprocessing from raw reflect the registered trajectory?</h3>
+<p class="tags">P1 &middot; test &middot; export &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>The highest-priority test. A documented export option may deliver data that was never the data that was checked</p>
+<p class="how"><span class="lbl">How to settle it</span>Export the same registered run twice, timestamps off and on, and compare geometry. Blocks the export release gate.</p>
+<p class="link">Holds up D-36</p>
+</div>
+<div class="item p1">
+<h3><span class="id">T29</span>Establish the reliable export-state verification method for each export path</h3>
+<p class="tags">P1 &middot; test &middot; export &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>How an export dialog resolves its selection is not documented</p>
+<p class="how"><span class="lbl">How to settle it</span>Establish the reliable export-state verification method for each export path.</p>
+</div>
+<div class="item p1">
+<h3><span class="id">T15</span>Which registration type, when? Test Global, Local and Global-then-Local with independent checks</h3>
+<p class="tags">P1 &middot; test &middot; registration &middot; day</p>
+<p class="why"><span class="lbl">Why it matters</span>No selection rule published. Global-then-Local gets no guidance and appears in every Trimble screenshot</p>
+<p class="how"><span class="lbl">How to settle it</span>Global, Local and Global-then-Local with independent checks. The test D-12 and D-13 both wait on, and the single most valuable day at the workstation.</p>
+<p class="link">Holds up D-12, D-13</p>
+</div>
+<div class="item p1">
+<h3><span class="id">T32</span>Run the TBC Boeing Bump Index report end to end on an MX60 dataset: what inputs does the command take, what does it output, and does the vertical quality of an ordinary run support an FAA profile?</h3>
+<p class="tags">P1 &middot; test &middot; QC &middot; day</p>
+<p class="why"><span class="lbl">Why it matters</span>TBC ships the analysis under Mobile Mapping - Analysis - Boeing Bump Index and it is a sellable deliverable. Nobody here has run it. The open question is not whether the tool exists but whether our vertical trajectory supports the profile it computes from, which is answered by validating against pavement control, not by the nominal accuracy</p>
+<p class="how"><span class="lbl">How to settle it</span>The TBC Boeing Bump Index report end to end on an MX60 dataset. Blocks D-57 and the airfield offer.</p>
+<p class="link">Holds up D-57</p>
+</div>
+<div class="item ">
+<h3><span class="id">T10</span>Which Parametrix coordinate systems does POSPac recognise directly, and which trigger the ITRF00 path?</h3>
+<p class="tags">P2 &middot; test &middot; trajectory processing &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Answerable once, then known</p>
+<p class="how"><span class="lbl">How to settle it</span>Which Parametrix coordinate systems POSPac recognises directly.</p>
+<p class="link">Waits on D-10</p>
+</div>
+<div class="item ">
+<h3><span class="id">T16</span>Working cutting plane thickness for the visual checks</h3>
+<p class="tags">P2 &middot; test &middot; QC &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Trimble screenshots show 0.030 and 5.000 with no basis. Too thick buries a real offset</p>
+<p class="how"><span class="lbl">How to settle it</span>Working cutting plane thickness for the visual checks. Feeds D-27.</p>
+<p class="link">Holds up D-27</p>
+</div>
+<div class="item ">
+<h3><span class="id">T17</span>Sample points random sampling in the classified LAS exporter</h3>
+<p class="tags">P2 &middot; test &middot; export &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>A destructive thinning with no documented spatial rule; default state not stated</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether Sample points really thins at random in the classified LAS exporter.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T21</span>Register a mission, run a Mission Report, and look. Does it contain the signed GCP residuals?</h3>
+<p class="tags">P2 &middot; test &middot; QC &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>The 2025.21 release note says residuals are in the report; the Mission Report topic does not mention them</p>
+<p class="how"><span class="lbl">How to settle it</span>Register a mission, run a Mission Report, look for the signed GCP residuals. Answers V-11 at the same time.</p>
+<p class="link">Holds up V-11</p>
+</div>
+<div class="item ">
+<h3><span class="id">T22</span>Export a LAS and inspect the file directly - header fields, VLRs, sidecar contents</h3>
+<p class="tags">P2 &middot; test &middot; export &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Trimble topics do not enumerate LAS headers. Something undocumented may be written</p>
+<p class="how"><span class="lbl">How to settle it</span>Export a LAS and read the header, the VLRs and the sidecar. Answers V-12 by inspection, which is faster than asking.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T23</span>Draw a Point Cloud tab selection across scans from two trajectories and observe</h3>
+<p class="tags">P2 &middot; test &middot; export &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Whether TBC warns, prevents or silently permits is not stated</p>
+<p class="how"><span class="lbl">How to settle it</span>Draw a Point Cloud tab selection across two trajectories and watch what happens.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T26</span>Does exported imagery inherit or otherwise reflect a registration adjustment?</h3>
+<p class="tags">P2 &middot; test &middot; QC &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>Imagery is positioned from the trajectory; nothing states whether it is recomputed</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether exported imagery reflects a registration adjustment.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T1</span>Filter selection and defaults - Default vs High Quality, Isolated Points default state, Range Max against useful range, Fog and Sun when conditions did not occur</h3>
+<p class="tags">P2 &middot; test &middot; scan generation &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>The largest block of untested settings. Trimble text contradicts itself on Isolated Points</p>
+<p class="how"><span class="lbl">How to settle it</span>Filter selection and defaults: Default against High Quality, Isolated Points, Range Max, Fog and Sun.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T19</span>Which trajectory travels? Publish a registered run to TRCPS and export the same run to TMX, and inspect what arrives</h3>
+<p class="tags">P2 &middot; test &middot; export &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Both paths carry trajectory geometry; neither states which trajectory</p>
+<p class="how"><span class="lbl">How to settle it</span>Publish a registered run to TRCPS and export it to TMX, and inspect what arrives.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T9</span>Target-Bundle Adjustment - test both states with independent checks</h3>
+<p class="tags">P2 &middot; test &middot; registration &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Checking it makes the adjustment coarser, 250 m against 70 m; the name reads backwards</p>
+<p class="how"><span class="lbl">How to settle it</span>Target-Bundle Adjustment, both states, with independent checks.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T33</span>Work through the six TBC mobile mapping commands this document set does not cover: Run a Batch Command, Create CAD Entities on Mobile Mapping Data, Create Orthomosaics from a Back-Camera system, Import Ortho Lane Images, Inspect Pavement Condition, and Import and Export Road Segments in AgileAssets</h3>
+<p class="tags">P2 &middot; test &middot; export &middot; day</p>
+<p class="why"><span class="lbl">Why it matters</span>Every one appears in the TBC Mobile Mapping navigation tree and none is documented here. They are the downstream, product-making half of the module - the half that maps to sellable deliverables - so the set currently explains how to produce a registered point cloud and stops</p>
+<p class="how"><span class="lbl">How to settle it</span>The six TBC mobile mapping commands this document set does not cover.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T13</span>LiDAR QC settings - range default 3-100 m and Lasers = All</h3>
+<p class="tags">P3 &middot; test &middot; trajectory processing &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>The Lasers default contradicts the guidance printed beside it</p>
+<p class="how"><span class="lbl">How to settle it</span>Only worth running if LiDAR QC is a capability we intend to have.</p>
+<p class="link">Waits on D-11</p>
+</div>
+<div class="item ">
+<h3><span class="id">T6</span>Colouriser forward vs backward camera preference and its effect on fringing</h3>
+<p class="tags">P3 &middot; test &middot; scan generation &middot; hour</p>
+<p class="why"><span class="lbl">Why it matters</span>No selection rule given</p>
+<p class="how"><span class="lbl">How to settle it</span>Forward versus backward camera preference in the colouriser, and its effect on fringing.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T11</span>Multipath default Medium on open-sky corridors</h3>
+<p class="tags">P3 &middot; test &middot; trajectory processing &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Medium is described as being for degraded coverage</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether Multipath Medium is right for open-sky corridors.</p>
+</div>
+<div class="item ">
+<h3><span class="id">T30</span>Attempt both reconstruction paths - timestamp matching and trajectory geometry comparison - on a dataset with two candidate trajectories</h3>
+<p class="tags">P3 &middot; test &middot; provenance &middot; half-day</p>
+<p class="why"><span class="lbl">Why it matters</span>Neither has been attempted; both are the fallback if provenance is queried</p>
+<p class="how"><span class="lbl">How to settle it</span>Both provenance reconstruction paths, on a dataset with two candidate trajectories.</p>
+</div>
+<h2>Needs a collection <span class="n">&mdash; 3</span></h2>
+<p class="blurb">A real mission, or a control survey beside one. The expensive group, and the one to fold into work that is happening anyway rather than schedule on its own.</p>
+<div class="item p1">
+<h3><span class="id">T25</span>Which feature types are fit for horizontal control, vertical control, or both, at MX60 density and incidence?</h3>
+<p class="tags">P1 &middot; test &middot; project setup &middot; day</p>
+<p class="why"><span class="lbl">Why it matters</span>Will shape control design more than any software setting</p>
+<p class="how"><span class="lbl">How to settle it</span>Which feature types are fit for horizontal control, vertical control or both. Needs a control survey beside an MX60 pass.</p>
+<p class="link">Holds up D-16</p>
+</div>
+<div class="item ">
+<h3><span class="id">T24</span>How much run overlap is enough for run-to-run registration?</h3>
+<p class="tags">P2 &middot; test &middot; registration &middot; mission</p>
+<p class="why"><span class="lbl">Why it matters</span>Trimble states the requirement qualitatively only</p>
+<p class="how"><span class="lbl">How to settle it</span>How much run overlap is enough for run-to-run registration. Needs a deliberate overlapping pass.</p>
+<p class="link">Holds up D-41</p>
+</div>
+<div class="item ">
+<h3><span class="id">T31</span>Does a predicted GNSS environment (almanac PDOP, canopy, urban canyon) correlate with achieved trajectory RMS on this system? Drive a route with a range of predicted conditions and compare the prediction against the RMS colouring afterwards.</h3>
+<p class="tags">P2 &middot; test &middot; mission planning &middot; mission</p>
+<p class="why"><span class="lbl">Why it matters</span>No Trimble source relates predicted GNSS conditions to achieved trajectory quality for the MX60. Establishing it would turn mission planning from judgement into estimate, and would let control density be set from the prediction rather than after the fact.</p>
+<p class="how"><span class="lbl">How to settle it</span>Whether a predicted GNSS environment correlates with achieved trajectory RMS. The expensive one; run it alongside real work rather than on its own.</p>
+</div>
+<p class="foot">Every item here is open. Until one is resolved and the register says so, the document it affects stays a living draft, and nothing in it may be quoted to a client as an existing Parametrix standard.</p>
+</div></main>
